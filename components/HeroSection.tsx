@@ -27,7 +27,11 @@ export default function HeroSection() {
 
   return (
     <section className="relative">
-      <div className="relative min-h-[700px] w-full overflow-hidden">
+      {/* Matches the original scraped hero height (~973px on desktop) —
+          the shorter 700px version was cropping/zooming the background
+          photo more tightly via object-cover, which read as "too zoomed in"
+          and reduced contrast behind the headline. */}
+      <div className="relative min-h-[700px] w-full overflow-hidden md:min-h-[850px] lg:min-h-[973px]">
         <Image
           src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a156846faa1903bd227898a_Midpoint-Banner.jpg"
           alt="Midpoint business estate"
@@ -37,7 +41,7 @@ export default function HeroSection() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-midpoint-dark/90 via-midpoint-dark/30 to-transparent" />
 
-        <div className="relative mx-auto flex min-h-[700px] max-w-7xl flex-col justify-center px-6 pb-24 pt-32">
+        <div className="relative mx-auto flex min-h-[700px] max-w-7xl flex-col justify-center px-6 pb-24 pt-32 md:min-h-[850px] lg:min-h-[973px]">
           <h1 className="max-w-3xl text-4xl font-semibold text-white md:text-6xl">
             Warehouse and flexible office space in Midrand, designed for efficient operations.
           </h1>
