@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-primary: "Inter", system-ui, sans-serif; /* VERIFY actual site font */
+}
+
+body {
+  @apply text-neutral-900 antialiased;
+}
