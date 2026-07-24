@@ -1,10 +1,6 @@
 import type { Config } from "tailwindcss";
 
-// NOTE: colors below are close approximations pulled from screenshots.
-// Replace with exact hex values from Webflow's Style Manager (Site Settings ->
-// Style Guide, or click each swatch used by "u-surface-cyan_black" /
-// "mid-cyan-block" / "Button 5" / etc. to copy the exact hex) for a true
-// pixel-match.
+// Confirmed exact values, pulled directly from Webflow's color picker.
 const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
@@ -14,18 +10,19 @@ const config: Config = {
     extend: {
       colors: {
         midpoint: {
-          dark: "#0B1F1C",      // dark navy/teal card background — VERIFY
-          cyan: "#2EE6D6",      // bright cyan card background — VERIFY
-          "cyan-light": "#7CF5E8", // lighter cyan gradient accent — VERIFY
-          blue: "#3B82F6",      // button blue — VERIFY
-          "grey-400": "#6B7280", // body copy grey — VERIFY (cl-grey-400)
+          dark: "#082121",        // u-surface-cyan_black — confirmed
+          cyan: "#39EAE6",        // mid-cyan-block — confirmed
+          "grey-100": "#DADEDE",  // light grey/off-white — confirmed
+          "grey-400": "#526364",  // muted slate-teal (secondary text) — confirmed
+          // TODO: font family/weights still need verifying from
+          // Site Settings -> Fonts.
         },
       },
       fontFamily: {
         sans: ["var(--font-primary)", "system-ui", "sans-serif"],
       },
       borderRadius: {
-        card: "1.5rem",
+        card: "1.5rem", // matches the rounded card corners seen on cards
       },
     },
   },
