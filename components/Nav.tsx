@@ -14,9 +14,8 @@ export default function Nav() {
   return (
     <nav className="absolute inset-x-0 top-0 z-50 w-full">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 text-white">
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg">
+        <Link href="/" aria-label="Midpoint home">
           <Logo />
-          <span>Midpoint</span>
         </Link>
 
         <div className="hidden items-center gap-4 text-sm md:flex">
