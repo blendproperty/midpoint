@@ -1,10 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const quickLinks = [
+  {
+    title: "Explore Midpoint",
+    href: "/#explore",
+    image: "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6821f724301eaaaa0229354c_Screenshot%202025-05-12%20at%2014.26.35-p-1080.png",
+  },
+  {
+    title: "View availability report",
+    href: "/availability-report",
+    image: "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6821f7abaef398e5e5da854e_Screenshot%202025-05-12%20at%2014.29.00.png",
+  },
+  {
+    title: "Speak to Us",
+    href: "/contact-us",
+    image: "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6851562de19de0861dbdbbea_midpoint-logo.png",
+  },
+];
+
 export default function HeroSection() {
   return (
     <section className="relative">
-      <div className="relative h-[600px] w-full overflow-hidden">
+      <div className="relative min-h-[700px] w-full overflow-hidden">
         <Image
           src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a156846faa1903bd227898a_Midpoint-Banner.jpg"
           alt="Midpoint business estate"
@@ -12,9 +30,9 @@ export default function HeroSection() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-midpoint-dark/80 via-midpoint-dark/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-midpoint-dark/90 via-midpoint-dark/30 to-transparent" />
 
-        <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-center px-6">
+        <div className="relative mx-auto flex min-h-[700px] max-w-7xl flex-col justify-center px-6 pb-24 pt-32">
           <h1 className="max-w-3xl text-4xl font-semibold text-white md:text-6xl">
             Warehouse and flexible office space in Midrand, designed for efficient operations.
           </h1>
@@ -22,27 +40,37 @@ export default function HeroSection() {
             Conveniently positioned in Midrand, central to major business hubs in Gauteng. Connect your company to endless opportunities and amenities.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/contact-us"
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-midpoint-dark"
-            >
-              Speak to Us
-            </Link>
-            <Link
-              href="/#explore"
-              className="rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark"
-            >
-              Explore Midpoint
-            </Link>
-            <Link
-              href="/availability-report"
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-midpoint-dark"
-            >
-              View availability report
-            </Link>
+          {/* Quick link tiles — Webflow's original used a 3D Swiper carousel;
+              this is a simpler static equivalent with the same content and
+              destinations, avoiding an extra carousel dependency. */}
+          <div className="mt-10 flex flex-wrap gap-4">
+            {quickLinks.map((link) => (
+              <Link
+                key={link.title}
+                href={link.href}
+                className="group w-32 overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm"
+              >
+                <div className="relative h-24 w-full">
+                  <Image src={link.image} alt="" fill className="object-cover" />
+                </div>
+                <div className="flex items-center justify-between px-3 py-2 text-xs font-medium text-white">
+                  <span>{link.title}</span>
+                  <span className="ml-1 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    ↗
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
+
+        <Link
+          href="#introduction"
+          className="absolute bottom-6 right-6 flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-sm"
+        >
+          Scroll Down
+          <span aria-hidden>↓</span>
+        </Link>
       </div>
     </section>
   );
