@@ -1,0 +1,467 @@
+{
+  "url": "https://www.mid-point.co.za/amenities",
+  "slug": "amenities",
+  "scrapedAt": "2026-07-24T10:21:24.545Z",
+  "title": "Amenities",
+  "metaDescription": "Discover Midpoint District amenities: fitness facilities, padel courts, restaurants, walking trails, and corporate accommodation for a balanced workday.",
+  "canonical": null,
+  "ogTags": {
+    "og:title": "Amenities",
+    "og:description": "Discover Midpoint District amenities: fitness facilities, padel courts, restaurants, walking trails, and corporate accommodation for a balanced workday.",
+    "og:type": "website"
+  },
+  "twitterTags": {
+    "twitter:title": "Amenities",
+    "twitter:description": "Discover Midpoint District amenities: fitness facilities, padel courts, restaurants, walking trails, and corporate accommodation for a balanced workday.",
+    "twitter:card": "summary_large_image"
+  },
+  "jsonLd": [
+    {
+      "raw": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"WebPage\",\n  \"name\": \"Amenities\",\n  \"description\": \"On-site restaurants, fitness facilities, and outdoor spaces across the estate bring energy, balance, and connection to the working day.\",\n  \"url\": \"/amenities\",\n  \"inLanguage\": \"en\",\n  \"about\": {\n    \"@type\": \"Place\",\n    \"name\": \"Midpoint District\",\n    \"description\": \"A workplace with room to breathe. On-site restaurants, fitness facilities, and outdoor spaces across the estate bring energy, balance, and connection to the working day.\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"addressLocality\": \"Midrand\",\n      \"addressRegion\": \"Gauteng\",\n      \"addressCountry\": \"ZA\"\n    },\n    \"telephone\": \"+27 11 380 9400\",\n    \"email\": \"boitumelo@blendproperty.co.za\",\n    \"amenityFeature\": [\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Corporate Accommodation\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Gym\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Padel Court\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Restaurant & Bar\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Walking, Running & Cycling Trails\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Coffee Spaces\",\n        \"value\": true\n      }\n    ]\n  }\n}\n",
+      "parsed": {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Amenities",
+        "description": "On-site restaurants, fitness facilities, and outdoor spaces across the estate bring energy, balance, and connection to the working day.",
+        "url": "/amenities",
+        "inLanguage": "en",
+        "about": {
+          "@type": "Place",
+          "name": "Midpoint District",
+          "description": "A workplace with room to breathe. On-site restaurants, fitness facilities, and outdoor spaces across the estate bring energy, balance, and connection to the working day.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Midrand",
+            "addressRegion": "Gauteng",
+            "addressCountry": "ZA"
+          },
+          "telephone": "+27 11 380 9400",
+          "email": "boitumelo@blendproperty.co.za",
+          "amenityFeature": [
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Corporate Accommodation",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Gym",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Padel Court",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Restaurant & Bar",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Walking, Running & Cycling Trails",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Coffee Spaces",
+              "value": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 528
+      },
+      "textBlocks": [
+        {
+          "tag": "strong",
+          "text": "A workplace with room to breathe."
+        },
+        {
+          "tag": "div",
+          "text": "On-site restaurants, fitness facilities, and outdoor spaces across the estate bring energy, balance, and connection to the working day."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "A workplace with room to breathe.",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-hero_1-short w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "flex-start",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": "Amenities",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 3007
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Amenities & Lifestyle"
+        },
+        {
+          "tag": "p",
+          "text": "Businesses based at Midpoint benefit from an environment where work and everyday lifestyle intersect naturally. The estate combines office space, serviced offices, and warehouse facilities in Midrand with shared amenities that support the people working within them.These spaces contribute to a workplace culture that extends beyond desks, meeting rooms, and warehouse floors. Teams can meet informally, step away for a break, or recharge between meetings without leaving the estate."
+        },
+        {
+          "tag": "h2",
+          "text": "Corporate Accommodation"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint’s corporate accommodation offers a convenient and comfortable stay for professionals working within the estate. Designed for visiting executives, travelling consultants, project teams, and short-term client stays, these fully serviced apartments provide a practical alternative to traditional hotels, with easy access to offices, warehouses, meeting spaces, restaurants, fitness facilities, and outdoor amenities. The accommodation simplifies travel and day-to-day logistics for businesses operating across Gauteng. Combined with backup power, backup water with N+1 redundancy, integrated amenities, and a secure business environment, it supports a more connected and seamless experience for travelling professionals and visiting teams."
+        },
+        {
+          "tag": "h2",
+          "text": "Gym"
+        },
+        {
+          "tag": "p",
+          "text": "The on-site gym allows tenants to integrate fitness into their daily routine without leaving the estate. Whether before work, during a lunch break, or after the workday ends, the facility provides a convenient way to maintain an active lifestyle. For many teams, having access to a gym nearby supports wellbeing and productivity. Regular movement throughout the day can improve focus and energy levels, making it easier to maintain balance during busy weeks."
+        },
+        {
+          "tag": "h2",
+          "text": "Padel Court"
+        },
+        {
+          "tag": "p",
+          "text": "Padel courts bring a social and energetic dimension to the Midpoint estate. The sport has become increasingly popular within business communities, offering a fast-paced way for colleagues to connect outside the office. The courts provide an opportunity for friendly competition, team bonding, or informal networking between tenants within the estate. Whether played during lunch breaks or after work, padel adds a sense of activity and community to the Midpoint environment."
+        },
+        {
+          "tag": "h2",
+          "text": "Restaurant & Bar"
+        },
+        {
+          "tag": "p",
+          "text": "The Fond Restaurant and Bar provides a welcoming place for tenants and visitors to meet, host clients, or unwind at the end of the day. Located within the Midpoint estate, it offers an easy transition between work and social interaction without needing to travel elsewhere. The space works equally well for working lunches, team celebrations, or informal client meetings. As the day progresses, the atmosphere shifts from daytime dining to a more relaxed setting where colleagues can gather after work. Having a quality restaurant on site adds a sense of convenience and hospitality to the estate, allowing businesses to host and connect with ease."
+        },
+        {
+          "tag": "h2",
+          "text": "Walking, Running & Cycling Trails"
+        },
+        {
+          "tag": "p",
+          "text": "The trails at Midpoint offer a quiet way to step away from the pace of the working day. Winding through landscaped green areas, the paths provide space for walking, running, or cycling, creating a refreshing alternative to remaining indoors between meetings. For many tenants, these trails become part of a daily routine; whether it is a lunchtime walk, an early morning ride, a quick run after work, or simply a few minutes outside to clear the mind. Access to outdoor space within a business estate helps create a calmer, more balanced environment for the teams working here."
+        },
+        {
+          "tag": "h2",
+          "text": "Coffee"
+        },
+        {
+          "tag": "p",
+          "text": "Coffee spaces at Midpoint provide natural points of connection throughout the working day. Whether stopping in before the first meeting, taking a short break, or catching up with a colleague, these casual settings encourage interaction across the estate. The availability of good coffee on site adds a simple but valuable convenience for teams based at Midpoint. Rather than leaving the park to reset between meetings, tenants can step out briefly, recharge, and return to work refreshed and ready to continue the day."
+        },
+        {
+          "tag": "div",
+          "text": "Ready to move in?"
+        },
+        {
+          "tag": "div",
+          "text": "View availability"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Amenities & Lifestyle",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(11, 31, 28)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "Corporate Accommodation",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "Gym",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "Padel Court",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "Restaurant & Bar",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "Walking, Running & Cycling Trails",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "Coffee",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Businesses based at Midpoint benefit from an environment where work and everyday lifestyle intersect naturally. The estate combines office space, serviced offices, and warehouse facilities in Midrand with shared amenities that support the people working within them.\n\nThese spaces contribute to a workplace culture that extends beyond desks, meeting rooms, and warehouse floors. Teams can meet informally, step away for a break, or recharge between meetings without leaving the estate.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Midpoint’s corporate accommodation offers a convenient and comfortable stay for professionals working within the estate. Designed for visiting executives, travelling consultants, project teams, and short-term client stays, these fully serviced apartments provide a practical alternative to traditional hotels, with easy access to offices, warehouses, meeting spaces, restaurants, fitness facilities, and outdoor amenities. The accommodation simplifies travel and day-to-day logistics for businesses operating across Gauteng. Combined with backup power, backup water with N+1 redundancy, integrated amenities, and a secure business environment, it supports a more connected and seamless experience for travelling professionals and visiting teams.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "The on-site gym allows tenants to integrate fitness into their daily routine without leaving the estate. Whether before work, during a lunch break, or after the workday ends, the facility provides a convenient way to maintain an active lifestyle. For many teams, having access to a gym nearby supports wellbeing and productivity. Regular movement throughout the day can improve focus and energy levels, making it easier to maintain balance during busy weeks.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Padel courts bring a social and energetic dimension to the Midpoint estate. The sport has become increasingly popular within business communities, offering a fast-paced way for colleagues to connect outside the office. The courts provide an opportunity for friendly competition, team bonding, or informal networking between tenants within the estate. Whether played during lunch breaks or after work, padel adds a sense of activity and community to the Midpoint environment.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "The Fond Restaurant and Bar provides a welcoming place for tenants and visitors to meet, host clients, or unwind at the end of the day. Located within the Midpoint estate, it offers an easy transition between work and social interaction without needing to travel elsewhere. The space works equally well for working lunches, team celebrations, or informal client meetings. As the day progresses, the atmosphere shifts from daytime dining to a more relaxed setting where colleagues can gather after work. Having a quality restaurant on site adds a sense of convenience and hospitality to the estate, allowing businesses to host and connect with ease.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "The trails at Midpoint offer a quiet way to step away from the pace of the working day. Winding through landscaped green areas, the paths provide space for walking, running, or cycling, creating a refreshing alternative to remaining indoors between meetings. For many tenants, these trails become part of a daily routine; whether it is a lunchtime walk, an early morning ride, a quick run after work, or simply a few minutes outside to clear the mind. Access to outdoor space within a business estate helps create a calmer, more balanced environment for the teams working here.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Coffee spaces at Midpoint provide natural points of connection throughout the working day. Whether stopping in before the first meeting, taking a short break, or catching up with a colleague, these casual settings encourage interaction across the estate. The availability of good coffee on site adds a simple but valuable convenience for teams based at Midpoint. Rather than leaving the park to reset between meetings, tenants can step out briefly, recharge, and return to work refreshed and ready to continue the day.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a281449e4b8af04cb78624d_Type-A-View.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69fa257244e96ba96660da56_gym.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69fa26eb7543756ba1f72268_pedal-courts.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a05baf20d50722841f3bd98_restaurant.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a147d9896d773202294260f_running-man.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a148381b93e4613bbbd7c61_Coffee.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/availability-report",
+          "label": ""
+        }
+      ],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "gradient_orb-cyan_blue top-left w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "section-spacing",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

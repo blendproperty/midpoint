@@ -1,0 +1,741 @@
+{
+  "url": "https://www.mid-point.co.za/availability-report",
+  "slug": "availability-report",
+  "scrapedAt": "2026-07-24T10:21:38.589Z",
+  "title": "Availability Report | Midpoint",
+  "metaDescription": "View office, warehouse, and serviced office spaces at Midpoint District in Midrand. Browse current vacancies with detailed unit information and pricing.",
+  "canonical": null,
+  "ogTags": {
+    "og:title": "Availability Report | Midpoint",
+    "og:description": "View office, warehouse, and serviced office spaces at Midpoint District in Midrand. Browse current vacancies with detailed unit information and pricing.",
+    "og:type": "website"
+  },
+  "twitterTags": {
+    "twitter:title": "Availability Report | Midpoint",
+    "twitter:description": "View office, warehouse, and serviced office spaces at Midpoint District in Midrand. Browse current vacancies with detailed unit information and pricing.",
+    "twitter:card": "summary_large_image"
+  },
+  "jsonLd": [],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 430
+      },
+      "textBlocks": [
+        {
+          "tag": "h1",
+          "text": "Ready to move in?"
+        },
+        {
+          "tag": "div",
+          "text": "View vacancy schedule"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Ready to move in?",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a0bf9c2e9c5119ed55c88c5_67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-hero_1-short w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "flex-start",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 1038
+      },
+      "textBlocks": [
+        {
+          "tag": "div",
+          "text": "Filters"
+        },
+        {
+          "tag": "a",
+          "text": "Clear all"
+        },
+        {
+          "tag": "div",
+          "text": "Size m²"
+        },
+        {
+          "tag": "span",
+          "text": "100"
+        },
+        {
+          "tag": "span",
+          "text": "50,000"
+        },
+        {
+          "tag": "div",
+          "text": "Rate"
+        },
+        {
+          "tag": "div",
+          "text": "R"
+        },
+        {
+          "tag": "span",
+          "text": "0"
+        },
+        {
+          "tag": "div",
+          "text": "R"
+        },
+        {
+          "tag": "span",
+          "text": "200"
+        },
+        {
+          "tag": "div",
+          "text": "UNIT"
+        },
+        {
+          "tag": "div",
+          "text": "BUILDING"
+        },
+        {
+          "tag": "div",
+          "text": "CATEGORY"
+        },
+        {
+          "tag": "div",
+          "text": "AVAILABILITY"
+        },
+        {
+          "tag": "div",
+          "text": "AREA (m²)"
+        },
+        {
+          "tag": "div",
+          "text": "RENTAL /m²"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 7, Sunbird Road (FF)"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "515.6"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 7, Sunbird Road (GF)"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "500.66"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "Office G.02"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "172.66"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "Office G.07"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "124.49"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "Office 1.02"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "225.98"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "Office 1.03"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "225.98"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "Office 1.04"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "270.18"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "Office G.04"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "264.46"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "3 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "3 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "1125.8"
+        },
+        {
+          "tag": "div",
+          "text": "90"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 1, 1 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 1, 1 Weaver"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "266"
+        },
+        {
+          "tag": "div",
+          "text": "105"
+        },
+        {
+          "tag": "div",
+          "text": "1 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "1 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "div",
+          "text": "1/11/26"
+        },
+        {
+          "tag": "div",
+          "text": "4200"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "2 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "2 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "div",
+          "text": "1/7/27"
+        },
+        {
+          "tag": "div",
+          "text": "3300"
+        },
+        {
+          "tag": "div",
+          "text": "112"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 2, 6 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "6 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "div",
+          "text": "1/1/27"
+        },
+        {
+          "tag": "div",
+          "text": "2320"
+        },
+        {
+          "tag": "div",
+          "text": "118"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 8, Sunbird Road"
+        },
+        {
+          "tag": "div",
+          "text": "8 Sunbird Road"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "1028.19"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "6 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "6 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "div",
+          "text": "1/9/26"
+        },
+        {
+          "tag": "div",
+          "text": "11443"
+        },
+        {
+          "tag": "div",
+          "text": "109"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 2, 2 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "2 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "1614.7"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 2, 1 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "Immediately"
+        },
+        {
+          "tag": "div",
+          "text": "338.14"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        }
+      ],
+      "headings": [],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67d426572b829a1824e4414a_schedual-placeholder.svg",
+          "alt": "Unit preview image",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67d426572b829a1824e4414a_322ac845f05b637673b71c5d93f495f4_schedual-placeholder.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6821c147786830d8fc0174e6_dropdown-arrow.svg",
+          "alt": "",
+          "type": "background-image"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/availability-report#",
+          "label": "Clear all"
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/unit-7-sunbird-road-ff",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/unit-7-sunbird-road-gf",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/office-g02",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/office-g07",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/office-102",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/office-103",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/office-104",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/office-g04",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/3-weaver-avenue",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/unit-1-1-weaver-avenue",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/1-kingfisher-avenue",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/2-kingfisher-avenue",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/unit-2-6-kingfisher-avenue",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/unit-8-sunbird-road",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/6-weaver-avenue",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/unit-2-2-weaver-avenue",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/units/unit-2-1-weaver-avenue",
+          "label": ""
+        }
+      ],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "availability_schedual-container",
+              "display": "grid",
+              "flexDirection": "row",
+              "gridTemplateColumns": "230px 1060px",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

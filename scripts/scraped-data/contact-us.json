@@ -1,0 +1,244 @@
+{
+  "url": "https://www.mid-point.co.za/contact-us",
+  "slug": "contact-us",
+  "scrapedAt": "2026-07-24T10:21:42.230Z",
+  "title": "Contact Us | Midpoint",
+  "metaDescription": "Contact Midpoint to discuss office space, serviced offices, and warehouse opportunities in Midrand. Our leasing team is ready to assist with your needs.",
+  "canonical": null,
+  "ogTags": {
+    "og:title": "Contact Us | Midpoint",
+    "og:description": "Contact Midpoint to discuss office space, serviced offices, and warehouse opportunities in Midrand. Our leasing team is ready to assist with your needs.",
+    "og:type": "website"
+  },
+  "twitterTags": {
+    "twitter:title": "Contact Us | Midpoint",
+    "twitter:description": "Contact Midpoint to discuss office space, serviced offices, and warehouse opportunities in Midrand. Our leasing team is ready to assist with your needs.",
+    "twitter:card": "summary_large_image"
+  },
+  "jsonLd": [],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 572
+      },
+      "textBlocks": [
+        {
+          "tag": "strong",
+          "text": "Let’s find the right space for your business."
+        },
+        {
+          "tag": "div",
+          "text": "Contact the Midpoint team to discuss available office space, serviced offices, and warehouse opportunities in Midrand."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Let’s find the right space for your business.",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a0b102015582cba5571f517_contact_banner-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-hero_1-short w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "flex-start",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": "introduction",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 789
+      },
+      "textBlocks": [
+        {
+          "tag": "p",
+          "text": "Whether you are looking for office space, serviced offices, or warehouse facilities in Midrand, the Midpoint leasing team is ready to assist. Our team can provide detailed information on current vacancies, upcoming developments, space specifications, and leasing options across the estate."
+        },
+        {
+          "tag": "p",
+          "text": "We work with both prospective tenants and commercial property brokers to help businesses identify premises that align with their operational needs, growth plans, and preferred working environment."
+        },
+        {
+          "tag": "strong",
+          "text": "Get in touch today to discuss availability, arrange a site visit, orexplore the opportunities available at Midpoint."
+        },
+        {
+          "tag": "a",
+          "text": "enquire today"
+        },
+        {
+          "tag": "p",
+          "text": "Please complete the form below:"
+        },
+        {
+          "tag": "span",
+          "text": "I consent to Midpoints privacy policy."
+        }
+      ],
+      "headings": [],
+      "paragraphs": [
+        {
+          "text": "Whether you are looking for office space, serviced offices, or warehouse facilities in Midrand, the Midpoint leasing team is ready to assist. Our team can provide detailed information on current vacancies, upcoming developments, space specifications, and leasing options across the estate.",
+          "fontSize": "16px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "22.4px"
+        },
+        {
+          "text": "We work with both prospective tenants and commercial property brokers to help businesses identify premises that align with their operational needs, growth plans, and preferred working environment.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(202, 205, 213)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Get in touch today to discuss availability, arrange a site visit, orexplore the opportunities available at Midpoint. enquire today",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(202, 205, 213)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Please complete the form below:",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(202, 205, 213)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6821c147786830d8fc0174e6_dropdown-arrow.svg",
+          "alt": "",
+          "type": "background-image"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/#Contact",
+          "label": "enquire today"
+        }
+      ],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "u-surface-cyan_black",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container-8 w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
