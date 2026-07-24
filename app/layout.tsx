@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  variable: "--font-primary",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Midpoint Midrand | Warehouse & Office Space in Gauteng",
@@ -15,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={figtree.variable}>
       <body>
         <Nav />
         <main>{children}</main>
