@@ -20,6 +20,11 @@ const quickLinks = [
 ];
 
 export default function HeroSection() {
+  // Duplicated so the CSS marquee loop is seamless — same technique as
+  // TenantWall. With only 3 tiles there's nothing for manual overflow
+  // scroll to actually scroll, so this animates continuously instead.
+  const row = [...quickLinks, ...quickLinks];
+
   return (
     <section className="relative">
       <div className="relative min-h-[700px] w-full overflow-hidden">
@@ -40,28 +45,29 @@ export default function HeroSection() {
             Conveniently positioned in Midrand, central to major business hubs in Gauteng. Connect your company to endless opportunities and amenities.
           </p>
 
-          {/* Quick link tiles — Webflow's original used a 3D Swiper carousel;
-              this is a simpler equivalent: bigger tiles in a horizontally
-              scrollable row, avoiding an extra carousel dependency while
-              still being scrollable if more tiles are added later. */}
-          <div className="mt-10 flex gap-4 overflow-x-auto pb-2">
-            {quickLinks.map((link) => (
-              <Link
-                key={link.title}
-                href={link.href}
-                className="group w-56 shrink-0 overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm"
-              >
-                <div className="relative h-36 w-full">
-                  <Image src={link.image} alt="" fill className="object-cover" />
-                </div>
-                <div className="flex items-center justify-between px-4 py-3 text-sm font-medium text-white">
-                  <span>{link.title}</span>
-                  <span className="ml-2 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                    ↗
-                  </span>
-                </div>
-              </Link>
-            ))}
+          {/* Webflow's original used a 3D Swiper carousel. This is a
+              simpler equivalent with the same continuous sliding motion,
+              via CSS animation rather than a JS carousel library. */}
+          <div className="mt-10 w-full max-w-xl overflow-hidden">
+            <div className="flex w-max animate-marquee gap-4">
+              {row.map((link, i) => (
+                <Link
+                  key={`${link.title}-${i}`}
+                  href={link.href}
+                  className="group w-56 shrink-0 overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm"
+                >
+                  <div className="relative h-36 w-full">
+                    <Image src={link.image} alt="" fill className="object-cover" />
+                  </div>
+                  <div className="flex items-center justify-between px-4 py-3 text-sm font-medium text-white">
+                    <span>{link.title}</span>
+                    <span className="ml-2 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      ↗
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
