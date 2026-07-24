@@ -12,8 +12,8 @@ const config: Config = {
         midpoint: {
           dark: "#082121",        // u-surface-cyan_black — confirmed
           cyan: "#39EAE6",        // mid-cyan-block — confirmed
-          "grey-100": "#DADEDE",  // light grey/off-white — confirmed
-          "grey-400": "#526364",  // muted slate-teal (secondary text) — confirmed
+          "grey-100": "#CACDD5",  // light grey — updated from live-site scrape (2026-07-24), was #DADEDE
+          "grey-400": "#6D7280",  // muted slate-grey (secondary text) — updated from live-site scrape (2026-07-24), was #526364
           // TODO: font family/weights still need verifying from
           // Site Settings -> Fonts.
         },
