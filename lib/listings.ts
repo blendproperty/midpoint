@@ -1,4 +1,9 @@
 export type Listing = {
+  pin: number;
+  // Approximate position as % of the map image — placeholder first pass,
+  // adjust based on visual review against the live site.
+  x: number;
+  y: number;
   name: string;
   category: string;
   description: string;
@@ -9,6 +14,9 @@ export type Listing = {
 
 export const listings: Listing[] = [
   {
+    pin: 12,
+    x: 34,
+    y: 79,
     name: "3 Weaver Avenue",
     category: "Office / Warehouse",
     description:
@@ -18,6 +26,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 10,
+    x: 41,
+    y: 77,
     name: "Unit 1, 1 Weaver",
     category: "Office",
     description:
@@ -27,6 +38,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 11,
+    x: 40,
+    y: 71,
     name: "1 Kingfisher Avenue",
     category: "Warehouse",
     description:
@@ -36,6 +50,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 2,
+    x: 60,
+    y: 69,
     name: "Corporate Accommodation",
     category: "Accommodation",
     description:
@@ -45,6 +62,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 4,
+    x: 53,
+    y: 75,
     name: "2 Kingfisher Avenue",
     category: "New Development Opportunity",
     description:
@@ -54,6 +74,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 5,
+    x: 74,
+    y: 87,
     name: "6 Kingfisher Avenue",
     category: "Warehouse",
     description: "This well-located 2,320sqm warehouse offers excellent highway frontage.",
@@ -62,6 +85,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 6,
+    x: 44,
+    y: 87,
     name: "2 Weaver Avenue",
     category: "Office",
     description:
@@ -71,6 +97,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 7,
+    x: 24,
+    y: 85,
     name: "6 Weaver Avenue",
     category: "Warehouse",
     description:
@@ -80,6 +109,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 3,
+    x: 68,
+    y: 79,
     name: "OnPoint",
     category: "Serviced Offices",
     description:
@@ -89,6 +121,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 1,
+    x: 59,
+    y: 77,
     name: "Amenity Hub",
     category: "Entertainment",
     description:
@@ -98,6 +133,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 8,
+    x: 37,
+    y: 75,
     name: "1 Weaver Avenue",
     category: "Office",
     description:
@@ -107,6 +145,9 @@ export const listings: Listing[] = [
     href: "/vacancies",
   },
   {
+    pin: 9,
+    x: 57,
+    y: 71,
     name: "8 Sunbird Road",
     category: "Office",
     description:
