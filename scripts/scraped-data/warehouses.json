@@ -1,0 +1,539 @@
+{
+  "url": "https://www.mid-point.co.za/warehouses",
+  "slug": "warehouses",
+  "scrapedAt": "2026-07-24T10:21:50.620Z",
+  "title": "Warehouses",
+  "metaDescription": "High-performance Midrand warehouses with high eaves, efficient loading access, and generous yards. Built for logistics, distribution, and light manufacturing.",
+  "canonical": null,
+  "ogTags": {
+    "og:title": "Warehouses",
+    "og:description": "High-performance Midrand warehouses with high eaves, efficient loading access, and generous yards. Built for logistics, distribution, and light manufacturing.",
+    "og:type": "website"
+  },
+  "twitterTags": {
+    "twitter:title": "Warehouses",
+    "twitter:description": "High-performance Midrand warehouses with high eaves, efficient loading access, and generous yards. Built for logistics, distribution, and light manufacturing.",
+    "twitter:card": "summary_large_image"
+  },
+  "jsonLd": [],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 644
+      },
+      "textBlocks": [
+        {
+          "tag": "strong",
+          "text": "Warehouse space built for modern logistics and distribution."
+        },
+        {
+          "tag": "div",
+          "text": "High eave heights, efficient loading access, and generous yard capacity. High-performance warehouse infrastructure in Midrand."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Warehouse space built for modern logistics and distribution.",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a156e00cfaf0adb9c0eb204_warehouse-p-800.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-hero_1-short w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "flex-start",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": "introduction",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 1233
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Warehouse space at Midpoint is designed for businesses that need more than storage."
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint offers a range of warehouse space in Midrand. Located between Johannesburg and Pretoria, the estate provides convenient access to major transport routes, making it well suited to businesses serving Gauteng and national supply chains.Warehouse sizes vary to accommodate different operational requirements, from flexible mixed-use buildings to large-scale distribution facilities with integrated offices and yard space. These design features support a wide range of industrial operations, from distribution and storage to assembly, workshop, and specialised operational environments:"
+        },
+        {
+          "tag": "h5",
+          "text": "Clear Height"
+        },
+        {
+          "tag": "p",
+          "text": "High eave heights support vertical racking systems and maximise storage capacity."
+        },
+        {
+          "tag": "h5",
+          "text": "Loading Efficiency"
+        },
+        {
+          "tag": "p",
+          "text": "A combination of dock levellers, on-grade roller shutters, and rear or side loadingenables efficient movement of goods."
+        },
+        {
+          "tag": "h5",
+          "text": "Power Availability"
+        },
+        {
+          "tag": "p",
+          "text": "Strong power capacity supports warehousing, distribution, light manufacturing, and operational facilities."
+        },
+        {
+          "tag": "h5",
+          "text": "Yard Capacity"
+        },
+        {
+          "tag": "p",
+          "text": "Large yard areas allow for truck manoeuvring, loading activity, and operational flexibility."
+        },
+        {
+          "tag": "h5",
+          "text": "Integrated Offices"
+        },
+        {
+          "tag": "p",
+          "text": "Several facilities incorporate office components that keep administration and operational teams connected to day-to-day warehouse activity."
+        },
+        {
+          "tag": "h5",
+          "text": "Highway Exposure"
+        },
+        {
+          "tag": "p",
+          "text": "Select buildings offer visibility from the N1 highway, providing signage opportunities and strong brand presence."
+        },
+        {
+          "tag": "h2",
+          "text": "The Midpoint lifestyle advantage."
+        },
+        {
+          "tag": "div",
+          "text": "Running a warehouse is demanding, and Midpoint recognises the people behind the operation. The surrounding amenities create a work environment where teams can take a break, meet informally, or recharge, adding a lifestyle element rarely found in industrial spaces."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Warehouse space at Midpoint is designed for businesses that need more than storage.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h5",
+          "text": "Clear Height",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Loading Efficiency",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Power Availability",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Yard Capacity",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Integrated Offices",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Highway Exposure",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h2",
+          "text": "The Midpoint lifestyle advantage.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Midpoint offers a range of warehouse space in Midrand. Located between Johannesburg and Pretoria, the estate provides convenient access to major transport routes, making it well suited to businesses serving Gauteng and national supply chains.\n\nWarehouse sizes vary to accommodate different operational requirements, from flexible mixed-use buildings to large-scale distribution facilities with integrated offices and yard space. These design features support a wide range of industrial operations, from distribution and storage to assembly, workshop, and specialised operational environments:",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "21.44px"
+        },
+        {
+          "text": "High eave heights support vertical racking systems and maximise storage capacity.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "A combination of dock levellers, on-grade roller shutters, and rear or side loading\nenables efficient movement of goods.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Strong power capacity supports warehousing, distribution, light manufacturing, and operational facilities.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Large yard areas allow for truck manoeuvring, loading activity, and operational flexibility.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Several facilities incorporate office components that keep administration and operational teams connected to day-to-day warehouse activity.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Select buildings offer visibility from the N1 highway, providing signage opportunities and strong brand presence.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a1696cccf4fc10f7a6fa3ee_Height.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a1697b83787970fe6c949c6_Loading.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a1698102d64c62ff2595d21_Power.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a16986d6d52abc30291b883_Yard.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a1698ca124d55cb3b4d2685_Offices.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a169913531ab0693be1500e_Highway.svg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "u-surface-cyan_black",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 5,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 900
+      },
+      "textBlocks": [
+        {
+          "tag": "div",
+          "text": "To view our vacancies,"
+        },
+        {
+          "tag": "div",
+          "text": "Click here"
+        }
+      ],
+      "headings": [],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/availability-report",
+          "label": ""
+        }
+      ],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "section-spacing",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "tag": "section",
+      "className": "mid-cyan-block-2",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgb(57, 234, 230)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "40px",
+        "margin": "60px 0px 0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 110
+      },
+      "textBlocks": [
+        {
+          "tag": "h3",
+          "text": "Contact us to discuss availability, pricing, or to arrange a viewing of any warehouse at Midpoint."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h3",
+          "text": "Contact us to discuss availability, pricing, or to arrange a viewing of any warehouse at Midpoint.",
+          "fontSize": "30px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "30px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container-footer w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "h3",
+              "className": "heading-3",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

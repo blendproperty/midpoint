@@ -1,0 +1,611 @@
+{
+  "url": "https://www.mid-point.co.za/about-us",
+  "slug": "about-us",
+  "scrapedAt": "2026-07-24T10:21:20.876Z",
+  "title": "About Us",
+  "metaDescription": "Midpoint is a modern business estate in Midrand offering premium offices, serviced offices, and warehouse facilities. Developed by Blend Property Group.",
+  "canonical": null,
+  "ogTags": {
+    "og:title": "About Us",
+    "og:description": "Midpoint is a modern business estate in Midrand offering premium offices, serviced offices, and warehouse facilities. Developed by Blend Property Group.",
+    "og:type": "website"
+  },
+  "twitterTags": {
+    "twitter:title": "About Us",
+    "twitter:description": "Midpoint is a modern business estate in Midrand offering premium offices, serviced offices, and warehouse facilities. Developed by Blend Property Group.",
+    "twitter:card": "summary_large_image"
+  },
+  "jsonLd": [],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 528
+      },
+      "textBlocks": [
+        {
+          "tag": "strong",
+          "text": "Defining the future of work in Midrand."
+        },
+        {
+          "tag": "div",
+          "text": "A business estate combining premium offices, modern warehouses, serviced offices, and lifestyle amenities in one connected environment."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Defining the future of work in Midrand.",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a1497e2f7535858f592bc87_about-banner-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-hero_1-short w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "flex-start",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": "Amenities",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 408
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Strategic Growth"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint is situated in Midrand between Johannesburg and Pretoria. The estate continues a long tradition as a place where businesses establish, grow, and operate efficiently. Originally developed in the 1980s, the estate has evolved over time to meet the changing needs of modern businesses."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Strategic Growth",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Midpoint is situated in Midrand between Johannesburg and Pretoria. The estate continues a long tradition as a place where businesses establish, grow, and operate efficiently. Originally developed in the 1980s, the estate has evolved over time to meet the changing needs of modern businesses.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "gradient_orb-cyan_blue top-left w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "section-spacing",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 344
+      },
+      "textBlocks": [
+        {
+          "tag": "div",
+          "text": "A Renewed Vision"
+        },
+        {
+          "tag": "h2",
+          "text": "Today, Midpoint reflects a renewed vision for what a business environment can be; one that combines operational practicality with an atmosphere that supports productivity, collaboration, and wellbeing."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Today, Midpoint reflects a renewed vision for what a business environment can be; one that combines operational practicality with an atmosphere that supports productivity, collaboration, and wellbeing.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "about-section",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "blend_info_block-label text-align-center",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "h2",
+              "className": "heading-2",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "tag": "section",
+      "className": "",
+      "id": "Amenities",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 658
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Space designed around how modern businesses actually work."
+        },
+        {
+          "tag": "p",
+          "text": "The estate offers a mix of office space, serviced offices, and warehouse facilities designed to accommodate a wide range of companies, from professional services firms and corporate teams to logistics operators and growing enterprises. At the same time, carefully integrated amenities and outdoor spaces contribute to a working environment that feels more balanced and enjoyable for the people who spend their days here."
+        },
+        {
+          "tag": "h5",
+          "text": "Premium Offices"
+        },
+        {
+          "tag": "p",
+          "text": "Professional office space for corporate teams, professional services firms, and growing enterprises."
+        },
+        {
+          "tag": "h5",
+          "text": "Serviced Offices"
+        },
+        {
+          "tag": "p",
+          "text": "Flexible, fully-serviced workspaces ready for occupation, with the support and amenities teams need."
+        },
+        {
+          "tag": "h5",
+          "text": "Warehouse Facilities"
+        },
+        {
+          "tag": "p",
+          "text": "Modern warehouse facilities suited to logistics operators and businesses with operational footprints."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Space designed around how modern businesses actually work.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h5",
+          "text": "Premium Offices",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Serviced Offices",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Warehouse Facilities",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "The estate offers a mix of office space, serviced offices, and warehouse facilities designed to accommodate a wide range of companies, from professional services firms and corporate teams to logistics operators and growing enterprises. At the same time, carefully integrated amenities and outdoor spaces contribute to a working environment that feels more balanced and enjoyable for the people who spend their days here.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Professional office space for corporate teams, professional services firms, and growing enterprises.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Flexible, fully-serviced workspaces ready for occupation, with the support and amenities teams need.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Modern warehouse facilities suited to logistics operators and businesses with operational footprints.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdb6345c825ebf55a99160_building.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdd873f4e0e9b9732ca525_Serviced%20Offices.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdd8aa99f0f4e3bcfaacd5_Warehouse.svg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 4,
+          "children": [
+            {
+              "tag": "div",
+              "className": "gradient_orb-cyan_blue top-left w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "h2",
+              "className": "heading-2",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "p",
+              "className": "about-para",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-grid grid-3",
+              "display": "grid",
+              "flexDirection": "row",
+              "gridTemplateColumns": "429.328px 429.328px 429.344px",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 1002
+      },
+      "textBlocks": [
+        {
+          "tag": "div",
+          "text": "Property Developer"
+        },
+        {
+          "tag": "h2",
+          "text": "Developed by property professionals."
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint is owned by Blend Property Group, a South African property company with extensive experience in the commercial and industrial sectors. Since 2006, Blend Property Group has specialised in the development and investment of commercial and industrial properties across South Africa. Guided by a commitment to innovation and design excellence, the company has become recognised for creating work environments that are both functional and adaptable to the evolving needs of modern tenants.Blend’s developments focus on enhancing productivity, operational efficiency, and long-term staff satisfaction. These principles are clearly reflected in the continued evolution of Midpoint."
+        },
+        {
+          "tag": "div",
+          "text": "www.blend.co.za"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Developed by property professionals.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Midpoint is owned by Blend Property Group, a South African property company with extensive experience in the commercial and industrial sectors.\n\nSince 2006, Blend Property Group has specialised in the development and investment of commercial and industrial properties across South Africa. Guided by a commitment to innovation and design excellence, the company has become recognised for creating work environments that are both functional and adaptable to the evolving needs of modern tenants.\n\nBlend’s developments focus on enhancing productivity, operational efficiency, and long-term staff satisfaction. These principles are clearly reflected in the continued evolution of Midpoint.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(8, 33, 33)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdc3d8fc1775799f21d373_About-footer-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.blendproperty.co.za/",
+          "label": ""
+        }
+      ],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "location-section",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "background_image-container",
+              "display": "flex",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container u-relative w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

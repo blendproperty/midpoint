@@ -1,0 +1,1168 @@
+{
+  "url": "https://www.mid-point.co.za/offices",
+  "slug": "offices",
+  "scrapedAt": "2026-07-24T10:21:46.797Z",
+  "title": "Offices to Rent in Midrand | Midpoint Business Park",
+  "metaDescription": "Modern offices to rent in Midrand at Midpoint, between Joburg and Pretoria. Live availability, backup power, security and on-site amenities. Book a viewing.",
+  "canonical": null,
+  "ogTags": {
+    "og:title": "Offices to Rent in Midrand | Midpoint Business Park",
+    "og:description": "Modern offices to rent in Midrand at Midpoint, between Joburg and Pretoria. Live availability, backup power, security and on-site amenities. Book a viewing.",
+    "og:type": "website"
+  },
+  "twitterTags": {
+    "twitter:title": "Offices to Rent in Midrand | Midpoint Business Park",
+    "twitter:description": "Modern offices to rent in Midrand at Midpoint, between Joburg and Pretoria. Live availability, backup power, security and on-site amenities. Book a viewing.",
+    "twitter:card": "summary_large_image"
+  },
+  "jsonLd": [
+    {
+      "raw": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"WebPage\",\n  \"name\": \"Offices\",\n  \"url\": \"/offices\",\n  \"inLanguage\": \"en\",\n  \"description\": \"Professional office space in Midrand. Flexible offices and serviced offices in a connected business environment that supports productivity, teams, and everyday wellbeing.\",\n  \"about\": {\n    \"@type\": \"Place\",\n    \"name\": \"Midpoint District Office Spaces\",\n    \"description\": \"Flexible office environments and serviced offices in Midrand, positioned between Johannesburg and Pretoria with strong regional connectivity and N1 highway visibility.\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"addressLocality\": \"Midrand\",\n      \"addressRegion\": \"Gauteng\",\n      \"addressCountry\": \"ZA\"\n    },\n    \"telephone\": \"+27 11 380 9400\",\n    \"email\": \"boitumelo@blendproperty.co.za\",\n    \"amenityFeature\": [\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Flexible Workspace\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Serviced Offices\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"N1 Highway Visibility\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Landscaped Green Areas\",\n        \"value\": true\n      }\n    ]\n  },\n  \"provider\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Midpoint District\",\n    \"telephone\": \"+27 11 380 9400\",\n    \"email\": \"boitumelo@blendproperty.co.za\"\n  }\n}\n",
+      "parsed": {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Offices",
+        "url": "/offices",
+        "inLanguage": "en",
+        "description": "Professional office space in Midrand. Flexible offices and serviced offices in a connected business environment that supports productivity, teams, and everyday wellbeing.",
+        "about": {
+          "@type": "Place",
+          "name": "Midpoint District Office Spaces",
+          "description": "Flexible office environments and serviced offices in Midrand, positioned between Johannesburg and Pretoria with strong regional connectivity and N1 highway visibility.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Midrand",
+            "addressRegion": "Gauteng",
+            "addressCountry": "ZA"
+          },
+          "telephone": "+27 11 380 9400",
+          "email": "boitumelo@blendproperty.co.za",
+          "amenityFeature": [
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Flexible Workspace",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Serviced Offices",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "N1 Highway Visibility",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Landscaped Green Areas",
+              "value": true
+            }
+          ]
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "Midpoint District",
+          "telephone": "+27 11 380 9400",
+          "email": "boitumelo@blendproperty.co.za"
+        }
+      }
+    }
+  ],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 556
+      },
+      "textBlocks": [
+        {
+          "tag": "h1",
+          "text": "Offices to Rent in Midrand"
+        },
+        {
+          "tag": "div",
+          "text": "Midpoint is a secure business estate on the N1 between Johannesburg and Pretoria, with backup power, security and on-site amenities included. Live availability below — book a viewing or discuss your requirements with the leasing team."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Offices to Rent in Midrand",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a169af02d64c62ff25b56af_office-banner-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-hero_1-short w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "flex-start",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": "introduction",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 1831
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Flexible Workspace. Connected Environment."
+        },
+        {
+          "tag": "h2",
+          "text": "Flexible office environments."
+        },
+        {
+          "tag": "div",
+          "text": "Office suites across the estate vary in size and configuration, allowing businesses to scale as their needs evolve. Some offices are newly refurbished or redeveloped, while others provide larger floorplates suited to corporate teams, professional services firms, and operational headquarters.Layouts incorporate features such as private reception areas, dedicated kitchens, modern HVAC systems, and secure access control, creating professional working environments that balance practicality with comfort."
+        },
+        {
+          "tag": "h2",
+          "text": "Connected, professional surroundings."
+        },
+        {
+          "tag": "div",
+          "text": "Midpoint’s office buildings benefit from strong regional connectivity and visibility. Several spaces offer exposure to the N1 highway, while others sit within quieter areas of the estate overlooking landscaped green areas. These settings allow businesses to maintain a professional presence while providing teams with a more balanced working environment."
+        },
+        {
+          "tag": "h2",
+          "text": "A workplace that supports your team."
+        },
+        {
+          "tag": "div",
+          "text": "At Midpoint, the working day does not begin and end at the desk. The wider environment and unmatched amenities offer opportunities to meet colleagues, enjoy a meal, take a break, exercise, or simply step outside. It’s a workplace experience that feels noticeably different from conventional office parks."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Flexible Workspace. Connected Environment.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "Flexible office environments.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "Connected, professional surroundings.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "A workplace that supports your team.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a16a7cc8af199f89084d8f0_Office-image-p-500.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a16c26beae69b5c5eacdd65_professionals-p-500.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a16c3bea9126473ae8b83ae_Workplace-p-500.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "u-surface-cyan_black",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 4,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 900
+      },
+      "textBlocks": [
+        {
+          "tag": "div",
+          "text": "To view our vacancies,"
+        },
+        {
+          "tag": "div",
+          "text": "Click here"
+        }
+      ],
+      "headings": [],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/availability-report",
+          "label": ""
+        }
+      ],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "section-spacing",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 2450
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "What to weigh up before leasing office space at Midpoint"
+        },
+        {
+          "tag": "h3",
+          "text": "Staff access and commute"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint sits directly on the N1, roughly 25 km from Johannesburg and 31 km from Pretoria, with 1,470 metres of highway frontage and 21 km to OR Tambo International Airport. For teams currently based in Sandton or Waterfall, that's a materially shorter, more predictable commute for staff living on either side of the N1 corridor, without the rates that come with those nodes."
+        },
+        {
+          "tag": "h3",
+          "text": "Resilience"
+        },
+        {
+          "tag": "p",
+          "text": "The estate runs on generator-backed power and backup water with N+1 redundancy, so day-to-day operations are protected against grid outages and water disruptions. Full connectivity and fibre specification for a given building should be confirmed for your specific unit when you enquire, since this can vary by building and fit-out stage."
+        },
+        {
+          "tag": "h3",
+          "text": "Amenities on your doorstep"
+        },
+        {
+          "tag": "p",
+          "text": "A gym, padel courts with a rooftop terrace, the Fond restaurant and bar, on-site cafes, and 1.8 km of walking, running and cycling trails are all inside the estate — meaning meetings, team breaks and after-work socialising don't require leaving the park. See the full amenities breakdown for what's operating now versus planned."
+        },
+        {
+          "tag": "h3",
+          "text": "Less flexibility"
+        },
+        {
+          "tag": "p",
+          "text": "Conventional office leases at Midpoint suit teams that want a dedicated, branded space and are ready to commit to a standard commercial term. If your need is shorter-term, smaller-footprint, or you want furnished space with shared meeting rooms and reception included, OnPoint's serviced offices are the better fit — ask the leasing team which structure suits your timeline before you commit."
+        },
+        {
+          "tag": "h3",
+          "text": "Total occupancy cost"
+        },
+        {
+          "tag": "p",
+          "text": "Rate per square metre varies by building and is quoted per listing on the vacancy schedule. As with any commercial lease, confirm directly with the leasing team what's included in the quoted rate versus billed separately (utilities, operating costs, parking) before comparing offers — we haven't published a blanket inclusions statement here since it varies by unit and we don't want to misstate it."
+        },
+        {
+          "tag": "h2",
+          "text": "Current office availability at Midpoint"
+        },
+        {
+          "tag": "p",
+          "text": "A snapshot of office space currently available. Full specifications, floor plans, rates and photos are on the live vacancy schedule — this page won't duplicate that detail."
+        },
+        {
+          "tag": "h3",
+          "text": "2 Weaver Avenue — 1,614.7 m²"
+        },
+        {
+          "tag": "p",
+          "text": "Office | Available from 2 Feb 2026. Distinctive head-office space with a private patio and braai facility."
+        },
+        {
+          "tag": "h3",
+          "text": "3 Weaver Avenue — 1,125.8 m²"
+        },
+        {
+          "tag": "p",
+          "text": "Office | Available from 1 Apr 2026. High ceilings and natural light, room to grow."
+        },
+        {
+          "tag": "h3",
+          "text": "8 Sunbird Road — 1,028.19 m²"
+        },
+        {
+          "tag": "p",
+          "text": "Office | Available from 1 Dec 2025. Refurbished space overlooking a koi pond."
+        },
+        {
+          "tag": "h3",
+          "text": "Unit 1, 1 Weaver Avenue — 266 m²"
+        },
+        {
+          "tag": "p",
+          "text": "Office | Available from 1 Jun 2026. Move-in ready, near the entrance."
+        },
+        {
+          "tag": "a",
+          "text": "View full office availability and floor plans →"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "What to weigh up before leasing office space at Midpoint",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Staff access and commute",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Resilience",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Amenities on your doorstep",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Less flexibility",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Total occupancy cost",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "Current office availability at Midpoint",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "2 Weaver Avenue — 1,614.7 m²",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "3 Weaver Avenue — 1,125.8 m²",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "8 Sunbird Road — 1,028.19 m²",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Unit 1, 1 Weaver Avenue — 266 m²",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Midpoint sits directly on the N1, roughly 25 km from Johannesburg and 31 km from Pretoria, with 1,470 metres of highway frontage and 21 km to OR Tambo International Airport. For teams currently based in Sandton or Waterfall, that's a materially shorter, more predictable commute for staff living on either side of the N1 corridor, without the rates that come with those nodes.",
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "The estate runs on generator-backed power and backup water with N+1 redundancy, so day-to-day operations are protected against grid outages and water disruptions. Full connectivity and fibre specification for a given building should be confirmed for your specific unit when you enquire, since this can vary by building and fit-out stage.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(8, 33, 33)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "A gym, padel courts with a rooftop terrace, the Fond restaurant and bar, on-site cafes, and 1.8 km of walking, running and cycling trails are all inside the estate — meaning meetings, team breaks and after-work socialising don't require leaving the park. See the full amenities breakdown for what's operating now versus planned.",
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Conventional office leases at Midpoint suit teams that want a dedicated, branded space and are ready to commit to a standard commercial term. If your need is shorter-term, smaller-footprint, or you want furnished space with shared meeting rooms and reception included, OnPoint's serviced offices are the better fit — ask the leasing team which structure suits your timeline before you commit.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(8, 33, 33)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Rate per square metre varies by building and is quoted per listing on the vacancy schedule. As with any commercial lease, confirm directly with the leasing team what's included in the quoted rate versus billed separately (utilities, operating costs, parking) before comparing offers — we haven't published a blanket inclusions statement here since it varies by unit and we don't want to misstate it.",
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "A snapshot of office space currently available. Full specifications, floor plans, rates and photos are on the live vacancy schedule — this page won't duplicate that detail.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Office | Available from 2 Feb 2026. Distinctive head-office space with a private patio and braai facility.",
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Office | Available from 1 Apr 2026. High ceilings and natural light, room to grow.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(8, 33, 33)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Office | Available from 1 Dec 2025. Refurbished space overlooking a koi pond.",
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Office | Available from 1 Jun 2026. Move-in ready, near the entrance.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(8, 33, 33)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/offices#",
+          "label": "View full office availability and floor plans →"
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "View full office availability and floor plans →",
+          "href": "https://www.mid-point.co.za/offices#",
+          "backgroundColor": "rgb(56, 152, 236)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "15px 15px 9px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 13,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "tag": "section",
+      "className": "",
+      "id": "faqs",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 949
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Frequently asked questions about offices at Midpoint"
+        },
+        {
+          "tag": "h4",
+          "text": "What office space is available in Midrand at Midpoint?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint offers office suites from smaller professional-team spaces up to full corporate headquarters, alongside OnPoint serviced offices for smaller teams or satellite presences. Current availability, size and rate are listed on this page and verified against live inventory."
+        },
+        {
+          "tag": "h4",
+          "text": "Which Midpoint space suits a head office versus a satellite team?"
+        },
+        {
+          "tag": "p",
+          "text": "Larger single-tenant offices suit corporate head offices needing a distinctive, branded environment. Smaller or shorter-term needs are better served by OnPoint serviced offices, which offer flexible terms for satellite teams, project groups, or a first Midrand presence."
+        },
+        {
+          "tag": "h4",
+          "text": "Is there backup power and connectivity at Midpoint?"
+        },
+        {
+          "tag": "p",
+          "text": "Yes. The estate runs on generator-backed power and backup water with N+1 redundancy, so operations continue through grid outages or water disruptions."
+        },
+        {
+          "tag": "h4",
+          "text": "How close is Midpoint to the N1?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint has 1,470 metres of N1 highway frontage. It's roughly 25 km to Johannesburg, 31 km to Pretoria, and 21 km to OR Tambo International Airport — positioned directly between the two cities."
+        },
+        {
+          "tag": "h4",
+          "text": "Can a broker get a current availability schedule?"
+        },
+        {
+          "tag": "p",
+          "text": "Yes — Midpoint's vacancy schedule and availability report is published on the site, and brokers are welcome to contact the leasing team directly for tenant-specific requirements."
+        },
+        {
+          "tag": "h4",
+          "text": "How do I book a viewing or get in touch about leasing?"
+        },
+        {
+          "tag": "p",
+          "text": "Contact the Midpoint leasing team on +27 11 380 9400 or boitumelo@blendproperty.co.za, or use the enquiry form on the Contact Us page."
+        },
+        {
+          "tag": "h2",
+          "text": "Talk to the leasing team"
+        },
+        {
+          "tag": "p",
+          "text": "Boitumelo handles office enquiries at Midpoint — reach out directly on +27 11 380 9400 or boitumelo@blendproperty.co.za to book a viewing or discuss your requirements. Midpoint is developed and managed by Blend Property Group."
+        },
+        {
+          "tag": "a",
+          "text": "Book a viewing"
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your requirements"
+        },
+        {
+          "tag": "h2",
+          "text": "Explore more of Midpoint"
+        },
+        {
+          "tag": "a",
+          "text": "Warehouses to rent"
+        },
+        {
+          "tag": "a",
+          "text": "Amenities & lifestyle"
+        },
+        {
+          "tag": "a",
+          "text": "About Midpoint & Blend Property Group"
+        },
+        {
+          "tag": "a",
+          "text": "All FAQs"
+        },
+        {
+          "tag": "a",
+          "text": "Full vacancy schedule"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Frequently asked questions about offices at Midpoint",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h4",
+          "text": "What office space is available in Midrand at Midpoint?",
+          "fontSize": "18px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "Which Midpoint space suits a head office versus a satellite team?",
+          "fontSize": "18px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "Is there backup power and connectivity at Midpoint?",
+          "fontSize": "18px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "How close is Midpoint to the N1?",
+          "fontSize": "18px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "Can a broker get a current availability schedule?",
+          "fontSize": "18px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "How do I book a viewing or get in touch about leasing?",
+          "fontSize": "18px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h2",
+          "text": "Talk to the leasing team",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "Explore more of Midpoint",
+          "fontSize": "32px",
+          "fontWeight": "700",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Midpoint offers office suites from smaller professional-team spaces up to full corporate headquarters, alongside OnPoint serviced offices for smaller teams or satellite presences. Current availability, size and rate are listed on this page and verified against live inventory.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Larger single-tenant offices suit corporate head offices needing a distinctive, branded environment. Smaller or shorter-term needs are better served by OnPoint serviced offices, which offer flexible terms for satellite teams, project groups, or a first Midrand presence.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Yes. The estate runs on generator-backed power and backup water with N+1 redundancy, so operations continue through grid outages or water disruptions.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Midpoint has 1,470 metres of N1 highway frontage. It's roughly 25 km to Johannesburg, 31 km to Pretoria, and 21 km to OR Tambo International Airport — positioned directly between the two cities.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Yes — Midpoint's vacancy schedule and availability report is published on the site, and brokers are welcome to contact the leasing team directly for tenant-specific requirements.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Contact the Midpoint leasing team on +27 11 380 9400 or boitumelo@blendproperty.co.za, or use the enquiry form on the Contact Us page.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Boitumelo handles office enquiries at Midpoint — reach out directly on +27 11 380 9400 or boitumelo@blendproperty.co.za to book a viewing or discuss your requirements. Midpoint is developed and managed by Blend Property Group.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/offices#",
+          "label": "Book a viewing"
+        },
+        {
+          "href": "https://www.mid-point.co.za/offices#",
+          "label": "Discuss your requirements"
+        },
+        {
+          "href": "https://www.mid-point.co.za/offices#",
+          "label": "Warehouses to rent"
+        },
+        {
+          "href": "https://www.mid-point.co.za/offices#",
+          "label": "Amenities & lifestyle"
+        },
+        {
+          "href": "https://www.mid-point.co.za/offices#",
+          "label": "About Midpoint & Blend Property Group"
+        },
+        {
+          "href": "https://www.mid-point.co.za/offices#",
+          "label": "All FAQs"
+        },
+        {
+          "href": "https://www.mid-point.co.za/offices#",
+          "label": "Full vacancy schedule"
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "Book a viewing",
+          "href": "https://www.mid-point.co.za/offices#",
+          "backgroundColor": "rgb(56, 152, 236)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "16px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "9px 15px"
+        },
+        {
+          "tag": "a",
+          "text": "Discuss your requirements",
+          "href": "https://www.mid-point.co.za/offices#",
+          "backgroundColor": "rgb(56, 152, 236)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "9px 15px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer faq-panel w-container",
+          "display": "flex",
+          "flexDirection": "column",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 12,
+          "children": [
+            {
+              "tag": "h2",
+              "className": "",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "accordion",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "accordion",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "accordion",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "accordion",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "accordion",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "accordion",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            },
+            {
+              "tag": "h2",
+              "className": "",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "p",
+              "className": "",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            },
+            {
+              "tag": "h2",
+              "className": "",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 5,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

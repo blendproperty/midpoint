@@ -1,0 +1,3147 @@
+{
+  "url": "https://www.mid-point.co.za/",
+  "slug": "home",
+  "scrapedAt": "2026-07-24T10:21:17.172Z",
+  "title": "Midpoint Midrand | Warehouse & Office Space in Gauteng",
+  "metaDescription": "Secure warehouse, office & serviced office space in Midrand. Central location between JHB & PTA with N1 access, gym, padel courts & amenities.",
+  "canonical": null,
+  "ogTags": {
+    "og:title": "Midpoint Midrand | Warehouse & Office Space in Gauteng",
+    "og:description": "Secure warehouse, office & serviced office space in Midrand. Central location between JHB & PTA with N1 access, gym, padel courts & amenities.",
+    "og:image": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a156846faa1903bd227898a_Midpoint-Banner.jpg",
+    "og:type": "website"
+  },
+  "twitterTags": {
+    "twitter:title": "Midpoint Midrand | Warehouse & Office Space in Gauteng",
+    "twitter:description": "Secure warehouse, office & serviced office space in Midrand. Central location between JHB & PTA with N1 access, gym, padel courts & amenities.",
+    "twitter:card": "summary_large_image"
+  },
+  "jsonLd": [
+    {
+      "raw": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"WebPage\",\n  \"name\": \"Midpoint - Warehouse and Office Space in Midrand\",\n  \"description\": \"Warehouse and flexible office space in Midrand, designed for efficient operations. Conveniently positioned in Midrand, central to major business hubs in Gauteng.\",\n  \"url\": \"/\",\n  \"inLanguage\": \"en\",\n  \"about\": {\n    \"@type\": \"Place\",\n    \"name\": \"Midpoint\",\n    \"description\": \"Commercial and industrial business estate offering warehouse space, offices, and serviced offices in Midrand with lifestyle amenities\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"addressLocality\": \"Midrand\",\n      \"addressRegion\": \"Gauteng\",\n      \"addressCountry\": \"ZA\"\n    },\n    \"geo\": {\n      \"@type\": \"GeoCoordinates\",\n      \"description\": \"Positioned between Johannesburg and Pretoria with N1 highway visibility\"\n    },\n    \"telephone\": \"+27 11 380 9400\",\n    \"amenityFeature\": [\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Coffee Shop\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Gym\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Walking, Running & Cycling Trails\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Restaurant & Bar\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Corporate Accommodation\",\n        \"value\": true\n      },\n      {\n        \"@type\": \"LocationFeatureSpecification\",\n        \"name\": \"Padel Court\",\n        \"value\": true\n      }\n    ],\n    \"containsPlace\": [\n      {\n        \"@type\": \"OfficeSpace\",\n        \"name\": \"3 Weaver Avenue Office Warehouse\",\n        \"floorSize\": {\n          \"@type\": \"QuantitativeValue\",\n          \"value\": 1125,\n          \"unitCode\": \"MTK\"\n        }\n      },\n      {\n        \"@type\": \"OfficeSpace\",\n        \"name\": \"Unit 1, 1 Weaver Office\",\n        \"floorSize\": {\n          \"@type\": \"QuantitativeValue\",\n          \"value\": 266,\n          \"unitCode\": \"MTK\"\n        }\n      },\n      {\n        \"@type\": \"Place\",\n        \"name\": \"1 Kingfisher Avenue Warehouse\"\n      },\n      {\n        \"@type\": \"Accommodation\",\n        \"name\": \"Corporate Accommodation\"\n      },\n      {\n        \"@type\": \"Place\",\n        \"name\": \"2 Kingfisher Avenue New Development Opportunity\",\n        \"floorSize\": {\n          \"@type\": \"QuantitativeValue\",\n          \"value\": 3300,\n          \"unitCode\": \"MTK\"\n        }\n      },\n      {\n        \"@type\": \"Place\",\n        \"name\": \"6 Kingfisher Avenue Warehouse\",\n        \"floorSize\": {\n          \"@type\": \"QuantitativeValue\",\n          \"value\": 2320,\n          \"unitCode\": \"MTK\"\n        }\n      },\n      {\n        \"@type\": \"OfficeSpace\",\n        \"name\": \"2 Weaver Avenue Office\",\n        \"floorSize\": {\n          \"@type\": \"QuantitativeValue\",\n          \"value\": 1614,\n          \"unitCode\": \"MTK\"\n        }\n      },\n      {\n        \"@type\": \"Place\",\n        \"name\": \"6 Weaver Avenue Warehouse\",\n        \"floorSize\": {\n          \"@type\": \"QuantitativeValue\",\n          \"value\": 11443,\n          \"unitCode\": \"MTK\"\n        }\n      },\n      {\n        \"@type\": \"OfficeSpace\",\n        \"name\": \"OnPoint Serviced Offices\"\n      },\n      {\n        \"@type\": \"Place\",\n        \"name\": \"Amenity Hub\"\n      },\n      {\n        \"@type\": \"OfficeSpace\",\n        \"name\": \"1 Weaver Avenue Office\",\n        \"floorSize\": {\n          \"@type\": \"QuantitativeValue\",\n          \"value\": 338,\n          \"unitCode\": \"MTK\"\n        }\n      },\n      {\n        \"@type\": \"OfficeSpace\",\n        \"name\": \"8 Sunbird Road Office\"\n      }\n    ]\n  },\n  \"provider\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Blend Property Group\",\n    \"url\": \"https://www.blendproperty.co.za\",\n    \"telephone\": \"+27 11 380 9400\",\n    \"email\": \"boitumelo@blendproperty.co.za\"\n  }\n}\n",
+      "parsed": {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Midpoint - Warehouse and Office Space in Midrand",
+        "description": "Warehouse and flexible office space in Midrand, designed for efficient operations. Conveniently positioned in Midrand, central to major business hubs in Gauteng.",
+        "url": "/",
+        "inLanguage": "en",
+        "about": {
+          "@type": "Place",
+          "name": "Midpoint",
+          "description": "Commercial and industrial business estate offering warehouse space, offices, and serviced offices in Midrand with lifestyle amenities",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Midrand",
+            "addressRegion": "Gauteng",
+            "addressCountry": "ZA"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "description": "Positioned between Johannesburg and Pretoria with N1 highway visibility"
+          },
+          "telephone": "+27 11 380 9400",
+          "amenityFeature": [
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Coffee Shop",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Gym",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Walking, Running & Cycling Trails",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Restaurant & Bar",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Corporate Accommodation",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Padel Court",
+              "value": true
+            }
+          ],
+          "containsPlace": [
+            {
+              "@type": "OfficeSpace",
+              "name": "3 Weaver Avenue Office Warehouse",
+              "floorSize": {
+                "@type": "QuantitativeValue",
+                "value": 1125,
+                "unitCode": "MTK"
+              }
+            },
+            {
+              "@type": "OfficeSpace",
+              "name": "Unit 1, 1 Weaver Office",
+              "floorSize": {
+                "@type": "QuantitativeValue",
+                "value": 266,
+                "unitCode": "MTK"
+              }
+            },
+            {
+              "@type": "Place",
+              "name": "1 Kingfisher Avenue Warehouse"
+            },
+            {
+              "@type": "Accommodation",
+              "name": "Corporate Accommodation"
+            },
+            {
+              "@type": "Place",
+              "name": "2 Kingfisher Avenue New Development Opportunity",
+              "floorSize": {
+                "@type": "QuantitativeValue",
+                "value": 3300,
+                "unitCode": "MTK"
+              }
+            },
+            {
+              "@type": "Place",
+              "name": "6 Kingfisher Avenue Warehouse",
+              "floorSize": {
+                "@type": "QuantitativeValue",
+                "value": 2320,
+                "unitCode": "MTK"
+              }
+            },
+            {
+              "@type": "OfficeSpace",
+              "name": "2 Weaver Avenue Office",
+              "floorSize": {
+                "@type": "QuantitativeValue",
+                "value": 1614,
+                "unitCode": "MTK"
+              }
+            },
+            {
+              "@type": "Place",
+              "name": "6 Weaver Avenue Warehouse",
+              "floorSize": {
+                "@type": "QuantitativeValue",
+                "value": 11443,
+                "unitCode": "MTK"
+              }
+            },
+            {
+              "@type": "OfficeSpace",
+              "name": "OnPoint Serviced Offices"
+            },
+            {
+              "@type": "Place",
+              "name": "Amenity Hub"
+            },
+            {
+              "@type": "OfficeSpace",
+              "name": "1 Weaver Avenue Office",
+              "floorSize": {
+                "@type": "QuantitativeValue",
+                "value": 338,
+                "unitCode": "MTK"
+              }
+            },
+            {
+              "@type": "OfficeSpace",
+              "name": "8 Sunbird Road Office"
+            }
+          ]
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "Blend Property Group",
+          "url": "https://www.blendproperty.co.za",
+          "telephone": "+27 11 380 9400",
+          "email": "boitumelo@blendproperty.co.za"
+        }
+      }
+    }
+  ],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 973
+      },
+      "textBlocks": [
+        {
+          "tag": "h1",
+          "text": "Warehouse and flexible office space in Midrand, designed for efficient operations."
+        },
+        {
+          "tag": "div",
+          "text": "Conveniently positioned in Midrand, central to major business hubs in Gauteng. Connect your company to endless opportunities and amenities."
+        },
+        {
+          "tag": "div",
+          "text": "Speak to Us"
+        },
+        {
+          "tag": "div",
+          "text": "Explore Midpoint"
+        },
+        {
+          "tag": "div",
+          "text": "View availability report"
+        },
+        {
+          "tag": "div",
+          "text": "Scroll Down"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Warehouse and flexible office space in Midrand, designed for efficient operations.",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a156846faa1903bd227898a_Midpoint-Banner.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6851562de19de0861dbdbbea_midpoint-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6821f724301eaaaa0229354c_Screenshot%202025-05-12%20at%2014.26.35-p-1080.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6821f7abaef398e5e5da854e_Screenshot%202025-05-12%20at%2014.29.00.png",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/#Contact",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/availability-report",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/#introduction",
+          "label": ""
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "button",
+          "text": "",
+          "href": null,
+          "backgroundColor": "rgb(255, 255, 255)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "10px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "1px 6px"
+        },
+        {
+          "tag": "button",
+          "text": "",
+          "href": null,
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "10px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "1px 6px"
+        },
+        {
+          "tag": "button",
+          "text": "",
+          "href": null,
+          "backgroundColor": "rgb(255, 255, 255)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "10px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "1px 6px"
+        },
+        {
+          "tag": "a",
+          "text": "Scroll Down",
+          "href": "https://www.mid-point.co.za/#introduction",
+          "backgroundColor": "rgba(0, 0, 0, 0.2)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "6px 16px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container hero_1-cc w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": "introduction",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 626
+      },
+      "textBlocks": [
+        {
+          "tag": "p",
+          "text": "Midpoint offers businesses a secure, well-connected location. It delivers a mix of warehouse space, offices, and serviced offices in Midrand, supported by lifestyle amenities that make the workday easier. Midpoint is the prime estate for companies looking for industrial space, logistics facilities, or office space. Enjoy flexible leasing options and strong connectivity across Gauteng."
+        },
+        {
+          "tag": "p",
+          "text": "Positioned between Johannesburg and Pretoria, with N1 visibility, Midpoint connects companies to suppliers, clients, and logistics routes across the province. Businesses benefit from secure premises, generator-backed power, backup water with N+1 redundancy, and an on-site restaurant, cafés, gym, padel courts, and running, walking, and cycling trails."
+        },
+        {
+          "tag": "p",
+          "text": "*Some images on this site are conceptual, showcasing the bold vision we’re bringing to life."
+        },
+        {
+          "tag": "a",
+          "text": "View available space at Midpoint"
+        }
+      ],
+      "headings": [],
+      "paragraphs": [
+        {
+          "text": "Midpoint offers businesses a secure, well-connected location. It delivers a mix of warehouse space, offices, and serviced offices in Midrand, supported by lifestyle amenities that make the workday easier. Midpoint is the prime estate for companies looking for industrial space, logistics facilities, or office space. Enjoy flexible leasing options and strong connectivity across Gauteng.",
+          "fontSize": "16px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "22.4px"
+        },
+        {
+          "text": "Positioned between Johannesburg and Pretoria, with N1 visibility, Midpoint connects companies to suppliers, clients, and logistics routes across the province. Businesses benefit from secure premises, generator-backed power, backup water with N+1 redundancy, and an on-site restaurant, cafés, gym, padel courts, and running, walking, and cycling trails.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(202, 205, 213)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "*Some images on this site are conceptual, showcasing the bold vision we’re bringing to life.",
+          "fontSize": "14px",
+          "fontWeight": "400",
+          "color": "rgb(202, 205, 213)",
+          "lineHeight": "19.6px"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/availability-report",
+          "label": "View available space at Midpoint"
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "View available space at Midpoint",
+          "href": "https://www.mid-point.co.za/availability-report",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "u-surface-cyan_black",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 842
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Midpoint is defining the future of work, blending industrial, commercial, and lifestyle spaces into a dynamic business hub."
+        },
+        {
+          "tag": "p",
+          "text": "The estate is continuing to evolve, with new developments underway. Several spaces are already available, offering businesses and brokers the opportunity to secure industrial and commercial space in one of Midrand’s fastest-growing business nodes.Warehousing, offices, and serviced offices sit alongside cafés, a restaurant, gym, padel courts, and walking trails, creating an environment where business operations and everyday convenience work together.While the estate is still taking shape, select spaces are already available, offering a rare opportunity to secure a spot in Midrand’s most sought-after development. Be part of the transformation, enquire today and explore how your business can thrive in this exciting, evolving space."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Midpoint is defining the future of work, blending industrial, commercial, and lifestyle spaces into a dynamic business hub.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "The estate is continuing to evolve, with new developments underway. Several spaces are already available, offering businesses and brokers the opportunity to secure industrial and commercial space in one of Midrand’s fastest-growing business nodes.\n\nWarehousing, offices, and serviced offices sit alongside cafés, a restaurant, gym, padel courts, and walking trails, creating an environment where business operations and everyday convenience work together.\n\nWhile the estate is still taking shape, select spaces are already available, offering a rare opportunity to secure a spot in Midrand’s most sought-after development. Be part of the transformation, enquire today and explore how your business can thrive in this exciting, evolving space.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(8, 33, 33)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a01fae519701ceb2b901540_AMENITY%20HUB.png",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.blendproperty.co.za/",
+          "label": ""
+        }
+      ],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "location-section",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "background_image-container",
+              "display": "flex",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container u-relative w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "tag": "section",
+      "className": "",
+      "id": "Explore",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 1178
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Explore Midpoint"
+        },
+        {
+          "tag": "p",
+          "text": "Explore our interactive map to view available warehouse space, offices, serviced offices, and upcoming developments in Midrand.You can also view our vacancy schedule for current leasing opportunities."
+        },
+        {
+          "tag": "div",
+          "text": "1"
+        },
+        {
+          "tag": "div",
+          "text": "2"
+        },
+        {
+          "tag": "div",
+          "text": "3"
+        },
+        {
+          "tag": "div",
+          "text": "4"
+        },
+        {
+          "tag": "div",
+          "text": "5"
+        },
+        {
+          "tag": "div",
+          "text": "6"
+        },
+        {
+          "tag": "div",
+          "text": "7"
+        },
+        {
+          "tag": "div",
+          "text": "8"
+        },
+        {
+          "tag": "div",
+          "text": "9"
+        },
+        {
+          "tag": "div",
+          "text": "10"
+        },
+        {
+          "tag": "div",
+          "text": "11"
+        },
+        {
+          "tag": "div",
+          "text": "12"
+        },
+        {
+          "tag": "div",
+          "text": "12"
+        },
+        {
+          "tag": "h2",
+          "text": "3 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "p",
+          "text": "1125sqm of versatile office space across two levels, featuring boardrooms, training facilities, kitchen and private ablutions, with an option to convert 500sqm into warehouse space."
+        },
+        {
+          "tag": "div",
+          "text": "Potential industrial component"
+        },
+        {
+          "tag": "div",
+          "text": "Two-storey layout"
+        },
+        {
+          "tag": "div",
+          "text": "Suitable for administration offices"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "a",
+          "text": "See Listings"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Explore Midpoint",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h2",
+          "text": "3 Weaver Avenue",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Explore our interactive map to view available warehouse space, offices, serviced offices, and upcoming developments in Midrand.\n\nYou can also view our vacancy schedule for current leasing opportunities.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "1125sqm of versatile office space across two levels, featuring boardrooms, training facilities, kitchen and private ablutions, with an option to convert 500sqm into warehouse space.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69e21ba7b5a168f9f25a6a8d_Aerial.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a3273527947476faf6366aa_ChatGPT%20Image%20Apr%2023%2C%202026%2C%2012_37_36%20PM-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/#",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies",
+          "label": "See Listings"
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "",
+          "href": "https://www.mid-point.co.za/#",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "color": "rgb(51, 51, 51)",
+          "borderRadius": "50%",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "0px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/#",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See Listings",
+          "href": "https://www.mid-point.co.za/vacancies",
+          "backgroundColor": "rgb(202, 205, 213)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "overflow-hidden",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container u-relative w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 4,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 573
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "At the centre of business, connected to everything."
+        },
+        {
+          "tag": "p",
+          "text": "Seamless access to major business districts, highways, and international travel hubs.Midpoint sits in Halfway House, Midrand, one of Gauteng’s most active commercial and industrial corridors. Easy access to the N1 highway allows businesses to move goods efficiently between Johannesburg, Pretoria, and national distribution networks."
+        },
+        {
+          "tag": "div",
+          "text": "Location"
+        },
+        {
+          "tag": "div",
+          "text": "162 Tonetti Street, Halfway House, Midrand"
+        },
+        {
+          "tag": "li",
+          "text": "31 km to Pretoria"
+        },
+        {
+          "tag": "li",
+          "text": "25 km to Johannesburg"
+        },
+        {
+          "tag": "li",
+          "text": "21 km to OR Tambo International Airport"
+        },
+        {
+          "tag": "li",
+          "text": "1,470 meters of N1 highway frontage"
+        },
+        {
+          "tag": "a",
+          "text": "boitumelo@blendproperty.co.za"
+        },
+        {
+          "tag": "a",
+          "text": "Call us now +27 11 380 9400"
+        },
+        {
+          "tag": "a",
+          "text": "Home"
+        },
+        {
+          "tag": "a",
+          "text": "About Us"
+        },
+        {
+          "tag": "a",
+          "text": "Amenities"
+        },
+        {
+          "tag": "a",
+          "text": "Vacancy Schedule"
+        },
+        {
+          "tag": "a",
+          "text": "Explore"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "At the centre of business, connected to everything.",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Seamless access to major business districts, highways, and international travel hubs.\n\nMidpoint sits in Halfway House, Midrand, one of Gauteng’s most active commercial and industrial corridors. Easy access to the N1 highway allows businesses to move goods efficiently between Johannesburg, Pretoria, and national distribution networks.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ceb9ae163736bdc3dc5fac_map-background-image.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/#",
+          "label": ""
+        },
+        {
+          "href": "mailto:boitumelo@blendproperty.co.za?subject=Midpoint%20Enquiry",
+          "label": "boitumelo@blendproperty.co.za"
+        },
+        {
+          "href": "tel:+27113809400",
+          "label": "Call us now +27 11 380 9400"
+        },
+        {
+          "href": "https://www.mid-point.co.za/",
+          "label": "Home"
+        },
+        {
+          "href": "https://www.mid-point.co.za/about-us",
+          "label": "About Us"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Amenities",
+          "label": "Amenities"
+        },
+        {
+          "href": "https://www.mid-point.co.za/availability-report",
+          "label": "Vacancy Schedule"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "Explore"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "location-section",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "background_image-container",
+              "display": "flex",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "overlay-cyan_black",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container u-relative w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        },
+        {
+          "tag": "nav",
+          "className": "main-nav",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-nav w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "tag": "section",
+      "className": "",
+      "id": "Amenities",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 852
+      },
+      "textBlocks": [],
+      "headings": [],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/684937746b99cba861ec240c_am-work-pm-padel.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "section-spacing",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 816
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Amenities & Lifestyle"
+        },
+        {
+          "tag": "p",
+          "text": "Facilities that support your team’s day. An environment designed for well-being and success.Midpoint combines industrial and commercial space with everyday amenities created for the people who work here."
+        },
+        {
+          "tag": "a",
+          "text": "Read More"
+        },
+        {
+          "tag": "h5",
+          "text": "Coffee Shop"
+        },
+        {
+          "tag": "div",
+          "text": "On-site cafés provide a convenient place for quick meetings, informal discussions, a moment to recharge, or simply starting the day with good coffee and a fresh bite."
+        },
+        {
+          "tag": "h5",
+          "text": "Gym"
+        },
+        {
+          "tag": "div",
+          "text": "Stay active without leaving the office. Our state-of-the-art gym is equipped with modern fitness facilities, helping you maintain a healthy work-life balance."
+        },
+        {
+          "tag": "h5",
+          "text": "Walking, Running &"
+        },
+        {
+          "tag": "h5",
+          "text": "Cycling Trails"
+        },
+        {
+          "tag": "div",
+          "text": "Re-energize with a scenic 1.8 km walking, running and cycling trails. Explore lush gardens, pause areas, and serene green spaces to promote health and well-being."
+        },
+        {
+          "tag": "h5",
+          "text": "Restaurant & Bar"
+        },
+        {
+          "tag": "div",
+          "text": "Unwind and connect with colleagues at our rooftop bar, offering stunning views, refreshing drinks, and a vibrant social atmosphere. Fond is perfect for after-work gatherings or casual business meet-ups."
+        },
+        {
+          "tag": "h5",
+          "text": "Corporate Accommodation"
+        },
+        {
+          "tag": "div",
+          "text": "Stay close to where business happens with fully serviced corporate accommodation designed for visiting executives, project teams, and professionals working within the Midpoint estate."
+        },
+        {
+          "tag": "h5",
+          "text": "Padel Court"
+        },
+        {
+          "tag": "div",
+          "text": "Take a break and challenge colleagues to a match on our rooftop padel courts. An exciting way to stay fit, have fun, and foster stronger team connections."
+        },
+        {
+          "tag": "h5",
+          "text": "Coffee Shop"
+        },
+        {
+          "tag": "div",
+          "text": "On-site cafés provide a convenient place for quick meetings, informal discussions, a moment to recharge, or simply starting the day with good coffee and a fresh bite."
+        },
+        {
+          "tag": "h5",
+          "text": "Gym"
+        },
+        {
+          "tag": "div",
+          "text": "Stay active without leaving the office. Our state-of-the-art gym is equipped with modern fitness facilities, helping you maintain a healthy work-life balance."
+        },
+        {
+          "tag": "h5",
+          "text": "Walking, Running &"
+        },
+        {
+          "tag": "h5",
+          "text": "Cycling Trails"
+        },
+        {
+          "tag": "div",
+          "text": "Re-energize with a scenic 1.8 km walking, running and cycling trails. Explore lush gardens, pause areas, and serene green spaces to promote health and well-being."
+        },
+        {
+          "tag": "h5",
+          "text": "Restaurant & Bar"
+        },
+        {
+          "tag": "div",
+          "text": "Unwind and connect with colleagues at our rooftop bar, offering stunning views, refreshing drinks, and a vibrant social atmosphere. Fond is perfect for after-work gatherings or casual business meet-ups."
+        },
+        {
+          "tag": "h5",
+          "text": "Corporate Accommodation"
+        },
+        {
+          "tag": "div",
+          "text": "Stay close to where business happens with fully serviced corporate accommodation designed for visiting executives, project teams, and professionals working within the Midpoint estate."
+        },
+        {
+          "tag": "h5",
+          "text": "Padel Court"
+        },
+        {
+          "tag": "div",
+          "text": "Take a break and challenge colleagues to a match on our rooftop padel courts. An exciting way to stay fit, have fun, and foster stronger team connections."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Amenities & Lifestyle",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h5",
+          "text": "Coffee Shop",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Gym",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Walking, Running &",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Cycling Trails",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Restaurant & Bar",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Corporate Accommodation",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Padel Court",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Coffee Shop",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Gym",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Walking, Running &",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Cycling Trails",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Restaurant & Bar",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Corporate Accommodation",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        },
+        {
+          "tag": "h5",
+          "text": "Padel Court",
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "20px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Facilities that support your team’s day. An environment designed for well-being and success.\n\nMidpoint combines industrial and commercial space with everyday amenities created for the people who work here.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a02e415eafef35fdc5d478e_coffee.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a02e4baa6b297feec4255bf_gym.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a02e59f46b7a936146f111d_bicycle.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a02e63258c8e5cfbb55ba52_bar.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148c1488ace6e336cde23a_accomodation.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a02e7abd666d08db6c6ae77_padel.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a02e415eafef35fdc5d478e_coffee.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a02e4baa6b297feec4255bf_gym.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a02e59f46b7a936146f111d_bicycle.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a02e63258c8e5cfbb55ba52_bar.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148c1488ace6e336cde23a_accomodation.svg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a02e7abd666d08db6c6ae77_padel.svg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/amenities",
+          "label": "Read More"
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "Read More",
+          "href": "https://www.mid-point.co.za/amenities",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "div-block-13",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "tag": "section",
+      "className": "",
+      "id": "introduction",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 516
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "For commercial and industrial brokers"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint welcomes enquiries from commercial and industrial property brokers representing tenants seeking warehouse space, offices, or serviced offices in Midrand. Current vacancies range from office suites to large-scale warehouse facilities, with further developments underway. For leasing information, availability schedules, or tenant requirements, please contact the Midpoint leasing team."
+        },
+        {
+          "tag": "a",
+          "text": "Contact Leasing Team"
+        },
+        {
+          "tag": "a",
+          "text": "View Available Space"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "For commercial and industrial brokers",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Midpoint welcomes enquiries from commercial and industrial property brokers representing tenants seeking warehouse space, offices, or serviced offices in Midrand.\n\nCurrent vacancies range from office suites to large-scale warehouse facilities, with further developments underway. For leasing information, availability schedules, or tenant requirements, please contact the Midpoint leasing team.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(202, 205, 213)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Contact Leasing Team"
+        },
+        {
+          "href": "https://www.mid-point.co.za/availability-report",
+          "label": "View Available Space"
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "Contact Leasing Team",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "View Available Space",
+          "href": "https://www.mid-point.co.za/availability-report",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "u-surface-cyan_black",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "tag": "section",
+      "className": "",
+      "id": "Amenities",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 900
+      },
+      "textBlocks": [
+        {
+          "tag": "div",
+          "text": "Ready to move in?"
+        },
+        {
+          "tag": "div",
+          "text": "Check availability now."
+        }
+      ],
+      "headings": [],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/availability-report",
+          "label": ""
+        }
+      ],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "section-spacing",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 1080
+      },
+      "textBlocks": [],
+      "headings": [],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ceee83d32ff958be63ad9c_MidrandOfficePark-1482-p-1600.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ceed18608b0ddf4d1d3e33_2011__K7C7044_Gpnt_Business_Park_off_Midrand_HR_2-p-1600.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ceed66cd08224bfbbeedea_MidrandOfficePark-17-p-1600.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ceeda7b6bd0e19228fab92_MidrandOfficePark-55-p-1600.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ceed18608b0ddf4d1d3e33_2011__K7C7044_Gpnt_Business_Park_off_Midrand_HR_2-p-1600.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67cece632c43c1a5ddf96ec5_pexels-sbam-27223663-p-1600.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a05a0d539c8a4a1a9edebe7_paddle.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a147df47eba794ae380d2fa_running-man.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a05a07aa923faece8ab37e1_gym.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a05bb3ff467c957c728ea01_restaurant.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "u-surface-cyan_black",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "gallery_container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "1fr",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "childCount": 2,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 596
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Current Tenants"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Current Tenants",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dcfd29f25565707d83e2_afripowersa_logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd1ea65940e05c6d3882_Atess%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd2dc404e3321341fe86_avroy-shlain-southern-africa_owler_20160229_150420_large.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd3f68ecd72515d8a194_Beeline-Spares-Header-Logo-Mobile-1.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd5592f05eb02f114633_bidvest_logo_colour_new2x.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd64ed9b0758649573c8_BoltTech%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd887a09bc11da2a540e_Capitec_Bank_Logo-1536x253.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd9c6b756a8e43e2c953_carecall-retail--distribution-services-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dda79f7346b753bc49ee_Cty%20of%20JHB%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddbe14b62d7a14d9af8f_Fresenius%20Kabi%20Logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddcc3a1b314e4c5905cd_g85-blue.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dddb77d2147977ca9613_Galitos.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddf312b746d4d0e4806a_Gobiosis%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dde59f7346b753bc68d0_Go%20Fresh%20logo.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de07bf434fefa943b86c_Healthcare-Mobility-Africa_Logo-2.webp",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de15d842c64c2a2ece14_Incledon-Logo-1024x221.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de24d842c64c2a2ed574_Lemorgan-Logo-New-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de32243376787f91e269_LG_Electronics-Logo-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de43aefd068ad9d9a28c_lmblogosmall.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de5349a8de496b6004fb_logoBritelinkMCT-27878ZEN-2202181302.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de635d5745ba279c1258_logoSTRATEGIC-PARTNERS-GROUP-PTY-LTD-SPG-24158ZEN-2203141334.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de6fe5a2561769335433_momentum-met-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de7d34113792b65ea9a1_Oxior%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de935cc4f1e713791893_phakamo_holdings_logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dea0d8d1b6b1e2c609d2_PRHouse%20Logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dead16d8c9b69c010c93_RI%20Logo%20With%20Text.webp",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842debe1b289bce97c23bc6_Roi%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dec912b746d4d0e4fa03_SANBS2021.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dee7546580dc1ffcef94_SPXFlow%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842def5a3b1ca664f5e29da_Stellantis-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df052f8c9883ca910bfe_sungrow.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df17db805741226de100_syntegon-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df2938358bc7a78441f4_Tenova%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df42baabfa47850feb37_Vesa%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dcfd29f25565707d83e2_afripowersa_logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd1ea65940e05c6d3882_Atess%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd2dc404e3321341fe86_avroy-shlain-southern-africa_owler_20160229_150420_large.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd3f68ecd72515d8a194_Beeline-Spares-Header-Logo-Mobile-1.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd5592f05eb02f114633_bidvest_logo_colour_new2x.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd64ed9b0758649573c8_BoltTech%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd887a09bc11da2a540e_Capitec_Bank_Logo-1536x253.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd9c6b756a8e43e2c953_carecall-retail--distribution-services-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dda79f7346b753bc49ee_Cty%20of%20JHB%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddbe14b62d7a14d9af8f_Fresenius%20Kabi%20Logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddcc3a1b314e4c5905cd_g85-blue.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dddb77d2147977ca9613_Galitos.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddf312b746d4d0e4806a_Gobiosis%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dde59f7346b753bc68d0_Go%20Fresh%20logo.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de07bf434fefa943b86c_Healthcare-Mobility-Africa_Logo-2.webp",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de15d842c64c2a2ece14_Incledon-Logo-1024x221.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de24d842c64c2a2ed574_Lemorgan-Logo-New-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de32243376787f91e269_LG_Electronics-Logo-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de43aefd068ad9d9a28c_lmblogosmall.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de5349a8de496b6004fb_logoBritelinkMCT-27878ZEN-2202181302.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de635d5745ba279c1258_logoSTRATEGIC-PARTNERS-GROUP-PTY-LTD-SPG-24158ZEN-2203141334.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de6fe5a2561769335433_momentum-met-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de7d34113792b65ea9a1_Oxior%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de935cc4f1e713791893_phakamo_holdings_logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dea0d8d1b6b1e2c609d2_PRHouse%20Logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dead16d8c9b69c010c93_RI%20Logo%20With%20Text.webp",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842debe1b289bce97c23bc6_Roi%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dec912b746d4d0e4fa03_SANBS2021.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dee7546580dc1ffcef94_SPXFlow%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842def5a3b1ca664f5e29da_Stellantis-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df052f8c9883ca910bfe_sungrow.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df17db805741226de100_syntegon-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df2938358bc7a78441f4_Tenova%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df42baabfa47850feb37_Vesa%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df42baabfa47850feb37_Vesa%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df2938358bc7a78441f4_Tenova%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df17db805741226de100_syntegon-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df052f8c9883ca910bfe_sungrow.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842def5a3b1ca664f5e29da_Stellantis-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dee7546580dc1ffcef94_SPXFlow%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dec912b746d4d0e4fa03_SANBS2021.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842debe1b289bce97c23bc6_Roi%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dead16d8c9b69c010c93_RI%20Logo%20With%20Text.webp",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dea0d8d1b6b1e2c609d2_PRHouse%20Logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de935cc4f1e713791893_phakamo_holdings_logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de7d34113792b65ea9a1_Oxior%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de6fe5a2561769335433_momentum-met-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de635d5745ba279c1258_logoSTRATEGIC-PARTNERS-GROUP-PTY-LTD-SPG-24158ZEN-2203141334.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de5349a8de496b6004fb_logoBritelinkMCT-27878ZEN-2202181302.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de43aefd068ad9d9a28c_lmblogosmall.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de32243376787f91e269_LG_Electronics-Logo-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de24d842c64c2a2ed574_Lemorgan-Logo-New-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de15d842c64c2a2ece14_Incledon-Logo-1024x221.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de07bf434fefa943b86c_Healthcare-Mobility-Africa_Logo-2.webp",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dde59f7346b753bc68d0_Go%20Fresh%20logo.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddf312b746d4d0e4806a_Gobiosis%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dddb77d2147977ca9613_Galitos.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddcc3a1b314e4c5905cd_g85-blue.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddbe14b62d7a14d9af8f_Fresenius%20Kabi%20Logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dda79f7346b753bc49ee_Cty%20of%20JHB%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd9c6b756a8e43e2c953_carecall-retail--distribution-services-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd887a09bc11da2a540e_Capitec_Bank_Logo-1536x253.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd64ed9b0758649573c8_BoltTech%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd5592f05eb02f114633_bidvest_logo_colour_new2x.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd3f68ecd72515d8a194_Beeline-Spares-Header-Logo-Mobile-1.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd2dc404e3321341fe86_avroy-shlain-southern-africa_owler_20160229_150420_large.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd1ea65940e05c6d3882_Atess%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dcfd29f25565707d83e2_afripowersa_logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df42baabfa47850feb37_Vesa%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df2938358bc7a78441f4_Tenova%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df17db805741226de100_syntegon-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842df052f8c9883ca910bfe_sungrow.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842def5a3b1ca664f5e29da_Stellantis-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dee7546580dc1ffcef94_SPXFlow%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dec912b746d4d0e4fa03_SANBS2021.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842debe1b289bce97c23bc6_Roi%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dead16d8c9b69c010c93_RI%20Logo%20With%20Text.webp",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dea0d8d1b6b1e2c609d2_PRHouse%20Logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de935cc4f1e713791893_phakamo_holdings_logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de7d34113792b65ea9a1_Oxior%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de6fe5a2561769335433_momentum-met-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de635d5745ba279c1258_logoSTRATEGIC-PARTNERS-GROUP-PTY-LTD-SPG-24158ZEN-2203141334.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de5349a8de496b6004fb_logoBritelinkMCT-27878ZEN-2202181302.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de43aefd068ad9d9a28c_lmblogosmall.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de32243376787f91e269_LG_Electronics-Logo-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de24d842c64c2a2ed574_Lemorgan-Logo-New-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de15d842c64c2a2ece14_Incledon-Logo-1024x221.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842de07bf434fefa943b86c_Healthcare-Mobility-Africa_Logo-2.webp",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dde59f7346b753bc68d0_Go%20Fresh%20logo.avif",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddf312b746d4d0e4806a_Gobiosis%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dddb77d2147977ca9613_Galitos.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddcc3a1b314e4c5905cd_g85-blue.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842ddbe14b62d7a14d9af8f_Fresenius%20Kabi%20Logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dda79f7346b753bc49ee_Cty%20of%20JHB%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd9c6b756a8e43e2c953_carecall-retail--distribution-services-logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd887a09bc11da2a540e_Capitec_Bank_Logo-1536x253.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd64ed9b0758649573c8_BoltTech%20logo.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd5592f05eb02f114633_bidvest_logo_colour_new2x.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd3f68ecd72515d8a194_Beeline-Spares-Header-Logo-Mobile-1.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd2dc404e3321341fe86_avroy-shlain-southern-africa_owler_20160229_150420_large.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dd1ea65940e05c6d3882_Atess%20logo.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6842dcfd29f25565707d83e2_afripowersa_logo.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container u-pb-0 w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "section_title-container",
+              "display": "grid",
+              "flexDirection": "row",
+              "gridTemplateColumns": "1320px",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        },
+        {
+          "tag": "div",
+          "className": "partner-logo-container",
+          "display": "flex",
+          "flexDirection": "column",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "logo-animation-container",
+              "display": "flex",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "logo-animation-container",
+              "display": "flex",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 857
+      },
+      "textBlocks": [
+        {
+          "tag": "div",
+          "text": "Property Developer"
+        },
+        {
+          "tag": "h2",
+          "text": "Developed by industry professionals"
+        },
+        {
+          "tag": "p",
+          "text": "Since 2006, Blend Property Group has specialised in the development of, and investment in, commercial and industrial properties across South Africa. Driven by a commitment to innovation and design excellence, Blend has become distinguished as an industry leader in the creation of work spaces that are functional and tailored to its’ tenant’s evolving needs to enhance work productivity, efficiency, and long- term staff satisfaction."
+        },
+        {
+          "tag": "div",
+          "text": "www.blend.co.za"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Developed by industry professionals",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Since 2006, Blend Property Group has specialised in the development of, and investment in, commercial and industrial properties across South Africa.\n \nDriven by a commitment to innovation and design excellence, Blend has become distinguished as an industry leader in the creation of work spaces that are functional and tailored to its’ tenant’s evolving needs to enhance work productivity, efficiency, and long- term staff satisfaction.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(8, 33, 33)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67cef042c2c4b15850e63b63_blend-hero-image-p-1600.png",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.blendproperty.co.za/",
+          "label": ""
+        }
+      ],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "location-section",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "background_image-container",
+              "display": "flex",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "center",
+              "justifyContent": "center",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container u-relative w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "tag": "section",
+      "className": "",
+      "id": "FAQ",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 536
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Frequently asked questions"
+        },
+        {
+          "tag": "h4",
+          "text": "What is Midpoint?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint is a commercial and industrial business estate located in Midrand, Gauteng. Positioned between Johannesburg and Pretoria, Midpoint offers easy access to major transport routes. The estate brings together office space, serviced offices, and warehouse facilities within a single connected environment."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Originally developed in the 1980s, the estate is now a modern business destination that combines practical workspace with lifestyle amenities and landscaped outdoor areas. The goal is to provide businesses with premium premises that support both operational efficiency and a more balanced working environment for their teams."
+        },
+        {
+          "tag": "h4",
+          "text": "What types of spaces are available at Midpoint?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint offers a range of commercial and industrial space in Midrand, including premium office suites, serviced offices, and warehouse facilities suitable for logistics, distribution, and light industrial operations."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Office spaces range from smaller suites for professional teams to larger corporate headquarters, while warehouse facilities provide high eave heights, loading access, and operational flexibility. Serviced offices within the estate provide a convenient option for smaller teams, project groups, or businesses establishing a presence in Midrand."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Tenants also benefit from being part of a business environment where excellent amenities – such as restaurants, fitness facilities, and outdoor spaces - contribute to a more enjoyable working day."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "This combination allows companies to find workspaces that match their operational needs while remaining within one well-connected business estate."
+        },
+        {
+          "tag": "h4",
+          "text": "How do I enquire about leasing?"
+        },
+        {
+          "tag": "p",
+          "text": "Businesses interested in office space, serviced offices, or warehouse space in Midrand can enquire directly through the Midpoint leasing team. The team can provide detailed information on current availability, specifications, pricing, and lease structures."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Prospective tenants and commercial brokers are encouraged to make contact to discuss their requirements, arrange site visits, or review available spaces across the estate. The leasing team can also assist companies looking to secure space in upcoming developments within Midpoint"
+        },
+        {
+          "tag": "h4",
+          "text": "What amenities are available at Midpoint?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint offers a range of on-site amenities that contribute to a more enjoyable and balanced working environment. These include the Fond restaurant and bar, cafés, fitness facilities, padel courts, and walking, running, and cycling trails integrated throughout the estate."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "These amenities allow tenants to step away from their desks or warehouse floors without leaving the estate. Whether meeting colleagues for coffee, hosting a working lunch, exercising after work, or taking a walk outdoors, the amenities form part of the everyday experience for businesses based at Midpoint."
+        },
+        {
+          "tag": "h4",
+          "text": "Can I secure a space before construction is complete?"
+        },
+        {
+          "tag": "p",
+          "text": "Yes. In certain cases, businesses may secure office space or warehouse space at Midpoint before construction or redevelopment is completed. This allows companies to plan ahead and secure premises that meet their operational requirements."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Pre-leasing opportunities are particularly relevant for businesses seeking larger office environments or warehouse facilities within the estate. Interested tenants are encouraged to contact the leasing team to discuss upcoming developments, expected completion timelines, and available leasing options."
+        },
+        {
+          "tag": "h4",
+          "text": "Where is Midpoint located?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint is located in Halfway House, Midrand, one of Gauteng’s most established commercial and industrial nodes. The estate sits between Johannesburg and Pretoria with convenient access to the N1 highway, making it well positioned for businesses operating across Gauteng and national supply chains."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "This central location makes Midpoint particularly attractive for companies requiring office space, serviced offices, or warehouse facilities with strong regional connectivity."
+        },
+        {
+          "tag": "h4",
+          "text": "Who owns Midpoint?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint is owned by Blend Property Group, a South African property company specialising in commercial and industrial developments."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Since 2006, Blend Property Group has focused on developing and investing in work environments that combine practical design, strong operational functionality, and long-term tenant value. The redevelopment of Midpoint reflects Blend’s commitment to creating spaces that support productivity, efficiency, and staff satisfaction."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Frequently asked questions",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h4",
+          "text": "What is Midpoint?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "What types of spaces are available at Midpoint?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "How do I enquire about leasing?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "What amenities are available at Midpoint?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "Can I secure a space before construction is complete?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "Where is Midpoint located?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "Who owns Midpoint?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Midpoint is a commercial and industrial business estate located in Midrand, Gauteng. Positioned between Johannesburg and Pretoria, Midpoint offers easy access to major transport routes. The estate brings together office space, serviced offices, and warehouse facilities within a single connected environment.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Originally developed in the 1980s, the estate is now a modern business destination that combines practical workspace with lifestyle amenities and landscaped outdoor areas. The goal is to provide businesses with premium premises that support both operational efficiency and a more balanced working environment for their teams.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Midpoint offers a range of commercial and industrial space in Midrand, including premium office suites, serviced offices, and warehouse facilities suitable for logistics, distribution, and light industrial operations.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Office spaces range from smaller suites for professional teams to larger corporate headquarters, while warehouse facilities provide high eave heights, loading access, and operational flexibility. Serviced offices within the estate provide a convenient option for smaller teams, project groups, or businesses establishing a presence in Midrand.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Tenants also benefit from being part of a business environment where excellent amenities – such as restaurants, fitness facilities, and outdoor spaces - contribute to a more enjoyable working day.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "This combination allows companies to find workspaces that match their operational needs while remaining within one well-connected business estate.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Businesses interested in office space, serviced offices, or warehouse space in Midrand can enquire directly through the Midpoint leasing team. The team can provide detailed information on current availability, specifications, pricing, and lease structures.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Prospective tenants and commercial brokers are encouraged to make contact to discuss their requirements, arrange site visits, or review available spaces across the estate. The leasing team can also assist companies looking to secure space in upcoming developments within Midpoint",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Midpoint offers a range of on-site amenities that contribute to a more enjoyable and balanced working environment. These include the Fond restaurant and bar, cafés, fitness facilities, padel courts, and walking, running, and cycling trails integrated throughout the estate.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "These amenities allow tenants to step away from their desks or warehouse floors without leaving the estate. Whether meeting colleagues for coffee, hosting a working lunch, exercising after work, or taking a walk outdoors, the amenities form part of the everyday experience for businesses based at Midpoint.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Yes. In certain cases, businesses may secure office space or warehouse space at Midpoint before construction or redevelopment is completed. This allows companies to plan ahead and secure premises that meet their operational requirements.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Pre-leasing opportunities are particularly relevant for businesses seeking larger office environments or warehouse facilities within the estate. Interested tenants are encouraged to contact the leasing team to discuss upcoming developments, expected completion timelines, and available leasing options.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Midpoint is located in Halfway House, Midrand, one of Gauteng’s most established commercial and industrial nodes. The estate sits between Johannesburg and Pretoria with convenient access to the N1 highway, making it well positioned for businesses operating across Gauteng and national supply chains.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "This central location makes Midpoint particularly attractive for companies requiring office space, serviced offices, or warehouse facilities with strong regional connectivity.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Midpoint is owned by Blend Property Group, a South African property company specialising in commercial and industrial developments.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Since 2006, Blend Property Group has focused on developing and investing in work environments that combine practical design, strong operational functionality, and long-term tenant value. The redevelopment of Midpoint reflects Blend’s commitment to creating spaces that support productivity, efficiency, and staff satisfaction.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "overflow-hidden",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container u-relative w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

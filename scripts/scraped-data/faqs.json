@@ -1,0 +1,557 @@
+{
+  "url": "https://www.mid-point.co.za/faqs",
+  "slug": "faqs",
+  "scrapedAt": "2026-07-24T10:21:28.113Z",
+  "title": "FAQs",
+  "metaDescription": null,
+  "canonical": null,
+  "ogTags": {
+    "og:title": "FAQs"
+  },
+  "twitterTags": {
+    "twitter:title": "FAQs"
+  },
+  "jsonLd": [],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 600
+      },
+      "textBlocks": [
+        {
+          "tag": "strong",
+          "text": "Everything you need to know about Midpoint."
+        },
+        {
+          "tag": "div",
+          "text": "Find answers to common questions about office space, warehouse facilities, amenities, and leasing opportunities at Midpoint in Midrand."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Everything you need to know about Midpoint.",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69f8b6cd0380c1ad65416b38_faq-banner-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-hero_1-short w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "flex-start",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": "FAQ",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 536
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Frequently asked questions"
+        },
+        {
+          "tag": "h4",
+          "text": "What is Midpoint?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint is a commercial and industrial business estate located in Midrand, Gauteng. Positioned between Johannesburg and Pretoria, Midpoint offers easy access to major transport routes. The estate brings together office space, serviced offices, and warehouse facilities within a single connected environment."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Originally developed in the 1980s, the estate is now a modern business destination that combines practical workspace with lifestyle amenities and landscaped outdoor areas. The goal is to provide businesses with premium premises that support both operational efficiency and a more balanced working environment for their teams."
+        },
+        {
+          "tag": "h4",
+          "text": "What types of spaces are available at Midpoint?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint offers a range of commercial and industrial space in Midrand, including premium office suites, serviced offices, and warehouse facilities suitable for logistics, distribution, and light industrial operations."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Office spaces range from smaller suites for professional teams to larger corporate headquarters, while warehouse facilities provide high eave heights, loading access, and operational flexibility. Serviced offices within the estate provide a convenient option for smaller teams, project groups, or businesses establishing a presence in Midrand."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Tenants also benefit from being part of a business environment where excellent amenities – such as restaurants, fitness facilities, and outdoor spaces - contribute to a more enjoyable working day."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "This combination allows companies to find workspaces that match their operational needs while remaining within one well-connected business estate."
+        },
+        {
+          "tag": "h4",
+          "text": "How do I enquire about leasing?"
+        },
+        {
+          "tag": "p",
+          "text": "Businesses interested in office space, serviced offices, or warehouse space in Midrand can enquire directly through the Midpoint leasing team. The team can provide detailed information on current availability, specifications, pricing, and lease structures."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Prospective tenants and commercial brokers are encouraged to make contact to discuss their requirements, arrange site visits, or review available spaces across the estate. The leasing team can also assist companies looking to secure space in upcoming developments within Midpoint"
+        },
+        {
+          "tag": "h4",
+          "text": "What amenities are available at Midpoint?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint offers a range of on-site amenities that contribute to a more enjoyable and balanced working environment. These include the Fond restaurant and bar, cafés, fitness facilities, padel courts, and walking, running, and cycling trails integrated throughout the estate."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "These amenities allow tenants to step away from their desks or warehouse floors without leaving the estate. Whether meeting colleagues for coffee, hosting a working lunch, exercising after work, or taking a walk outdoors, the amenities form part of the everyday experience for businesses based at Midpoint."
+        },
+        {
+          "tag": "h4",
+          "text": "Can I secure a space before construction is complete?"
+        },
+        {
+          "tag": "p",
+          "text": "Yes. In certain cases, businesses may secure office space or warehouse space at Midpoint before construction or redevelopment is completed. This allows companies to plan ahead and secure premises that meet their operational requirements."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Pre-leasing opportunities are particularly relevant for businesses seeking larger office environments or warehouse facilities within the estate. Interested tenants are encouraged to contact the leasing team to discuss upcoming developments, expected completion timelines, and available leasing options."
+        },
+        {
+          "tag": "h4",
+          "text": "Where is Midpoint located?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint is located in Halfway House, Midrand, one of Gauteng’s most established commercial and industrial nodes. The estate sits between Johannesburg and Pretoria with convenient access to the N1 highway, making it well positioned for businesses operating across Gauteng and national supply chains."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "This central location makes Midpoint particularly attractive for companies requiring office space, serviced offices, or warehouse facilities with strong regional connectivity."
+        },
+        {
+          "tag": "h4",
+          "text": "Who owns Midpoint?"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint is owned by Blend Property Group, a South African property company specialising in commercial and industrial developments."
+        },
+        {
+          "tag": "p",
+          "text": "‍"
+        },
+        {
+          "tag": "p",
+          "text": "Since 2006, Blend Property Group has focused on developing and investing in work environments that combine practical design, strong operational functionality, and long-term tenant value. The redevelopment of Midpoint reflects Blend’s commitment to creating spaces that support productivity, efficiency, and staff satisfaction."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Frequently asked questions",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(11, 31, 28)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h4",
+          "text": "What is Midpoint?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "What types of spaces are available at Midpoint?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "How do I enquire about leasing?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "What amenities are available at Midpoint?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "Can I secure a space before construction is complete?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "Where is Midpoint located?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "h4",
+          "text": "Who owns Midpoint?",
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "24px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Midpoint is a commercial and industrial business estate located in Midrand, Gauteng. Positioned between Johannesburg and Pretoria, Midpoint offers easy access to major transport routes. The estate brings together office space, serviced offices, and warehouse facilities within a single connected environment.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Originally developed in the 1980s, the estate is now a modern business destination that combines practical workspace with lifestyle amenities and landscaped outdoor areas. The goal is to provide businesses with premium premises that support both operational efficiency and a more balanced working environment for their teams.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Midpoint offers a range of commercial and industrial space in Midrand, including premium office suites, serviced offices, and warehouse facilities suitable for logistics, distribution, and light industrial operations.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Office spaces range from smaller suites for professional teams to larger corporate headquarters, while warehouse facilities provide high eave heights, loading access, and operational flexibility. Serviced offices within the estate provide a convenient option for smaller teams, project groups, or businesses establishing a presence in Midrand.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Tenants also benefit from being part of a business environment where excellent amenities – such as restaurants, fitness facilities, and outdoor spaces - contribute to a more enjoyable working day.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "This combination allows companies to find workspaces that match their operational needs while remaining within one well-connected business estate.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Businesses interested in office space, serviced offices, or warehouse space in Midrand can enquire directly through the Midpoint leasing team. The team can provide detailed information on current availability, specifications, pricing, and lease structures.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Prospective tenants and commercial brokers are encouraged to make contact to discuss their requirements, arrange site visits, or review available spaces across the estate. The leasing team can also assist companies looking to secure space in upcoming developments within Midpoint",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Midpoint offers a range of on-site amenities that contribute to a more enjoyable and balanced working environment. These include the Fond restaurant and bar, cafés, fitness facilities, padel courts, and walking, running, and cycling trails integrated throughout the estate.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "These amenities allow tenants to step away from their desks or warehouse floors without leaving the estate. Whether meeting colleagues for coffee, hosting a working lunch, exercising after work, or taking a walk outdoors, the amenities form part of the everyday experience for businesses based at Midpoint.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Yes. In certain cases, businesses may secure office space or warehouse space at Midpoint before construction or redevelopment is completed. This allows companies to plan ahead and secure premises that meet their operational requirements.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Pre-leasing opportunities are particularly relevant for businesses seeking larger office environments or warehouse facilities within the estate. Interested tenants are encouraged to contact the leasing team to discuss upcoming developments, expected completion timelines, and available leasing options.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Midpoint is located in Halfway House, Midrand, one of Gauteng’s most established commercial and industrial nodes. The estate sits between Johannesburg and Pretoria with convenient access to the N1 highway, making it well positioned for businesses operating across Gauteng and national supply chains.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "This central location makes Midpoint particularly attractive for companies requiring office space, serviced offices, or warehouse facilities with strong regional connectivity.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Midpoint is owned by Blend Property Group, a South African property company specialising in commercial and industrial developments.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Since 2006, Blend Property Group has focused on developing and investing in work environments that combine practical design, strong operational functionality, and long-term tenant value. The redevelopment of Midpoint reflects Blend’s commitment to creating spaces that support productivity, efficiency, and staff satisfaction.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "overflow-hidden",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 1,
+          "children": [
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container u-relative w-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 2,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4402 @@
+{
+  "url": "https://www.mid-point.co.za/vacancies",
+  "slug": "vacancies",
+  "scrapedAt": "2026-07-24T10:21:35.363Z",
+  "title": "Vacancies",
+  "metaDescription": null,
+  "canonical": null,
+  "ogTags": {
+    "og:title": "Vacancies"
+  },
+  "twitterTags": {
+    "twitter:title": "Vacancies"
+  },
+  "jsonLd": [],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 500
+      },
+      "textBlocks": [
+        {
+          "tag": "h1",
+          "text": "Current vacancies at Midpoint."
+        },
+        {
+          "tag": "div",
+          "text": "Contact the Midpoint team to discuss available office space, serviced offices, and warehouse opportunities in Midrand."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Current vacancies at Midpoint.",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a0bf9c2e9c5119ed55c88c5_67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-hero_1-short w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "flex-start",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": "Amenities",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 446
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Businesses looking for office space or warehouse space in Midrand can explore the current availability at Midpoint through the listings below"
+        },
+        {
+          "tag": "p",
+          "text": "The estate offers a mix of offices, serviced offices, warehousing and industrial facilities designed to support growing companies, logistics operations, and professional teams. Spaces vary in size and configuration, allowing businesses to find premises that suit both operational needs and future growth. Located between Johannesburg and Pretoria with convenient highway access, Midpoint provides a well-connected base for companies operating across Gauteng. The wider Midpoint environment adds something many business parks lack - places to meet, eat, move, and take a break without leaving the estate."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Businesses looking for office space or warehouse space in Midrand can explore the current availability at Midpoint through the listings below",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "The estate offers a mix of offices, serviced offices, warehousing and industrial facilities designed to support growing companies, logistics operations, and professional teams.\n\nSpaces vary in size and configuration, allowing businesses to find premises that suit both operational needs and future growth. Located between Johannesburg and Pretoria with convenient highway access, Midpoint provides a well-connected base for companies operating across Gauteng. The wider Midpoint environment adds something many business parks lack - places to meet, eat, move, and take a break without leaving the estate.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container-6 w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "gradient_orb-cyan_blue top-left w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "section-spacing",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 838
+      },
+      "textBlocks": [
+        {
+          "tag": "div",
+          "text": "UNIT"
+        },
+        {
+          "tag": "div",
+          "text": "BUILDING"
+        },
+        {
+          "tag": "div",
+          "text": "CATEGORY"
+        },
+        {
+          "tag": "div",
+          "text": "AVAILABILITY"
+        },
+        {
+          "tag": "div",
+          "text": "AREA (m²)"
+        },
+        {
+          "tag": "div",
+          "text": "RENTAL /m²"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 7, Sunbird Road (FF)"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "1/1/25"
+        },
+        {
+          "tag": "div",
+          "text": "515.6"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 7, Sunbird Road (GF)"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "27/2/26"
+        },
+        {
+          "tag": "div",
+          "text": "500.66"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "Office G.02"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "1/7/26"
+        },
+        {
+          "tag": "div",
+          "text": "172.66"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "Office G.07"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "1/7/26"
+        },
+        {
+          "tag": "div",
+          "text": "124.49"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "Office 1.02"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "1/7/26"
+        },
+        {
+          "tag": "div",
+          "text": "225.98"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "Office 1.03"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "1/7/26"
+        },
+        {
+          "tag": "div",
+          "text": "225.98"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "Office 1.04"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "23/7/26"
+        },
+        {
+          "tag": "div",
+          "text": "270.18"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "Office G.04"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "div",
+          "text": "23/7/26"
+        },
+        {
+          "tag": "div",
+          "text": "264.46"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "3 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "3 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "1/4/26"
+        },
+        {
+          "tag": "div",
+          "text": "1125.8"
+        },
+        {
+          "tag": "div",
+          "text": "90"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 1, 1 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 1, 1 Weaver"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "1/6/26"
+        },
+        {
+          "tag": "div",
+          "text": "266"
+        },
+        {
+          "tag": "div",
+          "text": "105"
+        },
+        {
+          "tag": "div",
+          "text": "1 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "1 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "div",
+          "text": "1/11/26"
+        },
+        {
+          "tag": "div",
+          "text": "4200"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "2 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "2 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "div",
+          "text": "1/7/27"
+        },
+        {
+          "tag": "div",
+          "text": "3300"
+        },
+        {
+          "tag": "div",
+          "text": "112"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 2, 6 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "6 Kingfisher Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "div",
+          "text": "1/1/27"
+        },
+        {
+          "tag": "div",
+          "text": "2320"
+        },
+        {
+          "tag": "div",
+          "text": "118"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 8, Sunbird Road"
+        },
+        {
+          "tag": "div",
+          "text": "8 Sunbird Road"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "1/12/25"
+        },
+        {
+          "tag": "div",
+          "text": "1028.19"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "6 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "6 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "div",
+          "text": "1/9/26"
+        },
+        {
+          "tag": "div",
+          "text": "11443"
+        },
+        {
+          "tag": "div",
+          "text": "109"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 2, 2 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "2 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "2/2/26"
+        },
+        {
+          "tag": "div",
+          "text": "1614.7"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 2, 1 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "div",
+          "text": "7/3/25"
+        },
+        {
+          "tag": "div",
+          "text": "338.14"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        }
+      ],
+      "headings": [],
+      "paragraphs": [],
+      "images": [],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": ""
+        }
+      ],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container-7 w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "availability_schedual-grid cc-head",
+              "display": "grid",
+              "flexDirection": "row",
+              "gridTemplateColumns": "354px 354px 200px 120px 100px 100px",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 6,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-dyn-list",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 2623
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Available Warehouse Space"
+        },
+        {
+          "tag": "p",
+          "text": "Below are the warehouse opportunities currently available at Midpoint:‍‍‍"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "1 Kingfisher Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "1 Kingfisher Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "4200"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "1 November 2026"
+        },
+        {
+          "tag": "p",
+          "text": "A two-storey building currently configured as office space, with ground-floor volumes suitable for conversion to warehouse, laboratory, or workshop use. The flexible layout allows the premises to adapt to different operational requirements. The building includes one on-grade roller shutter door with capacity for additional access points, is fully air-conditioned throughout, and offers elevator access between floors for added convenience and functionality."
+        },
+        {
+          "tag": "div",
+          "text": "Ground floor with 4m height to eaves"
+        },
+        {
+          "tag": "div",
+          "text": "Divisible space configuration"
+        },
+        {
+          "tag": "div",
+          "text": "67 basement parking bays, and 36 open parking bays"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "2 Kingfisher Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "2 Kingfisher Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "3300"
+        },
+        {
+          "tag": "div",
+          "text": "112"
+        },
+        {
+          "tag": "div",
+          "text": "1 July 2027"
+        },
+        {
+          "tag": "p",
+          "text": "This site offers a blank slate for industrial transformation as it is ideal for conversion into a modern warehouse or logistics facility. A rare chance to unlock value in a high-demand industrial corridor."
+        },
+        {
+          "tag": "div",
+          "text": "Proposed total GLA: 3,300sqm"
+        },
+        {
+          "tag": "div",
+          "text": "Office GLA: 300sqm"
+        },
+        {
+          "tag": "div",
+          "text": "Proposed warehouse GLA: 3,000sqm"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "6 Kingfisher Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 2, 6 Kingfisher Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "2320"
+        },
+        {
+          "tag": "div",
+          "text": "118"
+        },
+        {
+          "tag": "div",
+          "text": "1 January 2027"
+        },
+        {
+          "tag": "p",
+          "text": "A new 2,320sqm warehouse development designed to support efficient logistics operations with dedicated yard space, integrated offices, and strong vertical capacity. The facility offers 11 m height to eaves to support vertical storage requirements, three on-grade roller shutter doors for efficient movement of goods, and 18 parking bays, including 15 covered and 3 open bays, for staff and visitors. Beneficial occupation expected October 2026. Completion scheduled for January 2027"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse GLA: 1,952sqm"
+        },
+        {
+          "tag": "div",
+          "text": "Office GLA: 368sqm"
+        },
+        {
+          "tag": "div",
+          "text": "Yard Area: +/-1000sqm"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "6 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Warehouse"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "6 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "11443"
+        },
+        {
+          "tag": "div",
+          "text": "109"
+        },
+        {
+          "tag": "div",
+          "text": "1 September 2026"
+        },
+        {
+          "tag": "p",
+          "text": "An expansive logistics facility designed for distribution, storage, and industrial operations. The building supports high-volume movement of goods, with 15 m height to eaves, rear and side loading configurations, dock levellers, and on-grade loading access. Additional features include power availability up to 2.5 MVA, floor load bearing capacity of 3,000 kg per sqm, landscaped dam views from the offices, and N1 highway signage exposure."
+        },
+        {
+          "tag": "div",
+          "text": "10,000 sqm warehouse space"
+        },
+        {
+          "tag": "div",
+          "text": "1,443 sqm office component"
+        },
+        {
+          "tag": "div",
+          "text": "5,800 sqm yard area"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Available Warehouse Space",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Below are the warehouse opportunities currently available at Midpoint:\n‍\n‍\n‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "A two-storey building currently configured as office space, with ground-floor volumes suitable for conversion to warehouse, laboratory, or workshop use. The flexible layout allows the premises to adapt to different operational requirements. The building includes one on-grade roller shutter door with capacity for additional access points, is fully air-conditioned throughout, and offers elevator access between floors for added convenience and functionality.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "This site offers a blank slate for industrial transformation as it is ideal for conversion into a modern warehouse or logistics facility. A rare chance to unlock value in a high-demand industrial corridor.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "A new 2,320sqm warehouse development designed to support efficient logistics operations with dedicated yard space, integrated offices, and strong vertical capacity. The facility offers 11 m height to eaves to support vertical storage requirements, three on-grade roller shutter doors for efficient movement of goods, and 18 parking bays, including 15 covered and 3 open bays, for staff and visitors. Beneficial occupation expected October 2026. Completion scheduled for January 2027",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "An expansive logistics facility designed for distribution, storage, and industrial operations. The building supports high-volume movement of goods, with 15 m height to eaves, rear and side loading configurations, dock levellers, and on-grade loading access. Additional features include power availability up to 2.5 MVA, floor load bearing capacity of 3,000 kg per sqm, landscaped dam views from the offices, and N1 highway signage exposure.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a1d562d4c28554ab6104b6b_20260528_121054-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a0c5bdf40ccd507b840f95b_IMG-20260318-WA0024.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a0c5a838a40451cd56f6101_WhatsApp%20Image%202026-03-18%20at%2009.48.29%20(2).jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a1d59c3dc0c568f4809837d_IMG-20260318-WA0007.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a0c5bdfbc8054d49d1cf1bc_IMG-20260318-WA0025.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a0c5a88606105fd52a25b4b_WhatsApp%20Image%202026-03-18%20at%2009.48.29%20(3).jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a327235eeb7c08747696557_Page%201_cover%20small.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a32729e68e52eff83a483e6_Stand%203.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a32729e29639e90fb15dead_Stand%203%20Yard.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a33e670a51b27c8ea247b72_Image1_004.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a2941e4ad5b6417fd544e68_Stand%208%202300sqm%20warehouse.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a2941f53041df5a1ed4e134_Page%208_shot1-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a2941f432f4fabe1ca14f7c_Page%2011_shot4-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69ce8dcdf0adb24db726dc5a_1000467941-03.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69ce8dcfd75641425f715f80_02.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69ce8dcdf0adb24db726dc5a_1000467941-03.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69ce8dd032ff2ba52cc09a68_A.02%20Gemini_Generated_Image_70t4lr70t4lr70t4.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69ce8dd089d40a522840eeec_C.05%20Highway%20Signage%20night%20Image3-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69ce8dd0adb056051e84acc5_ChatGPT%20Image%20Apr%202%2C%202026%2C%2005_08_34%20PM.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "See map view"
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/#Explore",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/#Explore",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/#Explore",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/#Explore",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container-5 w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "h2",
+              "className": "heading-2",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "p",
+              "className": "cl-grey-400",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 3,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-dyn-list",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 4275
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Available Office Space"
+        },
+        {
+          "tag": "p",
+          "text": "Below are the office space currently available at Midpoint:‍‍‍"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "515.6"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "01 January 2025"
+        },
+        {
+          "tag": "p",
+          "text": "This well-configured office suite offers a bright workspace with scenic views and a calm atmosphere. Conveniently located near key amenities, it provides both practicality and appeal for businesses seeking a professional setting with easy access to surrounding services."
+        },
+        {
+          "tag": "div",
+          "text": "Prime Offices"
+        },
+        {
+          "tag": "div",
+          "text": "Security"
+        },
+        {
+          "tag": "div",
+          "text": "Generator"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "500.66"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "27 February 2026"
+        },
+        {
+          "tag": "p",
+          "text": "Bright, spacious office with abundant natural light, set amid manicured landscaping&mdash;ideal for a professional, welcoming workspace."
+        },
+        {
+          "tag": "div",
+          "text": "Prime Offices"
+        },
+        {
+          "tag": "div",
+          "text": "Security"
+        },
+        {
+          "tag": "div",
+          "text": "Generator"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "3 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "3 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "1125.8"
+        },
+        {
+          "tag": "div",
+          "text": "90"
+        },
+        {
+          "tag": "div",
+          "text": "01 April 2026"
+        },
+        {
+          "tag": "p",
+          "text": "An expansive office space featuring impressive high ceilings that enhance natural light and create a sense of volume and sophistication. Ideal for businesses seeking a modern, professional environment with room to grow."
+        },
+        {
+          "tag": "div",
+          "text": "Prime Offices"
+        },
+        {
+          "tag": "div",
+          "text": "Security"
+        },
+        {
+          "tag": "div",
+          "text": "Generator"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 1, 1 Weaver"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "Unit 1, 1 Weaver"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "266"
+        },
+        {
+          "tag": "div",
+          "text": "105"
+        },
+        {
+          "tag": "div",
+          "text": "01 June 2026"
+        },
+        {
+          "tag": "p",
+          "text": "This well-configured office suite offers a bright workspace. Conveniently located near the entrance, it provides both practicality and appeal for businesses seeking a professional setting with easy access to surrounding services."
+        },
+        {
+          "tag": "div",
+          "text": "Prime Offices"
+        },
+        {
+          "tag": "div",
+          "text": "Security"
+        },
+        {
+          "tag": "div",
+          "text": "Generator"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "8 Sunbird Road"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "8 Sunbird Road"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "1028.19"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "01 December 2025"
+        },
+        {
+          "tag": "p",
+          "text": "Spacious, refurbed office with serene views overlooking a beautiful koi pond. A tranquil setting that blends productivity with a calming work environment."
+        },
+        {
+          "tag": "div",
+          "text": "Prime Offices"
+        },
+        {
+          "tag": "div",
+          "text": "Security"
+        },
+        {
+          "tag": "div",
+          "text": "Generator"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "2 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "2 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "1614.7"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "02 February 2026"
+        },
+        {
+          "tag": "p",
+          "text": "A bright and spacious open-plan office with abundant natural light, complemented by a private patio and braai facility -- ideal for modern teams seeking a professional yet inviting environment."
+        },
+        {
+          "tag": "div",
+          "text": "Prime Offices"
+        },
+        {
+          "tag": "div",
+          "text": "Security"
+        },
+        {
+          "tag": "div",
+          "text": "Generator"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Office"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "1 Weaver Avenue"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "338.14"
+        },
+        {
+          "tag": "div",
+          "text": "120"
+        },
+        {
+          "tag": "div",
+          "text": "07 March 2025"
+        },
+        {
+          "tag": "p",
+          "text": "This recently upgraded first-floor office suite offers a modern and versatile workspace. The premises feature: A spacious open-plan area designed for collaborative working Three private offices providing flexibility and privacy A fully fitted kitchen for staff convenience The renovation includes contemporary finishes throughout, ensuring a professional environment that balances functionality with comfort. Ideal for businesses seeking a ready-to-occupy space in a well-presented setting."
+        },
+        {
+          "tag": "div",
+          "text": "Prime Offices"
+        },
+        {
+          "tag": "div",
+          "text": "Security"
+        },
+        {
+          "tag": "div",
+          "text": "Generator"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Available Office Space",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Below are the office space currently available at Midpoint:\n‍\n‍\n‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "This well-configured office suite offers a bright workspace with scenic views and a calm atmosphere. Conveniently located near key amenities, it provides both practicality and appeal for businesses seeking a professional setting with easy access to surrounding services.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Bright, spacious office with abundant natural light, set amid manicured landscaping&mdash;ideal for a professional, welcoming workspace.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "An expansive office space featuring impressive high ceilings that enhance natural light and create a sense of volume and sophistication. Ideal for businesses seeking a modern, professional environment with room to grow.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "This well-configured office suite offers a bright workspace. Conveniently located near the entrance, it provides both practicality and appeal for businesses seeking a professional setting with easy access to surrounding services.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Spacious, refurbed office with serene views overlooking a beautiful koi pond. A tranquil setting that blends productivity with a calming work environment.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "A bright and spacious open-plan office with abundant natural light, complemented by a private patio and braai facility -- ideal for modern teams seeking a professional yet inviting environment.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "This recently upgraded first-floor office suite offers a modern and versatile workspace. The premises feature: A spacious open-plan area designed for collaborative working Three private offices providing flexibility and privacy A fully fitted kitchen for staff convenience The renovation includes contemporary finishes throughout, ensuring a professional environment that balances functionality with comfort. Ideal for businesses seeking a ready-to-occupy space in a well-presented setting.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a620d4825245f5f7018c7f3_69ce8d3330a9c3f2979e36b7_Metropolitan%2520Unit%25206%2520Sunbird.png",
+          "alt": "Unit 7, Sunbird Road (FF)",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a6216d0608dce029de1c808_e3c1a75d-f556-46b5-b45a-d1452aa44444-optimized.webp",
+          "alt": "Unit 7 Sunbird Road first floor",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a6216d0608dce029de1c816_8a09ece5-d416-413f-b7f5-8a5adf2aeec2-optimized.webp",
+          "alt": "Unit 7 Sunbird Road first floor",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a6216d0608dce029de1c80b_d8c86c61-59f2-4e83-b830-06d9276044c8-optimized.webp",
+          "alt": "Unit 7 Sunbird Road first floor",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a6216dfdabdb49836b90566_9e3311fa-1b7e-4437-b20c-61a761e1cd99.webp",
+          "alt": "Unit 7 Sunbird Road first floor",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a6216d0608dce029de1c80e_d6e7b8c9-dbc2-43ce-81e4-4023468fe512.webp",
+          "alt": "Unit 7 Sunbird Road first floor",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a620d4825245f5f7018c7f3_69ce8d3330a9c3f2979e36b7_Metropolitan%2520Unit%25206%2520Sunbird.png",
+          "alt": "Unit 7, Sunbird Road (GF)",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a6216cf608dce029de1c7fb_39081c1d-77a8-4b90-8818-fb13cd22d668.webp",
+          "alt": "Unit 7 Sunbird Road ground floor",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a6216d0608dce029de1c813_78d6dc1b-3656-4f2a-b2ef-340c3f479e5c-optimized.webp",
+          "alt": "Unit 7 Sunbird Road ground floor",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a6216d0608dce029de1c816_8a09ece5-d416-413f-b7f5-8a5adf2aeec2-optimized.webp",
+          "alt": "Unit 7 Sunbird Road ground floor",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a6216d0608dce029de1c80e_d6e7b8c9-dbc2-43ce-81e4-4023468fe512.webp",
+          "alt": "Unit 7 Sunbird Road ground floor",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a6216d0608dce029de1c80b_d8c86c61-59f2-4e83-b830-06d9276044c8-optimized.webp",
+          "alt": "Unit 7 Sunbird Road ground floor",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a3273527947476faf6366aa_ChatGPT%20Image%20Apr%2023%2C%202026%2C%2012_37_36%20PM-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a3275ebc6d6c8e43eab08b2_ChatGPT%20Image%20Apr%2023%2C%202026%2C%2012_41_01%20PM-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a327491171e6f5b9cbc8ccf_ChatGPT%20Image%20Jun%201%2C%202026%2C%2010_41_02%20AM-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a326c3ba9828abcd964c090_ChatGPT%20Image%20Jun%201%2C%202026%2C%2010_33_02%20AM-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69ce8d3330a9c3f2979e36b7_Metropolitan%20Unit%206%20Sunbird.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69ce8d3330a9c3f2979e36b7_Metropolitan%20Unit%206%20Sunbird.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69e8b2b195bec50c1c99b438_ChatGPT%20Image%20Apr%2017%2C%202026%2C%2009_24_22%20PM.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69e8b2b1343b91ff0ce96996_ChatGPT%20Image%20Apr%2017%2C%202026%2C%2009_26_52%20PM.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a0ad83ab1a17b8f2b551788_Stand%2011-1600%20Premium%20Offices-p-1600.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69d520524841a1eba75cea45_ChatGPT%20Image%20Mar%2019%2C%202026%2C%2010_55_51%20AM.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a0ad878b7b8eb1e05743d63_20260514_133020-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a1563001b3c3bf42a05eadc_WhatsApp%20Image%202026-05-14%20at%2011.02.11%20(1).jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a156315fb101ce2cac47702_WhatsApp%20Image%202026-05-14%20at%2011.02.13%20(1).jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a1563150833f6f08a51c6f3_WhatsApp%20Image%202026-05-14%20at%2011.02.13.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69e62fed89e1a4eb02346d06_ChatGPT%20Image%20Apr%2017%2C%202026%2C%2009_16_25%20PM.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69ce9119f72eb5d155143f8b_Unit%202%201%20Weaver%20Stand%2012%20aii%202.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/69ce91196739d30829529b2e_Unit%202%201%20Weaver%20Stand%2012%20aii.png",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a1562ad795fc59fc9c33bb7_6J2P0388_89_90_91_92_93_94-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a1562ad2bd129bdbdebbe83_6J2P0395_396_397_398_399_400_401-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "label": "See map view"
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/vacancies#",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container-5 w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "h2",
+              "className": "heading-2",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "p",
+              "className": "cl-grey-400",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 3,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-dyn-list",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 4264
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "p",
+          "text": "Below are the shared workspace currently available at Midpoint:‍‍‍"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "172.66"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "01 July 2026"
+        },
+        {
+          "tag": "p",
+          "text": "Modern serviced office unit with access to a full suite of shared amenities, designed to elevate the workday. Enjoy seamless use of three professional meeting rooms, private call booths, sleek kitchens and a welcoming reception area complete with an on-site barista. Tenants also benefit from monthly credits, adding flexibility and value to the workspace experience. Key features 172.66 m&sup2; serviced office Available immediately Gross rental of R117.50 per m&sup2; Monthly rental of R31,746.15 Furnished or unfurnished options Access to three professional meeting rooms Private call booths Shared kitchens Reception area with on-site barista Monthly tenant credits Four covered parking bays"
+        },
+        {
+          "tag": "div",
+          "text": "Serviced office"
+        },
+        {
+          "tag": "div",
+          "text": "Available immediately"
+        },
+        {
+          "tag": "div",
+          "text": "Furnished or unfurnished"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "124.49"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "01 July 2026"
+        },
+        {
+          "tag": "p",
+          "text": "Modern serviced office unit with access to a full suite of shared amenities, designed to elevate the workday. Enjoy seamless use of three professional meeting rooms, private call booths, sleek kitchens and a welcoming reception area complete with an on-site barista. Tenants also benefit from monthly credits, adding flexibility and value to the workspace experience. Key features 124.49 m&sup2; serviced office Available immediately Gross rental of R117.50 per m&sup2; Monthly rental of R31,746.15 Furnished or unfurnished options Access to three professional meeting rooms Private call booths Shared kitchens Reception area with on-site barista Monthly tenant credits Four covered parking bays"
+        },
+        {
+          "tag": "div",
+          "text": "Serviced office"
+        },
+        {
+          "tag": "div",
+          "text": "Available immediately"
+        },
+        {
+          "tag": "div",
+          "text": "Furnished or unfurnished"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "225.98"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "01 July 2026"
+        },
+        {
+          "tag": "p",
+          "text": "Modern serviced office unit with access to a full suite of shared amenities, designed to elevate the workday. Enjoy seamless use of three professional meeting rooms, private call booths, sleek kitchens and a welcoming reception area complete with an on-site barista. Tenants also benefit from monthly credits, adding flexibility and value to the workspace experience. Key features 225.98 m&sup2; serviced office Available immediately Gross rental of R117.50 per m&sup2; Monthly rental of R31,746.15 Furnished or unfurnished options Access to three professional meeting rooms Private call booths Shared kitchens Reception area with on-site barista Monthly tenant credits Four covered parking bays"
+        },
+        {
+          "tag": "div",
+          "text": "Serviced office"
+        },
+        {
+          "tag": "div",
+          "text": "Available immediately"
+        },
+        {
+          "tag": "div",
+          "text": "Furnished or unfurnished"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "225.98"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "01 July 2026"
+        },
+        {
+          "tag": "p",
+          "text": "Modern serviced office unit with access to a full suite of shared amenities, designed to elevate the workday. Enjoy seamless use of three professional meeting rooms, private call booths, sleek kitchens and a welcoming reception area complete with an on-site barista. Tenants also benefit from monthly credits, adding flexibility and value to the workspace experience. Key features 225.98 m&sup2; serviced office Available immediately Gross rental of R117.50 per m&sup2; Monthly rental of R31,746.15 Furnished or unfurnished options Access to three professional meeting rooms Private call booths Shared kitchens Reception area with on-site barista Monthly tenant credits Four covered parking bays"
+        },
+        {
+          "tag": "div",
+          "text": "Serviced office"
+        },
+        {
+          "tag": "div",
+          "text": "Available immediately"
+        },
+        {
+          "tag": "div",
+          "text": "Furnished or unfurnished"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "270.18"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "23 July 2026"
+        },
+        {
+          "tag": "p",
+          "text": "Modern serviced office unit with access to a full suite of shared amenities, designed to elevate the workday. Enjoy seamless use of three professional meeting rooms, private call booths, sleek kitchens and a welcoming reception area complete with an on-site barista. Tenants also benefit from monthly credits, adding flexibility and value to the workspace experience. Key features 270.18 m&sup2; serviced office Available immediately Gross rental of R117.50 per m&sup2; Monthly rental of R31,746.15 Furnished or unfurnished options Access to three professional meeting rooms Private call booths Shared kitchens Reception area with on-site barista Monthly tenant credits Four covered parking bays"
+        },
+        {
+          "tag": "div",
+          "text": "Serviced office"
+        },
+        {
+          "tag": "div",
+          "text": "Available immediately"
+        },
+        {
+          "tag": "div",
+          "text": "Furnished or unfurnished"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Sector"
+        },
+        {
+          "tag": "div",
+          "text": "Shared Workspace"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire"
+        },
+        {
+          "tag": "h6",
+          "text": "Building"
+        },
+        {
+          "tag": "div",
+          "text": "OnPoint"
+        },
+        {
+          "tag": "h6",
+          "text": "Size"
+        },
+        {
+          "tag": "h6",
+          "text": "Rate /m²"
+        },
+        {
+          "tag": "h6",
+          "text": "Availability"
+        },
+        {
+          "tag": "div",
+          "text": "264.46"
+        },
+        {
+          "tag": "div",
+          "text": "117.5"
+        },
+        {
+          "tag": "div",
+          "text": "23 July 2026"
+        },
+        {
+          "tag": "p",
+          "text": "Modern serviced office unit with shared meeting rooms, private call booths, kitchens, reception and an on-site barista."
+        },
+        {
+          "tag": "div",
+          "text": "Serviced office"
+        },
+        {
+          "tag": "div",
+          "text": "Available immediately"
+        },
+        {
+          "tag": "div",
+          "text": "Furnished or unfurnished"
+        },
+        {
+          "tag": "a",
+          "text": "See map view"
+        },
+        {
+          "tag": "p",
+          "text": "For detailed specifications, pricing, or to arrange a viewing, tenants and brokers can enquire directly through the Midpoint leasing team."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Shared Workspace",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SECTOR",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "BUILDING",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "SIZE",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "RATE /M²",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        },
+        {
+          "tag": "h6",
+          "text": "AVAILABILITY",
+          "fontSize": "14px",
+          "fontWeight": "500",
+          "color": "rgb(51, 51, 51)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "14px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Below are the shared workspace currently available at Midpoint:\n‍\n‍\n‍",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Modern serviced office unit with access to a full suite of shared amenities, designed to elevate the workday. Enjoy seamless use of three professional meeting rooms, private call booths, sleek kitchens and a welcoming reception area complete with an on-site barista. Tenants also benefit from monthly credits, adding flexibility and value to the workspace experience. Key features 172.66 m&sup2; serviced office Available immediately Gross rental of R117.50 per m&sup2; Monthly rental of R31,746.15 Furnished or unfurnished options Access to three professional meeting rooms Private call booths Shared kitchens Reception area with on-site barista Monthly tenant credits Four covered parking bays",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Modern serviced office unit with access to a full suite of shared amenities, designed to elevate the workday. Enjoy seamless use of three professional meeting rooms, private call booths, sleek kitchens and a welcoming reception area complete with an on-site barista. Tenants also benefit from monthly credits, adding flexibility and value to the workspace experience. Key features 124.49 m&sup2; serviced office Available immediately Gross rental of R117.50 per m&sup2; Monthly rental of R31,746.15 Furnished or unfurnished options Access to three professional meeting rooms Private call booths Shared kitchens Reception area with on-site barista Monthly tenant credits Four covered parking bays",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Modern serviced office unit with access to a full suite of shared amenities, designed to elevate the workday. Enjoy seamless use of three professional meeting rooms, private call booths, sleek kitchens and a welcoming reception area complete with an on-site barista. Tenants also benefit from monthly credits, adding flexibility and value to the workspace experience. Key features 225.98 m&sup2; serviced office Available immediately Gross rental of R117.50 per m&sup2; Monthly rental of R31,746.15 Furnished or unfurnished options Access to three professional meeting rooms Private call booths Shared kitchens Reception area with on-site barista Monthly tenant credits Four covered parking bays",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Modern serviced office unit with access to a full suite of shared amenities, designed to elevate the workday. Enjoy seamless use of three professional meeting rooms, private call booths, sleek kitchens and a welcoming reception area complete with an on-site barista. Tenants also benefit from monthly credits, adding flexibility and value to the workspace experience. Key features 225.98 m&sup2; serviced office Available immediately Gross rental of R117.50 per m&sup2; Monthly rental of R31,746.15 Furnished or unfurnished options Access to three professional meeting rooms Private call booths Shared kitchens Reception area with on-site barista Monthly tenant credits Four covered parking bays",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Modern serviced office unit with access to a full suite of shared amenities, designed to elevate the workday. Enjoy seamless use of three professional meeting rooms, private call booths, sleek kitchens and a welcoming reception area complete with an on-site barista. Tenants also benefit from monthly credits, adding flexibility and value to the workspace experience. Key features 270.18 m&sup2; serviced office Available immediately Gross rental of R117.50 per m&sup2; Monthly rental of R31,746.15 Furnished or unfurnished options Access to three professional meeting rooms Private call booths Shared kitchens Reception area with on-site barista Monthly tenant credits Four covered parking bays",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Modern serviced office unit with shared meeting rooms, private call booths, kitchens, reception and an on-site barista.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(51, 51, 51)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "For detailed specifications, pricing, or to arrange a viewing, tenants and brokers can enquire directly through the Midpoint leasing team.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a620d347721760147d3b871_69ce9c23efbedee7cabf70b3_6J2P0234_35_36_37_38_39_40.jpeg",
+          "alt": "Office G.02",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39340_69e8c068ae214d4b7a0e27b2_6J2P0325_26_27_28_29_30_31.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39329_69ce9c2fa63160a4413f07ad_6J2P0304_05_06_07_08_09_10.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39338_69e8c082927602fa694a50ec_6J2P0367_68_69_70_71_72_73.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932f_69e8c08297cebad2fdfd94b5_6J2P0585_86_87_88_89_90_91.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39349_6a156439affba9a1bf4139b3_20260520_140413.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a620d347721760147d3b871_69ce9c23efbedee7cabf70b3_6J2P0234_35_36_37_38_39_40.jpeg",
+          "alt": "Office G.07",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39340_69e8c068ae214d4b7a0e27b2_6J2P0325_26_27_28_29_30_31.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932c_69ce9c2fa63160a4413f07ad_6J2P0304_05_06_07_08_09_10.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39335_69e8c082927602fa694a50ec_6J2P0367_68_69_70_71_72_73.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932f_69e8c08297cebad2fdfd94b5_6J2P0585_86_87_88_89_90_91.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39349_6a156439affba9a1bf4139b3_20260520_140413.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a620d347721760147d3b871_69ce9c23efbedee7cabf70b3_6J2P0234_35_36_37_38_39_40.jpeg",
+          "alt": "Office 1.02",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39340_69e8c068ae214d4b7a0e27b2_6J2P0325_26_27_28_29_30_31.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932c_69ce9c2fa63160a4413f07ad_6J2P0304_05_06_07_08_09_10.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3933d_69e8c082927602fa694a50ec_6J2P0367_68_69_70_71_72_73.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932f_69e8c08297cebad2fdfd94b5_6J2P0585_86_87_88_89_90_91.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39351_6a156439affba9a1bf4139b3_20260520_140413.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a620d347721760147d3b871_69ce9c23efbedee7cabf70b3_6J2P0234_35_36_37_38_39_40.jpeg",
+          "alt": "Office 1.03",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39340_69e8c068ae214d4b7a0e27b2_6J2P0325_26_27_28_29_30_31.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932c_69ce9c2fa63160a4413f07ad_6J2P0304_05_06_07_08_09_10.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39335_69e8c082927602fa694a50ec_6J2P0367_68_69_70_71_72_73.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932f_69e8c08297cebad2fdfd94b5_6J2P0585_86_87_88_89_90_91.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39349_6a156439affba9a1bf4139b3_20260520_140413.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a620d347721760147d3b871_69ce9c23efbedee7cabf70b3_6J2P0234_35_36_37_38_39_40.jpeg",
+          "alt": "Office 1.04",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39340_69e8c068ae214d4b7a0e27b2_6J2P0325_26_27_28_29_30_31.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932c_69ce9c2fa63160a4413f07ad_6J2P0304_05_06_07_08_09_10.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39335_69e8c082927602fa694a50ec_6J2P0367_68_69_70_71_72_73.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932f_69e8c08297cebad2fdfd94b5_6J2P0585_86_87_88_89_90_91.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39349_6a156439affba9a1bf4139b3_20260520_140413.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a620d347721760147d3b871_69ce9c23efbedee7cabf70b3_6J2P0234_35_36_37_38_39_40.jpeg",
+          "alt": "Office G.04",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39340_69e8c068ae214d4b7a0e27b2_6J2P0325_26_27_28_29_30_31.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932c_69ce9c2fa63160a4413f07ad_6J2P0304_05_06_07_08_09_10.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39335_69e8c082927602fa694a50ec_6J2P0367_68_69_70_71_72_73.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc3932f_69e8c08297cebad2fdfd94b5_6J2P0585_86_87_88_89_90_91.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a62162dbd44925e2cc39349_6a156439affba9a1bf4139b3_20260520_140413.jpeg",
+          "alt": "",
+          "type": "img"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        },
+        {
+          "src": "https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg",
+          "alt": "",
+          "type": "background-image"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "See map view"
+        },
+        {
+          "href": "https://www.mid-point.co.za/contact-us",
+          "label": "Enquire"
+        },
+        {
+          "href": "https://www.mid-point.co.za/#Explore",
+          "label": "See map view"
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/#Explore",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/#Explore",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/#Explore",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/#Explore",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/#Explore",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "Enquire",
+          "href": "https://www.mid-point.co.za/contact-us",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        },
+        {
+          "tag": "a",
+          "text": "See map view",
+          "href": "https://www.mid-point.co.za/#Explore",
+          "backgroundColor": "rgb(57, 234, 230)",
+          "color": "rgb(8, 33, 33)",
+          "borderRadius": "5px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "7px 20px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container-5 w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 4,
+          "children": [
+            {
+              "tag": "h2",
+              "className": "heading-2",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            },
+            {
+              "tag": "p",
+              "className": "cl-grey-400",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 3,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-dyn-list",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "p",
+              "className": "cl-grey-400",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 0,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

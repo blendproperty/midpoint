@@ -1,0 +1,478 @@
+{
+  "url": "https://www.mid-point.co.za/insights",
+  "slug": "insights",
+  "scrapedAt": "2026-07-24T10:21:53.887Z",
+  "title": "Insights |Business Park, Location, Amenties, FAQs & more",
+  "metaDescription": "Discover Midpoint's business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place.",
+  "canonical": null,
+  "ogTags": {
+    "og:title": "Insights |Business Park, Location, Amenties, FAQs & more",
+    "og:description": "Discover Midpoint's business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place.",
+    "og:type": "website"
+  },
+  "twitterTags": {
+    "twitter:title": "Insights |Business Park, Location, Amenties, FAQs & more",
+    "twitter:description": "Discover Midpoint's business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place.",
+    "twitter:card": "summary_large_image"
+  },
+  "jsonLd": [
+    {
+      "raw": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://www.mid-point.co.za/insights#webpage\",\n      \"url\": \"https://www.mid-point.co.za/insights\",\n      \"name\": \"Insights | Business Park, Location, Amenities, FAQs & more\",\n      \"description\": \"Discover Midpoint's business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place.\",\n      \"isPartOf\": { \"@id\": \"https://www.mid-point.co.za/#website\" }\n    },\n    {\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        { \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://www.mid-point.co.za/\" },\n        { \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Insights\", \"item\": \"https://www.mid-point.co.za/insights\" }\n      ]\n    },\n    {\n      \"@type\": \"ItemList\",\n      \"name\": \"Insights\",\n      \"itemListElement\": [\n        { \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Amenities at Midpoint\", \"url\": \"https://www.mid-point.co.za/amenities\" },\n        { \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Frequently Asked Questions\", \"url\": \"https://www.mid-point.co.za/faqs\" }\n      ]\n    },\n    {\n      \"@type\": \"LocalBusiness\",\n      \"name\": \"Midpoint Business Park\",\n      \"url\": \"https://www.mid-point.co.za/\",\n      \"telephone\": \"+27113809400\",\n      \"email\": \"boitumelo@blendproperty.co.za\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"162 Tonetti Street, Halfway House\",\n        \"addressLocality\": \"Midrand\",\n        \"addressRegion\": \"Gauteng\",\n        \"postalCode\": \"1685\",\n        \"addressCountry\": \"ZA\"\n      }\n    }\n  ]\n}\n  ",
+      "parsed": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://www.mid-point.co.za/insights#webpage",
+            "url": "https://www.mid-point.co.za/insights",
+            "name": "Insights | Business Park, Location, Amenities, FAQs & more",
+            "description": "Discover Midpoint's business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place.",
+            "isPartOf": {
+              "@id": "https://www.mid-point.co.za/#website"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.mid-point.co.za/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Insights",
+                "item": "https://www.mid-point.co.za/insights"
+              }
+            ]
+          },
+          {
+            "@type": "ItemList",
+            "name": "Insights",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Amenities at Midpoint",
+                "url": "https://www.mid-point.co.za/amenities"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Frequently Asked Questions",
+                "url": "https://www.mid-point.co.za/faqs"
+              }
+            ]
+          },
+          {
+            "@type": "LocalBusiness",
+            "name": "Midpoint Business Park",
+            "url": "https://www.mid-point.co.za/",
+            "telephone": "+27113809400",
+            "email": "boitumelo@blendproperty.co.za",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "162 Tonetti Street, Halfway House",
+              "addressLocality": "Midrand",
+              "addressRegion": "Gauteng",
+              "postalCode": "1685",
+              "addressCountry": "ZA"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 456
+      },
+      "textBlocks": [
+        {
+          "tag": "strong",
+          "text": "Insights at Midpoint"
+        },
+        {
+          "tag": "div",
+          "text": "The business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Insights at Midpoint",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-hero_1-short w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "flex-start",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": "Amenities",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 1545
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Explore Midpoint's insights"
+        },
+        {
+          "tag": "p",
+          "text": "From the estate itself to where it sits, what's on offer day to day, and the answers to common questions — this is where to get the full picture of Midpoint beyond the spaces you can lease.Whether you're evaluating the business park as a whole, checking the commute, planning around the amenities, or just have a question before you enquire, everything here links through to the detail."
+        },
+        {
+          "tag": "h3",
+          "text": "Estate"
+        },
+        {
+          "tag": "p",
+          "text": "The Midpoint estate in full — tenants, estate layout, and why businesses choose to be here."
+        },
+        {
+          "tag": "a",
+          "text": "View business park →"
+        },
+        {
+          "tag": "h3",
+          "text": "Location"
+        },
+        {
+          "tag": "p",
+          "text": "On the N1 between Jhb and Pretoria — verified distances, access and route detail."
+        },
+        {
+          "tag": "a",
+          "text": "View location →"
+        },
+        {
+          "tag": "h3",
+          "text": "Amenities"
+        },
+        {
+          "tag": "p",
+          "text": "Gym, padel courts, restaurant, cafes and trails — what's operating on the estate now."
+        },
+        {
+          "tag": "a",
+          "text": "View amenities →"
+        },
+        {
+          "tag": "h3",
+          "text": "FAQs"
+        },
+        {
+          "tag": "p",
+          "text": "Straight answers on leasing, space, amenities and access at Midpoint."
+        },
+        {
+          "tag": "a",
+          "text": "View all FAQs →"
+        },
+        {
+          "tag": "div",
+          "text": "Ready to move in?"
+        },
+        {
+          "tag": "div",
+          "text": "View availability"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Explore Midpoint's insights",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(11, 31, 28)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Estate",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Location",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(11, 31, 28)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Amenities",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "FAQs",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(11, 31, 28)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "From the estate itself to where it sits, what's on offer day to day, and the answers to common questions — this is where to get the full picture of Midpoint beyond the spaces you can lease.\n\nWhether you're evaluating the business park as a whole, checking the commute, planning around the amenities, or just have a question before you enquire, everything here links through to the detail.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "The Midpoint estate in full — tenants, estate layout, and why businesses choose to be here.",
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "On the N1 between Jhb and Pretoria — verified distances, access and route detail.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(8, 33, 33)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Gym, padel courts, restaurant, cafes and trails — what's operating on the estate now.",
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Straight answers on leasing, space, amenities and access at Midpoint.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(8, 33, 33)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/offices",
+          "label": "View business park →"
+        },
+        {
+          "href": "https://www.mid-point.co.za/insights#",
+          "label": "View location →"
+        },
+        {
+          "href": "https://www.mid-point.co.za/amenities",
+          "label": "View amenities →"
+        },
+        {
+          "href": "https://www.mid-point.co.za/faqs",
+          "label": "View all FAQs →"
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies",
+          "label": ""
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "View business park →",
+          "href": "https://www.mid-point.co.za/offices",
+          "backgroundColor": "rgb(56, 152, 236)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "15px 15px 9px"
+        },
+        {
+          "tag": "a",
+          "text": "View location →",
+          "href": "https://www.mid-point.co.za/insights#",
+          "backgroundColor": "rgb(56, 152, 236)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "15px 15px 9px"
+        },
+        {
+          "tag": "a",
+          "text": "View amenities →",
+          "href": "https://www.mid-point.co.za/amenities",
+          "backgroundColor": "rgb(56, 152, 236)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "15px 15px 9px"
+        },
+        {
+          "tag": "a",
+          "text": "View all FAQs →",
+          "href": "https://www.mid-point.co.za/faqs",
+          "backgroundColor": "rgb(56, 152, 236)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "15px 15px 9px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "gradient_orb-cyan_blue top-left w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "section-spacing",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

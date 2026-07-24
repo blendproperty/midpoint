@@ -1,0 +1,441 @@
+{
+  "url": "https://www.mid-point.co.za/spaces",
+  "slug": "spaces",
+  "scrapedAt": "2026-07-24T10:21:57.423Z",
+  "title": "Spaces at Midpoint | Offices, Warehouses & Amenities in Midrand",
+  "metaDescription": "Explore Midpoint's office space, warehouse space and on-site amenities in Midrand — a connected business estate between Johannesburg and Pretoria.",
+  "canonical": null,
+  "ogTags": {
+    "og:title": "Spaces at Midpoint | Offices, Warehouses & Amenities in Midrand",
+    "og:description": "Explore Midpoint's office space, warehouse space and on-site amenities in Midrand — a connected business estate between Johannesburg and Pretoria.",
+    "og:type": "website"
+  },
+  "twitterTags": {
+    "twitter:title": "Spaces at Midpoint | Offices, Warehouses & Amenities in Midrand",
+    "twitter:description": "Explore Midpoint's office space, warehouse space and on-site amenities in Midrand — a connected business estate between Johannesburg and Pretoria.",
+    "twitter:card": "summary_large_image"
+  },
+  "jsonLd": [
+    {
+      "raw": "\n{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://www.mid-point.co.za/spaces#webpage\",\n      \"url\": \"https://www.mid-point.co.za/spaces\",\n      \"name\": \"Spaces at Midpoint | Offices, Warehouses & Amenities in Midrand\",\n      \"description\": \"Explore Midpoint's office space, warehouse space and on-site amenities in Midrand — a connected business estate between Johannesburg and Pretoria.\",\n      \"isPartOf\": { \"@id\": \"https://www.mid-point.co.za/#website\" }\n    },\n    {\n      \"@type\": \"BreadcrumbList\",\n      \"itemListElement\": [\n        { \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://www.mid-point.co.za/\" },\n        { \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Spaces\", \"item\": \"https://www.mid-point.co.za/spaces\" }\n      ]\n    },\n    {\n      \"@type\": \"ItemList\",\n      \"name\": \"Spaces at Midpoint\",\n      \"itemListElement\": [\n        {\n          \"@type\": \"ListItem\",\n          \"position\": 1,\n          \"name\": \"Offices to Rent in Midrand\",\n          \"url\": \"https://www.mid-point.co.za/offices\"\n        },\n        {\n          \"@type\": \"ListItem\",\n          \"position\": 2,\n          \"name\": \"Warehouses to Rent in Midrand\",\n          \"url\": \"https://www.mid-point.co.za/warehouses\"\n        },\n        {\n          \"@type\": \"ListItem\",\n          \"position\": 3,\n          \"name\": \"Amenities at Midpoint\",\n          \"url\": \"https://www.mid-point.co.za/amenities\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"LocalBusiness\",\n      \"name\": \"Midpoint Business Park\",\n      \"url\": \"https://www.mid-point.co.za/\",\n      \"telephone\": \"+27113809400\",\n      \"email\": \"boitumelo@blendproperty.co.za\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"162 Tonetti Street, Halfway House\",\n        \"addressLocality\": \"Midrand\",\n        \"addressRegion\": \"Gauteng\",\n        \"postalCode\": \"1685\",\n        \"addressCountry\": \"ZA\"\n      }\n    }\n  ]\n}\n  ",
+      "parsed": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://www.mid-point.co.za/spaces#webpage",
+            "url": "https://www.mid-point.co.za/spaces",
+            "name": "Spaces at Midpoint | Offices, Warehouses & Amenities in Midrand",
+            "description": "Explore Midpoint's office space, warehouse space and on-site amenities in Midrand — a connected business estate between Johannesburg and Pretoria.",
+            "isPartOf": {
+              "@id": "https://www.mid-point.co.za/#website"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.mid-point.co.za/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Spaces",
+                "item": "https://www.mid-point.co.za/spaces"
+              }
+            ]
+          },
+          {
+            "@type": "ItemList",
+            "name": "Spaces at Midpoint",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Offices to Rent in Midrand",
+                "url": "https://www.mid-point.co.za/offices"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Warehouses to Rent in Midrand",
+                "url": "https://www.mid-point.co.za/warehouses"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Amenities at Midpoint",
+                "url": "https://www.mid-point.co.za/amenities"
+              }
+            ]
+          },
+          {
+            "@type": "LocalBusiness",
+            "name": "Midpoint Business Park",
+            "url": "https://www.mid-point.co.za/",
+            "telephone": "+27113809400",
+            "email": "boitumelo@blendproperty.co.za",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "162 Tonetti Street, Halfway House",
+              "addressLocality": "Midrand",
+              "addressRegion": "Gauteng",
+              "postalCode": "1685",
+              "addressCountry": "ZA"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "page": {
+    "backgroundColorBody": "rgb(255, 255, 255)",
+    "backgroundColorHtml": "rgba(0, 0, 0, 0)",
+    "fontFamilyBody": "Figtree, Arial, sans-serif"
+  },
+  "sections": [
+    {
+      "index": 0,
+      "tag": "section",
+      "className": "",
+      "id": null,
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 428
+      },
+      "textBlocks": [
+        {
+          "tag": "strong",
+          "text": "Spaces at Midpoint"
+        },
+        {
+          "tag": "div",
+          "text": "Office space, warehouse space and on-site amenities, all within one connected business estate in Midrand."
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Spaces at Midpoint",
+          "fontSize": "72px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "72px"
+        }
+      ],
+      "paragraphs": [],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [],
+      "buttons": [],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "hero_1",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 3,
+          "children": [
+            {
+              "tag": "div",
+              "className": "parallax_image-container",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "hero_1-gradient-overlay w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "w-layout-blockcontainer container cc-hero_1-short w-container",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "flex-start",
+              "childCount": 1,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "tag": "section",
+      "className": "",
+      "id": "Amenities",
+      "computedStyle": {
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "gridTemplateColumns": "none",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "gap": "normal",
+        "padding": "0px",
+        "margin": "0px",
+        "borderRadius": "0px"
+      },
+      "rect": {
+        "width": 1440,
+        "height": 2049
+      },
+      "textBlocks": [
+        {
+          "tag": "h2",
+          "text": "Explore Midpoint's spaces"
+        },
+        {
+          "tag": "p",
+          "text": "Midpoint brings together office space, warehouse space and on-site amenities within a single connected estate. Choose where to start below — each page has current availability, specifications and a direct way to get in touch.These spaces contribute to a workplace culture that extends beyond desks, meeting rooms, and warehouse floors. Teams can meet informally, step away for a break, or recharge between meetings without leaving the estate."
+        },
+        {
+          "tag": "h3",
+          "text": "Offices"
+        },
+        {
+          "tag": "p",
+          "text": "Offices to rent in Midrand — flexible suites through to full corporate headquarters."
+        },
+        {
+          "tag": "a",
+          "text": "View offices →"
+        },
+        {
+          "tag": "h3",
+          "text": "Warehouses"
+        },
+        {
+          "tag": "p",
+          "text": "High-performance warehouses in Midrand with strong eaves, loading access and yard space."
+        },
+        {
+          "tag": "a",
+          "text": "View warehouses →"
+        },
+        {
+          "tag": "h3",
+          "text": "Serviced offices"
+        },
+        {
+          "tag": "p",
+          "text": "Furnished OnPoint suites with meeting rooms, reception and flexible terms — move in and get to work."
+        },
+        {
+          "tag": "a",
+          "text": "View serviced offices →"
+        },
+        {
+          "tag": "div",
+          "text": "Ready to move in?"
+        },
+        {
+          "tag": "div",
+          "text": "View availability"
+        }
+      ],
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "Explore Midpoint's spaces",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(11, 31, 28)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Offices",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Warehouses",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(11, 31, 28)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        },
+        {
+          "tag": "h3",
+          "text": "Serviced offices",
+          "fontSize": "36px",
+          "fontWeight": "600",
+          "color": "rgb(255, 255, 255)",
+          "fontFamily": "Figtree, Arial, sans-serif",
+          "lineHeight": "36px"
+        }
+      ],
+      "paragraphs": [
+        {
+          "text": "Midpoint brings together office space, warehouse space and on-site amenities within a single connected estate. Choose where to start below — each page has current availability, specifications and a direct way to get in touch.\n\nThese spaces contribute to a workplace culture that extends beyond desks, meeting rooms, and warehouse floors. Teams can meet informally, step away for a break, or recharge between meetings without leaving the estate.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(109, 114, 128)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Offices to rent in Midrand — flexible suites through to full corporate headquarters.",
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "High-performance warehouses in Midrand with strong eaves, loading access and yard space.",
+          "fontSize": "16px",
+          "fontWeight": "400",
+          "color": "rgb(8, 33, 33)",
+          "lineHeight": "20.8px"
+        },
+        {
+          "text": "Furnished OnPoint suites with meeting rooms, reception and flexible terms — move in and get to work.",
+          "fontSize": "16px",
+          "fontWeight": "300",
+          "color": "rgb(255, 255, 255)",
+          "lineHeight": "20.8px"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
+          "alt": "",
+          "type": "img"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://www.mid-point.co.za/offices",
+          "label": "View offices →"
+        },
+        {
+          "href": "https://www.mid-point.co.za/spaces#",
+          "label": "View warehouses →"
+        },
+        {
+          "href": "https://www.mid-point.co.za/spaces#",
+          "label": "View serviced offices →"
+        },
+        {
+          "href": "https://www.mid-point.co.za/vacancies",
+          "label": ""
+        }
+      ],
+      "buttons": [
+        {
+          "tag": "a",
+          "text": "View offices →",
+          "href": "https://www.mid-point.co.za/offices",
+          "backgroundColor": "rgb(56, 152, 236)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "15px 15px 9px"
+        },
+        {
+          "tag": "a",
+          "text": "View warehouses →",
+          "href": "https://www.mid-point.co.za/spaces#",
+          "backgroundColor": "rgb(56, 152, 236)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "15px 15px 9px"
+        },
+        {
+          "tag": "a",
+          "text": "View serviced offices →",
+          "href": "https://www.mid-point.co.za/spaces#",
+          "backgroundColor": "rgb(56, 152, 236)",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "20px",
+          "fontSize": "16px",
+          "fontWeight": "500",
+          "padding": "15px 15px 9px"
+        }
+      ],
+      "domStructure": [
+        {
+          "tag": "div",
+          "className": "w-layout-blockcontainer container w-container",
+          "display": "block",
+          "flexDirection": "row",
+          "gridTemplateColumns": "none",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "childCount": 2,
+          "children": [
+            {
+              "tag": "div",
+              "className": "gradient_orb-cyan_blue top-left w-embed",
+              "display": "block",
+              "flexDirection": "row",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 1,
+              "children": []
+            },
+            {
+              "tag": "div",
+              "className": "section-spacing",
+              "display": "flex",
+              "flexDirection": "column",
+              "gridTemplateColumns": "none",
+              "alignItems": "normal",
+              "justifyContent": "normal",
+              "childCount": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
