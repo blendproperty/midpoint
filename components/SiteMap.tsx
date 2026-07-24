@@ -28,7 +28,7 @@ export default function SiteMap() {
             type="button"
             onClick={() => setSelected(listing)}
             style={{ left: `${listing.x}%`, top: `${listing.y}%` }}
-            className="absolute flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-midpoint-cyan bg-white text-sm font-semibold text-midpoint-dark shadow-md transition-transform hover:scale-110"
+            className="group absolute flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-midpoint-cyan bg-white text-sm font-semibold text-midpoint-dark shadow-md transition-all duration-200 hover:scale-125 hover:bg-midpoint-cyan hover:text-white hover:shadow-[0_0_20px_rgba(57,234,230,0.7)] focus-visible:scale-125 focus-visible:bg-midpoint-cyan focus-visible:text-white focus-visible:shadow-[0_0_20px_rgba(57,234,230,0.7)]"
             aria-label={`View ${listing.name}`}
           >
             {listing.pin}
