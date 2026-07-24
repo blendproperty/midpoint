@@ -28,7 +28,12 @@ export default function SiteMap() {
             type="button"
             onClick={() => setSelected(listing)}
             style={{ left: `${listing.x}%`, top: `${listing.y}%` }}
-            className="group absolute flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-midpoint-cyan bg-white text-sm font-semibold text-midpoint-dark shadow-md transition-all duration-200 hover:scale-125 hover:bg-midpoint-cyan hover:text-white hover:shadow-[0_0_20px_rgba(57,234,230,0.7)] focus-visible:scale-125 focus-visible:bg-midpoint-cyan focus-visible:text-white focus-visible:shadow-[0_0_20px_rgba(57,234,230,0.7)]"
+            /* Real hover behavior confirmed via Playwright against the
+               live site's .map_marker:hover rule — it's just a text color
+               change (number turns cyan), nothing more. Earlier version
+               had an invented scale/glow effect based on misreading a
+               screenshot; replaced with the actual, subtler behavior. */
+            className="absolute flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-midpoint-cyan bg-white text-sm font-semibold text-midpoint-dark transition-colors duration-200 hover:text-midpoint-cyan focus-visible:text-midpoint-cyan"
             aria-label={`View ${listing.name}`}
           >
             {listing.pin}
