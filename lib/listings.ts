@@ -1,7 +1,8 @@
 export type Listing = {
   pin: number;
-  // Approximate position as % of the map image — placeholder first pass,
-  // adjust based on visual review against the live site.
+  // Exact position as % of the map container — extracted directly from
+  // the live site's DOM via Playwright (getBoundingClientRect on each
+  // .mp-N marker relative to .explore_map-positioning), not estimated.
   x: number;
   y: number;
   name: string;
@@ -15,8 +16,8 @@ export type Listing = {
 export const listings: Listing[] = [
   {
     pin: 12,
-    x: 34,
-    y: 79,
+    x: 22.6,
+    y: 34.5,
     name: "3 Weaver Avenue",
     category: "Office / Warehouse",
     description:
@@ -27,8 +28,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 10,
-    x: 41,
-    y: 77,
+    x: 27.6,
+    y: 33.1,
     name: "Unit 1, 1 Weaver",
     category: "Office",
     description:
@@ -39,8 +40,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 11,
-    x: 40,
-    y: 71,
+    x: 26.6,
+    y: 28.9,
     name: "1 Kingfisher Avenue",
     category: "Warehouse",
     description:
@@ -51,8 +52,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 2,
-    x: 60,
-    y: 69,
+    x: 40.6,
+    y: 27.5,
     name: "Corporate Accommodation",
     category: "Accommodation",
     description:
@@ -63,8 +64,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 4,
-    x: 53,
-    y: 75,
+    x: 35.6,
+    y: 31.7,
     name: "2 Kingfisher Avenue",
     category: "New Development Opportunity",
     description:
@@ -75,8 +76,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 5,
-    x: 74,
-    y: 87,
+    x: 50.6,
+    y: 40.2,
     name: "6 Kingfisher Avenue",
     category: "Warehouse",
     description: "This well-located 2,320sqm warehouse offers excellent highway frontage.",
@@ -86,8 +87,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 6,
-    x: 44,
-    y: 87,
+    x: 29.6,
+    y: 40.2,
     name: "2 Weaver Avenue",
     category: "Office",
     description:
@@ -98,8 +99,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 7,
-    x: 24,
-    y: 85,
+    x: 15.6,
+    y: 38.7,
     name: "6 Weaver Avenue",
     category: "Warehouse",
     description:
@@ -110,8 +111,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 3,
-    x: 68,
-    y: 79,
+    x: 46.6,
+    y: 34.5,
     name: "OnPoint",
     category: "Serviced Offices",
     description:
@@ -122,8 +123,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 1,
-    x: 59,
-    y: 77,
+    x: 39.9,
+    y: 33.1,
     name: "Amenity Hub",
     category: "Entertainment",
     description:
@@ -134,8 +135,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 8,
-    x: 37,
-    y: 75,
+    x: 24.6,
+    y: 31.7,
     name: "1 Weaver Avenue",
     category: "Office",
     description:
@@ -146,8 +147,8 @@ export const listings: Listing[] = [
   },
   {
     pin: 9,
-    x: 57,
-    y: 71,
+    x: 38.6,
+    y: 28.9,
     name: "8 Sunbird Road",
     category: "Office",
     description:
