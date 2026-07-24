@@ -12,15 +12,15 @@ export default function TenantWall() {
       </div>
 
       <div className="mt-10 overflow-hidden">
-        <div className="flex w-max animate-marquee gap-10">
+        <div className="flex w-max animate-marquee items-center gap-10">
           {row.map((tenant, i) => (
-            <div key={`${tenant.name}-${i}`} className="flex h-16 w-32 shrink-0 items-center justify-center">
+            <div key={`${tenant.name}-${i}`} className="flex h-[70px] shrink-0 items-center justify-center">
               <Image
                 src={tenant.src}
                 alt={tenant.name}
-                width={128}
-                height={64}
-                className="max-h-16 w-auto object-contain opacity-80"
+                width={120}
+                height={70}
+                className="h-[70px] w-auto object-contain opacity-80"
               />
             </div>
           ))}
