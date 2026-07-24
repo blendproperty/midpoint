@@ -1,18 +1,29 @@
+import HeroSection from "@/components/HeroSection";
+import IntroSection from "@/components/IntroSection";
+import FutureOfWorkSection from "@/components/FutureOfWorkSection";
+import ListingsGrid from "@/components/ListingsGrid";
+import LocationSection from "@/components/LocationSection";
+import AmenitiesSection from "@/components/AmenitiesSection";
+import BrokerCTASection from "@/components/BrokerCTASection";
+import TenantWall from "@/components/TenantWall";
+import DeveloperSection from "@/components/DeveloperSection";
+import FaqAccordion from "@/components/FaqAccordion";
+import ContactSection from "@/components/ContactSection";
+
 export default function HomePage() {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-16">
-      <h1 className="text-4xl font-bold md:text-5xl">
-        Warehouse and flexible office space in Midrand, designed for
-        efficient operations.
-      </h1>
-      <p className="mt-4 max-w-2xl text-midpoint-grey-400">
-        Conveniently positioned in Midrand, central to major business hubs
-        in Gauteng. Connect your company to endless opportunities and
-        amenities.
-      </p>
-      {/* TODO: hero image, listings carousel (pulled live from
-          listings.blendproperty.co.za), amenities grid, tenant logo wall,
-          FAQ accordion — port section-by-section from the Webflow site. */}
-    </div>
+    <>
+      <HeroSection />
+      <IntroSection />
+      <FutureOfWorkSection />
+      <ListingsGrid />
+      <LocationSection />
+      <AmenitiesSection />
+      <BrokerCTASection />
+      <TenantWall />
+      <DeveloperSection />
+      <FaqAccordion />
+      <ContactSection />
+    </>
   );
 }
