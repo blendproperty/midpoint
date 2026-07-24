@@ -10,8 +10,11 @@ export default function SiteMap() {
 
   return (
     <div className="relative">
-      {/* Aerial map with numbered pins */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-white">
+      {/* Aerial map with numbered pins. Aspect ratio matches the real
+          container measured on the live site (940.8 / 670 ≈ 1.404) so the
+          extracted pin percentages line up correctly without letterboxing
+          drift. */}
+      <div className="relative aspect-[1.404/1] w-full overflow-hidden rounded-2xl bg-white">
         <Image
           src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69e21ba7b5a168f9f25a6a8d_Aerial.jpg"
           alt="Midpoint estate aerial map"
