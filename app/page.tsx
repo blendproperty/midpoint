@@ -3,6 +3,7 @@ import IntroSection from "@/components/IntroSection";
 import FutureOfWorkSection from "@/components/FutureOfWorkSection";
 import ListingsGrid from "@/components/ListingsGrid";
 import LocationSection from "@/components/LocationSection";
+import PromoBanner from "@/components/PromoBanner";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import BrokerCTASection from "@/components/BrokerCTASection";
 import TenantWall from "@/components/TenantWall";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <FutureOfWorkSection />
       <ListingsGrid />
       <LocationSection />
+      <PromoBanner />
       <AmenitiesSection />
       <BrokerCTASection />
       <TenantWall />
