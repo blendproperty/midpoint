@@ -1,0 +1,3 @@
+This file exists so git tracks the (currently empty) public/ directory.
+Add real static assets here (favicon, images not served via next/image
+remote patterns, etc.) and this placeholder can be removed.
