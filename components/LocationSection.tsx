@@ -13,25 +13,46 @@ export default function LocationSection() {
         <div className="absolute inset-0 bg-midpoint-dark/80" />
       </div>
 
-      <div className="relative mx-auto max-w-4xl px-6 py-16">
-        <h2 className="text-3xl font-semibold md:text-4xl">
-          At the centre of business, connected to everything.
-        </h2>
-        <p className="mt-4">
-          Seamless access to major business districts, highways, and international travel hubs. Midpoint sits in Halfway House, Midrand, one of Gauteng&rsquo;s most active commercial and industrial corridors. Easy access to the N1 highway allows businesses to move goods efficiently between Johannesburg, Pretoria, and national distribution networks.
-        </p>
+      <div className="relative mx-auto max-w-7xl px-6 py-16">
+        {/* Real 2-column grid confirmed via DOM inspection: text left,
+            two glass cards right (not stacked plain text). */}
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 className="text-3xl font-semibold text-midpoint-cyan md:text-4xl">
+              At the centre of business, connected to everything.
+            </h2>
+            <p className="mt-4">
+              Seamless access to major business districts, highways, and international travel hubs.
+            </p>
+            <p className="mt-4">
+              Midpoint sits in Halfway House, Midrand, one of Gauteng&rsquo;s most active commercial and industrial corridors. Easy access to the N1 highway allows businesses to move goods efficiently between Johannesburg, Pretoria, and national distribution networks.
+            </p>
+          </div>
 
-        <div className="mt-8">
-          <p className="text-sm uppercase tracking-wide text-midpoint-cyan">Location</p>
-          <p className="mt-1 font-medium">162 Tonetti Street, Halfway House, Midrand</p>
+          {/* Exact styling extracted via Playwright from .glass-text_block:
+              bg-white/10, backdrop-blur(10px), 13px radius, 20px padding. */}
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="rounded-[13px] bg-white/10 p-5 backdrop-blur-[10px]">
+              <p className="text-lg font-semibold text-midpoint-cyan">Location</p>
+              <p className="mt-2">
+                162 Tonetti Street,
+                <br />
+                Halfway House,
+                <br />
+                Midrand
+              </p>
+            </div>
+
+            <div className="rounded-[13px] bg-white/10 p-5 backdrop-blur-[10px]">
+              <ul className="list-disc space-y-1 pl-4">
+                <li>31 km to Pretoria</li>
+                <li>25 km to Johannesburg</li>
+                <li>21 km to OR Tambo International Airport</li>
+                <li>1,470 meters of N1 highway frontage</li>
+              </ul>
+            </div>
+          </div>
         </div>
-
-        <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
-          <li>31 km to Pretoria</li>
-          <li>25 km to Johannesburg</li>
-          <li>21 km to OR Tambo International Airport</li>
-          <li>1,470 meters of N1 highway frontage</li>
-        </ul>
       </div>
     </section>
   );
