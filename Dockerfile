@@ -4,7 +4,11 @@ FROM node:22-alpine AS base
 FROM base AS deps
 WORKDIR /app
 COPY package.json package-lock.json* ./
-RUN npm ci
+# No committed package-lock.json yet (sandbox that authored this repo has no
+# registry access to generate one). npm install works without a lockfile
+# and will produce one — commit the resulting package-lock.json back to the
+# repo afterward so future builds use npm ci for reproducibility.
+RUN npm install
 
 # --- build ---
 FROM base AS builder
