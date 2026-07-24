@@ -24,6 +24,15 @@ const config: Config = {
       borderRadius: {
         card: "1.5rem", // matches the rounded card corners seen on cards
       },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 40s linear infinite",
+      },
     },
   },
   plugins: [],
