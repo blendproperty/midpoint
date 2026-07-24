@@ -21,11 +21,11 @@ export default function Nav() {
         <div className="hidden items-center gap-4 text-sm md:flex">
           <a
             href="mailto:boitumelo@blendproperty.co.za"
-            className="rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm"
+            className="rounded-full bg-midpoint-dark/60 px-4 py-2 backdrop-blur-sm"
           >
             boitumelo@blendproperty.co.za
           </a>
-          <a href="tel:+27113809400" className="rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+          <a href="tel:+27113809400" className="rounded-full bg-midpoint-dark/60 px-4 py-2 backdrop-blur-sm">
             Call us now&nbsp; +27 11 380 9400
           </a>
         </div>
