@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -11,21 +12,21 @@ const navLinks = [
 
 export default function Nav() {
   return (
-    <nav className="w-full">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <nav className="absolute inset-x-0 top-0 z-50 w-full">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 text-white">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          {/* TODO: replace with actual logo asset */}
+          <Logo />
           <span>Midpoint</span>
         </Link>
 
         <div className="hidden items-center gap-4 text-sm md:flex">
           <a
             href="mailto:boitumelo@blendproperty.co.za"
-            className="rounded-full bg-midpoint-cyan/20 px-4 py-2"
+            className="rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm"
           >
             boitumelo@blendproperty.co.za
           </a>
-          <a href="tel:+27113809400" className="rounded-full bg-midpoint-cyan/20 px-4 py-2">
+          <a href="tel:+27113809400" className="rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
             Call us now&nbsp; +27 11 380 9400
           </a>
         </div>
