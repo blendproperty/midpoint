@@ -41,21 +41,22 @@ export default function HeroSection() {
           </p>
 
           {/* Quick link tiles — Webflow's original used a 3D Swiper carousel;
-              this is a simpler static equivalent with the same content and
-              destinations, avoiding an extra carousel dependency. */}
-          <div className="mt-10 flex flex-wrap gap-4">
+              this is a simpler equivalent: bigger tiles in a horizontally
+              scrollable row, avoiding an extra carousel dependency while
+              still being scrollable if more tiles are added later. */}
+          <div className="mt-10 flex gap-4 overflow-x-auto pb-2">
             {quickLinks.map((link) => (
               <Link
                 key={link.title}
                 href={link.href}
-                className="group w-32 overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm"
+                className="group w-56 shrink-0 overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm"
               >
-                <div className="relative h-24 w-full">
+                <div className="relative h-36 w-full">
                   <Image src={link.image} alt="" fill className="object-cover" />
                 </div>
-                <div className="flex items-center justify-between px-3 py-2 text-xs font-medium text-white">
+                <div className="flex items-center justify-between px-4 py-3 text-sm font-medium text-white">
                   <span>{link.title}</span>
-                  <span className="ml-1 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  <span className="ml-2 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     ↗
                   </span>
                 </div>
