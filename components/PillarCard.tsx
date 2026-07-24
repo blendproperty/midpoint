@@ -33,7 +33,12 @@ export default function PillarCard({
 
       <Link
         href={href}
-        className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-midpoint-blue px-5 py-2.5 text-sm font-semibold text-white"
+        className={[
+          "mt-6 inline-flex w-fit items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold",
+          // Button inverts against the card so it's always legible:
+          // dark card -> cyan button, cyan card -> dark button.
+          isDark ? "bg-midpoint-cyan text-midpoint-dark" : "bg-midpoint-dark text-white",
+        ].join(" ")}
       >
         {ctaLabel}
       </Link>
