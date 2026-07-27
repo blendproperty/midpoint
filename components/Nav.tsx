@@ -12,7 +12,7 @@ const navLinks = [
 
 export default function Nav() {
   return (
-    <nav className="absolute inset-x-0 top-0 z-50 w-full">
+    <nav className="fixed inset-x-0 top-0 z-50 w-full bg-gradient-to-b from-midpoint-dark/80 to-transparent">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 pb-4 pt-8 text-white">
         <Link href="/" aria-label="Midpoint home">
           <Logo />
