@@ -10,7 +10,7 @@ export default function ContactSection() {
             <p className="max-w-md text-midpoint-grey-400">
               Positioned in Midrand between Johannesburg and Pretoria, with the infrastructure, warehouses, offices, and amenities your team needs to thrive.
             </p>
-            <div className="mt-8 flex flex-wrap gap-16">
+            <div className="mt-8 flex flex-wrap justify-between gap-8">
               <div>
                 <h3 className="text-sm uppercase tracking-wide text-midpoint-grey-400">Contact Info</h3>
                 <p className="mt-1">
@@ -36,7 +36,7 @@ export default function ContactSection() {
 
         <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
           <h3 className="text-2xl font-semibold">Send us a message</h3>
-          <div className="max-w-2xl">
+          <div className="w-full">
             <ContactForm />
           </div>
         </div>
