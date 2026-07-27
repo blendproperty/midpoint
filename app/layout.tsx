@@ -3,6 +3,7 @@ import { Figtree } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { faqs } from "@/lib/faqs";
@@ -78,6 +79,7 @@ export default function RootLayout({
         />
         <Nav />
         <main>{children}</main>
+        <ContactSection />
         <Footer />
       </body>
     </html>

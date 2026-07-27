@@ -11,7 +11,6 @@ import GalleryStrip from "@/components/GalleryStrip";
 import TenantWall from "@/components/TenantWall";
 import DeveloperSection from "@/components/DeveloperSection";
 import FaqAccordion from "@/components/FaqAccordion";
-import ContactSection from "@/components/ContactSection";
 
 export default function HomePage() {
   return (
@@ -29,7 +28,6 @@ export default function HomePage() {
       <TenantWall />
       <DeveloperSection />
       <FaqAccordion />
-      <ContactSection />
     </>
   );
 }
