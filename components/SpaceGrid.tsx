@@ -1,0 +1,43 @@
+import Image from "next/image";
+
+const spaces = [
+  {
+    icon: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdb6345c825ebf55a99160_building.svg",
+    title: "Premium Offices",
+    text: "Professional office space for corporate teams, professional services firms, and growing enterprises."
+  },
+  {
+    icon: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdd873f4e0e9b9732ca525_Serviced%20Offices.svg",
+    title: "Serviced Offices",
+    text: "Flexible, fully-serviced workspaces ready for occupation, with the support and amenities teams need."
+  },
+  {
+    icon: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdd8aa99f0f4e3bcfaacd5_Warehouse.svg",
+    title: "Warehouse Facilities",
+    text: "Modern warehouse facilities suited to logistics operators and businesses with operational footprints."
+  }
+];
+
+export default function SpaceGrid() {
+  return (
+    <section className="bg-white px-6 pb-24">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="max-w-2xl text-3xl font-semibold text-midpoint-dark md:text-4xl">
+          Space designed around how modern businesses actually work.
+        </h2>
+        <p className="mt-4 max-w-2xl text-midpoint-grey-400">
+          The estate offers a mix of office space, serviced offices, and warehouse facilities designed to accommodate a wide range of companies, from professional services firms and corporate teams to logistics operators and growing enterprises. At the same time, carefully integrated amenities and outdoor spaces contribute to a working environment that feels more balanced and enjoyable for the people who spend their days here.
+        </p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          {spaces.map((s) => (
+            <div key={s.title} className="rounded-2xl bg-midpoint-dark p-6 text-white">
+              <Image src={s.icon} alt="" width={28} height={28} />
+              <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
+              <p className="mt-2 text-sm text-midpoint-grey-400">{s.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
