@@ -4,7 +4,7 @@ import Logo from "@/components/Logo";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
-  { label: "Spaces", href: "/offices" }, // TODO: confirm final target once /spaces vs pillar links finalized
+  { label: "Spaces", href: "/spaces" },
   { label: "Insights", href: "/insights" },
   { label: "Vacancies", href: "/vacancies" },
   { label: "Explore", href: "/#explore" },
