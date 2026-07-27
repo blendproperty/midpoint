@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { listings } from "@/lib/listings";
+import VacancyCard from "@/components/VacancyCard";
+import { warehouseListings, officeListings, servicedOfficeListings } from "@/lib/vacancies";
 
 export const metadata: Metadata = {
   title: "Vacancies",
@@ -8,32 +9,49 @@ export const metadata: Metadata = {
     "Current leasing opportunities at Midpoint: warehouse, office and serviced office vacancies in Midrand."
 };
 
-// TODO: swap for live data from listings.blendproperty.co.za when API access is sorted.
 export default function Vacancies() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
-      <h1 className="text-4xl font-bold text-midpoint-dark">Vacancies</h1>
-      <table className="mt-10 w-full text-left text-sm">
-        <thead>
-          <tr className="border-b border-midpoint-grey-100 uppercase tracking-wide text-midpoint-grey-400">
-            <th className="py-3 pr-4">Space</th>
-            <th className="py-3 pr-4">Type</th>
-            <th className="py-3">Key details</th>
-          </tr>
-        </thead>
-        <tbody>
-          {listings.map((l) => (
-            <tr key={l.pin} className="border-b border-midpoint-grey-100/60 align-top">
-              <td className="py-4 pr-4 font-medium">{l.name}</td>
-              <td className="py-4 pr-4">{l.category}</td>
-              <td className="py-4">{l.features.join(" · ")}</td>
-            </tr>
+    <div className="bg-white">
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <h1 className="text-4xl font-bold text-midpoint-dark md:text-5xl">Vacancies</h1>
+        <p className="mt-4 max-w-2xl text-midpoint-grey-400">
+          Current warehouse, office and serviced office space available to lease at Midpoint, Midrand.
+        </p>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-16">
+        <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Available Warehouse Space</h2>
+        <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below are the warehouse opportunities currently available at Midpoint:</p>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {warehouseListings.map((l) => (
+            <VacancyCard key={l.id} listing={l} />
           ))}
-        </tbody>
-      </table>
-      <Link href="/contact-us" className="mt-8 inline-block rounded-full bg-midpoint-dark px-6 py-3 text-sm font-medium text-white">
-        Enquire about a space
-      </Link>
-    </section>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-16">
+        <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Available Office Space</h2>
+        <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below are the office spaces currently available at Midpoint:</p>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {officeListings.map((l) => (
+            <VacancyCard key={l.id} listing={l} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-20">
+        <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Shared Workspace</h2>
+        <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below is the shared workspace currently available at Midpoint:</p>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {servicedOfficeListings.map((l) => (
+            <VacancyCard key={l.id} listing={l} />
+          ))}
+        </div>
+
+        <Link href="/contact-us" className="mt-4 inline-block rounded-full bg-midpoint-dark px-6 py-3 text-sm font-medium text-white">
+          Enquire about a space
+        </Link>
+      </section>
+    </div>
   );
 }
