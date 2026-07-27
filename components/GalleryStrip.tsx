@@ -14,25 +14,35 @@ const bottomRow = [
   "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
   "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a147df47eba794ae380d2fa_running-man.jpg",
   "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a05a07aa923faece8ab37e1_gym.jpg",
-  "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a05bb3ff467c957c728ea01_restaurant.jpg",
-  "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif",
 ];
 
 export default function GalleryStrip() {
   return (
     <section className="bg-midpoint-dark px-6 py-12">
       <div className="mx-auto max-w-7xl space-y-4">
-        <div className="grid grid-cols-3 gap-4 sm:grid-cols-5">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {topRow.map((src, i) => (
-            <div key={i} className="relative aspect-square overflow-hidden rounded-xl">
-              <Image src={src} alt="" fill className="object-cover" />
+            <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-xl">
+              <Image
+                src={src}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+              />
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-3 gap-4 sm:grid-cols-7">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {bottomRow.map((src, i) => (
-            <div key={i} className="relative aspect-square overflow-hidden rounded-xl">
-              <Image src={src} alt="" fill className="object-cover" />
+            <div key={i} className="relative aspect-[4/3] overflow-hidden rounded-xl">
+              <Image
+                src={src}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+              />
             </div>
           ))}
         </div>
