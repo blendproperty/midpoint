@@ -1,32 +1,52 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Script from "next/script";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
 const interests = ["Office space", "Warehouse space", "Serviced offices"];
 
+// Public reCAPTCHA site key already registered for this property (safe to
+// expose — only the secret key, which lives server-side, is sensitive).
+const RECAPTCHA_SITE_KEY = "6LcKnCYtAAAAAEW_f1jLM5pQgwvr7GRodfsOyfbY";
+
+declare global {
+  interface Window {
+    grecaptcha?: { getResponse: (id?: number) => string; reset: (id?: number) => void };
+  }
+}
+
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [consent, setConsent] = useState(false);
-  const [verified, setVerified] = useState(false);
+  const [captchaError, setCaptchaError] = useState(false);
+  const recaptchaRef = useRef<HTMLDivElement>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    const captchaResponse = window.grecaptcha?.getResponse();
+    if (!captchaResponse) {
+      setCaptchaError(true);
+      return;
+    }
+    setCaptchaError(false);
     setStatus("sending");
+
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
     try {
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify({ ...data, "g-recaptcha-response": captchaResponse })
       });
       if (!res.ok) throw new Error("failed");
       setStatus("sent");
       form.reset();
       setConsent(false);
-      setVerified(false);
+      window.grecaptcha?.reset();
     } catch {
       setStatus("error");
     }
@@ -37,14 +57,16 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <Script src="https://www.google.com/recaptcha/api.js" strategy="lazyOnload" />
+
       <div className="grid gap-6 sm:grid-cols-2">
         <input name="firstName" required placeholder="First Name" className={field} />
         <input name="lastName" required placeholder="Last Name" className={field} />
-        <input name="phone" type="tel" placeholder="Phone Number" className={field} />
+        <input name="phone" type="tel" required placeholder="Phone Number" className={field} />
         <input name="email" type="email" required placeholder="Email" className={field} />
       </div>
 
-      <select name="interest" defaultValue="" className={field}>
+      <select name="interest" required defaultValue="" className={field}>
         <option value="" disabled className="text-midpoint-dark">
           I&apos;m interested in:
         </option>
@@ -55,7 +77,7 @@ export default function ContactForm() {
         ))}
       </select>
 
-      <textarea name="message" rows={4} placeholder="Message" className={field} />
+      <textarea name="message" required rows={4} placeholder="Message" className={field} />
 
       <label className="flex items-start gap-2 text-sm text-midpoint-grey-400">
         <input
@@ -68,12 +90,12 @@ export default function ContactForm() {
         I consent to Midpoint&apos;s privacy policy.
       </label>
 
-      {/* Visual placeholder to match the live site's spam-check step. Wire up
-          a real Google reCAPTCHA (NEXT_PUBLIC_RECAPTCHA_SITE_KEY) before launch. */}
-      <label className="flex w-fit items-center gap-3 rounded border border-midpoint-grey-100 bg-white px-4 py-3 text-sm text-midpoint-dark">
-        <input type="checkbox" checked={verified} onChange={(e) => setVerified(e.target.checked)} />
-        I&apos;m not a robot
-      </label>
+      <div ref={recaptchaRef} className="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY} />
+      {captchaError && (
+        <p role="alert" className="text-sm font-medium text-red-400">
+          Please confirm you&apos;re not a robot before submitting.
+        </p>
+      )}
 
       <button
         disabled={status === "sending" || !consent}
