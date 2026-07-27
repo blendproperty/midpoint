@@ -6,7 +6,7 @@ import type { ScrapedPage } from "@/lib/scraped";
 const page = data as unknown as ScrapedPage;
 
 export const metadata: Metadata = {
-  title: `${page.title} | Midpoint Midrand`,
+  title: page.title,
   description: page.metaDescription
 };
 
