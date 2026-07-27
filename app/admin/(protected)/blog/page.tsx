@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { deleteBlogPost } from "./actions";
+import { scoreContent } from "@/lib/seo-score";
+import SeoScoreBadge from "@/components/admin/SeoScoreBadge";
 
 export const dynamic = "force-dynamic";
 
@@ -21,33 +23,40 @@ export default async function BlogAdminPage() {
             <tr>
               <th className="px-4 py-3">Title</th>
               <th className="px-4 py-3">Status</th>
+              <th className="px-4 py-3">SEO</th>
               <th className="px-4 py-3">Updated</th>
               <th className="px-4 py-3"></th>
             </tr>
           </thead>
           <tbody>
-            {posts.map((post) => (
-              <tr key={post.id} className="border-t border-slate-100">
-                <td className="px-4 py-3 font-medium">{post.title}</td>
-                <td className="px-4 py-3">
-                  <span className={post.status === "PUBLISHED" ? "text-emerald-600" : "text-slate-400"}>
-                    {post.status}
-                  </span>
-                </td>
-                <td className="px-4 py-3 text-slate-500">{post.updatedAt.toLocaleDateString()}</td>
-                <td className="px-4 py-3 text-right">
-                  <Link href={`/admin/blog/${post.id}/edit`} className="mr-3 text-midpoint-dark underline">
-                    Edit
-                  </Link>
-                  <form action={deleteBlogPost.bind(null, post.id)} className="inline">
-                    <button className="text-red-600 underline">Delete</button>
-                  </form>
-                </td>
-              </tr>
-            ))}
+            {posts.map((post) => {
+              const { score } = scoreContent(post);
+              return (
+                <tr key={post.id} className="border-t border-slate-100">
+                  <td className="px-4 py-3 font-medium">{post.title}</td>
+                  <td className="px-4 py-3">
+                    <span className={post.status === "PUBLISHED" ? "text-emerald-600" : "text-slate-400"}>
+                      {post.status}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3">
+                    <SeoScoreBadge score={score} />
+                  </td>
+                  <td className="px-4 py-3 text-slate-500">{post.updatedAt.toLocaleDateString()}</td>
+                  <td className="px-4 py-3 text-right">
+                    <Link href={`/admin/blog/${post.id}/edit`} className="mr-3 text-midpoint-dark underline">
+                      Edit
+                    </Link>
+                    <form action={deleteBlogPost.bind(null, post.id)} className="inline">
+                      <button className="text-red-600 underline">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              );
+            })}
             {posts.length === 0 && (
               <tr>
-                <td colSpan={4} className="px-4 py-6 text-center text-slate-400">
+                <td colSpan={5} className="px-4 py-6 text-center text-slate-400">
                   No blog posts yet.
                 </td>
               </tr>

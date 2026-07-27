@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import BlogForm from "@/components/admin/BlogForm";
+import SeoScoreCard from "@/components/admin/SeoScoreCard";
 import { updateBlogPost } from "../../actions";
 
 export const dynamic = "force-dynamic";
@@ -27,7 +28,16 @@ export default async function EditBlogPostPage({ params }: { params: Promise<{ i
           status: post.status,
           seoTitle: post.seoTitle || "",
           seoDescription: post.seoDescription || "",
+          focusKeyword: post.focusKeyword || "",
         }}
+      />
+      <SeoScoreCard
+        title={post.title}
+        slug={post.slug}
+        seoTitle={post.seoTitle}
+        seoDescription={post.seoDescription}
+        contentHtml={post.contentHtml}
+        focusKeyword={post.focusKeyword}
       />
     </div>
   );

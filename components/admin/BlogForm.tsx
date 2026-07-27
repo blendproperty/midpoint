@@ -11,6 +11,7 @@ type Props = {
     status?: string;
     seoTitle?: string;
     seoDescription?: string;
+    focusKeyword?: string;
   };
   submitLabel?: string;
 };
@@ -37,6 +38,11 @@ export default function BlogForm({ action, defaultValues, submitLabel = "Save" }
       <div>
         <label className="block text-sm font-medium">Content (HTML)</label>
         <textarea name="contentHtml" defaultValue={defaultValues?.contentHtml} rows={12} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs" />
+      </div>
+      <div>
+        <label className="block text-sm font-medium">Focus keyword (optional)</label>
+        <input name="focusKeyword" defaultValue={defaultValues?.focusKeyword} placeholder="e.g. warehouse space Midrand" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+        <p className="mt-1 text-xs text-slate-400">Used by the SEO score below to check whether your target phrase appears in the right places.</p>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>

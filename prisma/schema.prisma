@@ -44,6 +44,7 @@ model BlogPost {
   status         ContentStatus @default(DRAFT)
   seoTitle       String?
   seoDescription String?
+  focusKeyword   String?
   publishedAt    DateTime?
   authorId       String?
   author         User?         @relation(fields: [authorId], references: [id], onDelete: SetNull)
@@ -59,6 +60,7 @@ model Page {
   status         ContentStatus @default(DRAFT)
   seoTitle       String?
   seoDescription String?
+  focusKeyword   String?
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
 }

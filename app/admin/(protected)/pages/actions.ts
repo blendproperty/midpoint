@@ -23,11 +23,12 @@ export async function createPage(formData: FormData) {
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
   const seoTitle = String(formData.get("seoTitle") || "").trim() || null;
   const seoDescription = String(formData.get("seoDescription") || "").trim() || null;
+  const focusKeyword = String(formData.get("focusKeyword") || "").trim() || null;
 
   if (!title || !slug) throw new Error("Title is required");
 
   await prisma.page.create({
-    data: { title, slug, contentHtml, status, seoTitle, seoDescription },
+    data: { title, slug, contentHtml, status, seoTitle, seoDescription, focusKeyword },
   });
 
   revalidatePath("/admin/pages");
@@ -44,10 +45,11 @@ export async function updatePage(id: string, formData: FormData) {
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
   const seoTitle = String(formData.get("seoTitle") || "").trim() || null;
   const seoDescription = String(formData.get("seoDescription") || "").trim() || null;
+  const focusKeyword = String(formData.get("focusKeyword") || "").trim() || null;
 
   await prisma.page.update({
     where: { id },
-    data: { title, slug, contentHtml, status, seoTitle, seoDescription },
+    data: { title, slug, contentHtml, status, seoTitle, seoDescription, focusKeyword },
   });
 
   revalidatePath("/admin/pages");

@@ -25,6 +25,7 @@ export async function createBlogPost(formData: FormData) {
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
   const seoTitle = String(formData.get("seoTitle") || "").trim() || null;
   const seoDescription = String(formData.get("seoDescription") || "").trim() || null;
+  const focusKeyword = String(formData.get("focusKeyword") || "").trim() || null;
 
   if (!title || !slug) throw new Error("Title is required");
 
@@ -38,6 +39,7 @@ export async function createBlogPost(formData: FormData) {
       status,
       seoTitle,
       seoDescription,
+      focusKeyword,
       authorId: session.sub,
       publishedAt: status === "PUBLISHED" ? new Date() : null,
     },
@@ -59,6 +61,7 @@ export async function updateBlogPost(id: string, formData: FormData) {
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
   const seoTitle = String(formData.get("seoTitle") || "").trim() || null;
   const seoDescription = String(formData.get("seoDescription") || "").trim() || null;
+  const focusKeyword = String(formData.get("focusKeyword") || "").trim() || null;
 
   const existing = await prisma.blogPost.findUnique({ where: { id } });
 
@@ -73,6 +76,7 @@ export async function updateBlogPost(id: string, formData: FormData) {
       status,
       seoTitle,
       seoDescription,
+      focusKeyword,
       publishedAt: status === "PUBLISHED" ? existing?.publishedAt || new Date() : null,
     },
   });

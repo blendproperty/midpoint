@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import PageForm from "@/components/admin/PageForm";
+import SeoScoreCard from "@/components/admin/SeoScoreCard";
 import { updatePage } from "../../actions";
 
 export const dynamic = "force-dynamic";
@@ -25,7 +26,16 @@ export default async function EditCmsPagePage({ params }: { params: Promise<{ id
           status: page.status,
           seoTitle: page.seoTitle || "",
           seoDescription: page.seoDescription || "",
+          focusKeyword: page.focusKeyword || "",
         }}
+      />
+      <SeoScoreCard
+        title={page.title}
+        slug={page.slug}
+        seoTitle={page.seoTitle}
+        seoDescription={page.seoDescription}
+        contentHtml={page.contentHtml}
+        focusKeyword={page.focusKeyword}
       />
     </div>
   );
