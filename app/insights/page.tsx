@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 import PillarCard from "@/components/PillarCard";
 
 export const metadata: Metadata = {
@@ -44,15 +45,15 @@ const cards = [
 
 export default function InsightsPage() {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-16">
-      <h1 className="text-4xl font-bold md:text-5xl">Insights at Midpoint</h1>
-      <p className="mt-4 max-w-2xl text-midpoint-grey-400">
-        The business park, its Midrand location, on-site amenities and
-        answers to common questions — everything about the estate in one
-        place.
-      </p>
+    <>
+      <PageHero
+        title="Insights at Midpoint"
+        subtitle="The business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place."
+        image="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg"
+        imageAlt="Midpoint business estate"
+      />
 
-      <div className="mt-12">
+      <div className="mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-2xl font-bold md:text-3xl">
           Explore Midpoint&apos;s insights
         </h2>
@@ -68,6 +69,6 @@ export default function InsightsPage() {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }
