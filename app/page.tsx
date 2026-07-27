@@ -11,8 +11,13 @@ import GalleryStrip from "@/components/GalleryStrip";
 import TenantWall from "@/components/TenantWall";
 import DeveloperSection from "@/components/DeveloperSection";
 import FaqAccordion from "@/components/FaqAccordion";
+import { getFaqs } from "@/lib/faqs";
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const faqs = await getFaqs();
+
   return (
     <>
       <HeroSection />
@@ -27,7 +32,7 @@ export default function HomePage() {
       <GalleryStrip />
       <TenantWall />
       <DeveloperSection />
-      <FaqAccordion />
+      <FaqAccordion faqs={faqs} />
     </>
   );
 }

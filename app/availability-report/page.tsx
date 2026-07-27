@@ -3,7 +3,9 @@ import Link from "next/link";
 import VacancyCard from "@/components/VacancyCard";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import ListingsJsonLd from "@/components/ListingsJsonLd";
-import { allVacancyListings } from "@/lib/vacancies";
+import { getAllVacancies } from "@/lib/vacancies";
+
+export const dynamic = "force-dynamic";
 
 const description =
   "Current availability schedule for warehouse, office and serviced office space at Midpoint, Midrand.";
@@ -13,14 +15,16 @@ export const metadata: Metadata = {
   description
 };
 
-export default function AvailabilityReport() {
+export default async function AvailabilityReport() {
+  const all = await getAllVacancies();
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-16">
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "Availability Report", path: "/availability-report" }]}
         description={description}
       />
-      <ListingsJsonLd listings={allVacancyListings} path="/availability-report" name="Midpoint availability schedule" />
+      <ListingsJsonLd listings={all} path="/availability-report" name="Midpoint availability schedule" />
 
       <h1 className="text-4xl font-bold text-midpoint-dark">Availability Report</h1>
       <p className="mt-4 max-w-2xl text-midpoint-grey-400">
@@ -28,7 +32,7 @@ export default function AvailabilityReport() {
       </p>
 
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {allVacancyListings.map((l) => (
+        {all.map((l) => (
           <VacancyCard key={l.id} listing={l} />
         ))}
       </div>

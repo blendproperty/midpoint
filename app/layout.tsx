@@ -6,7 +6,10 @@ import Nav from "@/components/Nav";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
-import { faqs } from "@/lib/faqs";
+import { getSiteSettings } from "@/lib/site-settings";
+import { getFaqs } from "@/lib/faqs";
+
+export const dynamic = "force-dynamic";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -16,111 +19,105 @@ const figtree = Figtree({
   display: "swap",
 });
 
-// Default social-share image, reused site-wide as the OG/Twitter fallback
-// whenever a page doesn't set its own. Same pattern listings.blendproperty.co.za
-// uses (a single configurable defaultSocialImage).
-const DEFAULT_SOCIAL_IMAGE =
-  "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg";
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings();
 
-// Indexing + search-console verification are env-driven so they can be
-// turned on/off or rotated without a code change — mirrors the
-// site-settings.ts pattern on listings.blendproperty.co.za (allowIndexing,
-// googleVerification, bingVerification).
-const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING !== "false";
-
-export const metadata: Metadata = {
-  metadataBase: new URL(site.domain),
-  title: {
-    default: "Midpoint Midrand | Warehouse & Office Space in Gauteng",
-    template: "%s | Midpoint Midrand",
-  },
-  description:
-    "Secure warehouse, office & serviced office space in Midrand. Central location between JHB & PTA with N1 access, gym, padel courts & amenities.",
-  keywords: [
-    "office space Midrand",
-    "warehouse to rent Midrand",
-    "serviced offices Midrand",
-    "business park Midrand",
-    "commercial property Midrand",
-    "Midpoint Business Park"
-  ],
-  applicationName: site.name,
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
-    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
-      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
-      : undefined,
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_ZA",
-    siteName: site.name,
-    url: site.domain,
-    title: site.name,
+  return {
+    metadataBase: new URL(settings.domain),
+    title: {
+      default: "Midpoint Midrand | Warehouse & Office Space in Gauteng",
+      template: "%s | Midpoint Midrand",
+    },
     description:
-      "Secure warehouse, office & serviced office space in Midrand, between Johannesburg and Pretoria.",
-    images: [{ url: DEFAULT_SOCIAL_IMAGE, width: 1600, height: 900 }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: site.name,
-    description:
-      "Secure warehouse, office & serviced office space in Midrand, between Johannesburg and Pretoria.",
-    images: [DEFAULT_SOCIAL_IMAGE],
-  },
-  robots: {
-    index: ALLOW_INDEXING,
-    follow: ALLOW_INDEXING,
-  },
-};
+      "Secure warehouse, office & serviced office space in Midrand. Central location between JHB & PTA with N1 access, gym, padel courts & amenities.",
+    keywords: [
+      "office space Midrand",
+      "warehouse to rent Midrand",
+      "serviced offices Midrand",
+      "business park Midrand",
+      "commercial property Midrand",
+      "Midpoint Business Park"
+    ],
+    applicationName: settings.siteName,
+    verification: {
+      google: settings.googleVerification || undefined,
+      other: settings.bingVerification
+        ? { "msvalidate.01": settings.bingVerification }
+        : undefined,
+    },
+    openGraph: {
+      type: "website",
+      locale: "en_ZA",
+      siteName: settings.siteName,
+      url: settings.domain,
+      title: settings.siteName,
+      description:
+        "Secure warehouse, office & serviced office space in Midrand, between Johannesburg and Pretoria.",
+      images: [{ url: settings.defaultSocialImage, width: 1600, height: 900 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: settings.siteName,
+      description:
+        "Secure warehouse, office & serviced office space in Midrand, between Johannesburg and Pretoria.",
+      images: [settings.defaultSocialImage],
+    },
+    robots: {
+      index: settings.allowIndexing,
+      follow: settings.allowIndexing,
+    },
+  };
+}
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${site.domain}/#website`,
-      url: site.domain,
-      name: site.name,
-      publisher: { "@id": `${site.domain}/#localbusiness` },
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": `${site.domain}/#localbusiness`,
-      name: site.name,
-      url: site.domain,
-      image: DEFAULT_SOCIAL_IMAGE,
-      telephone: site.phone,
-      email: site.email,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: `${site.address.street}, ${site.address.suburb}`,
-        addressLocality: site.address.city,
-        postalCode: site.address.postalCode,
-        addressCountry: site.address.country,
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: site.geo.lat,
-        longitude: site.geo.lng,
-      },
-    },
-    {
-      "@type": "FAQPage",
-      mainEntity: faqs.map((f) => ({
-        "@type": "Question",
-        name: f.question,
-        acceptedAnswer: { "@type": "Answer", text: f.answer.join(" ") },
-      })),
-    },
-  ],
-};
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [settings, faqs] = await Promise.all([getSiteSettings(), getFaqs()]);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${settings.domain}/#website`,
+        url: settings.domain,
+        name: settings.siteName,
+        publisher: { "@id": `${settings.domain}/#localbusiness` },
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": `${settings.domain}/#localbusiness`,
+        name: settings.siteName,
+        url: settings.domain,
+        image: settings.defaultSocialImage,
+        telephone: settings.phone,
+        email: settings.email,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: `${site.address.street}, ${site.address.suburb}`,
+          addressLocality: site.address.city,
+          postalCode: site.address.postalCode,
+          addressCountry: site.address.country,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: site.geo.lat,
+          longitude: site.geo.lng,
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      },
+    ],
+  };
+
   return (
     <html lang="en" className={figtree.variable}>
       <GoogleTagManager gtmId={site.gtmId} />

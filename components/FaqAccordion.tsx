@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { faqs } from "@/lib/faqs";
 
-export default function FaqAccordion() {
+type Faq = { question: string; answer: string };
+
+// Now takes faqs as a prop (fetched server-side from the DB in app/page.tsx)
+// instead of importing the old static lib/faqs export directly — this
+// component is a client component so it can't call Prisma itself.
+export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -30,15 +34,7 @@ export default function FaqAccordion() {
                   <span className="text-xl font-semibold text-midpoint-dark">{faq.question}</span>
                   <span className="ml-4 shrink-0 text-2xl text-midpoint-dark">{isOpen ? "−" : "+"}</span>
                 </button>
-                {isOpen && (
-                  <div className="pb-5 text-midpoint-grey-400">
-                    {faq.answer.map((para, i) => (
-                      <p key={i} className={i > 0 ? "mt-3" : undefined}>
-                        {para}
-                      </p>
-                    ))}
-                  </div>
-                )}
+                {isOpen && <p className="pb-5 text-midpoint-grey-400">{faq.answer}</p>}
               </div>
             );
           })}

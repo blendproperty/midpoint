@@ -3,7 +3,9 @@ import Link from "next/link";
 import VacancyCard from "@/components/VacancyCard";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import ListingsJsonLd from "@/components/ListingsJsonLd";
-import { warehouseListings, officeListings, servicedOfficeListings, allVacancyListings } from "@/lib/vacancies";
+import { getVacanciesGroupedBySector } from "@/lib/vacancies";
+
+export const dynamic = "force-dynamic";
 
 const description =
   "Current leasing opportunities at Midpoint: warehouse, office and serviced office vacancies in Midrand.";
@@ -13,14 +15,16 @@ export const metadata: Metadata = {
   description
 };
 
-export default function Vacancies() {
+export default async function Vacancies() {
+  const { warehouse, office, servicedOffice, all } = await getVacanciesGroupedBySector();
+
   return (
     <div className="bg-white">
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "Vacancies", path: "/vacancies" }]}
         description={description}
       />
-      <ListingsJsonLd listings={allVacancyListings} path="/vacancies" name="Midpoint vacancies" />
+      <ListingsJsonLd listings={all} path="/vacancies" name="Midpoint vacancies" />
 
       <section className="mx-auto max-w-7xl px-6 py-16">
         <h1 className="text-4xl font-bold text-midpoint-dark md:text-5xl">Vacancies</h1>
@@ -33,7 +37,7 @@ export default function Vacancies() {
         <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Available Warehouse Space</h2>
         <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below are the warehouse opportunities currently available at Midpoint:</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {warehouseListings.map((l) => (
+          {warehouse.map((l) => (
             <VacancyCard key={l.id} listing={l} />
           ))}
         </div>
@@ -43,7 +47,7 @@ export default function Vacancies() {
         <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Available Office Space</h2>
         <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below are the office spaces currently available at Midpoint:</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {officeListings.map((l) => (
+          {office.map((l) => (
             <VacancyCard key={l.id} listing={l} />
           ))}
         </div>
@@ -53,7 +57,7 @@ export default function Vacancies() {
         <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Shared Workspace</h2>
         <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below is the shared workspace currently available at Midpoint:</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {servicedOfficeListings.map((l) => (
+          {servicedOffice.map((l) => (
             <VacancyCard key={l.id} listing={l} />
           ))}
         </div>
