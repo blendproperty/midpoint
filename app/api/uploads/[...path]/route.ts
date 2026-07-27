@@ -31,7 +31,10 @@ export async function GET(
     const buffer = await readFile(resolved);
     const ext = path.extname(resolved).toLowerCase();
     const contentType = MIME_TYPES[ext] || "application/octet-stream";
-    return new NextResponse(buffer, {
+    // NextResponse's BodyInit type doesn't include Node's Buffer, even though
+    // it works fine at runtime (Buffer is a Uint8Array). Wrap explicitly to
+    // satisfy the type checker.
+    return new NextResponse(new Uint8Array(buffer), {
       headers: {
         "Content-Type": contentType,
         "Cache-Control": "public, max-age=31536000, immutable",
