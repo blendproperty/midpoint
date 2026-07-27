@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  SUPER_ADMIN
+  EDITOR
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum Sector {
+  WAREHOUSE
+  OFFICE
+  SERVICED_OFFICE
+}
+
+model User {
+  id           String     @id @default(cuid())
+  email        String     @unique
+  passwordHash String
+  name         String?
+  role         Role       @default(EDITOR)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  blogPosts    BlogPost[]
+}
+
+model BlogPost {
+  id             String        @id @default(cuid())
+  slug           String        @unique
+  title          String
+  excerpt        String?
+  contentHtml    String        @db.Text
+  coverImage     String?
+  status         ContentStatus @default(DRAFT)
+  seoTitle       String?
+  seoDescription String?
+  publishedAt    DateTime?
+  authorId       String?
+  author         User?         @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model Page {
+  id             String        @id @default(cuid())
+  slug           String        @unique
+  title          String
+  contentHtml    String        @db.Text
+  status         ContentStatus @default(DRAFT)
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model Vacancy {
+  id           String        @id @default(cuid())
+  building     String
+  sector       Sector
+  sizeSqm      Float
+  ratePerSqm   Float
+  availability String
+  description  String        @db.Text
+  features     String[]
+  image        String?
+  status       ContentStatus @default(PUBLISHED)
+  sortOrder    Int           @default(0)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Faq {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String   @db.Text
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SiteSetting {
+  id                       String   @id @default("global")
+  siteName                 String   @default("Midpoint Midrand")
+  domain                   String   @default("https://www.mid-point.co.za")
+  phone                    String   @default("+27 11 380 9400")
+  email                    String   @default("boitumelo@blendproperty.co.za")
+  defaultSocialImage       String?
+  googleVerification       String?
+  bingVerification         String?
+  allowIndexing            Boolean  @default(true)
+  vacancyRevalidateSeconds Int      @default(604800)
+  updatedAt                DateTime @updatedAt
+}
+
+model Media {
+  id           String   @id @default(cuid())
+  filename     String
+  url          String
+  mimeType     String
+  size         Int
+  uploadedById String?
+  createdAt    DateTime @default(now())
+}

@@ -1,10 +1,42 @@
 services:
+  db:
+    image: postgres:16-alpine
+    container_name: midpoint-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - midpoint_pgdata:/var/lib/postgresql/data
+    networks:
+      - midpoint_internal
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
   web:
     build: .
     container_name: midpoint-web
     restart: unless-stopped
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      AUTH_SECRET: ${AUTH_SECRET}
+      NEXT_PUBLIC_ALLOW_INDEXING: ${NEXT_PUBLIC_ALLOW_INDEXING}
+      NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
+      NEXT_PUBLIC_BING_SITE_VERIFICATION: ${NEXT_PUBLIC_BING_SITE_VERIFICATION}
+      VACANCY_REVALIDATE_SECONDS: ${VACANCY_REVALIDATE_SECONDS}
+      UPLOADS_DIR: /app/uploads
+    volumes:
+      - midpoint_uploads:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
       - root_default
+      - midpoint_internal
     expose:
       - "3000"
     labels:
@@ -15,6 +47,36 @@ services:
       - "traefik.http.routers.midpoint.tls=true"
       - "traefik.http.routers.midpoint.tls.certresolver=mytlschallenge"
       - "traefik.http.services.midpoint.loadbalancer.server.port=3000"
+
+  # Not started by a normal `docker compose up`; run explicitly after each
+  # deploy to apply migrations and seed the first admin user:
+  #   docker compose -f compose.prod.yml --profile tools run --rm migrate
+  # Reuses the `builder` stage (has the full node_modules incl. the Prisma
+  # CLI + devDependencies) rather than the slim runtime image.
+  migrate:
+    build:
+      context: .
+      target: builder
+    container_name: midpoint-migrate
+    command: sh -c "npx prisma migrate deploy && npx prisma db seed"
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      SEED_SUPERADMIN_EMAIL: ${SEED_SUPERADMIN_EMAIL}
+      SEED_SUPERADMIN_PASSWORD: ${SEED_SUPERADMIN_PASSWORD}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - midpoint_internal
+    profiles:
+      - tools
+
 networks:
   root_default:
     external: true
+  midpoint_internal:
+    driver: bridge
+
+volumes:
+  midpoint_pgdata:
+  midpoint_uploads:
