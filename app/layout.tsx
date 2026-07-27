@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
-import Nav from "@/components/Nav";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import SiteChrome from "@/components/SiteChrome";
 import { site } from "@/lib/site";
 import { getSiteSettings } from "@/lib/site-settings";
 import { getFaqs } from "@/lib/faqs";
@@ -126,10 +124,7 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Nav />
-        <main>{children}</main>
-        <ContactSection />
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
