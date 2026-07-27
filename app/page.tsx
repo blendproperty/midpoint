@@ -9,7 +9,6 @@ import BrokerCTASection from "@/components/BrokerCTASection";
 import ReadyToMoveSection from "@/components/ReadyToMoveSection";
 import GalleryStrip from "@/components/GalleryStrip";
 import TenantWall from "@/components/TenantWall";
-import PartnersGrid from "@/components/PartnersGrid";
 import DeveloperSection from "@/components/DeveloperSection";
 import FaqAccordion from "@/components/FaqAccordion";
 import ContactSection from "@/components/ContactSection";
@@ -28,7 +27,6 @@ export default function HomePage() {
       <ReadyToMoveSection />
       <GalleryStrip />
       <TenantWall />
-      <PartnersGrid />
       <DeveloperSection />
       <FaqAccordion />
       <ContactSection />
