@@ -15,11 +15,11 @@ const rowA = [
 const rowB = [
   `${BASE}/67cece632c43c1a5ddf96ec5_pexels-sbam-27223663-p-1600.avif`,
   `${BASE}/6a05a0d539c8a4a1a9edebe7_paddle.jpg`,
-  `${BASE}/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d-p-1600.avif`,
+  `${BASE}/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif`,
   `${BASE}/6a147df47eba794ae380d2fa_running-man.jpg`,
   `${BASE}/6a05a07aa923faece8ab37e1_gym.jpg`,
   `${BASE}/6a05bb3ff467c957c728ea01_restaurant.jpg`,
-  `${BASE}/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d-p-1600.avif`,
+  `${BASE}/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif`,
 ];
 
 function Row({ images, refEl, trackRef }: { images: string[]; refEl: React.RefObject<HTMLDivElement | null>; trackRef: React.RefObject<HTMLDivElement | null> }) {
