@@ -12,7 +12,7 @@ const cards = [
     title: "Business Park",
     description:
       "The Midpoint estate in full — tenants, estate layout, and why businesses choose to be here.",
-    href: "/business-park-midrand",
+    href: "/offices",
     ctaLabel: "View the business park →",
     variant: "dark" as const,
   },
@@ -62,12 +62,6 @@ export default function InsightsPage() {
           the full picture of Midpoint beyond the spaces you can lease.
         </p>
 
-        {/*
-          THIS is the fix for tonight's exact bug: a true CSS Grid with
-          `grid-cols-4` and `items-stretch` makes every card in the row
-          equal height and equal width, natively, with zero risk of a
-          shared style getting corrupted by an unrelated edit elsewhere.
-        */}
         <div className="mt-10 grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((card) => (
             <PillarCard key={card.title} {...card} />
