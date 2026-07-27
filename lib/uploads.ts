@@ -21,13 +21,16 @@ export async function saveUploadedFile(file: File): Promise<{
     .slice(0, 60);
   const filename = `${Date.now()}-${safeBase}${ext}`;
 
-  const buffer = Buffer.from(await file.arrayBuffer());
-  await writeFile(path.join(UPLOADS_DIR, filename), buffer);
+  // Uint8Array (not Node's Buffer) — newer @types/node versions make Buffer's
+  // underlying ArrayBufferLike incompatible with fs.writeFile's stricter
+  // ArrayBufferView overload, even though both work identically at runtime.
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  await writeFile(path.join(UPLOADS_DIR, filename), bytes);
 
   return {
     filename,
     url: `/api/uploads/${filename}`,
-    size: buffer.byteLength,
+    size: bytes.byteLength,
     mimeType: file.type || "application/octet-stream",
   };
 }
