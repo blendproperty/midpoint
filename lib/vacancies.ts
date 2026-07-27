@@ -12,6 +12,17 @@ export type VacancyListing = {
 
 const BASE = "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8";
 
+// Cadence for refreshing vacancy data once the live listings.blendproperty.co.za
+// API (GET /api/public/v1/midpoint/listings, Bearer-authenticated, scope
+// MIDPOINT_ONLY) is wired up in place of this static file. Per Brett
+// (2026-07-27): listings only change weekly at most, so default the
+// revalidation window to a week. Override via VACANCY_REVALIDATE_SECONDS
+// without a code change if that cadence ever needs to tighten — e.g. set it
+// to 3600 during an active leasing push, or call the fetch with
+// { cache: "no-store" } for a one-off manual refresh.
+export const VACANCY_REVALIDATE_SECONDS =
+  Number(process.env.VACANCY_REVALIDATE_SECONDS) || 60 * 60 * 24 * 7; // 7 days
+
 // Real current listing data, sourced from Midpoint's live vacancy schedule
 // (ultimately pulled from Blend's listings.blendproperty.co.za portfolio).
 // Verified 2026-07-27 against the scraped vacancies snapshot.

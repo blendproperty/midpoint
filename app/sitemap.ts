@@ -12,10 +12,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/vacancies",
     "/amenities",
     "/contact-us",
-    "/availability-report"
+    "/availability-report",
+    "/faqs",
+    "/location"
   ];
+  const lastModified = new Date();
   return routes.map((r) => ({
     url: `${site.domain}${r}`,
+    lastModified,
     changeFrequency: "weekly" as const,
     priority: r === "" ? 1 : 0.7
   }));

@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { site } from "@/lib/site";
+
+const description =
+  "Contact the Midpoint leasing team about warehouse, office and serviced office space in Midrand.";
 
 export const metadata: Metadata = {
   title: "Contact Us | Midpoint",
-  description:
-    "Contact the Midpoint leasing team about warehouse, office and serviced office space in Midrand."
+  description
 };
 
 export default function ContactUs() {
   return (
     <section className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-2">
+      <BreadcrumbJsonLd
+        items={[{ name: "Home", path: "/" }, { name: "Contact Us", path: "/contact-us" }]}
+        description={description}
+      />
       <div>
         <h1 className="text-4xl font-bold text-midpoint-dark">Enquire</h1>
         <p className="mt-4 text-midpoint-grey-400">

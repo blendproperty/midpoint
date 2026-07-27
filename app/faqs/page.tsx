@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import PageFaqAccordion from "@/components/PageFaqAccordion";
 import TalkToLeasing from "@/components/TalkToLeasing";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+
+const description =
+  "Find answers to common questions about office space, warehouse facilities, amenities, and leasing opportunities at Midpoint in Midrand.";
 
 export const metadata: Metadata = {
   title: "FAQs",
-  description:
-    "Find answers to common questions about office space, warehouse facilities, amenities, and leasing opportunities at Midpoint in Midrand."
+  description
 };
 
 const faqs = [
@@ -50,6 +53,10 @@ const faqs = [
 export default function FaqsPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[{ name: "Home", path: "/" }, { name: "FAQs", path: "/faqs" }]}
+        description={description}
+      />
       <PageHero
         title="Everything you need to know about Midpoint."
         subtitle="Find answers to common questions about office space, warehouse facilities, amenities, and leasing opportunities at Midpoint in Midrand."

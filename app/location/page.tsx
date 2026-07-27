@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ConsiderationsList from "@/components/ConsiderationsList";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+
+const description =
+  "Midpoint sits on the N1 between Johannesburg and Pretoria in Halfway House, Midrand — verified distances, access and route detail.";
 
 export const metadata: Metadata = {
   title: "Location",
-  description:
-    "Midpoint sits on the N1 between Johannesburg and Pretoria in Halfway House, Midrand — verified distances, access and route detail."
+  description
 };
 
 const details = [
@@ -26,6 +29,10 @@ const details = [
 export default function LocationPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[{ name: "Home", path: "/" }, { name: "Location", path: "/location" }]}
+        description={description}
+      />
       <PageHero
         title="Location"
         subtitle="On the N1 between Johannesburg and Pretoria — verified distances, access and route detail."

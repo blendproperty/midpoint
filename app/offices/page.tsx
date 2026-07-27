@@ -7,11 +7,14 @@ import ListingsPreview from "@/components/ListingsPreview";
 import PageFaqAccordion from "@/components/PageFaqAccordion";
 import TalkToLeasing from "@/components/TalkToLeasing";
 import ExploreMore from "@/components/ExploreMore";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+
+const description =
+  "Modern offices to rent in Midrand at Midpoint, between Joburg and Pretoria. Live availability, backup power, security and on-site amenities. Book a viewing.";
 
 export const metadata: Metadata = {
   title: "Offices to Rent in Midrand | Midpoint Business Park",
-  description:
-    "Modern offices to rent in Midrand at Midpoint, between Joburg and Pretoria. Live availability, backup power, security and on-site amenities. Book a viewing."
+  description
 };
 
 const features = [
@@ -100,6 +103,10 @@ const exploreLinks = [
 export default function OfficesPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[{ name: "Home", path: "/" }, { name: "Offices", path: "/offices" }]}
+        description={description}
+      />
       <PageHero
         title="Offices to Rent in Midrand"
         subtitle="Midpoint is a secure business estate on the N1 between Johannesburg and Pretoria, with backup power, security and on-site amenities included. Live availability below — book a viewing or discuss your requirements with the leasing team."

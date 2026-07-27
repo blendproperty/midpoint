@@ -4,16 +4,23 @@ import StrategicGrowth from "@/components/StrategicGrowth";
 import RenewedVision from "@/components/RenewedVision";
 import SpaceGrid from "@/components/SpaceGrid";
 import DeveloperSection from "@/components/DeveloperSection";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+
+const description =
+  "Midpoint is a modern business estate in Midrand offering premium offices, serviced offices, and warehouse facilities. Developed by Blend Property Group.";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description:
-    "Midpoint is a modern business estate in Midrand offering premium offices, serviced offices, and warehouse facilities. Developed by Blend Property Group."
+  description
 };
 
 export default function AboutUsPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[{ name: "Home", path: "/" }, { name: "About Us", path: "/about-us" }]}
+        description={description}
+      />
       <AboutHero />
       <StrategicGrowth />
       <RenewedVision />

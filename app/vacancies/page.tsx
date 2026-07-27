@@ -1,17 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import VacancyCard from "@/components/VacancyCard";
-import { warehouseListings, officeListings, servicedOfficeListings } from "@/lib/vacancies";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import ListingsJsonLd from "@/components/ListingsJsonLd";
+import { warehouseListings, officeListings, servicedOfficeListings, allVacancyListings } from "@/lib/vacancies";
+
+const description =
+  "Current leasing opportunities at Midpoint: warehouse, office and serviced office vacancies in Midrand.";
 
 export const metadata: Metadata = {
   title: "Vacancies",
-  description:
-    "Current leasing opportunities at Midpoint: warehouse, office and serviced office vacancies in Midrand."
+  description
 };
 
 export default function Vacancies() {
   return (
     <div className="bg-white">
+      <BreadcrumbJsonLd
+        items={[{ name: "Home", path: "/" }, { name: "Vacancies", path: "/vacancies" }]}
+        description={description}
+      />
+      <ListingsJsonLd listings={allVacancyListings} path="/vacancies" name="Midpoint vacancies" />
+
       <section className="mx-auto max-w-7xl px-6 py-16">
         <h1 className="text-4xl font-bold text-midpoint-dark md:text-5xl">Vacancies</h1>
         <p className="mt-4 max-w-2xl text-midpoint-grey-400">

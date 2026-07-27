@@ -16,6 +16,18 @@ const figtree = Figtree({
   display: "swap",
 });
 
+// Default social-share image, reused site-wide as the OG/Twitter fallback
+// whenever a page doesn't set its own. Same pattern listings.blendproperty.co.za
+// uses (a single configurable defaultSocialImage).
+const DEFAULT_SOCIAL_IMAGE =
+  "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg";
+
+// Indexing + search-console verification are env-driven so they can be
+// turned on/off or rotated without a code change — mirrors the
+// site-settings.ts pattern on listings.blendproperty.co.za (allowIndexing,
+// googleVerification, bingVerification).
+const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING !== "false";
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
   title: {
@@ -24,20 +36,60 @@ export const metadata: Metadata = {
   },
   description:
     "Secure warehouse, office & serviced office space in Midrand. Central location between JHB & PTA with N1 access, gym, padel courts & amenities.",
+  keywords: [
+    "office space Midrand",
+    "warehouse to rent Midrand",
+    "serviced offices Midrand",
+    "business park Midrand",
+    "commercial property Midrand",
+    "Midpoint Business Park"
+  ],
+  applicationName: site.name,
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
   openGraph: {
     type: "website",
+    locale: "en_ZA",
     siteName: site.name,
     url: site.domain,
+    title: site.name,
+    description:
+      "Secure warehouse, office & serviced office space in Midrand, between Johannesburg and Pretoria.",
+    images: [{ url: DEFAULT_SOCIAL_IMAGE, width: 1600, height: 900 }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: site.name,
+    description:
+      "Secure warehouse, office & serviced office space in Midrand, between Johannesburg and Pretoria.",
+    images: [DEFAULT_SOCIAL_IMAGE],
+  },
+  robots: {
+    index: ALLOW_INDEXING,
+    follow: ALLOW_INDEXING,
+  },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Place",
+      "@type": "WebSite",
+      "@id": `${site.domain}/#website`,
+      url: site.domain,
       name: site.name,
+      publisher: { "@id": `${site.domain}/#localbusiness` },
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${site.domain}/#localbusiness`,
+      name: site.name,
+      url: site.domain,
+      image: DEFAULT_SOCIAL_IMAGE,
       telephone: site.phone,
       email: site.email,
       address: {

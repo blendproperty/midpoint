@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import PillarCard from "@/components/PillarCard";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+
+const description =
+  "Discover Midpoint's business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place.";
 
 export const metadata: Metadata = {
   title: "Insights | Business Park, Location, Amenities, FAQs & more",
-  description:
-    "Discover Midpoint's business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place.",
+  description
 };
 
 const cards = [
@@ -46,6 +49,10 @@ const cards = [
 export default function InsightsPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }]}
+        description={description}
+      />
       <PageHero
         title="Insights at Midpoint"
         subtitle="The business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place."
