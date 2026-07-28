@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import CustomCodeBlock from "@/components/CustomCodeBlock";
 import { getSiteSettings } from "@/lib/site-settings";
 
 // Root-level catch-all for published Pillar Pages, e.g.
@@ -21,9 +22,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const pillar = await getPillar(slug);
   if (!pillar || pillar.status !== "PUBLISHED") return {};
 
+  const title = pillar.seoTitle || pillar.title;
+  const description = pillar.seoDescription || undefined;
+  const ogImage = pillar.ogImage || pillar.heroImage;
+
   return {
-    title: pillar.seoTitle || pillar.title,
-    description: pillar.seoDescription || undefined,
+    title,
+    description,
+    ...(pillar.canonicalUrl ? { alternates: { canonical: pillar.canonicalUrl } } : {}),
+    robots: pillar.noIndex ? { index: false, follow: true } : { index: true, follow: true },
+    openGraph: {
+      title: pillar.ogTitle || title,
+      description: pillar.ogDescription || description,
+      images: ogImage ? [{ url: ogImage }] : undefined,
+    },
   };
 }
 
@@ -37,7 +49,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   const faqs = Array.isArray(pillar.faqs) ? (pillar.faqs as unknown as PillarFaq[]) : [];
   const trustItems = (pillar.trustStrip || "").split("\n").map((s) => s.trim()).filter(Boolean);
 
-  const jsonLd = {
+  const autoJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -73,11 +85,14 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         : []),
     ],
   };
+  // An admin override replaces the whole auto-generated graph above if set.
+  const jsonLdToRender = pillar.schemaJson && typeof pillar.schemaJson === "object" ? pillar.schemaJson : autoJsonLd;
 
   return (
     <article className="bg-white">
+      <CustomCodeBlock code={pillar.headCode} />
       <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: pillar.title, path: `/${pillar.slug}` }]} description={description} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdToRender) }} />
 
       {pillar.heroImage && (
         <div className="relative h-96 w-full">
@@ -131,6 +146,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
           </div>
         )}
       </section>
+      <CustomCodeBlock code={pillar.bodyCode} />
     </article>
   );
 }

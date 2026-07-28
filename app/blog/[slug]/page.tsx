@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import CustomCodeBlock from "@/components/CustomCodeBlock";
 import { getSiteSettings } from "@/lib/site-settings";
 
 export const dynamic = "force-dynamic";
@@ -15,10 +16,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = await getPost(slug);
   if (!post || post.status !== "PUBLISHED") return {};
 
+  const title = post.seoTitle || post.title;
+  const description = post.seoDescription || post.excerpt || undefined;
+  const ogImage = post.ogImage || post.coverImage;
+
   return {
-    title: post.seoTitle || post.title,
-    description: post.seoDescription || post.excerpt || undefined,
-    openGraph: post.coverImage ? { images: [{ url: post.coverImage }] } : undefined,
+    title,
+    description,
+    ...(post.canonicalUrl ? { alternates: { canonical: post.canonicalUrl } } : {}),
+    robots: post.noIndex ? { index: false, follow: true } : { index: true, follow: true },
+    openGraph: {
+      title: post.ogTitle || title,
+      description: post.ogDescription || description,
+      images: ogImage ? [{ url: ogImage }] : undefined,
+    },
   };
 }
 
@@ -30,7 +41,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const settings = await getSiteSettings();
   const description = post.seoDescription || post.excerpt || post.title;
 
-  const articleJsonLd = {
+  const autoJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
@@ -40,14 +51,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     dateModified: post.updatedAt.toISOString(),
     mainEntityOfPage: `${settings.domain}/blog/${post.slug}`,
   };
+  // An admin can override the automatic schema from the page's "Page settings"
+  // → Schema markup panel; otherwise we fall back to the graph built above.
+  const jsonLdToRender = post.schemaJson && typeof post.schemaJson === "object" ? post.schemaJson : autoJsonLd;
 
   return (
     <article className="bg-white">
+      <CustomCodeBlock code={post.headCode} />
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }]}
         description={description}
       />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdToRender) }} />
 
       <section className="mx-auto max-w-3xl px-6 py-16">
         {post.coverImage && (
@@ -62,6 +77,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           dangerouslySetInnerHTML={{ __html: post.contentHtml }}
         />
       </section>
+      <CustomCodeBlock code={post.bodyCode} />
     </article>
   );
 }
