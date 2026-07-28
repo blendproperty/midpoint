@@ -4,6 +4,7 @@ type Props = {
   action: (formData: FormData) => void;
   defaultValues?: {
     building?: string;
+    unitName?: string;
     sector?: string;
     sizeSqm?: number;
     ratePerSqm?: number;
@@ -23,6 +24,19 @@ export default function VacancyForm({ action, defaultValues, submitLabel = "Save
       <div>
         <label className="block text-sm font-medium">Building</label>
         <input name="building" defaultValue={defaultValues?.building} required className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+      </div>
+      <div>
+        <label className="block text-sm font-medium">Unit / suite name (optional)</label>
+        <input
+          name="unitName"
+          defaultValue={defaultValues?.unitName}
+          placeholder="e.g. Suite 4 — only needed when several listings share one Building name (like OnPoint)"
+          className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
+        />
+        <p className="mt-1 text-xs text-slate-400">
+          Shown on the card and carried through to the enquiry so it's clear which specific space someone is
+          asking about.
+        </p>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
