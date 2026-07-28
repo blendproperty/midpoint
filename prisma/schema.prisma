@@ -201,6 +201,12 @@ model SiteSetting {
   whatsapp                 String?
   whatsappTemplate         String?
   enquirySuccessMessage    String?
+  // Full VacancySyncResult (see lib/listings-sync.ts) from the most recent
+  // sync run, whether triggered by the "Sync now" button or the VPS cron
+  // job — lets /admin/vacancies show exactly which listings had an
+  // unrecognised sector/status (with the real raw string from their API),
+  // not just a bare count, without needing a dedicated log table.
+  lastVacancySync          Json?
   updatedAt                DateTime @updatedAt
 }
 
