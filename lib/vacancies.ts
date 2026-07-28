@@ -6,6 +6,10 @@ export type VacancySector = "Warehouse" | "Office" | "Serviced office";
 export type VacancyListing = {
   id: string;
   building: string;
+  // Specific unit/suite name within `building`, e.g. "OnPoint Suite 4" for
+  // a listing whose `building` is just "OnPoint". Null for standalone
+  // buildings where there's nothing more specific to show.
+  unitName: string | null;
   sector: VacancySector;
   sizeSqm: number;
   ratePerSqm: number;
@@ -46,11 +50,12 @@ export async function getAllVacancies(): Promise<VacancyListing[]> {
       orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
     });
     if (rows.length === 0) {
-      return fallbackVacancies.map((v, i) => ({ id: slugFromBuilding(v.building, i), ...v }));
+      return fallbackVacancies.map((v, i) => ({ id: slugFromBuilding(v.building, i), unitName: null, ...v }));
     }
     return rows.map((row) => ({
       id: row.id,
       building: row.building,
+      unitName: row.unitName || null,
       sector: SECTOR_LABEL[row.sector] || "Office",
       sizeSqm: row.sizeSqm,
       ratePerSqm: row.ratePerSqm,
@@ -60,7 +65,7 @@ export async function getAllVacancies(): Promise<VacancyListing[]> {
       image: row.image || "",
     }));
   } catch {
-    return fallbackVacancies.map((v, i) => ({ id: slugFromBuilding(v.building, i), ...v }));
+    return fallbackVacancies.map((v, i) => ({ id: slugFromBuilding(v.building, i), unitName: null, ...v }));
   }
 }
 
