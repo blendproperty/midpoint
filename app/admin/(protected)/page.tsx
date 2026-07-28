@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { scoreContent, scorePillarPage } from "@/lib/seo-score";
+import { getAuditRows, summarizeAuditRows } from "@/lib/seo-audit";
 import { vacancyReadinessScore } from "@/lib/vacancy-scores";
 import { formatPillarFaqs, type PillarFaq } from "@/lib/pillar-faqs";
 
@@ -223,7 +224,7 @@ export default async function AdminDashboard({
   const period = PERIODS.includes(filters.period || "") ? filters.period! : "90";
   const since = period === "ALL" ? undefined : new Date(Date.now() - Number(period) * 86_400_000);
 
-  const [vacancies, enquiriesInPeriod, enquiryTotal, enquiryUnhandled, recentEnquiries, pageViews, vacancyEnquireEvents, blogPosts, pages, pillarPages] =
+  const [vacancies, enquiriesInPeriod, enquiryTotal, enquiryUnhandled, recentEnquiries, pageViews, vacancyEnquireEvents, blogPosts, pages, pillarPages, auditRows] =
     await Promise.all([
       prisma.vacancy.findMany({ orderBy: { updatedAt: "desc" } }),
       prisma.enquiry.findMany({ where: since ? { createdAt: { gte: since } } : undefined, select: { createdAt: true } }),
@@ -238,6 +239,7 @@ export default async function AdminDashboard({
       prisma.blogPost.findMany({ orderBy: { updatedAt: "desc" } }),
       prisma.page.findMany({ orderBy: { updatedAt: "desc" } }),
       prisma.pillarPage.findMany({ orderBy: { updatedAt: "desc" } }),
+      getAuditRows(),
     ]);
 
   const matchingVacancies = vacancies.filter((v) => sector === "ALL" || v.sector === sector);
@@ -250,7 +252,17 @@ export default async function AdminDashboard({
   const conversionRate = views ? (enquiryCount / views) * 100 : 0;
   const liveRate = matchingVacancies.length ? (liveVacancies.length / matchingVacancies.length) * 100 : 0;
 
-  // Content SEO score across every published Blog post, Page and Pillar page.
+  // Live SEO score — same site-wide audit rows (Blog + Pages + Pillar pages
+  // + the 4 static pages + every live vacancy) and the same check-weighted
+  // formula as /admin/seo-audit, via the shared lib/seo-audit.ts. This used
+  // to be a narrower per-item average across only Blog/Page/Pillar content,
+  // which silently excluded static pages and vacancies and produced a
+  // different (lower) number than the audit page for the same site.
+  const { overallScore: siteWideSeoScore, itemCount: siteWideItemCount } = summarizeAuditRows(auditRows);
+
+  // Content SEO score across every published Blog post, Page and Pillar
+  // page — kept separately, purely to drive the "Priority content
+  // improvements" list below (which links straight to each item's editor).
   const scoredBlog = blogPosts
     .filter((p) => p.status === "PUBLISHED")
     .map((p) => {
@@ -270,12 +282,6 @@ export default async function AdminDashboard({
       const result = scorePillarPage({ ...p, faqs });
       return { p, result };
     });
-  const allScored = scoredBlog.length + scoredPages.length + scoredPillars.length;
-  const totalContentScore =
-    scoredBlog.reduce((s, x) => s + x.result.score, 0) +
-    scoredPages.reduce((s, x) => s + x.result.score, 0) +
-    scoredPillars.reduce((s, x) => s + x.result.score, 0);
-  const averageContentSeo = allScored ? totalContentScore / allScored : 0;
 
   const scoredVacancies = liveVacancies.map((v) => ({ v, result: vacancyReadinessScore(v) }));
   const averageVacancyReadiness = scoredVacancies.length
@@ -427,7 +433,9 @@ export default async function AdminDashboard({
       </div>
 
       <div className="grid gap-6 xl:grid-cols-4">
-        <MetricCard title="Live SEO score" value={`${averageContentSeo.toFixed(0)}%`} detail={`Search readiness across ${allScored} published pages`} icon={Search} tone="blue" />
+        <Link href="/admin/seo-audit" className="block">
+          <MetricCard title="Live SEO score" value={`${siteWideSeoScore}%`} detail={`Search readiness across ${siteWideItemCount} published items — see full audit`} icon={Search} tone="blue" />
+        </Link>
         <MetricCard title="Vacancy readiness score" value={`${averageVacancyReadiness.toFixed(0)}%`} detail={`Content completeness across ${liveVacancies.length} live listings`} icon={Gauge} tone="green" />
         <Panel title="Top pages" subtitle={`Site-wide page views · ${periodLabel(period)}`}>
           <BarList rows={topPageRows} />
