@@ -2,8 +2,6 @@
 
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
-import { parsePillarFaqs } from "@/lib/pillar-faqs";
-import { parseFeatures, parseConsiderations, parseLinks } from "@/lib/pillar-blocks";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { Prisma } from "@prisma/client";
@@ -27,15 +25,29 @@ function parseSchemaJson(raw: string): Prisma.InputJsonValue | typeof Prisma.Jso
   }
 }
 
+// The repeater fields (features, considerations, FAQs, explore links) each
+// submit their own JSON blob built client-side — parse defensively so a
+// malformed or missing value just becomes an empty section rather than a
+// failed save.
+function parseJsonArray(raw: string): Prisma.InputJsonValue[] {
+  if (!raw.trim()) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
 function readFields(formData: FormData) {
   const title = String(formData.get("title") || "").trim();
   const slugInput = String(formData.get("slug") || "").trim();
   const slug = slugify(slugInput || title);
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
-  const faqs = parsePillarFaqs(String(formData.get("faqsText") || ""));
-  const features = parseFeatures(String(formData.get("featuresText") || ""));
-  const considerations = parseConsiderations(String(formData.get("considerationsText") || ""));
-  const exploreLinks = parseLinks(String(formData.get("exploreLinksText") || ""));
+  const faqs = parseJsonArray(String(formData.get("faqsJson") || ""));
+  const features = parseJsonArray(String(formData.get("featuresJson") || ""));
+  const considerations = parseJsonArray(String(formData.get("considerationsJson") || ""));
+  const exploreLinks = parseJsonArray(String(formData.get("exploreLinksJson") || ""));
   const lastReviewedRaw = String(formData.get("lastReviewedAt") || "").trim();
   const relatedSectorRaw = String(formData.get("relatedSector") || "").trim();
 

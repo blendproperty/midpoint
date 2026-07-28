@@ -3,11 +3,14 @@ import { prisma } from "@/lib/prisma";
 import PillarPageForm from "@/components/admin/PillarPageForm";
 import SeoScoreCard from "@/components/admin/SeoScoreCard";
 import { scorePillarPage } from "@/lib/seo-score";
-import { formatPillarFaqs, type PillarFaq } from "@/lib/pillar-faqs";
-import { formatFeatures, formatConsiderations, formatLinks, type PillarFeature, type PillarConsideration, type PillarLink } from "@/lib/pillar-blocks";
 import { updatePillarPage } from "../../actions";
 
 export const dynamic = "force-dynamic";
+
+type PillarFaq = { question: string; answer: string };
+type PillarFeature = { heading: string; text: string; image: string };
+type PillarConsideration = { heading: string; text: string };
+type PillarLink = { label: string; href: string };
 
 export default async function EditPillarPagePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -44,11 +47,11 @@ export default async function EditPillarPagePage({ params }: { params: Promise<{
           listingsHeading: pillar.listingsHeading || "",
           listingsIntro: pillar.listingsIntro || "",
           showReadyToMove: pillar.showReadyToMove,
-          featuresText: formatFeatures(features),
-          considerationsText: formatConsiderations(considerations),
-          exploreLinksText: formatLinks(exploreLinks),
+          features,
+          considerations,
+          exploreLinks,
           contentHtml: pillar.contentHtml,
-          faqsText: formatPillarFaqs(faqs),
+          faqs,
           faqsHeading: pillar.faqsHeading || "",
           ctaHeading: pillar.ctaHeading || "",
           ctaText: pillar.ctaText || "",

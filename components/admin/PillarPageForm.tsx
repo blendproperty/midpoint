@@ -3,6 +3,15 @@
 import RichTextEditor from "@/components/admin/RichTextEditor";
 import MediaPicker from "@/components/admin/MediaPicker";
 import PageSettingsPanel from "@/components/admin/PageSettingsPanel";
+import FeatureRepeater from "@/components/admin/FeatureRepeater";
+import ConsiderationRepeater from "@/components/admin/ConsiderationRepeater";
+import LinkRepeater from "@/components/admin/LinkRepeater";
+import FaqRepeater from "@/components/admin/FaqRepeater";
+
+type Feature = { heading: string; text: string; image: string };
+type Consideration = { heading: string; text: string };
+type LinkItem = { label: string; href: string };
+type Faq = { question: string; answer: string };
 
 type Props = {
   action: (formData: FormData) => void;
@@ -21,11 +30,11 @@ type Props = {
     listingsHeading?: string;
     listingsIntro?: string;
     showReadyToMove?: boolean;
-    featuresText?: string;
-    considerationsText?: string;
-    exploreLinksText?: string;
+    features?: Feature[];
+    considerations?: Consideration[];
+    exploreLinks?: LinkItem[];
     contentHtml?: string;
-    faqsText?: string;
+    faqs?: Faq[];
     faqsHeading?: string;
     ctaHeading?: string;
     ctaText?: string;
@@ -123,7 +132,7 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
         <h2 className="text-lg font-semibold">Layout blocks</h2>
         <p className="text-xs text-slate-400">
           These build the comprehensive page sections shown on the live site — a feature grid, a considerations
-          section, live listings pulled straight from Vacancies, and explore-more links. Leave any of them blank to
+          section, live listings pulled straight from Vacancies, and explore-more links. Leave any of them empty to
           skip that section entirely.
         </p>
         <div className="grid grid-cols-2 gap-4">
@@ -154,43 +163,22 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium">
-            Feature highlights (image + heading + text blocks). One block per feature, format
-            &quot;Heading :: Text :: Image URL&quot;, separated by a blank line. Copy image URLs from the Media
-            library.
-          </label>
-          <textarea
-            name="featuresText"
-            defaultValue={defaultValues?.featuresText}
-            rows={8}
-            placeholder={"Flexible office environments. :: Office suites vary in size and configuration... :: https://.../image.jpg"}
-            className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs"
-          />
+          <label className="block text-sm font-medium">Feature highlights (image + heading + text)</label>
+          <div className="mt-2">
+            <FeatureRepeater name="featuresJson" defaultValue={defaultValues?.features} />
+          </div>
         </div>
         <div>
-          <label className="block text-sm font-medium">
-            Considerations (what to weigh up). One block per item, format &quot;Heading :: Text&quot;, separated by a
-            blank line.
-          </label>
-          <textarea
-            name="considerationsText"
-            defaultValue={defaultValues?.considerationsText}
-            rows={8}
-            placeholder={"Staff access and commute :: Midpoint sits directly on the N1..."}
-            className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs"
-          />
+          <label className="block text-sm font-medium">Considerations (what to weigh up)</label>
+          <div className="mt-2">
+            <ConsiderationRepeater name="considerationsJson" defaultValue={defaultValues?.considerations} />
+          </div>
         </div>
         <div>
-          <label className="block text-sm font-medium">
-            Explore more links. One per line, format &quot;Label :: /href&quot;.
-          </label>
-          <textarea
-            name="exploreLinksText"
-            defaultValue={defaultValues?.exploreLinksText}
-            rows={4}
-            placeholder={"Warehouses to rent :: /warehouses\nAmenities & lifestyle :: /amenities"}
-            className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs"
-          />
+          <label className="block text-sm font-medium">Explore more links</label>
+          <div className="mt-2">
+            <LinkRepeater name="exploreLinksJson" defaultValue={defaultValues?.exploreLinks} />
+          </div>
         </div>
       </div>
 
@@ -200,23 +188,15 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
           <label className="block text-sm font-medium">Main content — long-form educational sections, comparisons, evidence, process</label>
           <RichTextEditor name="contentHtml" defaultValue={defaultValues?.contentHtml} height={520} />
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium">FAQs section heading</label>
-            <input name="faqsHeading" defaultValue={defaultValues?.faqsHeading} placeholder="Frequently asked questions" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-          </div>
+        <div>
+          <label className="block text-sm font-medium">FAQs section heading</label>
+          <input name="faqsHeading" defaultValue={defaultValues?.faqsHeading} placeholder="Frequently asked questions" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
         </div>
         <div>
-          <label className="block text-sm font-medium">
-            FAQs (10–18 recommended). One block per FAQ, format "Question :: Answer", separated by a blank line.
-          </label>
-          <textarea
-            name="faqsText"
-            defaultValue={defaultValues?.faqsText}
-            rows={10}
-            placeholder={"How much does office space cost to rent in Midrand? :: Answer here...\n\nWhich parts of Midrand are best for office space? :: Answer here..."}
-            className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs"
-          />
+          <label className="block text-sm font-medium">FAQs (10–18 recommended)</label>
+          <div className="mt-2">
+            <FaqRepeater name="faqsJson" defaultValue={defaultValues?.faqs} />
+          </div>
         </div>
       </div>
 
