@@ -105,13 +105,16 @@ const SERVICED_OFFICE_BUILDINGS = ["onpoint"];
 // Their marketSector strings aren't documented against our exact enum
 // values, so this matches loosely (case-insensitive substring) rather than
 // requiring an exact string — "Serviced Office", "serviced_office", and
-// "Serviced" should all land on SERVICED_OFFICE, for example. The building/
-// business park name is checked first since it's the more reliable signal
-// for known serviced-office-only buildings like OnPoint (see above) —
-// marketSector is only consulted as a fallback. Anything that doesn't match
-// any known sector falls back to OFFICE and is flagged in the sync result's
-// `skipped` list (as a warning, not a hard failure) so it's visible in
-// /admin rather than silently miscategorised.
+// "Serviced" should all land on SERVICED_OFFICE, for example. "COMMERCIAL"
+// is confirmed (from a real sync run against 1/2/3 Weaver Avenue, 8 Sunbird
+// Road, and Midpoint Commercial) to mean ordinary office space in their
+// system, not warehouse/industrial. The building/business park name is
+// checked first since it's the more reliable signal for known
+// serviced-office-only buildings like OnPoint (see above) — marketSector is
+// only consulted as a fallback. Anything that still doesn't match falls
+// back to OFFICE and is flagged in the sync result's `skipped` list (as a
+// warning, not a hard failure) so it's visible in /admin rather than
+// silently miscategorised.
 function mapSector(listing: ListingRecord): { sector: "WAREHOUSE" | "OFFICE" | "SERVICED_OFFICE"; matched: boolean } {
   const buildingName = (listing.building?.name || "").toLowerCase();
   const businessParkName = (listing.businessPark?.name || "").toLowerCase();
@@ -122,7 +125,7 @@ function mapSector(listing: ListingRecord): { sector: "WAREHOUSE" | "OFFICE" | "
   const value = (listing.marketSector || "").toLowerCase();
   if (value.includes("serviced")) return { sector: "SERVICED_OFFICE", matched: true };
   if (value.includes("warehouse") || value.includes("industrial")) return { sector: "WAREHOUSE", matched: true };
-  if (value.includes("office")) return { sector: "OFFICE", matched: true };
+  if (value.includes("office") || value.includes("commercial")) return { sector: "OFFICE", matched: true };
   return { sector: "OFFICE", matched: false };
 }
 
