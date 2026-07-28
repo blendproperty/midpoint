@@ -2,6 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
+import { hashPassword } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { Prisma } from "@prisma/client";
@@ -37,6 +38,22 @@ function parseJsonArray(raw: string): Prisma.InputJsonValue[] {
   } catch {
     return [];
   }
+}
+
+// Shared by createPillarPage/updatePillarPage. Never lets a page end up
+// "protected" with no password ever set — that would lock out every visitor
+// including whoever ticked the box, with no way back in short of clearing it
+// in the database directly.
+async function readAccessControlFields(formData: FormData, existingHash: string | null) {
+  const passwordProtected = formData.get("passwordProtected") === "on";
+  const rawPassword = String(formData.get("accessPassword") || "").trim();
+
+  const accessPasswordHash = rawPassword ? await hashPassword(rawPassword) : existingHash;
+
+  return {
+    passwordProtected: passwordProtected && Boolean(accessPasswordHash),
+    accessPasswordHash,
+  };
 }
 
 function readFields(formData: FormData) {
@@ -98,11 +115,13 @@ function readFields(formData: FormData) {
 export async function createPillarPage(formData: FormData) {
   await requireAdmin();
   const fields = readFields(formData);
+  const access = await readAccessControlFields(formData, null);
   if (!fields.title || !fields.slug) throw new Error("Title is required");
 
   await prisma.pillarPage.create({
     data: {
       ...fields,
+      ...access,
       publishedAt: fields.status === "PUBLISHED" ? new Date() : null,
     },
   });
@@ -117,11 +136,13 @@ export async function updatePillarPage(id: string, formData: FormData) {
   await requireAdmin();
   const fields = readFields(formData);
   const existing = await prisma.pillarPage.findUnique({ where: { id } });
+  const access = await readAccessControlFields(formData, existing?.accessPasswordHash ?? null);
 
   await prisma.pillarPage.update({
     where: { id },
     data: {
       ...fields,
+      ...access,
       publishedAt: fields.status === "PUBLISHED" ? existing?.publishedAt || new Date() : null,
     },
   });

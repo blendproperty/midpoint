@@ -45,6 +45,8 @@ type Props = {
     reviewOwner?: string;
     lastReviewedAt?: string;
     status?: string;
+    passwordProtected?: boolean;
+    hasAccessPassword?: boolean;
     seoTitle?: string;
     seoDescription?: string;
     focusKeyword?: string;
@@ -238,6 +240,30 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
             <label className="block text-sm font-medium">Last reviewed date</label>
             <input type="date" name="lastReviewedAt" defaultValue={defaultValues?.lastReviewedAt} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
           </div>
+        </div>
+      </div>
+
+      <div className="space-y-4 rounded-xl bg-white p-6 shadow-sm">
+        <h2 className="text-lg font-semibold">Access control</h2>
+        <label className="flex items-center gap-2 text-sm font-medium">
+          <input type="checkbox" name="passwordProtected" defaultChecked={defaultValues?.passwordProtected} />
+          Require a password to view this page
+        </label>
+        <div>
+          <label className="block text-sm font-medium">
+            {defaultValues?.hasAccessPassword ? "Change password" : "Set password"}
+          </label>
+          <input
+            type="text"
+            name="accessPassword"
+            placeholder={defaultValues?.hasAccessPassword ? "Leave blank to keep the current password" : "Enter a password"}
+            className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
+          />
+          <p className="mt-1 text-xs text-slate-400">
+            Visitors will need to enter this password before they can view the page. Shown as plain text here so you
+            can copy and share it, but stored securely (hashed) in the database. This page is automatically excluded
+            from search engines while protected.
+          </p>
         </div>
       </div>
 

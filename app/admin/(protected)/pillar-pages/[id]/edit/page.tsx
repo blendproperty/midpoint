@@ -62,6 +62,8 @@ export default async function EditPillarPagePage({ params }: { params: Promise<{
           reviewOwner: pillar.reviewOwner || "",
           lastReviewedAt: pillar.lastReviewedAt ? pillar.lastReviewedAt.toISOString().slice(0, 10) : "",
           status: pillar.status,
+          passwordProtected: pillar.passwordProtected,
+          hasAccessPassword: Boolean(pillar.accessPasswordHash),
           seoTitle: pillar.seoTitle || "",
           seoDescription: pillar.seoDescription || "",
           focusKeyword: pillar.focusKeyword || "",
