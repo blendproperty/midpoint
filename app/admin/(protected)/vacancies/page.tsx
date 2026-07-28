@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { deleteVacancy, syncVacanciesNow } from "./actions";
+import type { VacancySyncResult } from "@/lib/listings-sync";
 
 export const dynamic = "force-dynamic";
 
@@ -16,9 +17,11 @@ export default async function VacanciesAdminPage({
   searchParams: Promise<{ synced?: string; created?: string; updated?: string; deprecated?: string; skipped?: string; error?: string }>;
 }) {
   const sp = await searchParams;
-  const vacancies = await prisma.vacancy.findMany({
-    orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
-  });
+  const [vacancies, settings] = await Promise.all([
+    prisma.vacancy.findMany({ orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] }),
+    prisma.siteSetting.findUnique({ where: { id: "global" }, select: { lastVacancySync: true } }),
+  ]);
+  const lastSync = settings?.lastVacancySync as unknown as VacancySyncResult | null;
 
   return (
     <div>
@@ -44,9 +47,29 @@ export default async function VacanciesAdminPage({
             <p>
               Synced from listings.blendproperty.co.za — {sp.created} created, {sp.updated} updated
               {Number(sp.deprecated) > 0 ? `, ${sp.deprecated} no longer listed (set to Draft)` : ""}
-              {Number(sp.skipped) > 0 ? `, ${sp.skipped} with an unrecognised sector (defaulted to Office — check below)` : ""}.
+              {Number(sp.skipped) > 0 ? `, ${sp.skipped} with an unrecognised sector (defaulted to Office — see below).` : "."}
             </p>
           )}
+        </div>
+      )}
+
+      {lastSync && lastSync.skipped?.length > 0 && (
+        <div className="mt-4 rounded-xl bg-amber-50 p-4 text-sm text-amber-900">
+          <h2 className="font-semibold text-amber-800">
+            Unrecognised sectors from the last sync ({new Date(lastSync.ranAt).toLocaleString()})
+          </h2>
+          <p className="mt-1 text-xs text-amber-700">
+            These listings came back with a marketSector value the sync doesn't know how to map, so they were
+            saved as Office by default. Fix the mapping in lib/listings-sync.ts once you see the real value below,
+            or just correct the sector by hand in each row for now.
+          </p>
+          <ul className="mt-3 space-y-1">
+            {lastSync.skipped.map((s) => (
+              <li key={s.id}>
+                <span className="font-medium">{s.title}:</span> {s.reason}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 
