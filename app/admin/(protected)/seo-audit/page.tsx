@@ -1,29 +1,8 @@
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
-import { STATIC_PAGES } from "@/lib/static-pages";
-import { getStaticPageContent } from "@/lib/static-page-content";
-import {
-  scoreContent,
-  scorePillarPage,
-  scoreStaticPage,
-  scoreVacancyListing,
-  STATUS_POINTS,
-  type SeoScoreResult,
-  type SeoCheckStatus,
-} from "@/lib/seo-score";
+import { getAuditRows, summarizeAuditRows, type AuditRow } from "@/lib/seo-audit";
+import type { SeoCheckStatus } from "@/lib/seo-score";
 
 export const dynamic = "force-dynamic";
-
-type AuditRow = {
-  id: string;
-  type: "Blog post" | "Page" | "Pillar page" | "Static page" | "Vacancy listing";
-  title: string;
-  editHref: string;
-  focusKeyword: string;
-  result: SeoScoreResult;
-};
-
-type PillarFaq = { question: string; answer: string };
 
 const GRADE_STYLES: Record<string, string> = {
   Good: "bg-emerald-100 text-emerald-700",
@@ -38,110 +17,6 @@ const CHECK_STYLES: Record<SeoCheckStatus, string> = {
 };
 
 const CHECK_ICON: Record<SeoCheckStatus, string> = { good: "✓", ok: "!", bad: "✕" };
-
-async function getAuditRows(): Promise<AuditRow[]> {
-  const [posts, pages, pillars, overrides, vacancies] = await Promise.all([
-    prisma.blogPost.findMany({ where: { status: "PUBLISHED" } }),
-    prisma.page.findMany({ where: { status: "PUBLISHED" } }),
-    prisma.pillarPage.findMany({ where: { status: "PUBLISHED" } }),
-    prisma.pageSeoOverride.findMany(),
-    prisma.vacancy.findMany({ where: { status: "PUBLISHED" } }),
-  ]);
-  const overrideMap = new Map(overrides.map((o) => [o.path, o]));
-
-  const postRows: AuditRow[] = posts.map((p) => ({
-    id: `blog-${p.id}`,
-    type: "Blog post",
-    title: p.title,
-    editHref: `/admin/blog/${p.id}/edit`,
-    focusKeyword: p.focusKeyword?.trim() || "",
-    result: scoreContent({
-      title: p.title,
-      slug: p.slug,
-      seoTitle: p.seoTitle,
-      seoDescription: p.seoDescription,
-      contentHtml: p.contentHtml,
-      focusKeyword: p.focusKeyword,
-    }),
-  }));
-
-  const pageRows: AuditRow[] = pages.map((p) => ({
-    id: `page-${p.id}`,
-    type: "Page",
-    title: p.title,
-    editHref: `/admin/pages/${p.id}/edit`,
-    focusKeyword: p.focusKeyword?.trim() || "",
-    result: scoreContent({
-      title: p.title,
-      slug: p.slug,
-      seoTitle: p.seoTitle,
-      seoDescription: p.seoDescription,
-      contentHtml: p.contentHtml,
-      focusKeyword: p.focusKeyword,
-    }),
-  }));
-
-  const pillarRows: AuditRow[] = pillars.map((p) => {
-    const faqs = Array.isArray(p.faqs) ? (p.faqs as unknown as PillarFaq[]) : [];
-    return {
-      id: `pillar-${p.id}`,
-      type: "Pillar page",
-      title: p.title,
-      editHref: `/admin/pillar-pages/${p.id}/edit`,
-      focusKeyword: p.focusKeyword?.trim() || "",
-      result: scorePillarPage({
-        title: p.title,
-        slug: p.slug,
-        seoTitle: p.seoTitle,
-        seoDescription: p.seoDescription,
-        contentHtml: p.contentHtml,
-        focusKeyword: p.focusKeyword,
-        heroAnswer: p.heroAnswer,
-        expertName: p.expertName,
-        expertBio: p.expertBio,
-        faqs,
-        lastReviewedAt: p.lastReviewedAt,
-      }),
-    };
-  });
-
-  const staticRows: AuditRow[] = STATIC_PAGES.map((s) => {
-    const o = overrideMap.get(s.path);
-    return {
-      id: `static-${s.path}`,
-      type: "Static page",
-      title: s.label,
-      editHref: `/admin/page-seo/edit?path=${encodeURIComponent(s.path)}`,
-      focusKeyword: "",
-      result: scoreStaticPage({
-        title: s.label,
-        path: s.path,
-        seoTitle: o?.seoTitle,
-        seoDescription: o?.seoDescription,
-        ogImage: o?.ogImage,
-        pageContent: getStaticPageContent(s.path),
-      }),
-    };
-  });
-
-  const vacancyRows: AuditRow[] = vacancies.map((v) => ({
-    id: `vacancy-${v.id}`,
-    type: "Vacancy listing",
-    title: v.building,
-    editHref: `/admin/vacancies/${v.id}/edit`,
-    focusKeyword: "",
-    result: scoreVacancyListing({
-      building: v.building,
-      description: v.description,
-      image: v.image,
-      features: v.features,
-    }),
-  }));
-
-  return [...postRows, ...pageRows, ...pillarRows, ...staticRows, ...vacancyRows].sort(
-    (a, b) => a.result.score - b.result.score
-  );
-}
 
 // Two or more published pieces of content targeting the exact same focus
 // keyword compete against each other in search instead of either one
@@ -241,16 +116,7 @@ export default async function SeoAuditPage({
 
   const rows = await getAuditRows();
   const cannibalization = findCannibalization(rows);
-
-  const allChecks = rows.flatMap((r) => r.result.checks);
-  const totalChecks = allChecks.length;
-  const goodCount = allChecks.filter((c) => c.status === "good").length;
-  const okCount = allChecks.filter((c) => c.status === "ok").length;
-  const badCount = allChecks.filter((c) => c.status === "bad").length;
-  const overallScore =
-    totalChecks > 0
-      ? Math.round((allChecks.reduce((sum, c) => sum + STATUS_POINTS[c.status], 0) / totalChecks) * 100)
-      : 0;
+  const { overallScore, totalChecks, goodCount, okCount, badCount } = summarizeAuditRows(rows);
 
   const filterCounts: Record<string, number> = { all: totalChecks, good: goodCount, ok: okCount, bad: badCount };
 
