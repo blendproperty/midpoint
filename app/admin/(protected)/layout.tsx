@@ -11,12 +11,9 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
   const navItems = [
     { href: "/admin", label: "Dashboard" },
     { href: "/admin/enquiries", label: "Enquiries" },
-    { href: "/admin/blog", label: "Blog" },
     { href: "/admin/pages", label: "Pages" },
-    { href: "/admin/pillar-pages", label: "Pillar Pages" },
     { href: "/admin/vacancies", label: "Vacancies" },
     { href: "/admin/faqs", label: "FAQs" },
-    { href: "/admin/page-seo", label: "Page SEO" },
     { href: "/admin/schema-tool", label: "Schema Tool" },
     { href: "/admin/media", label: "Media" },
     { href: "/admin/settings", label: "Site Settings" },
