@@ -221,3 +221,82 @@ export function scorePillarPage(input: PillarScoreInput): SeoScoreResult {
 
   return finalize(checks);
 }
+
+type StaticScoreInput = {
+  title: string;
+  path: string;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+  ogImage?: string | null;
+  // Static pages (About Us, Contact Us, etc.) are hand-coded JSX, not
+  // database content — there's no contentHtml to run scoreContent() against.
+  // lib/static-page-content.ts keeps a maintained plain-text mirror of each
+  // page's real copy specifically so this scorer (and the schema/description
+  // "Generate" buttons) have something real to check instead of just a title.
+  pageContent?: string;
+};
+
+// A lighter checklist for static pages, built from what actually exists for
+// them (an SEO override + a maintained copy mirror) rather than pretending
+// they have the same fields as CMS content. No headings/image-alt/internal-
+// link/focus-keyword checks here — those need real markup this page type
+// doesn't have — but title, description, real copy length, schema, and
+// social image are all genuinely checkable, so static pages get an honest
+// score instead of a permanent "—".
+export function scoreStaticPage(input: StaticScoreInput): SeoScoreResult {
+  const checks: SeoCheck[] = [];
+  const effectiveTitle = input.seoTitle || input.title;
+  const titleLen = effectiveTitle.length;
+
+  checks.push(
+    titleLen >= 40 && titleLen <= 60
+      ? { id: "title-length", label: "SEO title length", status: "good", message: `${titleLen} characters — a good length for search results.` }
+      : titleLen > 0
+        ? { id: "title-length", label: "SEO title length", status: "ok", message: `${titleLen} characters — aim for 40–60 so it doesn't get cut off in search results.` }
+        : { id: "title-length", label: "SEO title length", status: "bad", message: "No title set." }
+  );
+
+  const descLen = (input.seoDescription || "").length;
+  checks.push(
+    descLen >= 120 && descLen <= 156
+      ? { id: "meta-description", label: "Meta description", status: "good", message: `${descLen} characters — a good length.` }
+      : descLen > 0
+        ? { id: "meta-description", label: "Meta description", status: "ok", message: `${descLen} characters — aim for 120–156.` }
+        : { id: "meta-description", label: "Meta description", status: "bad", message: "No meta description set — search engines will generate one automatically, which you can't control." }
+  );
+
+  const wordCount = countWords(input.pageContent || "");
+  checks.push(
+    wordCount >= 300
+      ? { id: "content-length", label: "Page copy length", status: "good", message: `~${wordCount} words of real copy on this page.` }
+      : wordCount >= 150
+        ? { id: "content-length", label: "Page copy length", status: "ok", message: `~${wordCount} words — on the thin side; consider adding more real copy to the page itself.` }
+        : { id: "content-length", label: "Page copy length", status: "bad", message: `~${wordCount} words — thin content is unlikely to rank well. (Estimate based on a maintained mirror of this page's copy, since static pages aren't stored in the database.)` }
+  );
+
+  const schemaDescription = (input.seoDescription || "").trim();
+  checks.push(
+    schemaDescription.length >= 50
+      ? {
+          id: "structured-data",
+          label: "Structured data (JSON-LD)",
+          status: "good",
+          message: "Schema markup is generated automatically and includes a real description.",
+        }
+      : {
+          id: "structured-data",
+          label: "Structured data (JSON-LD)",
+          status: "ok",
+          message:
+            "Schema markup is generated automatically, but without a meta description it falls back to using just the title.",
+        }
+  );
+
+  checks.push(
+    input.ogImage
+      ? { id: "og-image", label: "Social share image", status: "good", message: "A custom image is set for social shares." }
+      : { id: "og-image", label: "Social share image", status: "ok", message: "No custom social image set — the site default will be used instead." }
+  );
+
+  return finalize(checks);
+}
