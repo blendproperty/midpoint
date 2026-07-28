@@ -298,3 +298,17 @@ model PageSeoOverride {
   bodyCode       String?  @db.Text
   updatedAt      DateTime @updatedAt
 }
+
+// URL redirects (e.g. old Webflow slugs -> new equivalents, or any changed
+// path) enforced in middleware.ts. hitCount/lastHitAt let an editor tell a
+// dead rule from one that's still catching real traffic before deleting it.
+model Redirect {
+  id         String    @id @default(cuid())
+  fromPath   String    @unique
+  toPath     String
+  statusCode Int       @default(301)
+  hitCount   Int       @default(0)
+  lastHitAt  DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
