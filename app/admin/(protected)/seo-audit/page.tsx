@@ -2,7 +2,15 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { STATIC_PAGES } from "@/lib/static-pages";
 import { getStaticPageContent } from "@/lib/static-page-content";
-import { scoreContent, scorePillarPage, scoreStaticPage, scoreVacancyListing, type SeoScoreResult } from "@/lib/seo-score";
+import {
+  scoreContent,
+  scorePillarPage,
+  scoreStaticPage,
+  scoreVacancyListing,
+  STATUS_POINTS,
+  type SeoScoreResult,
+  type SeoCheckStatus,
+} from "@/lib/seo-score";
 
 export const dynamic = "force-dynamic";
 
@@ -17,11 +25,19 @@ type AuditRow = {
 
 type PillarFaq = { question: string; answer: string };
 
-const STATUS_STYLES: Record<string, string> = {
+const GRADE_STYLES: Record<string, string> = {
   Good: "bg-emerald-100 text-emerald-700",
   "Needs improvement": "bg-amber-100 text-amber-700",
   Poor: "bg-red-100 text-red-700",
 };
+
+const CHECK_STYLES: Record<SeoCheckStatus, string> = {
+  good: "bg-emerald-100 text-emerald-700",
+  ok: "bg-amber-100 text-amber-700",
+  bad: "bg-red-100 text-red-700",
+};
+
+const CHECK_ICON: Record<SeoCheckStatus, string> = { good: "✓", ok: "!", bad: "✕" };
 
 async function getAuditRows(): Promise<AuditRow[]> {
   const [posts, pages, pillars, overrides, vacancies] = await Promise.all([
@@ -148,25 +164,127 @@ function findCannibalization(rows: AuditRow[]): { keyword: string; titles: strin
     .map(([keyword, titles]) => ({ keyword, titles }));
 }
 
-export default async function SeoAuditPage() {
+// A ring gauge like Rank Math/Yoast-style analyzers use for the headline
+// score — SVG only, no client JS needed, colored to match the same
+// good/ok/poor bands used everywhere else in the admin.
+function ScoreGauge({ score }: { score: number }) {
+  const radius = 68;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference * (1 - score / 100);
+  const color = score >= 80 ? "#059669" : score >= 50 ? "#d97706" : "#dc2626";
+
+  return (
+    <div className="relative h-44 w-44 shrink-0">
+      <svg viewBox="0 0 160 160" className="h-full w-full -rotate-90">
+        <circle cx="80" cy="80" r={radius} fill="none" stroke="#e2e8f0" strokeWidth="14" />
+        <circle
+          cx="80"
+          cy="80"
+          r={radius}
+          fill="none"
+          stroke={color}
+          strokeWidth="14"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={offset}
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="text-4xl font-bold text-slate-800">{score}</span>
+        <span className="text-xs font-medium uppercase tracking-wide text-slate-400">/ 100</span>
+      </div>
+    </div>
+  );
+}
+
+function StatBar({
+  label,
+  count,
+  total,
+  color,
+}: {
+  label: string;
+  count: number;
+  total: number;
+  color: string;
+}) {
+  const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+  return (
+    <div>
+      <div className="flex items-baseline justify-between text-sm">
+        <span className="font-medium text-slate-600">{label}</span>
+        <span className="font-semibold text-slate-800">
+          {count}/{total}
+        </span>
+      </div>
+      <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-slate-100">
+        <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: color }} />
+      </div>
+    </div>
+  );
+}
+
+const FILTER_TABS: { key: string; label: string }[] = [
+  { key: "all", label: "All" },
+  { key: "good", label: "Passed" },
+  { key: "ok", label: "Warnings" },
+  { key: "bad", label: "Failed" },
+];
+
+export default async function SeoAuditPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ filter?: string }>;
+}) {
+  const { filter } = await searchParams;
+  const activeFilter = filter && ["good", "ok", "bad"].includes(filter) ? filter : "all";
+
   const rows = await getAuditRows();
   const cannibalization = findCannibalization(rows);
-  const worstCount = rows.filter((r) => r.result.grade !== "Good").length;
+
+  const allChecks = rows.flatMap((r) => r.result.checks);
+  const totalChecks = allChecks.length;
+  const goodCount = allChecks.filter((c) => c.status === "good").length;
+  const okCount = allChecks.filter((c) => c.status === "ok").length;
+  const badCount = allChecks.filter((c) => c.status === "bad").length;
+  const overallScore =
+    totalChecks > 0
+      ? Math.round((allChecks.reduce((sum, c) => sum + STATUS_POINTS[c.status], 0) / totalChecks) * 100)
+      : 0;
+
+  const filterCounts: Record<string, number> = { all: totalChecks, good: goodCount, ok: okCount, bad: badCount };
+
+  // Group by content item so each section still links straight to its own
+  // editor — only sections with at least one check matching the active
+  // filter are shown. Items with no matching checks (e.g. a fully "Good"
+  // page under the "Failed" tab) drop out entirely rather than showing an
+  // empty section.
+  const sections = rows
+    .map((row) => ({
+      row,
+      checks: activeFilter === "all" ? row.result.checks : row.result.checks.filter((c) => c.status === activeFilter),
+    }))
+    .filter((s) => s.checks.length > 0);
 
   return (
     <div>
       <h1 className="text-2xl font-semibold">SEO audit</h1>
       <p className="mt-1 text-sm text-slate-500">
         Every published blog post, page, pillar page, static page, and vacancy listing scored with the same kind
-        of checklist used on each editor, sorted worst-first so weak content is visible without opening every
-        item individually.
+        of checklist used on each editor.
       </p>
 
-      <div className="mt-4 flex gap-4 text-sm">
-        <p className="rounded-full bg-white px-4 py-2 shadow-sm">{rows.length} item(s) audited</p>
-        <p className="rounded-full bg-white px-4 py-2 shadow-sm">
-          {worstCount} need{worstCount === 1 ? "s" : ""} attention
-        </p>
+      <div className="mt-6 flex flex-col gap-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:flex-row md:items-center">
+        <ScoreGauge score={overallScore} />
+        <div className="flex-1 space-y-4">
+          <StatBar label="Passed tests" count={goodCount} total={totalChecks} color="#059669" />
+          <StatBar label="Warnings" count={okCount} total={totalChecks} color="#d97706" />
+          <StatBar label="Failed tests" count={badCount} total={totalChecks} color="#dc2626" />
+        </div>
+        <div className="flex shrink-0 flex-col gap-2 text-sm text-slate-500 md:text-right">
+          <span className="rounded-full bg-slate-50 px-4 py-2 font-medium">{rows.length} item(s) audited</span>
+          <span className="rounded-full bg-slate-50 px-4 py-2 font-medium">{totalChecks} checks run</span>
+        </div>
       </div>
 
       {cannibalization.length > 0 && (
@@ -187,44 +305,74 @@ export default async function SeoAuditPage() {
         </div>
       )}
 
-      <div className="mt-6 overflow-hidden rounded-xl bg-white shadow-sm">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
-            <tr>
-              <th className="px-4 py-3">Title</th>
-              <th className="px-4 py-3">Type</th>
-              <th className="px-4 py-3">Focus keyword</th>
-              <th className="px-4 py-3">Score</th>
-              <th className="px-4 py-3"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.id} className="border-t border-slate-100">
-                <td className="px-4 py-3 font-medium">{row.title}</td>
-                <td className="px-4 py-3 text-slate-500">{row.type}</td>
-                <td className="px-4 py-3 text-slate-500">{row.focusKeyword || "—"}</td>
-                <td className="px-4 py-3">
-                  <span className={`rounded-full px-3 py-1 text-xs font-semibold ${STATUS_STYLES[row.result.grade]}`}>
-                    {row.result.score}/100 — {row.result.grade}
+      <div className="mt-6 flex gap-2 border-b border-slate-200">
+        {FILTER_TABS.map((tab) => (
+          <Link
+            key={tab.key}
+            href={tab.key === "all" ? "/admin/seo-audit" : `/admin/seo-audit?filter=${tab.key}`}
+            className={`flex items-center gap-2 border-b-2 px-4 py-2.5 text-sm font-semibold ${
+              activeFilter === tab.key
+                ? "border-midpoint-dark text-midpoint-dark"
+                : "border-transparent text-slate-500 hover:text-slate-700"
+            }`}
+          >
+            {tab.label}
+            <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">
+              {filterCounts[tab.key]}
+            </span>
+          </Link>
+        ))}
+      </div>
+
+      <div className="mt-6 space-y-3">
+        {sections.map(({ row, checks }) => (
+          <details key={row.id} className="group overflow-hidden rounded-xl bg-white shadow-sm" open={row.result.grade !== "Good"}>
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4">
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="text-slate-400 transition group-open:rotate-90">▶</span>
+                <div className="min-w-0">
+                  <p className="truncate font-medium text-slate-800">{row.title}</p>
+                  <p className="text-xs text-slate-400">
+                    {row.type}
+                    {row.focusKeyword ? ` · "${row.focusKeyword}"` : ""}
+                  </p>
+                </div>
+              </div>
+              <div className="flex shrink-0 items-center gap-3">
+                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${GRADE_STYLES[row.result.grade]}`}>
+                  {row.result.score}/100
+                </span>
+                <Link
+                  href={row.editHref}
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-xs font-semibold text-midpoint-dark underline"
+                >
+                  Edit
+                </Link>
+              </div>
+            </summary>
+            <ul className="space-y-2 border-t border-slate-100 px-5 py-4">
+              {checks.map((check) => (
+                <li key={check.id} className="flex items-start gap-3 text-sm">
+                  <span
+                    className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${CHECK_STYLES[check.status]}`}
+                  >
+                    {CHECK_ICON[check.status]}
                   </span>
-                </td>
-                <td className="px-4 py-3 text-right">
-                  <Link href={row.editHref} className="text-xs font-semibold text-midpoint-dark underline">
-                    Edit
-                  </Link>
-                </td>
-              </tr>
-            ))}
-            {rows.length === 0 && (
-              <tr>
-                <td colSpan={5} className="px-4 py-6 text-center text-slate-400">
-                  No published content yet.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+                  <span>
+                    <span className="font-medium text-slate-700">{check.label}:</span>{" "}
+                    <span className="text-slate-500">{check.message}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ))}
+        {sections.length === 0 && (
+          <div className="rounded-xl bg-white px-4 py-10 text-center text-slate-400 shadow-sm">
+            {rows.length === 0 ? "No published content yet." : "Nothing matches this filter."}
+          </div>
+        )}
       </div>
     </div>
   );
