@@ -9,8 +9,8 @@ export default function PillarTableOfContents({ items }: { items: TocItem[] }) {
 
   return (
     <nav className="sticky top-0 z-30 border-b border-midpoint-grey-100 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center gap-6 overflow-x-auto px-6 py-3 text-sm">
-        <div className="flex shrink-0 gap-6">
+      <div className="mx-auto flex max-w-7xl items-center gap-8 overflow-x-auto px-6 py-4 text-sm">
+        <div className="flex shrink-0 gap-8">
           {items.map((item) => (
             <a key={item.id} href={`#${item.id}`} className="font-medium text-midpoint-grey-400 hover:text-midpoint-dark">
               {item.label}
@@ -19,7 +19,7 @@ export default function PillarTableOfContents({ items }: { items: TocItem[] }) {
         </div>
         <a
           href="/contact-us"
-          className="ml-auto shrink-0 rounded-full bg-midpoint-dark px-4 py-1.5 text-xs font-semibold text-white hover:opacity-90"
+          className="ml-auto shrink-0 rounded-full bg-midpoint-dark px-5 py-2 text-xs font-semibold text-white hover:opacity-90"
         >
           Enquire now
         </a>

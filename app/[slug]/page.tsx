@@ -15,15 +15,6 @@ import TalkToLeasing from "@/components/TalkToLeasing";
 import ExploreMore from "@/components/ExploreMore";
 import { getSiteSettings } from "@/lib/site-settings";
 
-// Root-level catch-all for published Pillar Pages. Next.js always resolves a
-// literal folder (like app/about-us) ahead of this dynamic segment, so it
-// cannot shadow any existing static route. This is the comprehensive pillar
-// template: sticky section nav, hero, live quick-facts strip, trust strip,
-// feature grid, considerations, live listings pulled straight from Vacancy,
-// long-form body, FAQ accordion, E-E-A-T review box, CTA and explore-more
-// links — following the structure/skimmability/internal-linking patterns
-// common to well-designed pillar pages (sticky nav, quick facts, early CTA,
-// visual sections rather than a wall of text).
 export const dynamic = "force-dynamic";
 
 type PillarFaq = { question: string; answer: string };
@@ -83,8 +74,6 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   const trustItems = (pillar.trustStrip || "").split("\n").map((s) => s.trim()).filter(Boolean);
   const hasBody = Boolean(pillar.contentHtml && pillar.contentHtml.replace(/<[^>]*>/g, "").trim());
 
-  // Live listings for this pillar's related sector, straight from Vacancy —
-  // always current, never goes stale like a hand-typed listings block would.
   const vacancies = pillar.relatedSector
     ? await prisma.vacancy.findMany({
         where: { status: "PUBLISHED", sector: pillar.relatedSector },
@@ -99,8 +88,6 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     }`,
   }));
 
-  // Skimmable, data-driven quick facts — real numbers from live inventory,
-  // not hand-typed copy, so they can never go stale.
   const quickFacts =
     vacancies.length > 0
       ? [
@@ -157,7 +144,6 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         : []),
     ],
   };
-  // An admin override replaces the whole auto-generated graph above if set.
   const jsonLdToRender = pillar.schemaJson && typeof pillar.schemaJson === "object" ? pillar.schemaJson : autoJsonLd;
 
   return (
@@ -181,7 +167,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
       <PillarQuickFacts facts={quickFacts} />
 
       {trustItems.length > 0 && (
-        <div className="mx-auto max-w-7xl px-6 pt-6">
+        <div className="mx-auto max-w-7xl px-6 pb-10 pt-6">
           <div className="flex flex-wrap gap-3">
             {trustItems.map((item) => (
               <span key={item} className="rounded-full bg-midpoint-cyan/20 px-4 py-1.5 text-sm font-medium text-midpoint-dark">
