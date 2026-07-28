@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import PageHero from "@/components/PageHero";
+import ContactForm from "@/components/ContactForm";
 import { getPageSeoOverride } from "@/lib/page-seo";
+import { getSiteSettings } from "@/lib/site-settings";
 
 export const dynamic = "force-dynamic";
 
 const FALLBACK_TITLE = "Contact Us | Midpoint";
 const description =
   "Contact the Midpoint leasing team about warehouse, office and serviced office space in Midrand.";
+// Same hero photo used on the real live site (mid-point.co.za/contact-us).
 const HERO_IMAGE =
-  "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg";
+  "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a0b102015582cba5571f517_contact_banner-p-1600.jpg";
 
 export async function generateMetadata(): Promise<Metadata> {
   const override = await getPageSeoOverride("/contact-us");
@@ -19,14 +22,18 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// NOTE: this page deliberately has no form of its own. SiteChrome already
-// renders the shared, fully-styled <ContactSection> (form + phone/email +
-// map) on every page just above the footer — this page previously also
-// rendered its own separate bare-bones form, which stacked directly under
-// that shared section and produced the "two contact forms, one of them
-// unstyled" bug. Removed rather than restyled, since one well-designed
-// contact block beats maintaining two.
+// The real site intentionally has two contact forms: one in a dark
+// "introduction" panel directly under the hero (this page's own content,
+// below), and a second one in the footer's shared Contact section (rendered
+// globally by SiteChrome on every page, alongside the map). They don't look
+// duplicated on the real site because the top one is properly styled into a
+// dark panel with its own intro copy — the bug in the previous version was
+// that this page's own form rendered on a plain white background with no
+// styling, sitting awkwardly right above the styled global one. This
+// reproduces the real layout instead of removing the top form outright.
 export default async function ContactUs() {
+  const settings = await getSiteSettings();
+
   return (
     <>
       <BreadcrumbJsonLd
@@ -39,6 +46,32 @@ export default async function ContactUs() {
         image={HERO_IMAGE}
         imageAlt="Midpoint leasing team"
       />
+
+      <section className="bg-midpoint-dark px-6 py-16 text-white">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
+          <div className="space-y-4 text-midpoint-grey-400">
+            <p className="font-semibold text-white">
+              Whether you are looking for office space, serviced offices, or warehouse facilities in Midrand, the
+              Midpoint leasing team is ready to assist. Our team can provide detailed information on current
+              vacancies, upcoming developments, space specifications, and leasing options across the estate.
+            </p>
+            <p>
+              We work with both prospective tenants and commercial property brokers to help businesses identify
+              premises that align with their operational needs, growth plans, and preferred working environment.
+            </p>
+            <p className="font-semibold text-white">
+              Get in touch today to discuss availability, arrange a site visit, or explore the opportunities
+              available at Midpoint.{" "}
+              <a href="#Contact" className="text-midpoint-cyan underline">
+                Enquire today
+              </a>
+            </p>
+          </div>
+          <div>
+            <ContactForm siteKey={settings.recaptchaSiteKey} successMessage={settings.enquirySuccessMessage} />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
