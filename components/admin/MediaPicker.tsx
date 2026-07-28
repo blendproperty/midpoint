@@ -8,18 +8,24 @@ type Props = {
   name: string;
   label: string;
   defaultValue?: string;
+  onChange?: (url: string) => void;
 };
 
 // Replaces "paste a URL you copied from the Media page" with an actual
 // picker: browse the existing library, or upload a new image inline,
 // without leaving the form. Manual URL entry still works underneath, for
 // external images.
-export default function MediaPicker({ name, label, defaultValue = "" }: Props) {
+export default function MediaPicker({ name, label, defaultValue = "", onChange }: Props) {
   const [value, setValue] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
+
+  function update(next: string) {
+    setValue(next);
+    onChange?.(next);
+  }
 
   useEffect(() => {
     if (!open) return;
@@ -41,7 +47,7 @@ export default function MediaPicker({ name, label, defaultValue = "" }: Props) {
       if (res.ok) {
         const data = await res.json();
         setItems((prev) => [data.media, ...prev]);
-        setValue(data.media.url);
+        update(data.media.url);
         setOpen(false);
       }
     } finally {
@@ -52,7 +58,7 @@ export default function MediaPicker({ name, label, defaultValue = "" }: Props) {
 
   return (
     <div>
-      <label className="block text-sm font-medium">{label}</label>
+      {label && <label className="block text-sm font-medium">{label}</label>}
       <input type="hidden" name={name} value={value} readOnly />
       <div className="mt-1 flex items-center gap-3">
         {value ? (
@@ -65,7 +71,7 @@ export default function MediaPicker({ name, label, defaultValue = "" }: Props) {
         )}
         <input
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e) => update(e.target.value)}
           placeholder="Paste a URL, or choose from the library"
           className="flex-1 rounded-lg border border-slate-200 px-3 py-2 text-sm"
         />
@@ -110,7 +116,7 @@ export default function MediaPicker({ name, label, defaultValue = "" }: Props) {
                   type="button"
                   key={m.id}
                   onClick={() => {
-                    setValue(m.url);
+                    update(m.url);
                     setOpen(false);
                   }}
                   className="overflow-hidden rounded-lg border border-slate-200 hover:border-midpoint-dark"
