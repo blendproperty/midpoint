@@ -37,8 +37,15 @@ describe("scoreContent", () => {
   });
 
   it("flags a completely empty page as poor", () => {
+    // NOTE: `title` must also be empty here, not just `seoTitle` — the real
+    // scoring logic falls back to `title` whenever `seoTitle` is blank
+    // (`effectiveTitle = input.seoTitle || input.title`), so a non-empty
+    // `title` like "Untitled" would correctly score as an "ok"-length title,
+    // not a missing one. This test previously asserted "bad" while passing a
+    // non-empty title, which was a bug in the test, not the scoring logic —
+    // caught by CI.
     const result = scoreContent({
-      title: "Untitled",
+      title: "",
       slug: "untitled",
       seoTitle: "",
       seoDescription: "",
