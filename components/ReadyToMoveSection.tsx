@@ -9,7 +9,7 @@ export default function ReadyToMoveSection() {
             20px radius. Text is large and vertically centered-left, not
             small text tucked in the corner. */}
         <Link
-          href="/availability-report"
+          href="/vacancies"
           className="group relative flex aspect-[940/600] w-full max-w-[940px] items-center overflow-hidden rounded-[20px]"
         >
           <Image
