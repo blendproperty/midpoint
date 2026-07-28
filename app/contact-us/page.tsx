@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import { getPageSeoOverride } from "@/lib/page-seo";
 import { getSiteSettings } from "@/lib/site-settings";
+import { richPageJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -32,13 +33,25 @@ export async function generateMetadata(): Promise<Metadata> {
 // styling, sitting awkwardly right above the styled global one. This
 // reproduces the real layout instead of removing the top form outright.
 export default async function ContactUs() {
-  const settings = await getSiteSettings();
+  const [settings, override] = await Promise.all([
+    getSiteSettings(),
+    getPageSeoOverride("/contact-us"),
+  ]);
+  const pageDescription = override?.seoDescription || description;
+  const autoJsonLd = richPageJsonLd({
+    type: "ContactPage",
+    name: "Contact Us",
+    description: pageDescription,
+    path: "/contact-us",
+  });
+  const jsonLdNode =
+    override?.schemaJson && typeof override.schemaJson === "object" ? override.schemaJson : autoJsonLd;
 
   return (
     <>
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "Contact Us", path: "/contact-us" }]}
-        description={description}
+        node={jsonLdNode as Record<string, unknown>}
       />
       <PageHero
         title="Let's find the right space for your business"

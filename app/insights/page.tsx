@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import PillarCard from "@/components/PillarCard";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { getPageSeoOverride } from "@/lib/page-seo";
+import { richPageJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -53,12 +54,23 @@ const cards = [
   },
 ];
 
-export default function InsightsPage() {
+export default async function InsightsPage() {
+  const override = await getPageSeoOverride("/insights");
+  const pageDescription = override?.seoDescription || description;
+  const autoJsonLd = richPageJsonLd({
+    type: "CollectionPage",
+    name: "Insights at Midpoint",
+    description: pageDescription,
+    path: "/insights",
+  });
+  const jsonLdNode =
+    override?.schemaJson && typeof override.schemaJson === "object" ? override.schemaJson : autoJsonLd;
+
   return (
     <>
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }]}
-        description={description}
+        node={jsonLdNode as Record<string, unknown>}
       />
       <PageHero
         title="Insights at Midpoint"

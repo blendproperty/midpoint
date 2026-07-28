@@ -4,6 +4,7 @@ import SpacesExplore from "@/components/SpacesExplore";
 import ReadyToMoveSection from "@/components/ReadyToMoveSection";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { getPageSeoOverride } from "@/lib/page-seo";
+import { richPageJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -19,12 +20,23 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function SpacesPage() {
+export default async function SpacesPage() {
+  const override = await getPageSeoOverride("/spaces");
+  const pageDescription = override?.seoDescription || description;
+  const autoJsonLd = richPageJsonLd({
+    type: "CollectionPage",
+    name: "Spaces at Midpoint",
+    description: pageDescription,
+    path: "/spaces",
+  });
+  const jsonLdNode =
+    override?.schemaJson && typeof override.schemaJson === "object" ? override.schemaJson : autoJsonLd;
+
   return (
     <>
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "Spaces", path: "/spaces" }]}
-        description={description}
+        node={jsonLdNode as Record<string, unknown>}
       />
       <PageHero
         title="Spaces at Midpoint"
