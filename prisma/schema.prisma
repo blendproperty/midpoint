@@ -152,6 +152,14 @@ model PillarPage {
 model Vacancy {
   id           String        @id @default(cuid())
   building     String
+  // Optional specific unit/suite name within a shared building — needed for
+  // buildings like OnPoint where many individual listings all share the same
+  // `building` value ("OnPoint") but are actually different physical units.
+  // Populated by the listings.blendproperty.co.za sync from the listing's
+  // own `name` field when it differs from the building/park name; editable
+  // by hand too so an enquiry can always be tied back to the exact space a
+  // visitor clicked on rather than just the shared building name.
+  unitName     String?
   sector       Sector
   sizeSqm      Float
   ratePerSqm   Float
