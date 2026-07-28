@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { scoreContent, scorePillarPage, type SeoScoreResult } from "@/lib/seo-score";
+import { STATIC_PAGES } from "@/lib/static-pages";
+import { getStaticPageContent } from "@/lib/static-page-content";
+import { scoreContent, scorePillarPage, scoreStaticPage, scoreVacancyListing, type SeoScoreResult } from "@/lib/seo-score";
 
 export const dynamic = "force-dynamic";
 
 type AuditRow = {
   id: string;
-  type: "Blog post" | "Page" | "Pillar page";
+  type: "Blog post" | "Page" | "Pillar page" | "Static page" | "Vacancy listing";
   title: string;
   editHref: string;
   focusKeyword: string;
@@ -22,11 +24,14 @@ const STATUS_STYLES: Record<string, string> = {
 };
 
 async function getAuditRows(): Promise<AuditRow[]> {
-  const [posts, pages, pillars] = await Promise.all([
+  const [posts, pages, pillars, overrides, vacancies] = await Promise.all([
     prisma.blogPost.findMany({ where: { status: "PUBLISHED" } }),
     prisma.page.findMany({ where: { status: "PUBLISHED" } }),
     prisma.pillarPage.findMany({ where: { status: "PUBLISHED" } }),
+    prisma.pageSeoOverride.findMany(),
+    prisma.vacancy.findMany({ where: { status: "PUBLISHED" } }),
   ]);
+  const overrideMap = new Map(overrides.map((o) => [o.path, o]));
 
   const postRows: AuditRow[] = posts.map((p) => ({
     id: `blog-${p.id}`,
@@ -84,13 +89,51 @@ async function getAuditRows(): Promise<AuditRow[]> {
     };
   });
 
-  return [...postRows, ...pageRows, ...pillarRows].sort((a, b) => a.result.score - b.result.score);
+  const staticRows: AuditRow[] = STATIC_PAGES.map((s) => {
+    const o = overrideMap.get(s.path);
+    return {
+      id: `static-${s.path}`,
+      type: "Static page",
+      title: s.label,
+      editHref: `/admin/page-seo/edit?path=${encodeURIComponent(s.path)}`,
+      focusKeyword: "",
+      result: scoreStaticPage({
+        title: s.label,
+        path: s.path,
+        seoTitle: o?.seoTitle,
+        seoDescription: o?.seoDescription,
+        ogImage: o?.ogImage,
+        pageContent: getStaticPageContent(s.path),
+      }),
+    };
+  });
+
+  const vacancyRows: AuditRow[] = vacancies.map((v) => ({
+    id: `vacancy-${v.id}`,
+    type: "Vacancy listing",
+    title: v.building,
+    editHref: `/admin/vacancies/${v.id}/edit`,
+    focusKeyword: "",
+    result: scoreVacancyListing({
+      building: v.building,
+      description: v.description,
+      image: v.image,
+      features: v.features,
+    }),
+  }));
+
+  return [...postRows, ...pageRows, ...pillarRows, ...staticRows, ...vacancyRows].sort(
+    (a, b) => a.result.score - b.result.score
+  );
 }
 
 // Two or more published pieces of content targeting the exact same focus
 // keyword compete against each other in search instead of either one
 // ranking well — Rank Math calls this "keyword cannibalization". Grouped
 // case-insensitively; blank focus keywords are ignored (nothing to compare).
+// Static pages and vacancy listings don't carry a focus keyword, so they
+// never enter this check — that's fine, it's a different kind of problem
+// (see the on-page checklist for those row types instead).
 function findCannibalization(rows: AuditRow[]): { keyword: string; titles: string[] }[] {
   const groups = new Map<string, string[]>();
   for (const row of rows) {
@@ -114,12 +157,13 @@ export default async function SeoAuditPage() {
     <div>
       <h1 className="text-2xl font-semibold">SEO audit</h1>
       <p className="mt-1 text-sm text-slate-500">
-        Every published blog post, page, and pillar page scored with the same checklist used on each editor,
-        sorted worst-first so weak content is visible without opening every page individually.
+        Every published blog post, page, pillar page, static page, and vacancy listing scored with the same kind
+        of checklist used on each editor, sorted worst-first so weak content is visible without opening every
+        item individually.
       </p>
 
       <div className="mt-4 flex gap-4 text-sm">
-        <p className="rounded-full bg-white px-4 py-2 shadow-sm">{rows.length} published page(s) audited</p>
+        <p className="rounded-full bg-white px-4 py-2 shadow-sm">{rows.length} item(s) audited</p>
         <p className="rounded-full bg-white px-4 py-2 shadow-sm">
           {worstCount} need{worstCount === 1 ? "s" : ""} attention
         </p>
