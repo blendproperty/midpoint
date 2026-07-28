@@ -24,6 +24,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+function firstValue(v: string | string[] | undefined): string | undefined {
+  return Array.isArray(v) ? v[0] : v;
+}
+
 // The real site intentionally has two contact forms: one in a dark
 // "introduction" panel directly under the hero (this page's own content,
 // below), and a second one in the footer's shared Contact section (rendered
@@ -33,13 +37,24 @@ export async function generateMetadata(): Promise<Metadata> {
 // that this page's own form rendered on a plain white background with no
 // styling, sitting awkwardly right above the styled global one. This
 // reproduces the real layout instead of removing the top form outright.
-export default async function ContactUs() {
-  const [settings, override] = await Promise.all([
+export default async function ContactUs({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const [settings, override, params] = await Promise.all([
     getSiteSettings(),
     getPageSeoOverride("/contact-us"),
+    searchParams,
   ]);
   const pageDescription = override?.seoDescription || description;
   const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Contact Us", path: "/contact-us" }];
+
+  // Set when someone arrives here via a specific VacancyCard's "Enquire"
+  // button (?space=1+Kingfisher+Avenue&interest=Warehouse+space) so the form
+  // is pre-filled with the space they actually clicked on.
+  const spaceName = firstValue(params.space);
+  const defaultInterest = firstValue(params.interest);
 
   // Schema is always generated automatically — no manual override.
   const jsonLdNode = richPageJsonLd({
@@ -81,7 +96,12 @@ export default async function ContactUs() {
             </p>
           </div>
           <div>
-            <ContactForm siteKey={settings.recaptchaSiteKey} successMessage={settings.enquirySuccessMessage} />
+            <ContactForm
+              siteKey={settings.recaptchaSiteKey}
+              successMessage={settings.enquirySuccessMessage}
+              spaceName={spaceName}
+              defaultInterest={defaultInterest}
+            />
           </div>
         </div>
       </section>
