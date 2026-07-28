@@ -37,8 +37,9 @@ export function webPageJsonLd({
 }
 
 // Blend Property Group, the developer/owner behind Midpoint — reused as the
-// `mentions` node on richPageJsonLd, matching what the old Webflow site
-// emitted per-page instead of leaving pages with no organizational context.
+// `mentions`/`author`/`publisher` node across every rich schema builder
+// below, matching what the old Webflow site emitted per-page instead of
+// leaving pages with no organizational context.
 export function organizationJsonLd() {
   return {
     "@type": "Organization",
@@ -54,9 +55,9 @@ export function organizationJsonLd() {
 
 // The Midpoint estate itself as a schema.org Place, with a real address,
 // contact details, and the live amenity list (lib/amenities.ts) as
-// `amenityFeature` entries — reused as the `about` node on richPageJsonLd.
-// This is sourced from real site data, not manually typed into an admin
-// form, so it can't go stale or ship blank.
+// `amenityFeature` entries — reused as the `about` node on richPageJsonLd
+// and on Pillar/CMS pages. Sourced from real site data, not manually typed
+// into an admin form, so it can't go stale or ship blank.
 export function midpointPlaceJsonLd() {
   return {
     "@type": "Place",
@@ -91,7 +92,8 @@ export function midpointPlaceJsonLd() {
 // Us, Spaces, Insights) — nests the Midpoint Place (with amenities/address)
 // and Blend Property Group Organization under `about`/`mentions`, matching
 // the depth the old Webflow site had, instead of a flat WebPage with just a
-// name and description.
+// name and description. Always auto-generated — there is no manual override
+// path for this content anymore.
 export function richPageJsonLd({
   type,
   name,
@@ -112,6 +114,38 @@ export function richPageJsonLd({
     description,
     about: midpointPlaceJsonLd(),
     mentions: organizationJsonLd()
+  };
+}
+
+// BlogPosting schema for /blog/[slug] posts, with Blend Property Group as
+// both author and publisher — always auto-generated from the post's real
+// fields (title, excerpt/description, cover image, publish/update dates).
+export function blogPostingJsonLd({
+  title,
+  description,
+  image,
+  path,
+  datePublished,
+  dateModified
+}: {
+  title: string;
+  description: string;
+  image?: string;
+  path: string;
+  datePublished?: string;
+  dateModified: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    image: image || undefined,
+    datePublished,
+    dateModified,
+    mainEntityOfPage: `${site.domain}${path}`,
+    author: organizationJsonLd(),
+    publisher: organizationJsonLd()
   };
 }
 

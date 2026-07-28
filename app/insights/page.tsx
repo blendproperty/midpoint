@@ -57,20 +57,19 @@ const cards = [
 export default async function InsightsPage() {
   const override = await getPageSeoOverride("/insights");
   const pageDescription = override?.seoDescription || description;
-  const autoJsonLd = richPageJsonLd({
+
+  const jsonLdNode = richPageJsonLd({
     type: "CollectionPage",
     name: "Insights at Midpoint",
     description: pageDescription,
     path: "/insights",
   });
-  const jsonLdNode =
-    override?.schemaJson && typeof override.schemaJson === "object" ? override.schemaJson : autoJsonLd;
 
   return (
     <>
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }]}
-        node={jsonLdNode as Record<string, unknown>}
+        node={jsonLdNode}
       />
       <PageHero
         title="Insights at Midpoint"

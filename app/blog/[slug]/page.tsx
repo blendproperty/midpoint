@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import CustomCodeBlock from "@/components/CustomCodeBlock";
 import { getSiteSettings } from "@/lib/site-settings";
+import { blogPostingJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -41,19 +42,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const settings = await getSiteSettings();
   const description = post.seoDescription || post.excerpt || post.title;
 
-  const autoJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
+  // Always auto-generated from the post's real fields — no manual override
+  // path left to save a worse or blank version over this.
+  const jsonLdToRender = blogPostingJsonLd({
+    title: post.title,
     description,
     image: post.coverImage || settings.defaultSocialImage,
+    path: `/blog/${post.slug}`,
     datePublished: post.publishedAt?.toISOString(),
     dateModified: post.updatedAt.toISOString(),
-    mainEntityOfPage: `${settings.domain}/blog/${post.slug}`,
-  };
-  // An admin can override the automatic schema from the page's "Page settings"
-  // → Schema markup panel; otherwise we fall back to the graph built above.
-  const jsonLdToRender = post.schemaJson && typeof post.schemaJson === "object" ? post.schemaJson : autoJsonLd;
+  });
 
   return (
     <article className="bg-white">

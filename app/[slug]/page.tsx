@@ -17,6 +17,7 @@ import TalkToLeasing from "@/components/TalkToLeasing";
 import ExploreMore from "@/components/ExploreMore";
 import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
+import { midpointPlaceJsonLd, organizationJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -122,7 +123,10 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     faqs.length > 0 ? { id: "faqs", label: "FAQs" } : null,
   ].filter((item): item is { id: string; label: string } => item !== null);
 
-  const autoJsonLd = {
+  // Always auto-generated from this pillar's real content (FAQs, expert bio,
+  // Midpoint's address/amenities, Blend Property Group) — there is no manual
+  // override path left to accidentally downgrade this.
+  const jsonLdToRender = {
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -131,6 +135,8 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         url: `${settings.domain}/${pillar.slug}`,
         name: pillar.title,
         description,
+        about: midpointPlaceJsonLd(),
+        mentions: organizationJsonLd(),
         ...(pillar.lastReviewedAt ? { lastReviewed: pillar.lastReviewedAt.toISOString() } : {}),
       },
       ...(faqs.length > 0
@@ -158,7 +164,6 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         : []),
     ],
   };
-  const jsonLdToRender = pillar.schemaJson && typeof pillar.schemaJson === "object" ? pillar.schemaJson : autoJsonLd;
 
   return (
     <article className="bg-white">

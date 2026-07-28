@@ -26,24 +26,21 @@ export default async function AboutUsPage() {
   const override = await getPageSeoOverride("/about-us");
   const description = override?.seoDescription || FALLBACK_DESCRIPTION;
 
-  // Prefer a custom schema saved in /admin/page-seo if one exists; otherwise
-  // fall back to the rich auto-generated AboutPage schema (real address,
-  // amenities, and Blend Property Group details — not a flat, often-blank
-  // WebPage like before).
-  const autoJsonLd = richPageJsonLd({
+  // Schema is always generated automatically from real content (address,
+  // amenities, Blend Property Group details) — there is no manual override
+  // to save a worse or blank version over this.
+  const jsonLdNode = richPageJsonLd({
     type: "AboutPage",
     name: FALLBACK_TITLE,
     description,
     path: "/about-us",
   });
-  const jsonLdNode =
-    override?.schemaJson && typeof override.schemaJson === "object" ? override.schemaJson : autoJsonLd;
 
   return (
     <>
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "About Us", path: "/about-us" }]}
-        node={jsonLdNode as Record<string, unknown>}
+        node={jsonLdNode}
       />
       <AboutHero />
       <StrategicGrowth />

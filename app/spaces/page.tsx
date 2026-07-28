@@ -23,20 +23,19 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function SpacesPage() {
   const override = await getPageSeoOverride("/spaces");
   const pageDescription = override?.seoDescription || description;
-  const autoJsonLd = richPageJsonLd({
+
+  const jsonLdNode = richPageJsonLd({
     type: "CollectionPage",
     name: "Spaces at Midpoint",
     description: pageDescription,
     path: "/spaces",
   });
-  const jsonLdNode =
-    override?.schemaJson && typeof override.schemaJson === "object" ? override.schemaJson : autoJsonLd;
 
   return (
     <>
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "Spaces", path: "/spaces" }]}
-        node={jsonLdNode as Record<string, unknown>}
+        node={jsonLdNode}
       />
       <PageHero
         title="Spaces at Midpoint"

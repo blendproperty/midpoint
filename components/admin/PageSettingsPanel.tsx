@@ -41,17 +41,6 @@ function stripHtml(v: string) {
   return v.replace(/<[^>]*>/g, " ").replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&").replace(/\s+/g, " ").trim();
 }
 
-function buildSchema(kind: SchemaKind, title: string, description: string, image: string) {
-  const base = { "@context": "https://schema.org" };
-  if (kind === "article") {
-    return { ...base, "@type": "BlogPosting", headline: title, description, image: image || undefined };
-  }
-  if (kind === "pillar") {
-    return { ...base, "@type": "WebPage", name: title, description, image: image || undefined };
-  }
-  return { ...base, "@type": "WebPage", name: title, description };
-}
-
 const inputCls = "mt-1 w-full rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white placeholder-white/30";
 const codeCls = "mt-1 w-full rounded-lg border border-white/10 bg-black/30 px-3 py-2 font-mono text-xs text-emerald-300";
 
@@ -101,6 +90,17 @@ function PanelSection({
 // It lives *inside* the surrounding <form> and writes into hidden inputs so
 // the existing FormData-based server actions pick everything up without any
 // changes to how the form submits.
+//
+// NOTE on schema markup: there used to be a "Generate schema markup" button
+// here that wrote a flat {name, description} JSON-LD blob into a hidden
+// field, which every page's render code would then prefer over its own
+// auto-generated schema. That was a footgun — clicking it before the SEO
+// description was filled in silently saved a *blank* description, and even
+// when filled in correctly it was still worse than the schema the site
+// already builds from real page content (FAQs, expert bios, address,
+// amenities, Organization info). It's been removed entirely: schema is now
+// always generated automatically, on every page type, with no manual step
+// that can break it.
 export default function PageSettingsPanel({
   titleField = "title",
   titleFallback = "",
@@ -108,7 +108,6 @@ export default function PageSettingsPanel({
   siteName = "Midpoint Midrand",
   previewDomain = "www.mid-point.co.za",
   previewPath = "",
-  schemaKind = "webpage",
   defaultValues,
 }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -124,8 +123,6 @@ export default function PageSettingsPanel({
   const [sameDescription, setSameDescription] = useState(!defaultValues?.ogDescription);
   const [noIndex, setNoIndex] = useState(defaultValues?.noIndex || false);
   const [canonicalUrl, setCanonicalUrl] = useState(defaultValues?.canonicalUrl || "");
-  const [schemaJson, setSchemaJson] = useState(defaultValues?.schemaJson || "");
-  const [schemaError, setSchemaError] = useState<string | null>(null);
   const [headCode, setHeadCode] = useState(defaultValues?.headCode || "");
   const [bodyCode, setBodyCode] = useState(defaultValues?.bodyCode || "");
 
@@ -141,29 +138,6 @@ export default function PageSettingsPanel({
     setSeoDescription(generateSeoDescription(source));
   }
 
-  function handleGenerateSchema() {
-    const f = form();
-    const title = (f ? field(f, titleField) : "") || titleFallback || seoTitle;
-    const image = (f && (field(f, "coverImage") || field(f, "heroImage"))) || ogImage || "";
-    const schema = buildSchema(schemaKind, title, seoDescription, image);
-    setSchemaJson(JSON.stringify(schema, null, 2));
-    setSchemaError(null);
-  }
-
-  function handleSchemaChange(value: string) {
-    setSchemaJson(value);
-    if (!value.trim()) {
-      setSchemaError(null);
-      return;
-    }
-    try {
-      JSON.parse(value);
-      setSchemaError(null);
-    } catch {
-      setSchemaError("This isn't valid JSON — it won't be used until it parses correctly.");
-    }
-  }
-
   const effectiveOgTitle = sameTitle ? seoTitle : ogTitle;
   const effectiveOgDescription = sameDescription ? seoDescription : ogDescription;
 
@@ -175,7 +149,6 @@ export default function PageSettingsPanel({
       <input type="hidden" name="ogDescription" value={sameDescription ? "" : ogDescription} readOnly />
       <input type="hidden" name="noIndex" value={noIndex ? "on" : ""} readOnly />
       <input type="hidden" name="canonicalUrl" value={canonicalUrl} readOnly />
-      <input type="hidden" name="schemaJson" value={schemaJson} readOnly />
       <input type="hidden" name="headCode" value={headCode} readOnly />
       <input type="hidden" name="bodyCode" value={bodyCode} readOnly />
 
@@ -262,24 +235,10 @@ export default function PageSettingsPanel({
 
             <PanelSection title="Schema markup" id="schema" open={section === "schema"} onToggle={setSection}>
               <p className="text-xs text-white/50">
-                JSON-LD structured data for this page. Leave blank to use the schema Midpoint already generates
-                automatically for this content type; fill this in to override it with your own.
+                JSON-LD structured data for this page is generated automatically from its real content — title,
+                description, FAQs, and Midpoint&apos;s address and amenities where relevant. There&apos;s nothing to
+                configure here, and no way to accidentally override it with something worse or blank.
               </p>
-              <button
-                type="button"
-                onClick={handleGenerateSchema}
-                className="mt-2 rounded-full bg-[#d4af37] px-4 py-2 text-xs font-bold text-slate-950"
-              >
-                Generate schema markup
-              </button>
-              <textarea
-                value={schemaJson}
-                onChange={(e) => handleSchemaChange(e.target.value)}
-                rows={12}
-                placeholder="Leave blank to use the automatic schema"
-                className={`mt-3 w-full ${codeCls}`}
-              />
-              {schemaError && <p className="mt-1 text-xs text-red-400">{schemaError}</p>}
             </PanelSection>
 
             <PanelSection title="Custom code" id="code" open={section === "code"} onToggle={setSection}>

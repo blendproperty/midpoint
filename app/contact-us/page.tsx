@@ -38,20 +38,20 @@ export default async function ContactUs() {
     getPageSeoOverride("/contact-us"),
   ]);
   const pageDescription = override?.seoDescription || description;
-  const autoJsonLd = richPageJsonLd({
+
+  // Schema is always generated automatically — no manual override.
+  const jsonLdNode = richPageJsonLd({
     type: "ContactPage",
     name: "Contact Us",
     description: pageDescription,
     path: "/contact-us",
   });
-  const jsonLdNode =
-    override?.schemaJson && typeof override.schemaJson === "object" ? override.schemaJson : autoJsonLd;
 
   return (
     <>
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "Contact Us", path: "/contact-us" }]}
-        node={jsonLdNode as Record<string, unknown>}
+        node={jsonLdNode}
       />
       <PageHero
         title="Let's find the right space for your business"

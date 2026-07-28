@@ -7,6 +7,7 @@ import CustomCodeBlock from "@/components/CustomCodeBlock";
 import PageAccessGate from "@/components/PageAccessGate";
 import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
+import { richPageJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -52,19 +53,17 @@ export default async function CmsPage({ params }: { params: Promise<{ slug: stri
     }
   }
 
-  const settings = await getSiteSettings();
+  await getSiteSettings();
   const description = page.seoDescription || page.title;
 
-  // CMS Pages previously only had breadcrumb schema — now every published
-  // Page gets a real WebPage node too (or the admin's own override).
-  const autoJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
+  // Always auto-generated — no manual override path left to save a worse
+  // or blank version over this.
+  const jsonLdToRender = richPageJsonLd({
+    type: "WebPage",
     name: page.title,
     description,
-    url: `${settings.domain}/p/${page.slug}`,
-  };
-  const jsonLdToRender = page.schemaJson && typeof page.schemaJson === "object" ? page.schemaJson : autoJsonLd;
+    path: `/p/${page.slug}`,
+  });
 
   return (
     <section className="mx-auto max-w-3xl bg-white px-6 py-16">
