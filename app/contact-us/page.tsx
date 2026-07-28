@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import ContactForm from "@/components/ContactForm";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
-import { site } from "@/lib/site";
+import PageHero from "@/components/PageHero";
 import { getPageSeoOverride } from "@/lib/page-seo";
-import { getSiteSettings } from "@/lib/site-settings";
 
 export const dynamic = "force-dynamic";
 
 const FALLBACK_TITLE = "Contact Us | Midpoint";
 const description =
   "Contact the Midpoint leasing team about warehouse, office and serviced office space in Midrand.";
+const HERO_IMAGE =
+  "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg";
 
 export async function generateMetadata(): Promise<Metadata> {
   const override = await getPageSeoOverride("/contact-us");
@@ -19,27 +19,26 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+// NOTE: this page deliberately has no form of its own. SiteChrome already
+// renders the shared, fully-styled <ContactSection> (form + phone/email +
+// map) on every page just above the footer — this page previously also
+// rendered its own separate bare-bones form, which stacked directly under
+// that shared section and produced the "two contact forms, one of them
+// unstyled" bug. Removed rather than restyled, since one well-designed
+// contact block beats maintaining two.
 export default async function ContactUs() {
-  const settings = await getSiteSettings();
-
   return (
-    <section className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-2">
+    <>
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "Contact Us", path: "/contact-us" }]}
         description={description}
       />
-      <div>
-        <h1 className="text-4xl font-bold text-midpoint-dark">Enquire</h1>
-        <p className="mt-4 text-midpoint-grey-400">
-          Talk to the leasing team about availability, specifications, pricing,
-          and lease structures, or to arrange a site visit.
-        </p>
-        <div className="mt-6 space-y-1 text-sm">
-          <a className="block font-medium" href={site.phoneHref}>{site.phone}</a>
-          <a className="block font-medium" href={site.emailHref}>{site.email}</a>
-        </div>
-      </div>
-      <ContactForm siteKey={settings.recaptchaSiteKey} successMessage={settings.enquirySuccessMessage} />
-    </section>
+      <PageHero
+        title="Let's find the right space for your business"
+        subtitle="Contact the Midpoint team to discuss available office space, serviced offices, and warehouse opportunities in Midrand."
+        image={HERO_IMAGE}
+        imageAlt="Midpoint leasing team"
+      />
+    </>
   );
 }
