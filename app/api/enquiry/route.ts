@@ -1,10 +1,23 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifyRecaptcha } from "@/lib/recaptcha";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 // Set N8N_ENQUIRY_WEBHOOK in the environment, e.g.
 // https://n8n.srv938083.hstgr.cloud/webhook/midpoint-enquiry
 export async function POST(req: Request) {
+  const remoteIp = getClientIp(req);
+
+  // A real visitor submits this form once, maybe twice. 5 per 15 minutes per
+  // IP comfortably covers retries/typos while still blocking a spam script
+  // hammering the endpoint.
+  if (!checkRateLimit(`enquiry:${remoteIp}`, 5, 15 * 60 * 1000)) {
+    return NextResponse.json(
+      { error: "Too many enquiries submitted. Please try again in a few minutes." },
+      { status: 429 }
+    );
+  }
+
   const payload = await req.json();
 
   const firstName = payload?.firstName ? String(payload.firstName).trim() : "";
@@ -25,7 +38,6 @@ export async function POST(req: Request) {
   const captchaToken = payload?.["g-recaptcha-response"]
     ? String(payload["g-recaptcha-response"])
     : "";
-  const remoteIp = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || undefined;
   const captchaOk = await verifyRecaptcha(captchaToken, remoteIp);
   if (!captchaOk) {
     return NextResponse.json(
