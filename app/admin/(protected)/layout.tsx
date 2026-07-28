@@ -15,6 +15,7 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
     { href: "/admin/pages", label: "Pages" },
     { href: "/admin/vacancies", label: "Vacancies" },
     { href: "/admin/faqs", label: "FAQs" },
+    { href: "/admin/seo-audit", label: "SEO Audit" },
     { href: "/admin/schema-tool", label: "Schema Tool" },
     { href: "/admin/media", label: "Media" },
     { href: "/admin/settings", label: "Site Settings" },
