@@ -105,6 +105,52 @@ async function seedSiteSettings() {
   console.log("Site settings row ensured.");
 }
 
+// One-time backfill: link any pre-existing Enquiry rows (submitted before
+// the Contact/CRM model existed) to a Contact, deduplicated by email, so
+// nothing submitted before this feature shipped is left orphaned in
+// /admin/contacts. Safe to re-run — only touches rows where contactId is
+// still null.
+async function backfillContactsFromEnquiries() {
+  const orphaned = await prisma.enquiry.findMany({
+    where: { contactId: null },
+    orderBy: { createdAt: "asc" },
+  });
+
+  if (orphaned.length === 0) {
+    console.log("No orphaned enquiries to backfill into Contacts.");
+    return;
+  }
+
+  let linked = 0;
+  for (const enquiry of orphaned) {
+    const email = enquiry.email?.trim().toLowerCase();
+    if (!email) continue;
+
+    const contact = await prisma.contact.upsert({
+      where: { email },
+      update: {
+        firstName: enquiry.firstName || undefined,
+        lastName: enquiry.lastName || undefined,
+        phone: enquiry.phone || undefined,
+      },
+      create: {
+        email,
+        firstName: enquiry.firstName,
+        lastName: enquiry.lastName,
+        phone: enquiry.phone,
+        source: "Midpoint",
+      },
+    });
+
+    await prisma.enquiry.update({
+      where: { id: enquiry.id },
+      data: { contactId: contact.id },
+    });
+    linked++;
+  }
+  console.log(`Backfilled ${linked} pre-existing enquiries into Contacts.`);
+}
+
 type SeedPillarFeature = { heading: string; text: string; image: string };
 type SeedPillarConsideration = { heading: string; text: string };
 type SeedPillarFaq = { question: string; answer: string };
@@ -353,6 +399,7 @@ async function main() {
   await seedFaqs();
   await seedSiteSettings();
   await seedConvertedPillarPages();
+  await backfillContactsFromEnquiries();
 }
 
 main()
