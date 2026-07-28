@@ -21,7 +21,7 @@ export default async function MediaAdminPage() {
           type="text"
           name="alt"
           required
-          placeholder="Alt text (required) — e.g. \"Aerial view of Midpoint Midrand office park\""
+          placeholder={'Alt text (required) — e.g. "Aerial view of Midpoint Midrand office park"'}
           className="min-w-[280px] flex-1 rounded-lg border border-slate-200 px-3 py-2 text-sm"
         />
         <button type="submit" className="rounded-full bg-midpoint-dark px-4 py-2 text-sm font-medium text-white">
