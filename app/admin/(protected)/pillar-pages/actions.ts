@@ -6,6 +6,7 @@ import { hashPassword } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { Prisma } from "@prisma/client";
+import { submitToIndexNow } from "@/lib/indexnow";
 
 function slugify(input: string) {
   return input
@@ -126,6 +127,8 @@ export async function createPillarPage(formData: FormData) {
     },
   });
 
+  if (fields.status === "PUBLISHED" && !access.passwordProtected) await submitToIndexNow([`/${fields.slug}`]);
+
   revalidatePath("/admin/pillar-pages");
   revalidatePath("/admin/pages");
   revalidatePath(`/${fields.slug}`);
@@ -146,6 +149,8 @@ export async function updatePillarPage(id: string, formData: FormData) {
       publishedAt: fields.status === "PUBLISHED" ? existing?.publishedAt || new Date() : null,
     },
   });
+
+  if (fields.status === "PUBLISHED" && !access.passwordProtected) await submitToIndexNow([`/${fields.slug}`]);
 
   revalidatePath("/admin/pillar-pages");
   revalidatePath("/admin/pages");

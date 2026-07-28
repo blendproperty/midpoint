@@ -6,6 +6,7 @@ import { hashPassword } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { Prisma } from "@prisma/client";
+import { submitToIndexNow } from "@/lib/indexnow";
 
 function slugify(input: string) {
   return input
@@ -73,6 +74,8 @@ export async function createPage(formData: FormData) {
     data: { title, slug, contentHtml, status, ...readCommonFields(formData), ...access },
   });
 
+  if (status === "PUBLISHED" && !access.passwordProtected) await submitToIndexNow([`/p/${slug}`]);
+
   revalidatePath("/admin/pages");
   revalidatePath(`/p/${slug}`);
   redirect("/admin/pages");
@@ -93,6 +96,8 @@ export async function updatePage(id: string, formData: FormData) {
     where: { id },
     data: { title, slug, contentHtml, status, ...readCommonFields(formData), ...access },
   });
+
+  if (status === "PUBLISHED" && !access.passwordProtected) await submitToIndexNow([`/p/${slug}`]);
 
   revalidatePath("/admin/pages");
   revalidatePath(`/p/${slug}`);

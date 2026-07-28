@@ -5,6 +5,7 @@ import { requireAdmin } from "@/lib/require-admin";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { Prisma } from "@prisma/client";
+import { submitToIndexNow } from "@/lib/indexnow";
 
 function slugify(input: string) {
   return input
@@ -67,6 +68,8 @@ export async function createBlogPost(formData: FormData) {
     },
   });
 
+  if (status === "PUBLISHED") await submitToIndexNow([`/blog/${slug}`]);
+
   revalidatePath("/admin/blog");
   revalidatePath("/admin/pages");
   revalidatePath("/blog");
@@ -98,6 +101,8 @@ export async function updateBlogPost(id: string, formData: FormData) {
       publishedAt: status === "PUBLISHED" ? existing?.publishedAt || new Date() : null,
     },
   });
+
+  if (status === "PUBLISHED") await submitToIndexNow([`/blog/${slug}`]);
 
   revalidatePath("/admin/blog");
   revalidatePath("/admin/pages");
