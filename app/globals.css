@@ -6,3 +6,48 @@ body {
   @apply text-neutral-900 antialiased;
   font-family: var(--font-primary), system-ui, sans-serif;
 }
+
+/* Every admin form (Pillar Pages, Blog, Pages, Vacancies, FAQs, Site
+   Settings, ...) reuses the same plain "rounded-lg border px-3 py-2" input
+   markup. Rather than hand-editing every form component, this cascades a
+   more professional look — bigger radius, soft shadow, branded focus ring,
+   smooth transitions, styled checkboxes and a custom select arrow — across
+   the whole admin panel at once via the .admin-shell wrapper it's scoped to. */
+.admin-shell input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+.admin-shell textarea,
+.admin-shell select {
+  @apply rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 shadow-sm transition-all duration-150;
+}
+
+.admin-shell input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):hover,
+.admin-shell textarea:hover,
+.admin-shell select:hover {
+  @apply border-slate-300;
+}
+
+.admin-shell input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):focus,
+.admin-shell textarea:focus,
+.admin-shell select:focus {
+  @apply outline-none border-midpoint-dark ring-2 ring-midpoint-dark/10;
+}
+
+.admin-shell input::placeholder,
+.admin-shell textarea::placeholder {
+  @apply text-slate-400;
+}
+
+.admin-shell input[type="checkbox"] {
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 0.3rem;
+  accent-color: #082121;
+}
+
+.admin-shell select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236D7280'%3e%3cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.1em;
+  appearance: none;
+  padding-right: 2.25rem;
+}
