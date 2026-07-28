@@ -53,7 +53,7 @@ export type VacancySyncResult = {
   created: number;
   updated: number;
   deprecated: number;
-  skipped: { id: string; reason: string }[];
+  skipped: { id: string; title: string; reason: string }[];
   error?: string;
 };
 
@@ -137,12 +137,25 @@ function mapStatus(raw: string | undefined): "PUBLISHED" | "DRAFT" {
   return hiddenMarkers.some((marker) => value.includes(marker)) ? "DRAFT" : "PUBLISHED";
 }
 
+async function saveResult(result: VacancySyncResult) {
+  try {
+    await prisma.siteSetting.upsert({
+      where: { id: "global" },
+      update: { lastVacancySync: result as unknown as object },
+      create: { id: "global", lastVacancySync: result as unknown as object },
+    });
+  } catch (err) {
+    console.error("Failed to persist vacancy sync result", err);
+  }
+}
+
 export async function syncVacanciesFromListings(): Promise<VacancySyncResult> {
   const ranAt = new Date().toISOString();
   const result: VacancySyncResult = { ranAt, fetched: 0, created: 0, updated: 0, deprecated: 0, skipped: [] };
 
   if (!process.env.LISTINGS_API_KEY) {
     result.error = "LISTINGS_API_KEY is not configured — nothing was synced.";
+    await saveResult(result);
     return result;
   }
 
@@ -151,6 +164,7 @@ export async function syncVacanciesFromListings(): Promise<VacancySyncResult> {
     listings = await fetchAllListings();
   } catch (err) {
     result.error = err instanceof Error ? err.message : "Failed to reach listings.blendproperty.co.za";
+    await saveResult(result);
     return result;
   }
 
@@ -161,16 +175,18 @@ export async function syncVacanciesFromListings(): Promise<VacancySyncResult> {
     if (!listing.id) continue;
     seenExternalIds.add(listing.id);
 
+    const title = listing.building?.name || listing.name || listing.id;
     const { sector, matched } = mapSector(listing.marketSector);
     if (!matched) {
       result.skipped.push({
         id: listing.id,
+        title,
         reason: `Unrecognised marketSector "${listing.marketSector}" — defaulted to Office. Check and correct in /admin/vacancies.`,
       });
     }
 
     const data = {
-      building: listing.building?.name || listing.name || "Untitled space",
+      building: title,
       sector,
       sizeSqm: listing.gla || 0,
       ratePerSqm: listing.ratePerM2 || 0,
@@ -207,5 +223,6 @@ export async function syncVacanciesFromListings(): Promise<VacancySyncResult> {
     }
   }
 
+  await saveResult(result);
   return result;
 }
