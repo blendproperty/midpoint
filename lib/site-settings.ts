@@ -11,10 +11,17 @@ export type SiteSettings = {
   bingVerification?: string | null;
   allowIndexing: boolean;
   vacancyRevalidateSeconds: number;
+  recaptchaSiteKey: string;
 };
 
 const DEFAULT_SOCIAL_IMAGE =
   "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg";
+
+// The key that was hardcoded in ContactForm.tsx originally — kept as the
+// fallback so existing behaviour doesn't change until someone sets a new one
+// in /admin/settings (e.g. after registering the live domain in Google's
+// reCAPTCHA admin console at google.com/recaptcha/admin).
+const DEFAULT_RECAPTCHA_SITE_KEY = "6LcKnCYtAAAAAEW_f1jLM5pQgwvr7GRodfsOyfbY";
 
 const FALLBACK: SiteSettings = {
   siteName: staticSiteDefaults.name,
@@ -27,6 +34,7 @@ const FALLBACK: SiteSettings = {
   allowIndexing: process.env.NEXT_PUBLIC_ALLOW_INDEXING !== "false",
   vacancyRevalidateSeconds:
     Number(process.env.VACANCY_REVALIDATE_SECONDS) || 60 * 60 * 24 * 7,
+  recaptchaSiteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || DEFAULT_RECAPTCHA_SITE_KEY,
 };
 
 // Falls back to static/env defaults if the DB is unreachable so a database
@@ -47,6 +55,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       bingVerification: row.bingVerification,
       allowIndexing: row.allowIndexing,
       vacancyRevalidateSeconds: row.vacancyRevalidateSeconds,
+      recaptchaSiteKey: row.recaptchaSiteKey || FALLBACK.recaptchaSiteKey,
     };
   } catch {
     return FALLBACK;

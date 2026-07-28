@@ -7,9 +7,11 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 const interests = ["Office space", "Warehouse space", "Serviced offices"];
 
-// Public reCAPTCHA site key already registered for this property (safe to
-// expose — only the secret key, which lives server-side, is sensitive).
-const RECAPTCHA_SITE_KEY = "6LcKnCYtAAAAAEW_f1jLM5pQgwvr7GRodfsOyfbY";
+// Default kept as a fallback for callers that don't pass siteKey, but the
+// real value now comes from Site Settings (/admin/settings) so it can be
+// changed without a code deploy if Google's reCAPTCHA admin console requires
+// a different key/domain registration.
+const DEFAULT_RECAPTCHA_SITE_KEY = "6LcKnCYtAAAAAEW_f1jLM5pQgwvr7GRodfsOyfbY";
 
 declare global {
   interface Window {
@@ -17,11 +19,13 @@ declare global {
   }
 }
 
-export default function ContactForm() {
+export default function ContactForm({ siteKey }: { siteKey?: string } = {}) {
   const [status, setStatus] = useState<Status>("idle");
   const [consent, setConsent] = useState(false);
   const [captchaError, setCaptchaError] = useState(false);
   const recaptchaRef = useRef<HTMLDivElement>(null);
+
+  const recaptchaSiteKey = siteKey || DEFAULT_RECAPTCHA_SITE_KEY;
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -94,7 +98,7 @@ export default function ContactForm() {
         I consent to Midpoint&apos;s privacy policy.
       </label>
 
-      <div ref={recaptchaRef} className="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY} />
+      <div ref={recaptchaRef} className="g-recaptcha" data-sitekey={recaptchaSiteKey} />
       {captchaError && (
         <p role="alert" className="text-sm font-medium text-red-400">
           Please confirm you&apos;re not a robot before submitting.

@@ -15,6 +15,7 @@ export async function updateSiteSettings(formData: FormData) {
   const bingVerification = String(formData.get("bingVerification") || "").trim() || null;
   const allowIndexing = formData.get("allowIndexing") === "on";
   const vacancyRevalidateSeconds = Number(formData.get("vacancyRevalidateSeconds") || 604800);
+  const recaptchaSiteKey = String(formData.get("recaptchaSiteKey") || "").trim() || null;
 
   await prisma.siteSetting.upsert({
     where: { id: "global" },
@@ -28,6 +29,7 @@ export async function updateSiteSettings(formData: FormData) {
       bingVerification,
       allowIndexing,
       vacancyRevalidateSeconds,
+      recaptchaSiteKey,
     },
     create: {
       id: "global",
@@ -40,6 +42,7 @@ export async function updateSiteSettings(formData: FormData) {
       bingVerification,
       allowIndexing,
       vacancyRevalidateSeconds,
+      recaptchaSiteKey,
     },
   });
 

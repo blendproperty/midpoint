@@ -136,6 +136,7 @@ model SiteSetting {
   bingVerification         String?
   allowIndexing            Boolean  @default(true)
   vacancyRevalidateSeconds Int      @default(604800)
+  recaptchaSiteKey         String?
   updatedAt                DateTime @updatedAt
 }
 
@@ -149,8 +150,6 @@ model Media {
   createdAt    DateTime @default(now())
 }
 
-// Every contact-form submission, logged directly to the database independent
-// of whether the downstream n8n webhook succeeds — see app/api/enquiry/route.ts.
 model Enquiry {
   id         String   @id @default(cuid())
   firstName  String?
@@ -164,17 +163,12 @@ model Enquiry {
   createdAt  DateTime @default(now())
 }
 
-// Lightweight page-view log, written via navigator.sendBeacon from
-// components/PageViewTracker.tsx. No cookies/session tracking — just a path
-// and timestamp, aggregated in the admin dashboard.
 model PageView {
   id        String   @id @default(cuid())
   path      String
   createdAt DateTime @default(now())
 }
 
-// "Enquire" click-throughs on vacancy listings, so the dashboard can show
-// which spaces are attracting the most interest.
 model VacancyEvent {
   id        String           @id @default(cuid())
   vacancyId String?
@@ -183,9 +177,6 @@ model VacancyEvent {
   createdAt DateTime         @default(now())
 }
 
-// Admin-editable title/meta-description overrides for the site's static
-// (hardcoded) pages, keyed by URL path, so they get the same admin SEO
-// control as Blog/Page/PillarPage without moving their content into the CMS.
 model PageSeoOverride {
   path           String   @id
   seoTitle       String?

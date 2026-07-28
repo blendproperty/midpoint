@@ -53,6 +53,17 @@ export default async function SettingsAdminPage() {
           <input type="number" name="vacancyRevalidateSeconds" defaultValue={settings.vacancyRevalidateSeconds} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
           <p className="mt-1 text-xs text-slate-400">604800 = 7 days. Only relevant once a live external listings API is connected.</p>
         </div>
+        <div>
+          <label className="block text-sm font-medium">Google reCAPTCHA v2 site key</label>
+          <input name="recaptchaSiteKey" defaultValue={settings.recaptchaSiteKey} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          <p className="mt-1 text-xs text-slate-400">
+            Used on the contact form. If you see &quot;ERROR for site owner: Invalid domain for site key&quot; on the
+            live site, that means this domain isn&apos;t registered against the key in Google&apos;s reCAPTCHA admin
+            console (google.com/recaptcha/admin) &mdash; open that key there, add the current domain (e.g.
+            midpoint.onpointoffices.co.za and/or www.mid-point.co.za) under &quot;Domains&quot;, and save. If you
+            create a brand new key instead, paste its site key here so it takes effect without a code deploy.
+          </p>
+        </div>
         <button type="submit" className="rounded-full bg-midpoint-dark px-5 py-2.5 text-sm font-semibold text-white">
           Save settings
         </button>

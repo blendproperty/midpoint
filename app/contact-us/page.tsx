@@ -3,6 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { site } from "@/lib/site";
 import { getPageSeoOverride } from "@/lib/page-seo";
+import { getSiteSettings } from "@/lib/site-settings";
 
 export const dynamic = "force-dynamic";
 
@@ -18,7 +19,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function ContactUs() {
+export default async function ContactUs() {
+  const settings = await getSiteSettings();
+
   return (
     <section className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-2">
       <BreadcrumbJsonLd
@@ -36,7 +39,7 @@ export default function ContactUs() {
           <a className="block font-medium" href={site.emailHref}>{site.email}</a>
         </div>
       </div>
-      <ContactForm />
+      <ContactForm siteKey={settings.recaptchaSiteKey} />
     </section>
   );
 }

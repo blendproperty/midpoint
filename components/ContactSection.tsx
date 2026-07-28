@@ -1,6 +1,9 @@
 import ContactForm from "@/components/ContactForm";
+import { getSiteSettings } from "@/lib/site-settings";
 
-export default function ContactSection() {
+export default async function ContactSection() {
+  const settings = await getSiteSettings();
+
   return (
     <section id="Contact" className="bg-midpoint-dark px-6 py-16 text-white">
       <div className="mx-auto max-w-7xl">
@@ -37,7 +40,7 @@ export default function ContactSection() {
         <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
           <h3 className="text-2xl font-semibold">Send us a message</h3>
           <div className="w-full">
-            <ContactForm />
+            <ContactForm siteKey={settings.recaptchaSiteKey} />
           </div>
         </div>
 
