@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { STATIC_PAGES } from "@/lib/static-pages";
+import { getStaticPageContent } from "@/lib/static-page-content";
 import NewPageMenu from "@/components/admin/NewPageMenu";
-import { scoreContent, scorePillarPage } from "@/lib/seo-score";
+import { scoreContent, scorePillarPage, scoreStaticPage } from "@/lib/seo-score";
 
 export const dynamic = "force-dynamic";
 
@@ -112,10 +113,14 @@ export default async function PagesHub({
         status: o ? "CUSTOMIZED" : "DEFAULT",
         updatedAt: o?.updatedAt || new Date(0),
         editHref: `/admin/page-seo/edit?path=${encodeURIComponent(s.path)}`,
-        // Static pages have no content field to score against — they're SEO
-        // metadata overrides only, so a content-based score wouldn't mean
-        // anything here.
-        score: null,
+        score: scoreStaticPage({
+          title: s.label,
+          path: s.path,
+          seoTitle: o?.seoTitle,
+          seoDescription: o?.seoDescription,
+          ogImage: o?.ogImage,
+          pageContent: getStaticPageContent(s.path),
+        }).score,
       };
     }),
   ];
