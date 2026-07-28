@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import CustomCodeBlock from "@/components/CustomCodeBlock";
 import PageHero from "@/components/PageHero";
+import PillarTableOfContents from "@/components/PillarTableOfContents";
+import PillarQuickFacts from "@/components/PillarQuickFacts";
 import FeatureIntro from "@/components/FeatureIntro";
 import ReadyToMoveSection from "@/components/ReadyToMoveSection";
 import ConsiderationsList from "@/components/ConsiderationsList";
@@ -16,11 +18,12 @@ import { getSiteSettings } from "@/lib/site-settings";
 // Root-level catch-all for published Pillar Pages. Next.js always resolves a
 // literal folder (like app/about-us) ahead of this dynamic segment, so it
 // cannot shadow any existing static route. This is the comprehensive pillar
-// template: hero, trust strip, feature grid, considerations, live listings
-// pulled straight from Vacancy, long-form body, FAQ accordion, E-E-A-T
-// review box, CTA and explore-more links — the same level of section
-// richness as the hand-coded marketing pages (Offices, Warehouses,
-// Amenities, Location) this template now serves.
+// template: sticky section nav, hero, live quick-facts strip, trust strip,
+// feature grid, considerations, live listings pulled straight from Vacancy,
+// long-form body, FAQ accordion, E-E-A-T review box, CTA and explore-more
+// links — following the structure/skimmability/internal-linking patterns
+// common to well-designed pillar pages (sticky nav, quick facts, early CTA,
+// visual sections rather than a wall of text).
 export const dynamic = "force-dynamic";
 
 type PillarFaq = { question: string; answer: string };
@@ -96,6 +99,28 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     }`,
   }));
 
+  // Skimmable, data-driven quick facts — real numbers from live inventory,
+  // not hand-typed copy, so they can never go stale.
+  const quickFacts =
+    vacancies.length > 0
+      ? [
+          { label: "Live listings", value: String(vacancies.length) },
+          {
+            label: "Size range",
+            value: `${Math.min(...vacancies.map((v) => v.sizeSqm)).toLocaleString("en-ZA")}–${Math.max(...vacancies.map((v) => v.sizeSqm)).toLocaleString("en-ZA")} m²`,
+          },
+          { label: "From", value: `R${Math.min(...vacancies.map((v) => v.ratePerSqm)).toLocaleString("en-ZA")} / m²` },
+        ]
+      : [];
+
+  const tocItems = [
+    features.length > 0 ? { id: "features", label: "Highlights" } : null,
+    considerations.length > 0 ? { id: "things-to-know", label: "Things to know" } : null,
+    listings.length > 0 ? { id: "availability", label: "Availability" } : null,
+    hasBody ? { id: "overview", label: "Overview" } : null,
+    faqs.length > 0 ? { id: "faqs", label: "FAQs" } : null,
+  ].filter((item): item is { id: string; label: string } => item !== null);
+
   const autoJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -151,8 +176,12 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         imageAlt={pillar.title}
       />
 
+      <PillarTableOfContents items={tocItems} />
+
+      <PillarQuickFacts facts={quickFacts} />
+
       {trustItems.length > 0 && (
-        <div className="mx-auto max-w-7xl px-6 pt-10">
+        <div className="mx-auto max-w-7xl px-6 pt-6">
           <div className="flex flex-wrap gap-3">
             {trustItems.map((item) => (
               <span key={item} className="rounded-full bg-midpoint-cyan/20 px-4 py-1.5 text-sm font-medium text-midpoint-dark">
@@ -164,33 +193,39 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
       )}
 
       {features.length > 0 && (
-        <FeatureIntro eyebrow={pillar.primaryEntity ? `${pillar.primaryEntity} at Midpoint` : pillar.title} features={features} />
+        <div id="features">
+          <FeatureIntro eyebrow={pillar.primaryEntity ? `${pillar.primaryEntity} at Midpoint` : pillar.title} features={features} />
+        </div>
       )}
 
       {pillar.showReadyToMove && <ReadyToMoveSection />}
 
       {considerations.length > 0 && (
-        <ConsiderationsList
-          eyebrow={`What to know about ${(pillar.primaryEntity || pillar.title).toLowerCase()}`}
-          items={considerations}
-        />
+        <div id="things-to-know">
+          <ConsiderationsList
+            eyebrow={`What to know about ${(pillar.primaryEntity || pillar.title).toLowerCase()}`}
+            items={considerations}
+          />
+        </div>
       )}
 
       {listings.length > 0 && (
-        <ListingsPreview
-          eyebrow={pillar.listingsHeading || "Current availability at Midpoint"}
-          intro={
-            pillar.listingsIntro ||
-            "A snapshot of what's currently available. Full specifications, floor plans, rates and photos are on the live vacancy schedule."
-          }
-          listings={listings}
-          ctaHref="/availability-report"
-          ctaLabel="View full availability and floor plans"
-        />
+        <div id="availability">
+          <ListingsPreview
+            eyebrow={pillar.listingsHeading || "Current availability at Midpoint"}
+            intro={
+              pillar.listingsIntro ||
+              "A snapshot of what's currently available. Full specifications, floor plans, rates and photos are on the live vacancy schedule."
+            }
+            listings={listings}
+            ctaHref="/availability-report"
+            ctaLabel="View full availability and floor plans"
+          />
+        </div>
       )}
 
       {hasBody && (
-        <section className="bg-white px-6 py-10">
+        <section id="overview" className="bg-white px-6 py-10">
           <div
             className="mx-auto max-w-4xl space-y-4 text-midpoint-grey-400 [&_a]:text-midpoint-dark [&_a]:underline [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-midpoint-dark [&_h3]:mt-6 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-midpoint-dark [&_img]:rounded-card [&_li]:ml-5 [&_li]:list-disc [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-midpoint-grey-100 [&_td]:p-2 [&_th]:border [&_th]:border-midpoint-grey-100 [&_th]:p-2"
             dangerouslySetInnerHTML={{ __html: pillar.contentHtml }}
