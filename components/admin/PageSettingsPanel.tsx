@@ -15,6 +15,12 @@ type Props = {
   previewDomain?: string;
   previewPath?: string;
   schemaKind?: SchemaKind;
+  // Blog/Page/Pillar editors have a whole content form around this panel, so
+  // it's fine for "Page settings" to stay collapsed until clicked. Static
+  // pages (About Us, Contact Us, etc.) have nothing else on the screen —
+  // this panel *is* the form — so hiding the only editable fields behind a
+  // click just reads as broken. Pass defaultOpen to start it expanded.
+  defaultOpen?: boolean;
   defaultValues?: {
     seoTitle?: string;
     seoDescription?: string;
@@ -108,10 +114,11 @@ export default function PageSettingsPanel({
   siteName = "Midpoint Midrand",
   previewDomain = "www.mid-point.co.za",
   previewPath = "",
+  defaultOpen = false,
   defaultValues,
 }: Props) {
   const rootRef = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
   const [section, setSection] = useState<string | null>("seo");
 
   const [seoTitle, setSeoTitle] = useState(defaultValues?.seoTitle || "");
@@ -152,22 +159,26 @@ export default function PageSettingsPanel({
       <input type="hidden" name="headCode" value={headCode} readOnly />
       <input type="hidden" name="bodyCode" value={bodyCode} readOnly />
 
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700"
-      >
-        ⚙️ Page settings
-      </button>
+      {!open && (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700"
+        >
+          ⚙️ Page settings
+        </button>
+      )}
 
       {open && (
-        <div className="fixed inset-0 z-50 flex justify-end bg-black/40">
-          <div className="flex h-full w-full max-w-md flex-col overflow-y-auto bg-[#161b22]">
+        <div className={defaultOpen ? "rounded-xl border border-slate-200 bg-[#161b22]" : "fixed inset-0 z-50 flex justify-end bg-black/40"}>
+          <div className={defaultOpen ? "flex w-full flex-col" : "flex h-full w-full max-w-md flex-col overflow-y-auto bg-[#161b22]"}>
             <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
               <h2 className="text-sm font-semibold text-white">Page settings</h2>
-              <button type="button" onClick={() => setOpen(false)} className="text-sm text-white/60">
-                Close
-              </button>
+              {!defaultOpen && (
+                <button type="button" onClick={() => setOpen(false)} className="text-sm text-white/60">
+                  Close
+                </button>
+              )}
             </div>
 
             <PanelSection title="SEO settings" id="seo" open={section === "seo"} onToggle={setSection}>
