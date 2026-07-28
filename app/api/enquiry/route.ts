@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { verifyRecaptcha } from "@/lib/recaptcha";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { upsertContact } from "@/lib/contacts";
+import { pushLeadToListings } from "@/lib/listings-leads";
 
 // Set N8N_ENQUIRY_WEBHOOK in the environment, e.g.
 // https://n8n.srv938083.hstgr.cloud/webhook/midpoint-enquiry
@@ -78,6 +79,19 @@ export async function POST(req: Request) {
   } catch (err) {
     console.error("Failed to log enquiry to database", err);
   }
+
+  // Best-effort push to Blend's group-wide leads system (listings.blendproperty.co.za).
+  // No-op if LISTINGS_LEADS_URL/LISTINGS_LEADS_API_KEY aren't configured, and
+  // never awaited into the response — this enquiry is already safely logged
+  // above regardless of whether this succeeds.
+  pushLeadToListings({
+    email,
+    firstName,
+    lastName,
+    phone,
+    interest: payload?.interest ? String(payload.interest) : null,
+    message: payload?.message ? String(payload.message) : null,
+  });
 
   const webhook = process.env.N8N_ENQUIRY_WEBHOOK;
   if (!webhook) {
