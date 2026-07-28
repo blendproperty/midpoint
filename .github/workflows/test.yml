@@ -1,9 +1,10 @@
 name: Test
 
+# Runs on pull requests only now — pushes to main are covered by the `test`
+# job embedded in deploy.yml, which actually gates the deploy. Keeping this
+# separate PR-only workflow means you still get test feedback before merging,
+# without running the suite twice on every push to main.
 on:
-  push:
-    branches:
-      - main
   pull_request:
 
 jobs:
