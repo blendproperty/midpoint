@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { deleteVacancy } from "./actions";
+import { deleteVacancy, syncVacanciesNow } from "./actions";
 
 export const dynamic = "force-dynamic";
 
@@ -10,7 +10,12 @@ const SECTOR_LABEL: Record<string, string> = {
   SERVICED_OFFICE: "Serviced office",
 };
 
-export default async function VacanciesAdminPage() {
+export default async function VacanciesAdminPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ synced?: string; created?: string; updated?: string; deprecated?: string; skipped?: string; error?: string }>;
+}) {
+  const sp = await searchParams;
   const vacancies = await prisma.vacancy.findMany({
     orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
   });
@@ -19,10 +24,32 @@ export default async function VacanciesAdminPage() {
     <div>
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">Vacancies</h1>
-        <Link href="/admin/vacancies/new" className="rounded-full bg-midpoint-dark px-4 py-2 text-sm font-medium text-white">
-          New vacancy
-        </Link>
+        <div className="flex gap-3">
+          <form action={syncVacanciesNow}>
+            <button className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700">
+              Sync from listings.blendproperty.co.za
+            </button>
+          </form>
+          <Link href="/admin/vacancies/new" className="rounded-full bg-midpoint-dark px-4 py-2 text-sm font-medium text-white">
+            New vacancy
+          </Link>
+        </div>
       </div>
+
+      {sp.synced && (
+        <div className={`mt-4 rounded-xl p-4 text-sm ${sp.error ? "bg-red-50 text-red-700" : "bg-emerald-50 text-emerald-700"}`}>
+          {sp.error ? (
+            <p>Sync failed: {sp.error}</p>
+          ) : (
+            <p>
+              Synced from listings.blendproperty.co.za — {sp.created} created, {sp.updated} updated
+              {Number(sp.deprecated) > 0 ? `, ${sp.deprecated} no longer listed (set to Draft)` : ""}
+              {Number(sp.skipped) > 0 ? `, ${sp.skipped} with an unrecognised sector (defaulted to Office — check below)` : ""}.
+            </p>
+          )}
+        </div>
+      )}
+
       <div className="mt-6 overflow-hidden rounded-xl bg-white shadow-sm">
         <table className="w-full text-left text-sm">
           <thead className="bg-slate-100 text-slate-500">
@@ -31,6 +58,7 @@ export default async function VacanciesAdminPage() {
               <th className="px-4 py-3">Sector</th>
               <th className="px-4 py-3">Size</th>
               <th className="px-4 py-3">Status</th>
+              <th className="px-4 py-3">Source</th>
               <th className="px-4 py-3"></th>
             </tr>
           </thead>
@@ -42,6 +70,9 @@ export default async function VacanciesAdminPage() {
                 <td className="px-4 py-3">{v.sizeSqm.toLocaleString()} m²</td>
                 <td className="px-4 py-3">
                   <span className={v.status === "PUBLISHED" ? "text-emerald-600" : "text-slate-400"}>{v.status}</span>
+                </td>
+                <td className="px-4 py-3 text-xs text-slate-400">
+                  {v.externalId ? "Synced" : "Manual"}
                 </td>
                 <td className="px-4 py-3 text-right">
                   <Link href={`/admin/vacancies/${v.id}/edit`} className="mr-3 text-midpoint-dark underline">
@@ -55,7 +86,7 @@ export default async function VacanciesAdminPage() {
             ))}
             {vacancies.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-4 py-6 text-center text-slate-400">
+                <td colSpan={6} className="px-4 py-6 text-center text-slate-400">
                   No vacancies yet.
                 </td>
               </tr>
