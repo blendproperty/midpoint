@@ -10,8 +10,11 @@ function formatSize(n: number) {
 
 // Fires a beacon when "Enquire" is clicked so /admin can show which listings
 // are attracting the most interest — doesn't block or delay the navigation.
-function trackVacancyEnquire(vacancyId: string, building: string) {
-  const body = JSON.stringify({ vacancyId, building, type: "ENQUIRE" });
+// Uses the specific unit name where one exists (e.g. an OnPoint suite)
+// rather than just the shared building name, so the "Vacancy interest"
+// breakdown on the dashboard can tell individual units apart.
+function trackVacancyEnquire(vacancyId: string, spaceLabel: string) {
+  const body = JSON.stringify({ vacancyId, building: spaceLabel, type: "ENQUIRE" });
   if (navigator.sendBeacon) {
     navigator.sendBeacon("/api/track/vacancy-event", new Blob([body], { type: "application/json" }));
   } else {
@@ -33,9 +36,18 @@ const SECTOR_TO_INTEREST: Record<string, string> = {
   "Serviced office": "Serviced offices",
 };
 
+// The label carried through to the enquiry — the specific unit when there
+// is one (e.g. "OnPoint — Suite 4"), otherwise just the building name.
+// Buildings like OnPoint have many individual listings that would otherwise
+// all show up as the same bare "OnPoint", making it impossible to tell
+// which actual space someone enquired about.
+function spaceLabel(listing: VacancyListing) {
+  return listing.unitName ? `${listing.building} — ${listing.unitName}` : listing.building;
+}
+
 function enquireHref(listing: VacancyListing) {
   const params = new URLSearchParams();
-  params.set("space", listing.building);
+  params.set("space", spaceLabel(listing));
   const interest = SECTOR_TO_INTEREST[listing.sector];
   if (interest) params.set("interest", interest);
   return `/contact-us?${params.toString()}#Contact`;
@@ -52,6 +64,7 @@ export default function VacancyCard({ listing }: { listing: VacancyListing }) {
           <div>
             <p className="text-xs uppercase tracking-wide text-white/50">Building</p>
             <h3 className="text-xl font-semibold md:text-2xl">{listing.building}</h3>
+            {listing.unitName && <p className="mt-0.5 text-sm font-medium text-midpoint-cyan">{listing.unitName}</p>}
           </div>
           <span className="rounded-full bg-midpoint-cyan/20 px-3 py-1 text-xs font-medium text-midpoint-cyan">
             {listing.sector}
@@ -84,7 +97,7 @@ export default function VacancyCard({ listing }: { listing: VacancyListing }) {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href={enquireHref(listing)}
-            onClick={() => trackVacancyEnquire(listing.id, listing.building)}
+            onClick={() => trackVacancyEnquire(listing.id, spaceLabel(listing))}
             className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition hover:opacity-90"
           >
             Enquire
