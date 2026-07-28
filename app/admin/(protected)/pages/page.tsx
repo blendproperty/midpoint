@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { STATIC_PAGES } from "@/lib/static-pages";
 import NewPageMenu from "@/components/admin/NewPageMenu";
+import { scoreContent, scorePillarPage } from "@/lib/seo-score";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,7 @@ type Row = {
   status: string;
   updatedAt: Date;
   editHref: string;
+  score: number | null;
 };
 
 const TYPE_TABS: Array<PageType | "All"> = ["All", "Blog", "Page", "Pillar", "Static"];
@@ -35,11 +37,26 @@ function StatusBadge({ status }: { status: string }) {
   );
 }
 
+function ScoreBadge({ score }: { score: number | null }) {
+  if (score === null) {
+    return <span className="text-xs text-slate-300">—</span>;
+  }
+  const style =
+    score >= 80
+      ? "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200"
+      : score >= 50
+        ? "bg-amber-50 text-amber-700 ring-1 ring-amber-200"
+        : "bg-red-50 text-red-700 ring-1 ring-red-200";
+  return <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${style}`}>{score}%</span>;
+}
+
 // Every page on the site — blog posts, standalone Pages, Pillar Pages, and
 // the static pages' SEO overrides — in one filterable, searchable list, so
 // there's a single "Pages" destination in the admin instead of four separate
 // sections. Each row still links out to its own type-specific editor, since
-// Blog/Page/Pillar have genuinely different fields.
+// Blog/Page/Pillar have genuinely different fields. The Score column reuses
+// the same lib/seo-score.ts checklist that already powers each individual
+// edit screen, so priority is visible at a glance without opening every page.
 export default async function PagesHub({
   searchParams,
 }: {
@@ -63,6 +80,7 @@ export default async function PagesHub({
       status: p.status,
       updatedAt: p.updatedAt,
       editHref: `/admin/blog/${p.id}/edit`,
+      score: scoreContent(p).score,
     })),
     ...pages.map((p) => ({
       key: `page-${p.id}`,
@@ -71,15 +89,20 @@ export default async function PagesHub({
       status: p.status,
       updatedAt: p.updatedAt,
       editHref: `/admin/pages/${p.id}/edit`,
+      score: scoreContent(p).score,
     })),
-    ...pillarPages.map((p) => ({
-      key: `pillar-${p.id}`,
-      type: "Pillar" as const,
-      title: p.title,
-      status: p.status,
-      updatedAt: p.updatedAt,
-      editHref: `/admin/pillar-pages/${p.id}/edit`,
-    })),
+    ...pillarPages.map((p) => {
+      const faqs = Array.isArray(p.faqs) ? (p.faqs as unknown as { question: string; answer: string }[]) : [];
+      return {
+        key: `pillar-${p.id}`,
+        type: "Pillar" as const,
+        title: p.title,
+        status: p.status,
+        updatedAt: p.updatedAt,
+        editHref: `/admin/pillar-pages/${p.id}/edit`,
+        score: scorePillarPage({ ...p, faqs }).score,
+      };
+    }),
     ...STATIC_PAGES.map((s) => {
       const o = overrideMap.get(s.path);
       return {
@@ -89,6 +112,10 @@ export default async function PagesHub({
         status: o ? "CUSTOMIZED" : "DEFAULT",
         updatedAt: o?.updatedAt || new Date(0),
         editHref: `/admin/page-seo/edit?path=${encodeURIComponent(s.path)}`,
+        // Static pages have no content field to score against — they're SEO
+        // metadata overrides only, so a content-based score wouldn't mean
+        // anything here.
+        score: null,
       };
     }),
   ];
@@ -174,6 +201,7 @@ export default async function PagesHub({
               <th className="px-4 py-3">Title</th>
               <th className="px-4 py-3">Type</th>
               <th className="px-4 py-3">Status</th>
+              <th className="px-4 py-3">Score</th>
               <th className="px-4 py-3">Updated</th>
               <th className="px-4 py-3"></th>
             </tr>
@@ -188,6 +216,9 @@ export default async function PagesHub({
                 <td className="px-4 py-3">
                   <StatusBadge status={r.status} />
                 </td>
+                <td className="px-4 py-3">
+                  <ScoreBadge score={r.score} />
+                </td>
                 <td className="px-4 py-3 text-slate-500">
                   {r.updatedAt.getTime() > 0 ? r.updatedAt.toLocaleDateString() : "—"}
                 </td>
@@ -200,7 +231,7 @@ export default async function PagesHub({
             ))}
             {shown.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-4 py-8 text-center text-slate-400">
+                <td colSpan={6} className="px-4 py-8 text-center text-slate-400">
                   No matching pages.
                 </td>
               </tr>
