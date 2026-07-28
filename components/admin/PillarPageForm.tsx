@@ -2,7 +2,7 @@
 
 import RichTextEditor from "@/components/admin/RichTextEditor";
 import MediaPicker from "@/components/admin/MediaPicker";
-import SeoGenerator from "@/components/admin/SeoGenerator";
+import PageSettingsPanel from "@/components/admin/PageSettingsPanel";
 
 type Props = {
   action: (formData: FormData) => void;
@@ -29,6 +29,14 @@ type Props = {
     seoTitle?: string;
     seoDescription?: string;
     focusKeyword?: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: string;
+    noIndex?: boolean;
+    canonicalUrl?: string;
+    schemaJson?: string;
+    headCode?: string;
+    bodyCode?: string;
   };
   submitLabel?: string;
 };
@@ -36,6 +44,16 @@ type Props = {
 export default function PillarPageForm({ action, defaultValues, submitLabel = "Save" }: Props) {
   return (
     <form action={action} className="mt-6 max-w-3xl space-y-8">
+      <div className="flex justify-end">
+        <PageSettingsPanel
+          titleField="title"
+          titleFallback={defaultValues?.title}
+          sourceFields={["heroAnswer", "contentHtml"]}
+          previewPath={defaultValues?.slug ? `/${defaultValues.slug}` : "/…"}
+          schemaKind="pillar"
+          defaultValues={defaultValues}
+        />
+      </div>
       <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
         <h2 className="text-lg font-semibold">Strategy</h2>
         <div>
@@ -141,30 +159,17 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
       </div>
 
       <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
-        <h2 className="text-lg font-semibold">SEO</h2>
+        <h2 className="text-lg font-semibold">Other</h2>
         <div>
           <label className="block text-sm font-medium">Focus keyword</label>
           <input name="focusKeyword" defaultValue={defaultValues?.focusKeyword} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
         </div>
-
-        <SeoGenerator titleField="title" sourceFields={["heroAnswer", "contentHtml"]} previewPath="/…" />
-
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium">SEO title</label>
-            <input name="seoTitle" defaultValue={defaultValues?.seoTitle} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium">Status</label>
-            <select name="status" defaultValue={defaultValues?.status || "DRAFT"} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm">
-              <option value="DRAFT">Draft</option>
-              <option value="PUBLISHED">Published</option>
-            </select>
-          </div>
-        </div>
         <div>
-          <label className="block text-sm font-medium">SEO description</label>
-          <textarea name="seoDescription" defaultValue={defaultValues?.seoDescription} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          <label className="block text-sm font-medium">Status</label>
+          <select name="status" defaultValue={defaultValues?.status || "DRAFT"} className="mt-1 w-full max-w-xs rounded-lg border border-slate-200 px-3 py-2 text-sm">
+            <option value="DRAFT">Draft</option>
+            <option value="PUBLISHED">Published</option>
+          </select>
         </div>
       </div>
 
