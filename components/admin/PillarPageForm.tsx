@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import RichTextEditor from "@/components/admin/RichTextEditor";
 import MediaPicker from "@/components/admin/MediaPicker";
-import { generateSeoTitle, generateSeoDescription } from "@/lib/seo-generate";
+import SeoGenerator from "@/components/admin/SeoGenerator";
 
 type Props = {
   action: (formData: FormData) => void;
@@ -35,26 +34,13 @@ type Props = {
 };
 
 export default function PillarPageForm({ action, defaultValues, submitLabel = "Save" }: Props) {
-  const titleRef = useRef<HTMLInputElement>(null);
-  const heroAnswerRef = useRef<HTMLTextAreaElement>(null);
-  const contentValueRef = useRef(defaultValues?.contentHtml || "");
-  const seoTitleRef = useRef<HTMLInputElement>(null);
-  const seoDescRef = useRef<HTMLTextAreaElement>(null);
-
-  function handleGenerate() {
-    const title = titleRef.current?.value || "";
-    const source = heroAnswerRef.current?.value || contentValueRef.current || title;
-    if (seoTitleRef.current) seoTitleRef.current.value = generateSeoTitle(title, "Midpoint Midrand");
-    if (seoDescRef.current) seoDescRef.current.value = generateSeoDescription(source);
-  }
-
   return (
     <form action={action} className="mt-6 max-w-3xl space-y-8">
       <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
         <h2 className="text-lg font-semibold">Strategy</h2>
         <div>
           <label className="block text-sm font-medium">Title (H1)</label>
-          <input ref={titleRef} name="title" defaultValue={defaultValues?.title} required className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          <input name="title" defaultValue={defaultValues?.title} required className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
         </div>
         <div>
           <label className="block text-sm font-medium">Slug (leave blank to auto-generate). Page will live at /&lt;slug&gt;</label>
@@ -91,7 +77,7 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
         <MediaPicker name="heroImage" label="Hero image" defaultValue={defaultValues?.heroImage} />
         <div>
           <label className="block text-sm font-medium">Hero direct answer (40–80 words)</label>
-          <textarea ref={heroAnswerRef} name="heroAnswer" defaultValue={defaultValues?.heroAnswer} rows={3} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          <textarea name="heroAnswer" defaultValue={defaultValues?.heroAnswer} rows={3} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
         </div>
         <div>
           <label className="block text-sm font-medium">Trust strip (one item per line)</label>
@@ -109,14 +95,7 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
         <h2 className="text-lg font-semibold">Content</h2>
         <div>
           <label className="block text-sm font-medium">Main content — educational sections, comparisons, evidence, process</label>
-          <RichTextEditor
-            name="contentHtml"
-            defaultValue={defaultValues?.contentHtml}
-            height={520}
-            onChange={(html) => {
-              contentValueRef.current = html;
-            }}
-          />
+          <RichTextEditor name="contentHtml" defaultValue={defaultValues?.contentHtml} height={520} />
         </div>
         <div>
           <label className="block text-sm font-medium">
@@ -167,15 +146,13 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
           <label className="block text-sm font-medium">Focus keyword</label>
           <input name="focusKeyword" defaultValue={defaultValues?.focusKeyword} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
         </div>
+
+        <SeoGenerator titleField="title" sourceFields={["heroAnswer", "contentHtml"]} previewPath="/…" />
+
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <div className="flex items-center justify-between">
-              <label className="block text-sm font-medium">SEO title</label>
-              <button type="button" onClick={handleGenerate} className="text-xs font-semibold text-midpoint-dark underline">
-                Generate
-              </button>
-            </div>
-            <input ref={seoTitleRef} name="seoTitle" defaultValue={defaultValues?.seoTitle} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            <label className="block text-sm font-medium">SEO title</label>
+            <input name="seoTitle" defaultValue={defaultValues?.seoTitle} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
           </div>
           <div>
             <label className="block text-sm font-medium">Status</label>
@@ -187,7 +164,7 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
         </div>
         <div>
           <label className="block text-sm font-medium">SEO description</label>
-          <textarea ref={seoDescRef} name="seoDescription" defaultValue={defaultValues?.seoDescription} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          <textarea name="seoDescription" defaultValue={defaultValues?.seoDescription} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
         </div>
       </div>
 

@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useState } from "react";
 import { generateSeoTitle } from "@/lib/seo-generate";
+import SeoPreviewCard from "@/components/admin/SeoPreviewCard";
 
 type Props = {
   action: (formData: FormData) => void;
@@ -11,12 +12,11 @@ type Props = {
 };
 
 export default function PageSeoForm({ action, path, label, defaultValues }: Props) {
-  const titleRef = useRef<HTMLInputElement>(null);
+  const [seoTitle, setSeoTitle] = useState(defaultValues?.seoTitle || "");
+  const [seoDescription, setSeoDescription] = useState(defaultValues?.seoDescription || "");
 
   function handleGenerate() {
-    if (titleRef.current) {
-      titleRef.current.value = generateSeoTitle(label, "Midpoint Midrand");
-    }
+    setSeoTitle(generateSeoTitle(label, "Midpoint Midrand"));
   }
 
   return (
@@ -30,9 +30,9 @@ export default function PageSeoForm({ action, path, label, defaultValues }: Prop
           </button>
         </div>
         <input
-          ref={titleRef}
           name="seoTitle"
-          defaultValue={defaultValues?.seoTitle}
+          value={seoTitle}
+          onChange={(e) => setSeoTitle(e.target.value)}
           className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
         />
       </div>
@@ -40,11 +40,15 @@ export default function PageSeoForm({ action, path, label, defaultValues }: Prop
         <label className="block text-sm font-medium">SEO description</label>
         <textarea
           name="seoDescription"
-          defaultValue={defaultValues?.seoDescription}
+          value={seoDescription}
+          onChange={(e) => setSeoDescription(e.target.value)}
           rows={3}
           className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
         />
       </div>
+
+      <SeoPreviewCard title={seoTitle} description={seoDescription} path={path} />
+
       <button type="submit" className="rounded-full bg-midpoint-dark px-5 py-2.5 text-sm font-semibold text-white">
         Save
       </button>
