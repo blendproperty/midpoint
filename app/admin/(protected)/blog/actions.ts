@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { Prisma } from "@prisma/client";
 
 function slugify(input: string) {
   return input
@@ -12,6 +13,32 @@ function slugify(input: string) {
     .replace(/[^a-z0-9\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
+}
+
+function parseSchemaJson(raw: string): Prisma.InputJsonValue | typeof Prisma.JsonNull {
+  const trimmed = raw.trim();
+  if (!trimmed) return Prisma.JsonNull;
+  try {
+    return JSON.parse(trimmed);
+  } catch {
+    return Prisma.JsonNull;
+  }
+}
+
+function readCommonFields(formData: FormData) {
+  return {
+    seoTitle: String(formData.get("seoTitle") || "").trim() || null,
+    seoDescription: String(formData.get("seoDescription") || "").trim() || null,
+    focusKeyword: String(formData.get("focusKeyword") || "").trim() || null,
+    ogTitle: String(formData.get("ogTitle") || "").trim() || null,
+    ogDescription: String(formData.get("ogDescription") || "").trim() || null,
+    ogImage: String(formData.get("ogImage") || "").trim() || null,
+    noIndex: formData.get("noIndex") === "on",
+    canonicalUrl: String(formData.get("canonicalUrl") || "").trim() || null,
+    schemaJson: parseSchemaJson(String(formData.get("schemaJson") || "")),
+    headCode: String(formData.get("headCode") || "").trim() || null,
+    bodyCode: String(formData.get("bodyCode") || "").trim() || null,
+  };
 }
 
 export async function createBlogPost(formData: FormData) {
@@ -23,9 +50,6 @@ export async function createBlogPost(formData: FormData) {
   const contentHtml = String(formData.get("contentHtml") || "");
   const coverImage = String(formData.get("coverImage") || "").trim() || null;
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
-  const seoTitle = String(formData.get("seoTitle") || "").trim() || null;
-  const seoDescription = String(formData.get("seoDescription") || "").trim() || null;
-  const focusKeyword = String(formData.get("focusKeyword") || "").trim() || null;
 
   if (!title || !slug) throw new Error("Title is required");
 
@@ -37,15 +61,14 @@ export async function createBlogPost(formData: FormData) {
       contentHtml,
       coverImage,
       status,
-      seoTitle,
-      seoDescription,
-      focusKeyword,
+      ...readCommonFields(formData),
       authorId: session.sub,
       publishedAt: status === "PUBLISHED" ? new Date() : null,
     },
   });
 
   revalidatePath("/admin/blog");
+  revalidatePath("/admin/pages");
   revalidatePath("/blog");
   redirect("/admin/blog");
 }
@@ -59,9 +82,6 @@ export async function updateBlogPost(id: string, formData: FormData) {
   const contentHtml = String(formData.get("contentHtml") || "");
   const coverImage = String(formData.get("coverImage") || "").trim() || null;
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
-  const seoTitle = String(formData.get("seoTitle") || "").trim() || null;
-  const seoDescription = String(formData.get("seoDescription") || "").trim() || null;
-  const focusKeyword = String(formData.get("focusKeyword") || "").trim() || null;
 
   const existing = await prisma.blogPost.findUnique({ where: { id } });
 
@@ -74,14 +94,13 @@ export async function updateBlogPost(id: string, formData: FormData) {
       contentHtml,
       coverImage,
       status,
-      seoTitle,
-      seoDescription,
-      focusKeyword,
+      ...readCommonFields(formData),
       publishedAt: status === "PUBLISHED" ? existing?.publishedAt || new Date() : null,
     },
   });
 
   revalidatePath("/admin/blog");
+  revalidatePath("/admin/pages");
   revalidatePath("/blog");
   revalidatePath(`/blog/${slug}`);
   redirect("/admin/blog");
@@ -91,5 +110,6 @@ export async function deleteBlogPost(id: string) {
   await requireAdmin();
   await prisma.blogPost.delete({ where: { id } });
   revalidatePath("/admin/blog");
+  revalidatePath("/admin/pages");
   revalidatePath("/blog");
 }

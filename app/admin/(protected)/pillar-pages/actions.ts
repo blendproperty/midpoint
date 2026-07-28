@@ -5,6 +5,7 @@ import { requireAdmin } from "@/lib/require-admin";
 import { parsePillarFaqs } from "@/lib/pillar-faqs";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { Prisma } from "@prisma/client";
 
 function slugify(input: string) {
   return input
@@ -13,6 +14,16 @@ function slugify(input: string) {
     .replace(/[^a-z0-9\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-");
+}
+
+function parseSchemaJson(raw: string): Prisma.InputJsonValue | typeof Prisma.JsonNull {
+  const trimmed = raw.trim();
+  if (!trimmed) return Prisma.JsonNull;
+  try {
+    return JSON.parse(trimmed);
+  } catch {
+    return Prisma.JsonNull;
+  }
 }
 
 function readFields(formData: FormData) {
@@ -46,6 +57,14 @@ function readFields(formData: FormData) {
     seoTitle: String(formData.get("seoTitle") || "").trim() || null,
     seoDescription: String(formData.get("seoDescription") || "").trim() || null,
     focusKeyword: String(formData.get("focusKeyword") || "").trim() || null,
+    ogTitle: String(formData.get("ogTitle") || "").trim() || null,
+    ogDescription: String(formData.get("ogDescription") || "").trim() || null,
+    ogImage: String(formData.get("ogImage") || "").trim() || null,
+    noIndex: formData.get("noIndex") === "on",
+    canonicalUrl: String(formData.get("canonicalUrl") || "").trim() || null,
+    schemaJson: parseSchemaJson(String(formData.get("schemaJson") || "")),
+    headCode: String(formData.get("headCode") || "").trim() || null,
+    bodyCode: String(formData.get("bodyCode") || "").trim() || null,
   };
 }
 
@@ -62,6 +81,7 @@ export async function createPillarPage(formData: FormData) {
   });
 
   revalidatePath("/admin/pillar-pages");
+  revalidatePath("/admin/pages");
   revalidatePath(`/${fields.slug}`);
   redirect("/admin/pillar-pages");
 }
@@ -80,6 +100,7 @@ export async function updatePillarPage(id: string, formData: FormData) {
   });
 
   revalidatePath("/admin/pillar-pages");
+  revalidatePath("/admin/pages");
   revalidatePath(`/${fields.slug}`);
   redirect("/admin/pillar-pages");
 }
@@ -88,5 +109,6 @@ export async function deletePillarPage(id: string) {
   await requireAdmin();
   const pillar = await prisma.pillarPage.delete({ where: { id } });
   revalidatePath("/admin/pillar-pages");
+  revalidatePath("/admin/pages");
   revalidatePath(`/${pillar.slug}`);
 }

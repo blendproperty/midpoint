@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { Prisma } from "@prisma/client";
 
 function slugify(input: string) {
   return input
@@ -14,6 +15,32 @@ function slugify(input: string) {
     .replace(/-+/g, "-");
 }
 
+function parseSchemaJson(raw: string): Prisma.InputJsonValue | typeof Prisma.JsonNull {
+  const trimmed = raw.trim();
+  if (!trimmed) return Prisma.JsonNull;
+  try {
+    return JSON.parse(trimmed);
+  } catch {
+    return Prisma.JsonNull;
+  }
+}
+
+function readCommonFields(formData: FormData) {
+  return {
+    seoTitle: String(formData.get("seoTitle") || "").trim() || null,
+    seoDescription: String(formData.get("seoDescription") || "").trim() || null,
+    focusKeyword: String(formData.get("focusKeyword") || "").trim() || null,
+    ogTitle: String(formData.get("ogTitle") || "").trim() || null,
+    ogDescription: String(formData.get("ogDescription") || "").trim() || null,
+    ogImage: String(formData.get("ogImage") || "").trim() || null,
+    noIndex: formData.get("noIndex") === "on",
+    canonicalUrl: String(formData.get("canonicalUrl") || "").trim() || null,
+    schemaJson: parseSchemaJson(String(formData.get("schemaJson") || "")),
+    headCode: String(formData.get("headCode") || "").trim() || null,
+    bodyCode: String(formData.get("bodyCode") || "").trim() || null,
+  };
+}
+
 export async function createPage(formData: FormData) {
   await requireAdmin();
   const title = String(formData.get("title") || "").trim();
@@ -21,14 +48,11 @@ export async function createPage(formData: FormData) {
   const slug = slugify(slugInput || title);
   const contentHtml = String(formData.get("contentHtml") || "");
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
-  const seoTitle = String(formData.get("seoTitle") || "").trim() || null;
-  const seoDescription = String(formData.get("seoDescription") || "").trim() || null;
-  const focusKeyword = String(formData.get("focusKeyword") || "").trim() || null;
 
   if (!title || !slug) throw new Error("Title is required");
 
   await prisma.page.create({
-    data: { title, slug, contentHtml, status, seoTitle, seoDescription, focusKeyword },
+    data: { title, slug, contentHtml, status, ...readCommonFields(formData) },
   });
 
   revalidatePath("/admin/pages");
@@ -43,13 +67,10 @@ export async function updatePage(id: string, formData: FormData) {
   const slug = slugify(slugInput || title);
   const contentHtml = String(formData.get("contentHtml") || "");
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
-  const seoTitle = String(formData.get("seoTitle") || "").trim() || null;
-  const seoDescription = String(formData.get("seoDescription") || "").trim() || null;
-  const focusKeyword = String(formData.get("focusKeyword") || "").trim() || null;
 
   await prisma.page.update({
     where: { id },
-    data: { title, slug, contentHtml, status, seoTitle, seoDescription, focusKeyword },
+    data: { title, slug, contentHtml, status, ...readCommonFields(formData) },
   });
 
   revalidatePath("/admin/pages");
