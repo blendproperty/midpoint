@@ -29,6 +29,14 @@ export default async function EditBlogPostPage({ params }: { params: Promise<{ i
           seoTitle: post.seoTitle || "",
           seoDescription: post.seoDescription || "",
           focusKeyword: post.focusKeyword || "",
+          ogTitle: post.ogTitle || "",
+          ogDescription: post.ogDescription || "",
+          ogImage: post.ogImage || "",
+          noIndex: post.noIndex,
+          canonicalUrl: post.canonicalUrl || "",
+          schemaJson: post.schemaJson ? JSON.stringify(post.schemaJson, null, 2) : "",
+          headCode: post.headCode || "",
+          bodyCode: post.bodyCode || "",
         }}
       />
       <SeoScoreCard

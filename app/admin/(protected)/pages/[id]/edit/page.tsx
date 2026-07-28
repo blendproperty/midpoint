@@ -27,6 +27,14 @@ export default async function EditCmsPagePage({ params }: { params: Promise<{ id
           seoTitle: page.seoTitle || "",
           seoDescription: page.seoDescription || "",
           focusKeyword: page.focusKeyword || "",
+          ogTitle: page.ogTitle || "",
+          ogDescription: page.ogDescription || "",
+          ogImage: page.ogImage || "",
+          noIndex: page.noIndex,
+          canonicalUrl: page.canonicalUrl || "",
+          schemaJson: page.schemaJson ? JSON.stringify(page.schemaJson, null, 2) : "",
+          headCode: page.headCode || "",
+          bodyCode: page.bodyCode || "",
         }}
       />
       <SeoScoreCard

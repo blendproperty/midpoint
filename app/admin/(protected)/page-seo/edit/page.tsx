@@ -20,7 +20,18 @@ export default async function EditPageSeoPage({ searchParams }: { searchParams: 
         action={updatePageSeoOverride}
         path={path}
         label={known.label}
-        defaultValues={{ seoTitle: override?.seoTitle || "", seoDescription: override?.seoDescription || "" }}
+        defaultValues={{
+          seoTitle: override?.seoTitle || "",
+          seoDescription: override?.seoDescription || "",
+          ogTitle: override?.ogTitle || "",
+          ogDescription: override?.ogDescription || "",
+          ogImage: override?.ogImage || "",
+          noIndex: override?.noIndex || false,
+          canonicalUrl: override?.canonicalUrl || "",
+          schemaJson: override?.schemaJson ? JSON.stringify(override.schemaJson, null, 2) : "",
+          headCode: override?.headCode || "",
+          bodyCode: override?.bodyCode || "",
+        }}
       />
     </div>
   );

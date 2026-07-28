@@ -46,6 +46,14 @@ export default async function EditPillarPagePage({ params }: { params: Promise<{
           seoTitle: pillar.seoTitle || "",
           seoDescription: pillar.seoDescription || "",
           focusKeyword: pillar.focusKeyword || "",
+          ogTitle: pillar.ogTitle || "",
+          ogDescription: pillar.ogDescription || "",
+          ogImage: pillar.ogImage || "",
+          noIndex: pillar.noIndex,
+          canonicalUrl: pillar.canonicalUrl || "",
+          schemaJson: pillar.schemaJson ? JSON.stringify(pillar.schemaJson, null, 2) : "",
+          headCode: pillar.headCode || "",
+          bodyCode: pillar.bodyCode || "",
         }}
       />
       <SeoScoreCard result={result} />
