@@ -16,7 +16,7 @@ export default function BrokerCTASection() {
             Contact Leasing Team
           </Link>
           <Link
-            href="/availability-report"
+            href="/vacancies"
             className="rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark"
           >
             View Available Space
