@@ -24,6 +24,7 @@ function revalidateVacancyPaths() {
 export async function createVacancy(formData: FormData) {
   await requireAdmin();
   const building = String(formData.get("building") || "").trim();
+  const unitName = String(formData.get("unitName") || "").trim() || null;
   const sector = String(formData.get("sector") || "OFFICE");
   const sizeSqm = Number(formData.get("sizeSqm") || 0);
   const ratePerSqm = Number(formData.get("ratePerSqm") || 0);
@@ -41,6 +42,7 @@ export async function createVacancy(formData: FormData) {
   await prisma.vacancy.create({
     data: {
       building,
+      unitName,
       sector: sector as (typeof SECTOR_VALUES)[number],
       sizeSqm,
       ratePerSqm,
@@ -60,6 +62,7 @@ export async function createVacancy(formData: FormData) {
 export async function updateVacancy(id: string, formData: FormData) {
   await requireAdmin();
   const building = String(formData.get("building") || "").trim();
+  const unitName = String(formData.get("unitName") || "").trim() || null;
   const sector = String(formData.get("sector") || "OFFICE");
   const sizeSqm = Number(formData.get("sizeSqm") || 0);
   const ratePerSqm = Number(formData.get("ratePerSqm") || 0);
@@ -74,6 +77,7 @@ export async function updateVacancy(id: string, formData: FormData) {
     where: { id },
     data: {
       building,
+      unitName,
       sector: sector as (typeof SECTOR_VALUES)[number],
       sizeSqm,
       ratePerSqm,
