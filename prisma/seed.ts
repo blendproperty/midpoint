@@ -4,7 +4,7 @@
 // pages, into the database so the site has real content from the moment
 // the CMS goes live. Safe to re-run — everything here is an upsert or a
 // "skip/create-only-if-missing", so it never clobbers a later admin edit.
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Prisma } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { fallbackVacancies } from "../lib/vacancies-fallback";
 import { fallbackFaqs } from "../lib/faqs-fallback";
@@ -105,6 +105,39 @@ async function seedSiteSettings() {
   console.log("Site settings row ensured.");
 }
 
+type SeedPillarFeature = { heading: string; text: string; image: string };
+type SeedPillarConsideration = { heading: string; text: string };
+type SeedPillarFaq = { question: string; answer: string };
+type SeedPillarLink = { label: string; href: string };
+
+type SeedPillarPage = {
+  slug: string;
+  title: string;
+  primaryEntity: string;
+  relatedSector: "OFFICE" | "WAREHOUSE" | "SERVICED_OFFICE" | null;
+  heroImage: string;
+  heroAnswer: string;
+  trustStrip: string;
+  showReadyToMove: boolean;
+  features: SeedPillarFeature[];
+  considerations: SeedPillarConsideration[];
+  listingsHeading: string | null;
+  listingsIntro: string | null;
+  contentHtml: string;
+  faqs: SeedPillarFaq[];
+  faqsHeading?: string;
+  ctaHeading: string;
+  ctaText: string;
+  exploreLinks: SeedPillarLink[];
+  expertName?: string;
+  expertRole?: string;
+  reviewOwner?: string;
+  lastReviewedAt?: Date;
+  seoTitle: string;
+  seoDescription: string;
+  focusKeyword: string;
+};
+
 // Migrates the four hand-coded marketing pages (Offices, Warehouses,
 // Amenities, Location) into full Pillar Pages, preserving their real copy,
 // images and FAQs so the comprehensive pillar template renders exactly the
@@ -112,12 +145,12 @@ async function seedSiteSettings() {
 // now. Upsert-with-empty-update: creates once, never overwrites a later
 // admin edit on re-run.
 async function seedConvertedPillarPages() {
-  const pages = [
+  const pages: SeedPillarPage[] = [
     {
       slug: "offices",
       title: "Offices to Rent in Midrand",
       primaryEntity: "Office space",
-      relatedSector: "OFFICE" as const,
+      relatedSector: "OFFICE",
       heroImage: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a169af02d64c62ff25b56af_office-banner-p-1600.jpg",
       heroAnswer:
         "Midpoint is a secure business estate on the N1 between Johannesburg and Pretoria, with backup power, security and on-site amenities included. Live availability below — book a viewing or discuss your requirements with the leasing team.",
@@ -194,12 +227,12 @@ async function seedConvertedPillarPages() {
       slug: "warehouses",
       title: "Warehouse Space Built for Modern Logistics and Distribution",
       primaryEntity: "Warehouse space",
-      relatedSector: "WAREHOUSE" as const,
+      relatedSector: "WAREHOUSE",
       heroImage: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a156e00cfaf0adb9c0eb204_warehouse-p-800.jpg",
       heroAnswer: "High eave heights, efficient loading access, and generous yard capacity. High-performance warehouse infrastructure in Midrand.",
       trustStrip: "High eave heights\nDock levellers & roller shutters\nN1 highway exposure",
       showReadyToMove: true,
-      features: [] as unknown[],
+      features: [],
       considerations: [
         { heading: "Clear Height", text: "High eave heights support vertical racking systems and maximise storage capacity." },
         { heading: "Loading Efficiency", text: "A combination of dock levellers, on-grade roller shutters, and rear or side loading enables efficient movement of goods." },
@@ -212,7 +245,7 @@ async function seedConvertedPillarPages() {
       listingsIntro: "A snapshot of warehouse space currently available. Full specifications and rates are on the live vacancy schedule.",
       contentHtml:
         "<p>Midpoint offers a range of warehouse space in Midrand. Located between Johannesburg and Pretoria, the estate provides convenient access to major transport routes, making it well suited to businesses serving Gauteng and national supply chains.</p><p>Warehouse sizes vary to accommodate different operational requirements, from flexible mixed-use buildings to large-scale distribution facilities with integrated offices and yard space.</p><h2>The Midpoint lifestyle advantage.</h2><p>Running a warehouse is demanding, and Midpoint recognises the people behind the operation. The surrounding amenities create a work environment where teams can take a break, meet informally, or recharge, adding a lifestyle element rarely found in industrial spaces.</p>",
-      faqs: [] as unknown[],
+      faqs: [],
       ctaHeading: "Contact us to discuss availability, pricing, or to arrange a viewing",
       ctaText: "Contact us to discuss availability, pricing, or to arrange a viewing of any warehouse at Midpoint.",
       exploreLinks: [
@@ -242,12 +275,12 @@ async function seedConvertedPillarPages() {
         { heading: "Walking, Running & Cycling Trails", text: "Winding through landscaped green areas, the trails provide space for walking, running, or cycling — a refreshing alternative to remaining indoors between meetings, and part of many tenants' daily routine.", image: "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a147d9896d773202294260f_running-man.jpg" },
         { heading: "Coffee", text: "Coffee spaces at Midpoint provide natural points of connection throughout the working day — a simple but valuable convenience that lets tenants step out briefly, recharge, and return to work refreshed.", image: "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6a148381b93e4613bbbd7c61_Coffee.jpg" },
       ],
-      considerations: [] as unknown[],
+      considerations: [],
       listingsHeading: null,
       listingsIntro: null,
       contentHtml:
         "<p>Businesses based at Midpoint benefit from an environment where work and everyday lifestyle intersect naturally. The estate combines office space, serviced offices, and warehouse facilities in Midrand with shared amenities that support the people working within them.</p><p>These spaces contribute to a workplace culture that extends beyond desks, meeting rooms, and warehouse floors. Teams can meet informally, step away for a break, or recharge between meetings without leaving the estate.</p>",
-      faqs: [] as unknown[],
+      faqs: [],
       ctaHeading: "Talk to the leasing team",
       ctaText: "Contact the Midpoint leasing team to discuss availability, pricing, or to arrange a viewing.",
       exploreLinks: [
@@ -268,7 +301,7 @@ async function seedConvertedPillarPages() {
       heroAnswer: "On the N1 between Johannesburg and Pretoria — verified distances, access and route detail.",
       trustStrip: "25 km to Johannesburg\n31 km to Pretoria\n21 km to OR Tambo",
       showReadyToMove: false,
-      features: [] as unknown[],
+      features: [],
       considerations: [
         { heading: "On the N1, between Johannesburg and Pretoria", text: "Midpoint has 1,470 metres of frontage directly onto the N1 highway, roughly 25 km from Johannesburg and 31 km from Pretoria — positioned squarely between Gauteng's two largest business centres." },
         { heading: "Halfway House, Midrand", text: "The estate is based at 162 Tonetti Street, Halfway House, Midrand, 1685 — one of Gauteng's most established commercial and industrial nodes, with direct N1 access for staff commuting from either side of the corridor." },
@@ -277,7 +310,7 @@ async function seedConvertedPillarPages() {
       listingsHeading: null,
       listingsIntro: null,
       contentHtml: "",
-      faqs: [] as unknown[],
+      faqs: [],
       ctaHeading: "Get in touch about Midpoint's location",
       ctaText: "Contact the Midpoint leasing team to discuss access, commute times, or to arrange a site visit.",
       exploreLinks: [
@@ -298,15 +331,18 @@ async function seedConvertedPillarPages() {
       console.log(`Pillar page /${page.slug} already exists, leaving admin edits in place.`);
       continue;
     }
-    const { slug, ...data } = page;
-    await prisma.pillarPage.create({
-      data: {
-        slug,
-        ...data,
-        status: "PUBLISHED",
-        publishedAt: new Date(),
-      },
-    });
+    const { slug, features, considerations, faqs, exploreLinks, ...rest } = page;
+    const data: Prisma.PillarPageCreateInput = {
+      slug,
+      ...rest,
+      features: features as unknown as Prisma.InputJsonValue,
+      considerations: considerations as unknown as Prisma.InputJsonValue,
+      faqs: faqs as unknown as Prisma.InputJsonValue,
+      exploreLinks: exploreLinks as unknown as Prisma.InputJsonValue,
+      status: "PUBLISHED",
+      publishedAt: new Date(),
+    };
+    await prisma.pillarPage.create({ data });
     console.log(`Created pillar page /${slug}.`);
   }
 }
