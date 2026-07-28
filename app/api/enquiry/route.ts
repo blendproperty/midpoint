@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifyRecaptcha } from "@/lib/recaptcha";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { upsertContact } from "@/lib/contacts";
 
 // Set N8N_ENQUIRY_WEBHOOK in the environment, e.g.
 // https://n8n.srv938083.hstgr.cloud/webhook/midpoint-enquiry
@@ -23,6 +24,7 @@ export async function POST(req: Request) {
   const firstName = payload?.firstName ? String(payload.firstName).trim() : "";
   const lastName = payload?.lastName ? String(payload.lastName).trim() : "";
   const email = payload?.email ? String(payload.email).trim() : "";
+  const phone = payload?.phone ? String(payload.phone) : null;
 
   // NOTE: this previously checked `payload.name`, which ContactForm never
   // sends (it sends firstName/lastName) — meaning every submission was
@@ -46,19 +48,31 @@ export async function POST(req: Request) {
     );
   }
 
+  // Upsert into the CRM's Contact table first (deduped by email) so this
+  // enquiry links to a person's full history rather than sitting as an
+  // isolated row.
+  let contactId: string | null = null;
+  try {
+    const contact = await upsertContact({ email, firstName, lastName, phone, source: "Midpoint" });
+    contactId = contact.id;
+  } catch (err) {
+    console.error("Failed to upsert contact", err);
+  }
+
   // Log every valid enquiry to the database first, independent of whether the
   // n8n webhook succeeds, so nothing is lost if that integration is briefly
-  // down. Visible in /admin/enquiries and the dashboard.
+  // down. Visible in /admin/enquiries, /admin/contacts, and the dashboard.
   try {
     await prisma.enquiry.create({
       data: {
         firstName: firstName || null,
         lastName: lastName || null,
         email,
-        phone: payload?.phone ? String(payload.phone) : null,
+        phone,
         interest: payload?.interest ? String(payload.interest) : null,
         message: payload?.message ? String(payload.message) : null,
         sourcePath: payload?.sourcePath ? String(payload.sourcePath) : null,
+        contactId,
       },
     });
   } catch (err) {

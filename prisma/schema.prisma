@@ -28,15 +28,25 @@ enum VacancyEventType {
   ENQUIRE
 }
 
+enum ContactStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  WON
+  LOST
+}
+
 model User {
-  id           String     @id @default(cuid())
-  email        String     @unique
-  passwordHash String
-  name         String?
-  role         Role       @default(EDITOR)
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
-  blogPosts    BlogPost[]
+  id               String        @id @default(cuid())
+  email            String        @unique
+  passwordHash     String
+  name             String?
+  role             Role          @default(EDITOR)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  blogPosts        BlogPost[]
+  assignedContacts Contact[]
+  contactNotes     ContactNote[]
 }
 
 model BlogPost {
@@ -192,6 +202,36 @@ model Media {
   createdAt    DateTime @default(now())
 }
 
+// One person, deduplicated by email. Every Enquiry that comes in (from the
+// contact form or the /api/leads endpoint) is upserted against this table so
+// repeat submissions roll up into one record with a full history, instead
+// of piling up as disconnected rows in Enquiry.
+model Contact {
+  id           String        @id @default(cuid())
+  firstName    String?
+  lastName     String?
+  email        String        @unique
+  phone        String?
+  status       ContactStatus @default(NEW)
+  source       String?
+  assignedToId String?
+  assignedTo   User?         @relation(fields: [assignedToId], references: [id], onDelete: SetNull)
+  enquiries    Enquiry[]
+  notes        ContactNote[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model ContactNote {
+  id        String   @id @default(cuid())
+  contactId String
+  contact   Contact  @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  authorId  String?
+  author    User?    @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  body      String   @db.Text
+  createdAt DateTime @default(now())
+}
+
 model Enquiry {
   id         String   @id @default(cuid())
   firstName  String?
@@ -202,6 +242,8 @@ model Enquiry {
   message    String?  @db.Text
   sourcePath String?
   handled    Boolean  @default(false)
+  contactId  String?
+  contact    Contact? @relation(fields: [contactId], references: [id], onDelete: SetNull)
   createdAt  DateTime @default(now())
 }
 

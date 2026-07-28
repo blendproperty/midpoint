@@ -1,14 +1,26 @@
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { toggleEnquiryHandled } from "./actions";
 
 export const dynamic = "force-dynamic";
 
 export default async function EnquiriesAdminPage() {
-  const enquiries = await prisma.enquiry.findMany({ orderBy: { createdAt: "desc" }, take: 200 });
+  const enquiries = await prisma.enquiry.findMany({
+    orderBy: { createdAt: "desc" },
+    take: 200,
+    include: { contact: { select: { id: true } } },
+  });
 
   return (
     <div>
       <h1 className="text-2xl font-semibold">Enquiries</h1>
+      <p className="mt-1 text-sm text-slate-500">
+        Raw submission log. For a deduplicated view of each person with status and notes, see{" "}
+        <Link href="/admin/contacts" className="underline">
+          Contacts
+        </Link>
+        .
+      </p>
       <div className="mt-6 overflow-hidden rounded-xl bg-white shadow-sm">
         <table className="w-full text-left text-sm">
           <thead className="bg-slate-100 text-slate-500">
@@ -25,7 +37,15 @@ export default async function EnquiriesAdminPage() {
           <tbody>
             {enquiries.map((e) => (
               <tr key={e.id} className="border-t border-slate-100 align-top">
-                <td className="px-4 py-3 font-medium">{[e.firstName, e.lastName].filter(Boolean).join(" ") || "—"}</td>
+                <td className="px-4 py-3 font-medium">
+                  {e.contact ? (
+                    <Link href={`/admin/contacts/${e.contact.id}`} className="hover:underline">
+                      {[e.firstName, e.lastName].filter(Boolean).join(" ") || "—"}
+                    </Link>
+                  ) : (
+                    [e.firstName, e.lastName].filter(Boolean).join(" ") || "—"
+                  )}
+                </td>
                 <td className="px-4 py-3 text-slate-500">
                   <div>{e.email}</div>
                   {e.phone && <div>{e.phone}</div>}

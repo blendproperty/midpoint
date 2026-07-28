@@ -31,6 +31,7 @@ services:
       UPLOADS_DIR: /app/uploads
       N8N_ENQUIRY_WEBHOOK: ${N8N_ENQUIRY_WEBHOOK}
       RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY}
+      LEADS_API_KEY: ${LEADS_API_KEY}
     volumes:
       - midpoint_uploads:/app/uploads
     depends_on:
