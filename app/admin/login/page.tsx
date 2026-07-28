@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -71,6 +72,12 @@ export default function AdminLoginPage() {
             {loading ? "Signing in…" : "Sign in"}
           </button>
         </form>
+
+        <p className="mt-4 text-center text-sm">
+          <Link href="/admin/forgot-password" className="text-midpoint-dark underline">
+            Forgot password?
+          </Link>
+        </p>
       </div>
     </div>
   );

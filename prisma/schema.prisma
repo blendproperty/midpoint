@@ -37,16 +37,17 @@ enum ContactStatus {
 }
 
 model User {
-  id               String        @id @default(cuid())
-  email            String        @unique
-  passwordHash     String
-  name             String?
-  role             Role          @default(EDITOR)
-  createdAt        DateTime      @default(now())
-  updatedAt        DateTime      @updatedAt
-  blogPosts        BlogPost[]
-  assignedContacts Contact[]
-  contactNotes     ContactNote[]
+  id                  String                @id @default(cuid())
+  email               String                @unique
+  passwordHash        String
+  name                String?
+  role                Role                  @default(EDITOR)
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+  blogPosts           BlogPost[]
+  assignedContacts    Contact[]
+  contactNotes        ContactNote[]
+  passwordResetTokens PasswordResetToken[]
 }
 
 model BlogPost {
@@ -230,6 +231,19 @@ model ContactNote {
   author    User?    @relation(fields: [authorId], references: [id], onDelete: SetNull)
   body      String   @db.Text
   createdAt DateTime @default(now())
+}
+
+// Tokenized, single-use, time-limited (1 hour) password reset links. Only
+// the SHA-256 hash of the token is stored — the raw token only ever exists
+// in the emailed link and briefly in memory server-side.
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
 }
 
 model Enquiry {

@@ -32,6 +32,11 @@ services:
       N8N_ENQUIRY_WEBHOOK: ${N8N_ENQUIRY_WEBHOOK}
       RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY}
       LEADS_API_KEY: ${LEADS_API_KEY}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      SMTP_FROM: ${SMTP_FROM}
     volumes:
       - midpoint_uploads:/app/uploads
     depends_on:
