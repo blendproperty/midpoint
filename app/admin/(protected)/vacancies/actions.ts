@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { syncVacanciesFromListings } from "@/lib/listings-sync";
 
 const SECTOR_VALUES = ["WAREHOUSE", "OFFICE", "SERVICED_OFFICE"] as const;
 
@@ -93,4 +94,26 @@ export async function deleteVacancy(id: string) {
   await requireAdmin();
   await prisma.vacancy.delete({ where: { id } });
   revalidateVacancyPaths();
+}
+
+// Manual trigger for the same sync the VPS crontab calls on a schedule
+// (app/api/cron/sync-vacancies/route.ts) — lets an editor run it on demand
+// right after publishing something on listings.blendproperty.co.za instead
+// of waiting for the next scheduled run. Result is passed back via query
+// params since server actions can't return data straight to a redirect.
+export async function syncVacanciesNow() {
+  await requireAdmin();
+  const result = await syncVacanciesFromListings();
+  revalidateVacancyPaths();
+
+  const params = new URLSearchParams({
+    synced: "1",
+    created: String(result.created),
+    updated: String(result.updated),
+    deprecated: String(result.deprecated),
+    skipped: String(result.skipped.length),
+  });
+  if (result.error) params.set("error", result.error);
+
+  redirect(`/admin/vacancies?${params.toString()}`);
 }
