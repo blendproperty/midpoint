@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { verifyRecaptcha } from "@/lib/recaptcha";
 
 // Set N8N_ENQUIRY_WEBHOOK in the environment, e.g.
 // https://n8n.srv938083.hstgr.cloud/webhook/midpoint-enquiry
@@ -15,6 +16,22 @@ export async function POST(req: Request) {
   // silently rejected with a 400 before reaching the webhook. Fixed here.
   if (!email || (!firstName && !lastName)) {
     return NextResponse.json({ error: "Name and email are required." }, { status: 400 });
+  }
+
+  // Server-side reCAPTCHA check — ContactForm already refuses to submit
+  // without a client-side token, but that alone is trivially bypassable by
+  // anyone posting directly to this endpoint. This re-verifies the token
+  // against Google before the enquiry is ever logged or forwarded.
+  const captchaToken = payload?.["g-recaptcha-response"]
+    ? String(payload["g-recaptcha-response"])
+    : "";
+  const remoteIp = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || undefined;
+  const captchaOk = await verifyRecaptcha(captchaToken, remoteIp);
+  if (!captchaOk) {
+    return NextResponse.json(
+      { error: "reCAPTCHA verification failed. Please try again." },
+      { status: 400 }
+    );
   }
 
   // Log every valid enquiry to the database first, independent of whether the
