@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import RichTextEditor from "@/components/admin/RichTextEditor";
+import MediaPicker from "@/components/admin/MediaPicker";
 import { generateSeoTitle, generateSeoDescription } from "@/lib/seo-generate";
 
 type Props = {
@@ -35,13 +37,13 @@ type Props = {
 export default function PillarPageForm({ action, defaultValues, submitLabel = "Save" }: Props) {
   const titleRef = useRef<HTMLInputElement>(null);
   const heroAnswerRef = useRef<HTMLTextAreaElement>(null);
-  const contentRef = useRef<HTMLTextAreaElement>(null);
+  const contentValueRef = useRef(defaultValues?.contentHtml || "");
   const seoTitleRef = useRef<HTMLInputElement>(null);
   const seoDescRef = useRef<HTMLTextAreaElement>(null);
 
   function handleGenerate() {
     const title = titleRef.current?.value || "";
-    const source = heroAnswerRef.current?.value || contentRef.current?.value || title;
+    const source = heroAnswerRef.current?.value || contentValueRef.current || title;
     if (seoTitleRef.current) seoTitleRef.current.value = generateSeoTitle(title, "Midpoint Midrand");
     if (seoDescRef.current) seoDescRef.current.value = generateSeoDescription(source);
   }
@@ -86,10 +88,7 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
 
       <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
         <h2 className="text-lg font-semibold">Hero</h2>
-        <div>
-          <label className="block text-sm font-medium">Hero image URL</label>
-          <input name="heroImage" defaultValue={defaultValues?.heroImage} placeholder="Paste a URL from Media" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-        </div>
+        <MediaPicker name="heroImage" label="Hero image" defaultValue={defaultValues?.heroImage} />
         <div>
           <label className="block text-sm font-medium">Hero direct answer (40–80 words)</label>
           <textarea ref={heroAnswerRef} name="heroAnswer" defaultValue={defaultValues?.heroAnswer} rows={3} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
@@ -109,8 +108,15 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
       <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
         <h2 className="text-lg font-semibold">Content</h2>
         <div>
-          <label className="block text-sm font-medium">Main content (HTML) — educational sections, comparisons, evidence, process</label>
-          <textarea ref={contentRef} name="contentHtml" defaultValue={defaultValues?.contentHtml} rows={20} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs" />
+          <label className="block text-sm font-medium">Main content — educational sections, comparisons, evidence, process</label>
+          <RichTextEditor
+            name="contentHtml"
+            defaultValue={defaultValues?.contentHtml}
+            height={520}
+            onChange={(html) => {
+              contentValueRef.current = html;
+            }}
+          />
         </div>
         <div>
           <label className="block text-sm font-medium">
@@ -142,10 +148,7 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
           <label className="block text-sm font-medium">Expert bio / relevant experience</label>
           <textarea name="expertBio" defaultValue={defaultValues?.expertBio} rows={3} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
         </div>
-        <div>
-          <label className="block text-sm font-medium">Expert photo URL</label>
-          <input name="expertImage" defaultValue={defaultValues?.expertImage} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-        </div>
+        <MediaPicker name="expertImage" label="Expert photo" defaultValue={defaultValues?.expertImage} />
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium">Review owner</label>
