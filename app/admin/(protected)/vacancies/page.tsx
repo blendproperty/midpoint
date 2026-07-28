@@ -78,6 +78,7 @@ export default async function VacanciesAdminPage({
           <thead className="bg-slate-100 text-slate-500">
             <tr>
               <th className="px-4 py-3">Building</th>
+              <th className="px-4 py-3">Unit</th>
               <th className="px-4 py-3">Sector</th>
               <th className="px-4 py-3">Size</th>
               <th className="px-4 py-3">Status</th>
@@ -89,6 +90,7 @@ export default async function VacanciesAdminPage({
             {vacancies.map((v) => (
               <tr key={v.id} className="border-t border-slate-100">
                 <td className="px-4 py-3 font-medium">{v.building}</td>
+                <td className="px-4 py-3 text-slate-500">{v.unitName || "—"}</td>
                 <td className="px-4 py-3">{SECTOR_LABEL[v.sector]}</td>
                 <td className="px-4 py-3">{v.sizeSqm.toLocaleString()} m²</td>
                 <td className="px-4 py-3">
@@ -109,7 +111,7 @@ export default async function VacanciesAdminPage({
             ))}
             {vacancies.length === 0 && (
               <tr>
-                <td colSpan={6} className="px-4 py-6 text-center text-slate-400">
+                <td colSpan={7} className="px-4 py-6 text-center text-slate-400">
                   No vacancies yet.
                 </td>
               </tr>
