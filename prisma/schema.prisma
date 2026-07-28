@@ -161,6 +161,13 @@ model Vacancy {
   image        String?
   status       ContentStatus @default(PUBLISHED)
   sortOrder    Int           @default(0)
+  // Set only on rows created/updated by the listings.blendproperty.co.za
+  // sync (lib/listings-sync.ts) — the external listing's `id`, so repeated
+  // syncs upsert the same row instead of duplicating it. Manually-created
+  // vacancies (added directly in /admin) are left with externalId = null
+  // and the sync never touches them.
+  externalId   String?       @unique
+  lastSyncedAt DateTime?
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
 }
