@@ -50,6 +50,14 @@ model BlogPost {
   seoTitle       String?
   seoDescription String?
   focusKeyword   String?
+  ogTitle        String?
+  ogDescription  String?       @db.Text
+  ogImage        String?
+  noIndex        Boolean       @default(false)
+  canonicalUrl   String?
+  schemaJson     Json?
+  headCode       String?       @db.Text
+  bodyCode       String?       @db.Text
   publishedAt    DateTime?
   authorId       String?
   author         User?         @relation(fields: [authorId], references: [id], onDelete: SetNull)
@@ -66,6 +74,14 @@ model Page {
   seoTitle       String?
   seoDescription String?
   focusKeyword   String?
+  ogTitle        String?
+  ogDescription  String?       @db.Text
+  ogImage        String?
+  noIndex        Boolean       @default(false)
+  canonicalUrl   String?
+  schemaJson     Json?
+  headCode       String?       @db.Text
+  bodyCode       String?       @db.Text
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
 }
@@ -95,6 +111,14 @@ model PillarPage {
   seoTitle             String?
   seoDescription       String?
   focusKeyword         String?
+  ogTitle              String?
+  ogDescription        String?       @db.Text
+  ogImage              String?
+  noIndex              Boolean       @default(false)
+  canonicalUrl         String?
+  schemaJson           Json?
+  headCode             String?       @db.Text
+  bodyCode             String?       @db.Text
   publishedAt          DateTime?
   createdAt            DateTime      @default(now())
   updatedAt            DateTime      @updatedAt
@@ -181,5 +205,13 @@ model PageSeoOverride {
   path           String   @id
   seoTitle       String?
   seoDescription String?
+  ogTitle        String?
+  ogDescription  String?  @db.Text
+  ogImage        String?
+  noIndex        Boolean  @default(false)
+  canonicalUrl   String?
+  schemaJson     Json?
+  headCode       String?  @db.Text
+  bodyCode       String?  @db.Text
   updatedAt      DateTime @updatedAt
 }
