@@ -27,12 +27,18 @@ export default function SiteChrome({ children, whatsapp, whatsappTemplate }: Pro
     return <>{children}</>;
   }
 
+  // /contact-us already has its own dedicated contact form (hero + dark
+  // intro section) — showing the shared footer ContactSection underneath it
+  // as well would just repeat the same form twice on the one page where it's
+  // most obviously redundant. Every other page still gets the shared section.
+  const isContactPage = pathname === "/contact-us";
+
   return (
     <>
       <PageViewTracker />
       <Nav />
       <main>{children}</main>
-      <ContactSection />
+      {!isContactPage && <ContactSection />}
       <Footer />
       <WhatsAppButton phone={whatsapp} message={whatsappTemplate} />
     </>
