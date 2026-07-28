@@ -39,6 +39,13 @@ jobs:
             set -e
             cd ${{ secrets.DEPLOY_PATH }}
             git pull origin main
+            # `migrate` runs under --profile tools, which `docker compose up`
+            # does NOT include even with --build. Without this explicit build,
+            # migrate silently keeps running whatever image was last built for
+            # it, so a new migration file never actually gets applied while
+            # `web` (which IS rebuilt by `up --build`) starts expecting the new
+            # column/table and crashes. Build both explicitly first.
+            docker compose -f compose.prod.yml build web migrate
             docker compose -f compose.prod.yml up -d --build
             docker compose -f compose.prod.yml --profile tools run --rm migrate
             docker image prune -f
