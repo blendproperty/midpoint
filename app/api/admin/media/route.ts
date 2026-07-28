@@ -21,6 +21,11 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "No file selected" }, { status: 400 });
   }
 
+  const alt = String(formData.get("alt") || "").trim();
+  if (!alt) {
+    return NextResponse.json({ error: "Alt text is required" }, { status: 400 });
+  }
+
   const saved = await saveUploadedFile(file);
   const media = await prisma.media.create({
     data: {
@@ -28,6 +33,7 @@ export async function POST(req: Request) {
       url: saved.url,
       mimeType: saved.mimeType,
       size: saved.size,
+      alt,
       uploadedById: session.sub,
     },
   });
