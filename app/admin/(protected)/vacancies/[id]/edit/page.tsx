@@ -20,6 +20,7 @@ export default async function EditVacancyPage({ params }: { params: Promise<{ id
         submitLabel="Save changes"
         defaultValues={{
           building: vacancy.building,
+          unitName: vacancy.unitName || "",
           sector: vacancy.sector,
           sizeSqm: vacancy.sizeSqm,
           ratePerSqm: vacancy.ratePerSqm,
