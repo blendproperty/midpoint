@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import { getPageSeoOverride } from "@/lib/page-seo";
@@ -38,6 +39,7 @@ export default async function ContactUs() {
     getPageSeoOverride("/contact-us"),
   ]);
   const pageDescription = override?.seoDescription || description;
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Contact Us", path: "/contact-us" }];
 
   // Schema is always generated automatically — no manual override.
   const jsonLdNode = richPageJsonLd({
@@ -49,10 +51,8 @@ export default async function ContactUs() {
 
   return (
     <>
-      <BreadcrumbJsonLd
-        items={[{ name: "Home", path: "/" }, { name: "Contact Us", path: "/contact-us" }]}
-        node={jsonLdNode}
-      />
+      <BreadcrumbJsonLd items={breadcrumbItems} node={jsonLdNode} />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         title="Let's find the right space for your business"
         subtitle="Contact the Midpoint team to discuss available office space, serviced offices, and warehouse opportunities in Midrand."

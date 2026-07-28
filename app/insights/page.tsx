@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import PillarCard from "@/components/PillarCard";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { getPageSeoOverride } from "@/lib/page-seo";
 import { richPageJsonLd } from "@/lib/seo";
 
@@ -57,6 +58,7 @@ const cards = [
 export default async function InsightsPage() {
   const override = await getPageSeoOverride("/insights");
   const pageDescription = override?.seoDescription || description;
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }];
 
   const jsonLdNode = richPageJsonLd({
     type: "CollectionPage",
@@ -67,10 +69,8 @@ export default async function InsightsPage() {
 
   return (
     <>
-      <BreadcrumbJsonLd
-        items={[{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }]}
-        node={jsonLdNode}
-      />
+      <BreadcrumbJsonLd items={breadcrumbItems} node={jsonLdNode} />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         title="Insights at Midpoint"
         subtitle="The business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place."

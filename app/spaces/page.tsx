@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import SpacesExplore from "@/components/SpacesExplore";
 import ReadyToMoveSection from "@/components/ReadyToMoveSection";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { getPageSeoOverride } from "@/lib/page-seo";
 import { richPageJsonLd } from "@/lib/seo";
 
@@ -23,6 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function SpacesPage() {
   const override = await getPageSeoOverride("/spaces");
   const pageDescription = override?.seoDescription || description;
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Spaces", path: "/spaces" }];
 
   const jsonLdNode = richPageJsonLd({
     type: "CollectionPage",
@@ -33,10 +35,8 @@ export default async function SpacesPage() {
 
   return (
     <>
-      <BreadcrumbJsonLd
-        items={[{ name: "Home", path: "/" }, { name: "Spaces", path: "/spaces" }]}
-        node={jsonLdNode}
-      />
+      <BreadcrumbJsonLd items={breadcrumbItems} node={jsonLdNode} />
+      <Breadcrumbs items={breadcrumbItems} />
       <PageHero
         title="Spaces at Midpoint"
         subtitle="Office space, warehouse space and on-site amenities, all within one connected business estate in Midrand."

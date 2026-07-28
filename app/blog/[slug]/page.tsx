@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import CustomCodeBlock from "@/components/CustomCodeBlock";
 import { getSiteSettings } from "@/lib/site-settings";
 import { blogPostingJsonLd } from "@/lib/seo";
@@ -41,6 +42,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const settings = await getSiteSettings();
   const description = post.seoDescription || post.excerpt || post.title;
+  const breadcrumbItems = [
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: post.title, path: `/blog/${post.slug}` },
+  ];
 
   // Always auto-generated from the post's real fields — no manual override
   // path left to save a worse or blank version over this.
@@ -56,11 +62,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <article className="bg-white">
       <CustomCodeBlock code={post.headCode} />
-      <BreadcrumbJsonLd
-        items={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }]}
-        description={description}
-      />
+      <BreadcrumbJsonLd items={breadcrumbItems} description={description} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdToRender) }} />
+      <Breadcrumbs items={breadcrumbItems} />
 
       <section className="mx-auto max-w-3xl px-6 py-16">
         {post.coverImage && (

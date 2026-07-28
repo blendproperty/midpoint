@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import CustomCodeBlock from "@/components/CustomCodeBlock";
 import PageAccessGate from "@/components/PageAccessGate";
 import PageHero from "@/components/PageHero";
@@ -88,6 +89,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   const exploreLinks = Array.isArray(pillar.exploreLinks) ? (pillar.exploreLinks as unknown as PillarLink[]) : [];
   const trustItems = (pillar.trustStrip || "").split("\n").map((s) => s.trim()).filter(Boolean);
   const hasBody = Boolean(pillar.contentHtml && pillar.contentHtml.replace(/<[^>]*>/g, "").trim());
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: pillar.title, path: `/${pillar.slug}` }];
 
   const vacancies = pillar.relatedSector
     ? await prisma.vacancy.findMany({
@@ -168,11 +170,9 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   return (
     <article className="bg-white">
       <CustomCodeBlock code={pillar.headCode} />
-      <BreadcrumbJsonLd
-        items={[{ name: "Home", path: "/" }, { name: pillar.title, path: `/${pillar.slug}` }]}
-        description={description}
-      />
+      <BreadcrumbJsonLd items={breadcrumbItems} description={description} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdToRender) }} />
+      <Breadcrumbs items={breadcrumbItems} />
 
       <PageHero
         title={pillar.title}

@@ -5,6 +5,7 @@ import RenewedVision from "@/components/RenewedVision";
 import SpaceGrid from "@/components/SpaceGrid";
 import DeveloperSection from "@/components/DeveloperSection";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { getPageSeoOverride } from "@/lib/page-seo";
 import { richPageJsonLd } from "@/lib/seo";
 
@@ -25,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function AboutUsPage() {
   const override = await getPageSeoOverride("/about-us");
   const description = override?.seoDescription || FALLBACK_DESCRIPTION;
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "About Us", path: "/about-us" }];
 
   // Schema is always generated automatically from real content (address,
   // amenities, Blend Property Group details) — there is no manual override
@@ -38,10 +40,8 @@ export default async function AboutUsPage() {
 
   return (
     <>
-      <BreadcrumbJsonLd
-        items={[{ name: "Home", path: "/" }, { name: "About Us", path: "/about-us" }]}
-        node={jsonLdNode}
-      />
+      <BreadcrumbJsonLd items={breadcrumbItems} node={jsonLdNode} />
+      <Breadcrumbs items={breadcrumbItems} />
       <AboutHero />
       <StrategicGrowth />
       <RenewedVision />

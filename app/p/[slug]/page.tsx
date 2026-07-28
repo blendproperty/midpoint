@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import CustomCodeBlock from "@/components/CustomCodeBlock";
 import PageAccessGate from "@/components/PageAccessGate";
 import { getSiteSettings } from "@/lib/site-settings";
@@ -55,6 +56,7 @@ export default async function CmsPage({ params }: { params: Promise<{ slug: stri
 
   await getSiteSettings();
   const description = page.seoDescription || page.title;
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: page.title, path: `/p/${page.slug}` }];
 
   // Always auto-generated — no manual override path left to save a worse
   // or blank version over this.
@@ -68,8 +70,9 @@ export default async function CmsPage({ params }: { params: Promise<{ slug: stri
   return (
     <section className="mx-auto max-w-3xl bg-white px-6 py-16">
       <CustomCodeBlock code={page.headCode} />
-      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: page.title, path: `/p/${page.slug}` }]} description={description} />
+      <BreadcrumbJsonLd items={breadcrumbItems} description={description} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdToRender) }} />
+      <Breadcrumbs items={breadcrumbItems} />
       <h1 className="text-4xl font-bold text-midpoint-dark">{page.title}</h1>
       {/* Content is authored by trusted admin users only via /admin/pages. */}
       <div
