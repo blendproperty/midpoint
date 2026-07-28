@@ -300,3 +300,47 @@ export function scoreStaticPage(input: StaticScoreInput): SeoScoreResult {
 
   return finalize(checks);
 }
+
+type VacancyScoreInput = {
+  building: string;
+  description: string;
+  image?: string | null;
+  features: string[];
+};
+
+// Vacancies have no seoTitle/seoDescription/slug of their own — they're
+// leasing inventory, not pages — but the same description/image/features
+// feed straight into listingsJsonLd()'s per-listing Product/Offer schema
+// (see lib/seo.ts) and the public VacancyCard, so a thin or incomplete
+// listing genuinely does mean weaker schema and a weaker on-page result,
+// not just a cosmetic gap. This is what lets vacancies show up in the
+// site-wide audit instead of being invisible to it.
+export function scoreVacancyListing(input: VacancyScoreInput): SeoScoreResult {
+  const checks: SeoCheck[] = [];
+  const descLen = (input.description || "").trim().length;
+
+  checks.push(
+    descLen >= 150
+      ? { id: "listing-description", label: "Listing description", status: "good", message: `${descLen} characters — enough real detail for both readers and the schema.org description.` }
+      : descLen >= 60
+        ? { id: "listing-description", label: "Listing description", status: "ok", message: `${descLen} characters — a bit thin; more specifics (layout, finishes, access) help both SEO and enquiries.` }
+        : { id: "listing-description", label: "Listing description", status: "bad", message: descLen > 0 ? `Only ${descLen} characters — too thin to be useful in search results or the listing schema.` : "No description set." }
+  );
+
+  checks.push(
+    input.image
+      ? { id: "listing-image", label: "Listing image", status: "good", message: "An image is set — used on the card and in the listing's schema.org markup." }
+      : { id: "listing-image", label: "Listing image", status: "bad", message: "No image set — the listing schema's image field will be empty." }
+  );
+
+  const featureCount = input.features?.length || 0;
+  checks.push(
+    featureCount >= 3
+      ? { id: "listing-features", label: "Listed features", status: "good", message: `${featureCount} features listed.` }
+      : featureCount > 0
+        ? { id: "listing-features", label: "Listed features", status: "ok", message: `Only ${featureCount} feature(s) listed — add more to help this space stand out.` }
+        : { id: "listing-features", label: "Listed features", status: "bad", message: "No features listed." }
+  );
+
+  return finalize(checks);
+}
