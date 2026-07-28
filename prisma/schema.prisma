@@ -197,12 +197,17 @@ model SiteSetting {
   updatedAt                DateTime @updatedAt
 }
 
+// `alt` is required (non-empty enforced in the upload actions/API route, not
+// just here) — every image uploaded through the Media library must carry
+// alt text from the moment it's added, instead of relying on the SEO scorer
+// to catch missing alt attributes after the fact in published content.
 model Media {
   id           String   @id @default(cuid())
   filename     String
   url          String
   mimeType     String
   size         Int
+  alt          String   @default("")
   uploadedById String?
   createdAt    DateTime @default(now())
 }
