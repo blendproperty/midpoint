@@ -40,7 +40,7 @@ export default async function ContactSection() {
         <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
           <h3 className="text-2xl font-semibold">Send us a message</h3>
           <div className="w-full">
-            <ContactForm siteKey={settings.recaptchaSiteKey} />
+            <ContactForm siteKey={settings.recaptchaSiteKey} successMessage={settings.enquirySuccessMessage} />
           </div>
         </div>
 

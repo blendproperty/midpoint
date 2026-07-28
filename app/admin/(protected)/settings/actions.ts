@@ -17,33 +17,46 @@ export async function updateSiteSettings(formData: FormData) {
   const vacancyRevalidateSeconds = Number(formData.get("vacancyRevalidateSeconds") || 604800);
   const recaptchaSiteKey = String(formData.get("recaptchaSiteKey") || "").trim() || null;
 
+  // Same validation pattern as listings.blendproperty.co.za's settings form:
+  // silently drop anything that doesn't look like a real GA4/GTM ID rather
+  // than saving a typo that then breaks tracking silently.
+  const gaRaw = String(formData.get("googleAnalyticsId") || "").trim();
+  const googleAnalyticsId = /^G-[A-Z0-9]+$/i.test(gaRaw) ? gaRaw.toUpperCase() : null;
+  const gtmRaw = String(formData.get("tagManagerId") || "").trim();
+  const tagManagerId = /^GTM-[A-Z0-9]+$/i.test(gtmRaw) ? gtmRaw.toUpperCase() : null;
+
+  const defaultTitleTemplate = String(formData.get("defaultTitleTemplate") || "").trim() || null;
+  const defaultMetaDescription = String(formData.get("defaultMetaDescription") || "").trim().slice(0, 160) || null;
+  const defaultKeywords = String(formData.get("defaultKeywords") || "").trim() || null;
+  const whatsapp = String(formData.get("whatsapp") || "").trim() || null;
+  const whatsappTemplate = String(formData.get("whatsappTemplate") || "").trim() || null;
+  const enquirySuccessMessage = String(formData.get("enquirySuccessMessage") || "").trim() || null;
+
+  const data = {
+    siteName,
+    domain,
+    phone,
+    email,
+    defaultSocialImage,
+    googleVerification,
+    bingVerification,
+    allowIndexing,
+    vacancyRevalidateSeconds,
+    recaptchaSiteKey,
+    googleAnalyticsId,
+    tagManagerId,
+    defaultTitleTemplate,
+    defaultMetaDescription,
+    defaultKeywords,
+    whatsapp,
+    whatsappTemplate,
+    enquirySuccessMessage,
+  };
+
   await prisma.siteSetting.upsert({
     where: { id: "global" },
-    update: {
-      siteName,
-      domain,
-      phone,
-      email,
-      defaultSocialImage,
-      googleVerification,
-      bingVerification,
-      allowIndexing,
-      vacancyRevalidateSeconds,
-      recaptchaSiteKey,
-    },
-    create: {
-      id: "global",
-      siteName,
-      domain,
-      phone,
-      email,
-      defaultSocialImage,
-      googleVerification,
-      bingVerification,
-      allowIndexing,
-      vacancyRevalidateSeconds,
-      recaptchaSiteKey,
-    },
+    update: data,
+    create: { id: "global", ...data },
   });
 
   revalidatePath("/admin/settings");

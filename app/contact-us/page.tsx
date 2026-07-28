@@ -39,7 +39,7 @@ export default async function ContactUs() {
           <a className="block font-medium" href={site.emailHref}>{site.email}</a>
         </div>
       </div>
-      <ContactForm siteKey={settings.recaptchaSiteKey} />
+      <ContactForm siteKey={settings.recaptchaSiteKey} successMessage={settings.enquirySuccessMessage} />
     </section>
   );
 }

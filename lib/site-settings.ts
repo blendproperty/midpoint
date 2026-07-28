@@ -12,6 +12,14 @@ export type SiteSettings = {
   allowIndexing: boolean;
   vacancyRevalidateSeconds: number;
   recaptchaSiteKey: string;
+  googleAnalyticsId: string;
+  tagManagerId: string;
+  defaultTitleTemplate: string;
+  defaultMetaDescription: string;
+  defaultKeywords: string;
+  whatsapp: string;
+  whatsappTemplate: string;
+  enquirySuccessMessage: string;
 };
 
 const DEFAULT_SOCIAL_IMAGE =
@@ -22,6 +30,14 @@ const DEFAULT_SOCIAL_IMAGE =
 // in /admin/settings (e.g. after registering the live domain in Google's
 // reCAPTCHA admin console at google.com/recaptcha/admin).
 const DEFAULT_RECAPTCHA_SITE_KEY = "6LcKnCYtAAAAAEW_f1jLM5pQgwvr7GRodfsOyfbY";
+
+const DEFAULT_TITLE_TEMPLATE = "%s | Midpoint Midrand";
+const DEFAULT_META_DESCRIPTION =
+  "Secure warehouse, office & serviced office space in Midrand. Central location between JHB & PTA with N1 access, gym, padel courts & amenities.";
+const DEFAULT_KEYWORDS =
+  "office space Midrand, warehouse to rent Midrand, serviced offices Midrand, business park Midrand, commercial property Midrand, Midpoint Business Park";
+const DEFAULT_WHATSAPP_TEMPLATE = "Hi, I'd like to enquire about space at Midpoint.";
+const DEFAULT_ENQUIRY_SUCCESS_MESSAGE = "Thanks — your enquiry is on its way to the leasing team.";
 
 const FALLBACK: SiteSettings = {
   siteName: staticSiteDefaults.name,
@@ -35,6 +51,14 @@ const FALLBACK: SiteSettings = {
   vacancyRevalidateSeconds:
     Number(process.env.VACANCY_REVALIDATE_SECONDS) || 60 * 60 * 24 * 7,
   recaptchaSiteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || DEFAULT_RECAPTCHA_SITE_KEY,
+  googleAnalyticsId: "",
+  tagManagerId: staticSiteDefaults.gtmId,
+  defaultTitleTemplate: DEFAULT_TITLE_TEMPLATE,
+  defaultMetaDescription: DEFAULT_META_DESCRIPTION,
+  defaultKeywords: DEFAULT_KEYWORDS,
+  whatsapp: "",
+  whatsappTemplate: DEFAULT_WHATSAPP_TEMPLATE,
+  enquirySuccessMessage: DEFAULT_ENQUIRY_SUCCESS_MESSAGE,
 };
 
 // Falls back to static/env defaults if the DB is unreachable so a database
@@ -56,6 +80,14 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       allowIndexing: row.allowIndexing,
       vacancyRevalidateSeconds: row.vacancyRevalidateSeconds,
       recaptchaSiteKey: row.recaptchaSiteKey || FALLBACK.recaptchaSiteKey,
+      googleAnalyticsId: row.googleAnalyticsId || "",
+      tagManagerId: row.tagManagerId || FALLBACK.tagManagerId,
+      defaultTitleTemplate: row.defaultTitleTemplate || DEFAULT_TITLE_TEMPLATE,
+      defaultMetaDescription: row.defaultMetaDescription || DEFAULT_META_DESCRIPTION,
+      defaultKeywords: row.defaultKeywords || DEFAULT_KEYWORDS,
+      whatsapp: row.whatsapp || "",
+      whatsappTemplate: row.whatsappTemplate || DEFAULT_WHATSAPP_TEMPLATE,
+      enquirySuccessMessage: row.enquirySuccessMessage || DEFAULT_ENQUIRY_SUCCESS_MESSAGE,
     };
   } catch {
     return FALLBACK;

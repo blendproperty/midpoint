@@ -12,6 +12,7 @@ const interests = ["Office space", "Warehouse space", "Serviced offices"];
 // changed without a code deploy if Google's reCAPTCHA admin console requires
 // a different key/domain registration.
 const DEFAULT_RECAPTCHA_SITE_KEY = "6LcKnCYtAAAAAEW_f1jLM5pQgwvr7GRodfsOyfbY";
+const DEFAULT_SUCCESS_MESSAGE = "Thanks — your enquiry is on its way to the leasing team.";
 
 declare global {
   interface Window {
@@ -19,7 +20,9 @@ declare global {
   }
 }
 
-export default function ContactForm({ siteKey }: { siteKey?: string } = {}) {
+type Props = { siteKey?: string; successMessage?: string };
+
+export default function ContactForm({ siteKey, successMessage }: Props = {}) {
   const [status, setStatus] = useState<Status>("idle");
   const [consent, setConsent] = useState(false);
   const [captchaError, setCaptchaError] = useState(false);
@@ -114,7 +117,7 @@ export default function ContactForm({ siteKey }: { siteKey?: string } = {}) {
 
       {status === "sent" && (
         <p role="status" className="text-sm font-medium text-midpoint-cyan">
-          Thanks — your enquiry is on its way to the leasing team.
+          {successMessage || DEFAULT_SUCCESS_MESSAGE}
         </p>
       )}
       {status === "error" && (

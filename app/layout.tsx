@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import SiteChrome from "@/components/SiteChrome";
 import { site } from "@/lib/site";
@@ -23,19 +23,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(settings.domain),
     title: {
-      default: "Midpoint Midrand | Warehouse & Office Space in Gauteng",
-      template: "%s | Midpoint Midrand",
+      default: settings.siteName,
+      template: settings.defaultTitleTemplate,
     },
-    description:
-      "Secure warehouse, office & serviced office space in Midrand. Central location between JHB & PTA with N1 access, gym, padel courts & amenities.",
-    keywords: [
-      "office space Midrand",
-      "warehouse to rent Midrand",
-      "serviced offices Midrand",
-      "business park Midrand",
-      "commercial property Midrand",
-      "Midpoint Business Park"
-    ],
+    description: settings.defaultMetaDescription,
+    keywords: settings.defaultKeywords
+      .split(",")
+      .map((k) => k.trim())
+      .filter(Boolean),
     applicationName: settings.siteName,
     verification: {
       google: settings.googleVerification || undefined,
@@ -49,15 +44,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: settings.siteName,
       url: settings.domain,
       title: settings.siteName,
-      description:
-        "Secure warehouse, office & serviced office space in Midrand, between Johannesburg and Pretoria.",
+      description: settings.defaultMetaDescription,
       images: [{ url: settings.defaultSocialImage, width: 1600, height: 900 }],
     },
     twitter: {
       card: "summary_large_image",
       title: settings.siteName,
-      description:
-        "Secure warehouse, office & serviced office space in Midrand, between Johannesburg and Pretoria.",
+      description: settings.defaultMetaDescription,
       images: [settings.defaultSocialImage],
     },
     robots: {
@@ -118,13 +111,16 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={figtree.variable}>
-      <GoogleTagManager gtmId={site.gtmId} />
+      <GoogleTagManager gtmId={settings.tagManagerId} />
+      {settings.googleAnalyticsId ? <GoogleAnalytics gaId={settings.googleAnalyticsId} /> : null}
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <SiteChrome>{children}</SiteChrome>
+        <SiteChrome whatsapp={settings.whatsapp} whatsappTemplate={settings.whatsappTemplate}>
+          {children}
+        </SiteChrome>
       </body>
     </html>
   );

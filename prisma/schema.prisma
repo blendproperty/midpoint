@@ -171,6 +171,14 @@ model SiteSetting {
   allowIndexing            Boolean  @default(true)
   vacancyRevalidateSeconds Int      @default(604800)
   recaptchaSiteKey         String?
+  googleAnalyticsId        String?
+  tagManagerId             String?
+  defaultTitleTemplate     String?
+  defaultMetaDescription   String?
+  defaultKeywords          String?
+  whatsapp                 String?
+  whatsappTemplate         String?
+  enquirySuccessMessage    String?
   updatedAt                DateTime @updatedAt
 }
 

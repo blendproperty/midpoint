@@ -9,61 +9,127 @@ export default async function SettingsAdminPage() {
   return (
     <div>
       <h1 className="text-2xl font-semibold">Site Settings</h1>
-      <form action={updateSiteSettings} className="mt-6 max-w-2xl space-y-5 rounded-xl bg-white p-6 shadow-sm">
-        <div>
-          <label className="block text-sm font-medium">Site name</label>
-          <input name="siteName" defaultValue={settings.siteName} required className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Domain (no trailing slash)</label>
-          <input name="domain" defaultValue={settings.domain} required className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-        </div>
-        <div className="grid grid-cols-2 gap-4">
+      <form action={updateSiteSettings} className="mt-6 max-w-2xl space-y-8">
+        <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-semibold">General</h2>
           <div>
-            <label className="block text-sm font-medium">Phone</label>
-            <input name="phone" defaultValue={settings.phone} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            <label className="block text-sm font-medium">Site name</label>
+            <input name="siteName" defaultValue={settings.siteName} required className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
           </div>
           <div>
-            <label className="block text-sm font-medium">Email</label>
-            <input name="email" defaultValue={settings.email} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            <label className="block text-sm font-medium">Domain (no trailing slash)</label>
+            <input name="domain" defaultValue={settings.domain} required className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
           </div>
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Default social share image URL</label>
-          <input name="defaultSocialImage" defaultValue={settings.defaultSocialImage} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-        </div>
-        <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium">Phone</label>
+              <input name="phone" defaultValue={settings.phone} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium">Email</label>
+              <input name="email" defaultValue={settings.email} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            </div>
+          </div>
           <div>
-            <label className="block text-sm font-medium">Google Search Console verification code</label>
-            <input name="googleVerification" defaultValue={settings.googleVerification || ""} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium">Bing verification code</label>
-            <input name="bingVerification" defaultValue={settings.bingVerification || ""} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            <label className="block text-sm font-medium">Default social share image URL</label>
+            <input name="defaultSocialImage" defaultValue={settings.defaultSocialImage} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
           </div>
         </div>
-        <div>
-          <label className="flex items-center gap-2 text-sm font-medium">
-            <input type="checkbox" name="allowIndexing" defaultChecked={settings.allowIndexing} />
-            Allow search engines to index this site
-          </label>
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Vacancy data refresh window (seconds)</label>
-          <input type="number" name="vacancyRevalidateSeconds" defaultValue={settings.vacancyRevalidateSeconds} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-          <p className="mt-1 text-xs text-slate-400">604800 = 7 days. Only relevant once a live external listings API is connected.</p>
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Google reCAPTCHA v2 site key</label>
-          <input name="recaptchaSiteKey" defaultValue={settings.recaptchaSiteKey} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-          <p className="mt-1 text-xs text-slate-400">
-            Used on the contact form. If you see &quot;ERROR for site owner: Invalid domain for site key&quot; on the
-            live site, that means this domain isn&apos;t registered against the key in Google&apos;s reCAPTCHA admin
-            console (google.com/recaptcha/admin) &mdash; open that key there, add the current domain (e.g.
-            midpoint.onpointoffices.co.za and/or www.mid-point.co.za) under &quot;Domains&quot;, and save. If you
-            create a brand new key instead, paste its site key here so it takes effect without a code deploy.
+
+        <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-semibold">Default SEO</h2>
+          <p className="text-xs text-slate-400">
+            Used as the site-wide fallback whenever a page doesn&apos;t set its own title/description/keywords —
+            individual Blog posts, Pages and Pillar pages can still override these from their own SEO settings.
           </p>
+          <div>
+            <label className="block text-sm font-medium">Default title template</label>
+            <input name="defaultTitleTemplate" defaultValue={settings.defaultTitleTemplate} placeholder="%s | Midpoint Midrand" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            <p className="mt-1 text-xs text-slate-400">Use %s where the page&apos;s own title should be inserted.</p>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Default meta description</label>
+            <textarea name="defaultMetaDescription" defaultValue={settings.defaultMetaDescription} rows={2} maxLength={160} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Default keywords (comma-separated)</label>
+            <input name="defaultKeywords" defaultValue={settings.defaultKeywords} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium">Google Search Console verification code</label>
+              <input name="googleVerification" defaultValue={settings.googleVerification || ""} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium">Bing verification code</label>
+              <input name="bingVerification" defaultValue={settings.bingVerification || ""} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            </div>
+          </div>
+          <div>
+            <label className="flex items-center gap-2 text-sm font-medium">
+              <input type="checkbox" name="allowIndexing" defaultChecked={settings.allowIndexing} />
+              Allow search engines to index this site
+            </label>
+          </div>
         </div>
+
+        <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-semibold">Analytics</h2>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium">Google Analytics 4 measurement ID</label>
+              <input name="googleAnalyticsId" defaultValue={settings.googleAnalyticsId} placeholder="G-XXXXXXXXXX" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+              <p className="mt-1 text-xs text-slate-400">Must match G-XXXXXXX or it won&apos;t be saved.</p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium">Google Tag Manager ID</label>
+              <input name="tagManagerId" defaultValue={settings.tagManagerId} placeholder="GTM-XXXXXXX" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+              <p className="mt-1 text-xs text-slate-400">Must match GTM-XXXXXXX or it won&apos;t be saved.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-semibold">WhatsApp</h2>
+          <p className="text-xs text-slate-400">
+            Set a number to show a floating WhatsApp button site-wide. Leave blank to hide it entirely.
+          </p>
+          <div>
+            <label className="block text-sm font-medium">WhatsApp number (with country code, digits only)</label>
+            <input name="whatsapp" defaultValue={settings.whatsapp} placeholder="27113809400" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Pre-filled message</label>
+            <input name="whatsappTemplate" defaultValue={settings.whatsappTemplate} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+        </div>
+
+        <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-semibold">Enquiries</h2>
+          <div>
+            <label className="block text-sm font-medium">Success message shown after submitting the contact form</label>
+            <textarea name="enquirySuccessMessage" defaultValue={settings.enquirySuccessMessage} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+        </div>
+
+        <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-semibold">Other</h2>
+          <div>
+            <label className="block text-sm font-medium">Vacancy data refresh window (seconds)</label>
+            <input type="number" name="vacancyRevalidateSeconds" defaultValue={settings.vacancyRevalidateSeconds} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            <p className="mt-1 text-xs text-slate-400">604800 = 7 days. Only relevant once a live external listings API is connected.</p>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Google reCAPTCHA v2 site key</label>
+            <input name="recaptchaSiteKey" defaultValue={settings.recaptchaSiteKey} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            <p className="mt-1 text-xs text-slate-400">
+              Used on the contact form. If you see &quot;ERROR for site owner: Invalid domain for site key&quot; on the
+              live site, that means this domain isn&apos;t registered against the key in Google&apos;s reCAPTCHA admin
+              console (google.com/recaptcha/admin) &mdash; open that key there, add the current domain, and save.
+            </p>
+          </div>
+        </div>
+
         <button type="submit" className="rounded-full bg-midpoint-dark px-5 py-2.5 text-sm font-semibold text-white">
           Save settings
         </button>
