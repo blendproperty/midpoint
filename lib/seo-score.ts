@@ -94,6 +94,32 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
         : { id: "image-alt", label: "Image alt text", status: "bad", message: `${imagesWithoutAlt.length} of ${imgTags.length} image(s) are missing alt text.` }
   );
 
+  // Every published page's JSON-LD is now generated automatically from
+  // these same fields (see lib/seo.ts's richPageJsonLd/blogPostingJsonLd and
+  // the pillar/CMS page graphs) — there's no way for structured data to be
+  // literally missing anymore, but a blank or very short meta description
+  // still means the schema's own `description` falls back to just the
+  // title, which is weak. This reflects that specifically, distinct from
+  // the "Meta description" check above, which is about the search snippet
+  // rather than the structured data.
+  const schemaDescription = (input.seoDescription || "").trim();
+  checks.push(
+    schemaDescription.length >= 50
+      ? {
+          id: "structured-data",
+          label: "Structured data (JSON-LD)",
+          status: "good",
+          message: "Schema markup is generated automatically and includes a real description.",
+        }
+      : {
+          id: "structured-data",
+          label: "Structured data (JSON-LD)",
+          status: "ok",
+          message:
+            "Schema markup is generated automatically, but without a meta description it falls back to using just the title.",
+        }
+  );
+
   const internalLinks = (input.contentHtml.match(/href\s*=\s*"\/(?!\/)[^"]*"/gi) || []).length;
   checks.push(
     internalLinks >= 1
