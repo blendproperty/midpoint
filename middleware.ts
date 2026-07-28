@@ -7,6 +7,19 @@ const secret = new TextEncoder().encode(
 );
 const SESSION_COOKIE = "midpoint_admin_session";
 
+// Routes under /admin or /api/admin that must stay reachable WITHOUT a
+// session — sign-in itself, and the forgot/reset-password flow (a locked-out
+// admin can't get a session cookie in the first place, so these can never be
+// behind the auth check).
+const PUBLIC_ROUTES = new Set([
+  "/admin/login",
+  "/api/admin/login",
+  "/admin/forgot-password",
+  "/api/admin/forgot-password",
+  "/admin/reset-password",
+  "/api/admin/reset-password",
+]);
+
 // Edge-runtime gatekeeper for the whole /admin surface. Deliberately simple:
 // verify the JWT signature/expiry only, then let each page/server action do
 // its own role check (see lib/require-admin.ts) since role-specific logic
@@ -14,9 +27,7 @@ const SESSION_COOKIE = "midpoint_admin_session";
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const isLoginRoute =
-    pathname === "/admin/login" || pathname === "/api/admin/login";
-  if (isLoginRoute) {
+  if (PUBLIC_ROUTES.has(pathname)) {
     return NextResponse.next();
   }
 
