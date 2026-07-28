@@ -17,8 +17,18 @@ type Props = {
     heroAnswer?: string;
     heroImage?: string;
     trustStrip?: string;
+    relatedSector?: string;
+    listingsHeading?: string;
+    listingsIntro?: string;
+    showReadyToMove?: boolean;
+    featuresText?: string;
+    considerationsText?: string;
+    exploreLinksText?: string;
     contentHtml?: string;
     faqsText?: string;
+    faqsHeading?: string;
+    ctaHeading?: string;
+    ctaText?: string;
     expertName?: string;
     expertRole?: string;
     expertBio?: string;
@@ -110,10 +120,91 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
       </div>
 
       <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
+        <h2 className="text-lg font-semibold">Layout blocks</h2>
+        <p className="text-xs text-slate-400">
+          These build the comprehensive page sections shown on the live site — a feature grid, a considerations
+          section, live listings pulled straight from Vacancies, and explore-more links. Leave any of them blank to
+          skip that section entirely.
+        </p>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium">Related sector (drives live listings below)</label>
+            <select name="relatedSector" defaultValue={defaultValues?.relatedSector || ""} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm">
+              <option value="">None — no live listings section</option>
+              <option value="OFFICE">Office</option>
+              <option value="WAREHOUSE">Warehouse</option>
+              <option value="SERVICED_OFFICE">Serviced office</option>
+            </select>
+          </div>
+          <div className="flex items-end pb-2">
+            <label className="flex items-center gap-2 text-sm font-medium">
+              <input type="checkbox" name="showReadyToMove" defaultChecked={defaultValues?.showReadyToMove} />
+              Show &quot;Ready to move in?&quot; banner
+            </label>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium">Listings section heading</label>
+            <input name="listingsHeading" defaultValue={defaultValues?.listingsHeading} placeholder="Current availability at Midpoint" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Listings section intro</label>
+            <input name="listingsIntro" defaultValue={defaultValues?.listingsIntro} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+        </div>
+        <div>
+          <label className="block text-sm font-medium">
+            Feature highlights (image + heading + text blocks). One block per feature, format
+            &quot;Heading :: Text :: Image URL&quot;, separated by a blank line. Copy image URLs from the Media
+            library.
+          </label>
+          <textarea
+            name="featuresText"
+            defaultValue={defaultValues?.featuresText}
+            rows={8}
+            placeholder={"Flexible office environments. :: Office suites vary in size and configuration... :: https://.../image.jpg"}
+            className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">
+            Considerations (what to weigh up). One block per item, format &quot;Heading :: Text&quot;, separated by a
+            blank line.
+          </label>
+          <textarea
+            name="considerationsText"
+            defaultValue={defaultValues?.considerationsText}
+            rows={8}
+            placeholder={"Staff access and commute :: Midpoint sits directly on the N1..."}
+            className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">
+            Explore more links. One per line, format &quot;Label :: /href&quot;.
+          </label>
+          <textarea
+            name="exploreLinksText"
+            defaultValue={defaultValues?.exploreLinksText}
+            rows={4}
+            placeholder={"Warehouses to rent :: /warehouses\nAmenities & lifestyle :: /amenities"}
+            className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs"
+          />
+        </div>
+      </div>
+
+      <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
         <h2 className="text-lg font-semibold">Content</h2>
         <div>
-          <label className="block text-sm font-medium">Main content — educational sections, comparisons, evidence, process</label>
+          <label className="block text-sm font-medium">Main content — long-form educational sections, comparisons, evidence, process</label>
           <RichTextEditor name="contentHtml" defaultValue={defaultValues?.contentHtml} height={520} />
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium">FAQs section heading</label>
+            <input name="faqsHeading" defaultValue={defaultValues?.faqsHeading} placeholder="Frequently asked questions" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          </div>
         </div>
         <div>
           <label className="block text-sm font-medium">
@@ -126,6 +217,18 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
             placeholder={"How much does office space cost to rent in Midrand? :: Answer here...\n\nWhich parts of Midrand are best for office space? :: Answer here..."}
             className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs"
           />
+        </div>
+      </div>
+
+      <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
+        <h2 className="text-lg font-semibold">Call to action</h2>
+        <div>
+          <label className="block text-sm font-medium">CTA heading</label>
+          <input name="ctaHeading" defaultValue={defaultValues?.ctaHeading} placeholder="Talk to the leasing team" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+        </div>
+        <div>
+          <label className="block text-sm font-medium">CTA text</label>
+          <textarea name="ctaText" defaultValue={defaultValues?.ctaText} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
         </div>
       </div>
 

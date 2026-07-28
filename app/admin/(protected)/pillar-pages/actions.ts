@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
 import { parsePillarFaqs } from "@/lib/pillar-faqs";
+import { parseFeatures, parseConsiderations, parseLinks } from "@/lib/pillar-blocks";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { Prisma } from "@prisma/client";
@@ -32,7 +33,11 @@ function readFields(formData: FormData) {
   const slug = slugify(slugInput || title);
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
   const faqs = parsePillarFaqs(String(formData.get("faqsText") || ""));
+  const features = parseFeatures(String(formData.get("featuresText") || ""));
+  const considerations = parseConsiderations(String(formData.get("considerationsText") || ""));
+  const exploreLinks = parseLinks(String(formData.get("exploreLinksText") || ""));
   const lastReviewedRaw = String(formData.get("lastReviewedAt") || "").trim();
+  const relatedSectorRaw = String(formData.get("relatedSector") || "").trim();
 
   return {
     title,
@@ -45,8 +50,18 @@ function readFields(formData: FormData) {
     heroAnswer: String(formData.get("heroAnswer") || "").trim() || null,
     heroImage: String(formData.get("heroImage") || "").trim() || null,
     trustStrip: String(formData.get("trustStrip") || "").trim() || null,
+    relatedSector: relatedSectorRaw ? (relatedSectorRaw as "WAREHOUSE" | "OFFICE" | "SERVICED_OFFICE") : null,
+    listingsHeading: String(formData.get("listingsHeading") || "").trim() || null,
+    listingsIntro: String(formData.get("listingsIntro") || "").trim() || null,
+    showReadyToMove: formData.get("showReadyToMove") === "on",
+    features,
+    considerations,
+    exploreLinks,
     contentHtml: String(formData.get("contentHtml") || ""),
     faqs,
+    faqsHeading: String(formData.get("faqsHeading") || "").trim() || null,
+    ctaHeading: String(formData.get("ctaHeading") || "").trim() || null,
+    ctaText: String(formData.get("ctaText") || "").trim() || null,
     expertName: String(formData.get("expertName") || "").trim() || null,
     expertRole: String(formData.get("expertRole") || "").trim() || null,
     expertBio: String(formData.get("expertBio") || "").trim() || null,

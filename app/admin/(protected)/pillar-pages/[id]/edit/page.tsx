@@ -4,6 +4,7 @@ import PillarPageForm from "@/components/admin/PillarPageForm";
 import SeoScoreCard from "@/components/admin/SeoScoreCard";
 import { scorePillarPage } from "@/lib/seo-score";
 import { formatPillarFaqs, type PillarFaq } from "@/lib/pillar-faqs";
+import { formatFeatures, formatConsiderations, formatLinks, type PillarFeature, type PillarConsideration, type PillarLink } from "@/lib/pillar-blocks";
 import { updatePillarPage } from "../../actions";
 
 export const dynamic = "force-dynamic";
@@ -14,6 +15,11 @@ export default async function EditPillarPagePage({ params }: { params: Promise<{
   if (!pillar) notFound();
 
   const faqs = Array.isArray(pillar.faqs) ? (pillar.faqs as unknown as PillarFaq[]) : [];
+  const features = Array.isArray(pillar.features) ? (pillar.features as unknown as PillarFeature[]) : [];
+  const considerations = Array.isArray(pillar.considerations)
+    ? (pillar.considerations as unknown as PillarConsideration[])
+    : [];
+  const exploreLinks = Array.isArray(pillar.exploreLinks) ? (pillar.exploreLinks as unknown as PillarLink[]) : [];
   const action = updatePillarPage.bind(null, id);
   const result = scorePillarPage({ ...pillar, faqs });
 
@@ -34,8 +40,18 @@ export default async function EditPillarPagePage({ params }: { params: Promise<{
           heroAnswer: pillar.heroAnswer || "",
           heroImage: pillar.heroImage || "",
           trustStrip: pillar.trustStrip || "",
+          relatedSector: pillar.relatedSector || "",
+          listingsHeading: pillar.listingsHeading || "",
+          listingsIntro: pillar.listingsIntro || "",
+          showReadyToMove: pillar.showReadyToMove,
+          featuresText: formatFeatures(features),
+          considerationsText: formatConsiderations(considerations),
+          exploreLinksText: formatLinks(exploreLinks),
           contentHtml: pillar.contentHtml,
           faqsText: formatPillarFaqs(faqs),
+          faqsHeading: pillar.faqsHeading || "",
+          ctaHeading: pillar.ctaHeading || "",
+          ctaText: pillar.ctaText || "",
           expertName: pillar.expertName || "",
           expertRole: pillar.expertRole || "",
           expertBio: pillar.expertBio || "",

@@ -100,6 +100,16 @@ model PillarPage {
   trustStrip           String?       @db.Text
   contentHtml          String        @db.Text
   faqs                 Json?
+  faqsHeading          String?
+  features             Json?
+  considerations       Json?
+  relatedSector        Sector?
+  listingsHeading      String?
+  listingsIntro        String?       @db.Text
+  showReadyToMove      Boolean       @default(false)
+  ctaHeading           String?
+  ctaText              String?       @db.Text
+  exploreLinks         Json?
   expertName           String?
   expertRole           String?
   expertBio            String?       @db.Text
