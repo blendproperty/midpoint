@@ -129,6 +129,29 @@ function mapSector(listing: ListingRecord): { sector: "WAREHOUSE" | "OFFICE" | "
   return { sector: "OFFICE", matched: false };
 }
 
+// Splits a listing into its "building" (the shared property/park, e.g.
+// "OnPoint") and its "unit" (the specific space, e.g. "OnPoint Suite 4").
+// Most standalone listings (a whole warehouse like "1 Kingfisher Avenue")
+// have listing.name equal to the building name — nothing distinct to show,
+// so unitName stays null. Shared buildings with many individual listings
+// (OnPoint above all — the reason this was added: Brett flagged that every
+// OnPoint enquiry was landing as just "OnPoint" with no way to tell which
+// of the many units someone actually clicked) have a listing.name that
+// differs from the building name, so that gets kept as the unit name and
+// carried through into the enquiry.
+function mapBuildingAndUnit(listing: ListingRecord): { building: string; unitName: string | null } {
+  const buildingName = listing.building?.name || listing.businessPark?.name || "";
+  const listingName = (listing.name || "").trim();
+
+  if (!buildingName) {
+    return { building: listingName || listing.id, unitName: null };
+  }
+  if (!listingName || listingName.toLowerCase() === buildingName.toLowerCase()) {
+    return { building: buildingName, unitName: null };
+  }
+  return { building: buildingName, unitName: listingName };
+}
+
 function mapAvailability(listing: ListingRecord): string {
   if (listing.isAvailableImmediately) return "Immediately";
   return listing.availableFromLabel || listing.availableFrom || "Contact for availability";
@@ -197,7 +220,8 @@ export async function syncVacanciesFromListings(): Promise<VacancySyncResult> {
     if (!listing.id) continue;
     seenExternalIds.add(listing.id);
 
-    const title = listing.building?.name || listing.name || listing.id;
+    const { building, unitName } = mapBuildingAndUnit(listing);
+    const title = unitName ? `${building} — ${unitName}` : building;
     const { sector, matched } = mapSector(listing);
     if (!matched) {
       result.skipped.push({
@@ -208,7 +232,8 @@ export async function syncVacanciesFromListings(): Promise<VacancySyncResult> {
     }
 
     const data = {
-      building: title,
+      building,
+      unitName,
       sector,
       sizeSqm: listing.gla || 0,
       ratePerSqm: listing.ratePerM2 || 0,
