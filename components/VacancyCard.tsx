@@ -1,9 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import type { VacancyListing } from "@/lib/vacancies";
 
 function formatSize(n: number) {
   return `${n.toLocaleString("en-ZA", { maximumFractionDigits: 2 })} m²`;
+}
+
+// Fires a beacon when "Enquire" is clicked so /admin can show which listings
+// are attracting the most interest — doesn't block or delay the navigation.
+function trackVacancyEnquire(vacancyId: string, building: string) {
+  const body = JSON.stringify({ vacancyId, building, type: "ENQUIRE" });
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon("/api/track/vacancy-event", new Blob([body], { type: "application/json" }));
+  } else {
+    fetch("/api/track/vacancy-event", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+      keepalive: true,
+    }).catch(() => {});
+  }
 }
 
 export default function VacancyCard({ listing }: { listing: VacancyListing }) {
@@ -49,6 +67,7 @@ export default function VacancyCard({ listing }: { listing: VacancyListing }) {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/contact-us"
+            onClick={() => trackVacancyEnquire(listing.id, listing.building)}
             className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition hover:opacity-90"
           >
             Enquire

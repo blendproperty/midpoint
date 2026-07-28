@@ -5,21 +5,28 @@ import RenewedVision from "@/components/RenewedVision";
 import SpaceGrid from "@/components/SpaceGrid";
 import DeveloperSection from "@/components/DeveloperSection";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import { getPageSeoOverride } from "@/lib/page-seo";
 
-const description =
+export const dynamic = "force-dynamic";
+
+const FALLBACK_TITLE = "About Us";
+const FALLBACK_DESCRIPTION =
   "Midpoint is a modern business estate in Midrand offering premium offices, serviced offices, and warehouse facilities. Developed by Blend Property Group.";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const override = await getPageSeoOverride("/about-us");
+  return {
+    title: override?.seoTitle || FALLBACK_TITLE,
+    description: override?.seoDescription || FALLBACK_DESCRIPTION,
+  };
+}
 
 export default function AboutUsPage() {
   return (
     <>
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "About Us", path: "/about-us" }]}
-        description={description}
+        description={FALLBACK_DESCRIPTION}
       />
       <AboutHero />
       <StrategicGrowth />

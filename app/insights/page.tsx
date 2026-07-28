@@ -2,14 +2,21 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import PillarCard from "@/components/PillarCard";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import { getPageSeoOverride } from "@/lib/page-seo";
 
+export const dynamic = "force-dynamic";
+
+const FALLBACK_TITLE = "Insights | Business Park, Location, Amenities, FAQs & more";
 const description =
   "Discover Midpoint's business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place.";
 
-export const metadata: Metadata = {
-  title: "Insights | Business Park, Location, Amenities, FAQs & more",
-  description
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const override = await getPageSeoOverride("/insights");
+  return {
+    title: override?.seoTitle || FALLBACK_TITLE,
+    description: override?.seoDescription || description,
+  };
+}
 
 const cards = [
   {

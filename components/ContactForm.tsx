@@ -40,7 +40,11 @@ export default function ContactForm() {
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, "g-recaptcha-response": captchaResponse })
+        body: JSON.stringify({
+          ...data,
+          sourcePath: window.location.pathname,
+          "g-recaptcha-response": captchaResponse
+        })
       });
       if (!res.ok) throw new Error("failed");
       setStatus("sent");

@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Nav from "@/components/Nav";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import PageViewTracker from "@/components/PageViewTracker";
 
 // The admin dashboard has its own sidebar/layout (app/admin/(protected)/layout.tsx
 // and app/admin/login/page.tsx) and should never show the public site's
@@ -21,6 +22,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
 
   return (
     <>
+      <PageViewTracker />
       <Nav />
       <main>{children}</main>
       <ContactSection />

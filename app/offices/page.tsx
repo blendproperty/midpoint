@@ -8,14 +8,21 @@ import PageFaqAccordion from "@/components/PageFaqAccordion";
 import TalkToLeasing from "@/components/TalkToLeasing";
 import ExploreMore from "@/components/ExploreMore";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import { getPageSeoOverride } from "@/lib/page-seo";
 
+export const dynamic = "force-dynamic";
+
+const FALLBACK_TITLE = "Offices to Rent in Midrand | Midpoint Business Park";
 const description =
   "Modern offices to rent in Midrand at Midpoint, between Joburg and Pretoria. Live availability, backup power, security and on-site amenities. Book a viewing.";
 
-export const metadata: Metadata = {
-  title: "Offices to Rent in Midrand | Midpoint Business Park",
-  description
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const override = await getPageSeoOverride("/offices");
+  return {
+    title: override?.seoTitle || FALLBACK_TITLE,
+    description: override?.seoDescription || description,
+  };
+}
 
 const features = [
   {

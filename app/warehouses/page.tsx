@@ -3,13 +3,19 @@ import ScrapedContent from "@/components/ScrapedContent";
 import data from "@/scripts/scraped-data/warehouses.json";
 import type { ScrapedPage } from "@/lib/scraped";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import { getPageSeoOverride } from "@/lib/page-seo";
+
+export const dynamic = "force-dynamic";
 
 const page = data as unknown as ScrapedPage;
 
-export const metadata: Metadata = {
-  title: page.title,
-  description: page.metaDescription
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const override = await getPageSeoOverride("/warehouses");
+  return {
+    title: override?.seoTitle || page.title,
+    description: override?.seoDescription || page.metaDescription,
+  };
+}
 
 export default function Page() {
   return (

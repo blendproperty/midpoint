@@ -2,14 +2,21 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ConsiderationsList from "@/components/ConsiderationsList";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import { getPageSeoOverride } from "@/lib/page-seo";
 
+export const dynamic = "force-dynamic";
+
+const FALLBACK_TITLE = "Location";
 const description =
   "Midpoint sits on the N1 between Johannesburg and Pretoria in Halfway House, Midrand — verified distances, access and route detail.";
 
-export const metadata: Metadata = {
-  title: "Location",
-  description
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const override = await getPageSeoOverride("/location");
+  return {
+    title: override?.seoTitle || FALLBACK_TITLE,
+    description: override?.seoDescription || description,
+  };
+}
 
 const details = [
   {

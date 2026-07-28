@@ -2,14 +2,21 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import { site } from "@/lib/site";
+import { getPageSeoOverride } from "@/lib/page-seo";
 
+export const dynamic = "force-dynamic";
+
+const FALLBACK_TITLE = "Contact Us | Midpoint";
 const description =
   "Contact the Midpoint leasing team about warehouse, office and serviced office space in Midrand.";
 
-export const metadata: Metadata = {
-  title: "Contact Us | Midpoint",
-  description
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const override = await getPageSeoOverride("/contact-us");
+  return {
+    title: override?.seoTitle || FALLBACK_TITLE,
+    description: override?.seoDescription || description,
+  };
+}
 
 export default function ContactUs() {
   return (

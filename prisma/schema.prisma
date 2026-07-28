@@ -23,6 +23,11 @@ enum Sector {
   SERVICED_OFFICE
 }
 
+enum VacancyEventType {
+  VIEW
+  ENQUIRE
+}
+
 model User {
   id           String     @id @default(cuid())
   email        String     @unique
@@ -65,10 +70,6 @@ model Page {
   updatedAt      DateTime      @updatedAt
 }
 
-// Long-form decision-guide pages built to the Midpoint Pillar Page Blueprint
-// (E-E-A-T, technical SEO, AI-search). Deliberately separate from Page/BlogPost
-// since pillars carry a much richer field set (strategy, hero answer, trust
-// strip, expert reviewer, FAQ block) and their own scoring rules.
 model PillarPage {
   id                   String        @id @default(cuid())
   slug                 String        @unique
@@ -146,4 +147,48 @@ model Media {
   size         Int
   uploadedById String?
   createdAt    DateTime @default(now())
+}
+
+// Every contact-form submission, logged directly to the database independent
+// of whether the downstream n8n webhook succeeds — see app/api/enquiry/route.ts.
+model Enquiry {
+  id         String   @id @default(cuid())
+  firstName  String?
+  lastName   String?
+  email      String
+  phone      String?
+  interest   String?
+  message    String?  @db.Text
+  sourcePath String?
+  handled    Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+// Lightweight page-view log, written via navigator.sendBeacon from
+// components/PageViewTracker.tsx. No cookies/session tracking — just a path
+// and timestamp, aggregated in the admin dashboard.
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  createdAt DateTime @default(now())
+}
+
+// "Enquire" click-throughs on vacancy listings, so the dashboard can show
+// which spaces are attracting the most interest.
+model VacancyEvent {
+  id        String           @id @default(cuid())
+  vacancyId String?
+  building  String?
+  type      VacancyEventType
+  createdAt DateTime         @default(now())
+}
+
+// Admin-editable title/meta-description overrides for the site's static
+// (hardcoded) pages, keyed by URL path, so they get the same admin SEO
+// control as Blog/Page/PillarPage without moving their content into the CMS.
+model PageSeoOverride {
+  path           String   @id
+  seoTitle       String?
+  seoDescription String?
+  updatedAt      DateTime @updatedAt
 }

@@ -1,5 +1,8 @@
 "use client";
 
+import { useRef } from "react";
+import { generateSeoTitle, generateSeoDescription } from "@/lib/seo-generate";
+
 type Props = {
   action: (formData: FormData) => void;
   defaultValues?: {
@@ -17,11 +20,24 @@ type Props = {
 };
 
 export default function BlogForm({ action, defaultValues, submitLabel = "Save" }: Props) {
+  const titleRef = useRef<HTMLInputElement>(null);
+  const excerptRef = useRef<HTMLTextAreaElement>(null);
+  const contentRef = useRef<HTMLTextAreaElement>(null);
+  const seoTitleRef = useRef<HTMLInputElement>(null);
+  const seoDescRef = useRef<HTMLTextAreaElement>(null);
+
+  function handleGenerate() {
+    const title = titleRef.current?.value || "";
+    const source = excerptRef.current?.value || contentRef.current?.value || title;
+    if (seoTitleRef.current) seoTitleRef.current.value = generateSeoTitle(title, "Midpoint Midrand");
+    if (seoDescRef.current) seoDescRef.current.value = generateSeoDescription(source);
+  }
+
   return (
     <form action={action} className="mt-6 max-w-2xl space-y-5 rounded-xl bg-white p-6 shadow-sm">
       <div>
         <label className="block text-sm font-medium">Title</label>
-        <input name="title" defaultValue={defaultValues?.title} required className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+        <input ref={titleRef} name="title" defaultValue={defaultValues?.title} required className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
       </div>
       <div>
         <label className="block text-sm font-medium">Slug (leave blank to auto-generate from title)</label>
@@ -29,7 +45,7 @@ export default function BlogForm({ action, defaultValues, submitLabel = "Save" }
       </div>
       <div>
         <label className="block text-sm font-medium">Excerpt</label>
-        <textarea name="excerpt" defaultValue={defaultValues?.excerpt} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+        <textarea ref={excerptRef} name="excerpt" defaultValue={defaultValues?.excerpt} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
       </div>
       <div>
         <label className="block text-sm font-medium">Cover image URL</label>
@@ -37,7 +53,7 @@ export default function BlogForm({ action, defaultValues, submitLabel = "Save" }
       </div>
       <div>
         <label className="block text-sm font-medium">Content (HTML)</label>
-        <textarea name="contentHtml" defaultValue={defaultValues?.contentHtml} rows={12} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs" />
+        <textarea ref={contentRef} name="contentHtml" defaultValue={defaultValues?.contentHtml} rows={12} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs" />
       </div>
       <div>
         <label className="block text-sm font-medium">Focus keyword (optional)</label>
@@ -46,8 +62,13 @@ export default function BlogForm({ action, defaultValues, submitLabel = "Save" }
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium">SEO title</label>
-          <input name="seoTitle" defaultValue={defaultValues?.seoTitle} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+          <div className="flex items-center justify-between">
+            <label className="block text-sm font-medium">SEO title</label>
+            <button type="button" onClick={handleGenerate} className="text-xs font-semibold text-midpoint-dark underline">
+              Generate
+            </button>
+          </div>
+          <input ref={seoTitleRef} name="seoTitle" defaultValue={defaultValues?.seoTitle} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
         </div>
         <div>
           <label className="block text-sm font-medium">Status</label>
@@ -59,7 +80,7 @@ export default function BlogForm({ action, defaultValues, submitLabel = "Save" }
       </div>
       <div>
         <label className="block text-sm font-medium">SEO description</label>
-        <textarea name="seoDescription" defaultValue={defaultValues?.seoDescription} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+        <textarea ref={seoDescRef} name="seoDescription" defaultValue={defaultValues?.seoDescription} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
       </div>
       <button type="submit" className="rounded-full bg-midpoint-dark px-5 py-2.5 text-sm font-semibold text-white">
         {submitLabel}

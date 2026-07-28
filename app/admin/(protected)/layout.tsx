@@ -4,22 +4,20 @@ import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import SignOutButton from "@/components/admin/SignOutButton";
 
-// Everything under this route group (app/admin/(protected)/*) requires a
-// valid session. /admin/login deliberately lives OUTSIDE this group (as a
-// sibling of the group folder) so it never inherits this redirect —
-// otherwise an unauthenticated visit to /admin/login would redirect to
-// /admin/login forever.
 export default async function ProtectedAdminLayout({ children }: { children: ReactNode }) {
   const session = await getSession();
   if (!session) redirect("/admin/login");
 
   const navItems = [
     { href: "/admin", label: "Dashboard" },
+    { href: "/admin/enquiries", label: "Enquiries" },
     { href: "/admin/blog", label: "Blog" },
     { href: "/admin/pages", label: "Pages" },
     { href: "/admin/pillar-pages", label: "Pillar Pages" },
     { href: "/admin/vacancies", label: "Vacancies" },
     { href: "/admin/faqs", label: "FAQs" },
+    { href: "/admin/page-seo", label: "Page SEO" },
+    { href: "/admin/schema-tool", label: "Schema Tool" },
     { href: "/admin/media", label: "Media" },
     { href: "/admin/settings", label: "Site Settings" },
     ...(session.role === "SUPER_ADMIN" ? [{ href: "/admin/users", label: "Users" }] : []),
@@ -27,7 +25,7 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
 
   return (
     <div className="flex min-h-screen bg-slate-50 text-slate-900">
-      <aside className="w-64 shrink-0 bg-midpoint-dark text-white">
+      <aside className="w-64 shrink-0 overflow-y-auto bg-midpoint-dark text-white">
         <div className="p-6">
           <p className="text-lg font-semibold">Midpoint Admin</p>
           <p className="mt-1 text-xs text-white/60">{session.email}</p>

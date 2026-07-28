@@ -3,14 +3,21 @@ import PageHero from "@/components/PageHero";
 import SpacesExplore from "@/components/SpacesExplore";
 import ReadyToMoveSection from "@/components/ReadyToMoveSection";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import { getPageSeoOverride } from "@/lib/page-seo";
 
+export const dynamic = "force-dynamic";
+
+const FALLBACK_TITLE = "Spaces at Midpoint | Offices, Warehouses & Amenities in Midrand";
 const description =
   "Explore Midpoint's office space, warehouse space and on-site amenities in Midrand — a connected business estate between Johannesburg and Pretoria.";
 
-export const metadata: Metadata = {
-  title: "Spaces at Midpoint | Offices, Warehouses & Amenities in Midrand",
-  description
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const override = await getPageSeoOverride("/spaces");
+  return {
+    title: override?.seoTitle || FALLBACK_TITLE,
+    description: override?.seoDescription || description,
+  };
+}
 
 export default function SpacesPage() {
   return (
