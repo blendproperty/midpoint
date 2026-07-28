@@ -1,6 +1,6 @@
-// A Yoast/RankMath-style on-page SEO checklist. No equivalent tool exists in
-// the listings.blendproperty.co.za codebase to copy from, so this is built
-// from scratch using the standard set of on-page checks those tools use.
+// A Yoast/RankMath-style on-page SEO checklist, extended with pillar-page-
+// specific rules from Midpoint_Pillar_Page_Blueprint_EEAT_SEO_AI_Search.docx
+// (word count, FAQ count, named expert reviewer, review freshness).
 export type SeoCheckStatus = "good" | "ok" | "bad";
 
 export type SeoCheck = {
@@ -25,15 +25,22 @@ type ScoreInput = {
   focusKeyword?: string | null;
 };
 
-function stripHtml(html: string): string {
+export function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 }
 
-function countWords(text: string): number {
+export function countWords(text: string): number {
   return text.split(/\s+/).filter(Boolean).length;
 }
 
-const STATUS_POINTS: Record<SeoCheckStatus, number> = { good: 1, ok: 0.5, bad: 0 };
+export const STATUS_POINTS: Record<SeoCheckStatus, number> = { good: 1, ok: 0.5, bad: 0 };
+
+function finalize(checks: SeoCheck[]): SeoScoreResult {
+  const total = checks.reduce((sum, c) => sum + STATUS_POINTS[c.status], 0);
+  const score = Math.round((total / checks.length) * 100);
+  const grade = score >= 80 ? "Good" : score >= 50 ? "Needs improvement" : "Poor";
+  return { score, grade, checks };
+}
 
 export function scoreContent(input: ScoreInput): SeoScoreResult {
   const checks: SeoCheck[] = [];
@@ -42,7 +49,6 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
   const wordCount = countWords(plainText);
   const keyword = input.focusKeyword?.trim().toLowerCase() || "";
 
-  // Title length
   const titleLen = effectiveTitle.length;
   checks.push(
     titleLen >= 40 && titleLen <= 60
@@ -52,7 +58,6 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
         : { id: "title-length", label: "SEO title length", status: "bad", message: "No title set." }
   );
 
-  // Meta description
   const descLen = (input.seoDescription || "").length;
   checks.push(
     descLen >= 120 && descLen <= 156
@@ -62,7 +67,6 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
         : { id: "meta-description", label: "Meta description", status: "bad", message: "No meta description set — search engines will generate one automatically, which you can't control." }
   );
 
-  // Content length
   checks.push(
     wordCount >= 300
       ? { id: "content-length", label: "Content length", status: "good", message: `${wordCount} words.` }
@@ -71,7 +75,6 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
         : { id: "content-length", label: "Content length", status: "bad", message: `Only ${wordCount} words — thin content is unlikely to rank well.` }
   );
 
-  // Subheadings
   const h2Count = (input.contentHtml.match(/<h2[\s>]/gi) || []).length;
   checks.push(
     h2Count >= 2
@@ -81,7 +84,6 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
         : { id: "headings", label: "Subheadings", status: "bad", message: "No H2 subheadings — long-form content should be broken up with headings." }
   );
 
-  // Image alt text
   const imgTags = input.contentHtml.match(/<img[^>]*>/gi) || [];
   const imagesWithoutAlt = imgTags.filter((tag) => !/alt\s*=\s*"[^"]+"/i.test(tag));
   checks.push(
@@ -92,7 +94,6 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
         : { id: "image-alt", label: "Image alt text", status: "bad", message: `${imagesWithoutAlt.length} of ${imgTags.length} image(s) are missing alt text.` }
   );
 
-  // Internal links
   const internalLinks = (input.contentHtml.match(/href\s*=\s*"\/(?!\/)[^"]*"/gi) || []).length;
   checks.push(
     internalLinks >= 1
@@ -100,7 +101,6 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
       : { id: "internal-links", label: "Internal links", status: "ok", message: "No internal links — linking to other pages on the site helps both SEO and readers." }
   );
 
-  // URL slug
   const slugLen = input.slug.length;
   checks.push(
     slugLen > 0 && slugLen <= 75 && !/[A-Z\s_]/.test(input.slug)
@@ -108,7 +108,6 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
       : { id: "slug", label: "URL slug", status: "ok", message: "Slug should be short, lowercase, and hyphen-separated." }
   );
 
-  // Focus keyword (only scored if one is set)
   if (keyword) {
     const inTitle = effectiveTitle.toLowerCase().includes(keyword);
     const inDescription = (input.seoDescription || "").toLowerCase().includes(keyword);
@@ -125,9 +124,74 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
     );
   }
 
-  const total = checks.reduce((sum, c) => sum + STATUS_POINTS[c.status], 0);
-  const score = Math.round((total / checks.length) * 100);
-  const grade = score >= 80 ? "Good" : score >= 50 ? "Needs improvement" : "Poor";
+  return finalize(checks);
+}
 
-  return { score, grade, checks };
+type PillarScoreInput = ScoreInput & {
+  heroAnswer?: string | null;
+  expertName?: string | null;
+  expertBio?: string | null;
+  faqs?: { question: string; answer: string }[] | null;
+  lastReviewedAt?: Date | null;
+};
+
+// Pillar pages follow the blueprint's own rules (3,000–5,500 words, 10–18
+// FAQs, named expert reviewer, 6-monthly review cadence) which are stricter
+// and different from the general blog/page checklist above, so this reuses
+// the shared checks and appends the pillar-specific ones rather than
+// duplicating the generic content-length check.
+export function scorePillarPage(input: PillarScoreInput): SeoScoreResult {
+  const base = scoreContent(input);
+  const checks = base.checks.filter((c) => c.id !== "content-length");
+  const plainText = stripHtml(input.contentHtml);
+  const wordCount = countWords(plainText);
+
+  checks.push(
+    wordCount >= 3000 && wordCount <= 5500
+      ? { id: "pillar-length", label: "Pillar page length", status: "good", message: `${wordCount} words — within the recommended 3,000–5,500 range.` }
+      : wordCount > 5500
+        ? { id: "pillar-length", label: "Pillar page length", status: "ok", message: `${wordCount} words — above the 5,500 target; check for padding.` }
+        : { id: "pillar-length", label: "Pillar page length", status: "bad", message: `${wordCount} words — below the 3,000 minimum for a pillar page.` }
+  );
+
+  const heroWords = countWords(input.heroAnswer || "");
+  checks.push(
+    heroWords >= 40 && heroWords <= 80
+      ? { id: "hero-answer", label: "Hero direct answer", status: "good", message: `${heroWords} words — a good answer-first length.` }
+      : heroWords > 0
+        ? { id: "hero-answer", label: "Hero direct answer", status: "ok", message: `${heroWords} words — aim for 40–80.` }
+        : { id: "hero-answer", label: "Hero direct answer", status: "bad", message: "No hero direct answer set." }
+  );
+
+  const faqCount = input.faqs?.length || 0;
+  checks.push(
+    faqCount >= 10 && faqCount <= 18
+      ? { id: "faq-count", label: "FAQ count", status: "good", message: `${faqCount} FAQs — within the recommended 10–18.` }
+      : faqCount > 0
+        ? { id: "faq-count", label: "FAQ count", status: "ok", message: `${faqCount} FAQs — aim for 10–18 genuinely useful questions.` }
+        : { id: "faq-count", label: "FAQ count", status: "bad", message: "No FAQs added." }
+  );
+
+  checks.push(
+    input.expertName && input.expertBio
+      ? { id: "expert", label: "Named expert reviewer", status: "good", message: `${input.expertName} is credited with a bio.` }
+      : input.expertName
+        ? { id: "expert", label: "Named expert reviewer", status: "ok", message: "Expert name set but no bio — add their relevant experience." }
+        : { id: "expert", label: "Named expert reviewer", status: "bad", message: "No named expert/reviewer — required for E-E-A-T." }
+  );
+
+  if (input.lastReviewedAt) {
+    const daysSinceReview = (Date.now() - input.lastReviewedAt.getTime()) / (1000 * 60 * 60 * 24);
+    checks.push(
+      daysSinceReview <= 180
+        ? { id: "review-freshness", label: "Review freshness", status: "good", message: `Last reviewed ${Math.round(daysSinceReview)} days ago.` }
+        : daysSinceReview <= 365
+          ? { id: "review-freshness", label: "Review freshness", status: "ok", message: `Last reviewed ${Math.round(daysSinceReview)} days ago — due for review.` }
+          : { id: "review-freshness", label: "Review freshness", status: "bad", message: `Last reviewed ${Math.round(daysSinceReview)} days ago — overdue per the blueprint's 6-monthly cycle.` }
+    );
+  } else {
+    checks.push({ id: "review-freshness", label: "Review freshness", status: "bad", message: "No last-reviewed date set." });
+  }
+
+  return finalize(checks);
 }

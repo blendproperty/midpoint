@@ -1,6 +1,6 @@
-import { scoreContent } from "@/lib/seo-score";
+import { scoreContent, type SeoScoreResult } from "@/lib/seo-score";
 
-type Props = {
+type ContentProps = {
   title: string;
   slug: string;
   seoTitle?: string | null;
@@ -8,6 +8,8 @@ type Props = {
   contentHtml: string;
   focusKeyword?: string | null;
 };
+
+type Props = ContentProps | { result: SeoScoreResult };
 
 const STATUS_STYLES: Record<string, string> = {
   good: "bg-emerald-100 text-emerald-700",
@@ -22,7 +24,7 @@ const STATUS_ICON: Record<string, string> = {
 };
 
 export default function SeoScoreCard(props: Props) {
-  const result = scoreContent(props);
+  const result = "result" in props ? props.result : scoreContent(props);
   const overallStatus = result.score >= 80 ? "good" : result.score >= 50 ? "ok" : "bad";
 
   return (

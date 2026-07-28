@@ -65,6 +65,40 @@ model Page {
   updatedAt      DateTime      @updatedAt
 }
 
+// Long-form decision-guide pages built to the Midpoint Pillar Page Blueprint
+// (E-E-A-T, technical SEO, AI-search). Deliberately separate from Page/BlogPost
+// since pillars carry a much richer field set (strategy, hero answer, trust
+// strip, expert reviewer, FAQ block) and their own scoring rules.
+model PillarPage {
+  id                   String        @id @default(cuid())
+  slug                 String        @unique
+  title                String
+  primaryEntity        String?
+  primaryAudience      String?
+  decisionStage        String?
+  primarySearchIntent  String?
+  primaryConversion    String?
+  heroAnswer           String?       @db.Text
+  heroImage            String?
+  trustStrip           String?       @db.Text
+  contentHtml          String        @db.Text
+  faqs                 Json?
+  expertName           String?
+  expertRole           String?
+  expertBio            String?       @db.Text
+  expertImage          String?
+  reviewOwner          String?
+  lastReviewedAt       DateTime?
+  nextReviewAt         DateTime?
+  status               ContentStatus @default(DRAFT)
+  seoTitle             String?
+  seoDescription       String?
+  focusKeyword         String?
+  publishedAt          DateTime?
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+}
+
 model Vacancy {
   id           String        @id @default(cuid())
   building     String
