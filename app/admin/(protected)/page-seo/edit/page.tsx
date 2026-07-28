@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { STATIC_PAGES } from "@/lib/static-pages";
+import { getStaticPageContent } from "@/lib/static-page-content";
 import { updatePageSeoOverride } from "../actions";
 import PageSeoForm from "@/components/admin/PageSeoForm";
 
@@ -20,6 +21,7 @@ export default async function EditPageSeoPage({ searchParams }: { searchParams: 
         action={updatePageSeoOverride}
         path={path}
         label={known.label}
+        content={getStaticPageContent(path)}
         defaultValues={{
           seoTitle: override?.seoTitle || "",
           seoDescription: override?.seoDescription || "",
