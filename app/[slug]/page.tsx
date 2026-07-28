@@ -223,7 +223,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
               "A snapshot of what's currently available. Full specifications, floor plans, rates and photos are on the live vacancy schedule."
             }
             listings={listings}
-            ctaHref="/availability-report"
+            ctaHref="/vacancies"
             ctaLabel="View full availability and floor plans"
           />
         </div>
