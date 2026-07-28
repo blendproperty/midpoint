@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import RichTextEditor from "@/components/admin/RichTextEditor";
+import MediaPicker from "@/components/admin/MediaPicker";
 import { generateSeoTitle, generateSeoDescription } from "@/lib/seo-generate";
 
 type Props = {
@@ -22,13 +24,12 @@ type Props = {
 export default function BlogForm({ action, defaultValues, submitLabel = "Save" }: Props) {
   const titleRef = useRef<HTMLInputElement>(null);
   const excerptRef = useRef<HTMLTextAreaElement>(null);
-  const contentRef = useRef<HTMLTextAreaElement>(null);
   const seoTitleRef = useRef<HTMLInputElement>(null);
   const seoDescRef = useRef<HTMLTextAreaElement>(null);
 
   function handleGenerate() {
     const title = titleRef.current?.value || "";
-    const source = excerptRef.current?.value || contentRef.current?.value || title;
+    const source = excerptRef.current?.value || title;
     if (seoTitleRef.current) seoTitleRef.current.value = generateSeoTitle(title, "Midpoint Midrand");
     if (seoDescRef.current) seoDescRef.current.value = generateSeoDescription(source);
   }
@@ -47,13 +48,10 @@ export default function BlogForm({ action, defaultValues, submitLabel = "Save" }
         <label className="block text-sm font-medium">Excerpt</label>
         <textarea ref={excerptRef} name="excerpt" defaultValue={defaultValues?.excerpt} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
       </div>
+      <MediaPicker name="coverImage" label="Cover image" defaultValue={defaultValues?.coverImage} />
       <div>
-        <label className="block text-sm font-medium">Cover image URL</label>
-        <input name="coverImage" defaultValue={defaultValues?.coverImage} placeholder="Paste a URL from Media" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-      </div>
-      <div>
-        <label className="block text-sm font-medium">Content (HTML)</label>
-        <textarea ref={contentRef} name="contentHtml" defaultValue={defaultValues?.contentHtml} rows={12} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 font-mono text-xs" />
+        <label className="block text-sm font-medium">Content</label>
+        <RichTextEditor name="contentHtml" defaultValue={defaultValues?.contentHtml} />
       </div>
       <div>
         <label className="block text-sm font-medium">Focus keyword (optional)</label>
