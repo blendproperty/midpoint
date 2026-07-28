@@ -342,11 +342,7 @@ export default async function SeoAuditPage({
                 <span className={`rounded-full px-3 py-1 text-xs font-semibold ${GRADE_STYLES[row.result.grade]}`}>
                   {row.result.score}/100
                 </span>
-                <Link
-                  href={row.editHref}
-                  onClick={(e) => e.stopPropagation()}
-                  className="text-xs font-semibold text-midpoint-dark underline"
-                >
+                <Link href={row.editHref} className="text-xs font-semibold text-midpoint-dark underline">
                   Edit
                 </Link>
               </div>
