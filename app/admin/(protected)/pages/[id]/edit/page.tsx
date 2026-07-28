@@ -24,6 +24,8 @@ export default async function EditCmsPagePage({ params }: { params: Promise<{ id
           slug: page.slug,
           contentHtml: page.contentHtml,
           status: page.status,
+          passwordProtected: page.passwordProtected,
+          hasAccessPassword: Boolean(page.accessPasswordHash),
           seoTitle: page.seoTitle || "",
           seoDescription: page.seoDescription || "",
           focusKeyword: page.focusKeyword || "",

@@ -2,6 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
+import { hashPassword } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { Prisma } from "@prisma/client";
@@ -41,6 +42,22 @@ function readCommonFields(formData: FormData) {
   };
 }
 
+// Shared by createPage/updatePage. Never lets a page end up "protected" with
+// no password ever set — that would lock out every visitor including
+// whoever ticked the box, with no way back in short of clearing it in the
+// database directly.
+async function readAccessControlFields(formData: FormData, existingHash: string | null) {
+  const passwordProtected = formData.get("passwordProtected") === "on";
+  const rawPassword = String(formData.get("accessPassword") || "").trim();
+
+  const accessPasswordHash = rawPassword ? await hashPassword(rawPassword) : existingHash;
+
+  return {
+    passwordProtected: passwordProtected && Boolean(accessPasswordHash),
+    accessPasswordHash,
+  };
+}
+
 export async function createPage(formData: FormData) {
   await requireAdmin();
   const title = String(formData.get("title") || "").trim();
@@ -48,11 +65,12 @@ export async function createPage(formData: FormData) {
   const slug = slugify(slugInput || title);
   const contentHtml = String(formData.get("contentHtml") || "");
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
+  const access = await readAccessControlFields(formData, null);
 
   if (!title || !slug) throw new Error("Title is required");
 
   await prisma.page.create({
-    data: { title, slug, contentHtml, status, ...readCommonFields(formData) },
+    data: { title, slug, contentHtml, status, ...readCommonFields(formData), ...access },
   });
 
   revalidatePath("/admin/pages");
@@ -68,9 +86,12 @@ export async function updatePage(id: string, formData: FormData) {
   const contentHtml = String(formData.get("contentHtml") || "");
   const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
 
+  const existing = await prisma.page.findUnique({ where: { id }, select: { accessPasswordHash: true } });
+  const access = await readAccessControlFields(formData, existing?.accessPasswordHash ?? null);
+
   await prisma.page.update({
     where: { id },
-    data: { title, slug, contentHtml, status, ...readCommonFields(formData) },
+    data: { title, slug, contentHtml, status, ...readCommonFields(formData), ...access },
   });
 
   revalidatePath("/admin/pages");

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import CustomCodeBlock from "@/components/CustomCodeBlock";
+import PageAccessGate from "@/components/PageAccessGate";
 import PageHero from "@/components/PageHero";
 import PillarTableOfContents from "@/components/PillarTableOfContents";
 import PillarQuickFacts from "@/components/PillarQuickFacts";
@@ -14,6 +16,7 @@ import PageFaqAccordion from "@/components/PageFaqAccordion";
 import TalkToLeasing from "@/components/TalkToLeasing";
 import ExploreMore from "@/components/ExploreMore";
 import { getSiteSettings } from "@/lib/site-settings";
+import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
 
 export const dynamic = "force-dynamic";
 
@@ -49,7 +52,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     ...(pillar.canonicalUrl ? { alternates: { canonical: pillar.canonicalUrl } } : {}),
-    robots: pillar.noIndex ? { index: false, follow: true } : { index: true, follow: true },
+    // Password-protected pages are never indexable, regardless of noIndex.
+    robots:
+      pillar.passwordProtected || pillar.noIndex ? { index: false, follow: true } : { index: true, follow: true },
     openGraph: {
       title: pillar.ogTitle || title,
       description: pillar.ogDescription || description,
@@ -62,6 +67,15 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   const { slug } = await params;
   const pillar = await getPillar(slug);
   if (!pillar || pillar.status !== "PUBLISHED") notFound();
+
+  if (pillar.passwordProtected) {
+    const cookieStore = await cookies();
+    const token = cookieStore.get(pageAccessCookieName(pillar.id))?.value;
+    const unlocked = await verifyPageAccessToken(token, pillar.id);
+    if (!unlocked) {
+      return <PageAccessGate pageId={pillar.id} title={pillar.title} />;
+    }
+  }
 
   const settings = await getSiteSettings();
   const description = pillar.seoDescription || pillar.title;

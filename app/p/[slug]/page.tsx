@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import CustomCodeBlock from "@/components/CustomCodeBlock";
+import PageAccessGate from "@/components/PageAccessGate";
 import { getSiteSettings } from "@/lib/site-settings";
+import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
 
 export const dynamic = "force-dynamic";
 
@@ -23,7 +26,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     ...(page.canonicalUrl ? { alternates: { canonical: page.canonicalUrl } } : {}),
-    robots: page.noIndex ? { index: false, follow: true } : { index: true, follow: true },
+    // Password-protected pages are never indexable, regardless of the
+    // noIndex field — there's no point letting search engines crawl a page
+    // visitors can't actually open without a password.
+    robots: page.passwordProtected || page.noIndex ? { index: false, follow: true } : { index: true, follow: true },
     openGraph: {
       title: page.ogTitle || title,
       description: page.ogDescription || description,
@@ -36,6 +42,15 @@ export default async function CmsPage({ params }: { params: Promise<{ slug: stri
   const { slug } = await params;
   const page = await getPage(slug);
   if (!page || page.status !== "PUBLISHED") notFound();
+
+  if (page.passwordProtected) {
+    const cookieStore = await cookies();
+    const token = cookieStore.get(pageAccessCookieName(page.id))?.value;
+    const unlocked = await verifyPageAccessToken(token, page.id);
+    if (!unlocked) {
+      return <PageAccessGate pageId={page.id} title={page.title} />;
+    }
+  }
 
   const settings = await getSiteSettings();
   const description = page.seoDescription || page.title;
