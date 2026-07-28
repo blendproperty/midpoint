@@ -20,15 +20,26 @@ declare global {
   }
 }
 
-type Props = { siteKey?: string; successMessage?: string };
+type Props = {
+  siteKey?: string;
+  successMessage?: string;
+  // Set when someone arrives here via a specific VacancyCard's "Enquire"
+  // button (e.g. /contact-us?space=1+Kingfisher+Avenue&interest=Warehouse+space)
+  // so the enquiry captures which space they actually clicked on instead of
+  // landing as a blank, context-free form.
+  defaultInterest?: string;
+  spaceName?: string;
+};
 
-export default function ContactForm({ siteKey, successMessage }: Props = {}) {
+export default function ContactForm({ siteKey, successMessage, defaultInterest, spaceName }: Props = {}) {
   const [status, setStatus] = useState<Status>("idle");
   const [consent, setConsent] = useState(false);
   const [captchaError, setCaptchaError] = useState(false);
   const recaptchaRef = useRef<HTMLDivElement>(null);
 
   const recaptchaSiteKey = siteKey || DEFAULT_RECAPTCHA_SITE_KEY;
+  const selectedInterest = defaultInterest && interests.includes(defaultInterest) ? defaultInterest : "";
+  const initialMessage = spaceName ? `I'm interested in the space at ${spaceName}.\n\n` : "";
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -67,8 +78,14 @@ export default function ContactForm({ siteKey, successMessage }: Props = {}) {
     "w-full border-0 border-b border-white/20 bg-transparent px-0 py-3 text-sm text-white placeholder-white/50 focus:border-midpoint-cyan focus:outline-none";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form id="Contact" onSubmit={handleSubmit} className="space-y-6">
       <Script src="https://www.google.com/recaptcha/api.js" strategy="lazyOnload" />
+
+      {spaceName && (
+        <p className="rounded-lg border border-midpoint-cyan/30 bg-midpoint-cyan/10 px-4 py-3 text-sm text-midpoint-cyan">
+          Enquiring about: <span className="font-semibold">{spaceName}</span>
+        </p>
+      )}
 
       <div className="grid gap-6 sm:grid-cols-2">
         <input name="firstName" required placeholder="First Name" className={field} />
@@ -77,7 +94,7 @@ export default function ContactForm({ siteKey, successMessage }: Props = {}) {
         <input name="email" type="email" required placeholder="Email" className={field} />
       </div>
 
-      <select name="interest" required defaultValue="" className={field}>
+      <select name="interest" required defaultValue={selectedInterest} className={field}>
         <option value="" disabled className="text-midpoint-dark">
           I&apos;m interested in:
         </option>
@@ -88,7 +105,14 @@ export default function ContactForm({ siteKey, successMessage }: Props = {}) {
         ))}
       </select>
 
-      <textarea name="message" required rows={4} placeholder="Message" className={field} />
+      <textarea
+        name="message"
+        required
+        rows={4}
+        placeholder="Message"
+        defaultValue={initialMessage}
+        className={field}
+      />
 
       <label className="flex items-start gap-2 text-sm text-midpoint-grey-400">
         <input
