@@ -24,6 +24,23 @@ function trackVacancyEnquire(vacancyId: string, building: string) {
   }
 }
 
+// ContactForm's "I'm interested in:" dropdown only has these three exact
+// option values — map the vacancy's sector label onto the matching option so
+// it's pre-selected when someone arrives from a specific listing.
+const SECTOR_TO_INTEREST: Record<string, string> = {
+  Warehouse: "Warehouse space",
+  Office: "Office space",
+  "Serviced office": "Serviced offices",
+};
+
+function enquireHref(listing: VacancyListing) {
+  const params = new URLSearchParams();
+  params.set("space", listing.building);
+  const interest = SECTOR_TO_INTEREST[listing.sector];
+  if (interest) params.set("interest", interest);
+  return `/contact-us?${params.toString()}#Contact`;
+}
+
 export default function VacancyCard({ listing }: { listing: VacancyListing }) {
   return (
     <div className="overflow-hidden rounded-card bg-midpoint-dark text-white">
@@ -66,7 +83,7 @@ export default function VacancyCard({ listing }: { listing: VacancyListing }) {
 
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
-            href="/contact-us"
+            href={enquireHref(listing)}
             onClick={() => trackVacancyEnquire(listing.id, listing.building)}
             className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition hover:opacity-90"
           >
