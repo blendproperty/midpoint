@@ -38,6 +38,7 @@ type ListingRecord = {
   summary?: string;
   features?: (string | { name?: string; label?: string })[];
   building?: { name?: string };
+  businessPark?: { name?: string };
   images?: ListingImage[];
   updatedAt?: string;
 };
@@ -92,15 +93,33 @@ async function fetchAllListings(): Promise<ListingRecord[]> {
   return all;
 }
 
+// Business parks/buildings that are dedicated serviced-office space
+// regardless of what marketSector says for their individual listings —
+// OnPoint units come back with a generic "Office" marketSector even though
+// the whole building is serviced offices (meeting rooms, reception,
+// furnished/unfurnished options, monthly credits, etc.). Matched against
+// both businessPark.name and building.name since it's unclear which one
+// carries "OnPoint" consistently across every listing.
+const SERVICED_OFFICE_BUILDINGS = ["onpoint"];
+
 // Their marketSector strings aren't documented against our exact enum
 // values, so this matches loosely (case-insensitive substring) rather than
 // requiring an exact string — "Serviced Office", "serviced_office", and
-// "Serviced" should all land on SERVICED_OFFICE, for example. Anything that
-// doesn't match any known sector falls back to OFFICE and is flagged in the
-// sync result's `skipped` list (as a warning, not a hard failure) so it's
-// visible in /admin rather than silently miscategorised.
-function mapSector(raw: string | undefined): { sector: "WAREHOUSE" | "OFFICE" | "SERVICED_OFFICE"; matched: boolean } {
-  const value = (raw || "").toLowerCase();
+// "Serviced" should all land on SERVICED_OFFICE, for example. The building/
+// business park name is checked first since it's the more reliable signal
+// for known serviced-office-only buildings like OnPoint (see above) —
+// marketSector is only consulted as a fallback. Anything that doesn't match
+// any known sector falls back to OFFICE and is flagged in the sync result's
+// `skipped` list (as a warning, not a hard failure) so it's visible in
+// /admin rather than silently miscategorised.
+function mapSector(listing: ListingRecord): { sector: "WAREHOUSE" | "OFFICE" | "SERVICED_OFFICE"; matched: boolean } {
+  const buildingName = (listing.building?.name || "").toLowerCase();
+  const businessParkName = (listing.businessPark?.name || "").toLowerCase();
+  if (SERVICED_OFFICE_BUILDINGS.some((name) => buildingName.includes(name) || businessParkName.includes(name))) {
+    return { sector: "SERVICED_OFFICE", matched: true };
+  }
+
+  const value = (listing.marketSector || "").toLowerCase();
   if (value.includes("serviced")) return { sector: "SERVICED_OFFICE", matched: true };
   if (value.includes("warehouse") || value.includes("industrial")) return { sector: "WAREHOUSE", matched: true };
   if (value.includes("office")) return { sector: "OFFICE", matched: true };
@@ -176,7 +195,7 @@ export async function syncVacanciesFromListings(): Promise<VacancySyncResult> {
     seenExternalIds.add(listing.id);
 
     const title = listing.building?.name || listing.name || listing.id;
-    const { sector, matched } = mapSector(listing.marketSector);
+    const { sector, matched } = mapSector(listing);
     if (!matched) {
       result.skipped.push({
         id: listing.id,
