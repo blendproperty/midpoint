@@ -31,14 +31,16 @@ export default function PageSeoForm({ action, path, label, content, defaultValue
           read actual page content instead of just the page label. */}
       <input type="hidden" name="pageContentSource" value={content || ""} readOnly />
       <p className="text-sm text-slate-500">
-        This is a static (hand-coded) page, so there&apos;s no content editor here — but Page settings below now
-        reads this page&apos;s actual copy to generate its SEO description and schema markup, not just its title.
+        This is a static (hand-coded) page, so there&apos;s no content editor here — the fields below are the whole
+        form. They read this page&apos;s actual copy to generate its SEO description and schema markup, not just
+        its title.
       </p>
       <PageSettingsPanel
         titleFallback={label}
         sourceFields={["pageContentSource"]}
         previewPath={path}
         schemaKind="webpage"
+        defaultOpen
         defaultValues={defaultValues}
       />
       <button type="submit" className="rounded-full bg-midpoint-dark px-5 py-2.5 text-sm font-semibold text-white">
