@@ -49,7 +49,7 @@ export default async function AboutUsPage() {
       <RenewedVision />
       <SpaceGrid />
       <DeveloperSection
-        image="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdc3d8fc1775799f21d373_About-footer-p-1600.jpg"
+        image="/images/about/about-footer.jpg"
         imageAlt="Aerial view of Midpoint business estate"
         label="Property Developer"
         heading="Developed by property professionals."
