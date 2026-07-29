@@ -11,13 +11,13 @@ export default function BrokerCTASection() {
         <div className="mt-6 flex flex-wrap gap-4">
           <Link
             href="/contact-us"
-            className="rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark"
+            className="rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark transition-transform hover:scale-105"
           >
             Contact Leasing Team
           </Link>
           <Link
             href="/vacancies"
-            className="rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark"
+            className="rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
           >
             View Available Space
           </Link>
