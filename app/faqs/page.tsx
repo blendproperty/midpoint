@@ -27,7 +27,7 @@ export default async function FaqsPage() {
       <PageHero
         title="Everything you need to know about Midpoint."
         subtitle="Find answers to common questions about office space, warehouse facilities, amenities, and leasing opportunities at Midpoint in Midrand."
-        image="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69f8b6cd0380c1ad65416b38_faq-banner-p-1600.jpg"
+        image="/images/pages/faq-banner.jpg"
         imageAlt="Midpoint business estate"
       />
       <PageFaqAccordion heading="Frequently asked questions" faqs={faqs} />
