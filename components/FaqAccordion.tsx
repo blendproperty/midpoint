@@ -42,7 +42,7 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                   </span>
                 </button>
                 <div
-                  className={`grid overflow-hidden transition-[grid-template-rows] duration-250 ease-out ${
+                  className={`grid overflow-hidden transition-[grid-template-rows] duration-[250ms] ease-out ${
                     isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   }`}
                 >
