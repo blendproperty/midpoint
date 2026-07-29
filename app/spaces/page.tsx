@@ -42,7 +42,7 @@ export default async function SpacesPage() {
       <PageHero
         title="Spaces at Midpoint"
         subtitle="Office space, warehouse space and on-site amenities, all within one connected business estate in Midrand."
-        image="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg"
+        image="/images/pages/amenities-banner.jpg"
         imageAlt="Midpoint business estate"
       />
       <SpacesExplore />
