@@ -55,6 +55,14 @@ const cards = [
     ctaLabel: "View all FAQs →",
     variant: "cyan" as const,
   },
+  {
+    title: "Blog",
+    description:
+      "News and updates from Midpoint Midrand — check back for our latest stories.",
+    href: "/blog",
+    ctaLabel: "Visit the blog →",
+    variant: "dark" as const,
+  },
 ];
 
 export default async function InsightsPage() {
@@ -76,7 +84,7 @@ export default async function InsightsPage() {
       <PageHero
         title="Insights at Midpoint"
         subtitle="The business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place."
-        image="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg"
+        image="https://cdn.prod.website-links.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg"
         imageAlt="Midpoint business estate"
       />
 
@@ -90,7 +98,7 @@ export default async function InsightsPage() {
           the full picture of Midpoint beyond the spaces you can lease.
         </p>
 
-        <div className="mt-10 grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {cards.map((card) => (
             <PillarCard key={card.title} {...card} />
           ))}
