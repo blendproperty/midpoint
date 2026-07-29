@@ -55,11 +55,11 @@ type Props = {
 
 export default function VacancyCard({ listing, whatsappUrl }: Props) {
   return (
-    <div className="overflow-hidden rounded-card bg-midpoint-dark text-white">
-      <div className="relative h-56 w-full">
+    <div className="flex h-full flex-col overflow-hidden rounded-card bg-midpoint-dark text-white">
+      <div className="relative h-56 w-full shrink-0">
         <Image src={listing.image} alt={listing.building} fill className="object-cover" />
       </div>
-      <div className="p-6 md:p-8">
+      <div className="flex flex-1 flex-col p-6 md:p-8">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <p className="text-xs uppercase tracking-wide text-white/50">Building</p>
@@ -94,7 +94,7 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
           ))}
         </ul>
 
-        <div className="mt-6 flex flex-wrap items-center gap-3">
+        <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
           <Link
             href={enquireHref(listing)}
             onClick={() => trackVacancyEnquire(listing.id, vacancyLabel(listing))}
@@ -117,9 +117,10 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
               onClick={() => trackVacancyEnquire(listing.id, vacancyLabel(listing), "WHATSAPP")}
               aria-label={`WhatsApp us about ${vacancyLabel(listing)}`}
               title={`WhatsApp us about ${vacancyLabel(listing)}`}
-              className="ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white transition-transform duration-100 ease-out hover:scale-105 active:scale-95"
+              className="flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-100 ease-out hover:opacity-90 active:scale-[0.97]"
             >
-              <WhatsAppIcon className="h-5 w-5" />
+              <WhatsAppIcon className="h-4 w-4" />
+              WhatsApp
             </a>
           ) : null}
         </div>
