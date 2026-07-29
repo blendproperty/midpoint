@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { amenities } from "@/lib/amenities";
+import Reveal from "@/components/Reveal";
 
 export default function AmenitiesSection() {
   // Duplicated for a seamless marquee loop, same technique as TenantWall.
@@ -18,7 +19,7 @@ export default function AmenitiesSection() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Real 2-column grid confirmed via Playwright (607.2px / 303.6px,
             ~2fr/1fr): heading left, description + button right. */}
-        <div className="grid gap-8 md:grid-cols-[2fr_1fr] md:items-start">
+        <Reveal className="grid gap-8 md:grid-cols-[2fr_1fr] md:items-start">
           <h2 className="text-3xl font-semibold md:text-4xl">Amenities &amp; Lifestyle</h2>
           <div>
             <p className="text-midpoint-grey-100">
@@ -29,12 +30,12 @@ export default function AmenitiesSection() {
             </p>
             <Link
               href="/amenities"
-              className="mt-4 inline-flex rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark"
+              className="mt-4 inline-flex rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark transition-transform hover:scale-105"
             >
               Read More
             </Link>
           </div>
-        </div>
+        </Reveal>
       </div>
 
       {/* Sliding card strip with edge fade — real values extracted via
@@ -54,7 +55,7 @@ export default function AmenitiesSection() {
           {row.map((a, i) => (
             <div
               key={`${a.title}-${i}`}
-              className="w-60 shrink-0 rounded-xl bg-white p-5 text-midpoint-dark"
+              className="w-60 shrink-0 rounded-xl bg-white p-5 text-midpoint-dark transition-transform hover:-translate-y-1"
             >
               <div className="h-14 w-14 overflow-hidden rounded-lg bg-[rgba(161,189,217,0.08)]">
                 <Image src={a.icon} alt="" width={56} height={56} />

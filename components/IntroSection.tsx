@@ -1,15 +1,16 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import Reveal from "@/components/Reveal";
 
 export default function IntroSection() {
   return (
     <section id="introduction" className="bg-midpoint-dark px-6 py-16 text-white">
       <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
-        <div className="flex justify-center lg:justify-start">
+        <Reveal className="flex justify-center lg:justify-start">
           <Logo className="h-auto w-full max-w-md" />
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal delay={120}>
           <p className="font-semibold">
             Midpoint offers businesses a secure, well-connected location. It delivers a mix of warehouse space, offices, and serviced offices in Midrand, supported by lifestyle amenities that make the workday easier. Midpoint is the prime estate for companies looking for industrial space, logistics facilities, or office space. Enjoy flexible leasing options and strong connectivity across Gauteng.
           </p>
@@ -21,11 +22,11 @@ export default function IntroSection() {
           </p>
           <Link
             href="/availability-report"
-            className="mt-6 inline-flex rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark"
+            className="mt-6 inline-flex rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark transition-transform hover:scale-105"
           >
             View available space at Midpoint
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
