@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 export async function POST(req: Request) {
   try {
     const { vacancyId, building, type } = await req.json();
-    if (type === "VIEW" || type === "ENQUIRE") {
+    if (type === "VIEW" || type === "ENQUIRE" || type === "WHATSAPP") {
       await prisma.vacancyEvent.create({
         data: {
           vacancyId: typeof vacancyId === "string" ? vacancyId : null,
