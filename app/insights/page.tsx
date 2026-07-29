@@ -84,7 +84,7 @@ export default async function InsightsPage() {
       <PageHero
         title="Insights at Midpoint"
         subtitle="The business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place."
-        image="https://cdn.prod.website-links.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg"
+        image="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg"
         imageAlt="Midpoint business estate"
       />
 
