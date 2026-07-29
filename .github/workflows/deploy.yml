@@ -48,4 +48,8 @@ jobs:
             docker compose -f compose.prod.yml build web migrate
             docker compose -f compose.prod.yml up -d --build
             docker compose -f compose.prod.yml --profile tools run --rm migrate
-            docker image prune -f
+            # Cleanup only — never fails the deploy. Rapid successive pushes
+            # trigger overlapping deploy runs on the same host, and Docker
+            # only allows one `image prune` at a time; a collision here used
+            # to mark an otherwise-successful deploy as failed.
+            docker image prune -f || true
