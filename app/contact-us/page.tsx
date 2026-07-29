@@ -6,6 +6,7 @@ import ContactForm from "@/components/ContactForm";
 import { getPageSeoOverride } from "@/lib/page-seo";
 import { getSiteSettings } from "@/lib/site-settings";
 import { richPageJsonLd } from "@/lib/seo";
+import { site } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
@@ -37,6 +38,14 @@ function firstValue(v: string | string[] | undefined): string | undefined {
 // that this page's own form rendered on a plain white background with no
 // styling, sitting awkwardly right above the styled global one. This
 // reproduces the real layout instead of removing the top form outright.
+//
+// This page also intentionally repeats the phone/email/address "Contact
+// Info" card from the shared ContactSection (sourced from lib/site.ts, the
+// single source of truth) — SiteChrome suppresses ContactSection here to
+// avoid a second form on the page, but that also silently dropped the info
+// card, leaving a large empty gap under the intro copy. Restoring just the
+// info card (not the form/map that come with it) fixes that without
+// reintroducing the duplicate-form problem.
 export default async function ContactUs({
   searchParams,
 }: {
@@ -77,23 +86,45 @@ export default async function ContactUs({
 
       <section className="bg-midpoint-dark px-6 py-16 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
-          <div className="space-y-4 text-midpoint-grey-400">
-            <p className="font-semibold text-white">
-              Whether you are looking for office space, serviced offices, or warehouse facilities in Midrand, the
-              Midpoint leasing team is ready to assist. Our team can provide detailed information on current
-              vacancies, upcoming developments, space specifications, and leasing options across the estate.
-            </p>
-            <p>
-              We work with both prospective tenants and commercial property brokers to help businesses identify
-              premises that align with their operational needs, growth plans, and preferred working environment.
-            </p>
-            <p className="font-semibold text-white">
-              Get in touch today to discuss availability, arrange a site visit, or explore the opportunities
-              available at Midpoint.{" "}
-              <a href="#Contact" className="text-midpoint-cyan underline">
-                Enquire today
-              </a>
-            </p>
+          <div>
+            <div className="space-y-4 text-midpoint-grey-400">
+              <p className="font-semibold text-white">
+                Whether you are looking for office space, serviced offices, or warehouse facilities in Midrand, the
+                Midpoint leasing team is ready to assist. Our team can provide detailed information on current
+                vacancies, upcoming developments, space specifications, and leasing options across the estate.
+              </p>
+              <p>
+                We work with both prospective tenants and commercial property brokers to help businesses identify
+                premises that align with their operational needs, growth plans, and preferred working environment.
+              </p>
+              <p className="font-semibold text-white">
+                Get in touch today to discuss availability, arrange a site visit, or explore the opportunities
+                available at Midpoint.{" "}
+                <a href="#Contact" className="text-midpoint-cyan underline">
+                  Enquire today
+                </a>
+              </p>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-10 border-t border-white/10 pt-8">
+              <div>
+                <h3 className="text-sm uppercase tracking-wide text-midpoint-grey-400">Contact Info</h3>
+                <p className="mt-1">
+                  <a href={site.phoneHref}>{site.phone}</a>
+                </p>
+                <p>
+                  <a href={site.emailHref}>{site.email}</a>
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm uppercase tracking-wide text-midpoint-grey-400">Address</h3>
+                <p className="mt-1">
+                  {site.address.street}, {site.address.suburb}
+                  <br />
+                  {site.address.city}, {site.address.postalCode}
+                </p>
+              </div>
+            </div>
           </div>
           <div>
             <ContactForm
