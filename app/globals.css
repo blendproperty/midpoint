@@ -7,6 +7,20 @@ body {
   font-family: var(--font-primary), system-ui, sans-serif;
 }
 
+/* Scroll-reveal and hover-motion touches added across the homepage rely on
+   CSS transitions/animations (see components/Reveal.tsx, Nav.tsx). Users
+   who've asked their OS for reduced motion should get none of that. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Every admin form (Pillar Pages, Blog, Pages, Vacancies, FAQs, Site
    Settings, ...) reuses the same plain "rounded-lg border px-3 py-2" input
    markup. Rather than hand-editing every form component, this cascades a

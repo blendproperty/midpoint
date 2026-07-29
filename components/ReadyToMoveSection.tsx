@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 
 export default function ReadyToMoveSection() {
   return (
@@ -16,16 +17,16 @@ export default function ReadyToMoveSection() {
             src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif"
             alt=""
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-midpoint-dark/50 via-midpoint-dark/10 to-transparent" />
 
-          <div className="relative px-8 text-white sm:px-12">
+          <Reveal className="relative px-8 text-white sm:px-12">
             <p className="text-4xl font-bold sm:text-5xl">Ready to move in?</p>
             <p className="mt-2 text-2xl font-semibold text-midpoint-cyan sm:text-3xl">
               Check availability now.
             </p>
-          </div>
+          </Reveal>
 
           <span className="absolute right-6 top-6 text-3xl text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
             ↗
