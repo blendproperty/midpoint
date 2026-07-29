@@ -21,6 +21,21 @@ body {
   }
 }
 
+/* Public-facing dark-themed inputs (currently just ContactForm.tsx) need to
+   override the browser's autofill background — Chrome/Edge/Safari ignore a
+   transparent/dark Tailwind bg on an autofilled field and force in their own
+   white/light-blue fill, which is why filled fields looked like unstyled
+   white boxes against the dark form. This forces the autofill state to keep
+   matching the field's own dark background instead. */
+.dark-field:-webkit-autofill,
+.dark-field:-webkit-autofill:hover,
+.dark-field:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.06) inset;
+  box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.06) inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 /* Every admin form (Pillar Pages, Blog, Pages, Vacancies, FAQs, Site
    Settings, ...) reuses the same plain "rounded-lg border px-3 py-2" input
    markup. Rather than hand-editing every form component, this cascades a
