@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { VacancyListing } from "@/lib/vacancies";
+import { vacancyLabel, type VacancyListing } from "@/lib/vacancies";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 function formatSize(n: number) {
   return `${n.toLocaleString("en-ZA", { maximumFractionDigits: 2 })} m²`;
@@ -13,8 +14,8 @@ function formatSize(n: number) {
 // Uses the specific unit name where one exists (e.g. an OnPoint suite)
 // rather than just the shared building name, so the "Vacancy interest"
 // breakdown on the dashboard can tell individual units apart.
-function trackVacancyEnquire(vacancyId: string, spaceLabel: string) {
-  const body = JSON.stringify({ vacancyId, building: spaceLabel, type: "ENQUIRE" });
+function trackVacancyEnquire(vacancyId: string, spaceLabel: string, type: "ENQUIRE" | "WHATSAPP" = "ENQUIRE") {
+  const body = JSON.stringify({ vacancyId, building: spaceLabel, type });
   if (navigator.sendBeacon) {
     navigator.sendBeacon("/api/track/vacancy-event", new Blob([body], { type: "application/json" }));
   } else {
@@ -36,24 +37,23 @@ const SECTOR_TO_INTEREST: Record<string, string> = {
   "Serviced office": "Serviced offices",
 };
 
-// The label carried through to the enquiry — the specific unit when there
-// is one (e.g. "OnPoint — Suite 4"), otherwise just the building name.
-// Buildings like OnPoint have many individual listings that would otherwise
-// all show up as the same bare "OnPoint", making it impossible to tell
-// which actual space someone enquired about.
-function spaceLabel(listing: VacancyListing) {
-  return listing.unitName ? `${listing.building} — ${listing.unitName}` : listing.building;
-}
-
 function enquireHref(listing: VacancyListing) {
   const params = new URLSearchParams();
-  params.set("space", spaceLabel(listing));
+  params.set("space", vacancyLabel(listing));
   const interest = SECTOR_TO_INTEREST[listing.sector];
   if (interest) params.set("interest", interest);
   return `/contact-us?${params.toString()}#Contact`;
 }
 
-export default function VacancyCard({ listing }: { listing: VacancyListing }) {
+type Props = {
+  listing: VacancyListing;
+  // Pre-built wa.me link (site WhatsApp number + a message naming this
+  // specific listing), computed server-side in app/vacancies/page.tsx from
+  // Site Settings. Omitted/undefined when no WhatsApp number is configured.
+  whatsappUrl?: string | null;
+};
+
+export default function VacancyCard({ listing, whatsappUrl }: Props) {
   return (
     <div className="overflow-hidden rounded-card bg-midpoint-dark text-white">
       <div className="relative h-56 w-full">
@@ -94,10 +94,10 @@ export default function VacancyCard({ listing }: { listing: VacancyListing }) {
           ))}
         </ul>
 
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="mt-6 flex flex-wrap items-center gap-3">
           <Link
             href={enquireHref(listing)}
-            onClick={() => trackVacancyEnquire(listing.id, spaceLabel(listing))}
+            onClick={() => trackVacancyEnquire(listing.id, vacancyLabel(listing))}
             className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition-transform duration-100 ease-out hover:opacity-90 active:scale-[0.97]"
           >
             Enquire
@@ -108,6 +108,20 @@ export default function VacancyCard({ listing }: { listing: VacancyListing }) {
           >
             See map view
           </Link>
+
+          {whatsappUrl ? (
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackVacancyEnquire(listing.id, vacancyLabel(listing), "WHATSAPP")}
+              aria-label={`WhatsApp us about ${vacancyLabel(listing)}`}
+              title={`WhatsApp us about ${vacancyLabel(listing)}`}
+              className="ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white transition-transform duration-100 ease-out hover:scale-105 active:scale-95"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+            </a>
+          ) : null}
         </div>
       </div>
     </div>
