@@ -5,17 +5,17 @@ const quickLinks = [
   {
     title: "Explore Midpoint",
     href: "/#explore",
-    image: "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6821f724301eaaaa0229354c_Screenshot%202025-05-12%20at%2014.26.35-p-1080.png",
+    image: "/images/hero/quicklink-explore.png",
   },
   {
     title: "View availability report",
     href: "/availability-report",
-    image: "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6821f7abaef398e5e5da854e_Screenshot%202025-05-12%20at%2014.29.00.png",
+    image: "/images/hero/quicklink-availability.png",
   },
   {
     title: "Speak to Us",
     href: "/contact-us",
-    image: "https://cdn.prod.website-files.com/67d1edae36bfc44dfe4ad0c8/6851562de19de0861dbdbbea_midpoint-logo.png",
+    image: "/images/hero/quicklink-speak.png",
   },
 ];
 
@@ -33,7 +33,7 @@ export default function HeroSection() {
           and reduced contrast behind the headline. */}
       <div className="relative min-h-[700px] w-full overflow-hidden md:min-h-[850px] lg:min-h-[973px]">
         <Image
-          src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a156846faa1903bd227898a_Midpoint-Banner.jpg"
+          src="/images/hero/banner.jpg"
           alt="Midpoint business estate"
           fill
           priority
