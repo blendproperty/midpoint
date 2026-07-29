@@ -13,7 +13,7 @@ export default function SiteMap() {
       <div className="relative">
         <div className="relative aspect-[5500/2792] w-full overflow-hidden rounded-[20px] bg-white">
           <Image
-            src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69e21ba7b5a168f9f25a6a8d_Aerial.jpg"
+            src="/images/sitemap/aerial.jpg"
             alt="Midpoint estate aerial map"
             fill
             className="object-cover"
