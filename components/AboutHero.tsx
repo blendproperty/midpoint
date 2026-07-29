@@ -4,7 +4,7 @@ export default function AboutHero() {
   return (
     <section className="relative flex h-[560px] items-end overflow-hidden md:h-[620px]">
       <Image
-        src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a1497e2f7535858f592bc87_about-banner-p-1600.jpg"
+        src="/images/about/about-banner.jpg"
         alt="Midpoint warehouse and office park"
         fill
         priority
