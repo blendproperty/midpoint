@@ -200,3 +200,22 @@ export function listingsJsonLd(listings: ListingForSchema[], path: string, name:
     }))
   };
 }
+
+// Defensively strips an already-baked-in " | <siteName>" (or " - <siteName>")
+// suffix from a title before it's returned from generateMetadata. Needed
+// because some PageSeoOverride/PillarPage rows in the database already have
+// the site name appended (from before generateSeoTitle stopped doing that),
+// and the root layout's title.template will append it again on top —
+// without this, those specific pages would still show the old doubled-up
+// title even after the generator fix, since existing DB rows don't change
+// retroactively.
+export function stripSiteNameSuffix(title: string, siteName: string): string {
+  const trimmed = title.trim();
+  const suffixes = [` | ${siteName}`, ` - ${siteName}`, ` — ${siteName}`];
+  for (const suffix of suffixes) {
+    if (trimmed.toLowerCase().endsWith(suffix.toLowerCase())) {
+      return trimmed.slice(0, trimmed.length - suffix.length).trim();
+    }
+  }
+  return trimmed;
+}
