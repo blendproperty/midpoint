@@ -1,1 +1,100 @@
-aW1wb3J0IEltYWdlIGZyb20gIm5leHQvaW1hZ2UiOwppbXBvcnQgTGluayBmcm9tICJuZXh0L2xpbmsiOwppbXBvcnQgeyBhbWVuaXRpZXMgfSBmcm9tICJAL2xpYi9hbWVuaXRpZXMiOwppbXBvcnQgUmV2ZWFsIGZyb20gIkAvY29tcG9uZW50cy9SZXZlYWwiOwoKZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gQW1lbml0aWVzU2VjdGlvbigpIHsKICAvLyBEdXBsaWNhdGVkIGZvciBhIHNlYW1sZXNzIG1hcnF1ZWUgbG9vcCwgc2FtZSB0ZWNobmlxdWUgYXMgVGVuYW50V2FsbC4KICBjb25zdCByb3cgPSBbLi4uYW1lbml0aWVzLCAuLi5hbWVuaXRpZXNdOwoKICByZXR1cm4gKAogICAgPHNlY3Rpb24KICAgICAgaWQ9IkFtZW5pdGllcyIKICAgICAgY2xhc3NOYW1lPSJvdmVyZmxvdy1oaWRkZW4gcHktMTYgdGV4dC13aGl0ZSIKICAgICAgc3R5bGU9e3sKICAgICAgICBiYWNrZ3JvdW5kSW1hZ2U6CiAgICAgICAgICAibGluZWFyLWdyYWRpZW50KDgxZGVnLCByZ2IoNzksIDExNSwgMTE3KSwgcmdiKDgxLCA5OCwgOTcpIDU5JSkiLAogICAgICB9fQogICAgPgogICAgICA8ZGl2IGNsYXNzTmFtZT0ibXgtYXV0byBtYXgtdy03eGwgcHgtNiI+CiAgICAgICAgey8qIFJlYWwgMi1jb2x1bW4gZ3JpZCBjb25maXJtZWQgdmlhIFBsYXl3cmlnaHQgKDYwNy4ycHggLyAzMDMuNnB4LAogICAgICAgICAgICB+MmZyLzFmcik6IGhlYWRpbmcgbGVmdCwgZGVzY3JpcHRpb24gKyBidXR0b24gcmlnaHQuICovfQogICAgICAgIDxSZXZlYWwgY2xhc3NOYW1lPSJncmlkIGdhcC04IG1kOmdyaWQtY29scy1bMmZyXzFmcl0gbWQ6aXRlbXMtc3RhcnQiPgogICAgICAgICAgPGgyIGNsYXNzTmFtZT0idGV4dC0zeGwgZm9udC1zZW1pYm9sZCBtZDp0ZXh0LTR4bCI+QW1lbml0aWVzICZhbXA7IExpZmVzdHlsZTwvaDI+CiAgICAgICAgICA8ZGl2PgogICAgICAgICAgICA8cCBjbGFzc05hbWU9InRleHQtbWlkcG9pbnQtZ3JleS0xMDAiPgogICAgICAgICAgICAgIEZhY2lsaXRpZXMgdGhhdCBzdXBwb3J0IHlvdXIgdGVhbSZyc3F1bztzIGRheS4gQW4gZW52aXJvbm1lbnQgZGVzaWduZWQgZm9yIHdlbGwtYmVpbmcgYW5kIHN1Y2Nlc3MuCiAgICAgICAgICAgIDwvcD4KICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJtdC0yIHRleHQtbWlkcG9pbnQtZ3JleS0xMDAiPgogICAgICAgICAgICAgIE1pZHBvaW50IGNvbWJpbmVzIGluZHVzdHJpYWwgYW5kIGNvbW1lcmNpYWwgc3BhY2Ugd2l0aCBldmVyeWRheSBhbWVuaXRpZXMgY3JlYXRlZCBmb3IgdGhlIHBlb3BsZSB3aG8gd29yayBoZXJlLgogICAgICAgICAgICA8L3A+CiAgICAgICAgICAgIDxMaW5rCiAgICAgICAgICAgICAgaHJlZj0iL2FtZW5pdGllcyIKICAgICAgICAgICAgICBjbGFzc05hbWU9Im10LTQgaW5saW5lLWZsZXggcm91bmRlZC1mdWxsIGJnLW1pZHBvaW50LWN5YW4gcHgtNiBweS0zIHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LW1pZHBvaW50LWRhcmsgdHJhbnNpdGlvbi10cmFuc2Zvcm0gaG92ZXI6c2NhbGUtMTA1IgogICAgICAgICAgICA+CiAgICAgICAgICAgICAgUmVhZCBNb3JlCiAgICAgICAgICAgIDwvTGluaz4KICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvUmV2ZWFsPgogICAgICA8L2Rpdj4KCiAgICAgIHsvKiBTbWFsbCwgYWx3YXlzLXZpc2libGUgaGludCB0aGF0IHRoZSBzdHJpcCBiZWxvdyBpcyBpbnRlcmFjdGl2ZSBhbmQgaGFzCiAgICAgICAgICBtb3JlIGNhcmRzIHRoYW4gd2hhdCdzIG9uIHNjcmVlbiAtIHRoZXJlIHdhcyBwcmV2aW91c2x5IG5vIHNpZ25hbCBvZgogICAgICAgICAgZWl0aGVyLiAqL30KICAgICAgPHAgY2xhc3NOYW1lPSJteC1hdXRvIG10LTggZmxleCBtYXgtdy03eGwgaXRlbXMtY2VudGVyIGdhcC0yIHB4LTYgdGV4dC14cyB1cHBlcmNhc2UgdHJhY2tpbmctd2lkZSB0ZXh0LW1pZHBvaW50LWdyZXktMTAwLzgwIj4KICAgICAgICA8c3BhbiBhcmlhLWhpZGRlbj0idHJ1ZSI+4oaUPC9zcGFuPgogICAgICAgIEhvdmVyIHRvIHBhdXNlIOKAoiBzY3JvbGwgdG8gZXhwbG9yZQogICAgICAgIDxzcGFuIGFyaWEtaGlkZGVuPSJ0cnVlIj7ihpI8L3NwYW4+CiAgICAgIDwvcD4KCiAgICAgIHsvKiBTbGlkaW5nIGNhcmQgc3RyaXAgd2l0aCBlZGdlIGZhZGUg4oCUIHJlYWwgdmFsdWVzIGV4dHJhY3RlZCB2aWEKICAgICAgICAgIFBsYXl3cmlnaHQ6IHdoaXRlIGNhcmRzICgxMnB4IHJhZGl1cywgMjQwcHggd2lkZSksIGljb24gaW1hZ2UgYXQKICAgICAgICAgIGZ1bGwgNTbDlzU2IChubyBzbWFsbGVyIGljb24gcGFkZGVkIGluc2lkZSksIGxpbmVhci1ncmFkaWVudCBtYXNrCiAgICAgICAgICBmYWRpbmcgYm90aCBlZGdlcy4gYGdyb3VwYCArIGZvY3VzL2hvdmVyIHBhdXNlIHRoZSBtYXJxdWVlIGFuZAogICAgICAgICAgcmV2ZWFsIHRoZSBjaGV2cm9uIGhpbnRzIHNvIGEgdmlzaXRvciBjYW4gdGVsbCB0aGVyZSdzIG1vcmUgdG8gc2VlCiAgICAgICAgICBpbiBib3RoIGRpcmVjdGlvbnMgYW5kIGNhbiBhY3R1YWxseSBzdG9wIGl0IHRvIHJlYWQgYSBjYXJkLiAqL30KICAgICAgPGRpdgogICAgICAgIHJvbGU9InJlZ2lvbiIKICAgICAgICBhcmlhLWxhYmVsPSJBbWVuaXRpZXMgYW5kIGxpZmVzdHlsZSBoaWdobGlnaHRzLCBhdXRvLXNjcm9sbGluZyIKICAgICAgICBjbGFzc05hbWU9Imdyb3VwIHJlbGF0aXZlIG10LTQgb3ZlcmZsb3ctaGlkZGVuIgogICAgICAgIHN0eWxlPXt7CiAgICAgICAgICBtYXNrSW1hZ2U6CiAgICAgICAgICAgICJsaW5lYXItZ3JhZGllbnQodG8gcmlnaHQsIHJnYmEoMCwwLDAsMCksIHJnYigwLDAsMCkgMzAlLCByZ2IoMCwwLDApIDcwJSwgcmdiYSgwLDAsMCwwKSkiLAogICAgICAgICAgV2Via2l0TWFza0ltYWdlOgogICAgICAgICAgICAibGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCByZ2JhKDAsMCwwLDApLCByZ2IoMCwwLDApIDMwJSwgcmdiKDAsMCwwKSA3MCUsIHJnYmEoMCwwLDAsMCkpIiwKICAgICAgICB9fQogICAgICA+CiAgICAgICAgPGRpdgogICAgICAgICAgY2xhc3NOYW1lPSJmbGV4IHctbWF4IGdhcC00IGFuaW1hdGUtbWFycXVlZSBncm91cC1ob3ZlcjpbYW5pbWF0aW9uLXBsYXktc3RhdGU6cGF1c2VkXSBncm91cC1mb2N1cy13aXRoaW46W2FuaW1hdGlvbi1wbGF5LXN0YXRlOnBhdXNlZF0iCiAgICAgICAgPgogICAgICAgICAge3Jvdy5tYXAoKGEsIGkpID0+ICgKICAgICAgICAgICAgPGRpdgogICAgICAgICAgICAgIGtleT17YCR7YS50aXRsZX0tJHtpfWB9CiAgICAgICAgICAgICAgdGFiSW5kZXg9ezB9CiAgICAgICAgICAgICAgY2xhc3NOYW1lPSJ3LTYwIHNocmluay0wIHJvdW5kZWQteGwgYmctd2hpdGUgcC01IHRleHQtbWlkcG9pbnQtZGFyayB0cmFuc2l0aW9uLXRyYW5zZm9ybSBob3ZlcjotdHJhbnNsYXRlLXktMSBmb2N1czotdHJhbnNsYXRlLXktMSBmb2N1czpvdXRsaW5lLW5vbmUgZm9jdXM6cmluZy0yIGZvY3VzOnJpbmctbWlkcG9pbnQtY3lhbiIKICAgICAgICAgICAgPgogICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPSJoLTE0IHctMTQgb3ZlcmZsb3ctaGlkZGVuIHJvdW5kZWQtbGcgYmctW3JnYmEoMTYxLDE4OSwyMTcsMC4wOCldIj4KICAgICAgICAgICAgICAgIDxJbWFnZSBzcmM9e2EuaWNvbn0gYWx0PSIiIHdpZHRoPXs1Nn0gaGVpZ2h0PXs1Nn0gLz4KICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPSJtdC00IGZvbnQtc2VtaWJvbGQiPnthLnRpdGxlfTwvaDM+CiAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPSJtdC0xIHRleHQtc20gdGV4dC1taWRwb2ludC1ncmV5LTQwMCI+e2EuZGVzY3JpcHRpb259PC9wPgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICkpfQogICAgICAgIDwvZGl2PgoKICAgICAgICB7LyogRWRnZSBjaGV2cm9ucyDigJQgZmFpbnQgYnkgZGVmYXVsdCwgYnJpZ2h0ZW4gb24gaG92ZXIvZm9jdXMgc28gdGhlCiAgICAgICAgICAgIGFmZm9yZGFuY2UgaXMgZGlzY292ZXJhYmxlIHdpdGhvdXQgYWxyZWFkeSBrbm93aW5nIHRvIGhvdmVyLiAqL30KICAgICAgICA8ZGl2IGNsYXNzTmFtZT0icG9pbnRlci1ldmVudHMtbm9uZSBhYnNvbHV0ZSBpbnNldC15LTAgbGVmdC0wIGZsZXggaXRlbXMtY2VudGVyIHBsLTIgb3BhY2l0eS00MCB0cmFuc2l0aW9uLW9wYWNpdHkgZHVyYXRpb24tMzAwIGdyb3VwLWhvdmVyOm9wYWNpdHktMTAwIGdyb3VwLWZvY3VzLXdpdGhpbjpvcGFjaXR5LTEwMCI+CiAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9ImZsZXggaC04IHctOCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgcm91bmRlZC1mdWxsIGJnLW1pZHBvaW50LWRhcmsvNzAgdGV4dC1zbSB0ZXh0LXdoaXRlIGJhY2tkcm9wLWJsdXItc20iIGFyaWEtaGlkZGVuPSJ0cnVlIj4KICAgICAgICAgICAg4oaQCiAgICAgICAgICA8L3NwYW4+CiAgICAgICAgPC9kaXY+CiAgICAgICAgPGRpdiBjbGFzc05hbWU9InBvaW50ZXItZXZlbnRzLW5vbmUgYWJzb2x1dGUgaW5zZXQteS0wIHJpZ2h0LTAgZmxleCBpdGVtcy1jZW50ZXIgcHItMiBvcGFjaXR5LTQwIHRyYW5zaXRpb24tb3BhY2l0eSBkdXJhdGlvbi0zMDAgZ3JvdXAtaG92ZXI6b3BhY2l0eS0xMDAgZ3JvdXAtZm9jdXMtd2l0aGluOm9wYWNpdHktMTAwIj4KICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0iZmxleCBoLTggdy04IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciByb3VuZGVkLWZ1bGwgYmctbWlkcG9pbnQtZGFyay83MCB0ZXh0LXNtIHRleHQtd2hpdGUgYmFja2Ryb3AtYmx1ci1zbSIgYXJpYS1oaWRkZW49InRydWUiPgogICAgICAgICAgICDihpIKICAgICAgICAgIDwvc3Bhbj4KICAgICAgICA8L2Rpdj4KICAgICAgPC9kaXY+CiAgICA8L3NlY3Rpb24+CiAgKTsKfQo=
+import Image from "next/image";
+import Link from "next/link";
+import { amenities } from "@/lib/amenities";
+import Reveal from "@/components/Reveal";
+
+export default function AmenitiesSection() {
+  // Duplicated for a seamless marquee loop, same technique as TenantWall.
+  const row = [...amenities, ...amenities];
+
+  return (
+    <section
+      id="Amenities"
+      className="overflow-hidden py-16 text-white"
+      style={{
+        backgroundImage:
+          "linear-gradient(81deg, rgb(79, 115, 117), rgb(81, 98, 97) 59%)",
+      }}
+    >
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Real 2-column grid confirmed via Playwright (607.2px / 303.6px,
+            ~2fr/1fr): heading left, description + button right. */}
+        <Reveal className="grid gap-8 md:grid-cols-[2fr_1fr] md:items-start">
+          <h2 className="text-3xl font-semibold md:text-4xl">Amenities &amp; Lifestyle</h2>
+          <div>
+            <p className="text-midpoint-grey-100">
+              Facilities that support your team&rsquo;s day. An environment designed for well-being and success.
+            </p>
+            <p className="mt-2 text-midpoint-grey-100">
+              Midpoint combines industrial and commercial space with everyday amenities created for the people who work here.
+            </p>
+            <Link
+              href="/amenities"
+              className="mt-4 inline-flex rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark transition-transform hover:scale-105"
+            >
+              Read More
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Small, always-visible hint that the strip below is interactive and has
+          more cards than what's on screen - there was previously no signal of
+          either. */}
+      <p className="mx-auto mt-8 flex max-w-7xl items-center gap-2 px-6 text-xs uppercase tracking-wide text-midpoint-grey-100/80">
+        <span aria-hidden="true">←</span>
+        Hover to pause · scroll to explore
+        <span aria-hidden="true">→</span>
+      </p>
+
+      {/* Sliding card strip with edge fade — real values extracted via
+          Playwright: white cards (12px radius, 240px wide), icon image at
+          full 56×56 (no smaller icon padded inside), linear-gradient mask
+          fading both edges. `group` + focus/hover pause the marquee and
+          reveal the chevron hints so a visitor can tell there's more to see
+          in both directions and can actually stop it to read a card. */}
+      <div
+        role="region"
+        aria-label="Amenities and lifestyle highlights, auto-scrolling"
+        className="group relative mt-4 overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, rgba(0,0,0,0), rgb(0,0,0) 30%, rgb(0,0,0) 70%, rgba(0,0,0,0))",
+          WebkitMaskImage:
+            "linear-gradient(to right, rgba(0,0,0,0), rgb(0,0,0) 30%, rgb(0,0,0) 70%, rgba(0,0,0,0))",
+        }}
+      >
+        <div
+          className="flex w-max gap-4 animate-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
+        >
+          {row.map((a, i) => (
+            <div
+              key={`${a.title}-${i}`}
+              tabIndex={0}
+              className="w-60 shrink-0 rounded-xl bg-white p-5 text-midpoint-dark transition-transform hover:-translate-y-1 focus:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-midpoint-cyan"
+            >
+              <div className="h-14 w-14 overflow-hidden rounded-lg bg-[rgba(161,189,217,0.08)]">
+                <Image src={a.icon} alt="" width={56} height={56} />
+              </div>
+              <h3 className="mt-4 font-semibold">{a.title}</h3>
+              <p className="mt-1 text-sm text-midpoint-grey-400">{a.description}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Edge chevrons — faint by default, brighten on hover/focus so the
+            affordance is discoverable without already knowing to hover. */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2 opacity-40 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-midpoint-dark/70 text-sm text-white backdrop-blur-sm" aria-hidden="true">
+            ←
+          </span>
+        </div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 opacity-40 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-midpoint-dark/70 text-sm text-white backdrop-blur-sm" aria-hidden="true">
+            →
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
