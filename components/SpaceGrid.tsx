@@ -3,19 +3,19 @@ import Link from "next/link";
 
 const spaces = [
   {
-    icon: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdb6345c825ebf55a99160_building.svg",
+    icon: "/images/spaces/icon-premium-offices.svg",
     title: "Premium Offices",
     text: "Professional office space for corporate teams, professional services firms, and growing enterprises.",
     href: "/offices"
   },
   {
-    icon: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdd873f4e0e9b9732ca525_Serviced%20Offices.svg",
+    icon: "/images/spaces/icon-serviced-offices.svg",
     title: "Serviced Offices",
     text: "Flexible, fully-serviced workspaces ready for occupation, with the support and amenities teams need.",
     href: "/offices"
   },
   {
-    icon: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdd8aa99f0f4e3bcfaacd5_Warehouse.svg",
+    icon: "/images/spaces/icon-warehouse.svg",
     title: "Warehouse Facilities",
     text: "Modern warehouse facilities suited to logistics operators and businesses with operational footprints.",
     href: "/warehouses"
