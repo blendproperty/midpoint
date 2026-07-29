@@ -2,7 +2,7 @@ import SiteMap from "@/components/SiteMap";
 
 export default function ListingsGrid() {
   return (
-    <section id="explore" className="relative overflow-hidden px-6 py-16">
+    <section id="explore" className="relative overflow-hidden px-6 py-12 md:py-16">
       {/* Radial cyan gradient orb, top-left — matches the SVG radial
           gradient (#00FFFF fading to transparent) used on the live site. */}
       <div
@@ -19,7 +19,7 @@ export default function ListingsGrid() {
           Explore our interactive map to view available warehouse space, offices, serviced offices, and upcoming developments in Midrand. You can also view our vacancy schedule for current leasing opportunities.
         </p>
 
-        <div className="mt-10">
+        <div className="mt-6">
           <SiteMap />
         </div>
       </div>
