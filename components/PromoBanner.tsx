@@ -18,7 +18,7 @@ export default function PromoBanner() {
             border-radius: 0, object-fit: cover, no overlaid text nodes). */}
         <div className="relative aspect-[940.8/393.35] w-full">
           <Image
-            src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/684937746b99cba861ec240c_am-work-pm-padel.avif"
+            src="/images/promo/am-work-pm-padel.avif"
             alt="AM - Work, PM - Padel. It's all here."
             fill
             className="object-cover"
