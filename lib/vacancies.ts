@@ -41,6 +41,35 @@ function slugFromBuilding(building: string, index: number) {
   );
 }
 
+// The label used anywhere a vacancy needs a single human-readable name — the
+// specific unit when there is one (e.g. "OnPoint — Suite 4"), otherwise just
+// the building name. Buildings like OnPoint have many individual listings
+// that would otherwise all show up as the same bare "OnPoint", making it
+// impossible to tell which actual space someone is asking about.
+export function vacancyLabel(listing: Pick<VacancyListing, "building" | "unitName">) {
+  return listing.unitName ? `${listing.building} — ${listing.unitName}` : listing.building;
+}
+
+function formatVacancySize(n: number) {
+  return `${n.toLocaleString("en-ZA", { maximumFractionDigits: 2 })} m²`;
+}
+
+// Builds a per-listing WhatsApp message from the site's single admin-edited
+// base template (Site Settings -> whatsappTemplate) by appending that
+// specific listing's details and a link back to the public vacancies page.
+// Mirrors the intent of listings.blendproperty.co.za's per-listing WhatsApp
+// links (renderWhatsappTemplate there), adapted for the fact that Midpoint
+// has one site-wide WhatsApp number rather than a contact per listing.
+export function buildVacancyWhatsappMessage(
+  baseTemplate: string,
+  listing: VacancyListing,
+  siteUrl: string,
+) {
+  const details = `${vacancyLabel(listing)} — ${formatVacancySize(listing.sizeSqm)}, R${listing.ratePerSqm}/m², available ${listing.availability}.`;
+  const link = `${siteUrl.replace(/\/$/, "")}/vacancies`;
+  return `${baseTemplate}\n\nI'm interested in: ${details}\n${link}`;
+}
+
 // Falls back to the static snapshot if the database is briefly unreachable,
 // so a DB hiccup never takes the public vacancies/availability pages down.
 export async function getAllVacancies(): Promise<VacancyListing[]> {
