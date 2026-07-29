@@ -42,7 +42,7 @@ export async function pushLeadToBlendCrm(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": apiKey,
+        "x-crm-api-key": apiKey,
       },
       body: JSON.stringify({
         source: {

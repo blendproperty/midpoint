@@ -30,7 +30,7 @@ describe("pushLeadToBlendCrm", () => {
     ).resolves.toBe(true);
 
     const [, request] = fetchMock.mock.calls[0];
-    expect(request.headers["x-api-key"]).toBe("test-key");
+    expect(request.headers["x-crm-api-key"]).toBe("test-key");
     expect(JSON.parse(request.body)).toEqual({
       source: {
         slug: "midpoint",
