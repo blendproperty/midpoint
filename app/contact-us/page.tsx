@@ -5,12 +5,12 @@ import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import { getPageSeoOverride } from "@/lib/page-seo";
 import { getSiteSettings } from "@/lib/site-settings";
-import { richPageJsonLd } from "@/lib/seo";
+import { richPageJsonLd, stripSiteNameSuffix } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
-const FALLBACK_TITLE = "Contact Us | Midpoint";
+const FALLBACK_TITLE = "Contact Us";
 const description =
   "Contact the Midpoint leasing team about warehouse, office and serviced office space in Midrand.";
 // Same hero photo used on the real live site (mid-point.co.za/contact-us).
@@ -18,9 +18,10 @@ const HERO_IMAGE =
   "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a0b102015582cba5571f517_contact_banner-p-1600.jpg";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const override = await getPageSeoOverride("/contact-us");
+  const [override, settings] = await Promise.all([getPageSeoOverride("/contact-us"), getSiteSettings()]);
+  const rawTitle = override?.seoTitle || FALLBACK_TITLE;
   return {
-    title: override?.seoTitle || FALLBACK_TITLE,
+    title: stripSiteNameSuffix(rawTitle, settings.siteName),
     description: override?.seoDescription || description,
   };
 }
