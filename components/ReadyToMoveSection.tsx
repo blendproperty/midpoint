@@ -23,14 +23,11 @@ export default function ReadyToMoveSection() {
 
           <Reveal className="relative px-8 text-white sm:px-12">
             <p className="text-4xl font-bold sm:text-5xl">Ready to move in?</p>
-            <p className="mt-2 text-2xl font-semibold text-midpoint-cyan sm:text-3xl">
-              Check availability now.
-            </p>
+            <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition-transform duration-150 ease-out group-hover:translate-x-1 sm:text-base">
+              Check availability now
+              <span aria-hidden="true">↗</span>
+            </span>
           </Reveal>
-
-          <span className="absolute right-6 top-6 text-3xl text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-            ↗
-          </span>
         </Link>
       </div>
     </section>
