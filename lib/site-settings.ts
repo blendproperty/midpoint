@@ -24,7 +24,7 @@ export type SiteSettings = {
 };
 
 const DEFAULT_SOCIAL_IMAGE =
-  "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg";
+  "/images/pages/amenities-banner.jpg";
 
 // The key that was hardcoded in ContactForm.tsx originally — kept as the
 // fallback so existing behaviour doesn't change until someone sets a new one
