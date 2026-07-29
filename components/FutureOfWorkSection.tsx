@@ -6,7 +6,7 @@ export default function FutureOfWorkSection() {
   return (
     <section className="relative min-h-[600px] w-full overflow-hidden md:min-h-[840px]">
       <Image
-        src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a01fae519701ceb2b901540_AMENITY%20HUB.png"
+        src="/images/future-of-work/amenity-hub-banner.png"
         alt=""
         fill
         className="object-cover"
