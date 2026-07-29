@@ -98,13 +98,13 @@ export default function VacancyCard({ listing }: { listing: VacancyListing }) {
           <Link
             href={enquireHref(listing)}
             onClick={() => trackVacancyEnquire(listing.id, spaceLabel(listing))}
-            className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition hover:opacity-90"
+            className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition-transform duration-100 ease-out hover:opacity-90 active:scale-[0.97]"
           >
             Enquire
           </Link>
           <Link
             href="/#explore"
-            className="rounded-full border border-white/30 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/10"
+            className="rounded-full border border-white/30 px-5 py-2.5 text-sm font-medium text-white transition-transform duration-100 ease-out hover:bg-white/10 active:scale-[0.97]"
           >
             See map view
           </Link>
