@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 
@@ -37,10 +37,21 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
   const [consent, setConsent] = useState(false);
   const [captchaError, setCaptchaError] = useState(false);
   const recaptchaRef = useRef<HTMLDivElement>(null);
+  const feedbackRef = useRef<HTMLDivElement>(null);
 
   const recaptchaSiteKey = siteKey || DEFAULT_RECAPTCHA_SITE_KEY;
   const selectedInterest = defaultInterest && interests.includes(defaultInterest) ? defaultInterest : "";
   const initialMessage = spaceName ? `I'm interested in the space at ${spaceName}.\n\n` : "";
+
+  // The confirmation/error message renders below the Submit button, which on
+  // a long form (or a small viewport) can sit below the fold — someone could
+  // submit, see nothing happen, and not realise it actually went through
+  // until they scrolled down. Bringing it into view removes that ambiguity.
+  useEffect(() => {
+    if ((status === "sent" || status === "error") && feedbackRef.current) {
+      feedbackRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [status]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -76,7 +87,7 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
   }
 
   const field =
-    "w-full border-0 border-b border-white/20 bg-transparent px-0 py-3 text-sm text-white placeholder-white/50 focus:border-midpoint-cyan focus:outline-none";
+    "dark-field w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3.5 text-sm text-white placeholder-white/50 transition-colors duration-150 focus:border-midpoint-cyan focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-midpoint-cyan";
 
   return (
     <form id="Contact" onSubmit={handleSubmit} className="space-y-6">
@@ -88,7 +99,7 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
         </p>
       )}
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2">
         <input name="firstName" required placeholder="First Name" className={field} />
         <input name="lastName" required placeholder="Last Name" className={field} />
         <input name="phone" type="tel" required placeholder="Phone Number" className={field} />
@@ -140,25 +151,30 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
         {status === "sending" ? "Sending…" : "Submit"}
       </button>
 
+      {/* Bigger, boxed, and scrolled into view on submit (see the useEffect
+          above) instead of a small line of text that could land below the
+          fold and go unnoticed after clicking Submit. */}
       {status === "sent" && (
-        <p
+        <div
+          ref={feedbackRef}
           key="sent"
           role="status"
-          className="flex animate-fade-in-up items-center gap-2 text-sm font-medium text-midpoint-cyan"
+          className="flex animate-fade-in-up items-center gap-3 rounded-xl border border-midpoint-cyan bg-midpoint-cyan/15 px-5 py-4 text-base font-semibold text-midpoint-cyan"
         >
-          <CheckCircle2 size={18} className="shrink-0" aria-hidden="true" />
+          <CheckCircle2 size={22} className="shrink-0" aria-hidden="true" />
           {successMessage || DEFAULT_SUCCESS_MESSAGE}
-        </p>
+        </div>
       )}
       {status === "error" && (
-        <p
+        <div
+          ref={feedbackRef}
           key="error"
           role="alert"
-          className="flex animate-fade-in-up items-center gap-2 text-sm font-medium text-red-400"
+          className="flex animate-fade-in-up items-center gap-3 rounded-xl border border-red-400 bg-red-500/10 px-5 py-4 text-base font-semibold text-red-400"
         >
-          <AlertCircle size={18} className="shrink-0" aria-hidden="true" />
+          <AlertCircle size={22} className="shrink-0" aria-hidden="true" />
           The message didn&apos;t send. Try again, or email us directly.
-        </p>
+        </div>
       )}
     </form>
   );
