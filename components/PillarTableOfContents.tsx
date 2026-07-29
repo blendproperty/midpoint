@@ -8,7 +8,7 @@ export default function PillarTableOfContents({ items }: { items: TocItem[] }) {
   if (items.length < 2) return null;
 
   return (
-    <nav className="sticky top-0 z-30 border-b border-midpoint-grey-100 bg-white/95 backdrop-blur">
+    <nav className="sticky top-14 z-30 border-b border-midpoint-grey-100 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center gap-8 overflow-x-auto px-6 py-4 text-sm">
         <div className="flex shrink-0 gap-8">
           {items.map((item) => (
