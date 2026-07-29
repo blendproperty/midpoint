@@ -4,6 +4,14 @@ export default function PromoBanner() {
   return (
     <section className="px-6 py-8">
       <div className="mx-auto max-w-7xl">
+        {/* The headline text is baked into the graphic itself (confirmed via
+            Playwright: no separate HTML text nodes), which means it isn't
+            real, selectable, SEO-indexable copy anywhere on the page — only
+            the image's alt text conveys it, and only to screen readers.
+            This heading carries the same message as real text without
+            changing the visual design at all. */}
+        <h2 className="sr-only">AM-Work, PM-Padel. It&rsquo;s all here.</h2>
+
         {/* Single designed graphic — "AM-Work / PM-Padel" text and the
             rounded photo insets are baked into the image itself, not
             separate HTML/CSS (confirmed via Playwright: image has
