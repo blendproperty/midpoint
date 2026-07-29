@@ -141,7 +141,7 @@ export default function PageSettingsPanel({
     const f = form();
     const title = (f ? field(f, titleField) : "") || titleFallback;
     const source = (f ? sourceFields.map((n) => stripHtml(field(f, n))).find(Boolean) : "") || title;
-    setSeoTitle(generateSeoTitle(title, siteName));
+    setSeoTitle(generateSeoTitle(title));
     setSeoDescription(generateSeoDescription(source));
   }
 
