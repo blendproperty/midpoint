@@ -26,6 +26,7 @@ enum Sector {
 enum VacancyEventType {
   VIEW
   ENQUIRE
+  WHATSAPP
 }
 
 enum ContactStatus {
