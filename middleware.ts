@@ -7,10 +7,6 @@ const secret = new TextEncoder().encode(
 );
 const SESSION_COOKIE = "midpoint_admin_session";
 
-// Routes under /admin or /api/admin that must stay reachable WITHOUT a
-// session — sign-in itself, and the forgot/reset-password flow (a locked-out
-// admin can't get a session cookie in the first place, so these can never be
-// behind the auth check).
 const PUBLIC_ROUTES = new Set([
   "/admin/login",
   "/api/admin/login",
@@ -29,43 +25,68 @@ const PUBLIC_ROUTES = new Set([
 // then do a synchronous in-memory lookup only — a saved/edited redirect
 // can take up to ~60s to go live, which is a reasonable trade for not
 // adding a database round-trip to every page load on the site.
+//
+// Two fixes applied here after a perf investigation found this middleware
+// was inflating TTFB on every request when the cache was stale:
+//   1. Fetches http://127.0.0.1:$PORT directly instead of the request's
+//      public HTTPS origin. The original version self-fetched the site's
+//      own public hostname, meaning every refresh paid for DNS + a TLS
+//      handshake + a hairpin through the reverse proxy back into this
+//      exact same (single, non-replicated) Node process — all while that
+//      process was still in the middle of handling the request that
+//      triggered the refresh. Talking to localhost skips all of that.
+//   2. A single in-flight Promise is now shared across concurrent
+//      requests. Previously, if N requests landed during the same stale
+//      window, each one independently saw the cache as expired and fired
+//      its own duplicate self-fetch + duplicate Prisma query (a classic
+//      cache stampede) instead of sharing one refresh.
 type RedirectEntry = { toPath: string; statusCode: number };
 let redirectCache: Map<string, RedirectEntry> = new Map();
 let redirectCacheAt = 0;
+let refreshInFlight: Promise<void> | null = null;
 const REDIRECT_CACHE_TTL_MS = 60_000;
 
-async function getRedirectCache(origin: string): Promise<Map<string, RedirectEntry>> {
-  const now = Date.now();
-  if (now - redirectCacheAt < REDIRECT_CACHE_TTL_MS) return redirectCache;
+function internalUrl(path: string): string {
+  const port = process.env.PORT || "3000";
+  return `http://127.0.0.1:${port}${path}`;
+}
 
+async function refreshRedirectCache(): Promise<void> {
   try {
-    const res = await fetch(new URL("/api/redirects/all", origin));
+    const res = await fetch(internalUrl("/api/redirects/all"));
     if (res.ok) {
       const rules: { fromPath: string; toPath: string; statusCode: number }[] = await res.json();
       redirectCache = new Map(rules.map((r) => [r.fromPath, { toPath: r.toPath, statusCode: r.statusCode }]));
-      redirectCacheAt = now;
+      redirectCacheAt = Date.now();
     }
   } catch {
     // Keep serving the previous (possibly stale) cache rather than losing
     // every redirect over one transient fetch failure.
   }
+}
+
+async function getRedirectCache(): Promise<Map<string, RedirectEntry>> {
+  const now = Date.now();
+  if (now - redirectCacheAt < REDIRECT_CACHE_TTL_MS) return redirectCache;
+
+  if (!refreshInFlight) {
+    refreshInFlight = refreshRedirectCache().finally(() => {
+      refreshInFlight = null;
+    });
+  }
+  await refreshInFlight;
   return redirectCache;
 }
 
-function recordHit(origin: string, fromPath: string) {
+function recordHit(fromPath: string) {
   // Fire-and-forget — never await this in the request path.
-  fetch(new URL("/api/redirects/hit", origin), {
+  fetch(internalUrl("/api/redirects/hit"), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ fromPath }),
   }).catch(() => {});
 }
 
-// Edge-runtime gatekeeper for the whole /admin surface, plus the
-// redirect-manager check for every other route. Admin auth is deliberately
-// simple: verify the JWT signature/expiry only, then let each page/server
-// action do its own role check (see lib/require-admin.ts) since
-// role-specific logic doesn't belong in the edge runtime.
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -85,18 +106,14 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // Skip the redirect-manager's own API routes (and any other /api route)
-  // — these aren't user-facing pages a redirect rule would ever target,
-  // and checking them would mean the /api/redirects/all cache-refresh
-  // fetch triggers this same middleware recursively.
   if (pathname.startsWith("/api/")) {
     return NextResponse.next();
   }
 
-  const cache = await getRedirectCache(request.nextUrl.origin);
+  const cache = await getRedirectCache();
   const match = cache.get(pathname);
   if (match) {
-    recordHit(request.nextUrl.origin, pathname);
+    recordHit(pathname);
     const destination = match.toPath.startsWith("http")
       ? match.toPath
       : new URL(match.toPath, request.url);
@@ -116,8 +133,5 @@ function redirectToLogin(request: NextRequest) {
 }
 
 export const config = {
-  // Runs on every route except Next's static/image internals and any
-  // request for a file with an extension (assets, images, etc.) — those can
-  // never be redirect targets and checking them would be wasted work.
   matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 };
