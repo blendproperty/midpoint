@@ -5,7 +5,8 @@ import ReadyToMoveSection from "@/components/ReadyToMoveSection";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getPageSeoOverride } from "@/lib/page-seo";
-import { richPageJsonLd } from "@/lib/seo";
+import { richPageJsonLd, stripSiteNameSuffix } from "@/lib/seo";
+import { getSiteSettings } from "@/lib/site-settings";
 
 export const dynamic = "force-dynamic";
 
@@ -14,9 +15,10 @@ const description =
   "Explore Midpoint's office space, warehouse space and on-site amenities in Midrand — a connected business estate between Johannesburg and Pretoria.";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const override = await getPageSeoOverride("/spaces");
+  const [override, settings] = await Promise.all([getPageSeoOverride("/spaces"), getSiteSettings()]);
+  const rawTitle = override?.seoTitle || FALLBACK_TITLE;
   return {
-    title: override?.seoTitle || FALLBACK_TITLE,
+    title: stripSiteNameSuffix(rawTitle, settings.siteName),
     description: override?.seoDescription || description,
   };
 }
