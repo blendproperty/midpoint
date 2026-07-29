@@ -65,7 +65,7 @@ export default async function ContactSection() {
             referrerPolicy="no-referrer-when-downgrade"
           />
           <div className="pointer-events-none absolute inset-0 bg-white mix-blend-saturation" />
-          <div className="pointer-events-none absolute inset-0 bg-midpoint-dark/55" />
+          <div className="pointer-events-none absolute inset-0 bg-midpoint-dark/35" />
         </div>
       </div>
     </section>
