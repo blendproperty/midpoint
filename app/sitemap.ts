@@ -22,7 +22,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.domain}`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${site.domain}/vacancies`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
     { url: `${site.domain}/faqs`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${site.domain}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
+    // Only advertise the blog index to crawlers once there's at least one
+    // published post — an empty "No posts published yet" page isn't worth
+    // indexing and looks unfinished if it ranks.
+    ...(blogPosts.length > 0
+      ? [{ url: `${site.domain}/blog`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.6 }]
+      : []),
     ...STATIC_PAGES.map((p) => ({
       url: `${site.domain}${p.path}`,
       lastModified: now,
