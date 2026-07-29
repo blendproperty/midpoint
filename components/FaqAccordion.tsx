@@ -32,9 +32,24 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
                   aria-expanded={isOpen}
                 >
                   <span className="text-xl font-semibold text-midpoint-dark">{faq.question}</span>
-                  <span className="ml-4 shrink-0 text-2xl text-midpoint-dark">{isOpen ? "−" : "+"}</span>
+                  <span
+                    className={`ml-4 shrink-0 text-2xl text-midpoint-dark transition-transform duration-200 ease-out ${
+                      isOpen ? "rotate-45" : "rotate-0"
+                    }`}
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
                 </button>
-                {isOpen && <p className="pb-5 text-midpoint-grey-400">{faq.answer}</p>}
+                <div
+                  className={`grid overflow-hidden transition-[grid-template-rows] duration-250 ease-out ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <p className="pb-5 text-midpoint-grey-400">{faq.answer}</p>
+                  </div>
+                </div>
               </div>
             );
           })}
