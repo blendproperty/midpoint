@@ -1,20 +1,24 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const spaces = [
   {
     icon: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdb6345c825ebf55a99160_building.svg",
     title: "Premium Offices",
-    text: "Professional office space for corporate teams, professional services firms, and growing enterprises."
+    text: "Professional office space for corporate teams, professional services firms, and growing enterprises.",
+    href: "/offices"
   },
   {
     icon: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdd873f4e0e9b9732ca525_Serviced%20Offices.svg",
     title: "Serviced Offices",
-    text: "Flexible, fully-serviced workspaces ready for occupation, with the support and amenities teams need."
+    text: "Flexible, fully-serviced workspaces ready for occupation, with the support and amenities teams need.",
+    href: "/offices"
   },
   {
     icon: "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/69fdd8aa99f0f4e3bcfaacd5_Warehouse.svg",
     title: "Warehouse Facilities",
-    text: "Modern warehouse facilities suited to logistics operators and businesses with operational footprints."
+    text: "Modern warehouse facilities suited to logistics operators and businesses with operational footprints.",
+    href: "/warehouses"
   }
 ];
 
@@ -30,11 +34,15 @@ export default function SpaceGrid() {
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           {spaces.map((s) => (
-            <div key={s.title} className="rounded-2xl bg-midpoint-dark p-6 text-white">
+            <Link
+              key={s.title}
+              href={s.href}
+              className="rounded-2xl bg-midpoint-dark p-6 text-white transition hover:opacity-90"
+            >
               <Image src={s.icon} alt="" width={28} height={28} />
               <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm text-midpoint-grey-400">{s.text}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
