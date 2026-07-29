@@ -3,6 +3,7 @@ import Link from "next/link";
 import VacancyCard from "@/components/VacancyCard";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import ListingsJsonLd from "@/components/ListingsJsonLd";
+import Reveal from "@/components/Reveal";
 import { getVacanciesGroupedBySector } from "@/lib/vacancies";
 
 export const dynamic = "force-dynamic";
@@ -37,8 +38,10 @@ export default async function Vacancies() {
         <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Available Warehouse Space</h2>
         <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below are the warehouse opportunities currently available at Midpoint:</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {warehouse.map((l) => (
-            <VacancyCard key={l.id} listing={l} />
+          {warehouse.map((l, i) => (
+            <Reveal key={l.id} delay={i * 60}>
+              <VacancyCard listing={l} />
+            </Reveal>
           ))}
         </div>
       </section>
@@ -47,8 +50,10 @@ export default async function Vacancies() {
         <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Available Office Space</h2>
         <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below are the office spaces currently available at Midpoint:</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {office.map((l) => (
-            <VacancyCard key={l.id} listing={l} />
+          {office.map((l, i) => (
+            <Reveal key={l.id} delay={i * 60}>
+              <VacancyCard listing={l} />
+            </Reveal>
           ))}
         </div>
       </section>
@@ -57,8 +62,10 @@ export default async function Vacancies() {
         <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Shared Workspace</h2>
         <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below is the shared workspace currently available at Midpoint:</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {servicedOffice.map((l) => (
-            <VacancyCard key={l.id} listing={l} />
+          {servicedOffice.map((l, i) => (
+            <Reveal key={l.id} delay={i * 60}>
+              <VacancyCard listing={l} />
+            </Reveal>
           ))}
         </div>
 
