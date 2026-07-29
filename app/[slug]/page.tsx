@@ -18,7 +18,7 @@ import TalkToLeasing from "@/components/TalkToLeasing";
 import ExploreMore from "@/components/ExploreMore";
 import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
-import { midpointPlaceJsonLd, organizationJsonLd } from "@/lib/seo";
+import { midpointPlaceJsonLd, organizationJsonLd, stripSiteNameSuffix } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -43,12 +43,13 @@ function sectorLabel(sector: string) {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const pillar = await getPillar(slug);
+  const [pillar, settings] = await Promise.all([getPillar(slug), getSiteSettings()]);
   if (!pillar || pillar.status !== "PUBLISHED") return {};
 
-  const title = pillar.seoTitle || pillar.title;
+  const title = stripSiteNameSuffix(pillar.seoTitle || pillar.title, settings.siteName);
   const description = pillar.seoDescription || undefined;
   const ogImage = pillar.ogImage || pillar.heroImage;
+  const ogTitle = stripSiteNameSuffix(pillar.ogTitle || title, settings.siteName);
 
   return {
     title,
@@ -58,7 +59,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     robots:
       pillar.passwordProtected || pillar.noIndex ? { index: false, follow: true } : { index: true, follow: true },
     openGraph: {
-      title: pillar.ogTitle || title,
+      title: ogTitle,
       description: pillar.ogDescription || description,
       images: ogImage ? [{ url: ogImage }] : undefined,
     },
