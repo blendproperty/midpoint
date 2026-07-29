@@ -14,7 +14,7 @@ export default function ReadyToMoveSection() {
           className="group relative flex aspect-[940/600] w-full max-w-[940px] items-center overflow-hidden rounded-[20px]"
         >
           <Image
-            src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ced064e093893c8e33c09d_2feaa21357c9d95507e11db182fdb64d.avif"
+            src="/images/ready-to-move/ready-to-move.avif"
             alt=""
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
