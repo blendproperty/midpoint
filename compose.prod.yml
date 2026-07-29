@@ -56,7 +56,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=root_default"
       - "traefik.http.routers.midpoint.entrypoints=websecure"
-      - "traefik.http.routers.midpoint.rule=Host(`midpoint.onpointoffices.co.za`)"
+      - "traefik.http.routers.midpoint.rule=Host(`mid-point.co.za`) || Host(`www.mid-point.co.za`) || Host(`midpoint.onpointoffices.co.za`)"
       - "traefik.http.routers.midpoint.tls=true"
       - "traefik.http.routers.midpoint.tls.certresolver=mytlschallenge"
       - "traefik.http.services.midpoint.loadbalancer.server.port=3000"
