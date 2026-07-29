@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { prisma } from "@/lib/prisma";
 import { site as staticSiteDefaults } from "@/lib/site";
 
@@ -65,7 +66,14 @@ const FALLBACK: SiteSettings = {
 // hiccup can never take the whole site down (same defensive pattern used on
 // listings.blendproperty.co.za's own site-settings.ts). Edit these values via
 // /admin/settings going forward.
-export async function getSiteSettings(): Promise<SiteSettings> {
+//
+// Wrapped in React's cache() so the several places that independently call
+// getSiteSettings() during a single request (root layout's generateMetadata,
+// root layout's own render, the shared ContactSection, individual page
+// generateMetadata functions, etc.) all share one Postgres round-trip
+// instead of each firing their own — this was one of two causes found for
+// pages taking 10+ seconds to render server-side.
+export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
   try {
     const row = await prisma.siteSetting.findUnique({ where: { id: "global" } });
     if (!row) return FALLBACK;
@@ -92,4 +100,4 @@ export async function getSiteSettings(): Promise<SiteSettings> {
   } catch {
     return FALLBACK;
   }
-}
+});
