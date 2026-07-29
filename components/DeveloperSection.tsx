@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function DeveloperSection({
-  image = "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67cef042c2c4b15850e63b63_blend-hero-image-p-1600.png",
+  image = "/images/developer/blend-hero.png",
   imageAlt = "Blend Property Group development",
   label = "Property Developer",
   heading = "Developed by industry professionals",
