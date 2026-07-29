@@ -4,6 +4,7 @@ import { verifyRecaptcha } from "@/lib/recaptcha";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { upsertContact } from "@/lib/contacts";
 import { pushLeadToListings } from "@/lib/listings-leads";
+import { pushLeadToBlendCrm } from "@/lib/blend-crm-leads";
 
 // Set N8N_ENQUIRY_WEBHOOK in the environment, e.g.
 // https://n8n.srv938083.hstgr.cloud/webhook/midpoint-enquiry
@@ -63,8 +64,9 @@ export async function POST(req: Request) {
   // Log every valid enquiry to the database first, independent of whether the
   // n8n webhook succeeds, so nothing is lost if that integration is briefly
   // down. Visible in /admin/enquiries, /admin/contacts, and the dashboard.
+  let enquiryId: string | null = null;
   try {
-    await prisma.enquiry.create({
+    const enquiry = await prisma.enquiry.create({
       data: {
         firstName: firstName || null,
         lastName: lastName || null,
@@ -76,8 +78,25 @@ export async function POST(req: Request) {
         contactId,
       },
     });
+    enquiryId = enquiry.id;
   } catch (err) {
     console.error("Failed to log enquiry to database", err);
+  }
+
+  // The Midpoint dashboard and Blend CRM are separate systems. Forward the
+  // database-backed enquiry directly to Blend CRM and use the Midpoint
+  // enquiry ID as the deduplication key so retries cannot create two leads.
+  if (enquiryId) {
+    await pushLeadToBlendCrm({
+      externalId: enquiryId,
+      email,
+      firstName,
+      lastName,
+      phone,
+      interest: payload?.interest ? String(payload.interest) : null,
+      message: payload?.message ? String(payload.message) : null,
+      sourcePath: payload?.sourcePath ? String(payload.sourcePath) : null,
+    });
   }
 
   // Best-effort push to Blend's group-wide leads system (listings.blendproperty.co.za).
