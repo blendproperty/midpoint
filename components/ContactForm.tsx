@@ -17,7 +17,14 @@ const DEFAULT_SUCCESS_MESSAGE = "Thanks — your enquiry is on its way to the le
 
 declare global {
   interface Window {
-    grecaptcha?: { getResponse: (id?: number) => string; reset: (id?: number) => void };
+    grecaptcha?: {
+      getResponse: (id?: number) => string;
+      reset: (id?: number) => void;
+      render: (
+        container: HTMLElement,
+        params: { sitekey: string }
+      ) => number;
+    };
   }
 }
 
@@ -38,10 +45,50 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
   const [captchaError, setCaptchaError] = useState(false);
   const recaptchaRef = useRef<HTMLDivElement>(null);
   const feedbackRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<number | undefined>(undefined);
 
   const recaptchaSiteKey = siteKey || DEFAULT_RECAPTCHA_SITE_KEY;
   const selectedInterest = defaultInterest && interests.includes(defaultInterest) ? defaultInterest : "";
   const initialMessage = spaceName ? `I'm interested in the space at ${spaceName}.\n\n` : "";
+
+  // Google's reCAPTCHA script only auto-scans the page for ".g-recaptcha"
+  // divs ONCE, at the moment the script itself finishes loading. That's fine
+  // on a hard page refresh (script loads fresh, form div already exists,
+  // scan finds it) — but arriving here via a client-side Link navigation
+  // (e.g. clicking "Enquire" on a vacancy card) mounts a brand-new instance
+  // of this component/div while the script may have already loaded earlier
+  // in the session, so its one-time scan never runs again and the widget
+  // silently never appears. Rendering it explicitly here, on every mount,
+  // fixes both cases regardless of whether the script was already loaded.
+  useEffect(() => {
+    let cancelled = false;
+    let attempts = 0;
+
+    function tryRender() {
+      if (cancelled || !recaptchaRef.current) return;
+      if (window.grecaptcha?.render) {
+        // Guard against rendering twice into the same node (e.g. React
+        // Strict Mode's dev double-invoke of effects).
+        if (recaptchaRef.current.childElementCount === 0) {
+          widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
+            sitekey: recaptchaSiteKey,
+          });
+        }
+        return;
+      }
+      // Script hasn't finished loading yet (first-ever load of the page) —
+      // keep checking briefly until it's ready, then give up quietly.
+      attempts += 1;
+      if (attempts < 40) {
+        setTimeout(tryRender, 150);
+      }
+    }
+
+    tryRender();
+    return () => {
+      cancelled = true;
+    };
+  }, [recaptchaSiteKey]);
 
   // The confirmation/error message renders below the Submit button, which on
   // a long form (or a small viewport) can sit below the fold — someone could
@@ -56,7 +103,7 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const captchaResponse = window.grecaptcha?.getResponse();
+    const captchaResponse = window.grecaptcha?.getResponse(widgetIdRef.current);
     if (!captchaResponse) {
       setCaptchaError(true);
       return;
@@ -80,7 +127,7 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
       setStatus("sent");
       form.reset();
       setConsent(false);
-      window.grecaptcha?.reset();
+      window.grecaptcha?.reset(widgetIdRef.current);
     } catch {
       setStatus("error");
     }
@@ -137,7 +184,12 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
         I consent to Midpoint&apos;s privacy policy.
       </label>
 
-      <div ref={recaptchaRef} className="g-recaptcha" data-sitekey={recaptchaSiteKey} />
+      {/* Explicitly rendered via grecaptcha.render() in the effect above —
+          no "g-recaptcha" class / data-sitekey attribute here, since that
+          would tell Google's script to ALSO auto-render into this same div,
+          which would either double-render or conflict with the explicit
+          render. This div is just the mount point. */}
+      <div ref={recaptchaRef} />
       {captchaError && (
         <p role="alert" className="text-sm font-medium text-red-400">
           Please confirm you&apos;re not a robot before submitting.
