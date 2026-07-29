@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Script from "next/script";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -134,18 +135,28 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
 
       <button
         disabled={status === "sending" || !consent}
-        className="rounded-full bg-midpoint-cyan px-8 py-3 text-sm font-medium text-midpoint-dark transition hover:opacity-90 disabled:opacity-60"
+        className="rounded-full bg-midpoint-cyan px-8 py-3 text-sm font-medium text-midpoint-dark transition-transform duration-100 ease-out hover:opacity-90 active:scale-[0.97] disabled:opacity-60 disabled:active:scale-100"
       >
         {status === "sending" ? "Sending…" : "Submit"}
       </button>
 
       {status === "sent" && (
-        <p role="status" className="text-sm font-medium text-midpoint-cyan">
+        <p
+          key="sent"
+          role="status"
+          className="flex animate-fade-in-up items-center gap-2 text-sm font-medium text-midpoint-cyan"
+        >
+          <CheckCircle2 size={18} className="shrink-0" aria-hidden="true" />
           {successMessage || DEFAULT_SUCCESS_MESSAGE}
         </p>
       )}
       {status === "error" && (
-        <p role="alert" className="text-sm font-medium text-red-400">
+        <p
+          key="error"
+          role="alert"
+          className="flex animate-fade-in-up items-center gap-2 text-sm font-medium text-red-400"
+        >
+          <AlertCircle size={18} className="shrink-0" aria-hidden="true" />
           The message didn&apos;t send. Try again, or email us directly.
         </p>
       )}
