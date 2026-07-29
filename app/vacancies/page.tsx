@@ -54,7 +54,7 @@ export default async function Vacancies() {
         <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below are the warehouse opportunities currently available at Midpoint:</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {warehouse.map((l, i) => (
-            <Reveal key={l.id} delay={i * 60}>
+            <Reveal key={l.id} delay={i * 60} className="h-full">
               <VacancyCard listing={l} whatsappUrl={whatsappUrlFor(l)} />
             </Reveal>
           ))}
@@ -66,7 +66,7 @@ export default async function Vacancies() {
         <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below are the office spaces currently available at Midpoint:</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {office.map((l, i) => (
-            <Reveal key={l.id} delay={i * 60}>
+            <Reveal key={l.id} delay={i * 60} className="h-full">
               <VacancyCard listing={l} whatsappUrl={whatsappUrlFor(l)} />
             </Reveal>
           ))}
@@ -78,7 +78,7 @@ export default async function Vacancies() {
         <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below is the shared workspace currently available at Midpoint:</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {servicedOffice.map((l, i) => (
-            <Reveal key={l.id} delay={i * 60}>
+            <Reveal key={l.id} delay={i * 60} className="h-full">
               <VacancyCard listing={l} whatsappUrl={whatsappUrlFor(l)} />
             </Reveal>
           ))}
