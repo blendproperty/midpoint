@@ -4,7 +4,8 @@ import VacancyCard from "@/components/VacancyCard";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import ListingsJsonLd from "@/components/ListingsJsonLd";
 import Reveal from "@/components/Reveal";
-import { getVacanciesGroupedBySector } from "@/lib/vacancies";
+import { getVacanciesGroupedBySector, buildVacancyWhatsappMessage, type VacancyListing } from "@/lib/vacancies";
+import { getSiteSettings } from "@/lib/site-settings";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +18,21 @@ export const metadata: Metadata = {
 };
 
 export default async function Vacancies() {
-  const { warehouse, office, servicedOffice, all } = await getVacanciesGroupedBySector();
+  const [{ warehouse, office, servicedOffice, all }, settings] = await Promise.all([
+    getVacanciesGroupedBySector(),
+    getSiteSettings(),
+  ]);
+
+  const whatsappDigits = settings.whatsapp.replace(/\D/g, "");
+
+  // Built once per listing here (server-side) rather than in VacancyCard,
+  // since the WhatsApp number/template live in Site Settings and this is a
+  // server component that already has them to hand.
+  function whatsappUrlFor(listing: VacancyListing) {
+    if (!whatsappDigits) return null;
+    const message = buildVacancyWhatsappMessage(settings.whatsappTemplate, listing, settings.domain);
+    return `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(message)}`;
+  }
 
   return (
     <div className="bg-white">
@@ -40,7 +55,7 @@ export default async function Vacancies() {
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {warehouse.map((l, i) => (
             <Reveal key={l.id} delay={i * 60}>
-              <VacancyCard listing={l} />
+              <VacancyCard listing={l} whatsappUrl={whatsappUrlFor(l)} />
             </Reveal>
           ))}
         </div>
@@ -52,7 +67,7 @@ export default async function Vacancies() {
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {office.map((l, i) => (
             <Reveal key={l.id} delay={i * 60}>
-              <VacancyCard listing={l} />
+              <VacancyCard listing={l} whatsappUrl={whatsappUrlFor(l)} />
             </Reveal>
           ))}
         </div>
@@ -64,7 +79,7 @@ export default async function Vacancies() {
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {servicedOffice.map((l, i) => (
             <Reveal key={l.id} delay={i * 60}>
-              <VacancyCard listing={l} />
+              <VacancyCard listing={l} whatsappUrl={whatsappUrlFor(l)} />
             </Reveal>
           ))}
         </div>
