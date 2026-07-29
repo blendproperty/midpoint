@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import { site } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -11,6 +12,17 @@ export default function Footer() {
             <p className="mt-4 text-xs text-midpoint-grey-400">
               © {new Date().getFullYear()} Midpoint District. All Rights Reserved.
             </p>
+            <div className="mt-4 space-y-1 text-sm text-midpoint-grey-400">
+              <p>
+                <a href={site.phoneHref} className="hover:text-white">{site.phone}</a>
+              </p>
+              <p>
+                <a href={site.emailHref} className="hover:text-white">{site.email}</a>
+              </p>
+              <p>
+                {site.address.street}, {site.address.suburb}, {site.address.city}, {site.address.postalCode}
+              </p>
+            </div>
           </div>
 
           <div className="flex gap-16 text-sm">
