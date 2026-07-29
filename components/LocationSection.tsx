@@ -6,7 +6,7 @@ export default function LocationSection() {
     <section className="relative overflow-hidden text-white">
       <div className="absolute inset-0">
         <Image
-          src="https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/67ceb9ae163736bdc3dc5fac_map-background-image.avif"
+          src="/images/location/map-background.avif"
           alt=""
           fill
           className="object-cover"
