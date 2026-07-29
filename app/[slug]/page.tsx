@@ -28,7 +28,7 @@ type PillarConsideration = { heading: string; text: string };
 type PillarLink = { label: string; href: string };
 
 const FALLBACK_HERO_IMAGE =
-  "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg";
+  "/images/pages/amenities-banner.jpg";
 
 async function getPillar(slug: string) {
   return prisma.pillarPage.findUnique({ where: { slug } });
