@@ -5,6 +5,16 @@ on:
     branches:
       - main
 
+# Multiple rapid pushes used to trigger overlapping deploy runs that all SSH
+# in and run `git pull` + `docker build` + `docker up` concurrently against
+# the SAME checkout directory on the server — a real race condition (one
+# run's git pull / build could interleave with another's, producing an
+# inconsistent build). This forces deploys for this branch to queue and run
+# one at a time, in order, never in parallel.
+concurrency:
+  group: deploy-vps-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   # Gate: the deploy job below only runs if this one succeeds. Previously
   # tests ran in a completely separate workflow that never blocked anything
