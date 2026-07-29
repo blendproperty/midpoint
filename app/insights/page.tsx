@@ -4,7 +4,8 @@ import PillarCard from "@/components/PillarCard";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getPageSeoOverride } from "@/lib/page-seo";
-import { richPageJsonLd } from "@/lib/seo";
+import { richPageJsonLd, stripSiteNameSuffix } from "@/lib/seo";
+import { getSiteSettings } from "@/lib/site-settings";
 
 export const dynamic = "force-dynamic";
 
@@ -13,9 +14,10 @@ const description =
   "Discover Midpoint's business park, its Midrand location, on-site amenities and answers to common questions — everything about the estate in one place.";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const override = await getPageSeoOverride("/insights");
+  const [override, settings] = await Promise.all([getPageSeoOverride("/insights"), getSiteSettings()]);
+  const rawTitle = override?.seoTitle || FALLBACK_TITLE;
   return {
-    title: override?.seoTitle || FALLBACK_TITLE,
+    title: stripSiteNameSuffix(rawTitle, settings.siteName),
     description: override?.seoDescription || description,
   };
 }
