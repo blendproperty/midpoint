@@ -1,6 +1,7 @@
 import { cache } from "react";
 import { prisma } from "@/lib/prisma";
 import { site as staticSiteDefaults } from "@/lib/site";
+import { DEFAULT_INDEXNOW_KEY } from "@/lib/indexnow";
 
 export type SiteSettings = {
   siteName: string;
@@ -16,6 +17,7 @@ export type SiteSettings = {
   googleAnalyticsId: string;
   tagManagerId: string;
   clarityId: string;
+  indexNowKey: string;
   defaultTitleTemplate: string;
   defaultMetaDescription: string;
   defaultKeywords: string;
@@ -56,6 +58,7 @@ const FALLBACK: SiteSettings = {
   googleAnalyticsId: "",
   tagManagerId: staticSiteDefaults.gtmId,
   clarityId: "",
+  indexNowKey: DEFAULT_INDEXNOW_KEY,
   defaultTitleTemplate: DEFAULT_TITLE_TEMPLATE,
   defaultMetaDescription: DEFAULT_META_DESCRIPTION,
   defaultKeywords: DEFAULT_KEYWORDS,
@@ -93,6 +96,7 @@ export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
       googleAnalyticsId: row.googleAnalyticsId || "",
       tagManagerId: row.tagManagerId || FALLBACK.tagManagerId,
       clarityId: row.clarityId || "",
+      indexNowKey: row.indexNowKey || DEFAULT_INDEXNOW_KEY,
       defaultTitleTemplate: row.defaultTitleTemplate || DEFAULT_TITLE_TEMPLATE,
       defaultMetaDescription: row.defaultMetaDescription || DEFAULT_META_DESCRIPTION,
       defaultKeywords: row.defaultKeywords || DEFAULT_KEYWORDS,
