@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { toggleEnquiryHandled } from "./actions";
+import { toggleEnquiryHandled, deleteEnquiry } from "./actions";
+import DeleteEnquiryButton from "@/components/admin/DeleteEnquiryButton";
 
 export const dynamic = "force-dynamic";
 
@@ -32,6 +33,7 @@ export default async function EnquiriesAdminPage() {
               <th className="px-4 py-3">Page</th>
               <th className="px-4 py-3">Received</th>
               <th className="px-4 py-3">Status</th>
+              <th className="px-4 py-3"></th>
             </tr>
           </thead>
           <tbody>
@@ -65,11 +67,14 @@ export default async function EnquiriesAdminPage() {
                     </button>
                   </form>
                 </td>
+                <td className="px-4 py-3">
+                  <DeleteEnquiryButton action={deleteEnquiry.bind(null, e.id)} />
+                </td>
               </tr>
             ))}
             {enquiries.length === 0 && (
               <tr>
-                <td colSpan={7} className="px-4 py-6 text-center text-slate-400">
+                <td colSpan={8} className="px-4 py-6 text-center text-slate-400">
                   No enquiries yet.
                 </td>
               </tr>
