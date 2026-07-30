@@ -25,6 +25,12 @@ export async function updateSiteSettings(formData: FormData) {
   const gtmRaw = String(formData.get("tagManagerId") || "").trim();
   const tagManagerId = /^GTM-[A-Z0-9]+$/i.test(gtmRaw) ? gtmRaw.toUpperCase() : null;
 
+  // Microsoft Clarity project IDs are a bare alphanumeric string (no fixed
+  // prefix like G- or GTM-), e.g. "abc1d2efgh" — from clarity.microsoft.com
+  // -> the project's Setup page -> Installation snippet.
+  const clarityRaw = String(formData.get("clarityId") || "").trim();
+  const clarityId = /^[a-z0-9]{5,20}$/i.test(clarityRaw) ? clarityRaw : null;
+
   const defaultTitleTemplate = String(formData.get("defaultTitleTemplate") || "").trim() || null;
   const defaultMetaDescription = String(formData.get("defaultMetaDescription") || "").trim().slice(0, 160) || null;
   const defaultKeywords = String(formData.get("defaultKeywords") || "").trim() || null;
@@ -45,6 +51,7 @@ export async function updateSiteSettings(formData: FormData) {
     recaptchaSiteKey,
     googleAnalyticsId,
     tagManagerId,
+    clarityId,
     defaultTitleTemplate,
     defaultMetaDescription,
     defaultKeywords,
