@@ -25,6 +25,26 @@ type ScoreInput = {
   focusKeyword?: string | null;
 };
 
+export type PillarFeature = { heading: string; text: string; image: string; alt?: string };
+export type PillarConsideration = { heading: string; text: string };
+export type PillarLink = { label: string; href: string };
+export type PillarFaq = { question: string; answer: string };
+
+function joinText(parts: Array<string | null | undefined>): string {
+  return parts.filter((part): part is string => Boolean(part?.trim())).join(" ");
+}
+
+function isInternalHref(href: string): boolean {
+  const value = href.trim();
+  if (/^\/(?!\/)/.test(value)) return true;
+  try {
+    const hostname = new URL(value).hostname.toLowerCase();
+    return hostname === "mid-point.co.za" || hostname === "www.mid-point.co.za" || hostname === "midpoint.onpointoffices.co.za";
+  } catch {
+    return false;
+  }
+}
+
 export function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 }
@@ -153,11 +173,27 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
   return finalize(checks);
 }
 
-type PillarScoreInput = ScoreInput & {
+export type PillarScoreInput = ScoreInput & {
   heroAnswer?: string | null;
+  trustStrip?: string | null;
+  primaryEntity?: string | null;
+  features?: PillarFeature[] | null;
+  considerations?: PillarConsideration[] | null;
+  relatedSector?: string | null;
+  listingsHeading?: string | null;
+  listingsIntro?: string | null;
+  showReadyToMove?: boolean | null;
+  faqsHeading?: string | null;
+  ctaHeading?: string | null;
+  ctaText?: string | null;
+  exploreLinks?: PillarLink[] | null;
   expertName?: string | null;
+  expertRole?: string | null;
   expertBio?: string | null;
-  faqs?: { question: string; answer: string }[] | null;
+  heroImage?: string | null;
+  expertImage?: string | null;
+  mediaAltByUrl?: Record<string, string>;
+  faqs?: PillarFaq[] | null;
   lastReviewedAt?: Date | null;
 };
 
@@ -167,10 +203,70 @@ type PillarScoreInput = ScoreInput & {
 // the shared checks and appends the pillar-specific ones rather than
 // duplicating the generic content-length check.
 export function scorePillarPage(input: PillarScoreInput): SeoScoreResult {
-  const base = scoreContent(input);
+  const features = input.features || [];
+  const considerations = input.considerations || [];
+  const faqs = input.faqs || [];
+  const exploreLinks = input.exploreLinks || [];
+  const fullPageText = joinText([
+    input.heroAnswer,
+    input.trustStrip,
+    input.primaryEntity,
+    ...features.flatMap((feature) => [feature.heading, feature.text]),
+    ...considerations.flatMap((item) => [item.heading, item.text]),
+    input.listingsHeading,
+    input.listingsIntro,
+    stripHtml(input.contentHtml),
+    input.faqsHeading,
+    ...faqs.flatMap((faq) => [faq.question, faq.answer]),
+    input.ctaHeading,
+    input.ctaText,
+    input.expertName,
+    input.expertRole,
+    input.expertBio,
+    ...exploreLinks.map((link) => link.label),
+  ]);
+  const base = scoreContent({ ...input, contentHtml: `${input.contentHtml}<div>${fullPageText}</div>` });
   const checks = base.checks.filter((c) => c.id !== "content-length");
-  const plainText = stripHtml(input.contentHtml);
-  const wordCount = countWords(plainText);
+  const wordCount = countWords(fullPageText);
+
+  const richTextImages = input.contentHtml.match(/<img[^>]*>/gi) || [];
+  const richTextMissingAlt = richTextImages.filter((tag) => !/alt\s*=\s*"[^"]+"/i.test(tag)).length;
+  const structuredImages = [
+    ...(input.heroImage ? [{ image: input.heroImage, alt: input.mediaAltByUrl?.[input.heroImage] || input.title }] : []),
+    ...features.filter((feature) => feature.image).map((feature) => ({
+      image: feature.image,
+      alt: feature.alt || input.mediaAltByUrl?.[feature.image] || "",
+    })),
+    ...(input.expertImage
+      ? [{ image: input.expertImage, alt: input.mediaAltByUrl?.[input.expertImage] || input.expertName || "" }]
+      : []),
+  ];
+  const missingAltCount =
+    richTextMissingAlt + structuredImages.filter((image) => !image.alt.trim()).length;
+  const imageCount = richTextImages.length + structuredImages.length;
+  const imageAltIndex = checks.findIndex((check) => check.id === "image-alt");
+  checks[imageAltIndex] =
+    imageCount === 0
+      ? { id: "image-alt", label: "Image alt text", status: "ok", message: "No content images are set on this page." }
+      : missingAltCount === 0
+        ? { id: "image-alt", label: "Image alt text", status: "good", message: `All ${imageCount} content image(s) have alt text.` }
+        : { id: "image-alt", label: "Image alt text", status: "bad", message: `${missingAltCount} of ${imageCount} content image(s) are missing alt text.` };
+
+  const richTextInternalLinks = [...input.contentHtml.matchAll(/href\s*=\s*["']([^"']+)["']/gi)]
+    .map((match) => match[1])
+    .filter(isInternalHref);
+  const structuredInternalLinks = [
+    ...exploreLinks.map((link) => link.href),
+    ...(input.relatedSector ? ["/vacancies"] : []),
+    ...(input.showReadyToMove ? ["/vacancies"] : []),
+    "/contact-us",
+  ].filter(isInternalHref);
+  const internalLinks = new Set([...richTextInternalLinks, ...structuredInternalLinks]);
+  const internalLinkIndex = checks.findIndex((check) => check.id === "internal-links");
+  checks[internalLinkIndex] =
+    internalLinks.size > 0
+      ? { id: "internal-links", label: "Internal links", status: "good", message: `${internalLinks.size} internal destination(s) found across the complete page.` }
+      : { id: "internal-links", label: "Internal links", status: "ok", message: "No internal links — linking to other pages on the site helps both SEO and readers." };
 
   checks.push(
     wordCount >= 3000 && wordCount <= 5500
@@ -189,7 +285,7 @@ export function scorePillarPage(input: PillarScoreInput): SeoScoreResult {
         : { id: "hero-answer", label: "Hero direct answer", status: "bad", message: "No hero direct answer set." }
   );
 
-  const faqCount = input.faqs?.length || 0;
+  const faqCount = faqs.length;
   checks.push(
     faqCount >= 10 && faqCount <= 18
       ? { id: "faq-count", label: "FAQ count", status: "good", message: `${faqCount} FAQs — within the recommended 10–18.` }

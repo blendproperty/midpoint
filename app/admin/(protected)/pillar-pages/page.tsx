@@ -3,13 +3,16 @@ import { prisma } from "@/lib/prisma";
 import { deletePillarPage } from "./actions";
 import { scorePillarPage } from "@/lib/seo-score";
 import SeoScoreBadge from "@/components/admin/SeoScoreBadge";
+import { buildMediaAltByUrl, pillarScoreInput } from "@/lib/pillar-score-data";
 
 export const dynamic = "force-dynamic";
 
-type PillarFaqShape = { question: string; answer: string };
-
 export default async function PillarPagesAdminPage() {
-  const pillars = await prisma.pillarPage.findMany({ orderBy: { createdAt: "desc" } });
+  const [pillars, media] = await Promise.all([
+    prisma.pillarPage.findMany({ orderBy: { createdAt: "desc" } }),
+    prisma.media.findMany({ select: { url: true, alt: true } }),
+  ]);
+  const mediaAltByUrl = buildMediaAltByUrl(media);
 
   return (
     <div>
@@ -37,8 +40,7 @@ export default async function PillarPagesAdminPage() {
           </thead>
           <tbody>
             {pillars.map((p) => {
-              const faqs = Array.isArray(p.faqs) ? (p.faqs as unknown as PillarFaqShape[]) : [];
-              const { score } = scorePillarPage({ ...p, faqs });
+              const { score } = scorePillarPage(pillarScoreInput(p, mediaAltByUrl));
               return (
                 <tr key={p.id} className="border-t border-slate-100">
                   <td className="px-4 py-3 font-medium">{p.title}</td>

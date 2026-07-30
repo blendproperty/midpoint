@@ -8,7 +8,7 @@ import ConsiderationRepeater from "@/components/admin/ConsiderationRepeater";
 import LinkRepeater from "@/components/admin/LinkRepeater";
 import FaqRepeater from "@/components/admin/FaqRepeater";
 
-type Feature = { heading: string; text: string; image: string };
+type Feature = { heading: string; text: string; image: string; alt?: string };
 type Consideration = { heading: string; text: string };
 type LinkItem = { label: string; href: string };
 type Faq = { question: string; answer: string };

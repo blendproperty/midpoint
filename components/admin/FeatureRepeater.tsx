@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import MediaPicker from "@/components/admin/MediaPicker";
 
-type Feature = { heading: string; text: string; image: string };
+type Feature = { heading: string; text: string; image: string; alt?: string };
 type Row = Feature & { id: number };
 
 function toRows(items?: Feature[]): Row[] {
@@ -18,13 +18,13 @@ export default function FeatureRepeater({ name, defaultValue }: { name: string; 
     setRows((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
   }
   function add() {
-    setRows((prev) => [...prev, { id: nextId.current++, heading: "", text: "", image: "" }]);
+    setRows((prev) => [...prev, { id: nextId.current++, heading: "", text: "", image: "", alt: "" }]);
   }
   function remove(id: number) {
     setRows((prev) => prev.filter((r) => r.id !== id));
   }
 
-  const json = JSON.stringify(rows.map(({ heading, text, image }) => ({ heading, text, image })));
+  const json = JSON.stringify(rows.map(({ heading, text, image, alt }) => ({ heading, text, image, alt: alt || "" })));
 
   return (
     <div>
@@ -56,7 +56,12 @@ export default function FeatureRepeater({ name, defaultValue }: { name: string; 
               />
             </div>
             <div className="mt-2">
-              <MediaPicker name={`__feature_image_${row.id}`} label="Image" defaultValue={row.image} onChange={(url) => update(row.id, { image: url })} />
+              <MediaPicker
+                name={`__feature_image_${row.id}`}
+                label="Image"
+                defaultValue={row.image}
+                onChange={(url, alt) => update(row.id, { image: url, ...(alt !== undefined ? { alt } : {}) })}
+              />
             </div>
           </div>
         ))}

@@ -15,10 +15,9 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
-import { scoreContent, scorePillarPage } from "@/lib/seo-score";
+import { scoreContent } from "@/lib/seo-score";
 import { getAuditRows, summarizeAuditRows } from "@/lib/seo-audit";
 import { vacancyReadinessScore } from "@/lib/vacancy-scores";
-import { formatPillarFaqs, type PillarFaq } from "@/lib/pillar-faqs";
 
 export const dynamic = "force-dynamic";
 
@@ -278,10 +277,11 @@ export default async function AdminDashboard({
   const scoredPillars = pillarPages
     .filter((p) => p.status === "PUBLISHED")
     .map((p) => {
-      const faqs = Array.isArray(p.faqs) ? (p.faqs as unknown as PillarFaq[]) : [];
-      const result = scorePillarPage({ ...p, faqs });
+      const result = auditRows.find((row) => row.id === `pillar-${p.id}`)?.result;
+      if (!result) return null;
       return { p, result };
-    });
+    })
+    .filter((item): item is NonNullable<typeof item> => item !== null);
 
   const scoredVacancies = liveVacancies.map((v) => ({ v, result: vacancyReadinessScore(v) }));
   const averageVacancyReadiness = scoredVacancies.length

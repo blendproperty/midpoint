@@ -23,7 +23,7 @@ import { midpointPlaceJsonLd, organizationJsonLd, stripSiteNameSuffix } from "@/
 export const dynamic = "force-dynamic";
 
 type PillarFaq = { question: string; answer: string };
-type PillarFeature = { heading: string; text: string; image: string };
+type PillarFeature = { heading: string; text: string; image: string; alt?: string };
 type PillarConsideration = { heading: string; text: string };
 type PillarLink = { label: string; href: string };
 
@@ -83,7 +83,18 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   const settings = await getSiteSettings();
   const description = pillar.seoDescription || pillar.title;
   const faqs = Array.isArray(pillar.faqs) ? (pillar.faqs as unknown as PillarFaq[]) : [];
-  const features = Array.isArray(pillar.features) ? (pillar.features as unknown as PillarFeature[]) : [];
+  const storedFeatures = Array.isArray(pillar.features) ? (pillar.features as unknown as PillarFeature[]) : [];
+  const featureMedia = storedFeatures.some((feature) => feature.image)
+    ? await prisma.media.findMany({
+        where: { url: { in: storedFeatures.map((feature) => feature.image).filter(Boolean) } },
+        select: { url: true, alt: true },
+      })
+    : [];
+  const featureAltByUrl = Object.fromEntries(featureMedia.map((item) => [item.url, item.alt.trim()]));
+  const features = storedFeatures.map((feature) => ({
+    ...feature,
+    alt: feature.alt?.trim() || featureAltByUrl[feature.image] || feature.heading,
+  }));
   const considerations = Array.isArray(pillar.considerations)
     ? (pillar.considerations as unknown as PillarConsideration[])
     : [];

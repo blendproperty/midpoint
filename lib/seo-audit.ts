@@ -10,6 +10,7 @@
 import { prisma } from "@/lib/prisma";
 import { STATIC_PAGES } from "@/lib/static-pages";
 import { getStaticPageContent } from "@/lib/static-page-content";
+import { buildMediaAltByUrl, pillarScoreInput } from "@/lib/pillar-score-data";
 import {
   scoreContent,
   scorePillarPage,
@@ -28,17 +29,17 @@ export type AuditRow = {
   result: SeoScoreResult;
 };
 
-type PillarFaq = { question: string; answer: string };
-
 export async function getAuditRows(): Promise<AuditRow[]> {
-  const [posts, pages, pillars, overrides, vacancies] = await Promise.all([
+  const [posts, pages, pillars, overrides, vacancies, media] = await Promise.all([
     prisma.blogPost.findMany({ where: { status: "PUBLISHED" } }),
     prisma.page.findMany({ where: { status: "PUBLISHED" } }),
     prisma.pillarPage.findMany({ where: { status: "PUBLISHED" } }),
     prisma.pageSeoOverride.findMany(),
     prisma.vacancy.findMany({ where: { status: "PUBLISHED" } }),
+    prisma.media.findMany({ select: { url: true, alt: true } }),
   ]);
   const overrideMap = new Map(overrides.map((o) => [o.path, o]));
+  const mediaAltByUrl = buildMediaAltByUrl(media);
 
   const postRows: AuditRow[] = posts.map((p) => ({
     id: `blog-${p.id}`,
@@ -73,26 +74,13 @@ export async function getAuditRows(): Promise<AuditRow[]> {
   }));
 
   const pillarRows: AuditRow[] = pillars.map((p) => {
-    const faqs = Array.isArray(p.faqs) ? (p.faqs as unknown as PillarFaq[]) : [];
     return {
       id: `pillar-${p.id}`,
       type: "Pillar page",
       title: p.title,
       editHref: `/admin/pillar-pages/${p.id}/edit`,
       focusKeyword: p.focusKeyword?.trim() || "",
-      result: scorePillarPage({
-        title: p.title,
-        slug: p.slug,
-        seoTitle: p.seoTitle,
-        seoDescription: p.seoDescription,
-        contentHtml: p.contentHtml,
-        focusKeyword: p.focusKeyword,
-        heroAnswer: p.heroAnswer,
-        expertName: p.expertName,
-        expertBio: p.expertBio,
-        faqs,
-        lastReviewedAt: p.lastReviewedAt,
-      }),
+      result: scorePillarPage(pillarScoreInput(p, mediaAltByUrl)),
     };
   });
 

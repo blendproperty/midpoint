@@ -8,7 +8,7 @@ type Props = {
   name: string;
   label: string;
   defaultValue?: string;
-  onChange?: (url: string) => void;
+  onChange?: (url: string, alt?: string) => void;
 };
 
 // Replaces "paste a URL you copied from the Media page" with an actual
@@ -26,9 +26,9 @@ export default function MediaPicker({ name, label, defaultValue = "", onChange }
   const [altDraft, setAltDraft] = useState("");
   const [uploadError, setUploadError] = useState("");
 
-  function update(next: string) {
+  function update(next: string, alt?: string) {
     setValue(next);
-    onChange?.(next);
+    onChange?.(next, alt);
   }
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function MediaPicker({ name, label, defaultValue = "", onChange }
       if (res.ok) {
         const data = await res.json();
         setItems((prev) => [data.media, ...prev]);
-        update(data.media.url);
+        update(data.media.url, data.media.alt);
         setPendingFile(null);
         setAltDraft("");
         setOpen(false);
@@ -176,7 +176,7 @@ export default function MediaPicker({ name, label, defaultValue = "", onChange }
                   type="button"
                   key={m.id}
                   onClick={() => {
-                    update(m.url);
+                    update(m.url, m.alt);
                     setOpen(false);
                   }}
                   title={m.alt || m.filename}

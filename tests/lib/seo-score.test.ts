@@ -81,6 +81,55 @@ describe("scoreContent", () => {
 });
 
 describe("scorePillarPage", () => {
+  it("scores the complete pillar page rather than only the main rich-text field", () => {
+    const result = scorePillarPage({
+      title: "Offices to Rent in Midrand",
+      slug: "offices",
+      contentHtml: `<h2>Main section</h2><p>${"main ".repeat(1682)}</p><h2>Second section</h2>`,
+      heroAnswer: "hero ".repeat(60),
+      features: Array.from({ length: 6 }, (_, i) => ({
+        heading: `Feature ${i}`,
+        text: "feature ".repeat(100),
+        image: `/feature-${i}.jpg`,
+      })),
+      considerations: Array.from({ length: 5 }, (_, i) => ({
+        heading: `Consideration ${i}`,
+        text: "consideration ".repeat(80),
+      })),
+      faqs: Array.from({ length: 10 }, (_, i) => ({
+        question: `Question ${i}`,
+        answer: "answer ".repeat(30),
+      })),
+    });
+
+    const length = result.checks.find((check) => check.id === "pillar-length");
+    expect(length?.status).toBe("good");
+    expect(length?.message).toContain("3,");
+  });
+
+  it("includes structured pillar links and Media-library alt text", () => {
+    const result = scorePillarPage({
+      title: "Offices to Rent in Midrand",
+      slug: "offices",
+      contentHtml: "<h2>Overview</h2><h2>Details</h2>",
+      heroImage: "/hero.jpg",
+      features: [{ heading: "Flexible offices", text: "Useful detail", image: "/feature.jpg" }],
+      mediaAltByUrl: {
+        "/hero.jpg": "Midpoint office exterior",
+        "/feature.jpg": "Flexible office at Midpoint",
+      },
+      relatedSector: "OFFICE",
+      showReadyToMove: true,
+      exploreLinks: [
+        { label: "Warehouses", href: "/warehouses" },
+        { label: "Amenities", href: "https://www.mid-point.co.za/amenities" },
+      ],
+    });
+
+    expect(result.checks.find((check) => check.id === "image-alt")?.status).toBe("good");
+    expect(result.checks.find((check) => check.id === "internal-links")?.message).toContain("4 internal destination");
+  });
+
   it("applies the stricter 3,000-5,500 word range instead of the generic 300-word minimum", () => {
     const shortContent = "word ".repeat(310); // passes scoreContent's bar, should fail the pillar bar
     const result = scorePillarPage({

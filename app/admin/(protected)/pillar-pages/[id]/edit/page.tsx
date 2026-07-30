@@ -3,28 +3,35 @@ import { prisma } from "@/lib/prisma";
 import PillarPageForm from "@/components/admin/PillarPageForm";
 import SeoScoreCard from "@/components/admin/SeoScoreCard";
 import { scorePillarPage } from "@/lib/seo-score";
+import { buildMediaAltByUrl, pillarScoreInput } from "@/lib/pillar-score-data";
 import { updatePillarPage } from "../../actions";
 
 export const dynamic = "force-dynamic";
 
 type PillarFaq = { question: string; answer: string };
-type PillarFeature = { heading: string; text: string; image: string };
+type PillarFeature = { heading: string; text: string; image: string; alt?: string };
 type PillarConsideration = { heading: string; text: string };
 type PillarLink = { label: string; href: string };
 
 export default async function EditPillarPagePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const pillar = await prisma.pillarPage.findUnique({ where: { id } });
+  const [pillar, media] = await Promise.all([
+    prisma.pillarPage.findUnique({ where: { id } }),
+    prisma.media.findMany({ select: { url: true, alt: true } }),
+  ]);
   if (!pillar) notFound();
+  const mediaAltByUrl = buildMediaAltByUrl(media);
 
   const faqs = Array.isArray(pillar.faqs) ? (pillar.faqs as unknown as PillarFaq[]) : [];
-  const features = Array.isArray(pillar.features) ? (pillar.features as unknown as PillarFeature[]) : [];
+  const features = (Array.isArray(pillar.features) ? (pillar.features as unknown as PillarFeature[]) : []).map(
+    (feature) => ({ ...feature, alt: feature.alt?.trim() || mediaAltByUrl[feature.image] || "" })
+  );
   const considerations = Array.isArray(pillar.considerations)
     ? (pillar.considerations as unknown as PillarConsideration[])
     : [];
   const exploreLinks = Array.isArray(pillar.exploreLinks) ? (pillar.exploreLinks as unknown as PillarLink[]) : [];
   const action = updatePillarPage.bind(null, id);
-  const result = scorePillarPage({ ...pillar, faqs });
+  const result = scorePillarPage(pillarScoreInput(pillar, mediaAltByUrl));
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-type Feature = { heading: string; text: string; image: string };
+type Feature = { heading: string; text: string; image: string; alt?: string };
 
 type Props = {
   eyebrow: string;
@@ -23,7 +23,7 @@ export default function FeatureIntro({ eyebrow, features }: Props) {
                 <p className="mt-3 text-sm text-midpoint-grey-400">{f.text}</p>
               </div>
               <div className="relative h-56 w-full overflow-hidden rounded-xl md:h-64">
-                <Image src={f.image} alt="" fill className="object-cover" />
+                <Image src={f.image} alt={f.alt?.trim() || f.heading} fill className="object-cover" />
               </div>
             </div>
           ))}

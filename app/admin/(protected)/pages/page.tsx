@@ -4,6 +4,7 @@ import { STATIC_PAGES } from "@/lib/static-pages";
 import { getStaticPageContent } from "@/lib/static-page-content";
 import NewPageMenu from "@/components/admin/NewPageMenu";
 import { scoreContent, scorePillarPage, scoreStaticPage } from "@/lib/seo-score";
+import { buildMediaAltByUrl, pillarScoreInput } from "@/lib/pillar-score-data";
 
 export const dynamic = "force-dynamic";
 
@@ -65,13 +66,15 @@ export default async function PagesHub({
 }) {
   const { type, status, q, limit } = await searchParams;
 
-  const [blogPosts, pages, pillarPages, overrides] = await Promise.all([
+  const [blogPosts, pages, pillarPages, overrides, media] = await Promise.all([
     prisma.blogPost.findMany({ orderBy: { updatedAt: "desc" } }),
     prisma.page.findMany({ orderBy: { updatedAt: "desc" } }),
     prisma.pillarPage.findMany({ orderBy: { updatedAt: "desc" } }),
     prisma.pageSeoOverride.findMany(),
+    prisma.media.findMany({ select: { url: true, alt: true } }),
   ]);
   const overrideMap = new Map(overrides.map((o) => [o.path, o]));
+  const mediaAltByUrl = buildMediaAltByUrl(media);
 
   const rows: Row[] = [
     ...blogPosts.map((p) => ({
@@ -93,7 +96,6 @@ export default async function PagesHub({
       score: scoreContent(p).score,
     })),
     ...pillarPages.map((p) => {
-      const faqs = Array.isArray(p.faqs) ? (p.faqs as unknown as { question: string; answer: string }[]) : [];
       return {
         key: `pillar-${p.id}`,
         type: "Pillar" as const,
@@ -101,7 +103,7 @@ export default async function PagesHub({
         status: p.status,
         updatedAt: p.updatedAt,
         editHref: `/admin/pillar-pages/${p.id}/edit`,
-        score: scorePillarPage({ ...p, faqs }).score,
+        score: scorePillarPage(pillarScoreInput(p, mediaAltByUrl)).score,
       };
     }),
     ...STATIC_PAGES.map((s) => {
