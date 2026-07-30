@@ -1,7 +1,7 @@
 import { cache } from "react";
 import { prisma } from "@/lib/prisma";
 import { site as staticSiteDefaults } from "@/lib/site";
-import { DEFAULT_INDEXNOW_KEY } from "@/lib/indexnow";
+import { DEFAULT_INDEXNOW_KEY } from "@/lib/indexnow-key";
 
 export type SiteSettings = {
   siteName: string;
