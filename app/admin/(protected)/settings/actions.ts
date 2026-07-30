@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export async function updateSiteSettings(formData: FormData) {
   await requireAdmin();
@@ -60,6 +61,14 @@ export async function updateSiteSettings(formData: FormData) {
     enquirySuccessMessage,
   };
 
+  // Flag anything the browser sent that got silently dropped by the format
+  // checks above, so "I saved a GA4 ID and nothing happened" has a visible
+  // explanation instead of just failing quietly.
+  const dropped: string[] = [];
+  if (gaRaw && !googleAnalyticsId) dropped.push("Google Analytics 4 measurement ID");
+  if (gtmRaw && !tagManagerId) dropped.push("Google Tag Manager ID");
+  if (clarityRaw && !clarityId) dropped.push("Microsoft Clarity project ID");
+
   await prisma.siteSetting.upsert({
     where: { id: "global" },
     update: data,
@@ -68,4 +77,8 @@ export async function updateSiteSettings(formData: FormData) {
 
   revalidatePath("/admin/settings");
   revalidatePath("/", "layout");
+
+  const params = new URLSearchParams({ saved: "1" });
+  if (dropped.length) params.set("dropped", dropped.join(", "));
+  redirect(`/admin/settings?${params.toString()}`);
 }
