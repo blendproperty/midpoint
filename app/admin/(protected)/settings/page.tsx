@@ -1,14 +1,32 @@
 import { getSiteSettings } from "@/lib/site-settings";
 import { updateSiteSettings } from "./actions";
+import SaveSettingsButton from "@/components/admin/SaveSettingsButton";
 
 export const dynamic = "force-dynamic";
 
-export default async function SettingsAdminPage() {
+export default async function SettingsAdminPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ saved?: string; dropped?: string }>;
+}) {
   const settings = await getSiteSettings();
+  const sp = await searchParams;
 
   return (
     <div>
       <h1 className="text-2xl font-semibold">Site Settings</h1>
+
+      {sp.saved && (
+        <div className="mt-4 rounded-xl bg-emerald-50 p-4 text-sm text-emerald-700">
+          <p>Settings saved.</p>
+          {sp.dropped && (
+            <p className="mt-1 text-amber-700">
+              Note: {sp.dropped} didn&apos;t match the expected format, so {sp.dropped.includes(",") ? "those weren't" : "that wasn't"} saved — everything else was.
+            </p>
+          )}
+        </div>
+      )}
+
       <form action={updateSiteSettings} className="mt-6 max-w-2xl space-y-8">
         <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold">General</h2>
@@ -153,9 +171,7 @@ export default async function SettingsAdminPage() {
           </div>
         </div>
 
-        <button type="submit" className="rounded-full bg-midpoint-dark px-5 py-2.5 text-sm font-semibold text-white">
-          Save settings
-        </button>
+        <SaveSettingsButton />
       </form>
     </div>
   );
