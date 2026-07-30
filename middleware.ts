@@ -87,8 +87,63 @@ function recordHit(fromPath: string) {
   }).catch(() => {});
 }
 
+// --- IndexNow key cache -------------------------------------------------
+// Same self-fetch-and-cache pattern as the redirect cache above, and for
+// the same reason (no Prisma in edge middleware). The key is editable from
+// /admin/settings (lib/site-settings.ts, falls back to
+// lib/indexnow-key.ts's DEFAULT_INDEXNOW_KEY when unset) — this lets
+// middleware serve the correct <domain>/<key>.txt ownership file for
+// whatever key is currently configured, without needing a code change/
+// redeploy every time someone edits it in Settings.
+let indexNowKeyCache = "";
+let indexNowKeyCacheAt = 0;
+let indexNowKeyRefreshInFlight: Promise<void> | null = null;
+const INDEXNOW_KEY_CACHE_TTL_MS = 60_000;
+
+async function refreshIndexNowKeyCache(): Promise<void> {
+  try {
+    const res = await fetch(internalUrl("/api/settings/indexnow-key"));
+    if (res.ok) {
+      const body: { key: string } = await res.json();
+      if (body.key) {
+        indexNowKeyCache = body.key;
+        indexNowKeyCacheAt = Date.now();
+      }
+    }
+  } catch {
+    // Keep serving the previous (possibly stale) key rather than breaking
+    // the ownership file over one transient fetch failure.
+  }
+}
+
+async function getIndexNowKey(): Promise<string> {
+  const now = Date.now();
+  if (indexNowKeyCache && now - indexNowKeyCacheAt < INDEXNOW_KEY_CACHE_TTL_MS) return indexNowKeyCache;
+
+  if (!indexNowKeyRefreshInFlight) {
+    indexNowKeyRefreshInFlight = refreshIndexNowKeyCache().finally(() => {
+      indexNowKeyRefreshInFlight = null;
+    });
+  }
+  await indexNowKeyRefreshInFlight;
+  return indexNowKeyCache;
+}
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // A request for /<something>.txt at the root — check it against the
+  // currently configured IndexNow key before anything else. Anything that
+  // doesn't match (e.g. /llms.txt, which has its own dedicated route) falls
+  // straight through to normal routing untouched.
+  const txtMatch = /^\/([^/]+)\.txt$/i.exec(pathname);
+  if (txtMatch) {
+    const key = await getIndexNowKey();
+    if (key && txtMatch[1] === key) {
+      return new NextResponse(key, { headers: { "Content-Type": "text/plain" } });
+    }
+    return NextResponse.next();
+  }
 
   if (PUBLIC_ROUTES.has(pathname)) {
     return NextResponse.next();
@@ -133,5 +188,11 @@ function redirectToLogin(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)",
+    // Explicit extra entry so top-level *.txt requests (the IndexNow key
+    // file above all) still reach this middleware despite the blanket
+    // ".*\\..*" exclusion in the pattern above.
+    "/:file.txt",
+  ],
 };
