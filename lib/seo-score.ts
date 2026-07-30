@@ -45,6 +45,46 @@ function isInternalHref(href: string): boolean {
   }
 }
 
+type KeywordConcept = { pattern: RegExp };
+
+const KEYWORD_STOP_WORDS = new Set(["a", "an", "and", "at", "for", "in", "of", "on", "the", "to"]);
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function keywordConcepts(keyword: string): KeywordConcept[] {
+  let remaining = keyword.toLowerCase().replace(/[-_/]+/g, " ").replace(/\s+/g, " ").trim();
+  const concepts: KeywordConcept[] = [];
+  const domainPhrases: Array<[RegExp, KeywordConcept]> = [
+    [/\boffice\s+spaces?\b/, { pattern: /\b(?:offices?|office\s+spaces?|workspaces?|offices?\s+to\s+rent)\b/gi }],
+    [/\bwarehouse\s+spaces?\b/, { pattern: /\b(?:warehouses?|warehouse\s+spaces?|industrial\s+(?:space|property|properties))\b/gi }],
+    [/\bserviced\s+offices?\b/, { pattern: /\b(?:serviced\s+offices?|flexible\s+offices?|coworking\s+spaces?)\b/gi }],
+  ];
+
+  for (const [phrase, concept] of domainPhrases) {
+    if (phrase.test(remaining)) {
+      concepts.push(concept);
+      remaining = remaining.replace(phrase, " ");
+    }
+  }
+
+  for (const token of remaining.split(/\s+/).filter((value) => value && !KEYWORD_STOP_WORDS.has(value))) {
+    const root = token.length > 4 && token.endsWith("s") ? token.slice(0, -1) : token;
+    concepts.push({ pattern: new RegExp(`\\b${escapeRegExp(root)}(?:s|es)?\\b`, "gi") });
+  }
+
+  return concepts;
+}
+
+function analyzeKeywordPlacement(text: string, keyword: string): { matches: boolean; references: number } {
+  const concepts = keywordConcepts(keyword);
+  if (concepts.length === 0) return { matches: false, references: 0 };
+  const conceptCounts = concepts.map(({ pattern }) => (text.match(pattern) || []).length);
+  const matches = conceptCounts.every((count) => count > 0);
+  return { matches, references: matches ? Math.max(...conceptCounts) : 0 };
+}
+
 export function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 }
@@ -155,18 +195,21 @@ export function scoreContent(input: ScoreInput): SeoScoreResult {
   );
 
   if (keyword) {
-    const inTitle = effectiveTitle.toLowerCase().includes(keyword);
-    const inDescription = (input.seoDescription || "").toLowerCase().includes(keyword);
-    const inContent = plainText.toLowerCase().includes(keyword);
-    const inSlug = input.slug.toLowerCase().includes(keyword.replace(/\s+/g, "-"));
-    const hits = [inTitle, inDescription, inContent, inSlug].filter(Boolean).length;
+    const placements = [
+      analyzeKeywordPlacement(effectiveTitle, keyword),
+      analyzeKeywordPlacement(input.seoDescription || "", keyword),
+      analyzeKeywordPlacement(plainText, keyword),
+      analyzeKeywordPlacement(input.slug.replace(/-/g, " "), keyword),
+    ];
+    const hits = placements.filter((placement) => placement.matches).length;
+    const references = placements.reduce((sum, placement) => sum + placement.references, 0);
 
     checks.push(
       hits >= 3
-        ? { id: "focus-keyword", label: "Focus keyword usage", status: "good", message: `"${keyword}" appears in ${hits} of 4 key places (title, description, slug, content).` }
+        ? { id: "focus-keyword", label: "Focus keyword usage", status: "good", message: `"${keyword}" and its close semantic variants appear in ${hits} of 4 key places, with ${references} relevant reference(s) across the page.` }
         : hits >= 1
-          ? { id: "focus-keyword", label: "Focus keyword usage", status: "ok", message: `"${keyword}" only appears in ${hits} of 4 key places — try including it in the title, description, and content.` }
-          : { id: "focus-keyword", label: "Focus keyword usage", status: "bad", message: `"${keyword}" doesn't appear in the title, description, slug, or content.` }
+          ? { id: "focus-keyword", label: "Focus keyword usage", status: "ok", message: `"${keyword}" and its close semantic variants appear in ${hits} of 4 key places, with ${references} relevant reference(s) — strengthen the missing title, description, slug, or content placement.` }
+          : { id: "focus-keyword", label: "Focus keyword usage", status: "bad", message: `"${keyword}" and its close semantic variants don't appear in the title, description, slug, or content.` }
     );
   }
 

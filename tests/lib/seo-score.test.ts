@@ -78,6 +78,35 @@ describe("scoreContent", () => {
     });
     expect(result.checks.find((c) => c.id === "focus-keyword")?.status).toBe("good");
   });
+
+  it("recognises close semantic variants of office space Midrand", () => {
+    const result = scoreContent({
+      title: "Offices to Rent in Midrand",
+      slug: "offices",
+      seoTitle: "Offices to Rent in Midrand | Midpoint Business Park",
+      seoDescription: "Modern offices to rent in Midrand with backup power and on-site amenities.",
+      contentHtml:
+        "<p>Compare office space in Midrand, flexible offices and Midrand workspaces for your team.</p>",
+      focusKeyword: "office space midrand",
+    });
+
+    const keywordCheck = result.checks.find((c) => c.id === "focus-keyword");
+    expect(keywordCheck?.status).toBe("good");
+    expect(keywordCheck?.message).toContain("3 of 4 key places");
+    expect(keywordCheck?.message).toContain("semantic variants");
+  });
+
+  it("does not claim a semantic keyword match when the location concept is absent", () => {
+    const result = scoreContent({
+      title: "Flexible Offices to Rent",
+      slug: "offices",
+      seoDescription: "Flexible offices and workspaces for growing teams.",
+      contentHtml: "<p>Explore our available office space.</p>",
+      focusKeyword: "office space midrand",
+    });
+
+    expect(result.checks.find((c) => c.id === "focus-keyword")?.status).toBe("bad");
+  });
 });
 
 describe("scorePillarPage", () => {
