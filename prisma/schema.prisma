@@ -204,6 +204,10 @@ model SiteSetting {
   recaptchaSiteKey         String?
   googleAnalyticsId        String?
   tagManagerId             String?
+  // Microsoft Clarity project ID (from clarity.microsoft.com -> Setup ->
+  // the "Installation" snippet's project ID, e.g. "abc1d2efgh"). Injected
+  // as a script tag in app/layout.tsx alongside GA4/GTM when set.
+  clarityId                String?
   defaultTitleTemplate     String?
   defaultMetaDescription   String?
   defaultKeywords          String?
