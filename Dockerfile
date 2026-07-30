@@ -44,6 +44,15 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # COPY --from=builder --chown=nextjs:nodejs /app/node_modules/.prisma ./node_modules/.prisma
 # COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modules/@prisma
 
+# Media uploads are written to /app/uploads (bind-mounted to the named
+# Docker volume `midpoint_uploads` in compose.prod.yml). When a named
+# volume is first created, Docker creates the mount point owned by root
+# unless the image already has that directory with different ownership.
+# Since the app runs as the unprivileged `nextjs` user below, we must
+# create /app/uploads and chown it here so first-ever uploads don't fail
+# with a permissions error.
+RUN mkdir -p /app/uploads && chown -R nextjs:nodejs /app/uploads
+
 USER nextjs
 EXPOSE 3000
 ENV PORT=3000
