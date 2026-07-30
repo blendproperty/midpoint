@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
-import { INDEXNOW_KEY } from "@/lib/indexnow";
+import { DEFAULT_INDEXNOW_KEY } from "@/lib/indexnow-key";
 
-// The key-ownership file IndexNow requires at <domain>/<key>.txt — must
-// return exactly the key as plain text. See lib/indexnow.ts.
+// Static fallback for the key-ownership file IndexNow requires at
+// <domain>/<key>.txt, hardcoded to the default key so it keeps working even
+// if the database is briefly unreachable. If an editor sets a *different*
+// key in /admin/settings, middleware.ts serves the correct file for that
+// new key dynamically — this static route only ever answers requests for
+// the original default key's exact filename.
 export async function GET() {
-  return new NextResponse(INDEXNOW_KEY, {
+  return new NextResponse(DEFAULT_INDEXNOW_KEY, {
     headers: { "Content-Type": "text/plain" },
   });
 }
