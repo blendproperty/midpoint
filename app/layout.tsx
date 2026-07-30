@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
+import Script from "next/script";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import SiteChrome from "@/components/SiteChrome";
@@ -113,6 +114,15 @@ export default async function RootLayout({
     <html lang="en" className={figtree.variable}>
       <GoogleTagManager gtmId={settings.tagManagerId} />
       {settings.googleAnalyticsId ? <GoogleAnalytics gaId={settings.googleAnalyticsId} /> : null}
+      {settings.clarityId ? (
+        <Script id="ms-clarity" strategy="afterInteractive">
+          {`(function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "${settings.clarityId}");`}
+        </Script>
+      ) : null}
       <body>
         <script
           type="application/ld+json"
