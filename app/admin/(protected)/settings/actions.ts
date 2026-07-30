@@ -32,6 +32,12 @@ export async function updateSiteSettings(formData: FormData) {
   const clarityRaw = String(formData.get("clarityId") || "").trim();
   const clarityId = /^[a-z0-9]{5,20}$/i.test(clarityRaw) ? clarityRaw : null;
 
+  // IndexNow key becomes a literal URL path segment (<domain>/<key>.txt),
+  // so it's restricted to safe characters — letters/numbers/hyphens only,
+  // same rule IndexNow itself recommends.
+  const indexNowRaw = String(formData.get("indexNowKey") || "").trim();
+  const indexNowKey = /^[a-z0-9-]{8,64}$/i.test(indexNowRaw) ? indexNowRaw : null;
+
   const defaultTitleTemplate = String(formData.get("defaultTitleTemplate") || "").trim() || null;
   const defaultMetaDescription = String(formData.get("defaultMetaDescription") || "").trim().slice(0, 160) || null;
   const defaultKeywords = String(formData.get("defaultKeywords") || "").trim() || null;
@@ -53,6 +59,7 @@ export async function updateSiteSettings(formData: FormData) {
     googleAnalyticsId,
     tagManagerId,
     clarityId,
+    indexNowKey,
     defaultTitleTemplate,
     defaultMetaDescription,
     defaultKeywords,
@@ -68,6 +75,7 @@ export async function updateSiteSettings(formData: FormData) {
   if (gaRaw && !googleAnalyticsId) dropped.push("Google Analytics 4 measurement ID");
   if (gtmRaw && !tagManagerId) dropped.push("Google Tag Manager ID");
   if (clarityRaw && !clarityId) dropped.push("Microsoft Clarity project ID");
+  if (indexNowRaw && !indexNowKey) dropped.push("IndexNow key (letters, numbers, hyphens only, 8-64 characters)");
 
   await prisma.siteSetting.upsert({
     where: { id: "global" },
