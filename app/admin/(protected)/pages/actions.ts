@@ -65,7 +65,7 @@ export async function createPage(formData: FormData) {
   const slugInput = String(formData.get("slug") || "").trim();
   const slug = slugify(slugInput || title);
   const contentHtml = String(formData.get("contentHtml") || "");
-  const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
+  const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "REVIEW" | "PUBLISHED";
   const access = await readAccessControlFields(formData, null);
 
   if (!title || !slug) throw new Error("Title is required");
@@ -87,7 +87,7 @@ export async function updatePage(id: string, formData: FormData) {
   const slugInput = String(formData.get("slug") || "").trim();
   const slug = slugify(slugInput || title);
   const contentHtml = String(formData.get("contentHtml") || "");
-  const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
+  const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "REVIEW" | "PUBLISHED";
 
   const existing = await prisma.page.findUnique({ where: { id }, select: { accessPasswordHash: true } });
   const access = await readAccessControlFields(formData, existing?.accessPasswordHash ?? null);

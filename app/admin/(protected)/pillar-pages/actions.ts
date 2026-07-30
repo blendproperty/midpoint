@@ -61,7 +61,7 @@ function readFields(formData: FormData) {
   const title = String(formData.get("title") || "").trim();
   const slugInput = String(formData.get("slug") || "").trim();
   const slug = slugify(slugInput || title);
-  const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
+  const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "REVIEW" | "PUBLISHED";
   const faqs = parseJsonArray(String(formData.get("faqsJson") || ""));
   const features = parseJsonArray(String(formData.get("featuresJson") || ""));
   const considerations = parseJsonArray(String(formData.get("considerationsJson") || ""));

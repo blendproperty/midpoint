@@ -5,6 +5,8 @@ import { getStaticPageContent } from "@/lib/static-page-content";
 import NewPageMenu from "@/components/admin/NewPageMenu";
 import { scoreContent, scorePillarPage, scoreStaticPage } from "@/lib/seo-score";
 import { buildMediaAltByUrl, pillarScoreInput } from "@/lib/pillar-score-data";
+import ContentRowActions from "@/components/admin/ContentRowActions";
+import { deleteContent, setContentWorkflowStatus } from "./content-actions";
 
 export const dynamic = "force-dynamic";
 
@@ -12,6 +14,7 @@ type PageType = "Blog" | "Page" | "Pillar" | "Static";
 
 type Row = {
   key: string;
+  id?: string;
   type: PageType;
   title: string;
   status: string;
@@ -21,11 +24,12 @@ type Row = {
 };
 
 const TYPE_TABS: Array<PageType | "All"> = ["All", "Blog", "Page", "Pillar", "Static"];
-const STATUS_OPTIONS = ["All", "PUBLISHED", "DRAFT", "CUSTOMIZED", "DEFAULT"];
+const STATUS_OPTIONS = ["All", "PUBLISHED", "REVIEW", "DRAFT", "CUSTOMIZED", "DEFAULT"];
 const LIMIT_OPTIONS = ["10", "25", "50", "All"];
 
 const STATUS_STYLES: Record<string, string> = {
   PUBLISHED: "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200",
+  REVIEW: "bg-amber-50 text-amber-700 ring-1 ring-amber-200",
   DRAFT: "bg-slate-100 text-slate-600 ring-1 ring-slate-200",
   CUSTOMIZED: "bg-blue-50 text-blue-700 ring-1 ring-blue-200",
   DEFAULT: "bg-slate-50 text-slate-500 ring-1 ring-slate-200",
@@ -79,6 +83,7 @@ export default async function PagesHub({
   const rows: Row[] = [
     ...blogPosts.map((p) => ({
       key: `blog-${p.id}`,
+      id: p.id,
       type: "Blog" as const,
       title: p.title,
       status: p.status,
@@ -88,6 +93,7 @@ export default async function PagesHub({
     })),
     ...pages.map((p) => ({
       key: `page-${p.id}`,
+      id: p.id,
       type: "Page" as const,
       title: p.title,
       status: p.status,
@@ -98,6 +104,7 @@ export default async function PagesHub({
     ...pillarPages.map((p) => {
       return {
         key: `pillar-${p.id}`,
+        id: p.id,
         type: "Pillar" as const,
         title: p.title,
         status: p.status,
@@ -230,9 +237,24 @@ export default async function PagesHub({
                   {r.updatedAt.getTime() > 0 ? r.updatedAt.toLocaleDateString() : "—"}
                 </td>
                 <td className="px-4 py-3 text-right">
-                  <Link href={r.editHref} className="font-medium text-midpoint-dark underline">
-                    Edit
-                  </Link>
+                  <ContentRowActions
+                    editHref={r.editHref}
+                    title={r.title}
+                    status={r.status}
+                    draftAction={
+                      r.id && r.type !== "Static"
+                        ? setContentWorkflowStatus.bind(null, r.type, r.id, "DRAFT")
+                        : undefined
+                    }
+                    reviewAction={
+                      r.id && r.type !== "Static"
+                        ? setContentWorkflowStatus.bind(null, r.type, r.id, "REVIEW")
+                        : undefined
+                    }
+                    deleteAction={
+                      r.id && r.type !== "Static" ? deleteContent.bind(null, r.type, r.id) : undefined
+                    }
+                  />
                 </td>
               </tr>
             ))}

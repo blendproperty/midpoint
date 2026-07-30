@@ -277,6 +277,7 @@ export default function PillarPageForm({ action, defaultValues, submitLabel = "S
           <label className="block text-sm font-medium">Status</label>
           <select name="status" defaultValue={defaultValues?.status || "DRAFT"} className="mt-1 w-full max-w-xs rounded-lg border border-slate-200 px-3 py-2 text-sm">
             <option value="DRAFT">Draft</option>
+            <option value="REVIEW">Ready for review</option>
             <option value="PUBLISHED">Published</option>
           </select>
         </div>

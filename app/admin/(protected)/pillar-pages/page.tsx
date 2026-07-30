@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { deletePillarPage } from "./actions";
 import { scorePillarPage } from "@/lib/seo-score";
 import SeoScoreBadge from "@/components/admin/SeoScoreBadge";
 import { buildMediaAltByUrl, pillarScoreInput } from "@/lib/pillar-score-data";
+import ContentRowActions from "@/components/admin/ContentRowActions";
+import { deleteContent, setContentWorkflowStatus } from "../pages/content-actions";
 
 export const dynamic = "force-dynamic";
 
@@ -46,18 +47,30 @@ export default async function PillarPagesAdminPage() {
                   <td className="px-4 py-3 font-medium">{p.title}</td>
                   <td className="px-4 py-3 text-slate-500">/{p.slug}</td>
                   <td className="px-4 py-3">
-                    <span className={p.status === "PUBLISHED" ? "text-emerald-600" : "text-slate-400"}>{p.status}</span>
+                    <span
+                      className={
+                        p.status === "PUBLISHED"
+                          ? "text-emerald-600"
+                          : p.status === "REVIEW"
+                            ? "text-amber-700"
+                            : "text-slate-400"
+                      }
+                    >
+                      {p.status}
+                    </span>
                   </td>
                   <td className="px-4 py-3">
                     <SeoScoreBadge score={score} />
                   </td>
                   <td className="px-4 py-3 text-right">
-                    <Link href={`/admin/pillar-pages/${p.id}/edit`} className="mr-3 text-midpoint-dark underline">
-                      Edit
-                    </Link>
-                    <form action={deletePillarPage.bind(null, p.id)} className="inline">
-                      <button className="text-red-600 underline">Delete</button>
-                    </form>
+                    <ContentRowActions
+                      editHref={`/admin/pillar-pages/${p.id}/edit`}
+                      title={p.title}
+                      status={p.status}
+                      draftAction={setContentWorkflowStatus.bind(null, "Pillar", p.id, "DRAFT")}
+                      reviewAction={setContentWorkflowStatus.bind(null, "Pillar", p.id, "REVIEW")}
+                      deleteAction={deleteContent.bind(null, "Pillar", p.id)}
+                    />
                   </td>
                 </tr>
               );

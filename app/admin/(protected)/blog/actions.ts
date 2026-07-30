@@ -50,7 +50,7 @@ export async function createBlogPost(formData: FormData) {
   const excerpt = String(formData.get("excerpt") || "").trim() || null;
   const contentHtml = String(formData.get("contentHtml") || "");
   const coverImage = String(formData.get("coverImage") || "").trim() || null;
-  const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
+  const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "REVIEW" | "PUBLISHED";
 
   if (!title || !slug) throw new Error("Title is required");
 
@@ -84,7 +84,7 @@ export async function updateBlogPost(id: string, formData: FormData) {
   const excerpt = String(formData.get("excerpt") || "").trim() || null;
   const contentHtml = String(formData.get("contentHtml") || "");
   const coverImage = String(formData.get("coverImage") || "").trim() || null;
-  const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "PUBLISHED";
+  const status = String(formData.get("status") || "DRAFT") as "DRAFT" | "REVIEW" | "PUBLISHED";
 
   const existing = await prisma.blogPost.findUnique({ where: { id } });
 
