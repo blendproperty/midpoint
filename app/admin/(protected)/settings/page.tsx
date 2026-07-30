@@ -41,6 +41,9 @@ export default async function SettingsAdminPage() {
           <p className="text-xs text-slate-400">
             Used as the site-wide fallback whenever a page doesn&apos;t set its own title/description/keywords —
             individual Blog posts, Pages and Pillar pages can still override these from their own SEO settings.
+            The XML sitemap itself needs no setting here — it&apos;s generated automatically at{" "}
+            <span className="font-medium text-slate-600">{settings.domain}/sitemap.xml</span> from whatever is
+            currently published; just submit that URL once inside Search Console / Bing Webmaster Tools.
           </p>
           <div>
             <label className="block text-sm font-medium">Default title template</label>
@@ -59,10 +62,17 @@ export default async function SettingsAdminPage() {
             <div>
               <label className="block text-sm font-medium">Google Search Console verification code</label>
               <input name="googleVerification" defaultValue={settings.googleVerification || ""} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+              <p className="mt-1 text-xs text-slate-400">
+                search.google.com/search-console → Add property → HTML tag method → paste just the{" "}
+                <span className="font-mono">content=&quot;...&quot;</span> value here, not the whole tag.
+              </p>
             </div>
             <div>
               <label className="block text-sm font-medium">Bing verification code</label>
               <input name="bingVerification" defaultValue={settings.bingVerification || ""} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+              <p className="mt-1 text-xs text-slate-400">
+                bing.com/webmasters → Add site → Meta tag method → same idea, just the value.
+              </p>
             </div>
           </div>
           <div>
@@ -79,13 +89,26 @@ export default async function SettingsAdminPage() {
             <div>
               <label className="block text-sm font-medium">Google Analytics 4 measurement ID</label>
               <input name="googleAnalyticsId" defaultValue={settings.googleAnalyticsId} placeholder="G-XXXXXXXXXX" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-              <p className="mt-1 text-xs text-slate-400">Must match G-XXXXXXX or it won&apos;t be saved.</p>
+              <p className="mt-1 text-xs text-slate-400">
+                Must match G-XXXXXXX or it won&apos;t be saved. Find it in analytics.google.com under the
+                &quot;Midpoint&quot; property → Admin (gear, bottom left) → Data Streams → the Web stream → the
+                Measurement ID shown top-right of that page.
+              </p>
             </div>
             <div>
               <label className="block text-sm font-medium">Google Tag Manager ID</label>
               <input name="tagManagerId" defaultValue={settings.tagManagerId} placeholder="GTM-XXXXXXX" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
               <p className="mt-1 text-xs text-slate-400">Must match GTM-XXXXXXX or it won&apos;t be saved.</p>
             </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Microsoft Clarity project ID</label>
+            <input name="clarityId" defaultValue={settings.clarityId} placeholder="e.g. abc1d2efgh" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            <p className="mt-1 text-xs text-slate-400">
+              clarity.microsoft.com → your project → Setup → the Installation snippet has a line like{" "}
+              <span className="font-mono">&quot;abc1d2efgh&quot;</span> — that short ID is what goes here, not the
+              whole script tag. Adds heatmaps and session recordings alongside GA4.
+            </p>
           </div>
         </div>
 
