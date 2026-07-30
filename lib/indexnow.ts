@@ -1,15 +1,18 @@
 import { getSiteSettings } from "@/lib/site-settings";
+import { DEFAULT_INDEXNOW_KEY } from "@/lib/indexnow-key";
 
-// Any fixed-looking key works for IndexNow — it only has to match the file
-// served at <domain>/<key>.txt (see the matching route folder below). It
-// doesn't need to be secret; it just proves you control the domain.
-export const INDEXNOW_KEY = "a1f9c3d7e2b84a6f9d0c5b8e1f2a3c47";
+export { DEFAULT_INDEXNOW_KEY };
 
 // Pings IndexNow (api.indexnow.org) so Bing and Yandex pick up new/updated
 // content immediately instead of waiting for their normal crawl schedule.
 // Deliberately NOT Google's Indexing API — Google restricts that to
 // JobPosting/BroadcastEvent structured data by their own terms, and using
 // it for ordinary pages risks the property being flagged.
+//
+// The key itself is editable from /admin/settings (falls back to
+// DEFAULT_INDEXNOW_KEY when unset) — middleware.ts serves the matching
+// <domain>/<key>.txt ownership file IndexNow requires by reading the same
+// setting, so changing the key here and there stay in sync automatically.
 //
 // Gated behind Settings' "Allow indexing" toggle so this never announces
 // content while the site is intentionally kept out of search (e.g. running
@@ -21,6 +24,7 @@ export async function submitToIndexNow(paths: string[]) {
     const settings = await getSiteSettings();
     if (!settings.allowIndexing || paths.length === 0) return;
 
+    const key = settings.indexNowKey || DEFAULT_INDEXNOW_KEY;
     const domain = settings.domain.replace(/\/$/, "");
     const host = new URL(domain).host;
     const urlList = paths.map((p) => `${domain}${p.startsWith("/") ? p : `/${p}`}`);
@@ -30,8 +34,8 @@ export async function submitToIndexNow(paths: string[]) {
       headers: { "Content-Type": "application/json; charset=utf-8" },
       body: JSON.stringify({
         host,
-        key: INDEXNOW_KEY,
-        keyLocation: `${domain}/${INDEXNOW_KEY}.txt`,
+        key,
+        keyLocation: `${domain}/${key}.txt`,
         urlList,
       }),
     });
