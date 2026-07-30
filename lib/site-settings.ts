@@ -15,6 +15,7 @@ export type SiteSettings = {
   recaptchaSiteKey: string;
   googleAnalyticsId: string;
   tagManagerId: string;
+  clarityId: string;
   defaultTitleTemplate: string;
   defaultMetaDescription: string;
   defaultKeywords: string;
@@ -54,6 +55,7 @@ const FALLBACK: SiteSettings = {
   recaptchaSiteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || DEFAULT_RECAPTCHA_SITE_KEY,
   googleAnalyticsId: "",
   tagManagerId: staticSiteDefaults.gtmId,
+  clarityId: "",
   defaultTitleTemplate: DEFAULT_TITLE_TEMPLATE,
   defaultMetaDescription: DEFAULT_META_DESCRIPTION,
   defaultKeywords: DEFAULT_KEYWORDS,
@@ -90,6 +92,7 @@ export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
       recaptchaSiteKey: row.recaptchaSiteKey || FALLBACK.recaptchaSiteKey,
       googleAnalyticsId: row.googleAnalyticsId || "",
       tagManagerId: row.tagManagerId || FALLBACK.tagManagerId,
+      clarityId: row.clarityId || "",
       defaultTitleTemplate: row.defaultTitleTemplate || DEFAULT_TITLE_TEMPLATE,
       defaultMetaDescription: row.defaultMetaDescription || DEFAULT_META_DESCRIPTION,
       defaultKeywords: row.defaultKeywords || DEFAULT_KEYWORDS,
