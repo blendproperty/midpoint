@@ -108,8 +108,8 @@ export default function SiteMap({ availability }: { availability: Record<number,
         </div>
 
         {selected && selectedAvailability && (
-          <aside className="z-20 flex max-h-[calc(100%-2rem)] flex-col overflow-y-auto bg-midpoint-dark text-white lg:absolute lg:bottom-4 lg:right-4 lg:top-4 lg:w-[430px] lg:rounded-2xl lg:shadow-2xl">
-            <div className="relative h-52 shrink-0 overflow-hidden lg:rounded-t-2xl">
+          <aside className="z-20 flex max-h-[calc(100%-2rem)] flex-col overflow-y-auto bg-midpoint-dark text-white lg:absolute lg:bottom-4 lg:right-4 lg:top-4 lg:w-[430px] lg:overflow-hidden lg:rounded-2xl lg:shadow-2xl">
+            <div className="relative h-44 shrink-0 overflow-hidden lg:rounded-t-2xl">
               <Image src={selected.image} alt={selected.name} fill sizes="430px" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-midpoint-dark/70 to-transparent" />
               <span className="absolute left-5 top-5 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-midpoint-dark">Map point {selected.pin}</span>
@@ -126,19 +126,19 @@ export default function SiteMap({ availability }: { availability: Record<number,
               </span>
             </div>
 
-            <div className="flex flex-1 flex-col p-6">
+            <div className="flex flex-1 flex-col p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-midpoint-cyan">{selected.category}</p>
               <h3 className="mt-2 text-3xl font-semibold">{selected.name}</h3>
               <p className="mt-3 text-sm leading-6 text-white/65">{selected.description}</p>
 
               {selectedAvailability.count > 0 && (
-                <div className="mt-5 grid grid-cols-2 gap-4 border-y border-white/10 py-4">
+                <div className="mt-4 grid grid-cols-2 gap-4 border-y border-white/10 py-3">
                   <div><p className="text-xs text-white/45">Available area</p><p className="mt-1 font-semibold">{formatArea(selectedAvailability.totalSqm)}</p></div>
                   <div><p className="text-xs text-white/45">Next availability</p><p className="mt-1 font-semibold">{selectedAvailability.nextAvailable}</p></div>
                 </div>
               )}
 
-              <div className="mt-auto flex flex-wrap gap-3 pt-6">
+              <div className="mt-auto flex flex-wrap gap-3 pt-4">
                 <Link href={selected.href} className="rounded-full bg-midpoint-cyan px-5 py-3 text-sm font-semibold text-midpoint-dark">View details</Link>
                 <Link href={`/contact-us?space=${encodeURIComponent(selected.name)}#Contact`} className="rounded-full border border-white/25 px-5 py-3 text-sm font-semibold text-white">Arrange inspection</Link>
               </div>
