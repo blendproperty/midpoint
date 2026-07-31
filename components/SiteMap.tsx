@@ -140,7 +140,7 @@ export default function SiteMap({ availability }: { availability: Record<number,
 
               <div className="mt-auto flex flex-wrap gap-3 pt-4">
                 <Link href={selected.href} className="rounded-full bg-midpoint-cyan px-5 py-3 text-sm font-semibold text-midpoint-dark">View details</Link>
-                <Link href={`/contact-us?space=${encodeURIComponent(selected.name)}#Contact`} className="rounded-full border border-white/25 px-5 py-3 text-sm font-semibold text-white">Arrange inspection</Link>
+                <Link href={`/contact-us?space=${encodeURIComponent(selected.name)}#Contact`} className="rounded-full border border-white/25 px-5 py-3 text-sm font-semibold text-white">Arrange viewing</Link>
               </div>
             </div>
           </aside>
