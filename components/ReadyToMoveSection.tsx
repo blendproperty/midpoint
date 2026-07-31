@@ -4,28 +4,30 @@ import Reveal from "@/components/Reveal";
 
 export default function ReadyToMoveSection() {
   return (
-    <section className="px-6 py-16">
+    <section className="bg-white px-6 py-20">
       <div className="mx-auto flex max-w-7xl justify-center">
-        {/* Real dimensions confirmed via Playwright: 940.8 x 600px card,
-            20px radius. Text is large and vertically centered-left, not
-            small text tucked in the corner. */}
         <Link
           href="/vacancies"
-          className="group relative flex aspect-[940/600] w-full max-w-[940px] items-center overflow-hidden rounded-[20px]"
+          className="group relative flex min-h-[380px] w-full items-center overflow-hidden rounded-card md:min-h-[460px]"
         >
           <Image
-            src="/images/ready-to-move/ready-to-move.avif"
-            alt=""
+            src="/images/gallery/gallery-4.avif"
+            alt="Landscaped gardens and water feature at Midpoint Business Park"
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(min-width: 1280px) 1280px, 100vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-midpoint-dark/50 via-midpoint-dark/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-midpoint-dark/90 via-midpoint-dark/50 to-midpoint-dark/5" />
 
-          <Reveal className="relative px-8 text-white sm:px-12">
-            <p className="text-4xl font-bold sm:text-5xl">Ready to move in?</p>
-            <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition-transform duration-150 ease-out group-hover:translate-x-1 sm:text-base">
+          <Reveal className="relative max-w-2xl px-8 text-white sm:px-14">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-cyan">Current opportunities</p>
+            <p className="mt-4 text-4xl font-semibold leading-tight sm:text-6xl">Ready to find your space?</p>
+            <p className="mt-4 max-w-lg text-sm leading-6 text-white/75 sm:text-base">
+              Explore available offices, warehouses and flexible workspace within one connected Midrand estate.
+            </p>
+            <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-midpoint-cyan px-5 py-3 text-sm font-semibold text-midpoint-dark transition-transform duration-150 ease-out group-hover:translate-x-1 sm:text-base">
               Check availability now
-              <span aria-hidden="true">↗</span>
+              <span aria-hidden="true">&rarr;</span>
             </span>
           </Reveal>
         </Link>

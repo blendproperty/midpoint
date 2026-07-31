@@ -13,11 +13,9 @@ const rowA = [
 const rowB = [
   "/images/gallery/gallery-5.avif",
   "/images/gallery/gallery-6-paddle.jpg",
-  "/images/ready-to-move/ready-to-move.avif",
   "/images/gallery/gallery-8-running.jpg",
   "/images/gallery/gallery-9-gym.jpg",
   "/images/gallery/gallery-10-restaurant.jpg",
-  "/images/ready-to-move/ready-to-move.avif",
 ];
 
 function Row({ images, refEl, trackRef }: { images: string[]; refEl: React.RefObject<HTMLDivElement | null>; trackRef: React.RefObject<HTMLDivElement | null> }) {
