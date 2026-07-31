@@ -1,1 +1,85 @@
-aW1wb3J0IEltYWdlIGZyb20gIm5leHQvaW1hZ2UiOwppbXBvcnQgTGluayBmcm9tICJuZXh0L2xpbmsiOwppbXBvcnQgUmV2ZWFsIGZyb20gIkAvY29tcG9uZW50cy9SZXZlYWwiOwppbXBvcnQgeyBnZXRWYWNhbmNpZXNHcm91cGVkQnlTZWN0b3IgfSBmcm9tICJAL2xpYi92YWNhbmNpZXMiOwoKY29uc3QgaXRlbXMgPSBbCiAgewogICAgdGl0bGU6ICJPZmZpY2VzIiwKICAgIHRleHQ6ICJGbGV4aWJsZSBzdWl0ZXMgdGhyb3VnaCB0byBmdWxsIGNvcnBvcmF0ZSBoZWFkcXVhcnRlcnMsIHdpdGggcHJpbWUgZmluaXNoZXMgYW5kIG9uLXNpdGUgc2VjdXJpdHkuIiwKICAgIGhyZWY6ICIvb2ZmaWNlcyIsCiAgICBjdGE6ICJWaWV3IG9mZmljZXMiLAogICAgaW1hZ2U6ICIvaW1hZ2VzL2xpc3RpbmdzLzItd2VhdmVyLWF2ZW51ZS5wbmciLAogICAgc2VjdG9yS2V5OiAib2ZmaWNlIiBhcyBjb25zdAogIH0sCiAgewogICAgdGl0bGU6ICJXYXJlaG91c2VzIiwKICAgIHRleHQ6ICJIaWdoLXBlcmZvcm1hbmNlIGluZHVzdHJpYWwgc3BhY2Ugd2l0aCBzdHJvbmcgZWF2ZXMsIGRvY2sgbGV2ZWxsZXJzIGFuZCBkZWRpY2F0ZWQgeWFyZCBhY2Nlc3MuIiwKICAgIGhyZWY6ICIvd2FyZWhvdXNlcyIsCiAgICBjdGE6ICJWaWV3IHdhcmVob3VzZXMiLAogICAgaW1hZ2U6ICIvaW1hZ2VzL2xpc3RpbmdzLzYtd2VhdmVyLWF2ZW51ZS5wbmciLAogICAgc2VjdG9yS2V5OiAid2FyZWhvdXNlIiBhcyBjb25zdAogIH0sCiAgewogICAgdGl0bGU6ICJTZXJ2aWNlZCBvZmZpY2VzIiwKICAgIHRleHQ6ICJGdXJuaXNoZWQgT25Qb2ludCBzdWl0ZXMgd2l0aCBtZWV0aW5nIHJvb21zLCByZWNlcHRpb24gYW5kIGFuIG9uLXNpdGUgYmFyaXN0YSDigJQgbW92ZSBpbiBhbmQgZ2V0IHRvIHdvcmsuIiwKICAgIGhyZWY6ICIvb2ZmaWNlcyIsCiAgICBjdGE6ICJWaWV3IHNlcnZpY2VkIG9mZmljZXMiLAogICAgaW1hZ2U6ICIvaW1hZ2VzL2xpc3RpbmdzL29ucG9pbnQuanBlZyIsCiAgICBzZWN0b3JLZXk6ICJzZXJ2aWNlZE9mZmljZSIgYXMgY29uc3QKICB9Cl07CgpleHBvcnQgZGVmYXVsdCBhc3luYyBmdW5jdGlvbiBTcGFjZXNFeHBsb3JlKCkgewogIGNvbnN0IGdyb3VwZWQgPSBhd2FpdCBnZXRWYWNhbmNpZXNHcm91cGVkQnlTZWN0b3IoKTsKCiAgcmV0dXJuICgKICAgIDxzZWN0aW9uIGNsYXNzTmFtZT0icmVsYXRpdmUgb3ZlcmZsb3ctaGlkZGVuIGJnLXdoaXRlIHB4LTYgcHktMjQiPgogICAgICA8ZGl2IGNsYXNzTmFtZT0icG9pbnRlci1ldmVudHMtbm9uZSBhYnNvbHV0ZSAtbGVmdC0zMiB0b3AtMCBoLTcyIHctNzIgcm91bmRlZC1mdWxsIGJnLW1pZHBvaW50LWN5YW4vMzAgYmx1ci0zeGwiIC8+CiAgICAgIDxkaXYgY2xhc3NOYW1lPSJyZWxhdGl2ZSBteC1hdXRvIG1heC13LTZ4bCI+CiAgICAgICAgPGgyIGNsYXNzTmFtZT0idGV4dC0zeGwgZm9udC1zZW1pYm9sZCB0ZXh0LW1pZHBvaW50LWRhcmsgbWQ6dGV4dC00eGwiPkV4cGxvcmUgTWlkcG9pbnQmYXBvcztzIHNwYWNlczwvaDI+CiAgICAgICAgPHAgY2xhc3NOYW1lPSJtdC00IG1heC13LTJ4bCB0ZXh0LW1pZHBvaW50LWdyZXktNDAwIj4KICAgICAgICAgIE9mZmljZSBzcGFjZSwgd2FyZWhvdXNlIHNwYWNlIGFuZCBvbi1zaXRlIGFtZW5pdGllcyB3aXRoaW4gYSBzaW5nbGUgY29ubmVjdGVkIGVzdGF0ZSDigJQgcGljayB3aGVyZSB0byBzdGFydCBiZWxvdyBmb3IgY3VycmVudCBhdmFpbGFiaWxpdHksIHNwZWNpZmljYXRpb25zIGFuZCBhIGRpcmVjdCB3YXkgdG8gZ2V0IGluIHRvdWNoLgogICAgICAgIDwvcD4KCiAgICAgICAgPGRpdiBjbGFzc05hbWU9Im10LTEwIGdyaWQgZ2FwLTYgbWQ6Z3JpZC1jb2xzLTMiPgogICAgICAgICAge2l0ZW1zLm1hcCgoaXRlbSwgaSkgPT4gewogICAgICAgICAgICBjb25zdCBjb3VudCA9IGdyb3VwZWRbaXRlbS5zZWN0b3JLZXldLmxlbmd0aDsKICAgICAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgICA8UmV2ZWFsIGtleT17aXRlbS50aXRsZX0gZGVsYXk9e2kgKiAxMDB9PgogICAgICAgICAgICAgICAgPExpbmsKICAgICAgICAgICAgICAgICAgaHJlZj17aXRlbS5ocmVmfQogICAgICAgICAgICAgICAgICBjbGFzc05hbWU9Imdyb3VwIHJlbGF0aXZlIGZsZXggYXNwZWN0LVs0LzVdIGZsZXgtY29sIGp1c3RpZnktZW5kIG92ZXJmbG93LWhpZGRlbiByb3VuZGVkLWNhcmQiCiAgICAgICAgICAgICAgICA+CiAgICAgICAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgICAgIHNyYz17aXRlbS5pbWFnZX0KICAgICAgICAgICAgICAgICAgICBhbHQ9IiIKICAgICAgICAgICAgICAgICAgICBmaWxsCiAgICAgICAgICAgICAgICAgICAgc2l6ZXM9IihtaW4td2lkdGg6IDc2OHB4KSAzM3Z3LCAxMDB2dyIKICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9Im9iamVjdC1jb3ZlciB0cmFuc2l0aW9uLXRyYW5zZm9ybSBkdXJhdGlvbi01MDAgZ3JvdXAtaG92ZXI6c2NhbGUtMTA1IgogICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0iYWJzb2x1dGUgaW5zZXQtMCBiZy1ncmFkaWVudC10by10IGZyb20tbWlkcG9pbnQtZGFyayB2aWEtbWlkcG9pbnQtZGFyay80MCB0by10cmFuc3BhcmVudCIgLz4KCiAgICAgICAgICAgICAgICAgIHtjb3VudCA+IDAgJiYgKAogICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0iYWJzb2x1dGUgcmlnaHQtNCB0b3AtNCByb3VuZGVkLWZ1bGwgYmctbWlkcG9pbnQtY3lhbiBweC0zIHB5LTEgdGV4dC14cyBmb250LXNlbWlib2xkIHRleHQtbWlkcG9pbnQtZGFyayI+CiAgICAgICAgICAgICAgICAgICAgICB7Y291bnR9IGF2YWlsYWJsZSBub3cKICAgICAgICAgICAgICAgICAgICA8L3NwYW4+CiAgICAgICAgICAgICAgICAgICl9CgogICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT0icmVsYXRpdmUgZmxleCBmbGV4LWNvbCBnYXAtMyBwLTggdGV4dC13aGl0ZSI+CiAgICAgICAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT0idGV4dC0yeGwgZm9udC1zZW1pYm9sZCI+e2l0ZW0udGl0bGV9PC9oMz4KICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9InRleHQtc20gdGV4dC13aGl0ZS83NSI+e2l0ZW0udGV4dH08L3A+CiAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPSJtdC0yIGlubGluZS1mbGV4IHctZml0IGl0ZW1zLWNlbnRlciBnYXAtMSByb3VuZGVkLWZ1bGwgYmctbWlkcG9pbnQtY3lhbiBweC00IHB5LTIgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LW1pZHBvaW50LWRhcmsgdHJhbnNpdGlvbi10cmFuc2Zvcm0gZHVyYXRpb24tMTUwIGVhc2Utb3V0IGdyb3VwLWhvdmVyOnRyYW5zbGF0ZS14LTEiPgogICAgICAgICAgICAgICAgICAgICAge2l0ZW0uY3RhfSDihpIKICAgICAgICAgICAgICAgICAgICA8L3NwYW4+CiAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPC9MaW5rPgogICAgICAgICAgICAgIDwvUmV2ZWFsPgogICAgICAgICAgICApOwogICAgICAgICAgfSl9CiAgICAgICAgPC9kaXY+CiAgICAgIDwvZGl2PgogICAgPC9zZWN0aW9uPgogICk7Cn0K
+import Image from "next/image";
+import Link from "next/link";
+import Reveal from "@/components/Reveal";
+import { getVacanciesGroupedBySector } from "@/lib/vacancies";
+
+const items = [
+  {
+    title: "Offices",
+    text: "Flexible suites through to full corporate headquarters, with prime finishes and on-site security.",
+    href: "/offices",
+    cta: "View offices",
+    image: "/images/listings/2-weaver-avenue.png",
+    sectorKey: "office" as const,
+  },
+  {
+    title: "Warehouses",
+    text: "High-performance industrial space with strong eaves, dock levellers and dedicated yard access.",
+    href: "/warehouses",
+    cta: "View warehouses",
+    image: "/images/listings/6-weaver-avenue.png",
+    sectorKey: "warehouse" as const,
+  },
+  {
+    title: "Serviced offices",
+    text: "Furnished OnPoint suites with meeting rooms, reception and an on-site barista — move in and get to work.",
+    href: "/services-offices",
+    cta: "View serviced offices",
+    image: "/images/listings/onpoint.jpeg",
+    sectorKey: "servicedOffice" as const,
+  },
+];
+
+export default async function SpacesExplore() {
+  const grouped = await getVacanciesGroupedBySector();
+
+  return (
+    <section className="relative overflow-hidden bg-white px-6 py-24">
+      <div className="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-midpoint-cyan/30 blur-3xl" />
+      <div className="relative mx-auto max-w-6xl">
+        <h2 className="text-3xl font-semibold text-midpoint-dark md:text-4xl">Explore Midpoint&apos;s spaces</h2>
+        <p className="mt-4 max-w-2xl text-midpoint-grey-400">
+          Office space, warehouse space and on-site amenities within a single connected estate — pick where to start
+          below for current availability, specifications and a direct way to get in touch.
+        </p>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {items.map((item, i) => {
+            const count = grouped[item.sectorKey].length;
+            return (
+              <Reveal key={item.title} delay={i * 100}>
+                <Link
+                  href={item.href}
+                  className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-card"
+                >
+                  <Image
+                    src={item.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-midpoint-dark via-midpoint-dark/40 to-transparent" />
+
+                  {count > 0 && (
+                    <span className="absolute right-4 top-4 rounded-full bg-midpoint-cyan px-3 py-1 text-xs font-semibold text-midpoint-dark">
+                      {count} available now
+                    </span>
+                  )}
+
+                  <div className="relative flex flex-col gap-3 p-8 text-white">
+                    <h3 className="text-2xl font-semibold">{item.title}</h3>
+                    <p className="text-sm text-white/75">{item.text}</p>
+                    <span className="mt-2 inline-flex w-fit items-center gap-1 rounded-full bg-midpoint-cyan px-4 py-2 text-sm font-medium text-midpoint-dark transition-transform duration-150 ease-out group-hover:translate-x-1">
+                      {item.cta} →
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

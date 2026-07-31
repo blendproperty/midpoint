@@ -1,1 +1,54 @@
-aW1wb3J0IHR5cGUgeyBNZXRhZGF0YSB9IGZyb20gIm5leHQiOwppbXBvcnQgUGFnZUhlcm8gZnJvbSAiQC9jb21wb25lbnRzL1BhZ2VIZXJvIjsKaW1wb3J0IFNwYWNlc0V4cGxvcmUgZnJvbSAiQC9jb21wb25lbnRzL1NwYWNlc0V4cGxvcmUiOwppbXBvcnQgQW1lbml0aWVzU2VjdGlvbiBmcm9tICJAL2NvbXBvbmVudHMvQW1lbml0aWVzU2VjdGlvbiI7CmltcG9ydCBSZWFkeVRvTW92ZVNlY3Rpb24gZnJvbSAiQC9jb21wb25lbnRzL1JlYWR5VG9Nb3ZlU2VjdGlvbiI7CmltcG9ydCBCcmVhZGNydW1iSnNvbkxkIGZyb20gIkAvY29tcG9uZW50cy9CcmVhZGNydW1iSnNvbkxkIjsKaW1wb3J0IEJyZWFkY3J1bWJzIGZyb20gIkAvY29tcG9uZW50cy9CcmVhZGNydW1icyI7CmltcG9ydCB7IGdldFBhZ2VTZW9PdmVycmlkZSB9IGZyb20gIkAvbGliL3BhZ2Utc2VvIjsKaW1wb3J0IHsgcmljaFBhZ2VKc29uTGQsIHN0cmlwU2l0ZU5hbWVTdWZmaXggfSBmcm9tICJAL2xpYi9zZW8iOwppbXBvcnQgeyBnZXRTaXRlU2V0dGluZ3MgfSBmcm9tICJAL2xpYi9zaXRlLXNldHRpbmdzIjsKCmV4cG9ydCBjb25zdCBkeW5hbWljID0gImZvcmNlLWR5bmFtaWMiOwoKY29uc3QgRkFMTEJBQ0tfVElUTEUgPSAiU3BhY2VzIGF0IE1pZHBvaW50IHwgT2ZmaWNlcywgV2FyZWhvdXNlcyAmIEFtZW5pdGllcyBpbiBNaWRyYW5kIjsKY29uc3QgZGVzY3JpcHRpb24gPQogICJFeHBsb3JlIE1pZHBvaW50J3Mgb2ZmaWNlIHNwYWNlLCB3YXJlaG91c2Ugc3BhY2UgYW5kIG9uLXNpdGUgYW1lbml0aWVzIGluIE1pZHJhbmQg4oCUIGEgY29ubmVjdGVkIGJ1c2luZXNzIGVzdGF0ZSBiZXR3ZWVuIEpvaGFubmVzYnVyZyBhbmQgUHJldG9yaWEuIjsKCmV4cG9ydCBhc3luYyBmdW5jdGlvbiBnZW5lcmF0ZU1ldGFkYXRhKCk6IFByb21pc2U8TWV0YWRhdGE+IHsKICBjb25zdCBbb3ZlcnJpZGUsIHNldHRpbmdzXSA9IGF3YWl0IFByb21pc2UuYWxsKFtnZXRQYWdlU2VvT3ZlcnJpZGUoIi9zcGFjZXMiKSwgZ2V0U2l0ZVNldHRpbmdzKCldKTsKICBjb25zdCByYXdUaXRsZSA9IG92ZXJyaWRlPy5zZW9UaXRsZSB8fCBGQUxMQkFDS19USVRMRTsKICByZXR1cm4gewogICAgdGl0bGU6IHN0cmlwU2l0ZU5hbWVTdWZmaXgocmF3VGl0bGUsIHNldHRpbmdzLnNpdGVOYW1lKSwKICAgIGRlc2NyaXB0aW9uOiBvdmVycmlkZT8uc2VvRGVzY3JpcHRpb24gfHwgZGVzY3JpcHRpb24sCiAgfTsKfQoKZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gU3BhY2VzUGFnZSgpIHsKICBjb25zdCBvdmVycmlkZSA9IGF3YWl0IGdldFBhZ2VTZW9PdmVycmlkZSgiL3NwYWNlcyIpOwogIGNvbnN0IHBhZ2VEZXNjcmlwdGlvbiA9IG92ZXJyaWRlPy5zZW9EZXNjcmlwdGlvbiB8fCBkZXNjcmlwdGlvbjsKICBjb25zdCBicmVhZGNydW1iSXRlbXMgPSBbeyBuYW1lOiAiSG9tZSIsIHBhdGg6ICIvIiB9LCB7IG5hbWU6ICJTcGFjZXMiLCBwYXRoOiAiL3NwYWNlcyIgfV07CgogIGNvbnN0IGpzb25MZE5vZGUgPSByaWNoUGFnZUpzb25MZCh7CiAgICB0eXBlOiAiQ29sbGVjdGlvblBhZ2UiLAogICAgbmFtZTogIlNwYWNlcyBhdCBNaWRwb2ludCIsCiAgICBkZXNjcmlwdGlvbjogcGFnZURlc2NyaXB0aW9uLAogICAgcGF0aDogIi9zcGFjZXMiLAogIH0pOwoKICByZXR1cm4gKAogICAgPD4KICAgICAgPEJyZWFkY3J1bWJKc29uTGQgaXRlbXM9e2JyZWFkY3J1bWJJdGVtc30gbm9kZT17anNvbkxkTm9kZX0gLz4KICAgICAgPEJyZWFkY3J1bWJzIGl0ZW1zPXticmVhZGNydW1iSXRlbXN9IC8+CiAgICAgIDxQYWdlSGVybwogICAgICAgIHRpdGxlPSJTcGFjZXMgYXQgTWlkcG9pbnQiCiAgICAgICAgc3VidGl0bGU9Ik9mZmljZSBzcGFjZSwgd2FyZWhvdXNlIHNwYWNlIGFuZCBvbi1zaXRlIGFtZW5pdGllcywgYWxsIHdpdGhpbiBvbmUgY29ubmVjdGVkIGJ1c2luZXNzIGVzdGF0ZSBpbiBNaWRyYW5kLiIKICAgICAgICBpbWFnZT0iL2ltYWdlcy9wYWdlcy9hbWVuaXRpZXMtYmFubmVyLmpwZyIKICAgICAgICBpbWFnZUFsdD0iTWlkcG9pbnQgYnVzaW5lc3MgZXN0YXRlIgogICAgICAvPgogICAgICA8U3BhY2VzRXhwbG9yZSAvPgogICAgICA8QW1lbml0aWVzU2VjdGlvbiAvPgogICAgICA8UmVhZHlUb01vdmVTZWN0aW9uIC8+CiAgICA8Lz4KICApOwp9Cg==
+import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
+import SpacesExplore from "@/components/SpacesExplore";
+import AmenitiesSection from "@/components/AmenitiesSection";
+import ReadyToMoveSection from "@/components/ReadyToMoveSection";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { getPageSeoOverride } from "@/lib/page-seo";
+import { richPageJsonLd, stripSiteNameSuffix } from "@/lib/seo";
+import { getSiteSettings } from "@/lib/site-settings";
+
+export const dynamic = "force-dynamic";
+
+const FALLBACK_TITLE = "Spaces at Midpoint | Offices, Warehouses & Amenities in Midrand";
+const description =
+  "Explore Midpoint's office space, warehouse space and on-site amenities in Midrand — a connected business estate between Johannesburg and Pretoria.";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const [override, settings] = await Promise.all([getPageSeoOverride("/spaces"), getSiteSettings()]);
+  const rawTitle = override?.seoTitle || FALLBACK_TITLE;
+  return {
+    title: stripSiteNameSuffix(rawTitle, settings.siteName),
+    description: override?.seoDescription || description,
+  };
+}
+
+export default async function SpacesPage() {
+  const override = await getPageSeoOverride("/spaces");
+  const pageDescription = override?.seoDescription || description;
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Spaces", path: "/spaces" }];
+
+  const jsonLdNode = richPageJsonLd({
+    type: "CollectionPage",
+    name: "Spaces at Midpoint",
+    description: pageDescription,
+    path: "/spaces",
+  });
+
+  return (
+    <>
+      <BreadcrumbJsonLd items={breadcrumbItems} node={jsonLdNode} />
+      <Breadcrumbs items={breadcrumbItems} />
+      <PageHero
+        title="Spaces at Midpoint"
+        subtitle="Office space, warehouse space and on-site amenities, all within one connected business estate in Midrand."
+        image="/images/pages/amenities-banner.jpg"
+        imageAlt="Midpoint business estate"
+      />
+      <SpacesExplore />
+      <AmenitiesSection />
+      <ReadyToMoveSection />
+    </>
+  );
+}

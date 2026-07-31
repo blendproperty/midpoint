@@ -12,7 +12,7 @@ const spaces = [
     icon: "/images/spaces/icon-serviced-offices.svg",
     title: "Serviced Offices",
     text: "Flexible, fully-serviced workspaces ready for occupation, with the support and amenities teams need.",
-    href: "/offices"
+    href: "/services-offices"
   },
   {
     icon: "/images/spaces/icon-warehouse.svg",
