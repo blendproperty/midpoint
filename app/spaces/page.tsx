@@ -41,8 +41,8 @@ export default async function SpacesPage() {
       <BreadcrumbJsonLd items={breadcrumbItems} node={jsonLdNode} />
       <Breadcrumbs items={breadcrumbItems} />
       <PageHero
-        title="Spaces at Midpoint"
-        subtitle="Office space, warehouse space and on-site amenities, all within one connected business estate in Midrand."
+        title="A better place to do business"
+        subtitle="Offices, warehouses and flexible workspace—connected by one secure, amenity-rich business estate in the heart of Midrand."
         image="/images/pages/amenities-banner.jpg"
         imageAlt="Midpoint business estate"
       />
