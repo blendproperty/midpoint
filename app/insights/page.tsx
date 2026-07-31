@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
 
 const FALLBACK_TITLE = "Midpoint Insights | Midrand Property & Leasing Guides";
 const description =
-  "Explore practical Midpoint guides covering commercial property in Midrand, location, offices, warehouses, amenities and common leasing questions.";
+  "Read Midpoint insights about commercial property in Midrand, precinct access, workplace amenities and practical leasing decisions.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const [override, settings] = await Promise.all([getPageSeoOverride("/insights"), getSiteSettings()]);
@@ -26,27 +26,50 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-type GuideCard = {
-  title: string;
-  description: string;
-  href: string;
-  image: string;
-  imageAlt: string;
-  eyebrow: string;
-  detail: string;
-};
+const resources = [
+  {
+    number: "01",
+    eyebrow: "Getting here",
+    title: "Location and access",
+    description:
+      "Understand Midpoint's position on the N1 between Johannesburg and Pretoria, including the routes that matter to staff, clients and operations.",
+    href: "/location",
+    image: "/images/pillars/warehouses/johannesburg-pretoria-corridor.webp",
+    imageAlt: "Map showing Midpoint between Johannesburg and Pretoria",
+  },
+  {
+    number: "02",
+    eyebrow: "Working at Midpoint",
+    title: "Amenities and working life",
+    description:
+      "Explore the restaurants, fitness facilities, padel courts and outdoor spaces that shape the working day at Midpoint.",
+    href: "/amenities",
+    image: "/images/gallery/gallery-10-restaurant.jpg",
+    imageAlt: "Restaurant amenity at Midpoint Business Park",
+  },
+  {
+    number: "03",
+    eyebrow: "Leasing guidance",
+    title: "Leasing questions answered",
+    description:
+      "Find straightforward answers about access, amenities, availability and the process of arranging an inspection.",
+    href: "/faqs",
+    image: "/images/pages/faq-banner.jpg",
+    imageAlt: "Midpoint leasing questions and answers",
+  },
+];
 
 export default async function InsightsPage() {
-  const [override, publishedPillars, latestPosts] = await Promise.all([
+  const [override, businessParkPillar, latestPosts] = await Promise.all([
     getPageSeoOverride("/insights"),
-    prisma.pillarPage.findMany({
-      where: { status: "PUBLISHED" },
+    prisma.pillarPage.findFirst({
+      where: { slug: "business-park-midrand", status: "PUBLISHED" },
       select: { slug: true },
     }),
     prisma.blogPost.findMany({
       where: { status: "PUBLISHED" },
       orderBy: { publishedAt: "desc" },
-      take: 3,
+      take: 6,
       select: {
         id: true,
         slug: true,
@@ -58,11 +81,9 @@ export default async function InsightsPage() {
     }),
   ]);
 
-  const publishedSlugs = new Set(publishedPillars.map((pillar) => pillar.slug));
-  const businessParkHref = publishedSlugs.has("business-park-midrand") ? "/business-park-midrand" : "/about-us";
+  const businessParkHref = businessParkPillar ? "/business-park-midrand" : "/about-us";
   const pageDescription = override?.seoDescription || description;
   const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }];
-
   const jsonLdNode = richPageJsonLd({
     type: "CollectionPage",
     name: "Midpoint Insights",
@@ -70,76 +91,13 @@ export default async function InsightsPage() {
     path: "/insights",
   });
 
-  const guides: GuideCard[] = [
-    {
-      title: "Location and access",
-      description:
-        "Understand Midpoint's position on the N1 between Johannesburg and Pretoria, including the routes that matter to staff, clients and operations.",
-      href: "/location",
-      image: "/images/pillars/warehouses/johannesburg-pretoria-corridor.webp",
-      imageAlt: "Map showing Midpoint between Johannesburg and Pretoria",
-      eyebrow: "Location guide",
-      detail: "Routes, distances and access",
-    },
-    {
-      title: "Office space in Midrand",
-      description:
-        "Compare suites, location, amenities, resilience and the practical factors to review before choosing a Midpoint office.",
-      href: "/offices",
-      image: "/images/listings/2-weaver-avenue.png",
-      imageAlt: "Modern office space at Midpoint Business Park",
-      eyebrow: "Workspace guide",
-      detail: "Live availability included",
-    },
-    {
-      title: "Warehouse space in Midrand",
-      description:
-        "Assess clear height, loading, yards, power, office components and complete occupancy cost alongside current opportunities.",
-      href: "/warehouses",
-      image: "/images/pillars/warehouses/warehouse-exterior.webp",
-      imageAlt: "Modern warehouse facility at Midpoint Business Park",
-      eyebrow: "Industrial guide",
-      detail: "12 leasing FAQs",
-    },
-    {
-      title: "Amenities and working life",
-      description:
-        "Explore the restaurants, fitness facilities, padel courts and outdoor spaces that shape the working day at Midpoint.",
-      href: "/amenities",
-      image: "/images/gallery/gallery-10-restaurant.jpg",
-      imageAlt: "Restaurant amenity at Midpoint Business Park",
-      eyebrow: "Precinct guide",
-      detail: "Current and planned amenities",
-    },
-    {
-      title: "Serviced offices at OnPoint",
-      description:
-        "Review the flexible-workspace option for smaller teams, projects and businesses establishing a Midrand presence.",
-      href: "/services-offices",
-      image: "/images/listings/onpoint.jpeg",
-      imageAlt: "OnPoint serviced office reception and meeting area",
-      eyebrow: "Flexible workspace",
-      detail: "OnPoint at Midpoint",
-    },
-    {
-      title: "Leasing questions answered",
-      description:
-        "Find straightforward answers about space, access, amenities, availability and the process of arranging an inspection.",
-      href: "/faqs",
-      image: "/images/pages/faq-banner.jpg",
-      imageAlt: "Midpoint leasing questions and answers",
-      eyebrow: "Frequently asked questions",
-      detail: "Practical answers in one place",
-    },
-  ];
-
   return (
     <>
       <BreadcrumbJsonLd items={breadcrumbItems} node={jsonLdNode} />
       <Breadcrumbs items={breadcrumbItems} />
       <PageHero
-        title="Insights for better property decisions"
-        subtitle="Practical guides to Midpoint, commercial property in Midrand, location, workplace experience and the questions to ask before choosing space."
+        title="Ideas and guidance for better property decisions"
+        subtitle="Precinct updates, practical leasing guidance and useful context for businesses considering Midpoint and commercial property in Midrand."
         image="/images/sitemap/aerial.jpg"
         imageAlt="Aerial view of Midpoint Business Park in Midrand"
       />
@@ -148,9 +106,9 @@ export default async function InsightsPage() {
         <div className="pointer-events-none absolute -right-32 top-0 h-80 w-80 rounded-full bg-midpoint-cyan/25 blur-3xl" />
         <div className="relative mx-auto max-w-7xl">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">Featured guide</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">Precinct overview</p>
             <div className="mt-4 grid overflow-hidden rounded-card bg-midpoint-dark text-white lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="relative min-h-[360px] lg:min-h-[520px]">
+              <div className="relative min-h-[360px] lg:min-h-[500px]">
                 <Image
                   src="/images/hero/banner.jpg"
                   alt="Wide view across Midpoint Business Park in Midrand"
@@ -162,20 +120,18 @@ export default async function InsightsPage() {
               </div>
               <div className="flex flex-col justify-center p-8 md:p-12">
                 <span className="w-fit rounded-full bg-midpoint-cyan px-3 py-1 text-xs font-semibold text-midpoint-dark">
-                  Midpoint precinct
+                  Start with the bigger picture
                 </span>
-                <h2 className="mt-5 text-3xl font-semibold leading-tight md:text-5xl">
-                  Midpoint Business Park in Midrand
-                </h2>
+                <h2 className="mt-5 text-3xl font-semibold leading-tight md:text-5xl">Why businesses choose Midpoint</h2>
                 <p className="mt-5 text-sm leading-7 text-white/75">
-                  Explore the estate, its central Gauteng location, property mix, resilience infrastructure,
-                  amenities and the Blend Property Group team behind it.
+                  Understand the estate, its central Gauteng location, property mix, resilience infrastructure,
+                  amenities and the team responsible for the precinct.
                 </p>
                 <Link
                   href={businessParkHref}
                   className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-midpoint-cyan px-5 py-3 text-sm font-semibold text-midpoint-dark transition-transform duration-150 hover:translate-x-1"
                 >
-                  Explore Midpoint <span aria-hidden="true">→</span>
+                  Understand Midpoint <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </div>
@@ -183,100 +139,29 @@ export default async function InsightsPage() {
         </div>
       </section>
 
-      <section className="bg-[#f4f7f6] px-6 py-24">
-        <div className="mx-auto max-w-7xl">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">
-              Property and precinct guides
-            </p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-semibold text-midpoint-dark md:text-5xl">
-              Research the space, location and working environment.
-            </h2>
-            <p className="mt-5 max-w-2xl leading-7 text-midpoint-grey-400">
-              Use these guides to narrow the options before speaking to the leasing team or arranging an inspection.
-            </p>
-          </Reveal>
-
-          <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {guides.map((guide, index) => (
-              <Reveal key={guide.title} delay={index * 80} className="h-full">
-                <Link
-                  href={guide.href}
-                  className="group flex h-full flex-col overflow-hidden rounded-card bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={guide.image}
-                      alt={guide.imageAlt}
-                      fill
-                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <span className="absolute left-4 top-4 rounded-full bg-midpoint-dark/90 px-3 py-1 text-xs font-semibold text-white">
-                      {guide.eyebrow}
-                    </span>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="text-2xl font-semibold text-midpoint-dark">{guide.title}</h3>
-                    <p className="mt-3 flex-1 text-sm leading-6 text-midpoint-grey-400">{guide.description}</p>
-                    <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
-                      <span className="text-xs font-medium text-midpoint-grey-400">{guide.detail}</span>
-                      <span className="text-sm font-semibold text-midpoint-dark transition-transform group-hover:translate-x-1">
-                        Read guide →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {latestPosts.length > 0 && (
-        <section className="bg-white px-6 py-24">
+        <section className="bg-[#f4f7f6] px-6 py-24">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-wrap items-end justify-between gap-5">
               <Reveal>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">
-                  Latest from Midpoint
-                </p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">Latest from Midpoint</p>
                 <h2 className="mt-3 text-3xl font-semibold text-midpoint-dark md:text-5xl">News and articles</h2>
               </Reveal>
-              <Link href="/blog" className="text-sm font-semibold text-midpoint-dark underline">
-                View all articles
-              </Link>
+              <Link href="/blog" className="text-sm font-semibold text-midpoint-dark underline">View all articles</Link>
             </div>
-
-            <div className="mt-12 grid gap-7 md:grid-cols-3">
+            <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
               {latestPosts.map((post, index) => (
-                <Reveal key={post.id} delay={index * 100} className="h-full">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="group flex h-full flex-col overflow-hidden rounded-card bg-midpoint-dark text-white"
-                  >
+                <Reveal key={post.id} delay={index * 80} className="h-full">
+                  <Link href={`/blog/${post.slug}`} className="group flex h-full flex-col overflow-hidden rounded-card bg-white shadow-sm">
                     <div className="relative aspect-[16/10] overflow-hidden bg-midpoint-grey-400">
-                      {/* Blog editors may use either local media or an external cover URL. */}
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={post.coverImage || "/images/hero/banner.jpg"}
-                        alt={post.title}
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
+                      <img src={post.coverImage || "/images/hero/banner.jpg"} alt={post.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <div className="flex flex-1 flex-col p-6">
-                      {post.publishedAt && (
-                        <p className="text-xs font-medium uppercase tracking-wide text-midpoint-cyan">
-                          {post.publishedAt.toLocaleDateString("en-ZA", {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric",
-                          })}
-                        </p>
-                      )}
-                      <h3 className="mt-3 text-xl font-semibold">{post.title}</h3>
-                      {post.excerpt && <p className="mt-3 flex-1 text-sm leading-6 text-white/70">{post.excerpt}</p>}
-                      <span className="mt-6 text-sm font-semibold text-midpoint-cyan">Read article →</span>
+                      {post.publishedAt && <p className="text-xs font-semibold uppercase tracking-wide text-midpoint-grey-400">{post.publishedAt.toLocaleDateString("en-ZA", { day: "numeric", month: "short", year: "numeric" })}</p>}
+                      <h3 className="mt-3 text-xl font-semibold text-midpoint-dark">{post.title}</h3>
+                      {post.excerpt && <p className="mt-3 flex-1 text-sm leading-6 text-midpoint-grey-400">{post.excerpt}</p>}
+                      <span className="mt-6 text-sm font-semibold text-midpoint-dark">Read article &rarr;</span>
                     </div>
                   </Link>
                 </Reveal>
@@ -285,6 +170,41 @@ export default async function InsightsPage() {
           </div>
         </section>
       )}
+
+      <section className="bg-[#f4f7f6] px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">Practical resources</p>
+            <h2 className="mt-3 max-w-3xl text-3xl font-semibold text-midpoint-dark md:text-5xl">Understand the place before choosing the space.</h2>
+            <p className="mt-5 max-w-2xl leading-7 text-midpoint-grey-400">
+              Insights explains the location, working environment and leasing process. For offices, warehouses,
+              serviced offices and live availability, go directly to Spaces.
+            </p>
+            <Link href="/spaces" className="mt-7 inline-flex items-center gap-2 rounded-full bg-midpoint-dark px-5 py-3 text-sm font-semibold text-white transition-transform hover:translate-x-1">
+              Browse available spaces <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </Reveal>
+
+          <div className="mt-14 divide-y divide-midpoint-dark/10 border-y border-midpoint-dark/10">
+            {resources.map((resource, index) => (
+              <Reveal key={resource.title} delay={index * 80}>
+                <Link href={resource.href} className="group grid items-center gap-7 py-8 md:grid-cols-[64px_220px_1fr_auto]">
+                  <span className="text-sm font-semibold text-midpoint-grey-400">{resource.number}</span>
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-card">
+                    <Image src={resource.image} alt={resource.imageAlt} fill sizes="(min-width: 768px) 220px, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-midpoint-grey-400">{resource.eyebrow}</p>
+                    <h3 className="mt-2 text-2xl font-semibold text-midpoint-dark">{resource.title}</h3>
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-midpoint-grey-400">{resource.description}</p>
+                  </div>
+                  <span className="text-sm font-semibold text-midpoint-dark transition-transform group-hover:translate-x-1">Read insight &rarr;</span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <BrokerCTASection />
     </>
