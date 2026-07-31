@@ -108,8 +108,8 @@ export default function SiteMap({ availability }: { availability: Record<number,
         </div>
 
         {selected && selectedAvailability && (
-          <aside className="z-20 flex max-h-[calc(100%-2rem)] flex-col overflow-y-auto bg-midpoint-dark text-white lg:absolute lg:bottom-4 lg:right-4 lg:top-4 lg:w-[430px] lg:overflow-hidden lg:rounded-2xl lg:shadow-2xl">
-            <div className="relative h-44 shrink-0 overflow-hidden lg:rounded-t-2xl">
+          <aside className="z-20 flex flex-col bg-midpoint-dark text-white min-[1700px]:absolute min-[1700px]:bottom-4 min-[1700px]:right-4 min-[1700px]:top-4 min-[1700px]:max-h-[calc(100%-2rem)] min-[1700px]:w-[430px] min-[1700px]:overflow-hidden min-[1700px]:rounded-2xl min-[1700px]:shadow-2xl">
+            <div className="relative h-44 shrink-0 overflow-hidden min-[1700px]:rounded-t-2xl">
               <Image src={selected.image} alt={selected.name} fill sizes="430px" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-midpoint-dark/70 to-transparent" />
               <span className="absolute left-5 top-5 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-midpoint-dark">Map point {selected.pin}</span>
