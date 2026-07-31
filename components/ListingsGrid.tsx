@@ -32,7 +32,7 @@ export default async function ListingsGrid() {
   return (
     <section id="explore" className="relative overflow-hidden bg-[#f3f7f6] px-6 py-24">
       <div className="pointer-events-none absolute -left-40 -top-40 h-[620px] w-[900px] rounded-full bg-midpoint-cyan/20 blur-3xl" />
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-[1800px]">
         <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">Interactive estate map</p>
