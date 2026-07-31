@@ -65,7 +65,7 @@ export default function SiteMap({ availability }: { availability: Record<number,
 
       <div className="mt-5 grid overflow-hidden rounded-card bg-white shadow-[0_24px_70px_rgba(4,35,34,0.12)] lg:grid-cols-[1.55fr_0.75fr]">
         <div className="relative min-h-[420px] overflow-hidden bg-white lg:min-h-[620px]">
-          <div className="absolute left-1/2 top-1/2 aspect-[5500/2792] w-[145%] -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute left-1/2 top-[35%] aspect-[5500/2792] w-[185%] -translate-x-1/2 -translate-y-1/2">
             <Image src="/images/sitemap/aerial.jpg" alt="Interactive map of Midpoint Business Park" fill priority className="object-cover" />
             {visibleListings.map((listing) => {
               const isSelected = selected.pin === listing.pin;
@@ -75,7 +75,7 @@ export default function SiteMap({ availability }: { availability: Record<number,
                   key={listing.pin}
                   type="button"
                   onClick={() => setSelected(listing)}
-                  style={{ left: `${listing.x}%`, top: `${listing.y}%`, transform: "translate(-50%, -50%) scale(0.69)" }}
+                  style={{ left: `${listing.x}%`, top: `${listing.y}%`, transform: "translate(-50%, -50%) scale(0.54)" }}
                   className={`absolute z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 text-sm font-bold shadow-lg transition ${isSelected ? "border-midpoint-dark bg-midpoint-cyan text-midpoint-dark ring-4 ring-midpoint-cyan/25" : "border-midpoint-cyan bg-white text-midpoint-dark hover:bg-midpoint-cyan"}`}
                   aria-label={`Select ${listing.name}${live ? `, ${live} spaces available` : ""}`}
                   aria-pressed={isSelected}
