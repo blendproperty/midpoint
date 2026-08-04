@@ -14,7 +14,10 @@ export async function updateSiteSettings(formData: FormData) {
   const defaultSocialImage = String(formData.get("defaultSocialImage") || "").trim() || null;
   const googleVerification = String(formData.get("googleVerification") || "").trim() || null;
   const bingVerification = String(formData.get("bingVerification") || "").trim() || null;
-  const allowIndexing = formData.get("allowIndexing") === "on";
+  // Indexing is now controlled per page. The legacy global field is kept
+  // true for database compatibility so it cannot accidentally noindex the
+  // entire public site when the settings form is saved.
+  const allowIndexing = true;
   const vacancyRevalidateSeconds = Number(formData.get("vacancyRevalidateSeconds") || 604800);
   const recaptchaSiteKey = String(formData.get("recaptchaSiteKey") || "").trim() || null;
 

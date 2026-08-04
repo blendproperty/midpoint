@@ -9,6 +9,7 @@ import PageAccessGate from "@/components/PageAccessGate";
 import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
 import { richPageJsonLd } from "@/lib/seo";
+import { pageRobots } from "@/lib/indexing";
 
 export const dynamic = "force-dynamic";
 
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     // Password-protected pages are never indexable, regardless of the
     // noIndex field — there's no point letting search engines crawl a page
     // visitors can't actually open without a password.
-    robots: page.passwordProtected || page.noIndex ? { index: false, follow: true } : { index: true, follow: true },
+    robots: pageRobots(page.noIndex, page.passwordProtected),
     openGraph: {
       title: page.ogTitle || title,
       description: page.ogDescription || description,

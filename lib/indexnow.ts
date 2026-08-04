@@ -22,7 +22,7 @@ export { DEFAULT_INDEXNOW_KEY };
 export async function submitToIndexNow(paths: string[]) {
   try {
     const settings = await getSiteSettings();
-    if (!settings.allowIndexing || paths.length === 0) return;
+    if (paths.length === 0) return;
 
     const key = settings.indexNowKey || DEFAULT_INDEXNOW_KEY;
     const domain = settings.domain.replace(/\/$/, "");

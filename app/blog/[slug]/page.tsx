@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CustomCodeBlock from "@/components/CustomCodeBlock";
 import { getSiteSettings } from "@/lib/site-settings";
 import { blogPostingJsonLd } from "@/lib/seo";
+import { pageRobots } from "@/lib/indexing";
 
 export const dynamic = "force-dynamic";
 
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     ...(post.canonicalUrl ? { alternates: { canonical: post.canonicalUrl } } : {}),
-    robots: post.noIndex ? { index: false, follow: true } : { index: true, follow: true },
+    robots: pageRobots(post.noIndex),
     openGraph: {
       title: post.ogTitle || title,
       description: post.ogDescription || description,

@@ -19,6 +19,7 @@ import ExploreMore from "@/components/ExploreMore";
 import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
 import { midpointPlaceJsonLd, organizationJsonLd, stripSiteNameSuffix } from "@/lib/seo";
+import { pageRobots } from "@/lib/indexing";
 
 export const dynamic = "force-dynamic";
 
@@ -56,8 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description,
     ...(pillar.canonicalUrl ? { alternates: { canonical: pillar.canonicalUrl } } : {}),
     // Password-protected pages are never indexable, regardless of noIndex.
-    robots:
-      pillar.passwordProtected || pillar.noIndex ? { index: false, follow: true } : { index: true, follow: true },
+    robots: pageRobots(pillar.noIndex, pillar.passwordProtected),
     openGraph: {
       title: ogTitle,
       description: pillar.ogDescription || description,

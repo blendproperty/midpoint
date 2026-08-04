@@ -9,6 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { getPageSeoOverride } from "@/lib/page-seo";
 import { richPageJsonLd, stripSiteNameSuffix } from "@/lib/seo";
 import { getSiteSettings } from "@/lib/site-settings";
+import { pageRobots } from "@/lib/indexing";
 
 export const dynamic = "force-dynamic";
 
@@ -22,6 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: stripSiteNameSuffix(rawTitle, settings.siteName),
     description: override?.seoDescription || FALLBACK_DESCRIPTION,
+    robots: pageRobots(override?.noIndex),
   };
 }
 

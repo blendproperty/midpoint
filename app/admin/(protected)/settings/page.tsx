@@ -93,12 +93,10 @@ export default async function SettingsAdminPage({
               </p>
             </div>
           </div>
-          <div>
-            <label className="flex items-center gap-2 text-sm font-medium">
-              <input type="checkbox" name="allowIndexing" defaultChecked={settings.allowIndexing} />
-              Allow search engines to index this site
-            </label>
-          </div>
+          <p className="text-sm text-slate-600">
+            Search-engine indexing is allowed by default. To exclude a page, turn off
+            “Allow search engines to index this page” in that page’s SEO settings.
+          </p>
         </div>
 
         <div className="space-y-5 rounded-xl bg-white p-6 shadow-sm">

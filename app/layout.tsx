@@ -55,8 +55,8 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [settings.defaultSocialImage],
     },
     robots: {
-      index: settings.allowIndexing,
-      follow: settings.allowIndexing,
+      index: true,
+      follow: true,
     },
   };
 }

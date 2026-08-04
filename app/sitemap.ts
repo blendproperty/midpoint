@@ -10,10 +10,11 @@ import { STATIC_PAGES } from "@/lib/static-pages";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [blogPosts, pages, pillarPages] = await Promise.all([
-    prisma.blogPost.findMany({ where: { status: "PUBLISHED" }, select: { slug: true, updatedAt: true } }),
-    prisma.page.findMany({ where: { status: "PUBLISHED" }, select: { slug: true, updatedAt: true } }),
-    prisma.pillarPage.findMany({ where: { status: "PUBLISHED" }, select: { slug: true, updatedAt: true } }),
+  const [blogPosts, pages, pillarPages, staticNoIndexOverrides] = await Promise.all([
+    prisma.blogPost.findMany({ where: { status: "PUBLISHED", noIndex: false }, select: { slug: true, updatedAt: true } }),
+    prisma.page.findMany({ where: { status: "PUBLISHED", noIndex: false, passwordProtected: false }, select: { slug: true, updatedAt: true } }),
+    prisma.pillarPage.findMany({ where: { status: "PUBLISHED", noIndex: false, passwordProtected: false }, select: { slug: true, updatedAt: true } }),
+    prisma.pageSeoOverride.findMany({ where: { noIndex: true }, select: { path: true } }),
   ]);
 
   const now = new Date();
@@ -28,7 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...(blogPosts.length > 0
       ? [{ url: `${site.domain}/blog`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.6 }]
       : []),
-    ...STATIC_PAGES.map((p) => ({
+    ...STATIC_PAGES.filter((p) => !staticNoIndexOverrides.some((override) => override.path === p.path)).map((p) => ({
       url: `${site.domain}${p.path}`,
       lastModified: now,
       changeFrequency: "weekly" as const,
