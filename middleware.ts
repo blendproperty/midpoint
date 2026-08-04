@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { jwtVerify } from "jose";
+import { legacyDestination } from "@/lib/legacy-routes";
 
 const secret = new TextEncoder().encode(
   process.env.AUTH_SECRET || "dev-insecure-secret-change-me"
@@ -163,6 +164,11 @@ export async function middleware(request: NextRequest) {
 
   if (pathname.startsWith("/api/")) {
     return NextResponse.next();
+  }
+
+  const legacyPath = legacyDestination(pathname);
+  if (legacyPath) {
+    return NextResponse.redirect(new URL(legacyPath, request.url), 308);
   }
 
   const cache = await getRedirectCache();
