@@ -127,7 +127,12 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
           },
           { label: "From", value: `R${Math.min(...vacancies.map((v) => v.ratePerSqm)).toLocaleString("en-ZA")} / m²` },
         ]
-      : [];
+      : trustItems.map((item) => {
+          const match = item.match(/^([~\d,.]+(?:\s*(?:km|metres?|m))?)\s+(.*)$/i);
+          return match
+            ? { value: match[1], label: match[2] }
+            : { value: item, label: "At a glance" };
+        });
 
   const tocItems = [
     features.length > 0 ? { id: "features", label: "Highlights" } : null,
