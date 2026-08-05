@@ -8,6 +8,7 @@ import CustomCodeBlock from "@/components/CustomCodeBlock";
 import { getSiteSettings } from "@/lib/site-settings";
 import { blogPostingJsonLd } from "@/lib/seo";
 import { pageRobots } from "@/lib/indexing";
+import { removeDuplicateCoverImage } from "@/lib/blog-content";
 
 export const dynamic = "force-dynamic";
 
@@ -44,6 +45,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const settings = await getSiteSettings();
   const description = post.seoDescription || post.excerpt || post.title;
+  const articleContent = removeDuplicateCoverImage(post.contentHtml, post.coverImage);
   const breadcrumbItems = [
     { name: "Home", path: "/" },
     { name: "Blog", path: "/blog" },
@@ -79,7 +81,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             public input, so rendering the stored HTML directly is safe. */}
         <div
           className="mt-8 max-w-none space-y-4 text-midpoint-grey-400 [&_a]:text-midpoint-dark [&_a]:underline [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-midpoint-dark [&_h3]:mt-6 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-midpoint-dark [&_img]:rounded-card [&_li]:ml-5 [&_li]:list-disc"
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+          dangerouslySetInnerHTML={{ __html: articleContent }}
         />
       </section>
       <CustomCodeBlock code={post.bodyCode} />
