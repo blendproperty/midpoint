@@ -12,6 +12,12 @@ export type Listing = {
   features: string[];
   image: string;
   href: string;
+  // Non-rentable destinations (amenities, communal facilities) that should
+  // always appear on the site map regardless of vacancy availability. Most
+  // pins are gated behind "has at least one available space" in
+  // SiteMap.tsx; evergreen pins opt out of that gate since they were never
+  // going to have a vacancy count in the first place.
+  evergreen?: boolean;
 };
 
 export const listings: Listing[] = [
@@ -133,6 +139,7 @@ export const listings: Listing[] = [
     features: ["Premium fitness gym", "Padel courts with a rooftop terrace", "Vibrant restaurant and social bar"],
     image: "/images/listings/amenity-hub-pin.png",
     href: "/amenities",
+    evergreen: true,
   },
   {
     pin: 8,
