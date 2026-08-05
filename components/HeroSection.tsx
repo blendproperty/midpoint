@@ -37,6 +37,8 @@ export default function HeroSection() {
           alt="Midpoint business estate"
           fill
           priority
+          sizes="100vw"
+          quality={78}
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-midpoint-dark/90 via-midpoint-dark/30 to-transparent" />
@@ -61,7 +63,7 @@ export default function HeroSection() {
                   className="group w-56 shrink-0 overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm"
                 >
                   <div className="relative h-36 w-full">
-                    <Image src={link.image} alt="" fill className="object-cover" />
+                    <Image src={link.image} alt="" fill sizes="224px" className="object-cover" />
                   </div>
                   <div className="flex items-center justify-between px-4 py-3 text-sm font-medium text-white">
                     <span>{link.title}</span>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const rowA = [
@@ -27,8 +28,13 @@ function Row({ images, refEl, trackRef }: { images: string[]; refEl: React.RefOb
             key={i}
             className="relative h-[220px] w-[300px] shrink-0 overflow-hidden rounded-2xl sm:h-[260px] sm:w-[360px] md:h-[320px] md:w-[440px]"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt="" loading="lazy" className="h-full w-full object-cover" />
+            <Image
+              src={src}
+              alt=""
+              fill
+              sizes="(min-width: 768px) 440px, (min-width: 640px) 360px, 300px"
+              className="object-cover"
+            />
           </div>
         ))}
       </div>

@@ -77,7 +77,6 @@ export default function SiteMap({ availability }: { availability: Record<number,
               src="/images/sitemap/estate-map.jpg"
               alt="Complete map of Midpoint Business Park showing the main and tenant entrances"
               fill
-              priority
               sizes="(min-width: 1800px) 1800px, 100vw"
               className="object-cover"
             />

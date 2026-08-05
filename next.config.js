@@ -3,6 +3,8 @@ const nextConfig = {
   // Required for a lean, self-contained Docker image (see Dockerfile).
   output: "standalone",
   images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 2592000,
     remotePatterns: [
       { protocol: "https", hostname: "cdn.prod.website-files.com" },
       { protocol: "https", hostname: "listings.blendproperty.co.za" },

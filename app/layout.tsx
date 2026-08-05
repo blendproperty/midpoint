@@ -12,8 +12,9 @@ export const dynamic = "force-dynamic";
 
 const figtree = Figtree({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
+  // Use Figtree's variable normal face. Loading every static weight plus an
+  // italic family created far more font files than the public site needs.
+  style: "normal",
   variable: "--font-primary",
   display: "swap",
 });
