@@ -17,8 +17,8 @@ export default function DeveloperSection({
   label = "Property Developer",
   heading = "Developed by industry professionals",
   paragraphs = [
-    "Blend Property Group was established in 2006 and invests in, develops and redevelops commercial, industrial and retail property in South Africa.",
-    "Its Johannesburg office is located at Midpoint, 162 Tonetti Street, Halfway House, Midrand."
+    "Since 2006, Blend Property Group has specialised in the development of, and investment in, commercial and industrial properties across South Africa.",
+    "Driven by a commitment to innovation and design excellence, Blend has become distinguished as an industry leader in the creation of work spaces that are functional and tailored to its tenant’s evolving needs to enhance work productivity, efficiency, and long-term staff satisfaction."
   ],
   linkHref = "https://www.blendproperty.co.za/",
   linkLabel = "www.blend.co.za"

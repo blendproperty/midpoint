@@ -13,10 +13,10 @@ export default function AboutHero() {
       <div className="absolute inset-0 bg-gradient-to-r from-midpoint-dark/90 via-midpoint-dark/40 to-transparent" />
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 text-white">
         <h1 className="max-w-2xl text-4xl font-semibold leading-tight md:text-6xl">
-          About Midpoint
+          Defining the future of work in Midrand.
         </h1>
         <p className="mt-4 max-w-lg text-sm text-white/80 md:text-base">
-          A commercial and industrial estate in Halfway House, Midrand, owned by Blend Property Group.
+          A business estate combining premium offices, modern warehouses, serviced offices, and lifestyle amenities in one connected environment.
         </p>
       </div>
     </section>

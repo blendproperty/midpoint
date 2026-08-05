@@ -64,7 +64,7 @@ export function midpointPlaceJsonLd() {
     "@id": `${site.domain}/#midpoint`,
     name: "Midpoint",
     description:
-      "A commercial and industrial estate in Halfway House, Midrand, with conventional offices, OnPoint serviced offices and warehouse space.",
+      "A business estate combining premium offices, modern warehouses, serviced offices, and lifestyle amenities in one connected environment.",
     address: {
       "@type": "PostalAddress",
       streetAddress: `${site.address.street}, ${site.address.suburb}`,

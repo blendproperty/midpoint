@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
 
 const FALLBACK_TITLE = "About Us";
 const FALLBACK_DESCRIPTION =
-  "Midpoint is a commercial and industrial estate in Halfway House, Midrand, with offices, OnPoint serviced offices and warehouse space.";
+  "Midpoint is a modern business estate in Midrand offering premium offices, serviced offices, and warehouse facilities. Developed by Blend Property Group.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const [override, settings] = await Promise.all([getPageSeoOverride("/about-us"), getSiteSettings()]);
@@ -56,8 +56,9 @@ export default async function AboutUsPage() {
         label="Property Developer"
         heading="Developed by property professionals."
         paragraphs={[
-          "Midpoint is owned by Blend Property Group, a South African commercial property company established in 2006.",
-          "Blend invests in, develops and redevelops office, industrial and retail property in South Africa. Its Johannesburg office is located at Midpoint."
+          "Midpoint is owned by Blend Property Group, a South African property company with extensive experience in the commercial and industrial sectors.",
+          "Since 2006, Blend Property Group has specialised in the development and investment of commercial and industrial properties across South Africa. Guided by a commitment to innovation and design excellence, the company has become recognised for creating work environments that are both functional and adaptable to the evolving needs of modern tenants.",
+          "Blend’s developments focus on enhancing productivity, operational efficiency, and long-term staff satisfaction. These principles are clearly reflected in the continued evolution of Midpoint."
         ]}
         linkHref="https://www.blendproperty.co.za/"
         linkLabel="www.blend.co.za"

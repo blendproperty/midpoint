@@ -12,13 +12,13 @@ export default function IntroSection() {
 
         <Reveal delay={120}>
           <p className="font-semibold">
-            Midpoint is a commercial and industrial estate in Halfway House, Midrand. It includes conventional offices, OnPoint serviced offices and warehouse space.
+            Midpoint offers businesses a secure, well-connected location. It delivers a mix of warehouse space, offices, and serviced offices in Midrand, supported by lifestyle amenities that make the workday easier. Midpoint is the prime estate for companies looking for industrial space, logistics facilities, or office space. Enjoy flexible leasing options and strong connectivity across Gauteng.
           </p>
           <p className="mt-4 text-midpoint-grey-100">
-            The estate is positioned on the N1 corridor between Johannesburg and Pretoria. Current sizes, rates, availability and unit-specific features are published on the vacancy schedule.
+            Positioned between Johannesburg and Pretoria, with N1 visibility, Midpoint connects companies to suppliers, clients, and logistics routes across the province. Businesses benefit from secure premises, generator-backed power, backup water with N+1 redundancy, and an on-site restaurant, cafés, gym, padel courts, and running, walking, and cycling trails.
           </p>
           <p className="mt-4 text-sm text-midpoint-grey-100">
-            Some images show planned work. Confirm the current condition and specification of a space during a viewing.
+            *Some images on this site are conceptual, showcasing the bold vision we&rsquo;re bringing to life.
           </p>
           <Link
             href="/availability-report"

@@ -3,18 +3,18 @@ import Reveal from "@/components/Reveal";
 const principles = [
   {
     number: "01",
-    title: "Owned by Blend Property Group",
-    text: "Blend Property Group owns Midpoint and has its Johannesburg office at the estate.",
+    title: "Long-term stewardship",
+    text: "Midpoint is managed as a living business precinct, with continued investment in the estate, its infrastructure and the experience of the companies based here.",
   },
   {
     number: "02",
-    title: "Several property types",
-    text: "The estate includes conventional offices, OnPoint serviced offices and warehouse or industrial buildings.",
+    title: "Designed around people",
+    text: "Landscaped outdoor areas, everyday amenities and opportunities to connect support a more balanced working environment for teams across the estate.",
   },
   {
     number: "03",
-    title: "Current redevelopment",
-    text: "Existing buildings and new projects form part of the ongoing redevelopment of the estate.",
+    title: "Operationally practical",
+    text: "Access, security, resilient infrastructure and adaptable property are considered together so businesses can operate efficiently as their requirements evolve.",
   },
 ];
 
@@ -24,13 +24,14 @@ export default function SpaceGrid() {
       <div className="pointer-events-none absolute -right-32 top-0 h-80 w-80 rounded-full bg-midpoint-cyan/20 blur-3xl" />
       <div className="relative mx-auto max-w-6xl">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">Estate overview</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">How we think</p>
           <div className="mt-4 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <h2 className="text-3xl font-semibold leading-tight text-midpoint-dark md:text-5xl">
-              Midpoint at a glance
+              A precinct built to keep evolving.
             </h2>
             <p className="max-w-2xl leading-7 text-midpoint-grey-400">
-              Midpoint is a commercial and industrial estate at 162 Tonetti Street, Halfway House, Midrand.
+              Midpoint is more than a collection of buildings. It is an established business community shaped by
+              thoughtful ownership, practical property experience and a long-term view of how workplaces should perform.
             </p>
           </div>
         </Reveal>

@@ -48,7 +48,7 @@ export default function HeroSection() {
             Warehouse and flexible office space in Midrand, designed for efficient operations.
           </h1>
           <p className="mt-4 max-w-2xl text-white/90">
-            Offices, serviced offices and warehouse space at 162 Tonetti Street, Halfway House, with direct access to the N1 corridor.
+            Conveniently positioned in Midrand, central to major business hubs in Gauteng. Connect your company to endless opportunities and amenities.
           </p>
 
           {/* Webflow's original used a 3D Swiper carousel. This is a

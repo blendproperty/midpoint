@@ -43,8 +43,8 @@ export default async function SpacesPage() {
       <BreadcrumbJsonLd items={breadcrumbItems} node={jsonLdNode} />
       <Breadcrumbs items={breadcrumbItems} />
       <PageHero
-        title="Find space at Midpoint"
-        subtitle="Compare current conventional offices, OnPoint serviced offices and warehouse opportunities in Halfway House, Midrand."
+        title="A better place to do business"
+        subtitle="Offices, warehouses and flexible workspace—connected by one secure, amenity-rich business estate in the heart of Midrand."
         image="/images/pages/amenities-banner.jpg"
         imageAlt="Midpoint business estate"
       />

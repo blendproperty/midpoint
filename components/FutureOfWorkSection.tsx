@@ -20,16 +20,16 @@ export default function FutureOfWorkSection() {
             className="block rounded-2xl bg-white/70 p-8 text-midpoint-dark backdrop-blur-md transition-transform hover:-translate-y-1"
           >
             <h2 className="text-3xl font-semibold md:text-4xl">
-              One Midrand estate for offices, serviced offices and warehouse space.
+              Midpoint is defining the future of work, blending industrial, commercial, and lifestyle spaces into a dynamic business hub.
             </h2>
             <p className="mt-4">
-              Midpoint brings different types of business premises together at one address, allowing companies to compare conventional offices, flexible workspace and industrial accommodation.
+              The estate is continuing to evolve, with new developments underway. Several spaces are already available, offering businesses and brokers the opportunity to secure industrial and commercial space in one of Midrand&rsquo;s fastest-growing business nodes.
             </p>
             <p className="mt-4">
-              The estate also includes hospitality, fitness and outdoor facilities. Some areas remain under development, so the leasing team can confirm what is operating when you visit.
+              Warehousing, offices, and serviced offices sit alongside cafés, a restaurant, gym, padel courts, and walking trails, creating an environment where business operations and everyday convenience work together.
             </p>
             <p className="mt-4">
-              Use the live vacancy schedule for available units, or contact the leasing team to arrange an inspection.
+              While the estate is still taking shape, select spaces are already available, offering a rare opportunity to secure a spot in Midrand&rsquo;s most sought-after development. Be part of the transformation, enquire today and explore how your business can thrive in this exciting, evolving space.
             </p>
           </Link>
         </Reveal>

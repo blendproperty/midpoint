@@ -28,7 +28,7 @@ export const listings: Listing[] = [
     name: "3 Weaver Avenue",
     category: "Office / Warehouse",
     description:
-      "Office and warehouse opportunities associated with 3 Weaver Avenue. Open the published units for current sizes, rates and confirmed specifications.",
+      "1125sqm of versatile office space across two levels, featuring boardrooms, training facilities, kitchen and private ablutions, with an option to convert 500sqm into warehouse space.",
     features: ["Potential industrial component", "Two-storey layout", "Suitable for administration offices"],
     image: "/images/listings/3-weaver-avenue.jpg",
     href: "/offices",
@@ -40,7 +40,7 @@ export const listings: Listing[] = [
     name: "Unit 1, 1 Weaver",
     category: "Office",
     description:
-      "Office opportunity at Unit 1, 1 Weaver Avenue. Open the published unit for current size, rate, availability and confirmed features.",
+      "266sqm office space featuring a private reception area, spacious open-plan workspace, two private offices, a dedicated kitchenette, and exclusive bathroom facilities for staff and visitors.",
     features: ["Move-in ready workspace", "Excellent balance of collaborative and private areas", "Exclusive-use amenities"],
     image: "/images/listings/unit1-1-weaver.png",
     href: "/offices",
@@ -52,7 +52,7 @@ export const listings: Listing[] = [
     name: "1 Kingfisher Avenue",
     category: "Warehouse",
     description:
-      "Opportunity at 1 Kingfisher Avenue. Use the live unit page for its current configuration, proposed use and confirmed technical details.",
+      "A two-storey building currently configured as office space, with ground-floor volumes suitable for conversion to warehouse, laboratory, or workshop use. The flexible layout allows the building to be adapted to the tenant's operational requirements.",
     features: ["Ground floor with 4 m height to eaves", "Divisible space configuration", "On-grade roller shutter door"],
     image: "/images/listings/1-kingfisher-avenue.jpg",
     href: "/warehouses",
@@ -64,7 +64,7 @@ export const listings: Listing[] = [
     name: "Corporate Accommodation",
     category: "Accommodation",
     description:
-      "Corporate accommodation is planned within Midpoint. Confirm completion, specification and booking availability before making arrangements.",
+      "Experience a new level of comfort and convenience with the corporate accommodation at Midpoint. Designed for modern professionals, these luxury, fully serviced spaces offer a refined and practical accommodation option within the business park.",
     features: ["Comfortable executive apartments", "Ideal for project teams and clients", "Quality finishes for stress-free stays"],
     image: "/images/listings/corporate-accommodation.png",
     href: "/spaces",
@@ -76,7 +76,7 @@ export const listings: Listing[] = [
     name: "2 Kingfisher Avenue",
     category: "New Development Opportunity",
     description:
-      "Development opportunity at 2 Kingfisher Avenue. Open the published listing for the current proposal, area and availability date.",
+      "This site offers a blank slate for industrial transformation as it is ideal for conversion into a modern warehouse or logistics facility. A rare chance to unlock value in a high-demand industrial corridor.",
     features: ["Proposed total GLA: 3,300sqm", "Office GLA: 300sqm", "Proposed warehouse GLA: 3,000sqm"],
     image: "/images/listings/2-kingfisher-avenue.png",
     href: "/warehouses",
@@ -87,7 +87,7 @@ export const listings: Listing[] = [
     y: 56.33,
     name: "6 Kingfisher Avenue",
     category: "Warehouse",
-    description: "Warehouse opportunity at 6 Kingfisher Avenue. Open the published unit for current area, rate, availability and confirmed specifications.",
+    description: "This well-located 2,320sqm warehouse offers excellent highway frontage.",
     features: ["Proposed total GLA: 2,320sqm", "Office GLA: 368sqm", "Proposed warehouse GLA: 1,952sqm"],
     image: "/images/listings/6-kingfisher-avenue.png",
     href: "/warehouses",
@@ -99,7 +99,7 @@ export const listings: Listing[] = [
     name: "2 Weaver Avenue",
     category: "Office",
     description:
-      "Office opportunities at 2 Weaver Avenue. Open the published units for current sizes, rates, availability and confirmed features.",
+      "For companies seeking a distinctive head office environment in Midrand, Unit 2, 2 Weaver at Midpoint offers a rare opportunity with 1,614sqm of office space.",
     features: ["New high-efficiency HVAC system", "Indoor and outdoor entertainment spaces", "Versatile layout"],
     image: "/images/listings/2-weaver-avenue.png",
     href: "/offices",
@@ -111,7 +111,7 @@ export const listings: Listing[] = [
     name: "6 Weaver Avenue",
     category: "Warehouse",
     description:
-      "Warehouse opportunity at 6 Weaver Avenue. Open the published unit for current area, rate, availability and confirmed technical details.",
+      "Custom-built 11 443sqm warehouse offering prime highway frontage, designed for maximum visibility and logistical efficiency.",
     features: ["Warehouse GLA: 10 150sqm", "Office GLA: 1 293sqm", "Yard Area: 5 795sqm"],
     image: "/images/listings/6-weaver-avenue.png",
     href: "/warehouses",
@@ -123,7 +123,7 @@ export const listings: Listing[] = [
     name: "OnPoint",
     category: "Serviced Offices",
     description:
-      "OnPoint provides workspace within Midpoint for smaller teams, project offices and businesses establishing a presence in Midrand. See the live listings for available suites and rates.",
+      "OnPoint provides premium serviced offices within the Midpoint estate, offering a flexible solution for smaller teams, satellite offices, or businesses establishing a presence in Midrand.",
     features: ["Collaborative open-plan layout", "Well-equipped kitchen facilities", "Multiple access points for flexible use"],
     image: "/images/listings/onpoint.jpeg",
     href: "/services-offices",
@@ -135,7 +135,7 @@ export const listings: Listing[] = [
     name: "Amenity Hub",
     category: "Entertainment",
     description:
-      "The amenity area includes current and planned food, fitness and social facilities. Confirm operating status and access before visiting.",
+      "The working day isn't confined to desks, meeting rooms, or warehouse floors. It's the ease of grabbing coffee before your first meeting, stepping out for a quick reset between tasks, or having a place to meet clients without leaving the business park.",
     features: ["Premium fitness gym", "Padel courts with a rooftop terrace", "Vibrant restaurant and social bar"],
     image: "/images/listings/amenity-hub-pin.png",
     href: "/amenities",
@@ -148,7 +148,7 @@ export const listings: Listing[] = [
     name: "1 Weaver Avenue",
     category: "Office",
     description:
-      "Office opportunities at 1 Weaver Avenue. Open the published units for current sizes, rates, availability and confirmed features.",
+      "Unit 2, 1 Weaver at Midpoint offers 338sqm of newly refurbished office space designed for businesses that need a professional, secure, and functional environment.",
     features: ["Serene environment", "Open-concept design", "Spacious kitchenette"],
     image: "/images/listings/1-weaver-avenue.png",
     href: "/offices",
@@ -160,7 +160,7 @@ export const listings: Listing[] = [
     name: "8 Sunbird Road",
     category: "Office",
     description:
-      "Office opportunities at 8 Sunbird Road. Open the published units for current sizes, rates, availability and confirmed features.",
+      "Number 8 Sunbird Road offers newly redeveloped office space in Midrand, with flexible configurations and immediate availability.",
     features: ["Elegant design", "Modern workspace offering", "Open-plan configuration"],
     image: "/images/listings/8-sunbird-road.png",
     href: "/offices",
