@@ -109,8 +109,8 @@ export default function SiteMap({ availability }: { availability: Record<number,
         </div>
 
         {selected && selectedAvailability && (
-          <aside className="z-20 flex flex-col bg-midpoint-dark text-white min-[1700px]:absolute min-[1700px]:bottom-4 min-[1700px]:right-4 min-[1700px]:top-4 min-[1700px]:max-h-[calc(100%-2rem)] min-[1700px]:w-[430px] min-[1700px]:overflow-y-auto min-[1700px]:rounded-2xl min-[1700px]:shadow-2xl">
-            <div className="relative h-44 shrink-0 overflow-hidden min-[1700px]:rounded-t-2xl">
+          <aside className="z-20 flex flex-col bg-midpoint-dark text-white min-[1700px]:absolute min-[1700px]:bottom-4 min-[1700px]:right-4 min-[1700px]:top-4 min-[1700px]:w-[430px] min-[1700px]:overflow-hidden min-[1700px]:rounded-2xl min-[1700px]:shadow-2xl">
+            <div className="relative h-36 shrink-0 overflow-hidden min-[1700px]:rounded-t-2xl">
               <Image src={selected.image} alt={selected.name} fill sizes="430px" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-midpoint-dark/70 to-transparent" />
               <span className="absolute left-5 top-5 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-midpoint-dark">Map point {selected.pin}</span>
@@ -127,31 +127,33 @@ export default function SiteMap({ availability }: { availability: Record<number,
               </span>
             </div>
 
-            <div className="flex flex-1 flex-col p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-midpoint-cyan">{selected.category}</p>
-              <h3 className="mt-2 text-3xl font-semibold">{selected.name}</h3>
-              <p className="mt-3 text-sm leading-6 text-white/65">{selected.description}</p>
+            <div className="flex min-h-0 flex-1 flex-col p-4">
+              <div className="min-h-0 flex-1 overflow-y-auto pr-1">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-midpoint-cyan">{selected.category}</p>
+                <h3 className="mt-1.5 text-2xl font-semibold">{selected.name}</h3>
+                <p className="mt-2 text-sm leading-5 text-white/65">{selected.description}</p>
 
-              {selectedAvailability.count > 0 && (
-                <div className="mt-4 grid grid-cols-2 gap-4 border-y border-white/10 py-3">
-                  <div><p className="text-xs text-white/45">Available area</p><p className="mt-1 font-semibold">{formatArea(selectedAvailability.totalSqm)}</p></div>
-                  <div><p className="text-xs text-white/45">Next availability</p><p className="mt-1 font-semibold">{selectedAvailability.nextAvailable}</p></div>
-                </div>
-              )}
+                {selectedAvailability.count > 0 && (
+                  <div className="mt-3 grid grid-cols-2 gap-4 border-y border-white/10 py-2.5">
+                    <div><p className="text-xs text-white/45">Available area</p><p className="mt-1 font-semibold">{formatArea(selectedAvailability.totalSqm)}</p></div>
+                    <div><p className="text-xs text-white/45">Next availability</p><p className="mt-1 font-semibold">{selectedAvailability.nextAvailable}</p></div>
+                  </div>
+                )}
 
-              {selectedAvailability.spaces.length > 0 && (
-                <div className="mt-3 max-h-28 space-y-2 overflow-y-auto pr-1">
-                  {selectedAvailability.spaces.map((space) => (
-                    <Link key={space.id} href={space.href} className="flex items-center justify-between rounded-xl bg-white/10 px-3 py-2 text-xs hover:bg-white/15">
-                      <span className="truncate pr-3">{space.label}</span><span className="shrink-0 text-white/55">{formatArea(space.sizeSqm)}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
+                {selectedAvailability.spaces.length > 0 && (
+                  <div className="mt-3 max-h-24 space-y-2 overflow-y-auto pr-1">
+                    {selectedAvailability.spaces.map((space) => (
+                      <Link key={space.id} href={space.href} className="flex items-center justify-between rounded-xl bg-white/10 px-3 py-2 text-xs hover:bg-white/15">
+                        <span className="truncate pr-3">{space.label}</span><span className="shrink-0 text-white/55">{formatArea(space.sizeSqm)}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
 
-              <div className="mt-auto flex flex-wrap gap-3 pt-4">
-                <Link href={selectedAvailability.spaces[0]?.href || "/vacancies"} className="rounded-full bg-midpoint-cyan px-5 py-3 text-sm font-semibold text-midpoint-dark">View available space{selectedAvailability.count === 1 ? "" : "s"}</Link>
-                <Link href={`/contact-us?space=${encodeURIComponent(selected.name)}#Contact`} className="rounded-full border border-white/25 px-5 py-3 text-sm font-semibold text-white">Arrange viewing</Link>
+              <div className="mt-3 flex shrink-0 flex-wrap gap-2 border-t border-white/10 pt-3">
+                <Link href={selectedAvailability.spaces[0]?.href || "/vacancies"} className="rounded-full bg-midpoint-cyan px-4 py-2.5 text-sm font-semibold text-midpoint-dark">View available space{selectedAvailability.count === 1 ? "" : "s"}</Link>
+                <Link href={`/contact-us?space=${encodeURIComponent(selected.name)}#Contact`} className="rounded-full border border-white/25 px-4 py-2.5 text-sm font-semibold text-white">Arrange viewing</Link>
               </div>
             </div>
           </aside>
