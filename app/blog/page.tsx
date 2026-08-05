@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
@@ -44,8 +45,15 @@ export default async function BlogIndexPage() {
             {posts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`} className="block overflow-hidden rounded-card bg-midpoint-dark text-white">
                 {post.coverImage && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={post.coverImage} alt={post.title} className="h-48 w-full object-cover" />
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={post.coverImage}
+                      alt={post.title}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
                 )}
                 <div className="p-6">
                   <h2 className="text-xl font-semibold">{post.title}</h2>

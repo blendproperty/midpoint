@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { fallbackFaqs } from "@/lib/faqs-fallback";
 
@@ -11,7 +12,7 @@ export type Faq = { question: string; answer: string };
 // Wrapped in React's cache() so the root layout (sitewide FAQPage JSON-LD)
 // and app/faqs/page.tsx don't each independently re-query Postgres for the
 // exact same rows within one request.
-export const getFaqs = cache(async (): Promise<Faq[]> => {
+const getCachedFaqs = unstable_cache(async (): Promise<Faq[]> => {
   try {
     const rows = await prisma.faq.findMany({
       orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
@@ -21,4 +22,6 @@ export const getFaqs = cache(async (): Promise<Faq[]> => {
   } catch {
     return fallbackFaqs;
   }
-});
+}, ["public-faqs"], { revalidate: 300, tags: ["faqs"] });
+
+export const getFaqs = cache(getCachedFaqs);

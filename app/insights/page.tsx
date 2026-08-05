@@ -156,8 +156,13 @@ export default async function InsightsPage() {
                 <Reveal key={post.id} delay={index * 80} className="h-full">
                   <Link href={`/blog/${post.slug}`} className="group flex h-full flex-col overflow-hidden rounded-card bg-white shadow-sm">
                     <div className="relative aspect-[16/10] overflow-hidden bg-midpoint-grey-400">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={post.coverImage || "/images/hero/banner.jpg"} alt={post.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <Image
+                        src={post.coverImage || "/images/hero/banner.jpg"}
+                        alt={post.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
                     <div className="flex flex-1 flex-col p-6">
                       {post.publishedAt && <p className="text-xs font-semibold uppercase tracking-wide text-midpoint-grey-400">{post.publishedAt.toLocaleDateString("en-ZA", { day: "numeric", month: "short", year: "numeric" })}</p>}

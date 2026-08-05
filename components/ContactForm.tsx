@@ -43,6 +43,7 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
   const [status, setStatus] = useState<Status>("idle");
   const [consent, setConsent] = useState(false);
   const [captchaError, setCaptchaError] = useState(false);
+  const [captchaRequested, setCaptchaRequested] = useState(false);
   const recaptchaRef = useRef<HTMLDivElement>(null);
   const feedbackRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<number | undefined>(undefined);
@@ -61,6 +62,7 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
   // silently never appears. Rendering it explicitly here, on every mount,
   // fixes both cases regardless of whether the script was already loaded.
   useEffect(() => {
+    if (!captchaRequested) return;
     let cancelled = false;
     let attempts = 0;
 
@@ -88,7 +90,7 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
     return () => {
       cancelled = true;
     };
-  }, [recaptchaSiteKey]);
+  }, [captchaRequested, recaptchaSiteKey]);
 
   // The confirmation/error message renders below the Submit button, which on
   // a long form (or a small viewport) can sit below the fold — someone could
@@ -137,8 +139,15 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
     "dark-field w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3.5 text-sm text-white placeholder-white/50 transition-colors duration-150 focus:border-midpoint-cyan focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-midpoint-cyan";
 
   return (
-    <form id="Contact" onSubmit={handleSubmit} className="space-y-6">
-      <Script src="https://www.google.com/recaptcha/api.js" strategy="lazyOnload" />
+    <form
+      id="Contact"
+      onSubmit={handleSubmit}
+      onFocus={() => setCaptchaRequested(true)}
+      className="space-y-6"
+    >
+      {captchaRequested ? (
+        <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
+      ) : null}
 
       {spaceName && (
         <p className="rounded-lg border border-midpoint-cyan/30 bg-midpoint-cyan/10 px-4 py-3 text-sm text-midpoint-cyan">

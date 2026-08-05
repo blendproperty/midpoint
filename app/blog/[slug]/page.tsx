@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
@@ -69,8 +70,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       <section className="mx-auto max-w-3xl px-6 py-16">
         {post.coverImage && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={post.coverImage} alt={post.title} className="mb-8 h-80 w-full rounded-card object-cover" />
+          <div className="relative mb-8 h-80 w-full overflow-hidden rounded-card">
+            <Image src={post.coverImage} alt={post.title} fill sizes="(min-width: 768px) 768px, 100vw" className="object-cover" priority />
+          </div>
         )}
         <h1 className="text-4xl font-bold text-midpoint-dark">{post.title}</h1>
         {/* Content is authored by trusted admin users only via /admin/blog, not

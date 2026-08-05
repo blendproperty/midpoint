@@ -2,7 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function updateSiteSettings(formData: FormData) {
@@ -88,6 +88,7 @@ export async function updateSiteSettings(formData: FormData) {
 
   revalidatePath("/admin/settings");
   revalidatePath("/", "layout");
+  revalidateTag("site-settings");
 
   const params = new URLSearchParams({ saved: "1" });
   if (dropped.length) params.set("dropped", dropped.join(", "));

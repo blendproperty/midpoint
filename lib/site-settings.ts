@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { site as staticSiteDefaults } from "@/lib/site";
 import { DEFAULT_INDEXNOW_KEY } from "@/lib/indexnow-key";
@@ -78,7 +79,7 @@ const FALLBACK: SiteSettings = {
 // generateMetadata functions, etc.) all share one Postgres round-trip
 // instead of each firing their own — this was one of two causes found for
 // pages taking 10+ seconds to render server-side.
-export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
+const getCachedSiteSettings = unstable_cache(async (): Promise<SiteSettings> => {
   try {
     const row = await prisma.siteSetting.findUnique({ where: { id: "global" } });
     if (!row) return FALLBACK;
@@ -107,4 +108,8 @@ export const getSiteSettings = cache(async (): Promise<SiteSettings> => {
   } catch {
     return FALLBACK;
   }
-});
+}, ["public-site-settings"], { revalidate: 300, tags: ["site-settings"] });
+
+// Share the result across requests for five minutes, and also deduplicate the
+// several calls made while rendering a single request.
+export const getSiteSettings = cache(getCachedSiteSettings);

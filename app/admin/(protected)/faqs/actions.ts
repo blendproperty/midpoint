@@ -2,10 +2,11 @@
 
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 function revalidateFaqPaths() {
+  revalidateTag("faqs");
   revalidatePath("/admin/faqs");
   revalidatePath("/faqs");
   revalidatePath("/");
