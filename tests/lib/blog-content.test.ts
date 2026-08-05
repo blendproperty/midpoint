@@ -21,4 +21,10 @@ describe("removeDuplicateCoverImage", () => {
       '<p>Text</p><img src="/uploads/warehouse.jpg">',
     );
   });
+
+  it("recognises editor-generated relative paths as the same cover image", () => {
+    const html = '<p><img src="../../../api/uploads/warehouse.jpg" alt="Warehouse"></p><p>Article text</p>';
+
+    expect(removeDuplicateCoverImage(html, "/api/uploads/warehouse.jpg")).toBe("<p>Article text</p>");
+  });
 });
