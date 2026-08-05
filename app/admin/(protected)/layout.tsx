@@ -35,6 +35,7 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
             <Link
               key={item.href}
               href={item.href}
+              prefetch={false}
               className="block rounded-lg px-3 py-2 text-sm text-white/80 hover:bg-white/10 hover:text-white"
             >
               {item.label}
