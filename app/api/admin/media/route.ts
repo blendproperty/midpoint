@@ -26,7 +26,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Alt text is required" }, { status: 400 });
   }
 
-  const saved = await saveUploadedFile(file);
+  let saved: Awaited<ReturnType<typeof saveUploadedFile>>;
+  try {
+    saved = await saveUploadedFile(file);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Image optimisation failed";
+    return NextResponse.json({ error: message }, { status: 400 });
+  }
   const media = await prisma.media.create({
     data: {
       filename: saved.filename,
