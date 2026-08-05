@@ -20,13 +20,13 @@ export default function LocationSection() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <h2 className="text-3xl font-semibold text-midpoint-cyan md:text-4xl">
-              At the centre of business, connected to everything.
+              Midpoint in Halfway House, Midrand
             </h2>
             <p className="mt-4">
-              Seamless access to major business districts, highways, and international travel hubs.
+              162 Tonetti Street, on the N1 corridor between Johannesburg and Pretoria.
             </p>
             <p className="mt-4">
-              Midpoint sits in Halfway House, Midrand, one of Gauteng&rsquo;s most active commercial and industrial corridors. Easy access to the N1 highway allows businesses to move goods efficiently between Johannesburg, Pretoria, and national distribution networks.
+              Test staff, client and delivery routes at the times relevant to your business. Journey times vary with traffic and the exact destination.
             </p>
           </Reveal>
 

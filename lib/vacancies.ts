@@ -1,5 +1,4 @@
 import { prisma } from "@/lib/prisma";
-import { fallbackVacancies } from "@/lib/vacancies-fallback";
 
 export type VacancySector = "Warehouse" | "Office" | "Serviced office";
 
@@ -31,15 +30,6 @@ const SECTOR_LABEL: Record<string, VacancySector> = {
 // add a caching layer on top of it yet).
 export const VACANCY_REVALIDATE_SECONDS =
   Number(process.env.VACANCY_REVALIDATE_SECONDS) || 60 * 60 * 24 * 7;
-
-function slugFromBuilding(building: string, index: number) {
-  return (
-    building
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/\s+/g, "-") + `-${index}`
-  );
-}
 
 // The label used anywhere a vacancy needs a single human-readable name — the
 // specific unit when there is one (e.g. "OnPoint — Suite 4"), otherwise just
@@ -79,17 +69,16 @@ export function buildVacancyWhatsappMessage(
   return `${baseTemplate}\n\nI'm interested in: ${details}\n${link}`;
 }
 
-// Falls back to the static snapshot if the database is briefly unreachable,
-// so a DB hiccup never takes the public vacancies/availability pages down.
+// Availability must be current. If the database is unavailable or has no
+// published rows, show no listings rather than an old hard-coded snapshot
+// that could include a space already let on Blend Listings.
 export async function getAllVacancies(): Promise<VacancyListing[]> {
   try {
     const rows = await prisma.vacancy.findMany({
       where: { status: "PUBLISHED" },
       orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
     });
-    if (rows.length === 0) {
-      return fallbackVacancies.map((v, i) => ({ id: slugFromBuilding(v.building, i), unitName: null, ...v }));
-    }
+    if (rows.length === 0) return [];
     return rows.map((row) => ({
       id: row.id,
       building: row.building,
@@ -103,7 +92,7 @@ export async function getAllVacancies(): Promise<VacancyListing[]> {
       image: row.image || "",
     }));
   } catch {
-    return fallbackVacancies.map((v, i) => ({ id: slugFromBuilding(v.building, i), unitName: null, ...v }));
+    return [];
   }
 }
 

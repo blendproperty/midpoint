@@ -23,10 +23,10 @@ export default function AmenitiesSection() {
           <h2 className="text-3xl font-semibold md:text-4xl">Amenities &amp; Lifestyle</h2>
           <div>
             <p className="text-midpoint-grey-100">
-              Facilities that support your team&rsquo;s day. An environment designed for well-being and success.
+              Food, fitness and outdoor facilities within the wider estate.
             </p>
             <p className="mt-2 text-midpoint-grey-100">
-              Midpoint combines industrial and commercial space with everyday amenities created for the people who work here.
+              Some facilities and buildings remain under development. Confirm what is operating before visiting.
             </p>
             <Link
               href="/amenities"

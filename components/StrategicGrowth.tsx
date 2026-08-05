@@ -3,9 +3,9 @@ export default function StrategicGrowth() {
     <section className="relative overflow-hidden bg-white px-6 py-24">
       <div className="pointer-events-none absolute -left-32 bottom-0 h-72 w-72 rounded-full bg-midpoint-cyan/30 blur-3xl" />
       <div className="relative mx-auto max-w-3xl">
-        <h2 className="text-3xl font-semibold text-midpoint-dark md:text-4xl">Strategic Growth</h2>
+        <h2 className="text-3xl font-semibold text-midpoint-dark md:text-4xl">Midpoint in Midrand</h2>
         <p className="mt-4 text-midpoint-grey-400">
-          Midpoint is situated in Midrand between Johannesburg and Pretoria. The estate continues a long tradition as a place where businesses establish, grow, and operate efficiently. Originally developed in the 1980s, the estate has evolved over time to meet the changing needs of modern businesses.
+          Midpoint is at 162 Tonetti Street, Halfway House, Midrand, on the N1 corridor between Johannesburg and Pretoria. The estate contains office, serviced-office and industrial buildings and continues to be redeveloped by its owner.
         </p>
       </div>
     </section>

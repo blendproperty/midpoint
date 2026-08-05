@@ -11,7 +11,7 @@ export default async function ContactSection() {
           <h1 className="text-4xl font-bold md:text-5xl">Contact</h1>
           <div>
             <p className="max-w-md text-midpoint-grey-400">
-              Positioned in Midrand between Johannesburg and Pretoria, with the infrastructure, warehouses, offices, and amenities your team needs to thrive.
+              Contact the Midpoint leasing team about current office, serviced-office and warehouse availability, or to arrange a site visit.
             </p>
             <div className="mt-8 flex flex-wrap justify-between gap-8">
               <div>
