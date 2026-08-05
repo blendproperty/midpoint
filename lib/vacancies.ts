@@ -50,6 +50,15 @@ export function vacancyLabel(listing: Pick<VacancyListing, "building" | "unitNam
   return listing.unitName ? `${listing.building} — ${listing.unitName}` : listing.building;
 }
 
+export function vacancyDetailHref(listing: Pick<VacancyListing, "id">) {
+  return `/vacancies/${encodeURIComponent(listing.id)}`;
+}
+
+export async function getVacancyById(id: string): Promise<VacancyListing | null> {
+  const vacancies = await getAllVacancies();
+  return vacancies.find((vacancy) => vacancy.id === id) || null;
+}
+
 function formatVacancySize(n: number) {
   return `${n.toLocaleString("en-ZA", { maximumFractionDigits: 2 })} m²`;
 }

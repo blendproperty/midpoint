@@ -9,6 +9,7 @@ export type MapAvailability = {
   count: number;
   totalSqm: number;
   nextAvailable: string | null;
+  spaces: { id: string; label: string; href: string; sizeSqm: number }[];
 };
 
 type Filter = "all" | "offices" | "warehouses" | "flexible" | "lifestyle";
@@ -43,7 +44,7 @@ function mapY(y: number) {
 export default function SiteMap({ availability }: { availability: Record<number, MapAvailability> }) {
   const [filter, setFilter] = useState<Filter>("all");
   const [selected, setSelected] = useState<Listing | null>(null);
-  const visibleListings = useMemo(() => listings.filter((listing) => belongsToFilter(listing, filter)), [filter]);
+  const visibleListings = useMemo(() => listings.filter((listing) => belongsToFilter(listing, filter) && (availability[listing.pin]?.count || 0) > 0), [availability, filter]);
 
   const chooseFilter = (nextFilter: Filter) => {
     setFilter(nextFilter);
@@ -51,7 +52,7 @@ export default function SiteMap({ availability }: { availability: Record<number,
   };
 
   const selectedAvailability = selected
-    ? availability[selected.pin] || { count: 0, totalSqm: 0, nextAvailable: null }
+    ? availability[selected.pin] || { count: 0, totalSqm: 0, nextAvailable: null, spaces: [] }
     : null;
 
   return (
@@ -108,7 +109,7 @@ export default function SiteMap({ availability }: { availability: Record<number,
         </div>
 
         {selected && selectedAvailability && (
-          <aside className="z-20 flex flex-col bg-midpoint-dark text-white min-[1700px]:absolute min-[1700px]:bottom-4 min-[1700px]:right-4 min-[1700px]:top-4 min-[1700px]:max-h-[calc(100%-2rem)] min-[1700px]:w-[430px] min-[1700px]:overflow-hidden min-[1700px]:rounded-2xl min-[1700px]:shadow-2xl">
+          <aside className="z-20 flex flex-col bg-midpoint-dark text-white min-[1700px]:absolute min-[1700px]:bottom-4 min-[1700px]:right-4 min-[1700px]:top-4 min-[1700px]:max-h-[calc(100%-2rem)] min-[1700px]:w-[430px] min-[1700px]:overflow-y-auto min-[1700px]:rounded-2xl min-[1700px]:shadow-2xl">
             <div className="relative h-44 shrink-0 overflow-hidden min-[1700px]:rounded-t-2xl">
               <Image src={selected.image} alt={selected.name} fill sizes="430px" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-midpoint-dark/70 to-transparent" />
@@ -138,8 +139,18 @@ export default function SiteMap({ availability }: { availability: Record<number,
                 </div>
               )}
 
+              {selectedAvailability.spaces.length > 0 && (
+                <div className="mt-3 max-h-28 space-y-2 overflow-y-auto pr-1">
+                  {selectedAvailability.spaces.map((space) => (
+                    <Link key={space.id} href={space.href} className="flex items-center justify-between rounded-xl bg-white/10 px-3 py-2 text-xs hover:bg-white/15">
+                      <span className="truncate pr-3">{space.label}</span><span className="shrink-0 text-white/55">{formatArea(space.sizeSqm)}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+
               <div className="mt-auto flex flex-wrap gap-3 pt-4">
-                <Link href={selected.href} className="rounded-full bg-midpoint-cyan px-5 py-3 text-sm font-semibold text-midpoint-dark">View details</Link>
+                <Link href={selectedAvailability.spaces[0]?.href || "/vacancies"} className="rounded-full bg-midpoint-cyan px-5 py-3 text-sm font-semibold text-midpoint-dark">View available space{selectedAvailability.count === 1 ? "" : "s"}</Link>
                 <Link href={`/contact-us?space=${encodeURIComponent(selected.name)}#Contact`} className="rounded-full border border-white/25 px-5 py-3 text-sm font-semibold text-white">Arrange viewing</Link>
               </div>
             </div>
@@ -147,12 +158,12 @@ export default function SiteMap({ availability }: { availability: Record<number,
         )}
       </div>
 
-      <div className="mt-5 flex gap-3 overflow-x-auto pb-2">
+      <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {visibleListings.map((listing) => {
           const isSelected = selected?.pin === listing.pin;
           const live = availability[listing.pin]?.count || 0;
           return (
-            <button key={listing.pin} type="button" onClick={() => setSelected(listing)} className={`min-w-[220px] rounded-2xl border p-4 text-left transition ${isSelected ? "border-midpoint-cyan bg-midpoint-dark text-white" : "border-midpoint-dark/10 bg-white text-midpoint-dark hover:border-midpoint-dark/30"}`}>
+            <button key={listing.pin} type="button" onClick={() => setSelected(listing)} className={`min-w-0 rounded-2xl border p-4 text-left transition ${isSelected ? "border-midpoint-cyan bg-midpoint-dark text-white" : "border-midpoint-dark/10 bg-white text-midpoint-dark hover:border-midpoint-dark/30"}`}>
               <span className="text-xs font-semibold text-midpoint-cyan">{listing.category}</span>
               <span className="mt-1 block font-semibold">{listing.name}</span>
               <span className={`mt-2 block text-xs ${isSelected ? "text-white/55" : "text-midpoint-grey-400"}`}>{live > 0 ? `${live} space${live === 1 ? "" : "s"} available` : "View destination"}</span>

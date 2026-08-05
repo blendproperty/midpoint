@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import VacancyCard from "@/components/VacancyCard";
+import VacancySchedule from "@/components/VacancySchedule";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import ListingsJsonLd from "@/components/ListingsJsonLd";
-import Reveal from "@/components/Reveal";
 import { getVacanciesGroupedBySector, buildVacancyWhatsappMessage, type VacancyListing } from "@/lib/vacancies";
 import { getSiteSettings } from "@/lib/site-settings";
 
@@ -18,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Vacancies() {
-  const [{ warehouse, office, servicedOffice, all }, settings] = await Promise.all([
+  const [{ all }, settings] = await Promise.all([
     getVacanciesGroupedBySector(),
     getSiteSettings(),
   ]);
@@ -33,6 +31,8 @@ export default async function Vacancies() {
     const message = buildVacancyWhatsappMessage(settings.whatsappTemplate, listing, settings.domain);
     return `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(message)}`;
   }
+
+  const whatsappUrls = Object.fromEntries(all.map((listing) => [listing.id, whatsappUrlFor(listing) || ""]));
 
   return (
     <div className="bg-white">
@@ -49,45 +49,7 @@ export default async function Vacancies() {
         </p>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-16">
-        <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Available Warehouse Space</h2>
-        <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below are the warehouse opportunities currently available at Midpoint:</p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {warehouse.map((l, i) => (
-            <Reveal key={l.id} delay={i * 60} className="h-full">
-              <VacancyCard listing={l} whatsappUrl={whatsappUrlFor(l)} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 pb-16">
-        <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Available Office Space</h2>
-        <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below are the office spaces currently available at Midpoint:</p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {office.map((l, i) => (
-            <Reveal key={l.id} delay={i * 60} className="h-full">
-              <VacancyCard listing={l} whatsappUrl={whatsappUrlFor(l)} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 pb-20">
-        <h2 className="text-2xl font-bold text-midpoint-dark md:text-3xl">Shared Workspace</h2>
-        <p className="mt-2 max-w-2xl text-midpoint-grey-400">Below is the shared workspace currently available at Midpoint:</p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {servicedOffice.map((l, i) => (
-            <Reveal key={l.id} delay={i * 60} className="h-full">
-              <VacancyCard listing={l} whatsappUrl={whatsappUrlFor(l)} />
-            </Reveal>
-          ))}
-        </div>
-
-        <Link href="/contact-us" className="mt-4 inline-block rounded-full bg-midpoint-dark px-6 py-3 text-sm font-medium text-white">
-          Enquire about a space
-        </Link>
-      </section>
+      <VacancySchedule listings={all} whatsappUrls={whatsappUrls} />
     </div>
   );
 }

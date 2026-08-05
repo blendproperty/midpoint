@@ -6,6 +6,7 @@ export type VacancySector = "Warehouse" | "Office" | "Serviced office";
 
 export type VacancyListingSeed = {
   building: string;
+  unitName?: string | null;
   sector: VacancySector;
   sizeSqm: number;
   ratePerSqm: number;
@@ -62,6 +63,7 @@ export const fallbackVacancies: VacancyListingSeed[] = [
   },
   {
     building: "1 Weaver Avenue",
+    unitName: "Unit 7, Sunbird Road (FF)",
     sector: "Office",
     sizeSqm: 515.6,
     ratePerSqm: 120,
@@ -73,6 +75,7 @@ export const fallbackVacancies: VacancyListingSeed[] = [
   },
   {
     building: "1 Weaver Avenue",
+    unitName: "Unit 7, Sunbird Road (GF)",
     sector: "Office",
     sizeSqm: 500.66,
     ratePerSqm: 120,
@@ -139,6 +142,7 @@ export const fallbackVacancies: VacancyListingSeed[] = [
   },
   {
     building: "OnPoint",
+    unitName: "Office G.02",
     sector: "Serviced office",
     sizeSqm: 172.66,
     ratePerSqm: 117.5,

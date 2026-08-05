@@ -18,6 +18,7 @@ import TalkToLeasing from "@/components/TalkToLeasing";
 import ExploreMore from "@/components/ExploreMore";
 import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
+import { vacancyDetailHref } from "@/lib/vacancies";
 import { midpointPlaceJsonLd, organizationJsonLd, stripSiteNameSuffix } from "@/lib/seo";
 import { pageRobots } from "@/lib/indexing";
 
@@ -115,6 +116,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     text: `${sectorLabel(v.sector)} | Available from ${v.availability}. ${
       v.description.length > 130 ? `${v.description.slice(0, 130).trim()}…` : v.description
     }`,
+    href: vacancyDetailHref(v),
   }));
 
   const quickFacts =

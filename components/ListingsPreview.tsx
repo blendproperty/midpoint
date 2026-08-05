@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-type Listing = { title: string; text: string };
+type Listing = { title: string; text: string; href?: string };
 
 type Props = {
   eyebrow: string;
@@ -19,9 +19,10 @@ export default function ListingsPreview({ eyebrow, intro, listings, ctaHref, cta
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {listings.map((l) => (
-            <div key={l.title} className="rounded-2xl bg-midpoint-dark p-6 text-white">
+            <div key={l.title} className="flex flex-col rounded-2xl bg-midpoint-dark p-6 text-white">
               <h3 className="text-lg font-semibold">{l.title}</h3>
               <p className="mt-2 text-sm text-white/70">{l.text}</p>
+              {l.href && <Link href={l.href} className="mt-5 text-sm font-semibold text-midpoint-cyan">View this space →</Link>}
             </div>
           ))}
         </div>

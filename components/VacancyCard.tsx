@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { vacancyLabel, type VacancyListing } from "@/lib/vacancies";
+import { vacancyDetailHref, vacancyLabel, type VacancyListing } from "@/lib/vacancies";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 function formatSize(n: number) {
@@ -95,10 +95,11 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
         </ul>
 
         <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
+          <Link href={vacancyDetailHref(listing)} className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition hover:opacity-90">View details</Link>
           <Link
             href={enquireHref(listing)}
             onClick={() => trackVacancyEnquire(listing.id, vacancyLabel(listing))}
-            className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition-transform duration-100 ease-out hover:opacity-90 active:scale-[0.97]"
+            className="rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-100 ease-out hover:bg-white/10 active:scale-[0.97]"
           >
             Enquire
           </Link>
