@@ -10,8 +10,8 @@ const navLinks = [
   { label: "About Us", href: "/about-us" },
   { label: "Spaces", href: "/spaces" },
   { label: "Insights", href: "/insights" },
+  { label: "Blog", href: "/blog" },
   { label: "Vacancies", href: "/vacancies" },
-  { label: "Explore", href: "/#explore" },
 ];
 
 export default function Nav() {
