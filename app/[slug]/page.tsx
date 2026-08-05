@@ -119,6 +119,14 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     href: vacancyDetailHref(v),
   }));
 
+  // Below the vacancies branch, trustItems is also rendered verbatim as the
+  // pill-badge strip further down the page. Only pull an item into the
+  // quick-facts cards when it actually starts with a number ("31 km to
+  // Pretoria", "1,470 meters of N1 highway frontage") — that's the only
+  // shape PillarQuickFacts is designed to present well. Prose-style trust
+  // items ("Fond restaurant and bar") don't match, and previously fell
+  // through into a fact card under a meaningless "At a glance" label,
+  // duplicating the exact same text as the pill strip immediately below it.
   const quickFacts =
     vacancies.length > 0
       ? [
@@ -129,12 +137,12 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
           },
           { label: "From", value: `R${Math.min(...vacancies.map((v) => v.ratePerSqm)).toLocaleString("en-ZA")} / m²` },
         ]
-      : trustItems.map((item) => {
-          const match = item.match(/^([~\d,.]+(?:\s*(?:km|metres?|m))?)\s+(.*)$/i);
-          return match
-            ? { value: match[1], label: match[2] }
-            : { value: item, label: "At a glance" };
-        });
+      : trustItems
+          .map((item) => {
+            const match = item.match(/^([~\d,.]+(?:\s*(?:km|metres?|m))?)\s+(.*)$/i);
+            return match ? { value: match[1], label: match[2] } : null;
+          })
+          .filter((fact): fact is { value: string; label: string } => fact !== null);
 
   const tocItems = [
     features.length > 0 ? { id: "features", label: "Highlights" } : null,
