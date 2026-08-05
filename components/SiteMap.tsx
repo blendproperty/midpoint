@@ -44,7 +44,15 @@ function mapY(y: number) {
 export default function SiteMap({ availability }: { availability: Record<number, MapAvailability> }) {
   const [filter, setFilter] = useState<Filter>("all");
   const [selected, setSelected] = useState<Listing | null>(null);
-  const visibleListings = useMemo(() => listings.filter((listing) => belongsToFilter(listing, filter) && (availability[listing.pin]?.count || 0) > 0), [availability, filter]);
+  const visibleListings = useMemo(
+    () =>
+      listings.filter(
+        (listing) =>
+          belongsToFilter(listing, filter) &&
+          (listing.evergreen || (availability[listing.pin]?.count || 0) > 0),
+      ),
+    [availability, filter],
+  );
 
   const chooseFilter = (nextFilter: Filter) => {
     setFilter(nextFilter);
