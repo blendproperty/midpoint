@@ -159,7 +159,12 @@ export default function SiteMap({ availability }: { availability: Record<number,
               </div>
 
               <div className="mt-3 flex shrink-0 flex-wrap gap-2 border-t border-white/10 pt-3">
-                <Link href={selectedAvailability.spaces[0]?.href || "/vacancies"} className="rounded-full bg-midpoint-cyan px-4 py-2.5 text-sm font-semibold text-midpoint-dark">View available space{selectedAvailability.count === 1 ? "" : "s"}</Link>
+                <Link
+                  href={selected.evergreen ? selected.href : (selectedAvailability.spaces[0]?.href || "/vacancies")}
+                  className="rounded-full bg-midpoint-cyan px-4 py-2.5 text-sm font-semibold text-midpoint-dark"
+                >
+                  {selected.evergreen ? "Explore amenities" : `View available space${selectedAvailability.count === 1 ? "" : "s"}`}
+                </Link>
                 <Link href={`/contact-us?space=${encodeURIComponent(selected.name)}#Contact`} className="rounded-full border border-white/25 px-4 py-2.5 text-sm font-semibold text-white">Arrange viewing</Link>
               </div>
             </div>
