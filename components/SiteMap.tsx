@@ -166,7 +166,12 @@ export default function SiteMap({ availability }: { availability: Record<number,
           const live = availability[listing.pin]?.count || 0;
           return (
             <button key={listing.pin} type="button" onClick={() => setSelected(listing)} className={`min-w-0 rounded-2xl border p-4 text-left transition ${isSelected ? "border-midpoint-cyan bg-midpoint-dark text-white" : "border-midpoint-dark/10 bg-white text-midpoint-dark hover:border-midpoint-dark/30"}`}>
-              <span className="text-xs font-semibold text-midpoint-cyan">{listing.category}</span>
+              <span className="flex items-center justify-between gap-3">
+                <span className="text-xs font-semibold text-midpoint-cyan">{listing.category}</span>
+                <span aria-label={`Map point ${listing.pin}`} className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 text-sm font-bold ${isSelected ? "border-midpoint-cyan bg-midpoint-cyan text-midpoint-dark" : "border-midpoint-cyan bg-midpoint-cyan/10 text-midpoint-dark"}`}>
+                  {listing.pin}
+                </span>
+              </span>
               <span className="mt-1 block font-semibold">{listing.name}</span>
               <span className={`mt-2 block text-xs ${isSelected ? "text-white/55" : "text-midpoint-grey-400"}`}>{live > 0 ? `${live} space${live === 1 ? "" : "s"} available` : "View destination"}</span>
             </button>
