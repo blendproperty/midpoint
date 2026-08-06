@@ -11,7 +11,10 @@ export default function Breadcrumbs({ items }: Props) {
   if (items.length === 0) return null;
 
   return (
-    <nav aria-label="Breadcrumb" className="mx-auto max-w-7xl px-6 pt-6 text-sm text-midpoint-grey-400">
+    <nav
+      aria-label="Breadcrumb"
+      className="mx-auto max-w-7xl px-6 pb-4 pt-28 text-sm text-midpoint-grey-400"
+    >
       <ol className="flex flex-wrap items-center gap-1.5">
         {items.map((item, i) => {
           const isLast = i === items.length - 1;
