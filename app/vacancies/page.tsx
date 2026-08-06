@@ -16,7 +16,13 @@ export const metadata: Metadata = {
   description
 };
 
-export default async function Vacancies() {
+export default async function Vacancies({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string | string[] }>;
+}) {
+  const params = await searchParams;
+  const initialQuery = typeof params.q === "string" ? params.q : "";
   const [{ all }, settings] = await Promise.all([
     getVacanciesGroupedBySector(),
     getSiteSettings(),
@@ -49,7 +55,7 @@ export default async function Vacancies() {
         </p>
       </section>
 
-      <VacancySchedule listings={all} whatsappUrls={whatsappUrls} />
+      <VacancySchedule listings={all} whatsappUrls={whatsappUrls} initialQuery={initialQuery} />
     </div>
   );
 }

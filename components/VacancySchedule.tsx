@@ -25,11 +25,11 @@ function matchesSize(size: number, filter: SizeFilter, calculatedRange: SpaceRan
   return true;
 }
 
-export default function VacancySchedule({ listings, whatsappUrls }: { listings: VacancyListing[]; whatsappUrls: Record<string, string> }) {
+export default function VacancySchedule({ listings, whatsappUrls, initialQuery = "" }: { listings: VacancyListing[]; whatsappUrls: Record<string, string>; initialQuery?: string }) {
   const [sector, setSector] = useState<SectorFilter>("ALL");
   const [size, setSize] = useState<SizeFilter>("ALL");
   const [availability, setAvailability] = useState("ALL");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const [calculatorOpen, setCalculatorOpen] = useState(false);
   const [calculatedRange, setCalculatedRange] = useState<SpaceRange | null>(null);
 
@@ -62,17 +62,18 @@ export default function VacancySchedule({ listings, whatsappUrls }: { listings: 
             </button>
           ))}
         </div>
-        <div className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_2fr_auto_auto]">
+        <form action="/vacancies" method="get" className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_2fr_auto_auto_auto]">
           <select aria-label="Filter by size" value={size} onChange={(event) => setSize(event.target.value as SizeFilter)} className="rounded-xl border border-midpoint-dark/15 bg-white px-4 py-3 text-sm text-midpoint-dark">
             <option value="ALL">Any size</option>{calculatedRange && <option value="CALCULATED">{calculatedRange.min.toLocaleString("en-ZA")}–{calculatedRange.max.toLocaleString("en-ZA")} m²</option>}<option value="UP_TO_250">Up to 250 m²</option><option value="250_500">250–500 m²</option><option value="500_1000">500–1,000 m²</option><option value="OVER_1000">Over 1,000 m²</option>
           </select>
           <select aria-label="Filter by availability" value={availability} onChange={(event) => setAvailability(event.target.value)} className="rounded-xl border border-midpoint-dark/15 bg-white px-4 py-3 text-sm text-midpoint-dark">
             <option value="ALL">Any availability</option>{availabilityOptions.map((option) => <option key={option} value={option}>{option}</option>)}
           </select>
-          <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by property or unit name..." className="rounded-xl border border-midpoint-dark/15 bg-white px-4 py-3 text-sm text-midpoint-dark" />
+          <input type="search" name="q" value={query} onChange={(event) => setQuery(event.target.value)} aria-label="Search vacancies" placeholder="Search by property or unit name..." className="rounded-xl border border-midpoint-dark/15 bg-white px-4 py-3 text-sm text-midpoint-dark" />
+          <button type="submit" className="rounded-xl bg-midpoint-dark px-5 py-3 text-sm font-semibold text-white">Search</button>
           <button type="button" onClick={() => setCalculatorOpen(true)} className="inline-flex items-center justify-center gap-2 rounded-xl bg-midpoint-cyan px-4 py-3 text-sm font-semibold text-midpoint-dark"><Calculator className="h-4 w-4" />Space calculator</button>
-          <button type="button" onClick={reset} className="rounded-xl px-4 py-3 text-sm font-semibold text-midpoint-dark underline">Reset</button>
-        </div>
+          <a href="/vacancies" onClick={(event) => { event.preventDefault(); reset(); window.history.replaceState(null, "", "/vacancies"); }} className="rounded-xl px-4 py-3 text-center text-sm font-semibold text-midpoint-dark underline">Reset</a>
+        </form>
         {calculatedRange && size === "CALCULATED" && <div className="mt-4 flex flex-wrap items-center gap-2 text-sm"><span className="text-midpoint-grey-400">Active calculator range:</span><button type="button" onClick={() => { setSize("ALL"); setCalculatedRange(null); }} className="rounded-full bg-midpoint-dark px-4 py-2 font-semibold text-white">Commercial / Office · {calculatedRange.min.toLocaleString("en-ZA")}–{calculatedRange.max.toLocaleString("en-ZA")} m² ×</button></div>}
       </div>
 
