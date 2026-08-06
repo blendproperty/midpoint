@@ -128,7 +128,12 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   // through into a fact card under a meaningless "At a glance" label,
   // duplicating the exact same text as the pill strip immediately below it.
   const quickFacts =
-    vacancies.length > 0
+    pillar.slug === "amenities"
+      ? [
+          { label: "Landscaped trails", value: "1.8 km" },
+          { label: "Padel courts", value: "3" },
+        ]
+      : vacancies.length > 0
       ? [
           { label: "Live listings", value: String(vacancies.length) },
           {
@@ -210,7 +215,10 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
 
       <PillarTableOfContents items={tocItems} />
 
-      <PillarQuickFacts facts={quickFacts} />
+      <PillarQuickFacts
+        facts={quickFacts}
+        title={pillar.slug === "amenities" ? "Estate fact sheet" : undefined}
+      />
 
       {trustItems.length > 0 && (
         <div className="mx-auto max-w-7xl px-6 pb-10 pt-6">
