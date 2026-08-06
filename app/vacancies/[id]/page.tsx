@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { getVacancyById, vacancyLabel } from "@/lib/vacancies";
 
 export const dynamic = "force-dynamic";
@@ -20,11 +21,13 @@ export default async function VacancyDetailPage({ params }: { params: Promise<{ 
   if (!listing) notFound();
   const label = vacancyLabel(listing);
   const enquiryHref = `/contact-us?space=${encodeURIComponent(label)}#Contact`;
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Vacancies", path: "/vacancies" }, { name: label, path: `/vacancies/${encodeURIComponent(listing.id)}` }];
 
   return (
     <article className="bg-white pb-20">
-      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Vacancies", path: "/vacancies" }, { name: label, path: `/vacancies/${encodeURIComponent(listing.id)}` }]} description={listing.description} />
-      <section className="mx-auto grid max-w-7xl gap-10 px-6 py-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+      <BreadcrumbJsonLd items={breadcrumbItems} description={listing.description} />
+      <Breadcrumbs items={breadcrumbItems} />
+      <section className="mx-auto grid max-w-7xl gap-10 px-6 pb-12 pt-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
         <div className="relative aspect-[16/10] overflow-hidden rounded-card bg-midpoint-grey-100">
           <Image src={listing.image || "/images/pages/amenities-banner.jpg"} alt={label} fill priority className="object-cover" />
         </div>

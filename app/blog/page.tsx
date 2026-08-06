@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const dynamic = "force-dynamic";
 
@@ -18,11 +19,13 @@ export default async function BlogIndexPage() {
     where: { status: "PUBLISHED" },
     orderBy: { publishedAt: "desc" },
   });
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }];
 
   return (
     <div className="bg-white">
-      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }]} description={description} />
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <BreadcrumbJsonLd items={breadcrumbItems} description={description} />
+      <Breadcrumbs items={breadcrumbItems} />
+      <section className="mx-auto max-w-7xl px-6 pb-16 pt-8">
         <h1 className="text-4xl font-bold text-midpoint-dark md:text-5xl">Blog</h1>
         <p className="mt-4 max-w-2xl text-midpoint-grey-400">{description}</p>
 

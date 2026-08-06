@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import VacancySchedule from "@/components/VacancySchedule";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import ListingsJsonLd from "@/components/ListingsJsonLd";
 import { getVacanciesGroupedBySector, buildVacancyWhatsappMessage, type VacancyListing } from "@/lib/vacancies";
 import { getSiteSettings } from "@/lib/site-settings";
@@ -33,16 +34,15 @@ export default async function Vacancies() {
   }
 
   const whatsappUrls = Object.fromEntries(all.map((listing) => [listing.id, whatsappUrlFor(listing) || ""]));
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Vacancies", path: "/vacancies" }];
 
   return (
     <div className="bg-white">
-      <BreadcrumbJsonLd
-        items={[{ name: "Home", path: "/" }, { name: "Vacancies", path: "/vacancies" }]}
-        description={description}
-      />
+      <BreadcrumbJsonLd items={breadcrumbItems} description={description} />
+      <Breadcrumbs items={breadcrumbItems} />
       <ListingsJsonLd listings={all} path="/vacancies" name="Midpoint vacancies" />
 
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-6 pb-16 pt-8">
         <h1 className="text-4xl font-bold text-midpoint-dark md:text-5xl">Vacancies</h1>
         <p className="mt-4 max-w-2xl text-midpoint-grey-400">
           Current warehouse, office and serviced office space available to lease at Midpoint, Midrand.
