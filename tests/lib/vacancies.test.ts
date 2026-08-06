@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { vacancySummary } from "@/lib/vacancies";
+import { vacancySector, vacancySummary } from "@/lib/vacancies";
 
 describe("vacancySummary", () => {
   it("decodes listing entities and removes markup", () => {
@@ -28,5 +28,16 @@ describe("vacancy client boundary", () => {
       expect(source).not.toContain('from "@/lib/vacancies"');
       expect(source).toContain("@/lib/vacancy-shared");
     }
+  });
+});
+
+describe("vacancySector", () => {
+  it("corrects warehousing portfolio rows mislabelled as offices upstream", () => {
+    expect(vacancySector("OFFICE", "Midpoint Warehousing")).toBe("Warehouse");
+  });
+
+  it("preserves normal office and serviced-office classifications", () => {
+    expect(vacancySector("OFFICE", "1 Weaver Avenue")).toBe("Office");
+    expect(vacancySector("SERVICED_OFFICE", "OnPoint")).toBe("Serviced office");
   });
 });

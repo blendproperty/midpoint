@@ -56,6 +56,13 @@ const DESCRIPTION_ENTITIES: Record<string, string> = {
   "&gt;": ">",
 };
 
+export function vacancySector(sourceSector: string, building: string): VacancySector {
+  // The upstream feed currently labels the Midpoint Warehousing portfolio as
+  // OFFICE. The public category must follow the actual property product.
+  if (/\bwarehous(?:e|ing)\b/i.test(building)) return "Warehouse";
+  return SECTOR_LABEL[sourceSector] || "Office";
+}
+
 export function vacancySummary(value: string, maxLength = 280) {
   const clean = value
     .replace(/&(amp|apos|quot|nbsp|sup2|lt|gt);|&#(?:39|178);/gi, (entity) =>
@@ -113,7 +120,7 @@ export async function getAllVacancies(): Promise<VacancyListing[]> {
       id: row.id,
       building: row.building,
       unitName: row.unitName || null,
-      sector: SECTOR_LABEL[row.sector] || "Office",
+      sector: vacancySector(row.sector, row.building),
       sizeSqm: row.sizeSqm,
       ratePerSqm: row.ratePerSqm,
       availability: row.availability,
