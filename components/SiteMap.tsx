@@ -50,7 +50,7 @@ export default function SiteMap({ availability }: { availability: Record<number,
         (listing) =>
           belongsToFilter(listing, filter) &&
           (listing.evergreen || (availability[listing.pin]?.count || 0) > 0),
-      ),
+      ).sort((a, b) => a.pin - b.pin),
     [availability, filter],
   );
 

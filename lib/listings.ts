@@ -58,7 +58,7 @@ export const listings: Listing[] = [
     href: "/warehouses",
   },
   {
-    pin: 2,
+    pin: 3,
     x: 40.59,
     y: 38.60,
     name: "Corporate Accommodation",
@@ -68,6 +68,7 @@ export const listings: Listing[] = [
     features: ["Comfortable executive apartments", "Ideal for project teams and clients", "Quality finishes for stress-free stays"],
     image: "/images/listings/corporate-accommodation.png",
     href: "/spaces",
+    evergreen: true,
   },
   {
     pin: 4,
@@ -117,7 +118,7 @@ export const listings: Listing[] = [
     href: "/warehouses",
   },
   {
-    pin: 3,
+    pin: 2,
     x: 46.59,
     y: 48.45,
     name: "OnPoint",
@@ -127,6 +128,7 @@ export const listings: Listing[] = [
     features: ["Collaborative open-plan layout", "Well-equipped kitchen facilities", "Multiple access points for flexible use"],
     image: "/images/listings/onpoint.jpeg",
     href: "/services-offices",
+    evergreen: true,
   },
   {
     pin: 1,
