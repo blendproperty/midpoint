@@ -234,7 +234,16 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
 
       {features.length > 0 && (
         <div id="features">
-          <FeatureIntro eyebrow={pillar.primaryEntity ? `${pillar.primaryEntity} at Midpoint` : pillar.title} features={features} />
+          <FeatureIntro
+            eyebrow={
+              pillar.primaryEntity
+                ? pillar.primaryEntity.toLowerCase().includes("midpoint")
+                  ? pillar.primaryEntity
+                  : `${pillar.primaryEntity} at Midpoint`
+                : pillar.title
+            }
+            features={features}
+          />
         </div>
       )}
 
