@@ -7,6 +7,30 @@ body {
   font-family: var(--font-primary), system-ui, sans-serif;
 }
 
+/* The estate map remains fully usable before or without React hydration. */
+.site-map > input[name="map-filter"]:checked ~ .map-filter-labels label {
+  background: #ffffff;
+  border-color: rgba(8, 33, 33, 0.15);
+  color: #082121;
+}
+
+#map-filter-all:checked ~ .map-filter-labels label[for="map-filter-all"],
+#map-filter-offices:checked ~ .map-filter-labels label[for="map-filter-offices"],
+#map-filter-warehouses:checked ~ .map-filter-labels label[for="map-filter-warehouses"],
+#map-filter-flexible:checked ~ .map-filter-labels label[for="map-filter-flexible"],
+#map-filter-lifestyle:checked ~ .map-filter-labels label[for="map-filter-lifestyle"] {
+  background: #082121;
+  border-color: #082121;
+  color: #ffffff;
+}
+
+#map-filter-offices:checked ~ .map-content [data-map-filter]:not([data-map-filter~="offices"]),
+#map-filter-warehouses:checked ~ .map-content [data-map-filter]:not([data-map-filter~="warehouses"]),
+#map-filter-flexible:checked ~ .map-content [data-map-filter]:not([data-map-filter~="flexible"]),
+#map-filter-lifestyle:checked ~ .map-content [data-map-filter]:not([data-map-filter~="lifestyle"]) {
+  display: none;
+}
+
 /* Scroll-reveal and hover-motion touches added across the homepage rely on
    CSS transitions/animations (see components/Reveal.tsx, Nav.tsx). Users
    who've asked their OS for reduced motion should get none of that. */
