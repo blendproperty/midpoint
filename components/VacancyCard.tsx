@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { vacancyDetailHref, vacancyLabel, type VacancyListing } from "@/lib/vacancies";
+import { vacancyDetailHref, vacancyLabel, type VacancyListing } from "@/lib/vacancy-shared";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 function formatSize(n: number) {

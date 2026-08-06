@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { Calculator } from "lucide-react";
 import SpaceCalculator, { type SpaceRange } from "@/components/SpaceCalculator";
 import VacancyCard from "@/components/VacancyCard";
-import type { VacancyListing, VacancySector } from "@/lib/vacancies";
+import type { VacancyListing, VacancySector } from "@/lib/vacancy-shared";
 
 type SectorFilter = "ALL" | VacancySector;
 type SizeFilter = "ALL" | "UP_TO_250" | "250_500" | "500_1000" | "OVER_1000" | "CALCULATED";
