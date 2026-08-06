@@ -44,6 +44,36 @@ export function vacancyDetailHref(listing: Pick<VacancyListing, "id">) {
   return `/vacancies/${encodeURIComponent(listing.id)}`;
 }
 
+const DESCRIPTION_ENTITIES: Record<string, string> = {
+  "&amp;": "&",
+  "&apos;": "'",
+  "&#39;": "'",
+  "&quot;": '"',
+  "&nbsp;": " ",
+  "&sup2;": "²",
+  "&#178;": "²",
+  "&lt;": "<",
+  "&gt;": ">",
+};
+
+export function vacancySummary(value: string, maxLength = 280) {
+  const clean = value
+    .replace(/&(amp|apos|quot|nbsp|sup2|lt|gt);|&#(?:39|178);/gi, (entity) =>
+      DESCRIPTION_ENTITIES[entity.toLowerCase()] || entity,
+    )
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (clean.length <= maxLength) return clean;
+
+  const sentences = clean.match(/[^.!?]+[.!?]+/g) || [];
+  const opening = sentences.slice(0, 2).map((sentence) => sentence.trim()).join(" ");
+  if (opening && opening.length <= maxLength) return opening;
+
+  return `${clean.slice(0, maxLength - 1).replace(/\s+\S*$/, "").trimEnd()}…`;
+}
+
 export async function getVacancyById(id: string): Promise<VacancyListing | null> {
   const vacancies = await getAllVacancies();
   return vacancies.find((vacancy) => vacancy.id === id) || null;
@@ -87,7 +117,7 @@ export async function getAllVacancies(): Promise<VacancyListing[]> {
       sizeSqm: row.sizeSqm,
       ratePerSqm: row.ratePerSqm,
       availability: row.availability,
-      description: row.description,
+      description: vacancySummary(row.description),
       features: row.features,
       image: row.image || "",
     }));
