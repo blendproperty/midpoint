@@ -5,6 +5,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import ListingsJsonLd from "@/components/ListingsJsonLd";
 import { getVacanciesGroupedBySector, buildVacancyWhatsappMessage, type VacancyListing } from "@/lib/vacancies";
 import { getSiteSettings } from "@/lib/site-settings";
+import { calculateSpaceRange, type SpaceCalculatorValues } from "@/lib/space-calculator";
 
 export const dynamic = "force-dynamic";
 
@@ -19,10 +20,26 @@ export const metadata: Metadata = {
 export default async function Vacancies({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string | string[] }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const params = await searchParams;
   const initialQuery = typeof params.q === "string" ? params.q : "";
+  const calculatorRequested = params.calculate === "1";
+  const initialSector = calculatorRequested ? "Office" : (["Office", "Warehouse", "Serviced office"].includes(String(params.sector)) ? String(params.sector) as "Office" | "Warehouse" | "Serviced office" : "ALL");
+  const initialAvailability = typeof params.availability === "string" ? params.availability : "ALL";
+  const numberParam = (key: string, fallback: number) => {
+    const value = Number(params[key]);
+    return Number.isFinite(value) ? Math.max(0, value) : fallback;
+  };
+  const calculatorValues: SpaceCalculatorValues = {
+    employees: numberParam("employees", 20),
+    privateOffices: numberParam("privateOffices", 2),
+    meetingRooms: numberParam("meetingRooms", 2),
+    collaborationSeats: numberParam("collaborationSeats", 8),
+  };
+  const initialCalculatedRange = calculatorRequested ? calculateSpaceRange(calculatorValues) : null;
+  const requestedSize = typeof params.size === "string" ? params.size : "ALL";
+  const initialSize = initialCalculatedRange ? "CALCULATED" : (["ALL", "UP_TO_250", "250_500", "500_1000", "OVER_1000"].includes(requestedSize) ? requestedSize : "ALL");
   const [{ all }, settings] = await Promise.all([
     getVacanciesGroupedBySector(),
     getSiteSettings(),
@@ -55,7 +72,7 @@ export default async function Vacancies({
         </p>
       </section>
 
-      <VacancySchedule listings={all} whatsappUrls={whatsappUrls} initialQuery={initialQuery} />
+      <VacancySchedule listings={all} whatsappUrls={whatsappUrls} initialQuery={initialQuery} initialSector={initialSector} initialAvailability={initialAvailability} initialSize={initialSize as "ALL" | "UP_TO_250" | "250_500" | "500_1000" | "OVER_1000" | "CALCULATED"} initialCalculatedRange={initialCalculatedRange} calculatorValues={calculatorValues} />
     </div>
   );
 }
