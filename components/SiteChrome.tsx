@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import Nav from "@/components/Nav";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import PageViewTracker from "@/components/PageViewTracker";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 type Props = {
   children: React.ReactNode;
+  contactSection: React.ReactNode;
   whatsapp: string;
   whatsappTemplate: string;
 };
@@ -19,7 +19,12 @@ type Props = {
 // (app/layout.tsx, which owns <html>/<body>), this client-side check is the
 // simplest way to opt /admin/* out without restructuring into multiple root
 // layouts.
-export default function SiteChrome({ children, whatsapp, whatsappTemplate }: Props) {
+export default function SiteChrome({
+  children,
+  contactSection,
+  whatsapp,
+  whatsappTemplate,
+}: Props) {
   const pathname = usePathname();
   const isAdmin = pathname?.startsWith("/admin") ?? false;
 
@@ -38,7 +43,7 @@ export default function SiteChrome({ children, whatsapp, whatsappTemplate }: Pro
       <PageViewTracker />
       <Nav />
       <main>{children}</main>
-      {!isContactPage && <ContactSection />}
+      {!isContactPage && contactSection}
       <Footer />
       <WhatsAppButton phone={whatsapp} message={whatsappTemplate} />
     </>
