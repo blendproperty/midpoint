@@ -18,7 +18,10 @@ services:
       retries: 10
 
   web:
-    build: .
+    build:
+      context: .
+      args:
+        NEXT_DEPLOYMENT_ID: ${NEXT_DEPLOYMENT_ID:-local}
     container_name: midpoint-web
     restart: unless-stopped
     environment:
@@ -72,6 +75,8 @@ services:
     build:
       context: .
       target: builder
+      args:
+        NEXT_DEPLOYMENT_ID: ${NEXT_DEPLOYMENT_ID:-local}
     container_name: midpoint-migrate
     command: sh -c "npx prisma migrate deploy && npx prisma db seed"
     environment:
