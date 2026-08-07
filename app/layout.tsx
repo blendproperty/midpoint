@@ -4,6 +4,7 @@ import Script from "next/script";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import SiteChrome from "@/components/SiteChrome";
+import ContactSection from "@/components/ContactSection";
 import { site } from "@/lib/site";
 import { getSiteSettings } from "@/lib/site-settings";
 import { getFaqs } from "@/lib/faqs";
@@ -118,7 +119,11 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <SiteChrome whatsapp={settings.whatsapp} whatsappTemplate={settings.whatsappTemplate}>
+        <SiteChrome
+          whatsapp={settings.whatsapp}
+          whatsappTemplate={settings.whatsappTemplate}
+          contactSection={<ContactSection />}
+        >
           {children}
         </SiteChrome>
         <GoogleTagManager gtmId={settings.tagManagerId} />
