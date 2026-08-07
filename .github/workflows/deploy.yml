@@ -68,7 +68,7 @@ jobs:
             curl --fail --silent --show-error \
               --retry 12 --retry-delay 5 --retry-all-errors \
               https://www.mid-point.co.za/ \
-              | grep -F "data-dpl-id=\"$NEXT_DEPLOYMENT_ID\""
+              | grep -F "?dpl=$NEXT_DEPLOYMENT_ID"
             # Cleanup only — never fails the deploy. Rapid successive pushes
             # trigger overlapping deploy runs on the same host, and Docker
             # only allows one `image prune` at a time; a collision here used
