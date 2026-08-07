@@ -67,7 +67,7 @@ export const listings: Listing[] = [
       "Experience a new level of comfort and convenience with the corporate accommodation at Midpoint. Designed for modern professionals, these luxury, fully serviced spaces offer a refined and practical accommodation option within the business park.",
     features: ["Comfortable executive apartments", "Ideal for project teams and clients", "Quality finishes for stress-free stays"],
     image: "/images/listings/corporate-accommodation.png",
-    href: "/spaces",
+    href: "/amenities",
     evergreen: true,
   },
   {
