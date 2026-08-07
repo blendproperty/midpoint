@@ -49,6 +49,11 @@ jobs:
             set -e
             cd ${{ secrets.DEPLOY_PATH }}
             git pull origin main
+            # Give every Docker build a stable identifier derived from the
+            # exact commit being deployed. Next.js uses this to detect an open
+            # tab from an older release and hard-reload it instead of mixing
+            # incompatible RSC responses and JavaScript chunks.
+            export NEXT_DEPLOYMENT_ID="$(git rev-parse --short=12 HEAD)"
             # `migrate` runs under --profile tools, which `docker compose up`
             # does NOT include even with --build. Without this explicit build,
             # migrate silently keeps running whatever image was last built for
@@ -58,6 +63,12 @@ jobs:
             docker compose -f compose.prod.yml build web migrate
             docker compose -f compose.prod.yml up -d --build
             docker compose -f compose.prod.yml --profile tools run --rm migrate
+            # Verify the new release is the one actually served through
+            # Cloudflare, not merely a successfully built local image.
+            curl --fail --silent --show-error \
+              --retry 12 --retry-delay 5 --retry-all-errors \
+              https://www.mid-point.co.za/ \
+              | grep -F "data-dpl-id=\"$NEXT_DEPLOYMENT_ID\""
             # Cleanup only — never fails the deploy. Rapid successive pushes
             # trigger overlapping deploy runs on the same host, and Docker
             # only allows one `image prune` at a time; a collision here used

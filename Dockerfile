@@ -10,6 +10,8 @@ RUN npm ci
 # --- build ---
 FROM base AS builder
 WORKDIR /app
+ARG NEXT_DEPLOYMENT_ID
+ENV NEXT_DEPLOYMENT_ID=${NEXT_DEPLOYMENT_ID}
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # TinyMCE is used self-hosted (no cloud API key / no "this domain isn't

@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Distinguish each production build so an open browser tab cannot mix
+  // navigation data and static chunks from different Docker deployments.
+  // Next.js will force a full navigation when it detects version skew.
+  deploymentId: process.env.NEXT_DEPLOYMENT_ID || undefined,
   // Required for a lean, self-contained Docker image (see Dockerfile).
   output: "standalone",
   images: {
