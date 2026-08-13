@@ -83,21 +83,26 @@ export async function POST(req: Request) {
     console.error("Failed to log enquiry to database", err);
   }
 
+  if (!enquiryId) {
+    return NextResponse.json(
+      { ok: false, error: "The enquiry could not be saved. Please try again." },
+      { status: 500 }
+    );
+  }
+
   // The Midpoint dashboard and Blend CRM are separate systems. Forward the
   // database-backed enquiry directly to Blend CRM and use the Midpoint
   // enquiry ID as the deduplication key so retries cannot create two leads.
-  if (enquiryId) {
-    await pushLeadToBlendCrm({
-      externalId: enquiryId,
-      email,
-      firstName,
-      lastName,
-      phone,
-      interest: payload?.interest ? String(payload.interest) : null,
-      message: payload?.message ? String(payload.message) : null,
-      sourcePath: payload?.sourcePath ? String(payload.sourcePath) : null,
-    });
-  }
+  await pushLeadToBlendCrm({
+    externalId: enquiryId,
+    email,
+    firstName,
+    lastName,
+    phone,
+    interest: payload?.interest ? String(payload.interest) : null,
+    message: payload?.message ? String(payload.message) : null,
+    sourcePath: payload?.sourcePath ? String(payload.sourcePath) : null,
+  });
 
   // Best-effort push to Blend's group-wide leads system (listings.blendproperty.co.za).
   // No-op if LISTINGS_LEADS_URL/LISTINGS_LEADS_API_KEY aren't configured, and
@@ -117,7 +122,7 @@ export async function POST(req: Request) {
     console.error("N8N_ENQUIRY_WEBHOOK is not set");
     // Still return ok — the enquiry was captured in the database even if the
     // downstream webhook isn't configured.
-    return NextResponse.json({ ok: true, webhook: false });
+    return NextResponse.json({ ok: true, enquiryId, webhook: false });
   }
 
   try {
@@ -131,12 +136,12 @@ export async function POST(req: Request) {
       })
     });
     if (!res.ok) {
-      return NextResponse.json({ ok: true, webhook: false });
+      return NextResponse.json({ ok: true, enquiryId, webhook: false });
     }
   } catch (err) {
     console.error("Failed to forward enquiry to n8n webhook", err);
-    return NextResponse.json({ ok: true, webhook: false });
+    return NextResponse.json({ ok: true, enquiryId, webhook: false });
   }
 
-  return NextResponse.json({ ok: true, webhook: true });
+  return NextResponse.json({ ok: true, enquiryId, webhook: true });
 }
