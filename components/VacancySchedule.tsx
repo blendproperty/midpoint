@@ -5,6 +5,7 @@ import { Calculator } from "lucide-react";
 import VacancyCard from "@/components/VacancyCard";
 import type { VacancyListing, VacancySector } from "@/lib/vacancy-shared";
 import type { SpaceCalculatorValues, SpaceRange } from "@/lib/space-calculator";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 
 type SectorFilter = "ALL" | VacancySector;
 type SizeFilter = "ALL" | "UP_TO_250" | "250_500" | "500_1000" | "OVER_1000" | "CALCULATED";
@@ -72,7 +73,12 @@ export default function VacancySchedule({ listings, whatsappUrls, initialQuery =
             </a>
           ))}
         </div>
-        <form action="/vacancies" method="get" className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_2fr_auto_auto_auto]">
+        <form action="/vacancies" method="get" onSubmit={(event) => {
+          const submitter = (event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
+          trackAnalyticsEvent(submitter?.value === "1" ? "calculator_applied" : "vacancy_search", {
+            sector, size_filter: size, availability, query_used: Boolean(query.trim()), results_count: filtered.length,
+          });
+        }} className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_2fr_auto_auto_auto]">
           <input type="hidden" name="sector" value={sector === "ALL" ? "" : sector} />
           <select name="size" aria-label="Filter by size" value={size} onChange={(event) => setSize(event.target.value as SizeFilter)} className="rounded-xl border border-midpoint-dark/15 bg-white px-4 py-3 text-sm text-midpoint-dark">
             <option value="ALL">Any size</option>{calculatedRange && <option value="CALCULATED">{calculatedRange.min.toLocaleString("en-ZA")}–{calculatedRange.max.toLocaleString("en-ZA")} m²</option>}<option value="UP_TO_250">Up to 250 m²</option><option value="250_500">250–500 m²</option><option value="500_1000">500–1,000 m²</option><option value="OVER_1000">Over 1,000 m²</option>
@@ -83,7 +89,7 @@ export default function VacancySchedule({ listings, whatsappUrls, initialQuery =
           <input type="search" name="q" value={query} onChange={(event) => setQuery(event.target.value)} aria-label="Search vacancies" placeholder="Search by property or unit name..." className="rounded-xl border border-midpoint-dark/15 bg-white px-4 py-3 text-sm text-midpoint-dark" />
           <button type="submit" className="rounded-xl bg-midpoint-dark px-5 py-3 text-sm font-semibold text-white">Search</button>
           <details className="relative">
-            <summary className="flex cursor-pointer list-none items-center justify-center gap-2 rounded-xl bg-midpoint-cyan px-4 py-3 text-sm font-semibold text-midpoint-dark"><Calculator className="h-4 w-4" />Space calculator</summary>
+            <summary onClick={() => trackAnalyticsEvent("calculator_open")} className="flex cursor-pointer list-none items-center justify-center gap-2 rounded-xl bg-midpoint-cyan px-4 py-3 text-sm font-semibold text-midpoint-dark"><Calculator className="h-4 w-4" />Space calculator</summary>
             <div className="absolute right-0 z-20 mt-2 w-80 rounded-2xl border border-midpoint-dark/10 bg-white p-5 shadow-xl">
               <p className="font-bold text-midpoint-dark">Calculate office space</p>
               <div className="mt-4 grid grid-cols-2 gap-3">

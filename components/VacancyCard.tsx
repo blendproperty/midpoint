@@ -95,10 +95,14 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
         </ul>
 
         <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
-          <Link href={vacancyDetailHref(listing)} className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition hover:opacity-90">View details</Link>
+          <Link href={vacancyDetailHref(listing)} data-analytics-event="vacancy_view" data-analytics-location="vacancy_card" data-vacancy-id={listing.id} data-vacancy-name={vacancyLabel(listing)} className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition hover:opacity-90">View details</Link>
           <Link
             href={enquireHref(listing)}
             onClick={() => trackVacancyEnquire(listing.id, vacancyLabel(listing))}
+            data-analytics-event="enquiry_start"
+            data-analytics-location="vacancy_card"
+            data-vacancy-id={listing.id}
+            data-vacancy-name={vacancyLabel(listing)}
             className="rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-100 ease-out hover:bg-white/10 active:scale-[0.97]"
           >
             Enquire
@@ -116,6 +120,9 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackVacancyEnquire(listing.id, vacancyLabel(listing), "WHATSAPP")}
+              data-analytics-location="vacancy_card"
+              data-vacancy-id={listing.id}
+              data-vacancy-name={vacancyLabel(listing)}
               aria-label={`WhatsApp us about ${vacancyLabel(listing)}`}
               title={`WhatsApp us about ${vacancyLabel(listing)}`}
               className="flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-100 ease-out hover:opacity-90 active:scale-[0.97]"

@@ -5,6 +5,14 @@ import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { upsertContact } from "@/lib/contacts";
 import { pushLeadToListings } from "@/lib/listings-leads";
 import { pushLeadToBlendCrm } from "@/lib/blend-crm-leads";
+import type { Prisma } from "@prisma/client";
+
+function safeAttribution(value: unknown): Prisma.InputJsonValue | undefined {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return undefined;
+  const json = JSON.stringify(value);
+  if (json.length > 10_000) return undefined;
+  try { return JSON.parse(json) as Prisma.InputJsonValue; } catch { return undefined; }
+}
 
 // Set N8N_ENQUIRY_WEBHOOK in the environment, e.g.
 // https://n8n.srv938083.hstgr.cloud/webhook/midpoint-enquiry
@@ -27,6 +35,7 @@ export async function POST(req: Request) {
   const lastName = payload?.lastName ? String(payload.lastName).trim() : "";
   const email = payload?.email ? String(payload.email).trim() : "";
   const phone = payload?.phone ? String(payload.phone) : null;
+  const attribution = safeAttribution(payload?.attribution);
 
   // NOTE: this previously checked `payload.name`, which ContactForm never
   // sends (it sends firstName/lastName) — meaning every submission was
@@ -75,6 +84,7 @@ export async function POST(req: Request) {
         interest: payload?.interest ? String(payload.interest) : null,
         message: payload?.message ? String(payload.message) : null,
         sourcePath: payload?.sourcePath ? String(payload.sourcePath) : null,
+        attribution,
         contactId,
       },
     });
@@ -102,6 +112,7 @@ export async function POST(req: Request) {
     interest: payload?.interest ? String(payload.interest) : null,
     message: payload?.message ? String(payload.message) : null,
     sourcePath: payload?.sourcePath ? String(payload.sourcePath) : null,
+    attribution,
   });
 
   // Best-effort push to Blend's group-wide leads system (listings.blendproperty.co.za).

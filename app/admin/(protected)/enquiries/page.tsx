@@ -5,6 +5,13 @@ import DeleteEnquiryButton from "@/components/admin/DeleteEnquiryButton";
 
 export const dynamic = "force-dynamic";
 
+function conversionSource(value: unknown) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const lastTouch = (value as { lastTouch?: { source?: string; medium?: string; campaign?: string } }).lastTouch;
+  if (!lastTouch?.source) return null;
+  return [lastTouch.source, lastTouch.medium, lastTouch.campaign].filter(Boolean).join(" / ");
+}
+
 export default async function EnquiriesAdminPage() {
   const enquiries = await prisma.enquiry.findMany({
     orderBy: { createdAt: "desc" },
@@ -31,6 +38,7 @@ export default async function EnquiriesAdminPage() {
               <th className="px-4 py-3">Interest</th>
               <th className="px-4 py-3">Message</th>
               <th className="px-4 py-3">Page</th>
+              <th className="px-4 py-3">Conversion source</th>
               <th className="px-4 py-3">Received</th>
               <th className="px-4 py-3">Status</th>
               <th className="px-4 py-3"></th>
@@ -55,6 +63,7 @@ export default async function EnquiriesAdminPage() {
                 <td className="px-4 py-3">{e.interest || "—"}</td>
                 <td className="max-w-xs px-4 py-3 text-slate-500">{e.message}</td>
                 <td className="px-4 py-3 text-slate-500">{e.sourcePath || "—"}</td>
+                <td className="px-4 py-3 text-slate-500">{conversionSource(e.attribution) || "Direct / unknown"}</td>
                 <td className="px-4 py-3 text-slate-500">{e.createdAt.toLocaleString()}</td>
                 <td className="px-4 py-3">
                   <form action={toggleEnquiryHandled.bind(null, e.id, !e.handled)}>
@@ -74,7 +83,7 @@ export default async function EnquiriesAdminPage() {
             ))}
             {enquiries.length === 0 && (
               <tr>
-                <td colSpan={8} className="px-4 py-6 text-center text-slate-400">
+                <td colSpan={9} className="px-4 py-6 text-center text-slate-400">
                   No enquiries yet.
                 </td>
               </tr>

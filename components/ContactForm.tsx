@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { trackAnalyticsEvent } from "@/lib/analytics";
+import { getStoredAttribution } from "@/lib/attribution";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -116,13 +117,15 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
 
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
+    const attribution = getStoredAttribution();
     try {
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
-          sourcePath: window.location.pathname,
+          sourcePath: `${window.location.pathname}${window.location.search}`,
+          attribution,
           "g-recaptcha-response": captchaResponse
         })
       });
@@ -134,6 +137,9 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
         lead_id: result.enquiryId,
         interest: typeof data.interest === "string" ? data.interest : undefined,
         vacancy_name: spaceName,
+        source: attribution?.lastTouch.source,
+        medium: attribution?.lastTouch.medium,
+        campaign: attribution?.lastTouch.campaign,
       });
       setStatus("sent");
       form.reset();

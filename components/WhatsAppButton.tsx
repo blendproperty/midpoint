@@ -20,6 +20,7 @@ export default function WhatsAppButton({ phone, message }: Props) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
+      data-analytics-location="floating_button"
       className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform duration-100 ease-out hover:scale-105 active:scale-95"
     >
       <WhatsAppIcon className="h-7 w-7" />

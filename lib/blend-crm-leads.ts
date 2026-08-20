@@ -9,7 +9,27 @@ export type BlendCrmLead = {
   interest?: string | null;
   message?: string | null;
   sourcePath?: string | null;
+  attribution?: unknown;
 };
+
+type Touch = { source?: string; medium?: string; campaign?: string; landingPage?: string; gclid?: string; fbclid?: string; msclkid?: string };
+
+function attributionLines(value: unknown) {
+  if (!value || typeof value !== "object") return [];
+  const touches = value as { firstTouch?: Touch; lastTouch?: Touch };
+  const first = touches.firstTouch;
+  const last = touches.lastTouch;
+  const format = (label: string, touch?: Touch) => touch?.source
+    ? `${label}: ${touch.source} / ${touch.medium || "unknown"}${touch.campaign ? ` / ${touch.campaign}` : ""}`
+    : undefined;
+  return [
+    format("First source", first), format("Conversion source", last),
+    last?.landingPage ? `Landing page: ${last.landingPage}` : undefined,
+    last?.gclid ? `Google Ads click ID: ${last.gclid}` : undefined,
+    last?.fbclid ? `Meta click ID: ${last.fbclid}` : undefined,
+    last?.msclkid ? `Microsoft Ads click ID: ${last.msclkid}` : undefined,
+  ].filter((line): line is string => Boolean(line));
+}
 
 function sourcePage(path?: string | null) {
   if (!path?.startsWith("/")) return MIDPOINT_BASE_URL;
@@ -31,6 +51,7 @@ export async function pushLeadToBlendCrm(
   const message = [
     payload.interest ? `Interest: ${payload.interest}` : undefined,
     payload.message || undefined,
+    ...attributionLines(payload.attribution),
   ]
     .filter(Boolean)
     .join("\n\n");

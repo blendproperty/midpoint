@@ -297,6 +297,7 @@ model Enquiry {
   interest   String?
   message    String?  @db.Text
   sourcePath String?
+  attribution Json?
   handled    Boolean  @default(false)
   contactId  String?
   contact    Contact? @relation(fields: [contactId], references: [id], onDelete: SetNull)

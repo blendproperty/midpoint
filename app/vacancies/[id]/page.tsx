@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getVacancyById, vacancyLabel } from "@/lib/vacancies";
+import VacancyViewTracker from "@/components/VacancyViewTracker";
 
 export const dynamic = "force-dynamic";
 
@@ -25,6 +26,7 @@ export default async function VacancyDetailPage({ params }: { params: Promise<{ 
 
   return (
     <article className="bg-white pb-20">
+      <VacancyViewTracker vacancyId={listing.id} vacancyName={label} />
       <BreadcrumbJsonLd items={breadcrumbItems} description={listing.description} />
       <Breadcrumbs items={breadcrumbItems} />
       <section className="mx-auto grid max-w-7xl gap-10 px-6 pb-12 pt-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
@@ -41,7 +43,7 @@ export default async function VacancyDetailPage({ params }: { params: Promise<{ 
           </div>
           <p className="mt-7 leading-7 text-midpoint-grey-400">{listing.description}</p>
           {listing.features.length > 0 && <ul className="mt-6 space-y-2 text-midpoint-dark">{listing.features.map((feature) => <li key={feature}>🔹 {feature}</li>)}</ul>}
-          <div className="mt-8 flex flex-wrap gap-3"><Link href={enquiryHref} className="rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark">Arrange a viewing</Link><Link href="/vacancies" className="rounded-full border border-midpoint-dark/20 px-6 py-3 text-sm font-semibold text-midpoint-dark">Back to vacancies</Link></div>
+          <div className="mt-8 flex flex-wrap gap-3"><Link href={enquiryHref} data-analytics-event="enquiry_start" data-analytics-location="vacancy_detail" data-vacancy-id={listing.id} data-vacancy-name={label} className="rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark">Arrange a viewing</Link><Link href="/vacancies" className="rounded-full border border-midpoint-dark/20 px-6 py-3 text-sm font-semibold text-midpoint-dark">Back to vacancies</Link></div>
         </div>
       </section>
     </article>

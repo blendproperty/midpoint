@@ -26,6 +26,7 @@ describe("pushLeadToBlendCrm", () => {
         interest: "Warehouse space",
         message: "Test lead",
         sourcePath: "/spaces/1-kingfisher-avenue",
+        attribution: { firstTouch: { source: "google", medium: "cpc", campaign: "midrand" }, lastTouch: { source: "google", medium: "cpc", campaign: "midrand", landingPage: "/vacancies", gclid: "click-123" } },
       }),
     ).resolves.toBe(true);
 
@@ -44,7 +45,7 @@ describe("pushLeadToBlendCrm", () => {
         email: "brett@example.test",
         phone: "0115555555",
       },
-      message: "Interest: Warehouse space\n\nTest lead",
+      message: "Interest: Warehouse space\n\nTest lead\n\nFirst source: google / cpc / midrand\n\nConversion source: google / cpc / midrand\n\nLanding page: /vacancies\n\nGoogle Ads click ID: click-123",
       sourcePage:
         "https://www.mid-point.co.za/spaces/1-kingfisher-avenue",
     });

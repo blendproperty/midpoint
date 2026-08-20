@@ -8,6 +8,7 @@ import ContactSection from "@/components/ContactSection";
 import { site } from "@/lib/site";
 import { getSiteSettings } from "@/lib/site-settings";
 import { getFaqs } from "@/lib/faqs";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 export const dynamic = "force-dynamic";
 
@@ -115,6 +116,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={figtree.variable}>
       <body>
+        <AnalyticsTracker />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
