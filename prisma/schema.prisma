@@ -38,6 +38,19 @@ enum ContactStatus {
   LOST
 }
 
+// PENDING: a 15-minute hold created the moment a guest starts checkout,
+// before payment. CONFIRMED: payment verified via the Netcash Notify
+// webhook. CANCELLED: manually cancelled by an admin or the guest.
+// EXPIRED: a PENDING hold nobody paid for within the window — swept by
+// lib/bookings.ts's expireStaleHolds(). Only PENDING and CONFIRMED rows
+// occupy dates (see the exclusion constraint in the migration).
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  EXPIRED
+}
+
 model User {
   id                  String                @id @default(cuid())
   email               String                @unique
@@ -180,6 +193,56 @@ model Vacancy {
   lastSyncedAt DateTime?
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
+}
+
+// Corporate accommodation inventory for "The Suites at Midpoint" — separate
+// from Vacancy since suites are nightly-rate accommodation, not leased
+// commercial space, and have their own booking/availability model below.
+model Suite {
+  id          String        @id @default(cuid())
+  name        String
+  slug        String        @unique
+  description String        @db.Text
+  maxGuests   Int           @default(2)
+  nightlyRate Float
+  image       String?
+  features    String[]
+  status      ContentStatus @default(DRAFT)
+  sortOrder   Int           @default(0)
+  bookings    Booking[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+// A reservation (or a hold on the way to becoming one) for a Suite. See
+// BookingStatus above for the lifecycle. checkIn/checkOut are stored as
+// dates (not timestamps) since availability is night-by-night, matching
+// the `daterange` used by the exclusion constraint in the migration.
+model Booking {
+  id          String        @id @default(cuid())
+  suiteId     String
+  suite       Suite         @relation(fields: [suiteId], references: [id], onDelete: Cascade)
+  checkIn     DateTime      @db.Date
+  checkOut    DateTime      @db.Date
+  guestName   String
+  guestEmail  String
+  guestPhone  String?
+  company     String?
+  totalAmount Float
+  status      BookingStatus @default(PENDING)
+  // Also used as the reference sent to/echoed back by the payment provider
+  // (Netcash) so the Notify webhook can find the right booking. Unique so
+  // it can double as an idempotency key if a webhook fires more than once.
+  paymentRef  String?       @unique
+  // Set on PENDING rows only — when the hold lapses if payment never
+  // completes. See lib/bookings.ts's expireStaleHolds().
+  expiresAt   DateTime?
+  notes       String?       @db.Text
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([suiteId])
+  @@index([status])
 }
 
 model Faq {
