@@ -10,6 +10,7 @@ import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
 import { richPageJsonLd } from "@/lib/seo";
 import { pageRobots } from "@/lib/indexing";
+import { safeJsonLd } from "@/lib/json-ld";
 
 export const dynamic = "force-dynamic";
 
@@ -72,7 +73,7 @@ export default async function CmsPage({ params }: { params: Promise<{ slug: stri
     <section className="mx-auto max-w-3xl bg-white px-6 py-16">
       <CustomCodeBlock code={page.headCode} />
       <BreadcrumbJsonLd items={breadcrumbItems} description={description} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdToRender) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLdToRender) }} />
       <Breadcrumbs items={breadcrumbItems} />
       <h1 className="text-4xl font-bold text-midpoint-dark">{page.title}</h1>
       {/* Content is authored by trusted admin users only via /admin/pages. */}

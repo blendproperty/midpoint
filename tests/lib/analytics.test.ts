@@ -1,5 +1,12 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { trackAnalyticsEvent } from "@/lib/analytics";
+import { automaticLinkEvent, trackAnalyticsEvent } from "@/lib/analytics";
+
+describe("automaticLinkEvent", () => {
+  it.each([
+    ["https://wa.me/27111234567", "whatsapp_click"], ["tel:+27111234567", "phone_click"],
+    ["mailto:leasing@example.com", "email_click"], ["/brochures/midpoint.pdf", "file_download"], ["/vacancies", null],
+  ])("classifies %s", (href, expected) => expect(automaticLinkEvent(href)).toBe(expected));
+});
 
 describe("trackAnalyticsEvent", () => {
   afterEach(() => {

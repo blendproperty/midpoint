@@ -1,4 +1,5 @@
 import { breadcrumbJsonLd, webPageJsonLd, type BreadcrumbItem } from "@/lib/seo";
+import { safeJsonLd } from "@/lib/json-ld";
 
 type Props = {
   items: BreadcrumbItem[];
@@ -27,7 +28,7 @@ export default function BreadcrumbJsonLd({ items, description, node }: Props) {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(graph.length === 1 ? graph[0] : { "@context": "https://schema.org", "@graph": graph })
+        __html: safeJsonLd(graph.length === 1 ? graph[0] : { "@context": "https://schema.org", "@graph": graph })
       }}
     />
   );

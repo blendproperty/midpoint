@@ -1,15 +1,9 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
+import { getAuthSecretBytes } from "@/lib/auth-secret";
 
 export const SESSION_COOKIE = "midpoint_admin_session";
-
-// AUTH_SECRET must be set in production (see .env.example). The fallback
-// only exists so `next build` doesn't crash if the var is briefly absent;
-// it is intentionally obvious/insecure so nobody mistakes it for a real secret.
-const secret = new TextEncoder().encode(
-  process.env.AUTH_SECRET || "dev-insecure-secret-change-me"
-);
 
 export type Role = "SUPER_ADMIN" | "EDITOR";
 
@@ -33,12 +27,12 @@ export async function createSessionToken(payload: SessionPayload) {
     .setSubject(payload.sub)
     .setIssuedAt()
     .setExpirationTime("7d")
-    .sign(secret);
+    .sign(getAuthSecretBytes());
 }
 
 export async function verifySessionToken(token: string): Promise<SessionPayload | null> {
   try {
-    const { payload } = await jwtVerify(token, secret);
+    const { payload } = await jwtVerify(token, getAuthSecretBytes());
     if (!payload.sub || !payload.email || !payload.role) return null;
     return {
       sub: payload.sub as string,

@@ -9,6 +9,7 @@ import { getSiteSettings } from "@/lib/site-settings";
 import { blogPostingJsonLd } from "@/lib/seo";
 import { pageRobots } from "@/lib/indexing";
 import { removeDuplicateCoverImage } from "@/lib/blog-content";
+import { safeJsonLd } from "@/lib/json-ld";
 
 export const dynamic = "force-dynamic";
 
@@ -67,7 +68,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <article className="bg-white">
       <CustomCodeBlock code={post.headCode} />
       <BreadcrumbJsonLd items={breadcrumbItems} description={description} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdToRender) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLdToRender) }} />
       <Breadcrumbs items={breadcrumbItems} />
 
       <section className="mx-auto max-w-3xl px-6 py-16">

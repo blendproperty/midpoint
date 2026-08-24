@@ -1,8 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifyPassword, createSessionToken, SESSION_COOKIE, type Role } from "@/lib/auth";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(request: NextRequest) {
+  const ip = getClientIp(request);
+  if (!checkRateLimit(`admin-login:${ip}`, 10, 15 * 60 * 1000)) {
+    return NextResponse.json({ error: "Too many login attempts. Try again in a few minutes." }, { status: 429 });
+  }
+
   const body = await request.json().catch(() => null);
   const email = body?.email ? String(body.email).trim().toLowerCase() : "";
   const password = body?.password ? String(body.password) : "";

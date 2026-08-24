@@ -24,11 +24,23 @@ function clean(value: string | null, limit = 500) {
   return value?.trim().slice(0, limit) || undefined;
 }
 
+// document.referrer isn't guaranteed to be a valid URL — some browsers/
+// privacy extensions rewrite it to an arbitrary non-URL string, and this
+// runs unguarded in a root-layout useEffect with no error boundary, so a
+// throw here would crash the whole page for that visitor.
+function safeHostname(value: string): string {
+  try {
+    return new URL(value).hostname.toLowerCase();
+  } catch {
+    return "";
+  }
+}
+
 export function deriveAttribution(locationHref: string, referrerValue = ""): AttributionTouch {
   const url = new URL(locationHref);
   const params = url.searchParams;
   const referrer = clean(referrerValue);
-  const referrerHost = referrer ? new URL(referrer).hostname.toLowerCase() : "";
+  const referrerHost = referrer ? safeHostname(referrer) : "";
   const ownReferral = referrerHost === url.hostname.toLowerCase();
   const gclid = clean(params.get("gclid"), 255);
   const fbclid = clean(params.get("fbclid"), 255);
@@ -73,4 +85,13 @@ export function captureAttribution(): ConversionAttribution | null {
 export function getStoredAttribution(): ConversionAttribution | null {
   if (typeof window === "undefined") return null;
   try { return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "null"); } catch { return null; }
+}
+
+// Single source of truth for "source / medium / campaign" formatting —
+// previously reimplemented separately in the admin enquiries table and in
+// the Blend CRM lead note, which could (and did) drift apart in null
+// handling.
+export function formatTouchSource(touch?: Pick<AttributionTouch, "source" | "medium" | "campaign">): string | null {
+  if (!touch?.source) return null;
+  return [touch.source, touch.medium || "unknown", touch.campaign].filter(Boolean).join(" / ");
 }

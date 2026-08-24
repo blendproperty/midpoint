@@ -2,14 +2,13 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { toggleEnquiryHandled, deleteEnquiry } from "./actions";
 import DeleteEnquiryButton from "@/components/admin/DeleteEnquiryButton";
+import { formatTouchSource, type ConversionAttribution } from "@/lib/attribution";
 
 export const dynamic = "force-dynamic";
 
 function conversionSource(value: unknown) {
   if (!value || typeof value !== "object" || Array.isArray(value)) return null;
-  const lastTouch = (value as { lastTouch?: { source?: string; medium?: string; campaign?: string } }).lastTouch;
-  if (!lastTouch?.source) return null;
-  return [lastTouch.source, lastTouch.medium, lastTouch.campaign].filter(Boolean).join(" / ");
+  return formatTouchSource((value as ConversionAttribution).lastTouch);
 }
 
 export default async function EnquiriesAdminPage() {

@@ -1,3 +1,5 @@
+import { formatTouchSource, type ConversionAttribution } from "@/lib/attribution";
+
 const MIDPOINT_BASE_URL = "https://www.mid-point.co.za";
 
 export type BlendCrmLead = {
@@ -12,22 +14,18 @@ export type BlendCrmLead = {
   attribution?: unknown;
 };
 
-type Touch = { source?: string; medium?: string; campaign?: string; landingPage?: string; gclid?: string; fbclid?: string; msclkid?: string };
-
 function attributionLines(value: unknown) {
   if (!value || typeof value !== "object") return [];
-  const touches = value as { firstTouch?: Touch; lastTouch?: Touch };
-  const first = touches.firstTouch;
-  const last = touches.lastTouch;
-  const format = (label: string, touch?: Touch) => touch?.source
-    ? `${label}: ${touch.source} / ${touch.medium || "unknown"}${touch.campaign ? ` / ${touch.campaign}` : ""}`
-    : undefined;
+  const { firstTouch, lastTouch } = value as ConversionAttribution;
+  const first = formatTouchSource(firstTouch);
+  const last = formatTouchSource(lastTouch);
   return [
-    format("First source", first), format("Conversion source", last),
-    last?.landingPage ? `Landing page: ${last.landingPage}` : undefined,
-    last?.gclid ? `Google Ads click ID: ${last.gclid}` : undefined,
-    last?.fbclid ? `Meta click ID: ${last.fbclid}` : undefined,
-    last?.msclkid ? `Microsoft Ads click ID: ${last.msclkid}` : undefined,
+    first ? `First source: ${first}` : undefined,
+    last ? `Conversion source: ${last}` : undefined,
+    lastTouch?.landingPage ? `Landing page: ${lastTouch.landingPage}` : undefined,
+    lastTouch?.gclid ? `Google Ads click ID: ${lastTouch.gclid}` : undefined,
+    lastTouch?.fbclid ? `Meta click ID: ${lastTouch.fbclid}` : undefined,
+    lastTouch?.msclkid ? `Microsoft Ads click ID: ${lastTouch.msclkid}` : undefined,
   ].filter((line): line is string => Boolean(line));
 }
 

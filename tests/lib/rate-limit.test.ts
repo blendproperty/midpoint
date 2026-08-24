@@ -31,14 +31,21 @@ describe("checkRateLimit", () => {
 });
 
 describe("getClientIp", () => {
-  it("reads the first IP from x-forwarded-for", () => {
+  it("prefers cf-connecting-ip, which Cloudflare sets and a client can't spoof", () => {
+    const request = new Request("http://localhost", {
+      headers: { "cf-connecting-ip": "9.9.9.9", "x-forwarded-for": "1.2.3.4, 5.6.7.8" },
+    });
+    expect(getClientIp(request)).toBe("9.9.9.9");
+  });
+
+  it("without cf-connecting-ip, trusts the last x-forwarded-for hop (the one Traefik appended), not the client-supplied first one", () => {
     const request = new Request("http://localhost", {
       headers: { "x-forwarded-for": "1.2.3.4, 5.6.7.8" },
     });
-    expect(getClientIp(request)).toBe("1.2.3.4");
+    expect(getClientIp(request)).toBe("5.6.7.8");
   });
 
-  it("falls back to 'unknown' when the header is absent", () => {
+  it("falls back to 'unknown' when no IP header is present", () => {
     const request = new Request("http://localhost");
     expect(getClientIp(request)).toBe("unknown");
   });

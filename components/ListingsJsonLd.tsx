@@ -1,5 +1,6 @@
 import { listingsJsonLd } from "@/lib/seo";
 import type { VacancyListing } from "@/lib/vacancies";
+import { safeJsonLd } from "@/lib/json-ld";
 
 type Props = {
   listings: VacancyListing[];
@@ -11,7 +12,7 @@ export default function ListingsJsonLd({ listings, path, name }: Props) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(listingsJsonLd(listings, path, name)) }}
+      dangerouslySetInnerHTML={{ __html: safeJsonLd(listingsJsonLd(listings, path, name)) }}
     />
   );
 }

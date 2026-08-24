@@ -137,9 +137,9 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
         lead_id: result.enquiryId,
         interest: typeof data.interest === "string" ? data.interest : undefined,
         vacancy_name: spaceName,
-        source: attribution?.lastTouch.source,
-        medium: attribution?.lastTouch.medium,
-        campaign: attribution?.lastTouch.campaign,
+        source: attribution?.lastTouch?.source,
+        medium: attribution?.lastTouch?.medium,
+        campaign: attribution?.lastTouch?.campaign,
       });
       setStatus("sent");
       form.reset();

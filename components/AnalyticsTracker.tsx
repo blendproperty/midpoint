@@ -6,7 +6,12 @@ import { captureAttribution } from "@/lib/attribution";
 
 export default function AnalyticsTracker() {
   useEffect(() => {
-    captureAttribution();
+    // Keep admin-panel browsing out of marketing attribution — matches the
+    // same exclusion handleClick already applies below. Without this, an
+    // admin session on /admin/* overwrites lastTouch/firstTouch, polluting
+    // whatever gets attached to a real enquiry submitted later from the
+    // same browser.
+    if (!window.location.pathname.startsWith("/admin")) captureAttribution();
     function handleClick(event: MouseEvent) {
       if (window.location.pathname.startsWith("/admin")) return;
       const target = event.target instanceof Element ? event.target.closest("a") : null;

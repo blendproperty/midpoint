@@ -9,6 +9,7 @@ import { site } from "@/lib/site";
 import { getSiteSettings } from "@/lib/site-settings";
 import { getFaqs } from "@/lib/faqs";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
+import { safeJsonLd } from "@/lib/json-ld";
 
 export const dynamic = "force-dynamic";
 
@@ -119,7 +120,7 @@ export default async function RootLayout({
         <AnalyticsTracker />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
         />
         <SiteChrome
           whatsapp={settings.whatsapp}

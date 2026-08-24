@@ -21,6 +21,7 @@ import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
 import { vacancyDetailHref } from "@/lib/vacancies";
 import { midpointPlaceJsonLd, organizationJsonLd, stripSiteNameSuffix } from "@/lib/seo";
 import { pageRobots } from "@/lib/indexing";
+import { safeJsonLd } from "@/lib/json-ld";
 
 export const dynamic = "force-dynamic";
 
@@ -203,7 +204,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     <article className="bg-white">
       <CustomCodeBlock code={pillar.headCode} />
       <BreadcrumbJsonLd items={breadcrumbItems} description={description} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdToRender) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLdToRender) }} />
       <Breadcrumbs items={breadcrumbItems} />
 
       <PageHero

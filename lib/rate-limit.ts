@@ -37,8 +37,23 @@ const sweeper = setInterval(() => {
 }, 10 * 60 * 1000);
 sweeper.unref?.();
 
+// Cloudflare sits in front of Traefik in front of this app (see
+// middleware.ts's Email Address Obfuscation comment and compose.prod.yml's
+// Traefik labels). Cloudflare always overwrites CF-Connecting-IP with the
+// real connecting client — a requester can't spoof it — so prefer that.
+// Falling back to X-Forwarded-For, trust the *last* hop (the one Traefik
+// itself appended), not the first: Traefik appends to any inbound XFF
+// rather than replacing it, so the first entry is attacker-controlled and
+// trusting it would let a single requester bypass every rate limit below
+// by rotating the header per request.
 export function getClientIp(req: Request): string {
+  const cfConnectingIp = req.headers.get("cf-connecting-ip");
+  if (cfConnectingIp) return cfConnectingIp.trim();
+
   const forwarded = req.headers.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0].trim();
+  if (forwarded) {
+    const hops = forwarded.split(",").map((hop) => hop.trim()).filter(Boolean);
+    if (hops.length) return hops[hops.length - 1];
+  }
   return "unknown";
 }

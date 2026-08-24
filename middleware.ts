@@ -2,10 +2,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { jwtVerify } from "jose";
 import { legacyDestination } from "@/lib/legacy-routes";
+import { getAuthSecretBytes } from "@/lib/auth-secret";
 
-const secret = new TextEncoder().encode(
-  process.env.AUTH_SECRET || "dev-insecure-secret-change-me"
-);
 const SESSION_COOKIE = "midpoint_admin_session";
 
 const HTML_CACHE_CONTROL =
@@ -173,7 +171,7 @@ export async function middleware(request: NextRequest) {
     const token = request.cookies.get(SESSION_COOKIE)?.value;
     if (!token) return redirectToLogin(request);
     try {
-      await jwtVerify(token, secret);
+      await jwtVerify(token, getAuthSecretBytes());
       return continueRequest(request);
     } catch {
       return redirectToLogin(request);
