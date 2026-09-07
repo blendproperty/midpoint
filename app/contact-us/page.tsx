@@ -25,6 +25,12 @@ export async function generateMetadata(): Promise<Metadata> {
     title: stripSiteNameSuffix(rawTitle, settings.siteName),
     description: override?.seoDescription || description,
     robots: pageRobots(override?.noIndex),
+    // Enquire buttons on vacancy cards link here with ?space=...&interest=...
+    // so the form pre-fills. Those query-string variants must not be indexed
+    // as separate pages — canonicalize them all to the bare /contact-us URL.
+    alternates: {
+      canonical: `${site.domain}/contact-us`,
+    },
   };
 }
 
