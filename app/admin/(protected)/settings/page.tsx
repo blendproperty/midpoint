@@ -155,7 +155,7 @@ export default async function SettingsAdminPage({
           </p>
           <div>
             <label className="block text-sm font-medium">WhatsApp number (with country code, digits only)</label>
-            <input name="whatsapp" defaultValue={settings.whatsapp} placeholder="27113809400" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            <input name="whatsapp" defaultValue={settings.whatsapp} placeholder="27600185206" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
           </div>
           <div>
             <label className="block text-sm font-medium">Pre-filled message</label>

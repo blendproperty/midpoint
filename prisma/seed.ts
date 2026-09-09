@@ -89,7 +89,9 @@ async function seedFaqs() {
 async function seedSiteSettings() {
   await prisma.siteSetting.upsert({
     where: { id: "global" },
-    update: {},
+    update: {
+      whatsapp: "27600185206",
+    },
     create: {
       id: "global",
       siteName: "Midpoint Midrand",
@@ -100,6 +102,7 @@ async function seedSiteSettings() {
         "https://cdn.prod.website-files.com/67caa7c310ee043ea9e45267/6a148a5463dac69c69cbc3a8_amenities_banner-p-1600.jpg",
       allowIndexing: true,
       vacancyRevalidateSeconds: 604800,
+      whatsapp: "27600185206",
     },
   });
   console.log("Site settings row ensured.");
