@@ -18,19 +18,22 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 ### Commit and push
 
-- Pending at time of initial implementation.
+- Commit `bbc0c5a58d9270a99e2ac317ea793aca6f987537` (`Update Midpoint WhatsApp number`) was pushed to `origin/main` on 2026-09-09.
 
 ### Merge
 
-- Pending at time of initial implementation.
+- The verified branch was promoted directly to `main` as a fast-forward (`9faca95..bbc0c5a`); no pull-request merge was used.
 
 ### Deployment and configuration
 
-- Pending database migration and production deployment.
+- GitHub Actions workflow `Deploy to VPS`, run `34313228321`, completed successfully on 2026-09-09.
+- The deployment rebuilt the application and migration images and applied migration `20260909120000_update_whatsapp_number`, setting the production `SiteSetting.whatsapp` value to `27600185206`.
 
 ### Live production verification
 
-- Pending confirmation that the floating button and vacancy WhatsApp links resolve to `https://wa.me/27600185206`.
+- On 2026-09-09, `https://www.mid-point.co.za/` returned HTTP 200, served deployment `bbc0c5a58d92`, and contained `https://wa.me/27600185206`.
+- On 2026-09-09, `https://www.mid-point.co.za/vacancies` returned HTTP 200, served deployment `bbc0c5a58d92`, and contained vacancy links to `https://wa.me/27600185206`.
+- No other `wa.me` destination numbers were present in either verified production response.
 
 ### Outstanding gates
 
