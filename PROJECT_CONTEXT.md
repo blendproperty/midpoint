@@ -17,7 +17,7 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 ### Testing
 
 - 2026-09-10: all 46 migrations applied successfully to dedicated disposable PostgreSQL 16 on localhost:55439.
-- 2026-09-10: 22 test files / 82 tests passed with real database integration enabled. Includes invalid dates/pricing, two simultaneous last-room attempts, database exclusion enforcement, idempotency, declined/successful/corporate payment, single-message confirmation, expired holds, adjacent stays, conflicting/valid amendments, settlement, check-in/out, cancellation/refund and maintenance.
+- 2026-09-10: 22 test files / 86 tests passed with real database integration enabled. Includes invalid dates/pricing, two simultaneous last-room attempts, database exclusion enforcement, idempotency, declined/successful/corporate payment, single-message confirmation, expired holds, adjacent stays, conflicting/valid amendments, settlement, check-in/out, cancellation/refund, maintenance and production route exclusion.
 - HTTP smoke passed locally for quote, hold, duplicate request, unauthorized access, cross-origin rejection, payment outcomes, confirmation message, calendar download, private-code lookup, cancellation request, guest routes and unauthenticated admin protection.
 - All four admin screens rendered HTTP 200 with a local-only signed test session. No production admin credentials were exposed or created.
 - Browser verification: mobile 390px results and room-gallery navigation; desktop 1440px detail/summary and navigation. No horizontal document overflow in inspected results/detail viewports.
@@ -26,6 +26,7 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 ### Commit and push
 
 - Implementation commit ca3b999146e9294f12bdf5674efd2cdfacfaa297 was pushed to origin/main from .worktrees/suites-staging, branch codex/suites-staging. Verified baseline: 715a4cb93fad44e31d99137555b17673dc1ea3e3.
+- Follow-up guard commit dfc5e3dfe37949fdb0f02c20a9cfe159f2b83bc3 was also fast-forward pushed to origin/main. This evidence-only context update is committed separately with CI skipped; it changes no deployed runtime code.
 - Unrelated changes in the root checkout are preserved. Generated next-env.d.ts and tsconfig.tsbuildinfo are excluded.
 
 ### Merge
@@ -35,6 +36,7 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 ### Deployment and configuration
 
 - GitHub Actions Deploy to VPS run 34478215420 completed successfully for ca3b999146e9294f12bdf5674efd2cdfacfaa297. Staging and production share one application/container/database; this change does not claim full infrastructure isolation.
+- Final guard deployment run 34478909187 completed successfully for dfc5e3dfe37949fdb0f02c20a9cfe159f2b83bc3, including migration/integration-test gate and production build.
 - New booking flows are staging-host gated, reservations are explicitly TEST, payment simulation never collects cards, and all email messages remain TEST_PREVIEW outbox records.
 
 ### Live production verification
@@ -43,7 +45,11 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 - Staging /stay HTTP 200 with X-Robots-Tag noindex, nofollow, noarchive, nosnippet; robots.txt disallows all. The served staging page excludes the production GTM script and shows 12 Studio / 6 Executive test rooms on unoccupied dates.
 - Deployed synthetic HTTP journey passed with reference TEST-260910-109033E9D2: server quote, hold, retry idempotency, private access denial, origin protection, declined/success payment, one email preview, calendar download, private retrieval, cancellation request and admin protection. No money or email was transmitted.
 - Live browser verification confirmed MIDPOINT10 changes the two-night Studio total to R2,070, then preserves dates and code in checkout; adding test late checkout updates the total to R2,320.
-- Found production page exclusion was a streamed not-found screen with HTTP 200 rather than a true 404. Added an early middleware guard for /stay, its descendants, /manage-booking and /api/stay. All 86 tests now pass including four production-route regression cases; final guard deployment verification is pending.
+- Found production page exclusion was a streamed not-found screen with HTTP 200 rather than a true 404. Added an early middleware guard for /stay, its descendants, /manage-booking and /api/stay. After deployment dfc5e3dfe379, production /stay and /manage-booking both returned HTTP 404; staging /stay remained HTTP 200 with noindex response headers.
+- The complete browser journey also confirmed synthetic reference TEST-260910-045C1D0A15 at R2,320, PAID (test), with the captured confirmation email and acknowledged cancellation request. Mobile confirmation/cancellation was visually checked at 390px. No real card, money or external email was used.
+- Production homepage remains HTTP 200, robots metadata index/follow and WhatsApp destination 27600185206; /amenities remains HTTP 200 with The Suites at Midpoint heading.
+- Temporary local app/database processes were stopped after testing. The disposable test database was retained, not deleted.
+- The full HTTP smoke was repeated successfully on final deployment dfc5e3dfe379 with reference TEST-260910-B99B4E963F. This and the earlier HTTP/browser synthetic records have cancellation requests waiting for staff review.
 
 ### Outstanding gates
 
