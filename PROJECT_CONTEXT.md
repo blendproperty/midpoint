@@ -21,19 +21,22 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 ### Commit and push
 
-- Pending final commit and push evidence.
+- Commit `79039a3fa1f7e5e6e061e11d1bc160bf560068b2` (`Build Suites booking Phase 1`) was pushed to `origin/main` on 2026-09-10.
 
 ### Merge
 
-- Pending promotion evidence.
+- The verified isolated worktree was promoted directly to `main` by fast-forward; no pull-request merge was used.
 
 ### Deployment and configuration
 
-- Pending deployment and migration evidence.
+- GitHub Actions `Deploy to VPS` run `34474718455` completed successfully on 2026-09-10; its migration step created the booking schema, two category records and 18 blocked/unassigned room records.
 
 ### Live production verification
 
-- Pending staging route, image, search, admin migration and production release-gate verification.
+- Staging `/the-suites-at-midpoint`, `/stay`, both category routes and a three-night dated search returned HTTP 200 with `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet`.
+- The dated search rendered the explicit `Availability is being configured` state because no unapproved room/category allocation was activated.
+- Each supplied image asset returned HTTP 200; the live Suites page was visually verified at 1440px with the booking bar, staging-only `Book a Stay` navigation, supplied-photo experience and zero horizontal overflow.
+- Production `https://www.mid-point.co.za/stay` returned HTTP 404, confirming the unfinished booking system is not publicly released there.
 
 ### Outstanding gates
 
