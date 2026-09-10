@@ -9,10 +9,18 @@ const SESSION_COOKIE = "midpoint_admin_session";
 const HTML_CACHE_CONTROL =
   "private, no-cache, no-store, max-age=0, must-revalidate, no-transform";
 
+function requestHostname(request: NextRequest) {
+  return (request.headers.get("x-forwarded-host") || request.headers.get("host") || request.nextUrl.hostname)
+    .split(",")[0]
+    .split(":")[0]
+    .trim()
+    .toLowerCase();
+}
+
 function continueRequest(request: NextRequest) {
   const response = NextResponse.next();
 
-  if (request.nextUrl.hostname.toLowerCase() === "midpoint.onpointoffices.co.za") {
+  if (requestHostname(request) === "midpoint.onpointoffices.co.za") {
     response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive, nosnippet");
   }
 
@@ -152,7 +160,7 @@ async function getIndexNowKey(): Promise<string> {
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const hostname = request.nextUrl.hostname.toLowerCase();
+  const hostname = requestHostname(request);
   const isStaging = hostname === "midpoint.onpointoffices.co.za";
 
   // The staging hostname currently reaches the same application service as
