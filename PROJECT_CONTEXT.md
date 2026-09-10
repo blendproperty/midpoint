@@ -13,27 +13,33 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 ### Testing
 
 - Local migration applied successfully to disposable PostgreSQL. All 23 test files / 89 tests passed, including migrated category labels, legacy slug compatibility and booking transaction integration.
-- Type checking and deployment validation are recorded below when completed.
+- Type checking passed (npx tsc --noEmit, exit 0). Deployment CI also passed its tests and production build.
+- Initial extended HTTP check used an incorrect test assertion (expected category object, while API returns a string). Corrected the smoke-script assertion; deployed API behavior was unchanged. Repeated smoke passed.
 
 ### Commit and push
 
-- Prepared in codex/suites-staging against verified origin/main 9cd7e7a40f4cde73d54dc3f14720da9a36eb132c. Root checkout changes and generated files preserved. Promotion pending.
+- Runtime commit eec61f60d650c4a6e009a04e44989519095b5964 pushed to origin/main from codex/suites-staging, fast-forward from verified 9cd7e7a40f4cde73d54dc3f14720da9a36eb132c. Root checkout changes and generated files preserved.
+- Follow-up delivery evidence and corrected smoke-script assertion are committed with CI skipped; no additional runtime change.
 
 ### Merge
 
-- Pending fast-forward promotion; no PR merge planned.
+- Fast-forward promotion to main completed; no PR merge.
 
 ### Deployment and configuration
 
-- Pending. Staging domain and production booking exclusion remain unchanged.
+- GitHub Actions run 34479871731 completed successfully for eec61f60d650c4a6e009a04e44989519095b5964, including data migration and application deployment. Staging domain and production booking exclusion remain unchanged.
 
 ### Live production verification
 
-- Pending deployment; local evidence is not live verification.
+- Staging /stay with 2027-01-08 to 2027-01-10 dates returned 200 with the correct accommodation title, /stay/studio links and no old OnPoint category names; noindex response header remains present.
+- /stay/studio and /stay/executive-suite returned 200 with Studio / Executive Suite titles under The Suites at Midpoint. Legacy /stay/onpoint-studio emitted Next.js redirect plus meta refresh preserving dates and guest count to /stay/studio.
+- Deployed HTTP booking smoke passed with TEST-260910-A78C950CD2, including Studio category, confirmation preview without OnPoint, legacy checkout, renamed detail routes, quote/hold/payment simulation, private access, calendar and cancellation request.
+- Production homepage returned 200, production /stay remained 404, and serviced-office page returned 200 retaining Serviced Offices in Midrand | OnPoint at Midpoint.
 
 ### Outstanding gates
 
 - Booking remains simulated: all commercial, inventory, provider/email, operational approval and UAT gates below remain open. Earlier duplicate-contact-form and hero-button wording feedback is separate and not changed by this branding correction.
+- Two synthetic bookings were created during live smoke checks. The first check stopped after simulated confirmation due to the test-script assertion; staff should cancel that booking-qa@example.test record. The successful repeat has a cancellation request pending. No real payment or external email occurred.
 
 ## 2026-09-10 — Testable Suites booking platform
 
