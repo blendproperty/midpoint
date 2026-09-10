@@ -76,7 +76,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [settings, faqs, staging] = await Promise.all([getSiteSettings(), getFaqs(), isStagingHost()]);
+  const [settings, faqs, staging] = await Promise.all([
+    getSiteSettings(),
+    getFaqs(),
+    isStagingHost(),
+  ]);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -136,9 +140,11 @@ export default async function RootLayout({
         >
           {children}
         </SiteChrome>
-        <GoogleTagManager gtmId={settings.tagManagerId} />
-        {settings.googleAnalyticsId ? <GoogleAnalytics gaId={settings.googleAnalyticsId} /> : null}
-        {settings.clarityId ? (
+        {!staging && <GoogleTagManager gtmId={settings.tagManagerId} />}
+        {!staging && settings.googleAnalyticsId ? (
+          <GoogleAnalytics gaId={settings.googleAnalyticsId} />
+        ) : null}
+        {!staging && settings.clarityId ? (
           <Script id="ms-clarity" strategy="lazyOnload">
             {`(function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

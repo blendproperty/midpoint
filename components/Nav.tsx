@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/Logo";
 
@@ -22,6 +23,9 @@ export default function Nav({ showStay = false }: { showStay?: boolean }) {
   // body text further down the page). Track scroll position and swap to
   // a solid, blurred bar as soon as the hero is behind us.
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const booking =
+    pathname.startsWith("/stay") || pathname === "/manage-booking";
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -54,7 +58,7 @@ export default function Nav({ showStay = false }: { showStay?: boolean }) {
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 w-full transition-[background-color,backdrop-filter,box-shadow] duration-300 ${
-        scrolled || mobileOpen
+        scrolled || mobileOpen || booking
           ? "bg-midpoint-dark/95 shadow-md backdrop-blur-md"
           : "bg-gradient-to-b from-midpoint-dark/80 to-transparent"
       }`}
@@ -64,7 +68,12 @@ export default function Nav({ showStay = false }: { showStay?: boolean }) {
           scrolled ? "pb-3 pt-3" : "pb-4 pt-8"
         }`}
       >
-        <Link href="/" aria-label="Midpoint home" onClick={closeMobile} className="shrink-0">
+        <Link
+          href="/"
+          aria-label="Midpoint home"
+          onClick={closeMobile}
+          className="shrink-0"
+        >
           <Logo />
         </Link>
 
@@ -84,8 +93,15 @@ export default function Nav({ showStay = false }: { showStay?: boolean }) {
         </div>
 
         <div className="hidden shrink-0 items-center gap-5 xl:flex">
-          {[...navLinks, ...(showStay ? [{ label: "Book a Stay", href: "/stay" }] : [])].map((link) => (
-            <Link key={link.href} href={link.href} className="group relative text-sm font-medium">
+          {[
+            ...navLinks,
+            ...(showStay ? [{ label: "Book a Stay", href: "/stay" }] : []),
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="group relative text-sm font-medium"
+            >
               {link.label}
               <span className="absolute -bottom-1 left-0 h-px w-0 bg-midpoint-cyan transition-all duration-300 group-hover:w-full" />
             </Link>
@@ -121,7 +137,10 @@ export default function Nav({ showStay = false }: { showStay?: boolean }) {
         }`}
       >
         <div className="flex flex-col gap-1 border-t border-white/10 bg-midpoint-dark/95 px-6 py-4 text-white backdrop-blur-md">
-          {[...navLinks, ...(showStay ? [{ label: "Book a Stay", href: "/stay" }] : [])].map((link) => (
+          {[
+            ...navLinks,
+            ...(showStay ? [{ label: "Book a Stay", href: "/stay" }] : []),
+          ].map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -141,7 +160,10 @@ export default function Nav({ showStay = false }: { showStay?: boolean }) {
           </Link>
 
           <div className="mt-4 flex flex-col gap-2 border-t border-white/10 pt-4 text-sm">
-            <a href="mailto:boitumelo@blendproperty.co.za" className="text-white/80">
+            <a
+              href="mailto:boitumelo@blendproperty.co.za"
+              className="text-white/80"
+            >
               boitumelo@blendproperty.co.za
             </a>
             <a href="tel:+27113809400" className="text-white/80">

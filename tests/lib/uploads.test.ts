@@ -15,7 +15,7 @@ describe("optimizeImageBuffer", () => {
       .jpeg({ quality: 95 })
       .toBuffer();
 
-    const optimized = await optimizeImageBuffer(source);
+    const optimized = await optimizeImageBuffer(new Uint8Array(source));
     const metadata = await sharp(optimized).metadata();
 
     expect(metadata.format).toBe("webp");
@@ -36,7 +36,9 @@ describe("optimizeImageBuffer", () => {
       .png()
       .toBuffer();
 
-    const metadata = await sharp(await optimizeImageBuffer(source)).metadata();
+    const metadata = await sharp(
+      await optimizeImageBuffer(new Uint8Array(source)),
+    ).metadata();
 
     expect(metadata.width).toBe(800);
     expect(metadata.height).toBe(600);

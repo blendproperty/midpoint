@@ -95,6 +95,7 @@ model RoomCategory {
 }
 
 model Room {
+  blocks       RoomBlock[]
   id           String        @id @default(cuid())
   roomNumber   String        @unique
   categoryId   String?
@@ -109,35 +110,77 @@ model Room {
 }
 
 model Reservation {
-  id               String            @id @default(cuid())
-  bookingReference String            @unique
-  categoryId       String
-  category         RoomCategory      @relation(fields: [categoryId], references: [id], onDelete: Restrict)
-  roomId           String?
-  room             Room?             @relation(fields: [roomId], references: [id], onDelete: SetNull)
-  checkIn          DateTime
-  checkOut         DateTime
-  adults           Int               @default(1)
-  children         Int               @default(0)
-  guestFirstName   String
-  guestLastName    String
-  guestEmail       String
-  guestMobile      String?
-  company          String?
-  rate             Decimal?          @db.Decimal(10, 2)
-  subtotal         Decimal?          @db.Decimal(10, 2)
-  taxes            Decimal?          @db.Decimal(10, 2)
-  extrasTotal      Decimal?          @db.Decimal(10, 2)
-  total            Decimal?          @db.Decimal(10, 2)
-  paymentStatus    PaymentStatus     @default(UNPAID)
-  status           ReservationStatus @default(PENDING)
-  source           String?
-  notes            String?           @db.Text
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  isTest                Boolean           @default(true)
+  accessHash            String?
+  idempotencyKey        String?           @unique
+  expiresAt             DateTime?
+  snapshot              Json?
+  cancellationRequested Boolean           @default(false)
+  messages              BookingMessage[]
+  id                    String            @id @default(cuid())
+  bookingReference      String            @unique
+  categoryId            String
+  category              RoomCategory      @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  roomId                String?
+  room                  Room?             @relation(fields: [roomId], references: [id], onDelete: SetNull)
+  checkIn               DateTime
+  checkOut              DateTime
+  adults                Int               @default(1)
+  children              Int               @default(0)
+  guestFirstName        String
+  guestLastName         String
+  guestEmail            String
+  guestMobile           String?
+  company               String?
+  rate                  Decimal?          @db.Decimal(10, 2)
+  subtotal              Decimal?          @db.Decimal(10, 2)
+  taxes                 Decimal?          @db.Decimal(10, 2)
+  extrasTotal           Decimal?          @db.Decimal(10, 2)
+  total                 Decimal?          @db.Decimal(10, 2)
+  paymentStatus         PaymentStatus     @default(UNPAID)
+  status                ReservationStatus @default(PENDING)
+  source                String?
+  notes                 String?           @db.Text
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
 
   @@index([roomId, checkIn, checkOut])
   @@index([categoryId, checkIn, checkOut])
+}
+
+model BookingConfig {
+  id        String   @id @default("staging")
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+model RoomBlock {
+  id     String   @id @default(cuid())
+  roomId String
+  room   Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  start  DateTime
+  end    DateTime
+  reason String
+
+  @@index([roomId, start, end])
+}
+
+model BookingMessage {
+  id            String      @id @default(cuid())
+  reservationId String
+  reservation   Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  subject       String
+  body          String      @db.Text
+  delivery      String      @default("TEST_PREVIEW")
+  createdAt     DateTime    @default(now())
+}
+
+model BookingAudit {
+  id        String   @id @default(cuid())
+  actor     String
+  action    String
+  target    String
+  createdAt DateTime @default(now())
 }
 
 model BlogPost {

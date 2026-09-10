@@ -1,18 +1,144 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import BookingSearch from "@/components/BookingSearch";
-import SuiteGallery from "@/components/SuiteGallery";
-import { prisma } from "@/lib/prisma";
-import { formatRand, getAvailability, parseStay } from "@/lib/booking";
 import { isStagingHost } from "@/lib/staging-host";
-
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params;const c=await prisma.roomCategory.findUnique({where:{slug}});return c?{title:`${c.name} | Serviced Accommodation Midrand`,description:c.description}:{};}
-
-export default async function RoomPage({params,searchParams}:{params:Promise<{slug:string}>;searchParams:Promise<Record<string,string|undefined>>}){
+import { prisma } from "@/lib/prisma";
+import { configFor, searchStay } from "@/lib/stay-service";
+import StayFrame from "@/components/StayFrame";
+import SuiteGallery from "@/components/SuiteGallery";
+import StaySummary from "@/components/StaySummary";
+import BookingSearch from "@/components/BookingSearch";
+import Link from "next/link";
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  return {
+    title:
+      (slug === "onpoint-studio"
+        ? "OnPoint Studio"
+        : "OnPoint Executive Suite") + " | Midpoint",
+  };
+}
+export default async function Page({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<Record<string, string | undefined>>;
+}) {
   if (!(await isStagingHost())) notFound();
-  const [{slug},q]=await Promise.all([params,searchParams]);
-  const category=await prisma.roomCategory.findUnique({where:{slug}}); if(!category) notFound();
-  const stay=parseStay(q.checkIn,q.checkOut); const availability=stay?await getAvailability(stay.checkIn,stay.checkOut,Number(q.guests||1)):null;
-  const row=availability?.categories.find(c=>c.id===category.id); const total=stay&&category.baseRate?Number(category.baseRate)*stay.nights:null;
-  return <main className="min-h-screen bg-[#f4efe5] pb-24 pt-32 text-[#27362f]"><div className="mx-auto max-w-7xl px-6"><p className="text-sm font-semibold uppercase tracking-[.2em] text-[#8a4f3d]">The Suites at Midpoint</p><h1 className="mt-3 text-4xl font-semibold md:text-6xl">{category.name}</h1><p className="mt-4 max-w-3xl text-lg text-slate-600">{category.description}</p><div className="mt-10 grid gap-10 lg:grid-cols-[1.35fr_.65fr]"><SuiteGallery images={category.images} title={category.name}/><aside id="select" className="lg:sticky lg:top-28 lg:self-start"><div className="rounded-2xl border border-black/10 bg-white p-6 shadow-lg"><h2 className="text-xl font-semibold">{category.baseRate?`${formatRand(category.baseRate)} / night`:"Rate on request"}</h2>{stay?<><p className="mt-2 text-sm text-slate-600">{stay.checkIn} – {stay.checkOut} · {stay.nights} nights</p>{total!==null&&<div className="mt-5 border-t pt-5"><div className="flex justify-between"><span>Room total</span><strong>{formatRand(total)}</strong></div><p className="mt-2 text-xs text-slate-500">Taxes and mandatory fees must be approved before online confirmation is enabled.</p></div>}<p className="mt-5 rounded-xl bg-[#eef0e8] p-3 text-sm font-semibold">{row?.availableRooms?`${row.availableRooms} available for these dates`:"No approved inventory available for these dates"}</p></>:<p className="mt-2 text-sm text-slate-600">Choose dates to check the configured physical-room inventory.</p>}<div className="mt-6"><BookingSearch compact defaults={{checkIn:q.checkIn,checkOut:q.checkOut,guests:q.guests,code:q.code}}/></div></div></aside></div><section className="mt-16"><h2 className="text-3xl font-semibold">Room amenities</h2><ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{category.amenities.map(a=><li key={a} className="rounded-xl border border-black/10 bg-white p-4">{a}</li>)}</ul><p className="mt-6 text-sm text-slate-500">Only confirmed category features are shown. Check-in times, cancellation terms, dimensions and additional services are pending operational approval.</p></section></div></main>;
+  const [{ slug }, q] = await Promise.all([params, searchParams]);
+  const c = await prisma.roomCategory.findUnique({ where: { slug } });
+  if (!c || !c.active) notFound();
+  const config = await configFor();
+  let row,
+    error = "";
+  if (q.checkIn && q.checkOut)
+    try {
+      row = (
+        await searchStay(
+          q.checkIn,
+          q.checkOut,
+          Number(q.guests || 1),
+          q.code || "",
+        )
+      ).rows.find((r) => r.category.id === c.id);
+    } catch (e) {
+      error = (e as Error).message;
+    }
+  const query = new URLSearchParams({
+    room: slug,
+    checkIn: q.checkIn || "",
+    checkOut: q.checkOut || "",
+    guests: q.guests || "1",
+    code: q.code || "",
+  }).toString();
+  return (
+    <StayFrame title={c.name}>
+      <Link
+        href={"/stay?" + query}
+        className="mb-6 inline-block text-sm underline"
+      >
+        ← Back to room choices
+      </Link>
+      <p className="mb-8 max-w-3xl text-lg text-stone-600">{c.description}</p>
+      <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
+        <div>
+          <SuiteGallery images={c.images} title={c.name} />
+          <p className="mt-3 text-xs text-stone-500">
+            Supplied suite imagery; category allocation is illustrative during
+            testing.
+          </p>
+          <h2 className="mt-10 text-2xl font-semibold">
+            Everything in your room
+          </h2>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            {c.amenities.map((a) => (
+              <li key={a} className="rounded-xl border bg-white p-4 text-sm">
+                ✓ {a}
+              </li>
+            ))}
+          </ul>
+          <h2 className="mt-10 text-2xl font-semibold">
+            Your stay, at a glance
+          </h2>
+          <p className="mt-4 text-sm leading-7 text-stone-600">
+            Designed for up to {c.maxGuests} guests in the test inventory.
+            Check-in from {config.checkInTime}; check-out by{" "}
+            {config.checkOutTime}. Test cancellation requests are free until{" "}
+            {config.cancellationHours} hours before arrival. Final operating
+            terms will be confirmed before live bookings open.
+          </p>
+        </div>
+        <div className="space-y-5 lg:sticky lg:top-28 lg:self-start">
+          {row?.quote && <StaySummary quote={row.quote} title={c.name} />}
+          <div className="stay-card">
+            {row?.available && row.quote ? (
+              <>
+                <p className="mb-4 text-sm">
+                  {row.available} test rooms available for your dates.
+                </p>
+                <Link
+                  data-analytics-event="select_room"
+                  href={"/stay/checkout?" + query}
+                  className="stay-button w-full"
+                >
+                  Select room
+                </Link>
+              </>
+            ) : (
+              <p className="mb-4 text-sm">
+                {error ||
+                  row?.reason ||
+                  "Choose dates to see availability and your total."}
+              </p>
+            )}
+            <details className="mt-5" open={!row?.quote}>
+              <summary className="cursor-pointer text-sm font-semibold">
+                Choose or modify dates
+              </summary>
+              <div className="mt-4">
+                <BookingSearch compact defaults={q} />
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+      {row?.quote && !!row.available && (
+        <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between border-t bg-white px-6 py-3 lg:hidden">
+          <strong>
+            {new Intl.NumberFormat("en-ZA", {
+              style: "currency",
+              currency: "ZAR",
+              maximumFractionDigits: 0,
+            }).format(row.quote.totalCents / 100)}
+          </strong>
+          <Link className="stay-button" href={"/stay/checkout?" + query}>
+            Select room
+          </Link>
+        </div>
+      )}
+    </StayFrame>
+  );
 }

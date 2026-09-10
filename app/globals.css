@@ -2,6 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Booking calendars remain within the viewport, including sticky sidebars. */
+[role="dialog"][aria-label="Select stay dates"] {
+  position: fixed;
+  z-index: 70;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 90dvh;
+  overflow: auto;
+  box-shadow:
+    0 0 0 100vmax rgb(0 0 0 / 0.35),
+    0 20px 50px rgb(0 0 0 / 0.2);
+}
+@media (max-width: 767px) {
+  [role="dialog"][aria-label="Select stay dates"] {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    max-width: 100vw;
+    transform: translateX(-50%);
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+.stay-shell {
+  background: #f5f1e9;
+  color: #27362f;
+}
+.stay-eyebrow {
+  color: #88533d;
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.stay-card {
+  background: white;
+  padding: 1.5rem;
+  border: 1px solid #e7e5e4;
+  border-radius: 1rem;
+}
+.stay-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.stay-input {
+  display: block;
+  width: 100%;
+  border: 1px solid #d6d3d1;
+  border-radius: 0.65rem;
+  padding: 0.75rem;
+  background: white;
+  color: #27362f;
+  margin-top: 0.35rem;
+}
+.stay-input:focus {
+  outline: 2px solid #74805d;
+  outline-offset: 2px;
+}
+.stay-button,
+.stay-secondary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.65rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.stay-button {
+  background: #27362f;
+  color: white;
+}
+.stay-button:hover {
+  background: #435247;
+}
+.stay-secondary {
+  border: 1px solid #c9ccc4;
+  color: #27362f;
+  background: white;
+}
+.stay-button:disabled,
+.stay-secondary:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+.stay-button:focus-visible,
+.stay-secondary:focus-visible {
+  outline: 3px solid #74805d;
+  outline-offset: 3px;
+}
+
 body {
   @apply text-neutral-900 antialiased;
   font-family: var(--font-primary), system-ui, sans-serif;
@@ -15,19 +109,35 @@ body {
 }
 
 #map-filter-all:checked ~ .map-filter-labels label[for="map-filter-all"],
-#map-filter-offices:checked ~ .map-filter-labels label[for="map-filter-offices"],
-#map-filter-warehouses:checked ~ .map-filter-labels label[for="map-filter-warehouses"],
-#map-filter-flexible:checked ~ .map-filter-labels label[for="map-filter-flexible"],
-#map-filter-lifestyle:checked ~ .map-filter-labels label[for="map-filter-lifestyle"] {
+#map-filter-offices:checked
+  ~ .map-filter-labels
+  label[for="map-filter-offices"],
+#map-filter-warehouses:checked
+  ~ .map-filter-labels
+  label[for="map-filter-warehouses"],
+#map-filter-flexible:checked
+  ~ .map-filter-labels
+  label[for="map-filter-flexible"],
+#map-filter-lifestyle:checked
+  ~ .map-filter-labels
+  label[for="map-filter-lifestyle"] {
   background: #082121;
   border-color: #082121;
   color: #ffffff;
 }
 
-#map-filter-offices:checked ~ .map-content [data-map-filter]:not([data-map-filter~="offices"]),
-#map-filter-warehouses:checked ~ .map-content [data-map-filter]:not([data-map-filter~="warehouses"]),
-#map-filter-flexible:checked ~ .map-content [data-map-filter]:not([data-map-filter~="flexible"]),
-#map-filter-lifestyle:checked ~ .map-content [data-map-filter]:not([data-map-filter~="lifestyle"]) {
+#map-filter-offices:checked
+  ~ .map-content
+  [data-map-filter]:not([data-map-filter~="offices"]),
+#map-filter-warehouses:checked
+  ~ .map-content
+  [data-map-filter]:not([data-map-filter~="warehouses"]),
+#map-filter-flexible:checked
+  ~ .map-content
+  [data-map-filter]:not([data-map-filter~="flexible"]),
+#map-filter-lifestyle:checked
+  ~ .map-content
+  [data-map-filter]:not([data-map-filter~="lifestyle"]) {
   display: none;
 }
 
@@ -66,19 +176,22 @@ body {
    more professional look — bigger radius, soft shadow, branded focus ring,
    smooth transitions, styled checkboxes and a custom select arrow — across
    the whole admin panel at once via the .admin-shell wrapper it's scoped to. */
-.admin-shell input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+.admin-shell
+  input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
 .admin-shell textarea,
 .admin-shell select {
   @apply rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 shadow-sm transition-all duration-150;
 }
 
-.admin-shell input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):hover,
+.admin-shell
+  input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):hover,
 .admin-shell textarea:hover,
 .admin-shell select:hover {
   @apply border-slate-300;
 }
 
-.admin-shell input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):focus,
+.admin-shell
+  input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):focus,
 .admin-shell textarea:focus,
 .admin-shell select:focus {
   @apply outline-none border-midpoint-dark ring-2 ring-midpoint-dark/10;

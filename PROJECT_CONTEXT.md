@@ -2,6 +2,52 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-10 — Testable Suites booking platform
+
+### Implementation
+
+- Added the staging guest journey: date search, two room categories, supplied-image lightbox, server-priced checkout, 15-minute physical-room holds, simulated success/decline/corporate payments, confirmation, captured email previews, calendar/text downloads and private booking management/cancellation requests.
+- Added authenticated booking dashboard, 14-day physical-room calendar, maintenance blocking, reassignment/date amendment, check-in/out, no-show, staff cancellation/test refund and simulated balance settlement. Inventory/base rates and validated policy, discount, extras and date-rule editors are configurable.
+- PostgreSQL exclusion constraint independently prevents overlapping active reservations. Booking, maintenance and inventory mutations use transaction-scoped locks; expiry and idempotency are enforced server-side.
+- Explicit SAMPLE configuration: 12 Studio / 6 Executive within the 18-room inventory; R1,150 / R1,650; 7-night 10%, 30-night 20%, MIDPOINT10 and CORP15. These are test fixtures, not approved operational inventory/rates.
+- Captured first/last source, medium and campaign on bookings; suppressed production analytics tags and internal page-view counting on staging. Production booking routes remain closed.
+- Added dated market references and operating/test instructions in docs/SUITES_BOOKING_TEST_GUIDE.md. No generated accommodation imagery, real card processing or external email transmission.
+- Deployment workflow now tests migrations and concurrency against disposable PostgreSQL and applies additive migrations before switching the web container.
+
+### Testing
+
+- 2026-09-10: all 46 migrations applied successfully to dedicated disposable PostgreSQL 16 on localhost:55439.
+- 2026-09-10: 22 test files / 82 tests passed with real database integration enabled. Includes invalid dates/pricing, two simultaneous last-room attempts, database exclusion enforcement, idempotency, declined/successful/corporate payment, single-message confirmation, expired holds, adjacent stays, conflicting/valid amendments, settlement, check-in/out, cancellation/refund and maintenance.
+- HTTP smoke passed locally for quote, hold, duplicate request, unauthorized access, cross-origin rejection, payment outcomes, confirmation message, calendar download, private-code lookup, cancellation request, guest routes and unauthenticated admin protection.
+- All four admin screens rendered HTTP 200 with a local-only signed test session. No production admin credentials were exposed or created.
+- Browser verification: mobile 390px results and room-gallery navigation; desktop 1440px detail/summary and navigation. No horizontal document overflow in inspected results/detail viewports.
+- 2026-09-10: final production build passed compilation, type checking, page generation and build tracing (exit 0). Deployment verification follows below.
+
+### Commit and push
+
+- Pending promotion from clean worktree .worktrees/suites-staging, branch codex/suites-staging. Verified baseline HEAD and origin/main: 715a4cb93fad44e31d99137555b17673dc1ea3e3.
+- Unrelated changes in the root checkout are preserved. Generated next-env.d.ts and tsconfig.tsbuildinfo are excluded.
+
+### Merge
+
+- No PR merge yet; intended promotion is a checked fast-forward push to origin/main.
+
+### Deployment and configuration
+
+- Pending deployment of this implementation. Staging and production share one application/container/database; this change does not claim full infrastructure isolation.
+- New booking flows are staging-host gated, reservations are explicitly TEST, payment simulation never collects cards, and all email messages remain TEST_PREVIEW outbox records.
+
+### Live production verification
+
+- Not yet performed for this implementation. Must verify served deployment, staging noindex, production booking-route exclusion and a synthetic staging journey after deployment.
+
+### Outstanding gates
+
+- Final room numbering/category split, image mapping, bed/capacity confirmation, commercial rates, tax/invoicing, extras, corporate eligibility and cancellation/operating terms require approval.
+- Real gateway selection/integration, verified webhooks/reconciliation/refunds, approved sender configuration and actual email delivery, retention/abuse monitoring and staff/customer UAT remain live-readiness gates.
+- This is a single-property test booking engine, not a full Booking.com marketplace. Per-day availability heatmaps, multi-room carts, advanced drag-and-drop pricing/calendar editing and external channel-manager synchronization are not delivered.
+- Synthetic HTTP test bookings remain clearly labelled and can be cancelled by staff; no real reservations, payments or emails were made.
+
 ## 2026-09-10 — The Suites booking system, Phase 1
 
 ### Implementation

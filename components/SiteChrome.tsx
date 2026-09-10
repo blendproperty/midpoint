@@ -38,11 +38,14 @@ export default function SiteChrome({
   // intro section) — showing the shared footer ContactSection underneath it
   // as well would just repeat the same form twice on the one page where it's
   // most obviously redundant. Every other page still gets the shared section.
-  const isContactPage = pathname === "/contact-us";
+  const isContactPage =
+    pathname === "/contact-us" ||
+    pathname?.startsWith("/stay") ||
+    pathname === "/manage-booking";
 
   return (
     <>
-      <PageViewTracker />
+      {!showStay && <PageViewTracker />}
       <Nav showStay={showStay} />
       <main>{children}</main>
       {!isContactPage && contactSection}
