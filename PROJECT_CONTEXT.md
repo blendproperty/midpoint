@@ -17,19 +17,21 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 ### Commit and push
 
-- Pending at time of implementation.
+- Commit `dccec7d371a6e6f89b38e95af4bbfd7cede24f00` (`Rename accommodation amenity to The Suites at Midpoint`) was pushed to `origin/main` on 2026-09-10.
 
 ### Merge
 
-- Pending at time of implementation.
+- The verified branch was promoted directly to `main` as a fast-forward (`eaa7dc7..dccec7d`); no pull-request merge was used.
 
 ### Deployment and configuration
 
-- Pending migration and production deployment.
+- GitHub Actions workflow `Deploy to VPS`, run `34451286832`, completed successfully on 2026-09-10.
+- The deployment rebuilt the application and migration images and applied migration `20260910120000_rename_midpoint_suites_amenity` to the production amenities pillar.
 
 ### Live production verification
 
-- Pending confirmation on `https://www.mid-point.co.za/amenities`.
+- On 2026-09-10, `https://www.mid-point.co.za/amenities` returned HTTP 200 and served deployment `dccec7d371a6`.
+- The rendered amenity feature card has an `h3` heading of `The Suites at Midpoint`; its corporate-accommodation description and image remain in place.
 
 ### Outstanding gates
 
