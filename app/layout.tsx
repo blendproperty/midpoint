@@ -10,6 +10,7 @@ import { getSiteSettings } from "@/lib/site-settings";
 import { getFaqs } from "@/lib/faqs";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { safeJsonLd } from "@/lib/json-ld";
+import { headers } from "next/headers";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +25,8 @@ const figtree = Figtree({
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
+  const host = (await headers()).get("host")?.split(":")[0].toLowerCase();
+  const isStaging = host === "midpoint.onpointoffices.co.za";
 
   return {
     metadataBase: new URL(settings.domain),
@@ -59,8 +62,10 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [settings.defaultSocialImage],
     },
     robots: {
-      index: true,
-      follow: true,
+      index: !isStaging,
+      follow: !isStaging,
+      noarchive: isStaging,
+      nosnippet: isStaging,
     },
   };
 }

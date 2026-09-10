@@ -2,6 +2,43 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-10 — Staging copy and The Suites booking-request showcase
+
+### Implementation
+
+- Added the dedicated `/the-suites-at-midpoint` showcase with corporate-stay positioning, feature cards, date/guest capture and explicit request-to-book language.
+- Added a rate-limited, honeypot-protected `/api/suites-booking` endpoint that validates stay dates and stores each request in the existing Contacts and Enquiries administration workflow with campaign attribution.
+- Added host-specific staging protection for `midpoint.onpointoffices.co.za`: blanket `robots.txt` disallow, `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet`, and matching page metadata.
+- The staging hostname currently routes to the same application container as production; the new experience is therefore code-isolated by hostname protections but does not yet have a separate container or database.
+
+### Testing
+
+- `npm test`: passed on 2026-09-10 — 18 test files and 73 tests passed, including staging header and robots exclusions.
+- `npm run build`: passed on 2026-09-10 — Next.js production build compiled, type-checked and generated the Suites page and booking API.
+
+### Commit and push
+
+- Pending final commit and push evidence.
+
+### Merge
+
+- Pending promotion evidence.
+
+### Deployment and configuration
+
+- Pending deployment evidence.
+
+### Live production verification
+
+- Before this change, both hosts returned HTTP 200 and the staging hostname served the production site, but staging had no `X-Robots-Tag` and its `robots.txt` allowed all crawlers.
+- Post-deployment live verification is pending.
+
+### Outstanding gates
+
+- Automatic availability, live inventory, rate rules, deposits/payments, cancellation terms and instant confirmation are not configured; submissions are booking requests requiring manual confirmation.
+- A separate staging container/database and non-production integration configuration remain an infrastructure gate if full environment isolation is required.
+- Final accommodation photography, room inventory, guest capacity, rates, operating policy and booking terms require business approval before production release.
+
 ## 2026-09-10 — Rename the accommodation amenity card
 
 ### Implementation
