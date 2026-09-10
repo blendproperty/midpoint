@@ -25,21 +25,25 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 ### Commit and push
 
-- Pending promotion from clean worktree .worktrees/suites-staging, branch codex/suites-staging. Verified baseline HEAD and origin/main: 715a4cb93fad44e31d99137555b17673dc1ea3e3.
+- Implementation commit ca3b999146e9294f12bdf5674efd2cdfacfaa297 was pushed to origin/main from .worktrees/suites-staging, branch codex/suites-staging. Verified baseline: 715a4cb93fad44e31d99137555b17673dc1ea3e3.
 - Unrelated changes in the root checkout are preserved. Generated next-env.d.ts and tsconfig.tsbuildinfo are excluded.
 
 ### Merge
 
-- No PR merge yet; intended promotion is a checked fast-forward push to origin/main.
+- Implementation was promoted directly by fast-forward push to origin/main; no PR merge.
 
 ### Deployment and configuration
 
-- Pending deployment of this implementation. Staging and production share one application/container/database; this change does not claim full infrastructure isolation.
+- GitHub Actions Deploy to VPS run 34478215420 completed successfully for ca3b999146e9294f12bdf5674efd2cdfacfaa297. Staging and production share one application/container/database; this change does not claim full infrastructure isolation.
 - New booking flows are staging-host gated, reservations are explicitly TEST, payment simulation never collects cards, and all email messages remain TEST_PREVIEW outbox records.
 
 ### Live production verification
 
-- Not yet performed for this implementation. Must verify served deployment, staging noindex, production booking-route exclusion and a synthetic staging journey after deployment.
+- On 2026-09-10, staging and production served deployment ca3b999146e9. Production homepage HTTP 200; production booking API HTTP 404.
+- Staging /stay HTTP 200 with X-Robots-Tag noindex, nofollow, noarchive, nosnippet; robots.txt disallows all. The served staging page excludes the production GTM script and shows 12 Studio / 6 Executive test rooms on unoccupied dates.
+- Deployed synthetic HTTP journey passed with reference TEST-260910-109033E9D2: server quote, hold, retry idempotency, private access denial, origin protection, declined/success payment, one email preview, calendar download, private retrieval, cancellation request and admin protection. No money or email was transmitted.
+- Live browser verification confirmed MIDPOINT10 changes the two-night Studio total to R2,070, then preserves dates and code in checkout; adding test late checkout updates the total to R2,320.
+- Found production page exclusion was a streamed not-found screen with HTTP 200 rather than a true 404. Added an early middleware guard for /stay, its descendants, /manage-booking and /api/stay. All 86 tests now pass including four production-route regression cases; final guard deployment verification is pending.
 
 ### Outstanding gates
 

@@ -162,6 +162,15 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const hostname = requestHostname(request);
   const isStaging = hostname === "midpoint.onpointoffices.co.za";
+  const bookingPath = /^\/(?:stay(?:\/|$)|manage-booking(?:\/|$)|api\/stay(?:\/|$))/.test(pathname);
+  if (bookingPath && !isStaging && hostname !== "localhost" && hostname !== "127.0.0.1") {
+    // Reject before streaming begins: a late Server Component notFound()
+    // can render a 404 screen while the HTTP response is already 200.
+    return new NextResponse("Not found", {
+      status: 404,
+      headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" },
+    });
+  }
 
   // The staging hostname currently reaches the same application service as
   // production. Enforce this at the response layer so a CMS or environment

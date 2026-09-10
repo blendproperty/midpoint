@@ -3,6 +3,11 @@ import { NextRequest } from "next/server";
 import { middleware } from "../middleware";
 
 describe("middleware HTML transformation protection", () => {
+  it.each(["/stay", "/stay/checkout", "/manage-booking", "/api/stay"])("rejects production test route %s before streaming", async (path) => {
+    const response = await middleware(new NextRequest("https://www.mid-point.co.za" + path));
+    expect(response.status).toBe(404);
+  });
+
   it("prevents intermediary HTML rewriting on public pages", async () => {
     const response = await middleware(
       new NextRequest("https://www.mid-point.co.za/", {
