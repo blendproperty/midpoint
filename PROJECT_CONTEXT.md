@@ -2,6 +2,39 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-10 — Rename the accommodation amenity card
+
+### Implementation
+
+- Renamed the `/amenities` feature-card heading from `Corporate accommodation` to `The Suites at Midpoint`.
+- Preserved the card description, image, ordering, status caveats and all broader amenities/SEO copy.
+- Updated both the canonical seed content and a scoped production data migration.
+
+### Testing
+
+- `npm test`: passed on 2026-09-10 — 18 test files and 71 tests passed, including the scoped amenity-name test.
+- `npm run build`: passed on 2026-09-10 — Next.js production build compiled, type-checked and generated all routes successfully.
+
+### Commit and push
+
+- Pending at time of implementation.
+
+### Merge
+
+- Pending at time of implementation.
+
+### Deployment and configuration
+
+- Pending migration and production deployment.
+
+### Live production verification
+
+- Pending confirmation on `https://www.mid-point.co.za/amenities`.
+
+### Outstanding gates
+
+- None beyond deployment and live verification for this copy-only rename.
+
 ## 2026-09-09 — Replace the WhatsApp destination
 
 ### Implementation
