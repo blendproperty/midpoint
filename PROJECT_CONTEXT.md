@@ -15,19 +15,20 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 ### Commit and push
 
-- Verified codex/suites-staging and origin/main at 7496dcfcc1b803c137d787940b1adae450654375. Unrelated root/generated changes preserved. Push pending.
+- Runtime commit 35175c493d27896246d7c1a31817a38b6e3ab755 pushed from codex/suites-staging to origin/main, fast-forward from verified 7496dcfcc1b803c137d787940b1adae450654375. Unrelated root/generated changes preserved. Follow-up evidence-only context commit uses CI skip.
 
 ### Merge
 
-- Fast-forward promotion pending; no PR merge planned.
+- Fast-forward promotion completed; no PR merge.
 
 ### Deployment and configuration
 
-- Pending. No configuration or database changes.
+- GitHub Actions run 34481543440 completed successfully, including tests and server deployment. No configuration or database changes.
 
 ### Live production verification
 
-- Pending; code changes alone do not establish live delivery.
+- Verified served staging showcase HTML on 2026-09-10: the cyan hero anchor is labelled "Book your stay" with href="/stay". Showcase and destination /stay return 200; staging noindex remains in place.
+- Production showcase retains enquiry fallback ("Request availability" to #request-to-book), while production /stay remains excluded. No real booking/payment activation.
 
 ### Outstanding gates
 
