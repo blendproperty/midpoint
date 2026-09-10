@@ -18,26 +18,30 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 ### Commit and push
 
-- Pending final commit and push evidence.
+- Implementation commit `6554291d03a226b5d8c90ecb962d6b4a3ecf3495` and forwarded-host hardening commit `6cee51bd80ae906f8bf9d66bdd712346af52f06f` were pushed to `origin/main` on 2026-09-10.
 
 ### Merge
 
-- Pending promotion evidence.
+- The verified isolated worktree was promoted directly to `main` by fast-forward; no pull-request merge was used.
 
 ### Deployment and configuration
 
-- Pending deployment evidence.
+- GitHub Actions `Deploy to VPS` runs `34463207449` and `34463604332` completed successfully on 2026-09-10. The latter deployed the final reverse-proxy-aware crawler protection.
 
 ### Live production verification
 
 - Before this change, both hosts returned HTTP 200 and the staging hostname served the production site, but staging had no `X-Robots-Tag` and its `robots.txt` allowed all crawlers.
-- Post-deployment live verification is pending.
+- On 2026-09-10, `https://midpoint.onpointoffices.co.za/the-suites-at-midpoint` returned HTTP 200 and rendered the hero, six showcase cards, date/guest fields, consent and request-to-book CTA at desktop width.
+- The staging home, Suites page, `robots.txt` and `sitemap.xml` all returned `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet`; rendered HTML also contained `noindex` metadata, and staging `robots.txt` returned `User-agent: *` plus `Disallow: /`.
+- The booking endpoint rejected an incomplete request with HTTP 400, confirming live server-side validation without creating test customer data.
+- `https://www.mid-point.co.za/` remained HTTP 200 with no noindex header or metadata, confirming production indexing was not disabled.
 
 ### Outstanding gates
 
 - Automatic availability, live inventory, rate rules, deposits/payments, cancellation terms and instant confirmation are not configured; submissions are booking requests requiring manual confirmation.
 - A separate staging container/database and non-production integration configuration remain an infrastructure gate if full environment isolation is required.
 - Final accommodation photography, room inventory, guest capacity, rates, operating policy and booking terms require business approval before production release.
+- End-to-end submission/UAT with an approved test contact remains open; it was intentionally not performed during live verification to avoid creating customer or CRM data without an approved test identity.
 
 ## 2026-09-10 — Rename the accommodation amenity card
 
