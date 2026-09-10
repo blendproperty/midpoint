@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { BedDouble, BriefcaseBusiness, Dumbbell, MapPin, ShieldCheck, UtensilsCrossed, Wifi } from "lucide-react";
 import SuitesBookingForm from "@/components/SuitesBookingForm";
+import BookingSearch from "@/components/BookingSearch";
+import SuiteGallery from "@/components/SuiteGallery";
 
 export const metadata: Metadata = {
   title: "The Suites at Midpoint",
@@ -18,6 +20,13 @@ const features = [
   [MapPin, "Central Midrand", "Positioned between Johannesburg and Pretoria with key routes close by."],
 ];
 
+const suiteImages = [
+  "/images/suites/suite-bedroom-workspace.png",
+  "/images/suites/suite-bedroom-mirror.png",
+  "/images/suites/suite-storage.png",
+  "/images/suites/suite-bathroom.png",
+];
+
 export default function SuitesPage() {
   return <main className="bg-[#062b29] text-white">
     <section className="relative min-h-[72vh] overflow-hidden">
@@ -27,7 +36,9 @@ export default function SuitesPage() {
         <div className="max-w-2xl"><p className="mb-4 text-sm font-semibold uppercase tracking-[.22em] text-midpoint-cyan">Corporate accommodation in Midrand</p><h1 className="text-5xl font-semibold leading-tight md:text-7xl">The Suites at Midpoint</h1><p className="mt-6 max-w-xl text-lg leading-8 text-white/75">A considered place to stay, work and recharge—created for executives, project teams and business travellers who want to remain close to the office.</p><a href="#request-to-book" className="mt-8 inline-flex rounded-full bg-midpoint-cyan px-7 py-3 font-semibold text-midpoint-dark">Check dates</a></div>
       </div>
     </section>
+    <section className="relative z-10 mx-auto -mt-10 max-w-7xl px-6"><BookingSearch /></section>
     <section className="mx-auto max-w-7xl px-6 py-20"><div className="grid gap-6 md:grid-cols-3">{features.map(([Icon, title, copy]) => { const I = Icon as typeof BedDouble; return <article key={String(title)} className="rounded-2xl border border-white/10 bg-white/5 p-6"><I className="h-7 w-7 text-midpoint-cyan"/><h2 className="mt-5 text-xl font-semibold">{String(title)}</h2><p className="mt-2 text-sm leading-6 text-white/65">{String(copy)}</p></article>; })}</div></section>
+    <section className="bg-[#f4efe5] px-6 py-20 text-[#27362f]"><div className="mx-auto max-w-7xl"><p className="text-sm font-semibold uppercase tracking-[.2em] text-[#8a4f3d]">Inside the suites</p><h2 className="mb-8 mt-3 text-4xl font-semibold">A closer look</h2><SuiteGallery images={suiteImages} title="The Suites at Midpoint"/><p className="mt-4 text-sm text-slate-500">Supplied suite imagery. Category mapping will be finalised when the Studio and Executive Suite image sets are confirmed.</p></div></section>
     <section id="request-to-book" className="border-t border-white/10 bg-[#041f1e] px-6 py-20"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><p className="text-sm font-semibold uppercase tracking-[.2em] text-midpoint-cyan">Plan your stay</p><h2 className="mt-3 text-4xl font-semibold">Request availability</h2><p className="mt-5 leading-7 text-white/65">Send your preferred dates and guest details. The team will confirm availability and rates before any reservation is finalised.</p></div><SuitesBookingForm /></div></section>
   </main>;
 }

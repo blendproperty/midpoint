@@ -2,6 +2,45 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-10 — The Suites booking system, Phase 1
+
+### Implementation
+
+- Added the RoomCategory, Room and Reservation data foundation with explicit room, reservation and payment statuses; overlapping-stay availability uses the hotel boundary rule `existing check-in < requested check-out` and `existing check-out > requested check-in`.
+- Added 18 inactive, blocked, unassigned placeholder physical-room records. This preserves the confirmed total without inventing the unknown Studio/Executive split, final room numbers or floors.
+- Added the two approved public category names, only the features stated in the supplied brief, nullable/configurable capacity and rates, and the four supplied photographs. No stock imagery was generated.
+- Added staging-only `/stay`, `/stay/onpoint-studio` and `/stay/onpoint-executive-suite` experiences with booking search, validated dates/guests/company code, server-calculated nights and availability, room galleries, category details and transparent rate-on-request states.
+- Added a prominent booking search bar and supplied-photo gallery to `/the-suites-at-midpoint`, plus a staging-only `Book a Stay` navigation item.
+- Added secure `/admin/rooms` inventory setup for category activation/rates/capacity and all 18 rooms' category, number, floor, operational status, activation and notes.
+- Production-host access to the unfinished `/stay` routes is blocked until the data and release gates below are approved; staging remains protected by its existing noindex controls.
+
+### Testing
+
+- `npm test`: passed on 2026-09-10 — 21 test files and 77 tests passed, including date validation, overlap boundaries, 18-room migration safeguards and existing regressions.
+- `npm run build`: passed on 2026-09-10 — Prisma generated successfully and Next.js compiled/type-checked the new search, category and admin inventory routes.
+
+### Commit and push
+
+- Pending final commit and push evidence.
+
+### Merge
+
+- Pending promotion evidence.
+
+### Deployment and configuration
+
+- Pending deployment and migration evidence.
+
+### Live production verification
+
+- Pending staging route, image, search, admin migration and production release-gate verification.
+
+### Outstanding gates
+
+- Business must supply the exact Studio/Executive room split, final room numbers/floors, confirmed category image mapping, Executive maximum occupancy, rates, taxes/fees, check-in/out times, cancellation terms and any stay restrictions before categories and rooms can be activated.
+- Reservation checkout, transactional room assignment, confirmation/email, admin calendar, payments, corporate rates, promo codes, extras and manage-booking are later phases and are not represented as complete.
+- No payment gateway has been selected; raw card data must never be stored by Midpoint.
+
 ## 2026-09-10 — Responsive shared navigation repair
 
 ### Implementation

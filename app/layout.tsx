@@ -11,6 +11,7 @@ import { getFaqs } from "@/lib/faqs";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { safeJsonLd } from "@/lib/json-ld";
 import { headers } from "next/headers";
+import { isStagingHost } from "@/lib/staging-host";
 
 export const dynamic = "force-dynamic";
 
@@ -75,7 +76,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [settings, faqs] = await Promise.all([getSiteSettings(), getFaqs()]);
+  const [settings, faqs, staging] = await Promise.all([getSiteSettings(), getFaqs(), isStagingHost()]);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -130,6 +131,7 @@ export default async function RootLayout({
         <SiteChrome
           whatsapp={settings.whatsapp}
           whatsappTemplate={settings.whatsappTemplate}
+          showStay={staging}
           contactSection={<ContactSection />}
         >
           {children}

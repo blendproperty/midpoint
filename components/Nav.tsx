@@ -14,7 +14,7 @@ const navLinks = [
   { label: "Vacancies", href: "/vacancies" },
 ];
 
-export default function Nav() {
+export default function Nav({ showStay = false }: { showStay?: boolean }) {
   // The header sits over the hero photo, so it starts transparent by
   // design. But once the page scrolls, a transparent/gradient-only nav
   // has nothing behind it and visually smears into whatever section
@@ -84,7 +84,7 @@ export default function Nav() {
         </div>
 
         <div className="hidden shrink-0 items-center gap-5 xl:flex">
-          {navLinks.map((link) => (
+          {[...navLinks, ...(showStay ? [{ label: "Book a Stay", href: "/stay" }] : [])].map((link) => (
             <Link key={link.href} href={link.href} className="group relative text-sm font-medium">
               {link.label}
               <span className="absolute -bottom-1 left-0 h-px w-0 bg-midpoint-cyan transition-all duration-300 group-hover:w-full" />
@@ -121,7 +121,7 @@ export default function Nav() {
         }`}
       >
         <div className="flex flex-col gap-1 border-t border-white/10 bg-midpoint-dark/95 px-6 py-4 text-white backdrop-blur-md">
-          {navLinks.map((link) => (
+          {[...navLinks, ...(showStay ? [{ label: "Book a Stay", href: "/stay" }] : [])].map((link) => (
             <Link
               key={link.href}
               href={link.href}

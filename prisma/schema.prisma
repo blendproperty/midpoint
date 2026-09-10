@@ -38,18 +38,106 @@ enum ContactStatus {
   LOST
 }
 
+enum RoomStatus {
+  AVAILABLE
+  OCCUPIED
+  OUT_OF_SERVICE
+  MAINTENANCE
+  BLOCKED
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  CHECKED_IN
+  CHECKED_OUT
+  CANCELLED
+  NO_SHOW
+}
+
+enum PaymentStatus {
+  UNPAID
+  PARTIALLY_PAID
+  PAID
+  REFUNDED
+}
+
 model User {
-  id                  String                @id @default(cuid())
-  email               String                @unique
+  id                  String               @id @default(cuid())
+  email               String               @unique
   passwordHash        String
   name                String?
-  role                Role                  @default(EDITOR)
-  createdAt           DateTime              @default(now())
-  updatedAt           DateTime              @updatedAt
+  role                Role                 @default(EDITOR)
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
   blogPosts           BlogPost[]
   assignedContacts    Contact[]
   contactNotes        ContactNote[]
   passwordResetTokens PasswordResetToken[]
+}
+
+model RoomCategory {
+  id           String        @id @default(cuid())
+  code         String        @unique
+  name         String
+  slug         String        @unique
+  description  String        @db.Text
+  maxGuests    Int?
+  bedType      String?
+  baseRate     Decimal?      @db.Decimal(10, 2)
+  images       String[]
+  amenities    String[]
+  active       Boolean       @default(false)
+  rooms        Room[]
+  reservations Reservation[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Room {
+  id           String        @id @default(cuid())
+  roomNumber   String        @unique
+  categoryId   String?
+  category     RoomCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  floor        String?
+  status       RoomStatus    @default(BLOCKED)
+  active       Boolean       @default(false)
+  notes        String?       @db.Text
+  reservations Reservation[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Reservation {
+  id               String            @id @default(cuid())
+  bookingReference String            @unique
+  categoryId       String
+  category         RoomCategory      @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  roomId           String?
+  room             Room?             @relation(fields: [roomId], references: [id], onDelete: SetNull)
+  checkIn          DateTime
+  checkOut         DateTime
+  adults           Int               @default(1)
+  children         Int               @default(0)
+  guestFirstName   String
+  guestLastName    String
+  guestEmail       String
+  guestMobile      String?
+  company          String?
+  rate             Decimal?          @db.Decimal(10, 2)
+  subtotal         Decimal?          @db.Decimal(10, 2)
+  taxes            Decimal?          @db.Decimal(10, 2)
+  extrasTotal      Decimal?          @db.Decimal(10, 2)
+  total            Decimal?          @db.Decimal(10, 2)
+  paymentStatus    PaymentStatus     @default(UNPAID)
+  status           ReservationStatus @default(PENDING)
+  source           String?
+  notes            String?           @db.Text
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  @@index([roomId, checkIn, checkOut])
+  @@index([categoryId, checkIn, checkOut])
 }
 
 model BlogPost {
@@ -102,53 +190,53 @@ model Page {
 }
 
 model PillarPage {
-  id                   String        @id @default(cuid())
-  slug                 String        @unique
-  title                String
-  primaryEntity        String?
-  primaryAudience      String?
-  decisionStage        String?
-  primarySearchIntent  String?
-  primaryConversion    String?
-  heroAnswer           String?       @db.Text
-  heroImage            String?
-  trustStrip           String?       @db.Text
-  contentHtml          String        @db.Text
-  faqs                 Json?
-  faqsHeading          String?
-  features             Json?
-  considerations       Json?
-  relatedSector        Sector?
-  listingsHeading      String?
-  listingsIntro        String?       @db.Text
-  showReadyToMove      Boolean       @default(false)
-  ctaHeading           String?
-  ctaText              String?       @db.Text
-  exploreLinks         Json?
-  expertName           String?
-  expertRole           String?
-  expertBio            String?       @db.Text
-  expertImage          String?
-  reviewOwner          String?
-  lastReviewedAt       DateTime?
-  nextReviewAt         DateTime?
-  status               ContentStatus @default(DRAFT)
-  passwordProtected    Boolean       @default(false)
-  accessPasswordHash   String?
-  seoTitle             String?
-  seoDescription       String?
-  focusKeyword         String?
-  ogTitle              String?
-  ogDescription        String?       @db.Text
-  ogImage              String?
-  noIndex              Boolean       @default(false)
-  canonicalUrl         String?
-  schemaJson           Json?
-  headCode             String?       @db.Text
-  bodyCode             String?       @db.Text
-  publishedAt          DateTime?
-  createdAt            DateTime      @default(now())
-  updatedAt            DateTime      @updatedAt
+  id                  String        @id @default(cuid())
+  slug                String        @unique
+  title               String
+  primaryEntity       String?
+  primaryAudience     String?
+  decisionStage       String?
+  primarySearchIntent String?
+  primaryConversion   String?
+  heroAnswer          String?       @db.Text
+  heroImage           String?
+  trustStrip          String?       @db.Text
+  contentHtml         String        @db.Text
+  faqs                Json?
+  faqsHeading         String?
+  features            Json?
+  considerations      Json?
+  relatedSector       Sector?
+  listingsHeading     String?
+  listingsIntro       String?       @db.Text
+  showReadyToMove     Boolean       @default(false)
+  ctaHeading          String?
+  ctaText             String?       @db.Text
+  exploreLinks        Json?
+  expertName          String?
+  expertRole          String?
+  expertBio           String?       @db.Text
+  expertImage         String?
+  reviewOwner         String?
+  lastReviewedAt      DateTime?
+  nextReviewAt        DateTime?
+  status              ContentStatus @default(DRAFT)
+  passwordProtected   Boolean       @default(false)
+  accessPasswordHash  String?
+  seoTitle            String?
+  seoDescription      String?
+  focusKeyword        String?
+  ogTitle             String?
+  ogDescription       String?       @db.Text
+  ogImage             String?
+  noIndex             Boolean       @default(false)
+  canonicalUrl        String?
+  schemaJson          Json?
+  headCode            String?       @db.Text
+  bodyCode            String?       @db.Text
+  publishedAt         DateTime?
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
 }
 
 model Vacancy {
@@ -289,19 +377,19 @@ model PasswordResetToken {
 }
 
 model Enquiry {
-  id         String   @id @default(cuid())
-  firstName  String?
-  lastName   String?
-  email      String
-  phone      String?
-  interest   String?
-  message    String?  @db.Text
-  sourcePath String?
+  id          String   @id @default(cuid())
+  firstName   String?
+  lastName    String?
+  email       String
+  phone       String?
+  interest    String?
+  message     String?  @db.Text
+  sourcePath  String?
   attribution Json?
-  handled    Boolean  @default(false)
-  contactId  String?
-  contact    Contact? @relation(fields: [contactId], references: [id], onDelete: SetNull)
-  createdAt  DateTime @default(now())
+  handled     Boolean  @default(false)
+  contactId   String?
+  contact     Contact? @relation(fields: [contactId], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
 }
 
 model PageView {

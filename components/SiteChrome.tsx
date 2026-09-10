@@ -11,6 +11,7 @@ type Props = {
   contactSection: React.ReactNode;
   whatsapp: string;
   whatsappTemplate: string;
+  showStay?: boolean;
 };
 
 // The admin dashboard has its own sidebar/layout (app/admin/(protected)/layout.tsx
@@ -24,6 +25,7 @@ export default function SiteChrome({
   contactSection,
   whatsapp,
   whatsappTemplate,
+  showStay = false,
 }: Props) {
   const pathname = usePathname();
   const isAdmin = pathname?.startsWith("/admin") ?? false;
@@ -41,7 +43,7 @@ export default function SiteChrome({
   return (
     <>
       <PageViewTracker />
-      <Nav />
+      <Nav showStay={showStay} />
       <main>{children}</main>
       {!isContactPage && contactSection}
       <Footer />
