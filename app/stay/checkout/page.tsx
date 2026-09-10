@@ -4,6 +4,7 @@ import { searchStay } from "@/lib/stay-service";
 import StayFrame from "@/components/StayFrame";
 import StayCheckout from "@/components/StayCheckout";
 import Link from "next/link";
+import { canonicalStaySlug } from "@/lib/stay-brand";
 export const metadata = {
   title: "Guest details | The Suites at Midpoint",
   robots: { index: false, follow: false },
@@ -24,7 +25,7 @@ export default async function Checkout({
       q.code || "",
     );
   } catch {}
-  const row = result?.rows.find((r) => r.category.slug === q.room);
+  const row = result?.rows.find((r) => r.category.slug === canonicalStaySlug(q.room || ""));
   if (!row?.quote || !row.available)
     return (
       <StayFrame title="Choose another room">

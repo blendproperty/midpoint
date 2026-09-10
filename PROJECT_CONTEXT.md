@@ -2,6 +2,39 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-10 — Correct accommodation branding
+
+### Implementation
+
+- Corrected accommodation category names to Studio and Executive Suite under The Suites at Midpoint. OnPoint remains the separate serviced-office brand.
+- Added scoped data migration for existing category names/slugs and unsent TEST_PREVIEW confirmation bodies. Stable category IDs and reservation relationships remain unchanged; historical migrations are preserved.
+- New room URLs are /stay/studio and /stay/executive-suite. Legacy room URLs redirect with search details preserved; old checkout links remain accepted. Updated booking metadata.
+
+### Testing
+
+- Local migration applied successfully to disposable PostgreSQL. All 23 test files / 89 tests passed, including migrated category labels, legacy slug compatibility and booking transaction integration.
+- Type checking and deployment validation are recorded below when completed.
+
+### Commit and push
+
+- Prepared in codex/suites-staging against verified origin/main 9cd7e7a40f4cde73d54dc3f14720da9a36eb132c. Root checkout changes and generated files preserved. Promotion pending.
+
+### Merge
+
+- Pending fast-forward promotion; no PR merge planned.
+
+### Deployment and configuration
+
+- Pending. Staging domain and production booking exclusion remain unchanged.
+
+### Live production verification
+
+- Pending deployment; local evidence is not live verification.
+
+### Outstanding gates
+
+- Booking remains simulated: all commercial, inventory, provider/email, operational approval and UAT gates below remain open. Earlier duplicate-contact-form and hero-button wording feedback is separate and not changed by this branding correction.
+
 ## 2026-09-10 — Testable Suites booking platform
 
 ### Implementation

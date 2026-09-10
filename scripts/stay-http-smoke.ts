@@ -79,6 +79,8 @@ async function run() {
   }).then((r) => r.json());
   assert.equal(detail.paymentStatus, "PAID");
   assert.equal(detail.messages.length, 1);
+  assert.equal(detail.category.name, "Studio");
+  assert(!detail.messages[0].body.includes("OnPoint"));
   const calendar = await fetch(
     base + "/api/stay/document?reference=" + ref + "&format=ics",
     { headers: { Cookie: cookie } },
@@ -97,6 +99,8 @@ async function run() {
   assert.equal(cancel.status, 200);
   for (const path of [
     "/stay",
+    "/stay/studio",
+    "/stay/executive-suite",
     "/stay/onpoint-studio",
     "/stay/checkout?room=onpoint-studio&checkIn=" +
       checkIn +

@@ -1,4 +1,5 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { canonicalStaySlug } from "@/lib/stay-brand";
 import { isStagingHost } from "@/lib/staging-host";
 import { prisma } from "@/lib/prisma";
 import { configFor, searchStay } from "@/lib/stay-service";
@@ -13,11 +14,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (!(await isStagingHost())) return {};
+  const category = await prisma.roomCategory.findUnique({
+    where: { slug: canonicalStaySlug(slug) },
+  });
   return {
-    title:
-      (slug === "onpoint-studio"
-        ? "OnPoint Studio"
-        : "OnPoint Executive Suite") + " | Midpoint",
+    title: category ? category.name + " | The Suites at Midpoint" : "The Suites at Midpoint",
   };
 }
 export default async function Page({
@@ -29,6 +31,14 @@ export default async function Page({
 }) {
   if (!(await isStagingHost())) notFound();
   const [{ slug }, q] = await Promise.all([params, searchParams]);
+  const canonical = canonicalStaySlug(slug);
+  if (canonical !== slug) {
+    const preserved = new URLSearchParams();
+    for (const [key, value] of Object.entries(q)) {
+      if (typeof value === "string") preserved.set(key, value);
+    }
+    redirect("/stay/" + canonical + (preserved.size ? "?" + preserved.toString() : ""));
+  }
   const c = await prisma.roomCategory.findUnique({ where: { slug } });
   if (!c || !c.active) notFound();
   const config = await configFor();

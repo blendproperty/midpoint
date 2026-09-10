@@ -7,7 +7,7 @@ import StayFrame from "@/components/StayFrame";
 import BookingSearch from "@/components/BookingSearch";
 import StayRoomCard from "@/components/StayRoomCard";
 export const metadata: Metadata = {
-  title: "Stay at OnPoint | Corporate Accommodation Midrand",
+  title: "The Suites at Midpoint | Corporate Accommodation Midrand",
   description: "Explore Studios and Executive Suites at Midpoint.",
 };
 export default async function Page({
