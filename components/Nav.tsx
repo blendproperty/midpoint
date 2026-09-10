@@ -95,7 +95,7 @@ export default function Nav({ showStay = false }: { showStay?: boolean }) {
         <div className="hidden shrink-0 items-center gap-5 xl:flex">
           {[
             ...navLinks,
-            ...(showStay ? [{ label: "Book a Stay", href: "/stay" }] : []),
+            ...(showStay ? [{ label: "Book a Stay", href: "/the-suites-at-midpoint" }] : []),
           ].map((link) => (
             <Link
               key={link.href}
@@ -139,7 +139,7 @@ export default function Nav({ showStay = false }: { showStay?: boolean }) {
         <div className="flex flex-col gap-1 border-t border-white/10 bg-midpoint-dark/95 px-6 py-4 text-white backdrop-blur-md">
           {[
             ...navLinks,
-            ...(showStay ? [{ label: "Book a Stay", href: "/stay" }] : []),
+            ...(showStay ? [{ label: "Book a Stay", href: "/the-suites-at-midpoint" }] : []),
           ].map((link) => (
             <Link
               key={link.href}

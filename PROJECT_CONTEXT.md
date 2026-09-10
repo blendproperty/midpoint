@@ -2,6 +2,36 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-10 — Main navigation opens Suites showcase first
+
+### Implementation
+
+- Corrected both desktop and mobile "Book a Stay" menu links from /stay to /the-suites-at-midpoint. The showcase hero's "Book your stay" still opens /stay. This preserves the requested showcase-first journey.
+
+### Testing
+
+- Local tests: 24 files passed; 89 tests passed and 2 database integration tests skipped. Added coverage for both menu variants; existing hero destination coverage retained. Type-check and live results recorded below.
+
+### Commit and push
+
+- Verified codex/suites-staging and origin/main baseline 1f30d0f55febee8bea7d7ee44ebd24d57f5e19e4. Unrelated root/generated files preserved. Push pending.
+
+### Merge
+
+- Fast-forward promotion pending; no PR merge planned.
+
+### Deployment and configuration
+
+- Pending. No data or configuration changes.
+
+### Live production verification
+
+- Pending live menu and hero journey verification.
+
+### Outstanding gates
+
+- All test-only booking, provider, commercial approval and UAT gates remain. Duplicate contact-form feedback remains unresolved and is not part of this navigation-only fix.
+
 ## 2026-09-10 — Suites hero booking button
 
 ### Implementation
