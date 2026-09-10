@@ -10,23 +10,24 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 ### Testing
 
-- Local tests: 24 files passed; 89 tests passed and 2 database integration tests skipped. Added coverage for both menu variants; existing hero destination coverage retained. Type-check and live results recorded below.
+- Local tests: 24 files passed; 89 tests passed and 2 database integration tests skipped. Added coverage for both menu variants; existing hero destination coverage retained. Type checking passed, exit 0. Deployment CI tests/build passed.
 
 ### Commit and push
 
-- Verified codex/suites-staging and origin/main baseline 1f30d0f55febee8bea7d7ee44ebd24d57f5e19e4. Unrelated root/generated files preserved. Push pending.
+- Runtime commit f3ae2c0b00c3757ecff7731143d6890b7c656216 pushed to origin/main from codex/suites-staging, baseline 1f30d0f55febee8bea7d7ee44ebd24d57f5e19e4. Unrelated root/generated files preserved. Follow-up evidence-only commit uses CI skip.
 
 ### Merge
 
-- Fast-forward promotion pending; no PR merge planned.
+- Fast-forward promotion completed; no PR merge.
 
 ### Deployment and configuration
 
-- Pending. No data or configuration changes.
+- GitHub Actions run 34482581305 completed successfully for f3ae2c0b00c3757ecff7731143d6890b7c656216. No data or configuration changes.
 
 ### Live production verification
 
-- Pending live menu and hero journey verification.
+- Browser verification on staging: refreshed previously stale /stay tab; opened responsive menu and clicked Book a Stay; URL changed to /the-suites-at-midpoint with showcase heading. Clicked Book your stay; URL changed to /stay with Find your stay heading. Repeated menu navigation and left showcase open.
+- Served HTML contains both menu variants targeting /the-suites-at-midpoint; staging noindex response header remains. Production /stay still returns 404.
 
 ### Outstanding gates
 
