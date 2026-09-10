@@ -2,6 +2,39 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-10 — Responsive shared navigation repair
+
+### Implementation
+
+- Moved the full desktop navigation handover from the 768px breakpoint to 1280px so the logo, two contact pills, six links and enquiry CTA are never forced into tablet-width space.
+- Prevented both contact pills from wrapping and protected the logo, desktop groups and mobile-menu control from flex shrinking.
+- The shared `Nav` component serves both `mid-point.co.za` and `midpoint.onpointoffices.co.za`, so the correction applies consistently to production and staging.
+
+### Testing
+
+- `npm test`: passed on 2026-09-10 — 19 test files and 74 tests passed, including a new regression test for the navigation breakpoint and no-wrap rules.
+- `npm run build`: passed on 2026-09-10 — Next.js compiled and type-checked all application routes successfully.
+
+### Commit and push
+
+- Pending final commit and push evidence.
+
+### Merge
+
+- Pending promotion evidence.
+
+### Deployment and configuration
+
+- Pending deployment evidence.
+
+### Live production verification
+
+- Pending responsive verification on both staging and production at the reported tablet width, mobile width and full desktop width.
+
+### Outstanding gates
+
+- None beyond deployment and live responsive verification for this layout repair.
+
 ## 2026-09-10 — Staging copy and The Suites booking-request showcase
 
 ### Implementation

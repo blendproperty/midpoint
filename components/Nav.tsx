@@ -64,26 +64,26 @@ export default function Nav() {
           scrolled ? "pb-3 pt-3" : "pb-4 pt-8"
         }`}
       >
-        <Link href="/" aria-label="Midpoint home" onClick={closeMobile}>
+        <Link href="/" aria-label="Midpoint home" onClick={closeMobile} className="shrink-0">
           <Logo />
         </Link>
 
-        <div className="hidden items-center gap-4 text-sm md:flex">
+        <div className="hidden shrink-0 items-center gap-3 text-sm xl:flex">
           <a
             href="mailto:boitumelo@blendproperty.co.za"
-            className="rounded-full bg-midpoint-dark/60 px-4 py-2 backdrop-blur-sm transition-colors hover:bg-midpoint-dark/80"
+            className="whitespace-nowrap rounded-full bg-midpoint-dark/60 px-4 py-2 backdrop-blur-sm transition-colors hover:bg-midpoint-dark/80"
           >
             boitumelo@blendproperty.co.za
           </a>
           <a
             href="tel:+27113809400"
-            className="rounded-full bg-midpoint-dark/60 px-4 py-2 backdrop-blur-sm transition-colors hover:bg-midpoint-dark/80"
+            className="whitespace-nowrap rounded-full bg-midpoint-dark/60 px-4 py-2 backdrop-blur-sm transition-colors hover:bg-midpoint-dark/80"
           >
             Call us now&nbsp; +27 11 380 9400
           </a>
         </div>
 
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden shrink-0 items-center gap-5 xl:flex">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="group relative text-sm font-medium">
               {link.label}
@@ -104,7 +104,7 @@ export default function Nav() {
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav-panel"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm md:hidden"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm xl:hidden"
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -116,7 +116,7 @@ export default function Nav() {
           transition is smooth in both directions. */}
       <div
         id="mobile-nav-panel"
-        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out md:hidden ${
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out xl:hidden ${
           mobileOpen ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
