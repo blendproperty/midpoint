@@ -17,19 +17,22 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 ### Commit and push
 
-- Pending final commit and push evidence.
+- Commit `c695a9a21af99921a91deb5ee2294953d6d5eac9` (`Fix responsive header overflow`) was pushed to `origin/main` on 2026-09-10.
 
 ### Merge
 
-- Pending promotion evidence.
+- The verified isolated worktree was promoted directly to `main` by fast-forward; no pull-request merge was used.
 
 ### Deployment and configuration
 
-- Pending deployment evidence.
+- GitHub Actions `Deploy to VPS` run `34470101456` completed successfully on 2026-09-10.
 
 ### Live production verification
 
-- Pending responsive verification on both staging and production at the reported tablet width, mobile width and full desktop width.
+- Browser verification at the reported 1009px viewport confirmed both staging and production use the compact menu, retain an unwrapped phone label and have no horizontal overflow.
+- Browser verification at 1440px confirmed the complete desktop navigation is visible, the menu control is hidden, the phone label remains unwrapped and there is no horizontal overflow.
+- Browser verification at 390px confirmed the compact navigation remains active with no horizontal overflow.
+- The staging Suites page was also visually inspected at 1009px: the logo and menu remain separated, the hero heading and CTA are unobstructed, and the previously stacked phone pill is absent from the closed header.
 
 ### Outstanding gates
 
