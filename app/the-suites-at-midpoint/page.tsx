@@ -93,7 +93,7 @@ export default async function SuitesPage() {
               href={staging ? "/stay" : "#request-to-book"}
               className="mt-8 inline-flex rounded-full bg-midpoint-cyan px-7 py-3 font-semibold text-midpoint-dark"
             >
-              Check dates
+              {staging ? "Book your stay" : "Request availability"}
             </a>
           </div>
         </div>

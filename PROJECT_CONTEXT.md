@@ -2,6 +2,37 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-10 — Suites hero booking button
+
+### Implementation
+
+- Replaced the staging showcase hero's "Check dates" label with "Book your stay"; its existing /stay destination is retained. The showcase page remains /the-suites-at-midpoint.
+- Production uses "Request availability" and retains its enquiry anchor because live bookings remain disabled. No booking activation or unrelated layout changes.
+
+### Testing
+
+- Added regression coverage for staging label/destination and production enquiry fallback. Local tests: 24 files passed, 88 tests passed, 2 database integration tests skipped (database not enabled for this copy change). Type checking passed, exit 0.
+
+### Commit and push
+
+- Verified codex/suites-staging and origin/main at 7496dcfcc1b803c137d787940b1adae450654375. Unrelated root/generated changes preserved. Push pending.
+
+### Merge
+
+- Fast-forward promotion pending; no PR merge planned.
+
+### Deployment and configuration
+
+- Pending. No configuration or database changes.
+
+### Live production verification
+
+- Pending; code changes alone do not establish live delivery.
+
+### Outstanding gates
+
+- Existing test-only booking, provider, commercial approval and UAT gates remain unchanged. Duplicate contact-form feedback remains separate and unresolved.
+
 ## 2026-09-10 — Correct accommodation branding
 
 ### Implementation
