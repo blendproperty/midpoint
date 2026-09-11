@@ -44,8 +44,7 @@ export default async function Page({
   return (
     <StayFrame title="Find your stay">
       <p className="-mt-4 mb-8 max-w-2xl text-stone-600">
-        Two considered ways to stay in Midrand. Choose your dates, compare your
-        full stay price, and book in a few simple steps.
+        Choose your dates, compare your full stay price, and book in a few simple steps.
       </p>
       <BookingSearch defaults={q} />
       {error && (

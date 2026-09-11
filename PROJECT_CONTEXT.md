@@ -2,6 +2,13 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-11 — Booking introduction copy
+
+- Implementation: removed the requested sentence "Two considered ways to stay in Midrand." from /stay; retained the practical date/price/booking instructions. No functional, data or finance changes.
+- Testing: local regression suite passed 25 files / 92 tests, with 3 PostgreSQL integration tests skipped locally. CI will run database tests and gate deployment.
+- Commit/push/merge: pending fast-forward promotion from codex/suites-staging to main; unrelated generated files preserved.
+- Deployment/configuration/live verification: pending release and served-copy verification. All existing staging, finance, email and operational approval gates remain unchanged.
+
 ## 2026-09-11 — Brett administrator access recovery
 
 - Implementation/configuration: verified the requested existing account and retained its SUPER_ADMIN role. At the user's explicit request, replaced its password with a cryptographically random credential, invalidated previous unused reset tokens, and created a one-use, one-hour staging password-setup link. No password, hash or reset token is recorded here. Accounts remain shared with production; the password change affects both hosts.
