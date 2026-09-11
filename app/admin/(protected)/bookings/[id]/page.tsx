@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 import { bookingAction } from "../actions";
 import { money } from "@/lib/stay-pricing";
 import Link from "next/link";
+import { PageHeading, StatusBadge } from "@/components/admin/OperationsUI";
+import ReservationActions from "@/components/admin/ReservationActions";
+import { saveNote } from "../../suites/actions";
 export default async function Page({
   params,
   searchParams,
@@ -15,7 +18,7 @@ export default async function Page({
   const [{ id }, q] = await Promise.all([params, searchParams]);
   const r = await prisma.reservation.findFirst({
     where: { id, isTest: true },
-    include: { room: true, category: true, messages: true },
+    include: { room: true, category: true, messages: true, staffNotes: {orderBy:{createdAt:"desc"}} },
   });
   if (!r) notFound();
   const rooms = await prisma.room.findMany({
@@ -38,10 +41,7 @@ export default async function Page({
       <Link href="/admin/bookings" className="underline">
         ← All bookings
       </Link>
-      <h1 className="mt-5 text-3xl font-semibold">{r.bookingReference}</h1>
-      <p className="mt-2">
-        TEST · {r.status} · Payment {r.paymentStatus}
-      </p>
+      <div className="mt-6"><PageHeading title={r.guestFirstName+" "+r.guestLastName} description={r.bookingReference+" · Test reservation · "+r.category.name}><StatusBadge status={r.status}/><StatusBadge status={r.paymentStatus}/></PageHeading></div>
       {q.error && (
         <p role="alert" className="mt-5 rounded bg-red-50 p-4 text-red-800">
           {q.error}
@@ -68,7 +68,7 @@ export default async function Page({
                 .filter(([, v]) => v)
                 .map(([k, v]) => (
                   <div key={k} className="flex gap-3">
-                    <dt className="text-stone-500">{k}</dt>
+                    <dt className="text-stone-500">{{firstName:"First name",lastName:"Last name",country:"Country",vatNumber:"VAT number",poNumber:"PO number",costCentre:"Cost centre"}[k]||k}</dt>
                     <dd>{v}</dd>
                   </div>
                 ))}
@@ -100,27 +100,7 @@ export default async function Page({
               The guest requested cancellation.
             </p>
           )}
-          <form
-            action={bookingAction.bind(null, id)}
-            className="mt-6 flex flex-wrap gap-3"
-          >
-            {[
-              ["checkin", "Check in"],
-              ["checkout", "Check out"],
-              ["cancel", "Cancel & test refund"],
-              ["noshow", "No show"],
-              ["settle", "Mark test balance paid"],
-            ].map(([action, label]) => (
-              <button
-                key={action}
-                name="action"
-                value={action}
-                className="stay-secondary"
-              >
-                {label}
-              </button>
-            ))}
-          </form>
+          <ReservationActions action={bookingAction.bind(null,id)} status={r.status} payment={r.paymentStatus}/>
         </section>
         <section className="stay-card">
           <h2 className="text-xl font-semibold">Move / amend reservation</h2>
@@ -172,7 +152,7 @@ export default async function Page({
         </section>
       </div>
       <section className="stay-card mt-6">
-        <h2 className="text-xl font-semibold">Staging email inbox</h2>
+        <h2 className="text-xl font-semibold">Guest communication previews</h2><p className="mt-2 text-xs text-stone-500">Captured test messages. Nothing here has been emailed to the guest.</p>
         {r.messages.length ? (
           r.messages.map((m) => (
             <details key={m.id} className="mt-4">
@@ -189,10 +169,19 @@ export default async function Page({
         )}
       </section>
       <section className="stay-card mt-6">
+        <h2 className="text-xl font-semibold">Internal staff notes</h2>
+        <p className="text-xs text-stone-500 mt-2">Private to staff. Do not record card details or sensitive identity documents.</p>
+        <form action={saveNote.bind(null,id)} className="mt-5">
+          <label className="stay-label">Add a handover note<textarea name="body" required maxLength={2000} rows={3} className="stay-input"/></label>
+          <button className="ops-button mt-3">Add staff note</button>
+        </form>
+        <div className="mt-6 space-y-5">{r.staffNotes.map(n=><div key={n.id} className="border-t pt-4"><p className="whitespace-pre-wrap text-sm">{n.body}</p><p className="text-[10px] text-stone-500 mt-2">{n.actor} · {n.createdAt.toLocaleString("en-ZA",{timeZone:"Africa/Johannesburg"})}</p></div>)}</div>
+      </section>
+      <section className="stay-card mt-6">
         <h2 className="text-xl font-semibold">Activity</h2>
         {audit.map((a) => (
           <p key={a.id} className="mt-3 text-sm">
-            {a.createdAt.toISOString()} · {a.actor} · {a.action}
+            {a.createdAt.toLocaleString("en-ZA",{timeZone:"Africa/Johannesburg"})} · {a.actor} · {a.action}
           </p>
         ))}
       </section>

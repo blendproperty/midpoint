@@ -117,6 +117,9 @@ export async function changeReservation(
             },
           });
       }
+      if (action === "checkout" && r.roomId) {
+        await db.room.update({where:{id:r.roomId},data:{housekeeping:"DIRTY",housekeepingAt:new Date(),housekeepingBy:actor,housekeepingNote:"Inspection required after guest checkout."}});
+      }
       await db.bookingAudit.create({
         data: { actor, action: "admin " + action, target: id },
       });

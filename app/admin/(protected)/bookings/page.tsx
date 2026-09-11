@@ -1,200 +1,22 @@
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
-import Link from "next/link";
-import { roomWhere } from "@/lib/stay-service";
 import { todayZA, money } from "@/lib/stay-pricing";
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: Promise<{ status?: string; q?: string }>;
-}) {
+import { bookingFilters, pageNumber, reservationStatuses, shortDate } from "@/lib/suites-operations";
+import { PageHeading, EmptyState, StatusBadge } from "@/components/admin/OperationsUI";
+import { CalendarDays, ArrowUpRight } from "lucide-react";
+export default async function Page({searchParams}:{searchParams:Promise<Record<string,string|undefined>>}) {
   await requireAdmin();
-  const q = await searchParams,
-    today = new Date(todayZA() + "T00:00:00Z"),
-    tomorrow = new Date(+today + 86400000);
-  const [all, rooms, available] = await Promise.all([
-    prisma.reservation.findMany({
-      where: { isTest: true },
-      include: { room: true, category: true },
-      orderBy: { createdAt: "desc" },
-      take: 1000,
-    }),
-    prisma.room.count({ where: { active: true } }),
-    prisma.room.count({
-      where: { ...roomWhere("", today, tomorrow), categoryId: undefined },
-    }),
-  ]);
-  const active = all.filter((r) =>
-    ["CONFIRMED", "CHECKED_IN"].includes(r.status),
-  );
-  const occupied = active.filter(
-    (r) => r.checkIn <= today && r.checkOut > today,
-  );
-  const metrics = [
-    [
-      "Arrivals today",
-      active.filter((r) => r.checkIn >= today && r.checkIn < tomorrow).length,
-    ],
-    [
-      "Departures today",
-      active.filter((r) => r.checkOut >= today && r.checkOut < tomorrow).length,
-    ],
-    ["Occupied tonight", occupied.length],
-    ["Available tonight", available],
-    [
-      "Occupancy",
-      rooms ? Math.round((occupied.length / rooms) * 100) + "%" : "0%",
-    ],
-    [
-      "Test paid revenue",
-      money(
-        all
-          .filter((r) => r.paymentStatus === "PAID")
-          .reduce((s, r) => s + Math.round(Number(r.total) * 100), 0),
-      ),
-    ],
-  ];
-  const filtered = all.filter(
-    (r) =>
-      (!q.status || r.status === q.status) &&
-      (!q.q ||
-        (
-          r.bookingReference +
-          " " +
-          r.guestFirstName +
-          " " +
-          r.guestLastName +
-          " " +
-          r.company
-        )
-          .toLowerCase()
-          .includes(q.q.toLowerCase())),
-  );
-  return (
-    <div>
-      <div className="flex flex-wrap justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-semibold">Bookings</h1>
-          <p className="mt-2 text-sm text-stone-500">
-            Staging operations · Latest 1,000 test bookings; revenue is the paid
-            total in this list.
-          </p>
-        </div>
-        <div className="flex gap-4">
-          <Link href="/admin/calendar" className="underline">
-            Room calendar
-          </Link>
-          <Link href="/admin/rates" className="underline">
-            Rates & policies
-          </Link>
-          <Link href="/stay" className="underline">
-            Guest website
-          </Link>
-        </div>
-      </div>
-      <div className="my-8 grid gap-4 md:grid-cols-3 xl:grid-cols-6">
-        {metrics.map(([name, value]) => (
-          <div className="rounded-xl border bg-white p-4" key={String(name)}>
-            <p className="text-xs text-slate-500">{name}</p>
-            <strong className="mt-2 block text-2xl">{value}</strong>
-          </div>
-        ))}
-      </div>
-      <form className="mb-5 flex flex-wrap gap-3">
-        <input
-          name="q"
-          defaultValue={q.q}
-          placeholder="Reference, guest or company"
-          className="stay-input !mt-0 !w-auto"
-        />
-        <select
-          name="status"
-          defaultValue={q.status || ""}
-          className="stay-input !mt-0 !w-auto"
-        >
-          <option value="">All statuses</option>
-          {[
-            "PENDING",
-            "CONFIRMED",
-            "CHECKED_IN",
-            "CHECKED_OUT",
-            "CANCELLED",
-            "NO_SHOW",
-          ].map((s) => (
-            <option key={s}>{s}</option>
-          ))}
-        </select>
-        <button className="stay-button">Filter</button>
-      </form>
-      <div className="overflow-auto rounded-xl border bg-white">
-        <table className="w-full whitespace-nowrap text-left text-sm">
-          <thead className="bg-slate-100">
-            <tr>
-              {[
-                "Reference / guest",
-                "Room",
-                "Stay",
-                "Status",
-                "Payment",
-                "Total",
-                "",
-              ].map((x) => (
-                <th key={x} className="p-4">
-                  {x}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((r) => (
-              <tr className="border-t" key={r.id}>
-                <td className="p-4">
-                  <Link
-                    href={"/admin/bookings/" + r.id}
-                    className="font-semibold underline"
-                  >
-                    {r.bookingReference}
-                  </Link>
-                  <p className="mt-1">
-                    {r.guestFirstName} {r.guestLastName}
-                  </p>
-                  {r.cancellationRequested && (
-                    <p className="mt-1 text-amber-700">
-                      Cancellation requested
-                    </p>
-                  )}
-                </td>
-                <td className="p-4">
-                  {r.room?.roomNumber}
-                  <p className="text-xs">{r.category.name}</p>
-                </td>
-                <td className="p-4">
-                  {r.checkIn.toISOString().slice(0, 10)} →{" "}
-                  {r.checkOut.toISOString().slice(0, 10)}
-                </td>
-                <td className="p-4">{r.status}</td>
-                <td className="p-4">{r.paymentStatus}</td>
-                <td className="p-4">
-                  {money(Math.round(Number(r.total) * 100))}
-                </td>
-                <td>
-                  <Link
-                    href={"/admin/bookings/" + r.id}
-                    className="p-4 underline"
-                  >
-                    Open
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        {!filtered.length && (
-          <p className="p-8 text-stone-500">
-            No bookings yet. Make a test booking from the guest website.
-          </p>
-        )}
-      </div>
-    </div>
-  );
+  const q=await searchParams, today=new Date(todayZA()+"T00:00:00Z"),where=bookingFilters(q,today),perPage=20;
+  const total=await prisma.reservation.count({where});
+  const pages=Math.max(1,Math.ceil(total/perPage)),page=Math.min(pageNumber(q.page),pages);
+  const rows=await prisma.reservation.findMany({where,include:{room:true,category:true},orderBy:[{createdAt:"desc"},{id:"desc"}],skip:(page-1)*perPage,take:perPage});
+  const url=(overrides:Record<string,string>)=>{const p=new URLSearchParams();for(const [k,v] of Object.entries({...q,...overrides}))if(v)p.set(k,v);return "/admin/bookings?"+p.toString();};
+  const tabs=[["","All reservations"],["arrivals","Arrivals today"],["departures","Departures today"],["inhouse","In house"],["cancellations","Cancellation requests"],["unpaid","Unpaid test balances"]];
+  return <><PageHeading title="Every stay, in one place." description="Find a guest, review a reservation and keep the front desk moving. All records in this workspace are test bookings."><Link href="/admin/calendar" className="ops-button secondary"><CalendarDays size={15}/>Calendar</Link><Link href="/admin/bookings/new" className="ops-button">＋ New test reservation</Link></PageHeading>
+    <div className="ops-tabs">{tabs.map(([value,label])=><Link key={value} href={url({view:value,page:"1",status:"",payment:""})} aria-current={(q.view||"")===value?"page":undefined}>{label}</Link>)}</div>
+    <section className="ops-panel"><form className="ops-toolbar"><input type="hidden" name="view" value={q.view||""}/><label className="ops-search">Search reservations<input name="q" defaultValue={q.q} placeholder="Guest, email, reference or company" maxLength={120}/></label><label>Status<select name="status" defaultValue={q.status||""}><option value="">All statuses</option>{reservationStatuses.map(s=><option key={s} value={s}>{s.toLowerCase().replaceAll("_"," ")}</option>)}</select></label><label>Test payment<select name="payment" defaultValue={q.payment||""}><option value="">All balances</option>{["UNPAID","PARTIALLY_PAID","PAID","REFUNDED"].map(s=><option key={s} value={s}>{s.toLowerCase().replaceAll("_"," ")}</option>)}</select></label><button className="ops-button">Apply filters</button><Link href="/admin/bookings" className="text-xs underline p-3">Reset</Link></form>
+    {rows.length?<div className="ops-table-wrap"><table className="ops-table"><thead><tr>{["Guest / reference","Room","Stay dates","Reservation","Test payment","Test total",""].map(x=><th key={x}>{x}</th>)}</tr></thead><tbody>{rows.map(r=><tr key={r.id}><td><Link href={"/admin/bookings/"+r.id} className="ops-guest"><span className="ops-avatar">{r.guestFirstName[0]}{r.guestLastName[0]}</span><span><strong>{r.guestFirstName} {r.guestLastName}</strong><small>{r.bookingReference}</small></span></Link>{r.cancellationRequested&&<span className="ops-pill amber mt-2">Cancellation requested</span>}</td><td>{r.room?.roomNumber||"Unassigned"}<small>{r.category.name}</small></td><td>{shortDate(r.checkIn)} – {shortDate(r.checkOut)}<small>{r.checkIn.getUTCFullYear()} · {Math.round((+r.checkOut-+r.checkIn)/86400000)} nights · {r.adults} guests</small></td><td><StatusBadge status={r.status}/>{r.status==="PENDING"&&r.expiresAt&&r.expiresAt<new Date()&&<small>Hold expired</small>}</td><td><StatusBadge status={r.paymentStatus}/></td><td><strong>{money(Math.round(Number(r.total)*100))}</strong><small>{r.company||"Direct guest"}</small></td><td><Link href={"/admin/bookings/"+r.id} aria-label={"Open reservation "+r.bookingReference}><ArrowUpRight size={17}/></Link></td></tr>)}</tbody></table></div>:<EmptyState title="No reservations match" detail="Try a different search or clear the filters. New test bookings will appear here as they are created." href="/admin/bookings/new" label="Create a test reservation"/>}
+    <div className="ops-pagination"><span>{total?((page-1)*perPage+1)+"–"+Math.min(page*perPage,total):"0"} of {total} reservations</span><div className="flex items-center gap-3">{page>1&&<Link className="ops-button secondary" href={url({page:String(page-1)})}>Previous</Link>}<span>Page {page} of {pages}</span>{page<pages&&<Link className="ops-button secondary" href={url({page:String(page+1)})}>Next</Link>}</div></div></section>
+  </>;
 }

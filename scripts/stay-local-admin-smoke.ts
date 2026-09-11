@@ -16,6 +16,11 @@ async function run() {
     );
   for (const path of [
     "/admin/bookings",
+    "/admin/suites",
+    "/admin/suites/setup",
+    "/admin/bookings/new",
+    "/admin/housekeeping",
+    "/admin/guests",
     "/admin/calendar",
     "/admin/rooms",
     "/admin/rates",

@@ -3,6 +3,7 @@ import { requireAdmin } from "@/lib/require-admin";
 import { day, todayZA } from "@/lib/stay-pricing";
 import { addBlock, removeBlock } from "../bookings/actions";
 import Link from "next/link";
+import { PageHeading, StatusBadge } from "@/components/admin/OperationsUI";
 export default async function Page({
   searchParams,
 }: {
@@ -43,23 +44,25 @@ export default async function Page({
   });
   return (
     <div>
-      <h1 className="text-3xl font-semibold">Room calendar</h1>
-      <p className="mt-2 text-sm text-stone-500">
-        14-day view · Click a reservation to move it, check in, check out or
-        cancel.
-      </p>
-      <form className="my-6 flex gap-3">
+      <PageHeading title="The room diary." description="A 14-day view of test stays and maintenance. Open a reservation to amend its dates or room allocation."><Link href="/admin/bookings/new" className="ops-button">＋ New test reservation</Link></PageHeading>
+      <form className="my-6 flex flex-wrap items-center gap-3">
+        <Link className="ops-button secondary" href={"/admin/calendar?start="+new Date(+start-14*86400000).toISOString().slice(0,10)}>← Previous</Link>
+        <label className="text-xs">Calendar start
         <input
           type="date"
           name="start"
           defaultValue={start.toISOString().slice(0, 10)}
           className="stay-input !w-auto !mt-0"
         />
+        </label>
         <button className="stay-button">Show dates</button>
         <Link href="/admin/bookings" className="stay-secondary">
           All bookings
         </Link>
+        <Link className="ops-button secondary" href={"/admin/calendar?start="+end.toISOString().slice(0,10)}>Next →</Link>
+        <Link href="/admin/calendar" className="text-xs underline">Today</Link>
       </form>
+      <div className="flex gap-3 flex-wrap mb-5"><StatusBadge status="CONFIRMED"/><StatusBadge status="CHECKED_IN"/><StatusBadge status="PENDING"/><span className="ops-pill neutral">Maintenance block</span></div>
       {q.error && (
         <p role="alert" className="mb-5 text-red-700">
           {q.error}
@@ -72,7 +75,7 @@ export default async function Page({
             className="grid"
             style={{ gridTemplateColumns: "180px repeat(14,minmax(65px,1fr))" }}
           >
-            <div className="border-b p-3 font-semibold">Room</div>
+            <div className="border-b p-3 font-semibold sticky left-0 z-10 bg-white">Room</div>
             {days.map((d) => (
               <div
                 key={+d}
@@ -94,11 +97,12 @@ export default async function Page({
               }}
               key={room.id}
             >
-              <div className="p-3 text-sm">
+              <div className="p-3 text-sm sticky left-0 z-10 bg-white border-r">
                 <strong>{room.roomNumber}</strong>
                 <p className="text-xs text-stone-500">
                   {room.category?.name || "Unassigned"}
                 </p>
+                {!room.active && <span className="text-[9px] text-amber-700">Inactive</span>}
               </div>
               {days.map((d) => {
                 const r = room.reservations.find(
@@ -112,12 +116,12 @@ export default async function Page({
                       "min-w-0 border-l p-1 text-xs " +
                       (b ? "bg-stone-200" : r ? "bg-green-100" : "")
                     }
-                    title={b?.reason || r?.bookingReference || "Available"}
+                    title={b?.reason || r?.bookingReference || (!room.active || !["AVAILABLE","OCCUPIED"].includes(room.status) ? "Unavailable" : "Available")}
                   >
                     {r ? (
                       <Link
                         href={"/admin/bookings/" + r.id}
-                        className="block h-full overflow-hidden rounded bg-[#435247] px-1 py-3 text-white"
+                        className={"block h-full overflow-hidden rounded px-1 py-3 "+(r.status==="PENDING"?"bg-amber-100 text-amber-900":r.status==="CHECKED_IN"?"bg-[#214737] text-white":"bg-[#e1ead6] text-[#3f5c34]")}
                       >
                         {r.checkIn >= d || +d === +start
                           ? r.guestFirstName + " " + r.guestLastName
@@ -127,7 +131,7 @@ export default async function Page({
                       <span className="block py-3">Blocked</span>
                     ) : (
                       <span className="block py-3 text-center text-stone-300">
-                        ·
+                        {!room.active || !["AVAILABLE","OCCUPIED"].includes(room.status) ? "—" : "·"}
                       </span>
                     )}
                   </div>

@@ -3,6 +3,7 @@ import { configFor } from "@/lib/stay-service";
 import { saveRates } from "./actions";
 import RateEditor from "@/components/RateEditor";
 import Link from "next/link";
+import { PageHeading } from "@/components/admin/OperationsUI";
 export default async function Page({
   searchParams,
 }: {
@@ -12,7 +13,7 @@ export default async function Page({
   const [config, q] = await Promise.all([configFor(), searchParams]);
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-semibold">Rates, extras & booking rules</h1>
+      <PageHeading title="Rates with clarity." description="Control the test tariff, stay rules and optional extras from one place. Commercial approval is still required."/>
       <p>
         Staging test settings only. The best applicable discount wins; discounts
         do not stack. Rates include the configured test VAT.

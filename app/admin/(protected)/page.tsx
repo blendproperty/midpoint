@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { isStagingHost } from "@/lib/staging-host";
 import {
   Activity,
   AlertTriangle,
@@ -216,9 +218,10 @@ type ScoredContent = {
 export default async function AdminDashboard({
   searchParams,
 }: {
-  searchParams: Promise<{ sector?: string; period?: string }>;
+  searchParams: Promise<{ sector?: string; period?: string; workspace?: string }>;
 }) {
   const filters = await searchParams;
+  if (filters.workspace !== "website" && await isStagingHost()) redirect("/admin/suites");
   const sector = SECTORS.includes(filters.sector || "") ? filters.sector! : "ALL";
   const period = PERIODS.includes(filters.period || "") ? filters.period! : "90";
   const since = period === "ALL" ? undefined : new Date(Date.now() - Number(period) * 86_400_000);

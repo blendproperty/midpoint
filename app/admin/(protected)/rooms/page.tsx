@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
 import { updateCategory, updateRoom } from "./actions";
+import SaveOperationForm from "@/components/admin/SaveOperationForm";
+import { PageHeading } from "@/components/admin/OperationsUI";
 
 const statuses = [
   "AVAILABLE",
@@ -21,7 +23,7 @@ export default async function RoomsAdmin() {
   ]);
   return (
     <div>
-      <h1 className="text-2xl font-semibold">Suite inventory</h1>
+      <PageHeading title="A place for every stay." description="Manage physical rooms, category assignments and sample base rates. Changes apply to test inventory."/>
       <p className="mt-2 text-sm text-slate-600">
         Configure the approved category split, room identifiers and rates before
         activating public availability.
@@ -30,7 +32,7 @@ export default async function RoomsAdmin() {
         <h2 className="text-lg font-semibold">Room categories</h2>
         <div className="mt-3 grid gap-4 lg:grid-cols-2">
           {categories.map((c) => (
-            <form
+            <SaveOperationForm
               key={c.id}
               action={updateCategory.bind(null, c.id)}
               className="rounded-xl border bg-white p-4"
@@ -67,13 +69,13 @@ export default async function RoomsAdmin() {
                     type="checkbox"
                     defaultChecked={c.active}
                   />
-                  Publicly active
+                  Available in test search
                 </label>
                 <button className="rounded bg-slate-900 px-4 py-2 text-sm text-white">
                   Save
                 </button>
               </div>
-            </form>
+            </SaveOperationForm>
           ))}
         </div>
       </section>
@@ -84,24 +86,27 @@ export default async function RoomsAdmin() {
         </div>
         <div className="mt-3 space-y-3">
           {rooms.map((r) => (
-            <form
+            <SaveOperationForm
               key={r.id}
               action={updateRoom.bind(null, r.id)}
-              className="grid gap-2 rounded-xl border bg-white p-3 md:grid-cols-[120px_110px_180px_170px_1fr_auto_auto] md:items-center"
+              className="grid gap-3 rounded-xl border bg-white p-5 sm:grid-cols-2 xl:grid-cols-4 items-end"
             >
               <input
+                aria-label="Room number"
                 name="roomNumber"
                 required
                 defaultValue={r.roomNumber}
                 className={input}
               />
               <input
+                aria-label="Floor"
                 name="floor"
                 placeholder="Floor"
                 defaultValue={r.floor || ""}
                 className={input}
               />
               <select
+                aria-label="Room category"
                 name="categoryId"
                 defaultValue={r.categoryId || ""}
                 className={input}
@@ -113,12 +118,14 @@ export default async function RoomsAdmin() {
                   </option>
                 ))}
               </select>
-              <select name="status" defaultValue={r.status} className={input}>
+              <select aria-label="Operational status"
+                name="status" defaultValue={r.status} className={input}>
                 {statuses.map((s) => (
                   <option key={s}>{s}</option>
                 ))}
               </select>
               <input
+                aria-label="Inventory notes"
                 name="notes"
                 placeholder="Notes"
                 defaultValue={r.notes || ""}
@@ -135,7 +142,7 @@ export default async function RoomsAdmin() {
               <button className="rounded bg-slate-900 px-3 py-2 text-sm text-white">
                 Save
               </button>
-            </form>
+            </SaveOperationForm>
           ))}
         </div>
       </section>

@@ -95,6 +95,10 @@ model RoomCategory {
 }
 
 model Room {
+  housekeeping String        @default("UNASSESSED")
+  housekeepingNote String?
+  housekeepingBy String?
+  housekeepingAt DateTime?
   blocks       RoomBlock[]
   id           String        @id @default(cuid())
   roomNumber   String        @unique
@@ -110,6 +114,7 @@ model Room {
 }
 
 model Reservation {
+  staffNotes            BookingNote[]
   isTest                Boolean           @default(true)
   accessHash            String?
   idempotencyKey        String?           @unique
@@ -181,6 +186,17 @@ model BookingAudit {
   action    String
   target    String
   createdAt DateTime @default(now())
+}
+
+model BookingNote {
+  id            String      @id @default(cuid())
+  reservationId String
+  reservation   Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  body          String      @db.Text
+  actor         String
+  createdAt     DateTime    @default(now())
+
+  @@index([reservationId, createdAt])
 }
 
 model BlogPost {

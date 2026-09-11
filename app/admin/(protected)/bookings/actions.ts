@@ -8,6 +8,8 @@ import { lock } from "@/lib/stay-service";
 function refresh() {
   for (const p of [
     "/admin/bookings",
+    "/admin/suites",
+    "/admin/housekeeping",
     "/admin/calendar",
     "/admin/rooms",
     "/stay",

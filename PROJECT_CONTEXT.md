@@ -2,6 +2,41 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-11 — Suites staff operations workspace
+
+### Implementation
+
+- Premium responsive staff shell and sign-in, live database overview, searchable/paginated reservations and guest directory, staff-created unpaid test bookings, private reservation notes, room-readiness handover and checkout-to-dirty workflow. Calendar navigation and inventory feedback improved; existing website management remains accessible.
+- Added migration 20260911060000_suites_operations for readiness metadata and private BookingNote records. Existing rooms start UNASSESSED. Staff actions retain session authentication, transactional room allocation and test-only reservation boundaries.
+- Review guide: docs/SUITES_ADMIN_REVIEW.md. Staging /admin opens /admin/suites; original website dashboard remains available through Website management.
+
+### Testing
+
+- Local disposable PostgreSQL integration run: 25 files / 95 tests passed, including staff creation/idempotency, notes, readiness and checkout; existing concurrency tests passed. Nine authenticated admin routes passed the local smoke script.
+- Authenticated local browser: created an unpaid test reservation, saved an internal note and room-readiness update; reviewed desktop overview and mobile reservation/navigation layouts. Synthetic records exist only in the disposable local database.
+- Final release run: all 95 tests passed with PostgreSQL enabled; npm run build passed compilation, type checks and route generation. Repeated all nine authenticated admin smoke routes against the compiled production build: passed. Desktop login/overview visually checked at 1440px; overview document width 1425px with no horizontal overflow. Saved local Room 01 INSPECTED state/note read back from PostgreSQL.
+
+### Commit and push
+
+- Pending release commit from codex/suites-staging, baseline 259c67c2f7d28d5fc2c576d9de5eca3540f2774b. Unrelated root changes and generated files excluded.
+
+### Merge
+
+- Pending fast-forward promotion to main; no PR merge planned.
+
+### Deployment and configuration
+
+- Pending CI deployment and additive database migration. No finance provider, real payment collection, refunds or guest email delivery enabled.
+
+### Live production verification
+
+- Pending new-release verification. Shared staging/production infrastructure remains; production guest booking routes must remain excluded and staging must remain noindex.
+
+### Outstanding gates
+
+- Authenticated deployed staff UAT, approved inventory/opening dates, pricing/policies, provider decision and finance integration, real guest emails, data retention and staff training remain required before operational launch. Existing roles remain SUPER_ADMIN/EDITOR, not granular hotel roles. No channel-manager synchronisation or financial reporting/reconciliation is claimed.
+- Existing public-page duplicate contact-form feedback remains outside this admin release.
+
 ## 2026-09-10 — Main navigation opens Suites showcase first
 
 ### Implementation
