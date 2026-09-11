@@ -2,6 +2,13 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-11 — Brett administrator access recovery
+
+- Implementation/configuration: verified the requested existing account and retained its SUPER_ADMIN role. At the user's explicit request, replaced its password with a cryptographically random credential, invalidated previous unused reset tokens, and created a one-use, one-hour staging password-setup link. No password, hash or reset token is recorded here. Accounts remain shared with production; the password change affects both hosts.
+- Testing/live verification: normal HTTPS staging login returned 200; its issued session then loaded /admin/suites with HTTP 200. This proves authentication and dashboard rendering, not full operational UAT.
+- Deployment: account-data recovery only; no runtime code or infrastructure deployment. SMTP configuration variables are populated, but delivery remains unverified and the reset-email URL still uses the configured shared domain. This recovery does not claim to fix email delivery or host selection.
+- Commit/push/merge: evidence-only update to be fast-forwarded to origin/main with CI skip; no application changes or PR merge. Remaining operational, finance and staff-UAT gates below remain unchanged.
+
 ## 2026-09-11 — Suites staff operations workspace
 
 ### Implementation
