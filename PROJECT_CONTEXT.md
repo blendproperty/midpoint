@@ -18,19 +18,22 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 ### Commit and push
 
-- Pending release commit from codex/suites-staging, baseline 259c67c2f7d28d5fc2c576d9de5eca3540f2774b. Unrelated root changes and generated files excluded.
+- Runtime commit 51e19cd5e1ab121fe3c12fdf9673df24451aed86 pushed from codex/suites-staging to origin/main, baseline 259c67c2f7d28d5fc2c576d9de5eca3540f2774b. Unrelated root changes and generated files excluded. Follow-up evidence-only commit uses CI skip.
 
 ### Merge
 
-- Pending fast-forward promotion to main; no PR merge planned.
+- Fast-forward promotion to main completed; no PR merge.
 
 ### Deployment and configuration
 
-- Pending CI deployment and additive database migration. No finance provider, real payment collection, refunds or guest email delivery enabled.
+- GitHub Actions Deploy to VPS run 34557535242 succeeded at 03:16:51 UTC (05:16:51 SAST), including PostgreSQL tests, server image build, migration deployment and served-release check. Runtime deployment identifier 51e19cd5e1ab. No finance provider, real payment collection, refunds or guest email delivery enabled.
 
 ### Live production verification
 
-- Pending new-release verification. Shared staging/production infrastructure remains; production guest booking routes must remain excluded and staging must remain noindex.
+- Live HTTP checks after deployment: staging /admin/login and /stay returned 200 with deployment 51e19cd5e1ab and noindex/nofollow/noarchive/nosnippet header. Staging robots.txt remains User-agent: * / Disallow: /. Unauthenticated /admin/suites, /admin/housekeeping and /admin/guests redirect 307 to /admin/login; no private content exposed.
+- Production home and Suites showcase returned 200 with deployment 51e19cd5e1ab; /stay and /api/stay remained true 404. Browser refreshed the deployed login and visually verified the new design.
+- Local compiled-build browser additionally verified guest search to matching reservation history, original website dashboard access, calendar, mobile login (390px document/viewport) and persisted readiness screen (375px document within 390px viewport). Local test server/database stopped without deleting data.
+- Authenticated deployed operations have NOT been exercised in this run: no production staff credentials were created or bypassed. Local authenticated/database proof and successful deployment are distinct from staff UAT.
 
 ### Outstanding gates
 
