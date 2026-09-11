@@ -6,8 +6,8 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 - Implementation: removed the requested sentence "Two considered ways to stay in Midrand." from /stay; retained the practical date/price/booking instructions. No functional, data or finance changes.
 - Testing: local regression suite passed 25 files / 92 tests, with 3 PostgreSQL integration tests skipped locally. CI will run database tests and gate deployment.
-- Commit/push/merge: pending fast-forward promotion from codex/suites-staging to main; unrelated generated files preserved.
-- Deployment/configuration/live verification: pending release and served-copy verification. All existing staging, finance, email and operational approval gates remain unchanged.
+- Commit/push/merge: runtime commit 00cbc6a3f89e1124ae5c9cad62278ca21add0865 fast-forwarded from codex/suites-staging to main; unrelated generated files preserved. Follow-up evidence-only commit uses CI skip.
+- Deployment/configuration/live verification: GitHub Actions run 34573415340 succeeded, including database tests and server build/deploy. Live staging /stay returned 200 with deployment 00cbc6a3f89e; removed sentence absent and remaining date/price instructions present. Staging noindex/nofollow/noarchive/nosnippet retained. All existing finance, email and operational approval gates remain unchanged.
 
 ## 2026-09-11 — Brett administrator access recovery
 
