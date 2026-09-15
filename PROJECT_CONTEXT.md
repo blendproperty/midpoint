@@ -6,11 +6,11 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 - Implementation: all four shared amenity galleries now have clickable photo buttons with an Enlarge cue. The selected photo opens in a native modal dialog with uncropped responsive imagery, captions/count, previous/next controls, arrow-key navigation, mobile horizontal swipe, Escape/close/backdrop dismissal, keyboard focus containment/return and restored background-scroll state. Enlarged images mount only when opened. No new packages, data or provider changes.
 - Testing: 26 files / 93 regression tests passed; 3 PostgreSQL tests deferred to CI. Final production build passed. Local production browser checks passed opening all four galleries, selected second-photo readback, uncropped image sizing, navigation/wrap, Tab containment, focus return, body-scroll restoration, all dismissal paths and mobile touch swipe. Existing gallery checks passed at 390/768/1440px with 16 photos and no browser exceptions. Desktop/mobile enlarged screenshots visually reviewed. Initial focus-containment failure corrected and retested successfully.
-- Commit and push: prepared on codex/amenities-showcase from verified origin/main 47af269; unrelated root changes preserved. Pending push.
-- Merge: pending fast-forward promotion to main.
-- Deployment and configuration: pending CI-gated deployment; no configuration changes.
-- Live production verification: pending enlarged-view checks on homepage and amenities page.
-- Outstanding gates: deployment/live verification for this interaction; all existing accommodation, finance, provider, data, training and staff-UAT gates remain unchanged.
+- Commit and push: runtime d2fe4f6ca94184a298e2d088136357759b6845f9 pushed to origin/main from codex/amenities-showcase, baseline 47af269; unrelated root changes preserved. Follow-up evidence uses CI skip.
+- Merge: fast-forward promotion to main completed; no PR merge.
+- Deployment and configuration: GitHub Actions run 34953065388 succeeded, including unit/PostgreSQL integration tests and server deployment. No configuration changes.
+- Live production verification: on 2026-09-15 homepage and /amenities returned 200 on release d2fe4f6ca941. Browser checks on both pages passed opening all four galleries, selected photo, uncropped images, next/previous and keyboard wrap, focus containment/return, restored scroll, Escape/close/backdrop dismissal and mobile touch swipe; final runs recorded no browser exceptions. Initial pre-load automated clicks timed out; tests were corrected to wait for page load. One separate diagnostic visit recorded a transient React hydration warning; subsequent identical visits and both complete live test runs were clean. Its underlying cause was not established and is not claimed fixed.
+- Outstanding gates: physical-device/user acceptance remains; investigate further if the transient hydration warning recurs. Existing accommodation, finance, provider, data, training and staff-UAT gates remain unchanged.
 
 ## 2026-09-15 — Correct amenities duplication and restore The Suites
 
