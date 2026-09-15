@@ -20,7 +20,7 @@ const highlights = [
   },
   {
     key: "suites", name: "The Suites at Midpoint", label: "Stay & settle in", number: "04",
-    description: "Corporate accommodation for visiting executives, business travellers and project teams. Stay close to your workplace and the life of the estate.",
+    description: "Coming soon: corporate accommodation for visiting executives, business travellers and project teams. Images are AI renderings for illustration; final finishes may differ.",
     photos: ["Bedroom and workspace at The Suites at Midpoint", "Bedroom with mirror at The Suites at Midpoint", "Suite wardrobe and refreshment area", "Bathroom at The Suites at Midpoint"],
   },
 ];
@@ -44,10 +44,11 @@ export default function AmenitiesSection({ detail = false }: { detail?: boolean 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {highlights.map((item) => (
             <article key={item.key} className="min-w-0 rounded-[1.5rem] bg-[#133333]">
-              <AmenityGallery name={item.name} photos={item.photos.map((alt, i) => ({ src: `/images/amenities/hub/${item.key}-${i + 1}.webp`, alt }))} />
+              <AmenityGallery name={item.name} imageNotice={item.key === "suites" ? "Coming soon · AI rendering" : undefined} photos={item.photos.map((alt, i) => ({ src: `/images/amenities/hub/${item.key}-${i + 1}.webp`, alt: item.key === "suites" ? `AI rendering: ${alt}` : alt }))} />
               <div className="p-6 lg:p-7">
                 <div className="mb-3 flex items-center justify-between text-xs font-medium uppercase tracking-[0.14em] text-midpoint-cyan"><span>{item.label}</span><span className="text-white/45" aria-hidden="true">{item.number}</span></div>
                 <h3 className="text-2xl font-medium tracking-tight">{item.name}</h3>
+                {item.key === "suites" && <p className="mt-3 inline-flex rounded-full border border-midpoint-cyan/40 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-midpoint-cyan">Coming soon</p>}
                 <p className="mt-3 text-sm leading-6 text-white/75">{item.description}</p>
                 {item.key === "suites" && <Link href="/the-suites-at-midpoint" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-midpoint-cyan underline-offset-4 hover:underline">Explore The Suites<ArrowUpRight size={16} aria-hidden="true" /></Link>}
               </div>

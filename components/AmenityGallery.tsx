@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Expand, X } from "lucide-react";
 
-type Props = { name: string; photos: { src: string; alt: string }[] };
+type Props = { imageNotice?: string; name: string; photos: { src: string; alt: string }[] };
 
 /** Native scrolling keeps touch, trackpad and no-JavaScript browsing available. */
-export default function AmenityGallery({ name, photos }: Props) {
+export default function AmenityGallery({ name, photos, imageNotice }: Props) {
   const track = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -55,6 +55,7 @@ export default function AmenityGallery({ name, photos }: Props) {
           <div key={photo.src} className="relative aspect-[4/3] w-full shrink-0 snap-center" role="group" aria-label={`Photo ${index + 1} of ${photos.length}`}>
             <button type="button" onClick={() => setExpanded(index)} tabIndex={index === active ? 0 : -1} aria-label={`Enlarge ${name} photo ${index + 1}`} aria-haspopup="dialog" className="relative block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-midpoint-cyan">
               <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 1280px) 290px, (min-width: 768px) 46vw, 100vw" className="object-cover" />
+              {imageNotice && <span className="absolute left-3 top-3 max-w-[48%] rounded-lg bg-midpoint-dark/95 px-2 py-1.5 text-left text-[11px] font-semibold leading-4 text-white">{imageNotice}</span>}
               <span className="absolute right-3 top-3 flex items-center gap-2 rounded-full bg-midpoint-dark/85 px-3 py-2 text-xs font-medium text-white"><Expand size={14} aria-hidden="true" />Enlarge</span>
             </button>
           </div>
@@ -98,7 +99,7 @@ export default function AmenityGallery({ name, photos }: Props) {
         className="fixed inset-0 m-auto h-[90dvh] max-h-[90dvh] w-[96vw] max-w-7xl overflow-hidden rounded-2xl bg-midpoint-dark p-4 text-white shadow-2xl backdrop:bg-black/85 open:flex open:flex-col md:p-6"
       >
         <div className="flex shrink-0 items-center justify-between gap-4 pb-4">
-          <h2 id={labelId} className="text-lg font-semibold">{name} gallery</h2>
+          <div><h2 id={labelId} className="text-lg font-semibold">{name} gallery</h2>{imageNotice && <p className="mt-1 text-sm text-midpoint-cyan">{imageNotice}</p>}</div>
           <button type="button" className={control} aria-label="Close enlarged gallery" onClick={() => setExpanded(null)}><X size={22} aria-hidden="true" /></button>
         </div>
         {expanded !== null && <>

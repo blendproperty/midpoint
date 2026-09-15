@@ -17,7 +17,7 @@ import { isStagingHost } from "@/lib/staging-host";
 export const metadata: Metadata = {
   title: "The Suites at Midpoint",
   description:
-    "Corporate accommodation at Midpoint in Midrand for executives, project teams and business travellers.",
+    "Coming soon: corporate accommodation at Midpoint in Midrand. Preview AI renderings of The Suites for executives, project teams and business travellers.",
   alternates: {
     canonical: "https://www.mid-point.co.za/the-suites-at-midpoint",
   },
@@ -70,7 +70,7 @@ export default async function SuitesPage() {
       <section className="relative min-h-[72vh] overflow-hidden">
         <Image
           src="/images/suites/suite-bedroom-workspace.png"
-          alt="Contemporary bedroom at The Suites at Midpoint"
+          alt="AI rendering of a proposed bedroom at The Suites at Midpoint"
           fill
           priority
           className="object-cover"
@@ -79,7 +79,7 @@ export default async function SuitesPage() {
         <div className="relative mx-auto flex min-h-[72vh] max-w-7xl items-center px-6 py-24">
           <div className="max-w-2xl">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[.22em] text-midpoint-cyan">
-              Corporate accommodation in Midrand
+              Coming soon · Corporate accommodation in Midrand
             </p>
             <h1 className="text-5xl font-semibold leading-tight md:text-7xl">
               The Suites at Midpoint
@@ -89,11 +89,12 @@ export default async function SuitesPage() {
               executives, project teams and business travellers who want to
               remain close to the office.
             </p>
+            <p className="mt-4 text-sm font-medium text-midpoint-cyan">AI renderings for illustration. Final finishes may differ.</p>
             <a
               href={staging ? "/stay" : "#request-to-book"}
               className="mt-8 inline-flex rounded-full bg-midpoint-cyan px-7 py-3 font-semibold text-midpoint-dark"
             >
-              {staging ? "Book your stay" : "Request availability"}
+              {staging ? "Book your stay" : "Enquire about The Suites"}
             </a>
           </div>
         </div>
@@ -128,10 +129,9 @@ export default async function SuitesPage() {
             Inside the suites
           </p>
           <h2 className="mb-8 mt-3 text-4xl font-semibold">A closer look</h2>
-          <SuiteGallery images={suiteImages} title="The Suites at Midpoint" />
+          <SuiteGallery images={suiteImages} title="The Suites at Midpoint" imageNotice="Coming soon · AI renderings" />
           <p className="mt-4 text-sm text-slate-500">
-            Supplied suite imagery. Category mapping will be finalised when the
-            Studio and Executive Suite image sets are confirmed.
+            Coming soon. These images are AI renderings for illustration, not photographs of completed suites. Final layouts, finishes and furnishings may differ.
           </p>
         </div>
       </section>
@@ -145,11 +145,10 @@ export default async function SuitesPage() {
               Plan your stay
             </p>
             <h2 className="mt-3 text-4xl font-semibold">
-              {staging ? "Find your stay" : "Request availability"}
+              {staging ? "Find your stay" : "Enquire about The Suites"}
             </h2>
             <p className="mt-5 leading-7 text-white/65">
-              Send your preferred dates and guest details. The team will confirm
-              availability and rates before any reservation is finalised.
+              The Suites are coming soon. Contact the team about future stays and opening plans. Availability and rates will be confirmed before any reservation is finalised.
             </p>
           </div>
           {staging ? (

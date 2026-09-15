@@ -49,7 +49,7 @@ export default function SuitesBookingForm() {
     <input name="company" placeholder="Company (optional)" className={field} />
     <textarea name="message" rows={4} placeholder="Tell us about your stay or any special requirements" className={`${field} sm:col-span-2`} />
     <label className="flex items-start gap-2 text-sm text-white/70 sm:col-span-2"><input type="checkbox" name="consent" required className="mt-1" />I consent to Midpoint using these details to respond to my accommodation request.</label>
-    <button disabled={status === "sending"} className="rounded-full bg-midpoint-cyan px-7 py-3 font-semibold text-midpoint-dark sm:col-span-2 sm:justify-self-start">{status === "sending" ? "Sending…" : "Request to book"}</button>
+    <button disabled={status === "sending"} className="rounded-full bg-midpoint-cyan px-7 py-3 font-semibold text-midpoint-dark sm:col-span-2 sm:justify-self-start">{status === "sending" ? "Sending…" : "Enquire about future stays"}</button>
     {status === "error" && <p role="alert" className="text-sm text-red-300 sm:col-span-2">We could not save your request. Please try again or use the WhatsApp button.</p>}
   </form>;
 }

@@ -2,6 +2,16 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-15 — Suites coming-soon and AI-rendering disclosure
+
+- Implementation: per Brett's confirmation that Suites imagery is currently AI-rendered, added Coming soon badges and explicit AI-rendering notices to the shared Suites card, image overlays, enlarged gallery, Suites landing-page hero and gallery. Added AI-rendering alt text and illustrative/final-finishes caveat. Public enquiry copy now refers to future stays; existing enquiry processing and staging booking gates are unchanged. No opening date invented.
+- Testing: 26 files / 93 tests passed, with 3 PostgreSQL tests deferred to CI; existing CTA expectation updated for the authorised copy change. Final production build passed. Local production browser verified the card and enlarged notice, notice persistence when navigating, AI alt text, no notice on Fond, landing hero disclosure and the separate Suites gallery modal disclosure. Mobile card screenshot reviewed; no browser exceptions in the disclosure check.
+- Commit and push: prepared from origin/main 1178917 on codex/amenities-showcase, preserving unrelated changes; pending push.
+- Merge: pending fast-forward promotion to main.
+- Deployment and configuration: pending normal CI deployment; no data/configuration changes.
+- Live production verification: pending homepage, amenities and Suites landing-page disclosure checks.
+- Outstanding gates: deploy/live verification for this copy update. Suites remain coming soon; actual photographs, opening date, final finishes and all existing accommodation/provider/finance/data/training/UAT gates remain unverified or unchanged.
+
 ## 2026-09-15 — Enlarge amenity photographs
 
 - Implementation: all four shared amenity galleries now have clickable photo buttons with an Enlarge cue. The selected photo opens in a native modal dialog with uncropped responsive imagery, captions/count, previous/next controls, arrow-key navigation, mobile horizontal swipe, Escape/close/backdrop dismissal, keyboard focus containment/return and restored background-scroll state. Enlarged images mount only when opened. No new packages, data or provider changes.

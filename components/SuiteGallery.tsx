@@ -4,9 +4,11 @@ import { useEffect, useRef, useState } from "react";
 export default function SuiteGallery({
   images,
   title,
+  imageNotice,
 }: {
   images: string[];
   title: string;
+  imageNotice?: string;
 }) {
   const [active, setActive] = useState(0),
     [open, setOpen] = useState(false),
@@ -29,12 +31,13 @@ export default function SuiteGallery({
       >
         <Image
           src={images[active]}
-          alt={title + " supplied interior " + (active + 1)}
+          alt={(imageNotice ? "AI rendering: " : "") + title + " interior " + (active + 1)}
           fill
           sizes="(min-width:1024px) 65vw, 100vw"
           className="object-contain"
           priority
         />
+        {imageNotice && <span className="absolute left-4 top-4 rounded-lg bg-black/80 px-3 py-2 text-xs text-white">{imageNotice}</span>}
         <span className="absolute bottom-4 right-4 rounded-full bg-black/60 px-4 py-2 text-xs text-white">
           View photos · {active + 1}/{images.length}
         </span>
@@ -74,6 +77,7 @@ export default function SuiteGallery({
         <div className="flex items-center justify-between">
           <p>
             {title} · {active + 1}/{images.length}
+            {imageNotice && <span className="block text-sm text-white/80">{imageNotice}</span>}
           </p>
           <button
             type="button"
@@ -96,7 +100,7 @@ export default function SuiteGallery({
         >
           <Image
             src={images[active]}
-            alt={title + " interior " + (active + 1)}
+            alt={(imageNotice ? "AI rendering: " : "") + title + " interior " + (active + 1)}
             fill
             className="object-contain"
             sizes="90vw"
