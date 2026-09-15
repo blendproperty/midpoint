@@ -2,6 +2,17 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-15 — Amenities photo showcase
+
+- Implementation: replaced the homepage icon marquee with three photo cards for Fond, Gym and Padel, also rendered on the amenities pillar page. Each native scroll-snap gallery has four supplied images, previous/next controls, keyboard navigation, photo count and reduced-motion support. Desktop uses three columns; mobile stacks the cards. Existing CMS content and accommodation/provider gates are preserved; no new booking links, database changes or packages.
+- Image optimisation: 12 selected images from Brett's Midpoint Hub folders converted to metadata-stripped WebP, capped at 1400px. Source total 4,056,057 bytes; output 1,953,468 bytes (51.8% smaller), with Next responsive sizing and lazy loading.
+- Testing: npm test passed 25 files / 92 tests; 3 PostgreSQL integration tests skipped locally and remain CI-gated. npm run build passed compilation, type checking and route generation. Playwright against the local production build verified three galleries / 12 images, next/previous boundaries, keyboard navigation, scroll/count synchronisation, no browser exceptions and no horizontal overflow at 390, 768 and 1440px. Desktop/mobile screenshots visually reviewed. Local runtime used database fallbacks; the CMS-backed amenities route requires live verification after deploy.
+- Commit and push: scoped implementation and this context record prepared on codex/amenities-showcase from verified origin/main 10a2300; unrelated root checkout changes preserved. Push pending.
+- Merge: fast-forward promotion to main pending; no PR merge yet.
+- Deployment and configuration: pending normal CI-gated deployment; no configuration changes required.
+- Live production verification: pending homepage and /amenities browser/image checks after deployment.
+- Outstanding gates: deployment and live verification for this visual update; all existing accommodation, finance, provider, data, training and staff-UAT gates elsewhere in this record remain unchanged.
+
 ## 2026-09-11 — Booking introduction copy
 
 - Implementation: removed the requested sentence "Two considered ways to stay in Midrand." from /stay; retained the practical date/price/booking instructions. No functional, data or finance changes.

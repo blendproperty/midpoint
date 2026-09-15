@@ -1,3 +1,4 @@
+import AmenitiesSection from "@/components/AmenitiesSection";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
@@ -213,6 +214,8 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         image={pillar.heroImage || FALLBACK_HERO_IMAGE}
         imageAlt={pillar.title}
       />
+
+      {pillar.slug === "amenities" && <AmenitiesSection detail />}
 
       <PillarTableOfContents items={tocItems} />
 

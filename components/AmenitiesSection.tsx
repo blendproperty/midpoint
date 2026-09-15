@@ -1,98 +1,60 @@
-import Image from "next/image";
 import Link from "next/link";
-import { amenities } from "@/lib/amenities";
-import Reveal from "@/components/Reveal";
+import { ArrowUpRight, Bike, Coffee, BedDouble } from "lucide-react";
+import AmenityGallery from "@/components/AmenityGallery";
 
-export default function AmenitiesSection() {
-  // Duplicated for a seamless marquee loop, same technique as TenantWall.
-  const row = [...amenities, ...amenities];
+const highlights = [
+  {
+    key: "fond", name: "Fond", label: "Eat & connect", number: "01",
+    description: "Coffee, a working lunch or a catch-up after hours. Make space for good food and great company at Fond restaurant and bar.",
+    photos: ["Light-filled dining room and bar at Fond", "Fond restaurant exterior at Midpoint", "A selection of dishes at Fond", "Seating and counter inside Fond restaurant"],
+  },
+  {
+    key: "gym", name: "Gym", label: "Move & recharge", number: "02",
+    description: "A change of pace, right on the estate. Bring movement into your working day with a dedicated space to train and recharge.",
+    photos: ["Gym training floor with an orange running track", "Indoor cycling equipment in the gym", "Strength equipment and training area", "Gym reception and seating area"],
+  },
+  {
+    key: "padel", name: "Padel", label: "Play & unwind", number: "03",
+    description: "Take your next catch-up to the court. Rooftop padel brings a fresh perspective to team time and the end of the working day.",
+    photos: ["Rooftop padel courts and outdoor seating at Midpoint", "View along a green padel court", "Covered seating beside the padel courts", "Glass-sided rooftop padel court"],
+  },
+];
 
+export default function AmenitiesSection({ detail = false }: { detail?: boolean }) {
   return (
-    <section
-      id="Amenities"
-      className="overflow-hidden py-16 text-white"
-      style={{
-        backgroundImage:
-          "linear-gradient(81deg, rgb(79, 115, 117), rgb(81, 98, 97) 59%)",
-      }}
-    >
+    <section id="Amenities" aria-labelledby="amenities-heading" className="bg-midpoint-dark py-16 text-white md:py-24">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Real 2-column grid confirmed via Playwright (607.2px / 303.6px,
-            ~2fr/1fr): heading left, description + button right. */}
-        <Reveal className="grid gap-8 md:grid-cols-[2fr_1fr] md:items-start">
-          <h2 className="text-3xl font-semibold md:text-4xl">Amenities &amp; Lifestyle</h2>
+        <div className="mb-10 grid gap-6 md:grid-cols-[1.3fr_1fr] md:items-end md:gap-16">
           <div>
-            <p className="text-midpoint-grey-100">
-              Facilities that support your team&rsquo;s day. An environment designed for well-being and success.
-            </p>
-            <p className="mt-2 text-midpoint-grey-100">
-              Midpoint combines industrial and commercial space with everyday amenities created for the people who work here.
-            </p>
-            <Link
-              href="/amenities"
-              className="mt-4 inline-flex rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark transition-transform hover:scale-105"
-            >
-              Read More
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-cyan">Amenities &amp; lifestyle</p>
+            <h2 id="amenities-heading" className="max-w-xl text-4xl font-medium leading-[1.08] tracking-tight md:text-5xl">More to your day.<br /><span className="text-white/65">All at Midpoint.</span></h2>
+          </div>
+          <div>
+            <p className="max-w-md text-base leading-relaxed text-white/75">From your first coffee to your final set. Discover the spaces that bring food, fitness and connection into the working day.</p>
+            <Link href={detail ? "/contact-us" : "/amenities"} className="mt-5 inline-flex min-h-11 items-center gap-3 border-b border-midpoint-cyan/50 pb-1 text-sm font-semibold text-midpoint-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-cyan">
+              {detail ? "Enquire about the amenities" : "Explore all amenities"}<ArrowUpRight size={18} aria-hidden="true" />
             </Link>
           </div>
-        </Reveal>
-      </div>
-
-      {/* Small, always-visible hint that the strip below is interactive and has
-          more cards than what's on screen - there was previously no signal of
-          either. */}
-      <p className="mx-auto mt-8 flex max-w-7xl items-center gap-2 px-6 text-xs uppercase tracking-wide text-midpoint-grey-100/80">
-        <span aria-hidden="true">←</span>
-        Hover to pause · scroll to explore
-        <span aria-hidden="true">→</span>
-      </p>
-
-      {/* Sliding card strip with edge fade — real values extracted via
-          Playwright: white cards (12px radius, 240px wide), icon image at
-          full 56×56 (no smaller icon padded inside), linear-gradient mask
-          fading both edges. `group` + focus/hover pause the marquee and
-          reveal the chevron hints so a visitor can tell there's more to see
-          in both directions and can actually stop it to read a card. */}
-      <div
-        role="region"
-        aria-label="Amenities and lifestyle highlights, auto-scrolling"
-        className="group relative mt-4 overflow-hidden"
-        style={{
-          maskImage:
-            "linear-gradient(to right, rgba(0,0,0,0), rgb(0,0,0) 30%, rgb(0,0,0) 70%, rgba(0,0,0,0))",
-          WebkitMaskImage:
-            "linear-gradient(to right, rgba(0,0,0,0), rgb(0,0,0) 30%, rgb(0,0,0) 70%, rgba(0,0,0,0))",
-        }}
-      >
-        <div
-          className="flex w-max gap-4 animate-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
-        >
-          {row.map((a, i) => (
-            <div
-              key={`${a.title}-${i}`}
-              tabIndex={0}
-              className="w-60 shrink-0 rounded-xl bg-white p-5 text-midpoint-dark transition-transform hover:-translate-y-1 focus:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-midpoint-cyan"
-            >
-              <div className="h-14 w-14 overflow-hidden rounded-lg bg-[rgba(161,189,217,0.08)]">
-                <Image src={a.icon} alt="" width={56} height={56} />
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {highlights.map((item) => (
+            <article key={item.key} className="min-w-0 rounded-[1.5rem] bg-[#133333]">
+              <AmenityGallery name={item.name} photos={item.photos.map((alt, i) => ({ src: `/images/amenities/hub/${item.key}-${i + 1}.webp`, alt }))} />
+              <div className="p-6 lg:p-7">
+                <div className="mb-3 flex items-center justify-between text-xs font-medium uppercase tracking-[0.14em] text-midpoint-cyan"><span>{item.label}</span><span className="text-white/45" aria-hidden="true">{item.number}</span></div>
+                <h3 className="text-3xl font-medium tracking-tight">{item.name}</h3>
+                <p className="mt-3 text-sm leading-6 text-white/75">{item.description}</p>
               </div>
-              <h3 className="mt-4 font-semibold">{a.title}</h3>
-              <p className="mt-1 text-sm text-midpoint-grey-400">{a.description}</p>
-            </div>
+            </article>
           ))}
         </div>
-
-        {/* Edge chevrons — faint by default, brighten on hover/focus so the
-            affordance is discoverable without already knowing to hover. */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2 opacity-40 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-midpoint-dark/70 text-sm text-white backdrop-blur-sm" aria-hidden="true">
-            ←
-          </span>
-        </div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 opacity-40 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-midpoint-dark/70 text-sm text-white backdrop-blur-sm" aria-hidden="true">
-            →
-          </span>
+        <div className="mt-10 flex flex-col gap-5 border-t border-white/15 pt-7 lg:flex-row lg:items-center lg:justify-between">
+          <p className="text-sm text-white/60">There&rsquo;s more to explore across the estate</p>
+          <ul className="flex flex-wrap gap-x-7 gap-y-4 text-sm text-white/85">
+            <li className="flex items-center gap-2"><Coffee size={17} className="text-midpoint-cyan" aria-hidden="true" />Coffee &amp; casual meetings</li>
+            <li className="flex items-center gap-2"><Bike size={17} className="text-midpoint-cyan" aria-hidden="true" />Walking, running &amp; cycling trails</li>
+            <li className="flex items-center gap-2"><BedDouble size={17} className="text-midpoint-cyan" aria-hidden="true" />Corporate accommodation</li>
+          </ul>
         </div>
       </div>
     </section>
