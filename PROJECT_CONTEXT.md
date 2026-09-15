@@ -2,6 +2,16 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-15 — Enlarge amenity photographs
+
+- Implementation: all four shared amenity galleries now have clickable photo buttons with an Enlarge cue. The selected photo opens in a native modal dialog with uncropped responsive imagery, captions/count, previous/next controls, arrow-key navigation, mobile horizontal swipe, Escape/close/backdrop dismissal, keyboard focus containment/return and restored background-scroll state. Enlarged images mount only when opened. No new packages, data or provider changes.
+- Testing: 26 files / 93 regression tests passed; 3 PostgreSQL tests deferred to CI. Final production build passed. Local production browser checks passed opening all four galleries, selected second-photo readback, uncropped image sizing, navigation/wrap, Tab containment, focus return, body-scroll restoration, all dismissal paths and mobile touch swipe. Existing gallery checks passed at 390/768/1440px with 16 photos and no browser exceptions. Desktop/mobile enlarged screenshots visually reviewed. Initial focus-containment failure corrected and retested successfully.
+- Commit and push: prepared on codex/amenities-showcase from verified origin/main 47af269; unrelated root changes preserved. Pending push.
+- Merge: pending fast-forward promotion to main.
+- Deployment and configuration: pending CI-gated deployment; no configuration changes.
+- Live production verification: pending enlarged-view checks on homepage and amenities page.
+- Outstanding gates: deployment/live verification for this interaction; all existing accommodation, finance, provider, data, training and staff-UAT gates remain unchanged.
+
 ## 2026-09-15 — Correct amenities duplication and restore The Suites
 
 - Implementation: corrected the earlier showcase composition, which left duplicate CMS lifestyle cards below the galleries and relegated accommodation to a small mention. Added The Suites at Midpoint as a fourth full gallery on the homepage and amenities page, with four existing suite images optimised to WebP (199,748 bytes total) and a link to the existing public Suites page. Gallery grid uses four desktop columns, two tablet columns and one mobile column.
