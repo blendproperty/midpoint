@@ -6,11 +6,11 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 
 - Implementation: per Brett's confirmation that Suites imagery is currently AI-rendered, added Coming soon badges and explicit AI-rendering notices to the shared Suites card, image overlays, enlarged gallery, Suites landing-page hero and gallery. Added AI-rendering alt text and illustrative/final-finishes caveat. Public enquiry copy now refers to future stays; existing enquiry processing and staging booking gates are unchanged. No opening date invented.
 - Testing: 26 files / 93 tests passed, with 3 PostgreSQL tests deferred to CI; existing CTA expectation updated for the authorised copy change. Final production build passed. Local production browser verified the card and enlarged notice, notice persistence when navigating, AI alt text, no notice on Fond, landing hero disclosure and the separate Suites gallery modal disclosure. Mobile card screenshot reviewed; no browser exceptions in the disclosure check.
-- Commit and push: prepared from origin/main 1178917 on codex/amenities-showcase, preserving unrelated changes; pending push.
-- Merge: pending fast-forward promotion to main.
-- Deployment and configuration: pending normal CI deployment; no data/configuration changes.
-- Live production verification: pending homepage, amenities and Suites landing-page disclosure checks.
-- Outstanding gates: deploy/live verification for this copy update. Suites remain coming soon; actual photographs, opening date, final finishes and all existing accommodation/provider/finance/data/training/UAT gates remain unverified or unchanged.
+- Commit and push: runtime 25dae92e6664d16dcdff9ddb9b6724fff5024497 pushed to origin/main from codex/amenities-showcase, baseline 1178917. Unrelated changes preserved; evidence follow-up uses CI skip.
+- Merge: fast-forward promotion to main completed; no PR merge.
+- Deployment and configuration: GitHub Actions run 34953915794 succeeded, including database integration tests and server deployment. No data/configuration changes.
+- Live production verification: on 2026-09-15 homepage and amenities browser checks confirmed Coming soon and AI-rendering disclosure on the Suites card and enlarged viewer, persistence after navigation, AI alt text, no disclosure applied to Fond and no browser exceptions. Public Suites landing page returned 200; its hero, separate gallery modal and future-stay enquiry wording passed browser readback.
+- Outstanding gates: Suites remain coming soon. Actual photographs, opening date, final finishes and all existing accommodation/provider/finance/data/training/UAT gates remain unverified or unchanged.
 
 ## 2026-09-15 — Enlarge amenity photographs
 
