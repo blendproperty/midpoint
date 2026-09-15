@@ -1,3 +1,4 @@
+import { supportingAmenityFeatures } from "@/lib/amenity-showcase";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
@@ -94,7 +95,8 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
       })
     : [];
   const featureAltByUrl = Object.fromEntries(featureMedia.map((item) => [item.url, item.alt.trim()]));
-  const features = storedFeatures.map((feature) => ({
+  const displayedFeatures = pillar.slug === "amenities" ? supportingAmenityFeatures(storedFeatures) : storedFeatures;
+  const features = displayedFeatures.map((feature) => ({
     ...feature,
     alt: feature.alt?.trim() || featureAltByUrl[feature.image] || feature.heading,
   }));
@@ -152,7 +154,8 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
           .filter((fact): fact is { value: string; label: string } => fact !== null);
 
   const tocItems = [
-    features.length > 0 ? { id: "features", label: "Highlights" } : null,
+    pillar.slug === "amenities" ? { id: "Amenities", label: "Highlights" } : null,
+    features.length > 0 ? { id: "features", label: pillar.slug === "amenities" ? "Estate facilities" : "Highlights" } : null,
     considerations.length > 0 ? { id: "things-to-know", label: "Things to know" } : null,
     listings.length > 0 ? { id: "availability", label: "Availability" } : null,
     hasBody ? { id: "overview", label: "Overview" } : null,
@@ -215,16 +218,16 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         imageAlt={pillar.title}
       />
 
-      {pillar.slug === "amenities" && <AmenitiesSection detail />}
-
       <PillarTableOfContents items={tocItems} />
+
+      {pillar.slug === "amenities" && <AmenitiesSection detail />}
 
       <PillarQuickFacts
         facts={quickFacts}
         title={pillar.slug === "amenities" ? "Estate fact sheet" : undefined}
       />
 
-      {trustItems.length > 0 && (
+      {pillar.slug !== "amenities" && trustItems.length > 0 && (
         <div className="mx-auto max-w-7xl px-6 pb-10 pt-6">
           <div className="flex flex-wrap gap-3">
             {trustItems.map((item) => (

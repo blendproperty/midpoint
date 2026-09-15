@@ -2,6 +2,17 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-15 — Correct amenities duplication and restore The Suites
+
+- Implementation: corrected the earlier showcase composition, which left duplicate CMS lifestyle cards below the galleries and relegated accommodation to a small mention. Added The Suites at Midpoint as a fourth full gallery on the homepage and amenities page, with four existing suite images optimised to WebP (199,748 bytes total) and a link to the existing public Suites page. Gallery grid uses four desktop columns, two tablet columns and one mobile column.
+- Page composition: amenities-only filtering removes the superseded Fond, Gym/Padel and Suites feature cards while preserving trails, backup power/water and future unrelated CMS features. Removed the redundant amenities badge strip. Moved section navigation above the showcase; Highlights links to the galleries and Estate facilities links to the remaining supporting cards. Other pillar pages and stored CMS records are unchanged. Operating-status caveats and existing booking/provider gates are retained.
+- Testing: 26 test files / 93 tests passed, 3 PostgreSQL tests deferred to CI. Added a regression test proving duplicate lifestyle entries are excluded while supporting/new CMS features survive. Production build passed. Local production-browser checks passed four galleries/16 images, Suites heading/link, controls, keyboard navigation and no overflow at 390/768/1440px; desktop screenshot reviewed. Public Suites destination returned 200 before promotion. Local database-backed page unavailable; full amenities composition requires live readback.
+- Commit and push: prepared from verified origin/main 0071c33 on codex/amenities-showcase, preserving unrelated root changes; pending push.
+- Merge: pending fast-forward promotion to main.
+- Deployment and configuration: pending CI-gated deployment; no database/configuration changes.
+- Live production verification: pending full homepage and amenities composition checks, including absence of superseded feature headings and presence of supporting facilities.
+- Outstanding gates: deploy/live verification for this correction; all existing accommodation, provider, finance, data, training and staff-UAT gates below remain unchanged.
+
 ## 2026-09-15 — Amenities photo showcase
 
 - Implementation: replaced the homepage icon marquee with three photo cards for Fond, Gym and Padel, also rendered on the amenities pillar page. Each native scroll-snap gallery has four supplied images, previous/next controls, keyboard navigation, photo count and reduced-motion support. Desktop uses three columns; mobile stacks the cards. Existing CMS content and accommodation/provider gates are preserved; no new booking links, database changes or packages.

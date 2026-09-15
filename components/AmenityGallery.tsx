@@ -34,7 +34,7 @@ export default function AmenityGallery({ name, photos }: Props) {
       >
         {photos.map((photo, index) => (
           <div key={photo.src} className="relative aspect-[4/3] w-full shrink-0 snap-center" role="group" aria-label={`Photo ${index + 1} of ${photos.length}`}>
-            <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 1280px) 390px, (min-width: 768px) 31vw, 100vw" className="object-cover" />
+            <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 1280px) 290px, (min-width: 768px) 46vw, 100vw" className="object-cover" />
           </div>
         ))}
       </div>
