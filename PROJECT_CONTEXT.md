@@ -2,6 +2,17 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-29 - Midpoint CI and proposed Midpoint Fuel identity
+
+- Implementation: created `brand/midpoint-identity-2026-09-29/` with a 25-page website-based corporate identity PDF; exact website reverse Midpoint SVG; suggested Midpoint Fuel SVG and single-page vector PDF; positive, reverse, monochrome and app-icon SVG variants; source-PDF vector conversion; preview and asset hashes. Original symbol and wordmark outlines retained, with a new outlined Figtree Bold FUEL descriptor. Guide covers positioning, audience, brand architecture, clear space, minimum sizes, colours, contrast, typography, tonality, messaging, imagery, graphic language, motion, app styling/journey, signage, stationery, social and production guidance. Verified facts and new proposals are labelled separately.
+- Source evidence: local `Midpoint@2x (1).pdf` and the PDF attached to the 28 September JV email produce identical vector output (nine paths, zero raster images). Reviewed the full JV correspondence and all ten screens in BlendApp.png. Live website inspected 29 September: Figtree and the website SVG/colour values confirmed. No commercial terms or personal contact details copied into the identity guide.
+- Testing / validation: both PDFs opened and rendered; all 25 CI pages inspected from Poppler output, with initial spacing issues corrected. Final layout bounds checks passed. All ten SVGs parse and contain zero raster images, live text or scripts; the Fuel SVG retains all nine source paths plus four FUEL paths. Logo PDF has 13 vector drawings and zero images. Contrast ratios calculated from sRGB. A ZIP was prepared locally for delivery. Full-size print, signage and physical-device app proofs remain pending.
+- Commit and push: prepared in isolated `codex/midpoint-fuel-ci`, based on verified origin/main `025a8dd693db22c13f4dafc86781704c5376605e`. Artifact/context commit and remote verification follow below. Unrelated changes in the original working directory and other worktrees are preserved.
+- Merge: none. The identity proposal is separate from production main.
+- Deployment and configuration: none; no website, app, provider or production settings changed. No email sent.
+- Live production verification: read-only brand-reference inspection of https://www.mid-point.co.za/; no new identity deployed or fuel functionality verified.
+- Outstanding gates: Brett/brand-owner acceptance of Fuel artwork and newly proposed CI rules; JV/partner treatment; service launch, municipal/fire/environmental and project-cost approvals from the proposal remain unverified; app/provider/payment/data/loyalty/operating-hours validation and user testing; print colour/signage proof; any subsequent publication or external delivery. Existing unrelated project gates below remain in force.
+
 ## 2026-09-15 — Suites coming-soon and AI-rendering disclosure
 
 - Implementation: per Brett's confirmation that Suites imagery is currently AI-rendered, added Coming soon badges and explicit AI-rendering notices to the shared Suites card, image overlays, enlarged gallery, Suites landing-page hero and gallery. Added AI-rendering alt text and illustrative/final-finishes caveat. Public enquiry copy now refers to future stays; existing enquiry processing and staging booking gates are unchanged. No opening date invented.
