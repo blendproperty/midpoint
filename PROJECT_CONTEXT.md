@@ -2,6 +2,16 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-09-29 - Identity handover email draft
+
+- Implementation: saved a reply draft on the JV proposal thread for Luke, with Chris and Ernest copied. Attached the CI PDF, parent SVG, proposed Fuel SVG/PDF and complete identity ZIP. Requested logo/partner-treatment review, app asset specifications, confirmed launch features and operating information, and timing for a branded app preview.
+- Testing / validation: connector readback verified recipients, subject, paragraph formatting and body; attachment metadata confirmed all five named deliverables. Superseded formatting draft removed to Deleted Items. Final draft remains unsent for Brett's review.
+- Commit and push: evidence-only update on `codex/midpoint-fuel-ci`, starting from verified local/remote `9ff6346ee61e7290f570f3521b4ee16db9dffd4f`; this record is included in the follow-up commit, with remote head and canonical-file presence checked at handoff.
+- Merge: none.
+- Deployment and configuration: none. No email sent and no provider or application settings changed.
+- Live production verification: no new production behavior claimed; verification is limited to the saved Outlook draft and attachment readback.
+- Outstanding gates: Brett's review and send approval; all brand, JV, app, provider, data, payment, physical proof and launch gates below remain open.
+
 ## 2026-09-29 - Midpoint CI and proposed Midpoint Fuel identity
 
 - Implementation: created `brand/midpoint-identity-2026-09-29/` with a 25-page website-based corporate identity PDF; exact website reverse Midpoint SVG; suggested Midpoint Fuel SVG and single-page vector PDF; positive, reverse, monochrome and app-icon SVG variants; source-PDF vector conversion; preview and asset hashes. Original symbol and wordmark outlines retained, with a new outlined Figtree Bold FUEL descriptor. Guide covers positioning, audience, brand architecture, clear space, minimum sizes, colours, contrast, typography, tonality, messaging, imagery, graphic language, motion, app styling/journey, signage, stationery, social and production guidance. Verified facts and new proposals are labelled separately.
