@@ -106,6 +106,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   const exploreLinks = Array.isArray(pillar.exploreLinks) ? (pillar.exploreLinks as unknown as PillarLink[]) : [];
   const trustItems = (pillar.trustStrip || "").split("\n").map((s) => s.trim()).filter(Boolean);
   const hasBody = Boolean(pillar.contentHtml && pillar.contentHtml.replace(/<[^>]*>/g, "").trim());
+  const isBusinessParkGuide = pillar.slug === "business-park-midrand";
   const breadcrumbItems = [{ name: "Home", path: "/" }, { name: pillar.title, path: `/${pillar.slug}` }];
 
   const vacancies = pillar.relatedSector
@@ -153,7 +154,17 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
           })
           .filter((fact): fact is { value: string; label: string } => fact !== null);
 
-  const tocItems = [
+  const guideSections = [
+    { id: "choose-your-space", label: "Compare spaces" },
+    { id: "midrand-location", label: "Location" },
+    { id: "leasing-costs", label: "Costs" },
+    { id: "building-checklist", label: "Viewing checklist" },
+    { id: "working-at-midpoint", label: "Working here" },
+    { id: "leasing-process", label: "Next steps" },
+  ].filter((item) => pillar.contentHtml?.includes(`id="${item.id}"`));
+  const tocItems = isBusinessParkGuide && guideSections.length > 0
+    ? [...guideSections, ...(faqs.length > 0 ? [{ id: "faqs", label: "FAQs" }] : [])]
+    : [
     pillar.slug === "amenities" ? { id: "Amenities", label: "Highlights" } : null,
     features.length > 0 ? { id: "features", label: pillar.slug === "amenities" ? "Estate facilities" : "Highlights" } : null,
     considerations.length > 0 ? { id: "things-to-know", label: "Things to know" } : null,
@@ -161,6 +172,15 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     hasBody ? { id: "overview", label: "Overview" } : null,
     faqs.length > 0 ? { id: "faqs", label: "FAQs" } : null,
   ].filter((item): item is { id: string; label: string } => item !== null);
+
+  const bodySection = hasBody && (
+    <section id="overview" className="bg-white px-6 py-10">
+      <div
+        className={`mx-auto max-w-4xl space-y-4 text-midpoint-grey-400 [&_a]:text-midpoint-dark [&_a]:underline [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-midpoint-dark [&_h3]:mt-6 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-midpoint-dark [&_img]:rounded-card [&_li]:ml-5 [&_li]:list-disc [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-midpoint-grey-100 [&_td]:p-2 [&_th]:border [&_th]:border-midpoint-grey-100 [&_th]:p-2 ${isBusinessParkGuide ? "leading-relaxed [&_h2]:scroll-mt-40 [&_ol>li]:list-decimal [&_li]:mb-3 [&_caption]:mb-3 [&_caption]:text-left [&_caption]:font-semibold [&_caption]:text-midpoint-dark [&_th]:bg-midpoint-cyan/10 [&_th]:text-left [&_th]:text-midpoint-dark [&_td]:align-top [&_th]:align-top [&_table]:text-sm" : ""}`}
+        dangerouslySetInnerHTML={{ __html: pillar.contentHtml }}
+      />
+    </section>
+  );
 
   // Always auto-generated from this pillar's real content (FAQs, expert bio,
   // Midpoint's address/amenities, Blend Property Group) — there is no manual
@@ -174,7 +194,12 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         url: `${settings.domain}/${pillar.slug}`,
         name: pillar.title,
         description,
-        about: midpointPlaceJsonLd(),
+        ...(isBusinessParkGuide ? { dateModified: pillar.updatedAt.toISOString() } : {}),
+        // This guide distinguishes operating facilities from future plans in
+        // its visible copy; do not add the shared, unconditional amenity list.
+        about: isBusinessParkGuide
+          ? { ...midpointPlaceJsonLd(), amenityFeature: undefined }
+          : midpointPlaceJsonLd(),
         mentions: organizationJsonLd(),
         ...(pillar.lastReviewedAt ? { lastReviewed: pillar.lastReviewedAt.toISOString() } : {}),
       },
@@ -239,6 +264,8 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         </div>
       )}
 
+      {isBusinessParkGuide && bodySection}
+
       {features.length > 0 && (
         <div id="features">
           <FeatureIntro
@@ -280,21 +307,14 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         </div>
       )}
 
-      {hasBody && (
-        <section id="overview" className="bg-white px-6 py-10">
-          <div
-            className="mx-auto max-w-4xl space-y-4 text-midpoint-grey-400 [&_a]:text-midpoint-dark [&_a]:underline [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-midpoint-dark [&_h3]:mt-6 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-midpoint-dark [&_img]:rounded-card [&_li]:ml-5 [&_li]:list-disc [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-midpoint-grey-100 [&_td]:p-2 [&_th]:border [&_th]:border-midpoint-grey-100 [&_th]:p-2"
-            dangerouslySetInnerHTML={{ __html: pillar.contentHtml }}
-          />
-        </section>
-      )}
+      {!isBusinessParkGuide && bodySection}
 
       {faqs.length > 0 && <PageFaqAccordion heading={pillar.faqsHeading || "Frequently asked questions"} faqs={faqs} />}
 
       {pillar.expertName && (
         <section className="bg-white px-6 pb-4">
           <div className="mx-auto max-w-4xl rounded-card bg-midpoint-dark p-6 text-white">
-            <p className="text-xs uppercase tracking-wide text-white/50">Reviewed by</p>
+            <p className="text-xs uppercase tracking-wide text-white/50">{isBusinessParkGuide ? "Property contact" : "Reviewed by"}</p>
             <p className="mt-1 text-lg font-semibold">{pillar.expertName}</p>
             {pillar.expertRole && <p className="text-sm text-white/70">{pillar.expertRole}</p>}
             {pillar.expertBio && <p className="mt-3 text-sm text-white/70">{pillar.expertBio}</p>}
