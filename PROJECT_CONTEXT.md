@@ -2,6 +2,15 @@
 
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
+## 2026-10-02 — Business-park noindex report recheck
+
+- Implementation: diagnostic only; no application, CMS or indexing configuration change was needed. The initial 20260731110000 migration explicitly created this page as a review-only/noindex record; the 30 September indexing correction remains effective.
+- Testing/live production verification: fresh HTTP response and rendered Chromium DOM on https://www.mid-point.co.za/business-park-midrand returned 200 with index, follow and no blocking X-Robots-Tag header. Apex-domain and trailing-slash variants also rendered index, follow; two Googlebot user-agent requests with no-cache headers returned the same directive. These user-agent simulations are not Google Search Console live inspection. The canonical is the requested www URL; sitemap includes that URL with lastmod 2026-09-30T08:24:36.859Z. New guide heading/content remains present. Served release f73488fc3822 matches the latest production release documented below.
+- Commit and push: evidence-only update from codex/midpoint-area-guide, fast-forwarded to origin/main baseline a5b8c21; intended for main with CI skip. Original OneDrive changes and generated files preserved.
+- Merge: no runtime merge required; evidence-only fast-forward promotion, no PR.
+- Deployment and configuration: unchanged; no redeployment or index toggle performed during this diagnosis.
+- Outstanding evidence: the source/date of the user's noindex warning has been requested but not supplied. An older crawl/report remains a possibility, not an established cause. Actual Google indexing/ranking, Search Console processing and all existing editorial, commercial, Suites, provider and UAT gates remain unverified or unchanged.
+
 ## 2026-10-02 - SEO capability parity with Stor24 CMS (published and live verified)
 
 - Approved rollout: user explicitly requested publication after backup. Protected production PostgreSQL custom archive was fully restored into an isolated temporary database; representative table counts matched, checksum/permissions verified, and previous image/commit/configuration retained. Revision `e77e9099bbde691736d10816d3aaffa7def107c6` fast-forwarded main and GitHub run `36965120234` completed test/deploy successfully; new planning migration applied. Live checks uncovered the pre-existing availability-report page redirect dropping campaign queries, so it is now routed through the shared query-preserving middleware with regression coverage. The corrective release passed the final live checks below.
