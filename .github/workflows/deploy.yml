@@ -77,7 +77,9 @@ jobs:
             # column/table and crashes. Build both explicitly first.
             docker compose -f compose.prod.yml build web migrate
             docker compose -f compose.prod.yml up -d db
-            docker compose -f compose.prod.yml --profile tools run --rm migrate
+            # Releases apply schema migrations only. Bootstrap seeding is an
+            # intentional setup operation: it can reset settings/contact data.
+            docker compose -f compose.prod.yml --profile tools run --rm migrate npx prisma migrate deploy
             docker compose -f compose.prod.yml up -d --no-build web
             # Verify the new release is the one actually served through
             # Cloudflare, not merely a successfully built local image.
