@@ -12,6 +12,7 @@ const AMENITY_BUILDING_SLUGS = new Set([
 // Console but no longer present in the current inventory export.
 export function legacyDestination(pathname: string): string | null {
   const normalized = pathname.replace(/\/+$/, "") || "/";
+  if (normalized === "/availability-report") return "/vacancies";
   const building = /^\/buildings\/([^/]+)$/i.exec(normalized);
   if (building) {
     return AMENITY_BUILDING_SLUGS.has(building[1].toLowerCase()) ? "/amenities" : "/vacancies";
