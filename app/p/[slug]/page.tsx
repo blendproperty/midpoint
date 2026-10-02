@@ -9,7 +9,7 @@ import PageAccessGate from "@/components/PageAccessGate";
 import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
 import { richPageJsonLd } from "@/lib/seo";
-import { pageRobots } from "@/lib/indexing";
+import { buildPageMetadata } from "@/lib/seo-metadata";
 import { safeJsonLd } from "@/lib/json-ld";
 
 export const dynamic = "force-dynamic";
@@ -23,23 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const page = await getPage(slug);
   if (!page || page.status !== "PUBLISHED") return {};
 
-  const title = page.seoTitle || page.title;
-  const description = page.seoDescription || undefined;
-
-  return {
-    title,
-    description,
-    ...(page.canonicalUrl ? { alternates: { canonical: page.canonicalUrl } } : {}),
-    // Password-protected pages are never indexable, regardless of the
-    // noIndex field — there's no point letting search engines crawl a page
-    // visitors can't actually open without a password.
-    robots: pageRobots(page.noIndex, page.passwordProtected),
-    openGraph: {
-      title: page.ogTitle || title,
-      description: page.ogDescription || description,
-      images: page.ogImage ? [{ url: page.ogImage }] : undefined,
-    },
-  };
+  const settings = await getSiteSettings();
+  return buildPageMetadata({ path: `/p/${page.slug}`, title: page.title, description: undefined, image: undefined, fields: page, settings, article: false });
 }
 
 export default async function CmsPage({ params }: { params: Promise<{ slug: string }> }) {

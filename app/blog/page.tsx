@@ -1,3 +1,4 @@
+import { staticPageMetadata } from "@/lib/page-seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,10 +10,9 @@ export const dynamic = "force-dynamic";
 
 const description = "News, updates, and insights from Midpoint Midrand.";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return staticPageMetadata("/blog", "Blog", description);
+}
 
 export default async function BlogIndexPage() {
   const posts = await prisma.blogPost.findMany({
@@ -33,8 +33,8 @@ export default async function BlogIndexPage() {
           <div className="mt-10 rounded-card bg-midpoint-dark p-10 text-center text-white md:p-16">
             <h2 className="text-2xl font-semibold md:text-3xl">Our first stories are on the way.</h2>
             <p className="mx-auto mt-3 max-w-xl text-white/70">
-              We're putting together news and updates from Midpoint Midrand — check back soon,
-              or explore what's available at the estate right now.
+              We&apos;re putting together news and updates from Midpoint Midrand - check back soon,
+              or explore what&apos;s available at the estate right now.
             </p>
             <Link
               href="/vacancies"

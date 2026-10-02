@@ -98,7 +98,7 @@ export async function getAuditRows(): Promise<AuditRow[]> {
         seoTitle: o?.seoTitle,
         seoDescription: o?.seoDescription,
         ogImage: o?.ogImage,
-        pageContent: getStaticPageContent(s.path),
+        pageContent: getStaticPageContent(s.path) || undefined,
       }),
     };
   });

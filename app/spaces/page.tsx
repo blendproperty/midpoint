@@ -6,9 +6,9 @@ import ReadyToMoveSection from "@/components/ReadyToMoveSection";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getPageSeoOverride } from "@/lib/page-seo";
-import { richPageJsonLd, stripSiteNameSuffix } from "@/lib/seo";
+import { richPageJsonLd } from "@/lib/seo";
 import { getSiteSettings } from "@/lib/site-settings";
-import { pageRobots } from "@/lib/indexing";
+import { buildPageMetadata } from "@/lib/seo-metadata";
 
 export const dynamic = "force-dynamic";
 
@@ -18,12 +18,7 @@ const description =
 
 export async function generateMetadata(): Promise<Metadata> {
   const [override, settings] = await Promise.all([getPageSeoOverride("/spaces"), getSiteSettings()]);
-  const rawTitle = override?.seoTitle || FALLBACK_TITLE;
-  return {
-    title: stripSiteNameSuffix(rawTitle, settings.siteName),
-    description: override?.seoDescription || description,
-    robots: pageRobots(override?.noIndex),
-  };
+  return buildPageMetadata({ path: "/spaces", title: FALLBACK_TITLE, description, fields: override, settings });
 }
 
 export default async function SpacesPage() {

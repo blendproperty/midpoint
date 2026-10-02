@@ -12,23 +12,26 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   const settings = await getSiteSettings();
 
-  const [pillarPages, pages, blogPosts] = await Promise.all([
+  if (!settings.allowIndexing) return new Response("Discovery is disabled.\n", { headers: { "Content-Type": "text/plain" } });
+
+  const [pillarPages, pages, blogPosts, overrides] = await Promise.all([
     prisma.pillarPage.findMany({
-      where: { status: "PUBLISHED" },
+      where: { status: "PUBLISHED", noIndex: false, passwordProtected: false },
       orderBy: { title: "asc" },
       select: { title: true, slug: true, seoDescription: true, heroAnswer: true },
     }),
     prisma.page.findMany({
-      where: { status: "PUBLISHED" },
+      where: { status: "PUBLISHED", noIndex: false, passwordProtected: false },
       orderBy: { title: "asc" },
       select: { title: true, slug: true, seoDescription: true },
     }),
     prisma.blogPost.findMany({
-      where: { status: "PUBLISHED" },
+      where: { status: "PUBLISHED", noIndex: false },
       orderBy: { updatedAt: "desc" },
       take: 25,
       select: { title: true, slug: true, excerpt: true, seoDescription: true },
     }),
+    prisma.pageSeoOverride.findMany({ where: { noIndex: true }, select: { path: true } }),
   ]);
 
   const lines: string[] = [];
@@ -40,17 +43,13 @@ export async function GET() {
   lines.push("");
   lines.push("## Key pages");
   lines.push("");
-  for (const p of STATIC_PAGES) {
+  for (const p of STATIC_PAGES.filter(p => !overrides.some(o => o.path === p.path))) {
     lines.push(`- [${p.label}](${settings.domain}${p.path})`);
   }
   for (const p of pillarPages) {
     const summary = (p.seoDescription || p.heroAnswer || "").replace(/\s+/g, " ").trim().slice(0, 160);
     lines.push(`- [${p.title}](${settings.domain}/${p.slug})${summary ? `: ${summary}` : ""}`);
   }
-  lines.push(`- [Current availability / vacancy schedule](${settings.domain}/availability-report)`);
-  lines.push(`- [Vacancies](${settings.domain}/vacancies)`);
-  lines.push(`- [FAQs](${settings.domain}/faqs)`);
-  lines.push(`- [Contact / leasing enquiries](${settings.domain}/contact-us)`);
 
   if (pages.length > 0) {
     lines.push("");

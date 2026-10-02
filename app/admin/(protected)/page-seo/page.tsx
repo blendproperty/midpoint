@@ -5,7 +5,11 @@ import { STATIC_PAGES } from "@/lib/static-pages";
 export const dynamic = "force-dynamic";
 
 export default async function PageSeoAdminPage() {
-  const overrides = await prisma.pageSeoOverride.findMany();
+  const [overrides, vacancies] = await Promise.all([
+    prisma.pageSeoOverride.findMany(),
+    prisma.vacancy.findMany({ where: { status: "PUBLISHED" }, select: { id: true, building: true, unitName: true }, orderBy: { building: "asc" } }),
+  ]);
+  const editablePages = [...STATIC_PAGES, ...vacancies.map(v => ({ path: `/vacancies/${encodeURIComponent(v.id)}`, label: `${v.building}${v.unitName ? ` - ${v.unitName}` : ""}` }))];
   const overrideMap = new Map(overrides.map((o) => [o.path, o]));
 
   return (
@@ -15,7 +19,7 @@ export default async function PageSeoAdminPage() {
         Title and meta description overrides for the site&apos;s static (non-CMS) pages. Blog posts, Pages, and
         Pillar Pages already have their own SEO fields — edit those directly under their own sections.
       </p>
-      <div className="mt-6 overflow-hidden rounded-xl bg-white shadow-sm">
+      <div className="mt-6 overflow-x-auto rounded-xl bg-white shadow-sm">
         <table className="w-full text-left text-sm">
           <thead className="bg-slate-100 text-slate-500">
             <tr>
@@ -26,7 +30,7 @@ export default async function PageSeoAdminPage() {
             </tr>
           </thead>
           <tbody>
-            {STATIC_PAGES.map((p) => {
+            {editablePages.map((p) => {
               const o = overrideMap.get(p.path);
               return (
                 <tr key={p.path} className="border-t border-slate-100">

@@ -1,3 +1,6 @@
+import { getPageSeoOverride } from "@/lib/page-seo";
+import { getSiteSettings } from "@/lib/site-settings";
+import { buildPageMetadata } from "@/lib/seo-metadata";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +16,9 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { id } = await params;
   const listing = await getVacancyById(decodeURIComponent(id));
   if (!listing) return {};
-  return { title: `${vacancyLabel(listing)} to let`, description: listing.description };
+  const path = `/vacancies/${encodeURIComponent(listing.id)}`;
+  const [fields, settings] = await Promise.all([getPageSeoOverride(path), getSiteSettings()]);
+  return buildPageMetadata({ path, title: `${vacancyLabel(listing)} to let`, description: listing.description, image: listing.image, fields, settings });
 }
 
 export default async function VacancyDetailPage({ params }: { params: Promise<{ id: string }> }) {

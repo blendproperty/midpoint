@@ -1,3 +1,4 @@
+import SeoTools from "@/components/admin/SeoTools";
 import Link from "next/link";
 import { getAuditRows, summarizeAuditRows, type AuditRow } from "@/lib/seo-audit";
 import type { SeoCheckStatus } from "@/lib/seo-score";
@@ -135,6 +136,7 @@ export default async function SeoAuditPage({
   return (
     <div>
       <h1 className="text-2xl font-semibold">SEO audit</h1>
+      <SeoTools />
       <p className="mt-1 text-sm text-slate-500">
         Every published blog post, page, pillar page, static page, and vacancy listing scored with the same kind
         of checklist used on each editor.
@@ -157,21 +159,21 @@ export default async function SeoAuditPage({
         <div className="mt-6 rounded-xl bg-amber-50 p-4">
           <h2 className="text-sm font-semibold text-amber-800">Keyword cannibalization</h2>
           <p className="mt-1 text-xs text-amber-700">
-            These focus keywords are targeted by more than one published page — they'll compete against each
-            other in search instead of either one ranking well. Consider giving each page a distinct keyword,
-            or merging/redirecting the weaker one.
+            These focus keywords are targeted by more than one published page. Review whether the pages answer
+            the same search intent. Check actual queries and page performance in Search Console before changing
+            a topic, merging content or redirecting a published URL.
           </p>
           <ul className="mt-3 space-y-2">
             {cannibalization.map((c) => (
               <li key={c.keyword} className="text-sm text-amber-900">
-                <span className="font-medium">"{c.keyword}"</span> — {c.titles.join(", ")}
+                <span className="font-medium">&quot;{c.keyword}&quot;</span> - {c.titles.join(", ")}
               </li>
             ))}
           </ul>
         </div>
       )}
 
-      <div className="mt-6 flex gap-2 border-b border-slate-200">
+      <div className="mt-6 flex flex-wrap gap-2 border-b border-slate-200">
         {FILTER_TABS.map((tab) => (
           <Link
             key={tab.key}

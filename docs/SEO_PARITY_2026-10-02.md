@@ -1,0 +1,46 @@
+# Midpoint SEO delivery and Stor24 CMS parity
+
+## Source and scope
+
+Compared actual source, not generic SEO recommendations:
+
+- Midpoint website: `blendproperty/midpoint`, baseline `121e02db865ed2887860841260f4a29862ebdb35`.
+- Stor24 CMS: `blendproperty/stor24-cms`, reference `e77f3c1bf68dac656f2aceed9af4d5fa1f838d6b`, including current `PROJECT_CONTEXT.md`.
+- Isolated branch: `codex/midpoint-seo-parity-20261002`. The original OneDrive checkout's unrelated changes are preserved. No Midpoint Hub/FOND repository changes.
+
+Stor24's CMS owns editorial data and its SEO workspace. Public delivery belongs to its companion website; a field present in the CMS is not evidence that every public capability is implemented there. Midpoint already integrates its CMS and public Next.js application in one repository.
+
+## Requirements parity matrix
+
+| Capability | Stor24 source evidence | Midpoint baseline | Implemented result / boundary |
+| --- | --- | --- | --- |
+| Editable title and description | `src/payload.config.ts`: Payload SEO plugin on posts/areas; `StorageInsights.ts`: guide SEO fields | Blog/Page/Pillar fields; only four static overrides exposed | Existing CMS fields retained; homepage, FAQs, blog index, vacancy index/details, Suites and privacy page now editable through existing `PageSeoOverride`; all static/CMS metadata delivered through one builder |
+| Metadata generation and defaults | Plugin generates title/description from real document fields | Existing `seo-generate.ts` and Page settings generator | Retained generator and real-content sources; fallback page/site description, title suffix normalization and self canonical applied consistently; homepage title avoids doubled brand |
+| Canonical and index control | Current CMS does not evidence canonical/noindex fields in the inspected collections; companion public delivery is separate | Fields existed, static canonicals were not delivered; password protection already supported; global setting intentionally retained for compatibility | Saved canonical emitted; invalid new canonical writes rejected; password/noindex exclusions retained; metadata, sitemap, robots and IndexNow honor existing configuration when disabled. Existing per-page admin workflow retained; no global UI switch reintroduced |
+| Social previews | SEO plugin's media-backed metadata; guide hero/excerpt fields | Social editor existed; four static routes ignored saved fields; CMS routes inherited homepage X cards; closed social section could omit saved image from submission | Saved OG fields reach static, CMS and vacancy routes; page-specific OG URL/type and X title/description/image with site fallback; hidden OG image persists while its section is closed |
+| Search preview and live writing checks | `SeoReview.tsx`, `src/lib/seo-audit.ts`; reactive article/guide previews | Search preview and saved scoring existed; surrounding title/body changes were not reactive | Reacts to metadata, title, slug, keyword and TinyMCE body changes; associated field labels; illustrative preview and editorial-only wording |
+| Saved-content improvement workspace | `SeoOverview.tsx`: saved checks, improvement links, published-first priorities | Existing published-only audit, dashboard score and direct edit links | Existing scoring/edit links preserved; new report tools on dashboard/audit; unknown static body mirrors no longer counted as empty content; score explicitly described as editorial guidance |
+| Search Console and PageSpeed | `SeoOverview.tsx`: Google report, indexing, PageSpeed and sitemap links | Missing equivalent report shortcuts | Domain-derived report links, PageSpeed, sitemap and crawler rules; account ownership and actual report data remain external; no metric import or verification claim |
+| Private content ideas | `ContentIdeas.ts`, migration `20260930_120000_content_ideas` | No planning collection | Authenticated-only CRUD/search with title, target phrase, audience, brief, research, finished link, progress, format, priority and target date. Midpoint formats replace storage-specific wording. Progress never publishes pages; link/date/status validation and DB constraints included |
+| Pillar/cluster organisation and search intent | `StorageInsights.ts`: pillar/cluster classification, related pillar, primary/secondary keywords, intent, internal links | Separate PillarPage and BlogPost editors; focus keyword, primarySearchIntent, exploreLinks, entity/audience/stage fields | Existing Midpoint model and links retained. Supporting articles and related guide links use existing blog/pillar/Explore links; research phrases can be planned in ideas. No new storage-specific classification or keyword-array contract imposed |
+| Structured data | Guide FAQs/schemaTypes fields; area/article data; public rendering is companion-owned | Automatic estate, organisation, page, article, breadcrumb, listing and pillar FAQ generation; manual overrides intentionally removed | Existing schema contracts retained; site-wide FAQ block removed and emitted only on homepage/FAQs where answers are visible. Safe JSON serialization preserved. No manual schema override reintroduced; no rich-result eligibility claim |
+| Media and accessibility | Media alt field and image uploads | Existing media library requires alt text and supplies editor images | Preserved upload/alt behaviour, hero/media contracts and imagery; no new images or brand changes |
+| Publishing and URLs | Article/guide draft/published state; slug fields warn that changed published addresses break links | Draft/review/published and published-only public pages; editable slugs; redirect manager | Existing publishing gates retained. Manual 301/302/307/308 redirects and legacy routing retained; incoming query parameters now preserved, explicit destination values win; invalid historical destinations fail safely. Published slug changes still require an editorial redirect decision |
+| Sitemap and robots | CMS context records companion sitemap submitted to Google; CMS alone is not sitemap authority | Dynamic sitemap omitted vacancy details and some noindex overrides; hardcoded origin; fabricated static lastmod on every request | Uses configured domain; includes published vacancy details; excludes drafts, password/noindex pages, redirect sources and alternate-canonical pages; deduplicates routes; uses real stored modification dates only. Robots excludes admin/API/unfinished booking paths, permits public crawling, and follows disabled configuration; staging blanket protection retained |
+| Other discovery/indexing | Not evidenced as a CMS requirement | Existing `llms.txt`, IndexNow key/publish integration | Private/noindex content excluded from `llms.txt`; global disabled configuration stops discovery/IndexNow; noindex/protected publishing does not send indexing notifications. Notifications are best effort, not evidence of indexing |
+| Authentication and recovery | CMS authenticated editorial actions; private ideas access rules | Existing session middleware and action-level `requireAdmin` | Existing auth retained; new planning actions guard every mutation and loader; common admin layout also excludes login/recovery pages from indexing |
+
+## Verification and release
+
+Verification results and final commit identifiers are recorded in the dated entry in `PROJECT_CONTEXT.md`. Reusable local checks:
+
+1. Use an isolated PostgreSQL database whose URL contains `localhost:55439/midpoint_booking_test`; never use production credentials for these scripts.
+2. Apply migrations and generate Prisma client, then run `npm test` with `BOOKING_INTEGRATION=1`.
+3. Run `scripts/seo-local-seed.ts` for synthetic fixtures only. Preview port is 3102; set `PORT=3102` so the middleware self-fetch uses the same service. Self-host TinyMCE assets as in Dockerfile.
+4. Run `scripts/seo-local-browser.ts` with a local-only `AUTH_SECRET`. It blocks browser requests to external hosts, tests existing valid editor sessions, save/readback and public delivery, and writes evidence outside the repository. It never saves a published article or announces a synthetic URL to IndexNow.
+
+The repository's existing `npm run lint` invokes an unconfigured Next.js setup prompt. A task-local ESLint 8.57.1 / eslint-config-next 15.5.22 runner used recommended Next core-web-vitals/TypeScript rules against changed source; it did not change package dependencies or pretend the repository-wide lint setup is complete.
+
+Release requires approval to publish/promote this branch, a production database/configuration backup, application of additive `20261002060000_content_ideas`, and build/deployment of the exact reviewed source. The migration only adds the private table; existing tables/content are not altered. Rollback can restore the prior application while retaining the added table and planning records. Do not drop planning data during a code rollback.
+
+Remaining acceptance: authenticated production editorial save/publish/readback, live canonical/social/sitemap/robots checks, Google ownership/sitemap processing and actual indexing/organic outcomes, plus existing commercial, Suites, infrastructure and provider gates. Local/browser/CI evidence does not establish ranking improvements or overall launch readiness. No push, PR, merge or deployment is performed by this task without publication approval.

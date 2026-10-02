@@ -404,8 +404,10 @@ export function scoreStaticPage(input: StaticScoreInput): SeoScoreResult {
         : { id: "meta-description", label: "Meta description", status: "bad", message: "No meta description set — search engines will generate one automatically, which you can't control." }
   );
 
+  // Some static routes have no maintained body mirror. Do not report
+  // unknown content as an empty page or fabricate a word-count result.
   const wordCount = countWords(input.pageContent || "");
-  checks.push(
+  if (input.pageContent !== undefined) checks.push(
     wordCount >= 300
       ? { id: "content-length", label: "Page copy length", status: "good", message: `~${wordCount} words of real copy on this page.` }
       : wordCount >= 150

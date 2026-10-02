@@ -7,7 +7,6 @@ import SiteChrome from "@/components/SiteChrome";
 import ContactSection from "@/components/ContactSection";
 import { site } from "@/lib/site";
 import { getSiteSettings } from "@/lib/site-settings";
-import { getFaqs } from "@/lib/faqs";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { safeJsonLd } from "@/lib/json-ld";
 import { headers } from "next/headers";
@@ -63,7 +62,7 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [settings.defaultSocialImage],
     },
     robots: {
-      index: !isStaging,
+      index: !isStaging && settings.allowIndexing,
       follow: !isStaging,
       noarchive: isStaging,
       nosnippet: isStaging,
@@ -76,9 +75,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [settings, faqs, staging] = await Promise.all([
+  const [settings, staging] = await Promise.all([
     getSiteSettings(),
-    getFaqs(),
     isStagingHost(),
   ]);
 
@@ -113,14 +111,7 @@ export default async function RootLayout({
           longitude: site.geo.lng,
         },
       },
-      {
-        "@type": "FAQPage",
-        mainEntity: faqs.map((f) => ({
-          "@type": "Question",
-          name: f.question,
-          acceptedAnswer: { "@type": "Answer", text: f.answer },
-        })),
-      },
+
     ],
   };
 

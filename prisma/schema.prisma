@@ -2,6 +2,23 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// Private editorial plans; never queried by public routes or publishing actions.
+model ContentIdea {
+  id           String   @id @default(cuid())
+  title        String
+  keyword      String?
+  audience     String?
+  brief        String?  @db.Text
+  research     String?  @db.Text
+  publishedUrl String?
+  status       String   @default("idea")
+  format       String   @default("guide")
+  priority     String   @default("normal")
+  targetDate   DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")

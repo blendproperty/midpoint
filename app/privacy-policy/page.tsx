@@ -1,17 +1,17 @@
+import { staticPageMetadata } from "@/lib/page-seo";
 import type { Metadata } from "next";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 const TITLE = "Privacy Policy";
 const description =
   "Blend Property Group's POPI privacy notice, describing how personal information is collected, used, disclosed and safeguarded.";
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return staticPageMetadata("/privacy-policy", TITLE, description);
+}
 
 export default function PrivacyPolicyPage() {
   const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Privacy Policy", path: "/privacy-policy" }];

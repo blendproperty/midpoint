@@ -5,8 +5,14 @@
 // but are now full Pillar Pages (editable content, not just SEO overrides)
 // served by app/[slug]/page.tsx — see /admin/pillar-pages.
 export const STATIC_PAGES = [
+  { path: "/", label: "Homepage" },
   { path: "/about-us", label: "About Us" },
   { path: "/spaces", label: "Spaces" },
   { path: "/contact-us", label: "Contact Us" },
   { path: "/insights", label: "Insights" },
+  { path: "/vacancies", label: "Vacancies" },
+  { path: "/faqs", label: "FAQs" },
+  { path: "/blog", label: "Blog" },
+  { path: "/the-suites-at-midpoint", label: "The Suites at Midpoint" },
+  { path: "/privacy-policy", label: "Privacy Policy" },
 ];

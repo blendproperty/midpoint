@@ -1,62 +1,28 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
-import { site } from "@/lib/site";
 import { STATIC_PAGES } from "@/lib/static-pages";
+import { getSiteSettings } from "@/lib/site-settings";
+import { buildSitemap, type SitemapCandidate } from "@/lib/seo-sitemap";
 
-// Dynamic sitemap, pulled from the database, so every published Blog post,
-// Page and Pillar Page is discoverable by search engines and AI crawlers
-// the moment it's published — not just the handful of routes that used to
-// be hardcoded here.
 export const dynamic = "force-dynamic";
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [blogPosts, pages, pillarPages, staticNoIndexOverrides] = await Promise.all([
-    prisma.blogPost.findMany({ where: { status: "PUBLISHED", noIndex: false }, select: { slug: true, updatedAt: true } }),
-    prisma.page.findMany({ where: { status: "PUBLISHED", noIndex: false, passwordProtected: false }, select: { slug: true, updatedAt: true } }),
-    prisma.pillarPage.findMany({ where: { status: "PUBLISHED", noIndex: false, passwordProtected: false }, select: { slug: true, updatedAt: true } }),
-    prisma.pageSeoOverride.findMany({ where: { noIndex: true }, select: { path: true } }),
+  const settings = await getSiteSettings();
+  if (!settings.allowIndexing) return [];
+  const [posts, pages, pillars, overrides, vacancies, redirects] = await Promise.all([
+    prisma.blogPost.findMany({ where: { status: "PUBLISHED" }, select: { slug: true, updatedAt: true, noIndex: true, canonicalUrl: true } }),
+    prisma.page.findMany({ where: { status: "PUBLISHED" }, select: { slug: true, updatedAt: true, noIndex: true, canonicalUrl: true, passwordProtected: true } }),
+    prisma.pillarPage.findMany({ where: { status: "PUBLISHED" }, select: { slug: true, updatedAt: true, noIndex: true, canonicalUrl: true, passwordProtected: true } }),
+    prisma.pageSeoOverride.findMany(),
+    prisma.vacancy.findMany({ where: { status: "PUBLISHED" }, select: { id: true, updatedAt: true } }),
+    prisma.redirect.findMany({ select: { fromPath: true } }),
   ]);
-
-  const now = new Date();
-
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${site.domain}`, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${site.domain}/vacancies`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
-    { url: `${site.domain}/faqs`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    // Only advertise the blog index to crawlers once there's at least one
-    // published post — an empty "No posts published yet" page isn't worth
-    // indexing and looks unfinished if it ranks.
-    ...(blogPosts.length > 0
-      ? [{ url: `${site.domain}/blog`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.6 }]
-      : []),
-    ...STATIC_PAGES.filter((p) => !staticNoIndexOverrides.some((override) => override.path === p.path)).map((p) => ({
-      url: `${site.domain}${p.path}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    })),
+  const byPath = new Map(overrides.map(o => [o.path, o]));
+  const candidates: SitemapCandidate[] = [
+    ...STATIC_PAGES.filter(p => p.path !== "/blog" || posts.some(post => !post.noIndex)).map(p => ({ path: p.path, ...byPath.get(p.path) })),
+    ...posts.map(p => ({ ...p, path: `/blog/${p.slug}` })),
+    ...pages.map(p => ({ ...p, path: `/p/${p.slug}` })),
+    ...pillars.map(p => ({ ...p, path: `/${p.slug}` })),
+    ...vacancies.map(v => { const path = `/vacancies/${encodeURIComponent(v.id)}`; return { path, updatedAt: v.updatedAt, ...byPath.get(path) }; }),
   ];
-
-  const pillarRoutes: MetadataRoute.Sitemap = pillarPages.map((p) => ({
-    url: `${site.domain}/${p.slug}`,
-    lastModified: p.updatedAt,
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }));
-
-  const pageRoutes: MetadataRoute.Sitemap = pages.map((p) => ({
-    url: `${site.domain}/p/${p.slug}`,
-    lastModified: p.updatedAt,
-    changeFrequency: "monthly",
-    priority: 0.5,
-  }));
-
-  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((p) => ({
-    url: `${site.domain}/blog/${p.slug}`,
-    lastModified: p.updatedAt,
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...pillarRoutes, ...pageRoutes, ...blogRoutes];
+  return buildSitemap(settings.domain, settings.allowIndexing, candidates, redirects.map(r => r.fromPath));
 }

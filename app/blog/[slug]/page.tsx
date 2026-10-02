@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CustomCodeBlock from "@/components/CustomCodeBlock";
 import { getSiteSettings } from "@/lib/site-settings";
 import { blogPostingJsonLd } from "@/lib/seo";
-import { pageRobots } from "@/lib/indexing";
+import { buildPageMetadata } from "@/lib/seo-metadata";
 import { removeDuplicateCoverImage } from "@/lib/blog-content";
 import { safeJsonLd } from "@/lib/json-ld";
 
@@ -22,21 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = await getPost(slug);
   if (!post || post.status !== "PUBLISHED") return {};
 
-  const title = post.seoTitle || post.title;
-  const description = post.seoDescription || post.excerpt || undefined;
-  const ogImage = post.ogImage || post.coverImage;
-
-  return {
-    title,
-    description,
-    ...(post.canonicalUrl ? { alternates: { canonical: post.canonicalUrl } } : {}),
-    robots: pageRobots(post.noIndex),
-    openGraph: {
-      title: post.ogTitle || title,
-      description: post.ogDescription || description,
-      images: ogImage ? [{ url: ogImage }] : undefined,
-    },
-  };
+  const settings = await getSiteSettings();
+  return buildPageMetadata({ path: `/blog/${post.slug}`, title: post.title, description: post.excerpt, image: post.coverImage, fields: post, settings, article: true });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {

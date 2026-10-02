@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { jwtVerify } from "jose";
 import { legacyDestination } from "@/lib/legacy-routes";
+import { redirectDestination } from "@/lib/seo-redirects";
 import { getAuthSecretBytes } from "@/lib/auth-secret";
 
 const SESSION_COOKIE = "midpoint_admin_session";
@@ -219,17 +220,19 @@ export async function middleware(request: NextRequest) {
 
   const legacyPath = legacyDestination(pathname);
   if (legacyPath) {
-    return NextResponse.redirect(new URL(legacyPath, request.url), 308);
+    return NextResponse.redirect(redirectDestination(legacyPath, request.url), 308);
   }
 
   const cache = await getRedirectCache();
   const match = cache.get(pathname);
   if (match) {
     recordHit(pathname);
-    const destination = match.toPath.startsWith("http")
-      ? match.toPath
-      : new URL(match.toPath, request.url);
-    return NextResponse.redirect(destination, match.statusCode);
+    try {
+      return NextResponse.redirect(redirectDestination(match.toPath, request.url), match.statusCode);
+    } catch {
+      // Ignore an invalid historic rule rather than breaking the public route.
+      return continueRequest(request);
+    }
   }
 
   return continueRequest(request);

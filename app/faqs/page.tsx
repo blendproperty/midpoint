@@ -1,3 +1,5 @@
+import { safeJsonLd } from "@/lib/json-ld";
+import { staticPageMetadata } from "@/lib/page-seo";
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import PageFaqAccordion from "@/components/PageFaqAccordion";
@@ -10,16 +12,19 @@ export const dynamic = "force-dynamic";
 const description =
   "Find answers to common questions about office space, warehouse facilities, amenities, and leasing opportunities at Midpoint in Midrand.";
 
-export const metadata: Metadata = {
-  title: "FAQs",
-  description
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return staticPageMetadata("/faqs", "FAQs", description);
+}
 
 export default async function FaqsPage() {
   const faqs = await getFaqs();
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd({
+        "@context": "https://schema.org", "@type": "FAQPage",
+        mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
+      }) }} />
       <BreadcrumbJsonLd
         items={[{ name: "Home", path: "/" }, { name: "FAQs", path: "/faqs" }]}
         description={description}

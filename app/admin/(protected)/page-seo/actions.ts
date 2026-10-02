@@ -1,9 +1,11 @@
 "use server";
 
+import { STATIC_PAGES } from "@/lib/static-pages";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/require-admin";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { readCanonicalUrl } from "@/lib/seo-validation";
 import { Prisma } from "@prisma/client";
 
 function parseSchemaJson(raw: string): Prisma.InputJsonValue | typeof Prisma.JsonNull {
@@ -19,7 +21,9 @@ function parseSchemaJson(raw: string): Prisma.InputJsonValue | typeof Prisma.Jso
 export async function updatePageSeoOverride(formData: FormData) {
   await requireAdmin();
   const path = String(formData.get("path") || "").trim();
-  if (!path) throw new Error("Missing path");
+  const vacancyId = /^\/vacancies\/([^/?#]+)$/.exec(path)?.[1];
+  const vacancy = vacancyId ? await prisma.vacancy.findFirst({ where: { id: decodeURIComponent(vacancyId), status: "PUBLISHED" }, select: { id: true } }) : null;
+  if (!STATIC_PAGES.some(page => page.path === path) && !vacancy) throw new Error("Choose an existing public page.");
 
   const data = {
     seoTitle: String(formData.get("seoTitle") || "").trim() || null,
@@ -28,7 +32,7 @@ export async function updatePageSeoOverride(formData: FormData) {
     ogDescription: String(formData.get("ogDescription") || "").trim() || null,
     ogImage: String(formData.get("ogImage") || "").trim() || null,
     noIndex: formData.get("noIndex") === "on",
-    canonicalUrl: String(formData.get("canonicalUrl") || "").trim() || null,
+    canonicalUrl: readCanonicalUrl(formData),
     schemaJson: parseSchemaJson(String(formData.get("schemaJson") || "")),
     headCode: String(formData.get("headCode") || "").trim() || null,
     bodyCode: String(formData.get("bodyCode") || "").trim() || null,

@@ -1,3 +1,4 @@
+import { staticPageMetadata } from "@/lib/page-seo";
 import type { Metadata } from "next";
 import VacancySchedule from "@/components/VacancySchedule";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
@@ -12,10 +13,9 @@ export const dynamic = "force-dynamic";
 const description =
   "Current leasing opportunities at Midpoint: warehouse, office and serviced office vacancies in Midrand.";
 
-export const metadata: Metadata = {
-  title: "Vacancies",
-  description
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return staticPageMetadata("/vacancies", "Vacancies", description);
+}
 
 export default async function Vacancies({
   searchParams,

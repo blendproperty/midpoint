@@ -1,3 +1,4 @@
+import SeoTools from "@/components/admin/SeoTools";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { isStagingHost } from "@/lib/staging-host";
@@ -125,7 +126,7 @@ function Panel({
   className?: string;
 }) {
   return (
-    <section className={`rounded-2xl border border-slate-200 bg-white shadow-sm ${className}`}>
+    <section className={`min-w-0 rounded-2xl border border-slate-200 bg-white shadow-sm ${className}`}>
       <div className="flex items-start justify-between border-b border-slate-100 px-5 py-4">
         <div>
           <h2 className="font-bold text-[#071b3c]">{title}</h2>
@@ -254,7 +255,7 @@ export default async function AdminDashboard({
   const conversionRate = views ? (enquiryCount / views) * 100 : 0;
   const liveRate = matchingVacancies.length ? (liveVacancies.length / matchingVacancies.length) * 100 : 0;
 
-  // Live SEO score — same site-wide audit rows (Blog + Pages + Pillar pages
+  // Saved-content writing checks — same site-wide audit rows (Blog + Pages + Pillar pages
   // + the 4 static pages + every live vacancy) and the same check-weighted
   // formula as /admin/seo-audit, via the shared lib/seo-audit.ts. This used
   // to be a narrower per-item average across only Blog/Page/Pillar content,
@@ -394,6 +395,7 @@ export default async function AdminDashboard({
 
   return (
     <div className="mx-auto max-w-[1600px] space-y-6">
+      <SeoTools />
       <div className="overflow-hidden rounded-2xl bg-[#071b3c] text-white shadow-lg">
         <div className="flex flex-col gap-5 px-6 py-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
@@ -437,7 +439,7 @@ export default async function AdminDashboard({
 
       <div className="grid gap-6 xl:grid-cols-4">
         <Link href="/admin/seo-audit" className="block">
-          <MetricCard title="Live SEO score" value={`${siteWideSeoScore}%`} detail={`Search readiness across ${siteWideItemCount} published items — see full audit`} icon={Search} tone="blue" />
+          <MetricCard title="Saved-content writing checks" value={`${siteWideSeoScore}%`} detail={`Editorial checks across ${siteWideItemCount} published items — see full audit`} icon={Search} tone="blue" />
         </Link>
         <MetricCard title="Vacancy readiness score" value={`${averageVacancyReadiness.toFixed(0)}%`} detail={`Content completeness across ${liveVacancies.length} live listings`} icon={Gauge} tone="green" />
         <Panel title="Top pages" subtitle={`Site-wide page views · ${periodLabel(period)}`}>
@@ -451,7 +453,7 @@ export default async function AdminDashboard({
       <Panel title="Priority content improvements" subtitle="Lowest SEO scores across published Blog posts, Pages and Pillar pages">
         <div className="grid gap-3 lg:grid-cols-2 xl:grid-cols-5">
           {priorityContent.map((item) => (
-            <Link key={`${item.type}-${item.id}`} href={item.editHref} className="rounded-xl border border-slate-200 p-4 transition hover:border-[#d9ad28] hover:bg-amber-50/40">
+            <Link key={`${item.type}-${item.id}`} href={item.editHref} className="min-w-0 rounded-xl border border-slate-200 p-4 transition hover:border-[#d9ad28] hover:bg-amber-50/40">
               <p className="truncate font-bold text-[#071b3c]">{item.title}</p>
               <p className="mt-1 truncate text-[11px] text-slate-500">
                 {item.type} · updated {item.updatedAt.toLocaleDateString("en-ZA", { day: "2-digit", month: "short" })}
@@ -568,6 +570,7 @@ export default async function AdminDashboard({
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 text-xs text-slate-500 shadow-sm">
+
         <span className="flex items-center gap-2">
           <Activity className="h-4 w-4 text-emerald-600" /> Inventory and quality metrics use currently published vacancies and content.
         </span>

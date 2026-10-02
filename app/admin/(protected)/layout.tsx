@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import AdminWorkspace from "@/components/admin/AdminWorkspace";
@@ -26,6 +25,8 @@ export default async function ProtectedAdminLayout({
     { href: "/admin/rates", label: "Rates & Policies" },
     { href: "/admin/faqs", label: "FAQs" },
     { href: "/admin/seo-audit", label: "SEO Audit" },
+    { href: "/admin/page-seo", label: "Page SEO" },
+    { href: "/admin/content-ideas", label: "Content ideas" },
     { href: "/admin/schema-tool", label: "Schema Tool" },
     { href: "/admin/redirects", label: "Redirects" },
     { href: "/admin/media", label: "Media" },

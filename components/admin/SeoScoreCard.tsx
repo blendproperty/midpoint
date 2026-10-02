@@ -28,13 +28,14 @@ export default function SeoScoreCard(props: Props) {
   const overallStatus = result.score >= 80 ? "good" : result.score >= 50 ? "ok" : "bad";
 
   return (
-    <div className="mt-6 max-w-2xl rounded-xl bg-white p-6 shadow-sm">
+    <div className="mt-6 max-w-2xl rounded-xl bg-white p-6 text-slate-900 shadow-sm">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">SEO score</h2>
+        <h2 className="text-lg font-semibold">Writing checks</h2>
         <span className={`rounded-full px-3 py-1 text-sm font-semibold ${STATUS_STYLES[overallStatus]}`}>
           {result.score}/100 — {result.grade}
         </span>
       </div>
+      <p className="mt-2 text-xs text-slate-500">Editorial guidance only. This score does not measure rankings or indexing.</p>
       <ul className="mt-4 space-y-2">
         {result.checks.map((check) => (
           <li key={check.id} className="flex items-start gap-3 text-sm">

@@ -5,6 +5,7 @@ import { requireAdmin } from "@/lib/require-admin";
 import { hashPassword } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { readCanonicalUrl } from "@/lib/seo-validation";
 import { Prisma } from "@prisma/client";
 import { submitToIndexNow } from "@/lib/indexnow";
 
@@ -106,7 +107,7 @@ function readFields(formData: FormData) {
     ogDescription: String(formData.get("ogDescription") || "").trim() || null,
     ogImage: String(formData.get("ogImage") || "").trim() || null,
     noIndex: formData.get("noIndex") === "on",
-    canonicalUrl: String(formData.get("canonicalUrl") || "").trim() || null,
+    canonicalUrl: readCanonicalUrl(formData),
     schemaJson: parseSchemaJson(String(formData.get("schemaJson") || "")),
     headCode: String(formData.get("headCode") || "").trim() || null,
     bodyCode: String(formData.get("bodyCode") || "").trim() || null,
@@ -127,7 +128,7 @@ export async function createPillarPage(formData: FormData) {
     },
   });
 
-  if (fields.status === "PUBLISHED" && !access.passwordProtected) await submitToIndexNow([`/${fields.slug}`]);
+  if (fields.status === "PUBLISHED" && !access.passwordProtected && !fields.noIndex) await submitToIndexNow([`/${fields.slug}`]);
 
   revalidatePath("/admin/pillar-pages");
   revalidatePath("/admin/pages");
@@ -150,7 +151,7 @@ export async function updatePillarPage(id: string, formData: FormData) {
     },
   });
 
-  if (fields.status === "PUBLISHED" && !access.passwordProtected) await submitToIndexNow([`/${fields.slug}`]);
+  if (fields.status === "PUBLISHED" && !access.passwordProtected && !fields.noIndex) await submitToIndexNow([`/${fields.slug}`]);
 
   revalidatePath("/admin/pillar-pages");
   revalidatePath("/admin/pages");

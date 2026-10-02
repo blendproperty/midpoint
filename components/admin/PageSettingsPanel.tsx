@@ -1,11 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { cloneElement, isValidElement, useEffect, useId, useRef, useState, type ReactElement } from "react";
+import { scoreContent } from "@/lib/seo-score";
+import SeoScoreCard from "@/components/admin/SeoScoreCard";
 import MediaPicker from "@/components/admin/MediaPicker";
 import SeoPreviewCard from "@/components/admin/SeoPreviewCard";
 import { generateSeoTitle, generateSeoDescription } from "@/lib/seo-generate";
 
 type SchemaKind = "article" | "webpage" | "pillar";
+const DEFAULT_SOURCE_FIELDS = ["contentHtml"];
 
 type Props = {
   titleField?: string;
@@ -51,10 +54,11 @@ const inputCls = "mt-1 w-full rounded-lg border border-white/10 bg-black/20 px-3
 const codeCls = "mt-1 w-full rounded-lg border border-white/10 bg-black/30 px-3 py-2 font-mono text-xs text-emerald-300";
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  const id = useId();
   return (
     <div className="mt-3">
-      <label className="block text-xs font-medium text-white/70">{label}</label>
-      {children}
+      <label htmlFor={id} className="block text-xs font-medium text-white/70">{label}</label>
+      {isValidElement(children) ? cloneElement(children as ReactElement<{ id?: string }>, { id }) : children}
     </div>
   );
 }
@@ -110,8 +114,7 @@ function PanelSection({
 export default function PageSettingsPanel({
   titleField = "title",
   titleFallback = "",
-  sourceFields = ["contentHtml"],
-  siteName = "Midpoint Midrand",
+  sourceFields = DEFAULT_SOURCE_FIELDS,
   previewDomain = "www.mid-point.co.za",
   previewPath = "",
   defaultOpen = false,
@@ -133,6 +136,35 @@ export default function PageSettingsPanel({
   const [headCode, setHeadCode] = useState(defaultValues?.headCode || "");
   const [bodyCode, setBodyCode] = useState(defaultValues?.bodyCode || "");
 
+  const [liveTitle, setLiveTitle] = useState(titleFallback);
+  const [liveBody, setLiveBody] = useState("");
+  const [liveKeyword, setLiveKeyword] = useState("");
+  const [livePath, setLivePath] = useState(previewPath);
+  useEffect(() => {
+    const currentForm = rootRef.current?.closest("form");
+    if (!currentForm) return;
+    const update = () => {
+      setLiveTitle(field(currentForm, titleField) || titleFallback);
+      setLiveBody(currentForm.elements.namedItem("contentHtml")
+        ? field(currentForm, "contentHtml")
+        : sourceFields.map(name => field(currentForm, name)).filter(Boolean).join(" "));
+      setLiveKeyword(field(currentForm, "focusKeyword"));
+      const slug = field(currentForm, "slug");
+      const prefix = previewPath.startsWith("/blog/") ? "/blog/" : previewPath.startsWith("/p/") ? "/p/" : "/";
+      setLivePath(slug ? `${prefix}${slug}` : previewPath);
+    };
+    update();
+    currentForm.addEventListener("input", update);
+    currentForm.addEventListener("change", update);
+    // TinyMCE changes a React-controlled hidden field rather than bubbling
+    // native input events. Observe that value so writing checks stay reactive.
+    const observer = new MutationObserver(records => {
+      if (records.some(record => record.target instanceof HTMLInputElement && sourceFields.includes(record.target.name))) update();
+    });
+    observer.observe(currentForm, { attributes: true, attributeFilter: ["value"], subtree: true });
+    return () => { observer.disconnect(); currentForm.removeEventListener("input", update); currentForm.removeEventListener("change", update); };
+  }, [titleField, titleFallback, previewPath, sourceFields]);
+
   function form() {
     return rootRef.current?.closest("form") ?? null;
   }
@@ -145,13 +177,14 @@ export default function PageSettingsPanel({
     setSeoDescription(generateSeoDescription(source));
   }
 
-  const effectiveOgTitle = sameTitle ? seoTitle : ogTitle;
+  const effectiveOgTitle = sameTitle ? (seoTitle || liveTitle) : ogTitle;
   const effectiveOgDescription = sameDescription ? seoDescription : ogDescription;
 
   return (
     <div ref={rootRef}>
       <input type="hidden" name="seoTitle" value={seoTitle} readOnly />
       <input type="hidden" name="seoDescription" value={seoDescription} readOnly />
+      <input type="hidden" name="ogImage" value={ogImage} readOnly />
       <input type="hidden" name="ogTitle" value={sameTitle ? "" : ogTitle} readOnly />
       <input type="hidden" name="ogDescription" value={sameDescription ? "" : ogDescription} readOnly />
       <input type="hidden" name="noIndex" value={noIndex ? "on" : ""} readOnly />
@@ -183,9 +216,9 @@ export default function PageSettingsPanel({
 
             <PanelSection title="SEO settings" id="seo" open={section === "seo"} onToggle={setSection}>
               <p className="text-xs text-white/50">
-                Specify this page&apos;s title and description. Preview below shows how it&apos;ll look in Google.
+                Specify this page&apos;s title and description. The preview is illustrative; search engines may choose different text.
               </p>
-              <SeoPreviewCard title={seoTitle} description={seoDescription} domain={previewDomain} path={previewPath} />
+              <SeoPreviewCard title={seoTitle || liveTitle} description={seoDescription} domain={previewDomain} path={livePath} />
               <button
                 type="button"
                 onClick={handleGenerateSeo}
@@ -243,6 +276,8 @@ export default function PageSettingsPanel({
                 </Field>
               )}
             </PanelSection>
+
+            {(!sourceFields.includes("pageContentSource") || liveBody) && <SeoScoreCard result={scoreContent({ title: liveTitle, slug: livePath, seoTitle, seoDescription, contentHtml: liveBody, focusKeyword: liveKeyword })} />}
 
             <PanelSection title="Schema markup" id="schema" open={section === "schema"} onToggle={setSection}>
               <p className="text-xs text-white/50">

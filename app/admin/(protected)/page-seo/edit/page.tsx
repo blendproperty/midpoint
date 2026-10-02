@@ -11,11 +11,13 @@ export const dynamic = "force-dynamic";
 
 export default async function EditPageSeoPage({ searchParams }: { searchParams: Promise<{ path?: string }> }) {
   const { path } = await searchParams;
-  const known = STATIC_PAGES.find((p) => p.path === path);
+  const vacancyId = path ? /^\/vacancies\/([^/?#]+)$/.exec(path)?.[1] : undefined;
+  const vacancy = vacancyId ? await prisma.vacancy.findFirst({ where: { id: decodeURIComponent(vacancyId), status: "PUBLISHED" } }) : null;
+  const known = STATIC_PAGES.find((p) => p.path === path) || (vacancy && { path: path!, label: `${vacancy.building}${vacancy.unitName ? ` - ${vacancy.unitName}` : ""}` });
   if (!path || !known) notFound();
 
   const override = await prisma.pageSeoOverride.findUnique({ where: { path } });
-  const content = getStaticPageContent(path);
+  const content = vacancy?.description || getStaticPageContent(path);
 
   return (
     <div>
@@ -45,7 +47,7 @@ export default async function EditPageSeoPage({ searchParams }: { searchParams: 
           seoTitle: override?.seoTitle,
           seoDescription: override?.seoDescription,
           ogImage: override?.ogImage,
-          pageContent: content,
+          pageContent: content || undefined,
         })}
       />
     </div>

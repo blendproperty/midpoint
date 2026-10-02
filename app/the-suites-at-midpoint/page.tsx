@@ -1,5 +1,7 @@
+import { staticPageMetadata } from "@/lib/page-seo";
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import {
   BedDouble,
   BriefcaseBusiness,
@@ -14,14 +16,10 @@ import BookingSearch from "@/components/BookingSearch";
 import SuiteGallery from "@/components/SuiteGallery";
 import { isStagingHost } from "@/lib/staging-host";
 
-export const metadata: Metadata = {
-  title: "The Suites at Midpoint",
-  description:
-    "Coming soon: corporate accommodation at Midpoint in Midrand. Preview AI renderings of The Suites for executives, project teams and business travellers.",
-  alternates: {
-    canonical: "https://www.mid-point.co.za/the-suites-at-midpoint",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return staticPageMetadata("/the-suites-at-midpoint", "The Suites at Midpoint",
+    "Coming soon: corporate accommodation at Midpoint in Midrand. Preview AI renderings of The Suites for executives, project teams and business travellers.");
+}
 
 const features = [
   [
@@ -152,9 +150,9 @@ export default async function SuitesPage() {
             </p>
           </div>
           {staging ? (
-            <a href="/stay" className="stay-button self-center">
+            <Link href="/stay" className="stay-button self-center">
               Search rooms & make a test booking →
-            </a>
+            </Link>
           ) : (
             <SuitesBookingForm />
           )}

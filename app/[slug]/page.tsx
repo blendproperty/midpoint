@@ -21,8 +21,8 @@ import ExploreMore from "@/components/ExploreMore";
 import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
 import { vacancyDetailHref } from "@/lib/vacancies";
-import { midpointPlaceJsonLd, organizationJsonLd, stripSiteNameSuffix } from "@/lib/seo";
-import { pageRobots } from "@/lib/indexing";
+import { midpointPlaceJsonLd, organizationJsonLd } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/seo-metadata";
 import { safeJsonLd } from "@/lib/json-ld";
 
 export const dynamic = "force-dynamic";
@@ -51,23 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const [pillar, settings] = await Promise.all([getPillar(slug), getSiteSettings()]);
   if (!pillar || pillar.status !== "PUBLISHED") return {};
 
-  const title = stripSiteNameSuffix(pillar.seoTitle || pillar.title, settings.siteName);
-  const description = pillar.seoDescription || undefined;
-  const ogImage = pillar.ogImage || pillar.heroImage;
-  const ogTitle = stripSiteNameSuffix(pillar.ogTitle || title, settings.siteName);
-
-  return {
-    title,
-    description,
-    ...(pillar.canonicalUrl ? { alternates: { canonical: pillar.canonicalUrl } } : {}),
-    // Password-protected pages are never indexable, regardless of noIndex.
-    robots: pageRobots(pillar.noIndex, pillar.passwordProtected),
-    openGraph: {
-      title: ogTitle,
-      description: pillar.ogDescription || description,
-      images: ogImage ? [{ url: ogImage }] : undefined,
-    },
-  };
+  return buildPageMetadata({ path: `/${pillar.slug}`, title: pillar.title, description: undefined, image: pillar.heroImage, fields: pillar, settings, article: false });
 }
 
 export default async function PillarPagePublic({ params }: { params: Promise<{ slug: string }> }) {

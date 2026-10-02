@@ -5,6 +5,7 @@ import { requireAdmin } from "@/lib/require-admin";
 import { hashPassword } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { readCanonicalUrl } from "@/lib/seo-validation";
 import { Prisma } from "@prisma/client";
 import { submitToIndexNow } from "@/lib/indexnow";
 
@@ -36,7 +37,7 @@ function readCommonFields(formData: FormData) {
     ogDescription: String(formData.get("ogDescription") || "").trim() || null,
     ogImage: String(formData.get("ogImage") || "").trim() || null,
     noIndex: formData.get("noIndex") === "on",
-    canonicalUrl: String(formData.get("canonicalUrl") || "").trim() || null,
+    canonicalUrl: readCanonicalUrl(formData),
     schemaJson: parseSchemaJson(String(formData.get("schemaJson") || "")),
     headCode: String(formData.get("headCode") || "").trim() || null,
     bodyCode: String(formData.get("bodyCode") || "").trim() || null,
@@ -74,7 +75,7 @@ export async function createPage(formData: FormData) {
     data: { title, slug, contentHtml, status, ...readCommonFields(formData), ...access },
   });
 
-  if (status === "PUBLISHED" && !access.passwordProtected) await submitToIndexNow([`/p/${slug}`]);
+  if (status === "PUBLISHED" && !access.passwordProtected && formData.get("noIndex") !== "on") await submitToIndexNow([`/p/${slug}`]);
 
   revalidatePath("/admin/pages");
   revalidatePath(`/p/${slug}`);
@@ -97,7 +98,7 @@ export async function updatePage(id: string, formData: FormData) {
     data: { title, slug, contentHtml, status, ...readCommonFields(formData), ...access },
   });
 
-  if (status === "PUBLISHED" && !access.passwordProtected) await submitToIndexNow([`/p/${slug}`]);
+  if (status === "PUBLISHED" && !access.passwordProtected && formData.get("noIndex") !== "on") await submitToIndexNow([`/p/${slug}`]);
 
   revalidatePath("/admin/pages");
   revalidatePath(`/p/${slug}`);

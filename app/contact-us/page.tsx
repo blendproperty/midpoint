@@ -5,9 +5,9 @@ import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import { getPageSeoOverride } from "@/lib/page-seo";
 import { getSiteSettings } from "@/lib/site-settings";
-import { richPageJsonLd, stripSiteNameSuffix } from "@/lib/seo";
+import { richPageJsonLd } from "@/lib/seo";
 import { site } from "@/lib/site";
-import { pageRobots } from "@/lib/indexing";
+import { buildPageMetadata } from "@/lib/seo-metadata";
 
 export const dynamic = "force-dynamic";
 
@@ -20,18 +20,7 @@ const HERO_IMAGE =
 
 export async function generateMetadata(): Promise<Metadata> {
   const [override, settings] = await Promise.all([getPageSeoOverride("/contact-us"), getSiteSettings()]);
-  const rawTitle = override?.seoTitle || FALLBACK_TITLE;
-  return {
-    title: stripSiteNameSuffix(rawTitle, settings.siteName),
-    description: override?.seoDescription || description,
-    robots: pageRobots(override?.noIndex),
-    // Enquire buttons on vacancy cards link here with ?space=...&interest=...
-    // so the form pre-fills. Those query-string variants must not be indexed
-    // as separate pages — canonicalize them all to the bare /contact-us URL.
-    alternates: {
-      canonical: `${site.domain}/contact-us`,
-    },
-  };
+  return buildPageMetadata({ path: "/contact-us", title: FALLBACK_TITLE, description, fields: override, settings });
 }
 
 function firstValue(v: string | string[] | undefined): string | undefined {

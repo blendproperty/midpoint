@@ -7,10 +7,10 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import Reveal from "@/components/Reveal";
 import BrokerCTASection from "@/components/BrokerCTASection";
 import { getPageSeoOverride } from "@/lib/page-seo";
-import { richPageJsonLd, stripSiteNameSuffix } from "@/lib/seo";
+import { richPageJsonLd } from "@/lib/seo";
 import { getSiteSettings } from "@/lib/site-settings";
 import { prisma } from "@/lib/prisma";
-import { pageRobots } from "@/lib/indexing";
+import { buildPageMetadata } from "@/lib/seo-metadata";
 
 export const dynamic = "force-dynamic";
 
@@ -20,12 +20,7 @@ const description =
 
 export async function generateMetadata(): Promise<Metadata> {
   const [override, settings] = await Promise.all([getPageSeoOverride("/insights"), getSiteSettings()]);
-  const rawTitle = override?.seoTitle || FALLBACK_TITLE;
-  return {
-    title: stripSiteNameSuffix(rawTitle, settings.siteName),
-    description: override?.seoDescription || description,
-    robots: pageRobots(override?.noIndex),
-  };
+  return buildPageMetadata({ path: "/insights", title: FALLBACK_TITLE, description, fields: override, settings });
 }
 
 const resources = [

@@ -1,3 +1,6 @@
+import { safeJsonLd } from "@/lib/json-ld";
+import { staticPageMetadata } from "@/lib/page-seo";
+import { getSiteSettings } from "@/lib/site-settings";
 import HeroSection from "@/components/HeroSection";
 import IntroSection from "@/components/IntroSection";
 import FutureOfWorkSection from "@/components/FutureOfWorkSection";
@@ -16,12 +19,21 @@ import { isStagingHost } from "@/lib/staging-host";
 
 export const dynamic = "force-dynamic";
 
+export async function generateMetadata() {
+  const settings = await getSiteSettings();
+  return staticPageMetadata("/", settings.siteName, settings.defaultMetaDescription);
+}
+
 export default async function HomePage() {
   const faqs = await getFaqs();
   const staging = await isStagingHost();
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd({
+        "@context": "https://schema.org", "@type": "FAQPage",
+        mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
+      }) }} />
       <HeroSection />
       {staging && (
         <section className="bg-[#f4efe5] px-6 py-12">
