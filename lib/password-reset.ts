@@ -22,22 +22,24 @@ export async function createPasswordResetToken(userId: string): Promise<string> 
   return token;
 }
 
-// Validates a raw token against its stored hash, checks it hasn't expired or
-// already been used, marks it used, and returns the associated userId (or
-// null if invalid). Single-use: calling this twice with the same token only
-// succeeds once.
-export async function consumePasswordResetToken(token: string): Promise<string | null> {
+// The claim and password update commit together; a failed update leaves the
+// link unused so the same request can be retried safely.
+export async function resetPasswordWithToken(token: string, passwordHash: string): Promise<string | null> {
   const tokenHash = hashToken(token);
-  const record = await prisma.passwordResetToken.findUnique({ where: { tokenHash } });
+  return prisma.$transaction(async (tx) => {
+    const record = await tx.passwordResetToken.findUnique({ where: { tokenHash } });
 
-  if (!record || record.usedAt || record.expiresAt < new Date()) {
-    return null;
-  }
+    if (!record || record.usedAt || record.expiresAt < new Date()) {
+      return null;
+    }
 
-  const claimed = await prisma.passwordResetToken.updateMany({
-    where: { id: record.id, usedAt: null, expiresAt: { gt: new Date() } },
-    data: { usedAt: new Date() },
-  });
+    const claimed = await tx.passwordResetToken.updateMany({
+      where: { id: record.id, usedAt: null, expiresAt: { gt: new Date() } },
+      data: { usedAt: new Date() },
+    });
 
-  return claimed.count === 1 ? record.userId : null;
+    if (claimed.count !== 1) return null;
+    await tx.user.update({ where: { id: record.userId }, data: { passwordHash } });
+    return record.userId;
+  }, { maxWait: 5_000 });
 }

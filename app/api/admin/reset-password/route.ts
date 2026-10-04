@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
-import { consumePasswordResetToken } from "@/lib/password-reset";
+import { resetPasswordWithToken } from "@/lib/password-reset";
 import { hashPassword } from "@/lib/auth";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
@@ -21,16 +20,19 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Password must be at least 8 characters" }, { status: 400 });
   }
 
-  const userId = await consumePasswordResetToken(token);
+  const passwordHash = await hashPassword(password);
+  let userId: string | null;
+  try {
+    userId = await resetPasswordWithToken(token, passwordHash);
+  } catch {
+    return NextResponse.json({ error: "Password was not changed. Please try this link again." }, { status: 503 });
+  }
   if (!userId) {
     return NextResponse.json(
       { error: "This reset link is invalid or has expired. Request a new one." },
       { status: 400 }
     );
   }
-
-  const passwordHash = await hashPassword(password);
-  await prisma.user.update({ where: { id: userId }, data: { passwordHash } });
 
   return NextResponse.json({ ok: true });
 }

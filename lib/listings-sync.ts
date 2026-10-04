@@ -69,6 +69,8 @@ async function fetchAllListings(): Promise<ListingRecord[]> {
   const all: ListingRecord[] = [];
   let page = 1;
   const limit = 100;
+  let expected: ListingsResponse["pagination"] | null = null;
+  const ids = new Set<string>();
 
   while (true) {
     const url = new URL(`${apiBaseUrl()}/api/public/v1/midpoint/listings`);
@@ -78,17 +80,37 @@ async function fetchAllListings(): Promise<ListingRecord[]> {
     const res = await fetch(url.toString(), {
       headers: { Authorization: `Bearer ${apiKey}` },
       cache: "no-store",
+      signal: AbortSignal.timeout(8_000),
     });
     if (!res.ok) {
       throw new Error(`listings.blendproperty.co.za returned ${res.status}`);
     }
     const body = (await res.json()) as ListingsResponse;
-    all.push(...(body.data || []));
+    const pagination = body.pagination;
+    if (!Array.isArray(body.data) || !pagination ||
+        ![pagination.page, pagination.limit, pagination.total, pagination.totalPages].every(Number.isInteger) ||
+        pagination.page !== page || pagination.limit < 1 || pagination.total < 0 ||
+        (pagination.total === 0 ? ![0, 1].includes(pagination.totalPages) : pagination.totalPages !== Math.ceil(pagination.total / pagination.limit)) ||
+        (expected && (pagination.limit !== expected.limit || pagination.total !== expected.total || pagination.totalPages !== expected.totalPages))) {
+      throw new Error("Listings feed pagination is incomplete or inconsistent; inventory was not reconciled.");
+    }
+    expected = pagination;
+    const expectedCount = Math.min(pagination.limit, Math.max(0, pagination.total - (page - 1) * pagination.limit));
+    if (body.data.length !== expectedCount || body.data.some(listing => !listing || typeof listing.id !== "string" || !listing.id.trim() || ids.has(listing.id))) {
+      throw new Error("Listings feed records are incomplete or repeated; inventory was not reconciled.");
+    }
+    for (const listing of body.data) {
+      if (ids.has(listing.id)) throw new Error("Listings feed records are repeated; inventory was not reconciled.");
+      ids.add(listing.id);
+    }
+    all.push(...body.data);
 
-    const totalPages = body.pagination?.totalPages ?? 1;
+    const totalPages = pagination.totalPages;
     if (page >= totalPages) break;
     page += 1;
   }
+
+  if (!expected || all.length !== expected.total) throw new Error("Listings feed is incomplete; inventory was not reconciled.");
 
   return all;
 }
@@ -255,7 +277,8 @@ export async function syncVacanciesFromListings(): Promise<VacancySyncResult> {
     }
   }
 
-  // Anything previously synced (has an externalId) that the API no longer
+  // Only a fully validated feed reaches this reconciliation. Anything
+  // previously synced (has an externalId) that the API no longer
   // returned has presumably been let, withdrawn, or removed on their side —
   // soft-hide it here (set to DRAFT) rather than deleting, so an editor can
   // still see and review it in /admin/vacancies instead of it vanishing.
