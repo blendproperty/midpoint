@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Script from "next/script";
+import Link from "next/link";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { trackAnalyticsEvent } from "@/lib/analytics";
 import { getStoredAttribution } from "@/lib/attribution";
+
+import EnquiryField from "@/components/EnquiryField";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -42,6 +45,7 @@ type Props = {
 };
 
 export default function ContactForm({ siteKey, successMessage, defaultInterest, spaceName }: Props = {}) {
+  const id = useId();
   const [status, setStatus] = useState<Status>("idle");
   const [consent, setConsent] = useState(false);
   const [captchaError, setCaptchaError] = useState(false);
@@ -150,108 +154,32 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
     }
   }
 
-  const field =
-    "dark-field w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3.5 text-sm text-white placeholder-white/50 transition-colors duration-150 focus:border-midpoint-cyan focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-midpoint-cyan";
-
-  return (
-    <form
-      id="Contact"
-      onSubmit={handleSubmit}
-      onFocus={() => setCaptchaRequested(true)}
-      className="space-y-6"
-    >
-      {captchaRequested ? (
-        <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
-      ) : null}
-
-      {spaceName && (
-        <p className="rounded-lg border border-midpoint-cyan/30 bg-midpoint-cyan/10 px-4 py-3 text-sm text-midpoint-cyan">
-          Enquiring about: <span className="font-semibold">{spaceName}</span>
-        </p>
-      )}
-
-      <div className="grid gap-4 sm:grid-cols-2">
-        <input name="firstName" required placeholder="First Name" className={field} />
-        <input name="lastName" required placeholder="Last Name" className={field} />
-        <input name="phone" type="tel" required placeholder="Phone Number" className={field} />
-        <input name="email" type="email" required placeholder="Email" className={field} />
-      </div>
-
-      <select name="interest" required defaultValue={selectedInterest} className={field}>
-        <option value="" disabled className="text-midpoint-dark">
-          I&apos;m interested in:
-        </option>
-        {interests.map((o) => (
-          <option key={o} value={o} className="text-midpoint-dark">
-            {o}
-          </option>
-        ))}
+  const field = "dark-field enquiry-field w-full rounded-xl border border-white/40 bg-white/5 px-4 py-3.5 text-sm text-white placeholder-white/70 focus:border-midpoint-cyan focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-midpoint-cyan";
+  return <form onSubmit={handleSubmit} onFocus={() => setCaptchaRequested(true)} className="space-y-6">
+    {captchaRequested && <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />}
+    {spaceName && <p className="rounded-lg border border-midpoint-cyan/30 bg-midpoint-cyan/10 px-4 py-3 text-sm text-midpoint-cyan">Enquiring about: <span className="font-semibold">{spaceName}</span></p>}
+    <p className="text-sm text-white/80">All fields are required. We use your details to respond to your enquiry.</p>
+    <div className="grid gap-4 sm:grid-cols-2">
+      <EnquiryField id={`${id}-firstName`} label="First name" required><input id={`${id}-firstName`} name="firstName" autoComplete="given-name" required className={field} /></EnquiryField>
+      <EnquiryField id={`${id}-lastName`} label="Last name" required><input id={`${id}-lastName`} name="lastName" autoComplete="family-name" required className={field} /></EnquiryField>
+      <EnquiryField id={`${id}-phone`} label="Phone number" required><input id={`${id}-phone`} name="phone" type="tel" autoComplete="tel" required className={field} /></EnquiryField>
+      <EnquiryField id={`${id}-email`} label="Email address" required><input id={`${id}-email`} name="email" type="email" autoComplete="email" required className={field} /></EnquiryField>
+    </div>
+    <EnquiryField id={`${id}-interest`} label="Space interest" required>
+      <select id={`${id}-interest`} name="interest" required defaultValue={selectedInterest} className={field}>
+        <option value="" disabled className="text-midpoint-dark">Choose a space type</option>
+        {interests.map(o => <option key={o} value={o} className="text-midpoint-dark">{o}</option>)}
       </select>
-
-      <textarea
-        name="message"
-        required
-        rows={4}
-        placeholder="Message"
-        defaultValue={initialMessage}
-        className={field}
-      />
-
-      <label className="flex items-start gap-2 text-sm text-midpoint-grey-400">
-        <input
-          type="checkbox"
-          required
-          checked={consent}
-          onChange={(e) => setConsent(e.target.checked)}
-          className="mt-1"
-        />
-        I consent to Midpoint&apos;s privacy policy.
-      </label>
-
-      {/* Explicitly rendered via grecaptcha.render() in the effect above —
-          no "g-recaptcha" class / data-sitekey attribute here, since that
-          would tell Google's script to ALSO auto-render into this same div,
-          which would either double-render or conflict with the explicit
-          render. This div is just the mount point. */}
-      <div ref={recaptchaRef} />
-      {captchaError && (
-        <p role="alert" className="text-sm font-medium text-red-400">
-          Please confirm you&apos;re not a robot before submitting.
-        </p>
-      )}
-
-      <button
-        disabled={status === "sending" || !consent}
-        className="rounded-full bg-midpoint-cyan px-8 py-3 text-sm font-medium text-midpoint-dark transition-transform duration-100 ease-out hover:opacity-90 active:scale-[0.97] disabled:opacity-60 disabled:active:scale-100"
-      >
-        {status === "sending" ? "Sending…" : "Submit"}
-      </button>
-
-      {/* Bigger, boxed, and scrolled into view on submit (see the useEffect
-          above) instead of a small line of text that could land below the
-          fold and go unnoticed after clicking Submit. */}
-      {status === "sent" && (
-        <div
-          ref={feedbackRef}
-          key="sent"
-          role="status"
-          className="flex animate-fade-in-up items-center gap-3 rounded-xl border border-midpoint-cyan bg-midpoint-cyan/15 px-5 py-4 text-base font-semibold text-midpoint-cyan"
-        >
-          <CheckCircle2 size={22} className="shrink-0" aria-hidden="true" />
-          {successMessage || DEFAULT_SUCCESS_MESSAGE}
-        </div>
-      )}
-      {status === "error" && (
-        <div
-          ref={feedbackRef}
-          key="error"
-          role="alert"
-          className="flex animate-fade-in-up items-center gap-3 rounded-xl border border-red-400 bg-red-500/10 px-5 py-4 text-base font-semibold text-red-400"
-        >
-          <AlertCircle size={22} className="shrink-0" aria-hidden="true" />
-          The message didn&apos;t send. Try again, or email us directly.
-        </div>
-      )}
-    </form>
-  );
+    </EnquiryField>
+    <EnquiryField id={`${id}-message`} label="Message" required><textarea id={`${id}-message`} name="message" required rows={4} defaultValue={initialMessage} className={field} /></EnquiryField>
+    <label className="flex items-start gap-3 text-sm text-white/80">
+      <input type="checkbox" required checked={consent} onChange={e => setConsent(e.target.checked)} className="enquiry-field mt-1 h-4 w-4 shrink-0 accent-midpoint-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-cyan" />
+      <span>I consent to Midpoint&apos;s <Link href="/privacy-policy" className="text-white underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-cyan">privacy policy</Link> (required).</span>
+    </label>
+    <div ref={recaptchaRef} />
+    {captchaError && <p role="alert" className="rounded-lg border border-red-300 bg-red-500/10 p-3 text-sm font-medium text-red-200">Please confirm you&apos;re not a robot before submitting.</p>}
+    <button disabled={status === "sending" || !consent} className="rounded-full bg-midpoint-cyan px-8 py-3 text-sm font-semibold text-midpoint-dark hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-cyan disabled:opacity-60">{status === "sending" ? "Sending…" : "Send enquiry"}</button>
+    {status === "sent" && <div ref={feedbackRef} role="status" className="flex items-center gap-3 rounded-xl border border-midpoint-cyan bg-midpoint-cyan/15 px-5 py-4 text-base font-semibold text-midpoint-cyan"><CheckCircle2 size={22} className="shrink-0" aria-hidden="true" />{successMessage || DEFAULT_SUCCESS_MESSAGE}</div>}
+    {status === "error" && <div ref={feedbackRef} role="alert" className="flex items-center gap-3 rounded-xl border border-red-300 bg-red-500/10 px-5 py-4 text-base font-semibold text-red-200"><AlertCircle size={22} className="shrink-0" aria-hidden="true" />The message didn&apos;t send. Try again, or email us directly.</div>}
+  </form>;
 }

@@ -2,6 +2,7 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import { getAuthSecretBytes } from "@/lib/auth-secret";
+import { prisma } from "@/lib/prisma";
 
 export const SESSION_COOKIE = "midpoint_admin_session";
 
@@ -51,5 +52,10 @@ export async function getSession(): Promise<SessionPayload | null> {
   const store = await cookies();
   const token = store.get(SESSION_COOKIE)?.value;
   if (!token) return null;
-  return verifySessionToken(token);
+  const session = await verifySessionToken(token);
+  if (!session) return null;
+  // Signed claims establish identity; current database state establishes
+  // access so a deleted account or changed role cannot keep stale privileges.
+  const user = await prisma.user.findUnique({ where: { id: session.sub }, select: { id: true, email: true, role: true } });
+  return user ? { sub: user.id, email: user.email, role: user.role } : null;
 }

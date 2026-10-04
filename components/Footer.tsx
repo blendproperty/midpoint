@@ -9,10 +9,10 @@ export default function Footer() {
         <div className="flex flex-col justify-between gap-10 border-b border-white/10 pb-10 md:flex-row md:items-start">
           <div>
             <Logo className="h-8 w-auto" />
-            <p className="mt-4 text-xs text-midpoint-grey-400">
+            <p className="mt-4 text-xs text-white/80">
               © {new Date().getFullYear()} Midpoint District. All Rights Reserved.
             </p>
-            <div className="mt-4 space-y-1 text-sm text-midpoint-grey-400">
+            <div className="mt-4 space-y-1 text-sm text-white/80">
               <p>
                 <a href={site.phoneHref} className="hover:text-white">{site.phone}</a>
               </p>
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="mt-6 text-xs text-midpoint-grey-400">
+        <p className="mt-6 text-xs text-white/80">
           *Some images displayed on this website are for illustrative and
           representational purposes only. They are intended to provide a
           general concept of the design, ambiance, and vision for the

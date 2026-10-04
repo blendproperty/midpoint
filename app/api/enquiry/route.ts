@@ -1,3 +1,4 @@
+import { readBoundedJson, RequestBodyError } from "@/lib/request-body";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifyRecaptcha } from "@/lib/recaptcha";
@@ -29,7 +30,12 @@ export async function POST(req: Request) {
     );
   }
 
-  const payload = await req.json();
+  let payload: Record<string, unknown>;
+  try { payload = await readBoundedJson(req); }
+  catch (error) {
+    if (error instanceof RequestBodyError) return NextResponse.json({ error: error.message }, { status: error.status });
+    return NextResponse.json({ error: "Could not read request." }, { status: 400 });
+  }
 
   const firstName = payload?.firstName ? String(payload.firstName).trim() : "";
   const lastName = payload?.lastName ? String(payload.lastName).trim() : "";
@@ -138,6 +144,7 @@ export async function POST(req: Request) {
 
   try {
     const res = await fetch(webhook, {
+      signal: AbortSignal.timeout(8_000),
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

@@ -11,6 +11,7 @@ import {
   UtensilsCrossed,
   Wifi,
 } from "lucide-react";
+import EstateMap from "@/components/EstateMap";
 import SuitesBookingForm from "@/components/SuitesBookingForm";
 import BookingSearch from "@/components/BookingSearch";
 import SuiteGallery from "@/components/SuiteGallery";
@@ -64,7 +65,7 @@ const suiteImages = [
 export default async function SuitesPage() {
   const staging = await isStagingHost();
   return (
-    <main className="bg-[#062b29] text-white">
+    <div className="bg-[#062b29] text-white">
       <section className="relative min-h-[72vh] overflow-hidden">
         <Image
           src="/images/suites/suite-bedroom-workspace.png"
@@ -103,6 +104,8 @@ export default async function SuitesPage() {
         </section>
       )}
       <section className="mx-auto max-w-7xl px-6 py-20">
+        <h2 className="text-3xl font-semibold">Designed for business stays</h2>
+        <p className="mb-8 mt-4 max-w-2xl text-white/80">Explore the planned experience. Confirm the final specification and operating amenities with the team.</p>
         <div className="grid gap-6 md:grid-cols-3">
           {features.map(([Icon, title, copy]) => {
             const I = Icon as typeof BedDouble;
@@ -112,8 +115,8 @@ export default async function SuitesPage() {
                 className="rounded-2xl border border-white/10 bg-white/5 p-6"
               >
                 <I className="h-7 w-7 text-midpoint-cyan" />
-                <h2 className="mt-5 text-xl font-semibold">{String(title)}</h2>
-                <p className="mt-2 text-sm leading-6 text-white/65">
+                <h3 className="mt-5 text-xl font-semibold">{String(title)}</h3>
+                <p className="mt-2 text-sm leading-6 text-white/80">
                   {String(copy)}
                 </p>
               </article>
@@ -140,13 +143,13 @@ export default async function SuitesPage() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[.2em] text-midpoint-cyan">
-              Plan your stay
+              Accommodation enquiries
             </p>
             <h2 className="mt-3 text-4xl font-semibold">
               {staging ? "Find your stay" : "Enquire about The Suites"}
             </h2>
-            <p className="mt-5 leading-7 text-white/65">
-              The Suites are coming soon. Contact the team about future stays and opening plans. Availability and rates will be confirmed before any reservation is finalised.
+            <p className="mt-5 leading-7 text-white/80">
+              The Suites are coming soon. Contact the team about future stays and opening plans. Availability and rates will be confirmed before any reservation is finalised. This enquiry does not make a reservation.
             </p>
           </div>
           {staging ? (
@@ -158,6 +161,7 @@ export default async function SuitesPage() {
           )}
         </div>
       </section>
-    </main>
+      <section className="mx-auto max-w-7xl px-6 pb-16"><h2 className="text-2xl font-semibold">Find The Suites at Midpoint</h2><p className="mt-3 text-white/80">162 Tonetti Street, Halfway House, Midrand. For business premises, <Link href="/contact-us" className="text-midpoint-cyan underline underline-offset-4">contact the leasing team</Link>.</p><EstateMap /></section>
+    </div>
   );
 }

@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
+import EnquiryField from "@/components/EnquiryField";
 import { CheckCircle2 } from "lucide-react";
 import { getStoredAttribution } from "@/lib/attribution";
 import { trackAnalyticsEvent } from "@/lib/analytics";
 
 export default function SuitesBookingForm() {
+  const id = useId();
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-  const field = "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder:text-white/55 focus:border-midpoint-cyan focus:outline-none";
+  const field = "dark-field enquiry-field w-full rounded-xl border border-white/40 bg-white/10 px-4 py-3 text-white placeholder:text-white/70 focus:border-midpoint-cyan focus:outline-none focus:ring-2 focus:ring-midpoint-cyan";
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -37,19 +39,20 @@ export default function SuitesBookingForm() {
     </div>
   );
 
-  return <form onSubmit={submit} className="grid gap-4 sm:grid-cols-2">
+  return <form onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
+    <p className="text-sm text-white/80 sm:col-span-2">Tell us about a future stay. Required fields are marked; this enquiry does not reserve a room.</p>
     <input name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
-    <input name="firstName" required placeholder="First name" className={field} />
-    <input name="lastName" required placeholder="Last name" className={field} />
-    <input name="email" type="email" required placeholder="Email address" className={field} />
-    <input name="phone" type="tel" required placeholder="Mobile number" className={field} />
-    <label className="text-sm text-white/70">Check-in<input name="checkIn" type="date" required min={new Date().toISOString().slice(0, 10)} className={`${field} mt-1`} /></label>
-    <label className="text-sm text-white/70">Check-out<input name="checkOut" type="date" required min={new Date().toISOString().slice(0, 10)} className={`${field} mt-1`} /></label>
-    <select name="guests" required defaultValue="" className={field}><option value="" disabled className="text-slate-900">Number of guests</option>{[1,2,3,4].map(n => <option key={n} className="text-slate-900" value={n}>{n} guest{n > 1 ? "s" : ""}</option>)}</select>
-    <input name="company" placeholder="Company (optional)" className={field} />
-    <textarea name="message" rows={4} placeholder="Tell us about your stay or any special requirements" className={`${field} sm:col-span-2`} />
-    <label className="flex items-start gap-2 text-sm text-white/70 sm:col-span-2"><input type="checkbox" name="consent" required className="mt-1" />I consent to Midpoint using these details to respond to my accommodation request.</label>
-    <button disabled={status === "sending"} className="rounded-full bg-midpoint-cyan px-7 py-3 font-semibold text-midpoint-dark sm:col-span-2 sm:justify-self-start">{status === "sending" ? "Sending…" : "Enquire about future stays"}</button>
-    {status === "error" && <p role="alert" className="text-sm text-red-300 sm:col-span-2">We could not save your request. Please try again or use the WhatsApp button.</p>}
+    <EnquiryField id={`${id}-firstName`} label="First name" required><input id={`${id}-firstName`} name="firstName" required autoComplete="given-name" className={field} /></EnquiryField>
+    <EnquiryField id={`${id}-lastName`} label="Last name" required><input id={`${id}-lastName`} name="lastName" required autoComplete="family-name" className={field} /></EnquiryField>
+    <EnquiryField id={`${id}-email`} label="Email address" required><input id={`${id}-email`} name="email" type="email" required autoComplete="email" className={field} /></EnquiryField>
+    <EnquiryField id={`${id}-phone`} label="Mobile number" required><input id={`${id}-phone`} name="phone" type="tel" required autoComplete="tel" className={field} /></EnquiryField>
+    <EnquiryField id={`${id}-checkIn`} label="Preferred arrival" required><input id={`${id}-checkIn`} name="checkIn" type="date" required min={new Date().toISOString().slice(0, 10)} className={field} /></EnquiryField>
+    <EnquiryField id={`${id}-checkOut`} label="Preferred departure" required><input id={`${id}-checkOut`} name="checkOut" type="date" required min={new Date().toISOString().slice(0, 10)} className={field} /></EnquiryField>
+    <EnquiryField id={`${id}-guests`} label="Number of guests" required><select id={`${id}-guests`} name="guests" required defaultValue="" className={field}><option value="" disabled className="text-slate-900">Choose guest count</option>{[1,2,3,4].map(n => <option key={n} className="text-slate-900" value={n}>{n} guest{n > 1 ? "s" : ""}</option>)}</select></EnquiryField>
+    <EnquiryField id={`${id}-company`} label="Company"><input id={`${id}-company`} name="company" autoComplete="organization" className={field} /></EnquiryField>
+    <EnquiryField id={`${id}-message`} label="Stay requirements" className="sm:col-span-2"><textarea id={`${id}-message`} name="message" rows={4} placeholder="Tell us about your stay or any special requirements" className={field} /></EnquiryField>
+    <label className="flex items-start gap-3 text-sm text-white/80 sm:col-span-2"><input type="checkbox" name="consent" required className="enquiry-field mt-1 h-4 w-4 shrink-0 accent-midpoint-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-cyan" />I consent to Midpoint using these details to respond to my accommodation request (required).</label>
+    <button disabled={status === "sending"} className="rounded-full bg-midpoint-cyan px-7 py-3 font-semibold text-midpoint-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-cyan sm:col-span-2 sm:justify-self-start">{status === "sending" ? "Sending…" : "Enquire about future stays"}</button>
+    {status === "error" && <p role="alert" className="rounded-lg border border-red-300 bg-red-500/10 p-3 text-sm text-red-200 sm:col-span-2">We could not save your request. Please try again or use the WhatsApp button.</p>}
   </form>;
 }

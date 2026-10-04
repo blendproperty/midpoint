@@ -34,10 +34,10 @@ export async function consumePasswordResetToken(token: string): Promise<string |
     return null;
   }
 
-  await prisma.passwordResetToken.update({
-    where: { id: record.id },
+  const claimed = await prisma.passwordResetToken.updateMany({
+    where: { id: record.id, usedAt: null, expiresAt: { gt: new Date() } },
     data: { usedAt: new Date() },
   });
 
-  return record.userId;
+  return claimed.count === 1 ? record.userId : null;
 }

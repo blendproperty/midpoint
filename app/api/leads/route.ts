@@ -1,3 +1,4 @@
+import { readBoundedJson, RequestBodyError } from "@/lib/request-body";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { upsertContact } from "@/lib/contacts";
@@ -23,7 +24,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const payload = await req.json();
+  let payload: Record<string, unknown>;
+  try { payload = await readBoundedJson(req); }
+  catch (error) {
+    if (error instanceof RequestBodyError) return NextResponse.json({ error: error.message }, { status: error.status });
+    return NextResponse.json({ error: "Could not read request." }, { status: 400 });
+  }
   const email = payload?.email ? String(payload.email).trim() : "";
   const firstName = payload?.firstName ? String(payload.firstName).trim() : "";
   const lastName = payload?.lastName ? String(payload.lastName).trim() : "";

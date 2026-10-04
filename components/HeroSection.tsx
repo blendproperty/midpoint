@@ -8,8 +8,8 @@ const quickLinks = [
     image: "/images/hero/quicklink-explore.png",
   },
   {
-    title: "View availability report",
-    href: "/availability-report",
+    title: "Current vacancies",
+    href: "/vacancies",
     image: "/images/hero/quicklink-availability.png",
   },
   {
@@ -20,11 +20,6 @@ const quickLinks = [
 ];
 
 export default function HeroSection() {
-  // Duplicated so the CSS marquee loop is seamless — same technique as
-  // TenantWall. With only 3 tiles there's nothing for manual overflow
-  // scroll to actually scroll, so this animates continuously instead.
-  const row = [...quickLinks, ...quickLinks];
-
   return (
     <section className="relative">
       {/* Matches the original scraped hero height (~973px on desktop) —
@@ -51,18 +46,19 @@ export default function HeroSection() {
             Conveniently positioned in Midrand, central to major business hubs in Gauteng. Connect your company to endless opportunities and amenities.
           </p>
 
-          {/* Webflow's original used a 3D Swiper carousel. This is a
-              simpler equivalent with the same continuous sliding motion,
-              via CSS animation rather than a JS carousel library. */}
-          <div className="mt-10 w-full max-w-xl overflow-hidden">
-            <div className="flex w-max animate-marquee gap-4">
-              {row.map((link, i) => (
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/vacancies" className="inline-flex rounded-full bg-midpoint-cyan px-7 py-3 font-semibold text-midpoint-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-cyan">View available space</Link>
+            <Link href="/contact-us#Contact" className="inline-flex rounded-full border border-white/60 bg-midpoint-dark/60 px-7 py-3 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-cyan">Arrange a viewing</Link>
+          </div>
+          <div className="mt-8 w-full max-w-3xl">
+            <div className="grid gap-4 sm:grid-cols-3">
+              {quickLinks.map((link, i) => (
                 <Link
                   key={`${link.title}-${i}`}
                   href={link.href}
-                  className="group w-56 shrink-0 overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm"
+                  className="group min-w-0 overflow-hidden rounded-xl bg-midpoint-dark/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-cyan"
                 >
-                  <div className="relative h-36 w-full">
+                  <div className="relative h-24 w-full">
                     <Image src={link.image} alt="" fill sizes="224px" className="object-cover" />
                   </div>
                   <div className="flex items-center justify-between px-4 py-3 text-sm font-medium text-white">

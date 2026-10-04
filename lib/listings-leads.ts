@@ -28,6 +28,7 @@ export async function pushLeadToListings(payload: {
 
   try {
     const res = await fetch(url, {
+      signal: AbortSignal.timeout(8_000),
       method: "POST",
       headers: { "Content-Type": "application/json", "x-api-key": apiKey },
       body: JSON.stringify({

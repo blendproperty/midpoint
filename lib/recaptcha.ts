@@ -25,6 +25,7 @@ export async function verifyRecaptcha(
     if (remoteIp) params.set("remoteip", remoteIp);
 
     const res = await fetch(VERIFY_URL, {
+      signal: AbortSignal.timeout(8_000),
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: params.toString(),

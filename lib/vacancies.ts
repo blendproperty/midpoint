@@ -1,3 +1,4 @@
+import { formatVacancyRate } from "@/lib/vacancy-shared";
 import { prisma } from "@/lib/prisma";
 
 export type VacancySector = "Warehouse" | "Office" | "Serviced office";
@@ -82,8 +83,17 @@ export function vacancySummary(value: string, maxLength = 280) {
 }
 
 export async function getVacancyById(id: string): Promise<VacancyListing | null> {
-  const vacancies = await getAllVacancies();
-  return vacancies.find((vacancy) => vacancy.id === id) || null;
+  try {
+    const row = await prisma.vacancy.findFirst({ where: { id, status: "PUBLISHED" } });
+    if (!row) return null;
+    return {
+      id: row.id, building: row.building, unitName: row.unitName || null,
+      sector: vacancySector(row.sector, row.building), sizeSqm: row.sizeSqm,
+      ratePerSqm: row.ratePerSqm, availability: row.availability,
+      description: vacancySummary(row.description), features: row.features,
+      image: row.image || "",
+    };
+  } catch { return null; }
 }
 
 function formatVacancySize(n: number) {
@@ -101,7 +111,7 @@ export function buildVacancyWhatsappMessage(
   listing: VacancyListing,
   siteUrl: string,
 ) {
-  const details = `${vacancyLabel(listing)} — ${formatVacancySize(listing.sizeSqm)}, R${listing.ratePerSqm}/m², available ${listing.availability}.`;
+  const details = `${vacancyLabel(listing)} — ${formatVacancySize(listing.sizeSqm)}, ${formatVacancyRate(listing.ratePerSqm)}/m², available ${listing.availability}.`;
   const link = `${siteUrl.replace(/\/$/, "")}/vacancies`;
   return `${baseTemplate}\n\nI'm interested in: ${details}\n${link}`;
 }

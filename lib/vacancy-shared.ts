@@ -22,3 +22,19 @@ export function vacancyLabel(listing: Pick<VacancyListing, "building" | "unitNam
 export function vacancyDetailHref(listing: Pick<VacancyListing, "id">) {
   return `/vacancies/${encodeURIComponent(listing.id)}`;
 }
+
+export function vacancyEnquiryHref(listing: Pick<VacancyListing, "building" | "unitName" | "sector">) {
+  const interest: Record<VacancySector, string> = {
+    Warehouse: "Warehouse space", Office: "Office space", "Serviced office": "Serviced offices",
+  };
+  const params = new URLSearchParams({ space: vacancyLabel(listing), interest: interest[listing.sector] });
+  return `/contact-us?${params.toString()}#Contact`;
+}
+
+export function formatVacancySize(value: number) {
+  return `${value.toLocaleString("en-ZA", { maximumFractionDigits: 2 })} m²`;
+}
+
+export function formatVacancyRate(value: number) {
+  return `R ${value.toLocaleString("en-ZA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}

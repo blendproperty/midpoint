@@ -2,12 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { vacancyDetailHref, vacancyLabel, type VacancyListing } from "@/lib/vacancy-shared";
+import { vacancyDetailHref, vacancyLabel, vacancyEnquiryHref, formatVacancySize, formatVacancyRate, type VacancyListing } from "@/lib/vacancy-shared";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
-
-function formatSize(n: number) {
-  return `${n.toLocaleString("en-ZA", { maximumFractionDigits: 2 })} m²`;
-}
 
 // Fires a beacon when "Enquire" is clicked so /admin can show which listings
 // are attracting the most interest — doesn't block or delay the navigation.
@@ -26,23 +22,6 @@ function trackVacancyEnquire(vacancyId: string, spaceLabel: string, type: "ENQUI
       keepalive: true,
     }).catch(() => {});
   }
-}
-
-// ContactForm's "I'm interested in:" dropdown only has these three exact
-// option values — map the vacancy's sector label onto the matching option so
-// it's pre-selected when someone arrives from a specific listing.
-const SECTOR_TO_INTEREST: Record<string, string> = {
-  Warehouse: "Warehouse space",
-  Office: "Office space",
-  "Serviced office": "Serviced offices",
-};
-
-function enquireHref(listing: VacancyListing) {
-  const params = new URLSearchParams();
-  params.set("space", vacancyLabel(listing));
-  const interest = SECTOR_TO_INTEREST[listing.sector];
-  if (interest) params.set("interest", interest);
-  return `/contact-us?${params.toString()}#Contact`;
 }
 
 type Props = {
@@ -74,11 +53,11 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
         <div className="mt-6 grid grid-cols-3 gap-4 border-y border-white/10 py-4 text-sm">
           <div>
             <p className="text-xs uppercase tracking-wide text-white/50">Size</p>
-            <p className="mt-1 font-semibold">{formatSize(listing.sizeSqm)}</p>
+            <p className="mt-1 font-semibold">{formatVacancySize(listing.sizeSqm)}</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-wide text-white/50">Rate /m²</p>
-            <p className="mt-1 font-semibold">R{listing.ratePerSqm}</p>
+            <p className="mt-1 font-semibold">{formatVacancyRate(listing.ratePerSqm)}</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-wide text-white/50">Availability</p>
@@ -86,18 +65,10 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
           </div>
         </div>
 
-        <p className="mt-4 text-sm text-white/70">{listing.description}</p>
-
-        <ul className="mt-4 space-y-1 text-sm text-white/70">
-          {listing.features.map((f) => (
-            <li key={f}>• {f}</li>
-          ))}
-        </ul>
-
-        <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
+        <div className="mt-5 flex flex-wrap items-center gap-3 pb-2">
           <Link href={vacancyDetailHref(listing)} data-analytics-event="vacancy_view" data-analytics-location="vacancy_card" data-vacancy-id={listing.id} data-vacancy-name={vacancyLabel(listing)} className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition hover:opacity-90">View details</Link>
           <Link
-            href={enquireHref(listing)}
+            href={vacancyEnquiryHref(listing)}
             onClick={() => trackVacancyEnquire(listing.id, vacancyLabel(listing))}
             data-analytics-event="enquiry_start"
             data-analytics-location="vacancy_card"
@@ -105,7 +76,7 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
             data-vacancy-name={vacancyLabel(listing)}
             className="rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-100 ease-out hover:bg-white/10 active:scale-[0.97]"
           >
-            Enquire
+            Arrange a viewing
           </Link>
           <Link
             href="/#explore"
@@ -132,6 +103,15 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
             </a>
           ) : null}
         </div>
+        <p className="mt-4 text-sm text-white/70">{listing.description}</p>
+
+        <ul aria-label="Property features" className="mt-4 list-disc space-y-1 pl-5 text-sm text-white/80">
+          {listing.features.map((f) => (
+            <li key={f}>{f}</li>
+          ))}
+        </ul>
+
+
       </div>
     </div>
   );

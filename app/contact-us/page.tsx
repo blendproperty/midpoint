@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import PageHero from "@/components/PageHero";
+import EstateMap from "@/components/EstateMap";
 import ContactForm from "@/components/ContactForm";
 import { getPageSeoOverride } from "@/lib/page-seo";
 import { getSiteSettings } from "@/lib/site-settings";
@@ -82,10 +83,10 @@ export default async function ContactUs({
         imageAlt="Midpoint leasing team"
       />
 
-      <section className="bg-midpoint-dark px-6 py-16 text-white">
+      <section id="Contact" className="bg-midpoint-dark px-6 py-16 text-white">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
           <div>
-            <div className="space-y-4 text-midpoint-grey-400">
+            <div className="space-y-4 text-white/80">
               <p className="font-semibold text-white">
                 Whether you are looking for office space, serviced offices, or warehouse facilities in Midrand, the
                 Midpoint leasing team is ready to assist. Our team can provide detailed information on current
@@ -106,7 +107,7 @@ export default async function ContactUs({
 
             <div className="mt-10 flex flex-wrap gap-10 border-t border-white/10 pt-8">
               <div>
-                <h3 className="text-sm uppercase tracking-wide text-midpoint-grey-400">Contact Info</h3>
+                <h3 className="text-sm uppercase tracking-wide text-white/80">Contact Info</h3>
                 <p className="mt-1">
                   <a href={site.phoneHref}>{site.phone}</a>
                 </p>
@@ -115,7 +116,7 @@ export default async function ContactUs({
                 </p>
               </div>
               <div>
-                <h3 className="text-sm uppercase tracking-wide text-midpoint-grey-400">Address</h3>
+                <h3 className="text-sm uppercase tracking-wide text-white/80">Address</h3>
                 <p className="mt-1">
                   {site.address.street}, {site.address.suburb}
                   <br />
@@ -125,6 +126,7 @@ export default async function ContactUs({
             </div>
           </div>
           <div>
+            <h2 className="mb-6 text-2xl font-semibold">Send a leasing enquiry</h2>
             <ContactForm
               siteKey={settings.recaptchaSiteKey}
               successMessage={settings.enquirySuccessMessage}
@@ -134,6 +136,7 @@ export default async function ContactUs({
           </div>
         </div>
       </section>
+      <section className="bg-midpoint-dark px-6 pb-16 text-white"><div className="mx-auto max-w-7xl"><h2 className="text-2xl font-semibold">Find Midpoint</h2><EstateMap /></div></section>
     </>
   );
 }

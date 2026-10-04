@@ -40,6 +40,7 @@ export default function SiteChrome({
   // most obviously redundant. Every other page still gets the shared section.
   const isContactPage =
     pathname === "/contact-us" ||
+    pathname === "/the-suites-at-midpoint" ||
     pathname?.startsWith("/stay") ||
     pathname === "/manage-booking";
 

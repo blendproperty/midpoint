@@ -21,7 +21,7 @@ export default function ReadyToMoveSection() {
 
           <Reveal className="relative max-w-2xl px-8 text-white sm:px-14">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-cyan">Current opportunities</p>
-            <p className="mt-4 text-4xl font-semibold leading-tight sm:text-6xl">Ready to find your space?</p>
+            <h2 className="mt-4 text-4xl font-semibold leading-tight sm:text-6xl">Ready to find your space?</h2>
             <p className="mt-4 max-w-lg text-sm leading-6 text-white/75 sm:text-base">
               Explore available offices, warehouses and flexible workspace within one connected Midrand estate.
             </p>

@@ -217,3 +217,22 @@ body {
   appearance: none;
   padding-right: 2.25rem;
 }
+
+/* Native validation retains the browser's field-specific explanation. */
+form .enquiry-field:user-invalid {
+  border-color: #fecaca;
+  outline: 2px solid #fecaca;
+  outline-offset: 2px;
+}
+
+/* Vacancy filters need two rows before the full desktop layout fits. */
+@media (min-width: 768px) and (max-width: 1279px) {
+  form[action="/vacancies"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+form[action="/vacancies"] > input,
+form[action="/vacancies"] > select {
+  min-width: 0;
+}

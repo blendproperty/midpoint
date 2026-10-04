@@ -1,8 +1,5 @@
 import { SignJWT, jwtVerify } from "jose";
-
-const secret = new TextEncoder().encode(
-  process.env.AUTH_SECRET || "dev-insecure-secret-change-me"
-);
+import { getAuthSecretBytes } from "@/lib/auth-secret";
 
 // Signed, page-specific unlock token. A visitor who enters the correct
 // password for a protected Page/PillarPage gets one of these set as a
@@ -14,13 +11,13 @@ export async function createPageAccessToken(pageId: string): Promise<string> {
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("24h")
-    .sign(secret);
+    .sign(getAuthSecretBytes());
 }
 
 export async function verifyPageAccessToken(token: string | undefined, pageId: string): Promise<boolean> {
   if (!token) return false;
   try {
-    const { payload } = await jwtVerify(token, secret);
+    const { payload } = await jwtVerify(token, getAuthSecretBytes());
     return payload.pageId === pageId;
   } catch {
     return false;

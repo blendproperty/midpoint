@@ -10,6 +10,19 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      booking-db:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_PASSWORD: local-booking-test-only
+          POSTGRES_DB: midpoint_booking_test
+        ports:
+          - 55439:5432
+        options: --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://postgres:local-booking-test-only@localhost:55439/midpoint_booking_test
+      BOOKING_INTEGRATION: "1"
+      AUTH_SECRET: local-only-ux-ci-secret-not-for-production-20261004
     steps:
       - uses: actions/checkout@v4
 
@@ -20,5 +33,24 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run unit tests
+      - name: Apply migrations to disposable test database
+        run: npx prisma migrate deploy
+
+      - name: Run unit and booking integration tests
         run: npm test
+
+      - name: Build production application
+        run: npm run build
+
+      - name: Verify local public UX without external submissions
+        env:
+          PORT: "3104"
+          UX_HAS_DATABASE: "1"
+        run: |
+          npx playwright install --with-deps chromium
+          npx tsx scripts/ux-local-seed.ts
+          node node_modules/next/dist/bin/next start -p 3104 > /tmp/midpoint-ux-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid"' EXIT
+          curl --fail --silent --show-error --retry 20 --retry-delay 1 --retry-connrefused http://127.0.0.1:3104/ > /dev/null
+          npx tsx scripts/ux-local-browser.ts
