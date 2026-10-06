@@ -1,5 +1,14 @@
 # Midpoint Project Context
 
+## 2026-10-06 — Midpoint brand Google Search campaign and budget reallocation
+
+- Implementation: published `Midpoint | Brand | Search` (campaign `24330541324`) in Blend Property Group Google Ads account `5635711564`, with an independent R42/day budget. Reduced enabled Midpoint PMax `24101834365` from R320 to R288/day and commercial Search `24101993216` from R100 to R90/day. Combined enabled Midpoint daily budget remains R420. STOR24 campaigns remain paused and unchanged.
+- Testing: read-only Google Ads API readback confirmed all three enabled campaign budgets, eight enabled keywords (exact and phrase variants of midpoint business park, midpoint midrand, midpoint office park and midpoint business estate), one responsive search ad with 15 headlines and four descriptions, and final URL https://www.mid-point.co.za/. Verified Google Search only, Search Partners/Display disabled, Midrand location criterion `1028673`, and presence-only geographic targeting. API request evidence: budget/status `SyHnqRx6t-gJsn99080Wow`; targeting `WuW_qFajXYE8Q4OOOzjX4g`; ad `3yhimuKkDh4fCX2CiuT31A`; keywords `X2CdFfZ8qXDBaC2zy2yerw`.
+- Commit and push: this evidence-only context update is prepared in isolated branch `codex/midpoint-brand-evidence-20261006` from verified origin/main `80485a6169e5f5d001328ea3a6634f7d2cf4a140`, for direct fast-forward promotion with CI skipped. Original OneDrive checkout and all unrelated changes are preserved. Verify the resulting remote main commit before final handoff.
+- Merge: no application merge or PR required; context-only fast-forward promotion.
+- Deployment and configuration: campaign publication and budget changes were saved in live Google Ads after account identity verification/pop-up access. Maximize clicks bidding; AI Max matching, text customization and URL expansion disabled. No website code, database, provider credentials or website deployment changed.
+- Live production verification: API confirms brand campaign ENABLED and ad REVIEWED/APPROVED. At readback it had zero impressions/clicks/conversions; this proves saved configuration and approval, not actual serving, lead delivery or campaign performance. One individual headline asset was still under review. Website conversion end-to-end UAT, lead quality, performance and existing project/provider/business gates remain unverified or unchanged. PMax's pre-existing missing lead-form warning remains open. Rollback: pause brand and restore PMax/Search daily budgets to R320/R100.
+
 This is the canonical delivery record for production-impacting Midpoint work. A task is complete only when each applicable stage below has evidence; unresolved gates remain explicit.
 
 ## 2026-10-02 — Business-park noindex report recheck
