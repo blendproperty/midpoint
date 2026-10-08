@@ -36,6 +36,7 @@ RUN addgroup --system --gid 1001 nodejs \
   && adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
+COPY --from=builder /app/scripts/vacancy-sync-scheduler.mjs ./scripts/vacancy-sync-scheduler.mjs
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Next's output-file tracing (used by `output: "standalone"`) detects the

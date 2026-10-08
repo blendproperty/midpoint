@@ -34,6 +34,7 @@ jobs:
     env:
       DATABASE_URL: postgresql://postgres:local-booking-test-only@localhost:55439/midpoint_booking_test
       BOOKING_INTEGRATION: "1"
+      VACANCY_SYNC_INTEGRATION: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -81,6 +82,7 @@ jobs:
             # intentional setup operation: it can reset settings/contact data.
             docker compose -f compose.prod.yml --profile tools run --rm migrate npx prisma migrate deploy
             docker compose -f compose.prod.yml up -d --no-build web
+            docker compose -f compose.prod.yml up -d --no-build vacancy-sync
             # Verify the new release is the one actually served through
             # Cloudflare, not merely a successfully built local image.
             curl --fail --silent --show-error \

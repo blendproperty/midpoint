@@ -1,13 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import VacancyPhoto from "@/components/VacancyPhoto";
+import { ArrowUpRight, CalendarDays, MapPin, Maximize2 } from "lucide-react";
+import VacancyFeature from "@/components/VacancyFeature";
 import Link from "next/link";
-import { vacancyDetailHref, vacancyLabel, type VacancyListing } from "@/lib/vacancy-shared";
+import { vacancyDetailHref, vacancyLabel, vacancyRate, vacancySize, vacancyAvailability, type VacancyListing } from "@/lib/vacancy-shared";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
-
-function formatSize(n: number) {
-  return `${n.toLocaleString("en-ZA", { maximumFractionDigits: 2 })} m²`;
-}
 
 // Fires a beacon when "Enquire" is clicked so /admin can show which listings
 // are attracting the most interest — doesn't block or delay the navigation.
@@ -54,85 +52,38 @@ type Props = {
 };
 
 export default function VacancyCard({ listing, whatsappUrl }: Props) {
+  const label = vacancyLabel(listing);
+  const features = Array.from(new Set(listing.features)).slice(0, 4);
   return (
-    <div className="flex h-full flex-col overflow-hidden rounded-card bg-midpoint-dark text-white">
-      <div className="relative h-56 w-full shrink-0">
-        <Image src={listing.image} alt={listing.building} fill className="object-cover" />
-      </div>
-      <div className="flex flex-1 flex-col p-6 md:p-8">
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <p className="text-xs uppercase tracking-wide text-white/50">Building</p>
-            <h3 className="text-xl font-semibold md:text-2xl">{listing.building}</h3>
-            {listing.unitName && <p className="mt-0.5 text-sm font-medium text-midpoint-cyan">{listing.unitName}</p>}
-          </div>
-          <span className="rounded-full bg-midpoint-cyan/20 px-3 py-1 text-xs font-medium text-midpoint-cyan">
-            {listing.sector}
-          </span>
+    <article className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-midpoint-dark/10 bg-white text-midpoint-dark shadow-sm transition-shadow hover:shadow-lg">
+      <Link href={vacancyDetailHref(listing)} aria-label={`View ${label}`} className="relative block aspect-[16/10] shrink-0 overflow-hidden bg-[#eaf0ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-midpoint-dark">
+        <VacancyPhoto src={listing.image} label={label} sizes="(min-width: 1280px) 390px, (min-width: 768px) 50vw, 100vw" />
+        <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1.5 text-xs font-semibold shadow-sm">{listing.sector}</span>
+      </Link>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <p className="flex items-center gap-1.5 text-xs text-midpoint-grey-400"><MapPin aria-hidden="true" className="h-3.5 w-3.5" />Midpoint · Midrand</p>
+        <h3 className="mt-2 text-xl font-semibold leading-tight"><Link href={vacancyDetailHref(listing)} className="hover:underline">{listing.unitName || listing.building}</Link></h3>
+        <p className="mt-1 min-h-5 text-sm text-midpoint-grey-400">{listing.unitName ? listing.building : listing.sector + ' space to let'}</p>
+        <div className="mt-5 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+          <span className="text-2xl font-bold">{vacancyRate(listing.ratePerSqm)}</span>
+          {listing.ratePerSqm > 0 && <span className="text-sm text-midpoint-grey-400">/ m² / month</span>}
         </div>
-
-        <div className="mt-6 grid grid-cols-3 gap-4 border-y border-white/10 py-4 text-sm">
-          <div>
-            <p className="text-xs uppercase tracking-wide text-white/50">Size</p>
-            <p className="mt-1 font-semibold">{formatSize(listing.sizeSqm)}</p>
+        <p className="mt-1 text-xs text-midpoint-grey-400">Confirm VAT, parking and other charges with our leasing team.</p>
+        <dl className="mt-5 grid grid-cols-2 gap-4 border-y border-midpoint-dark/10 py-4 text-sm">
+          <div><dt className="flex items-center gap-1.5 text-xs text-midpoint-grey-400"><Maximize2 aria-hidden="true" className="h-3.5 w-3.5" />Floor area</dt><dd className="mt-1 font-semibold">{vacancySize(listing.sizeSqm)}</dd></div>
+          <div><dt className="flex items-center gap-1.5 text-xs text-midpoint-grey-400"><CalendarDays aria-hidden="true" className="h-3.5 w-3.5" />Availability</dt><dd className="mt-1 font-semibold">{vacancyAvailability(listing.availability)}</dd></div>
+        </dl>
+        <p className="mt-4 line-clamp-2 text-sm leading-6 text-midpoint-grey-400">{listing.description}</p>
+        {features.length > 0 && <ul className="mt-4 grid gap-2 text-xs text-midpoint-dark/80">{features.map(feature => <li key={feature}><VacancyFeature feature={feature} /></li>)}</ul>}
+        {listing.features.length > features.length && <p className="mt-2 text-xs text-midpoint-grey-400">More features in property details</p>}
+        <div className="mt-auto pt-6">
+          <Link href={vacancyDetailHref(listing)} data-analytics-event="vacancy_view" data-analytics-location="vacancy_card" data-vacancy-id={listing.id} data-vacancy-name={label} className="flex w-full items-center justify-between rounded-xl bg-midpoint-dark px-4 py-3 text-sm font-semibold text-white transition hover:bg-midpoint-dark/90">View details<ArrowUpRight aria-hidden="true" className="h-4 w-4 text-midpoint-cyan" /></Link>
+          <div className="mt-3 flex items-center justify-between gap-3 text-sm">
+            <Link href={enquireHref(listing)} onClick={() => trackVacancyEnquire(listing.id, label)} data-analytics-event="enquiry_start" data-analytics-location="vacancy_card" data-vacancy-id={listing.id} data-vacancy-name={label} className="font-semibold underline-offset-4 hover:underline">Enquire</Link>
+            {whatsappUrl && <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackVacancyEnquire(listing.id, label, "WHATSAPP")} aria-label={`WhatsApp us about ${label}`} className="inline-flex items-center gap-1.5 font-medium underline-offset-4 hover:underline"><WhatsAppIcon className="h-4 w-4" />WhatsApp</a>}
           </div>
-          <div>
-            <p className="text-xs uppercase tracking-wide text-white/50">Rate /m²</p>
-            <p className="mt-1 font-semibold">R{listing.ratePerSqm}</p>
-          </div>
-          <div>
-            <p className="text-xs uppercase tracking-wide text-white/50">Availability</p>
-            <p className="mt-1 font-semibold">{listing.availability}</p>
-          </div>
-        </div>
-
-        <p className="mt-4 text-sm text-white/70">{listing.description}</p>
-
-        <ul className="mt-4 space-y-1 text-sm text-white/70">
-          {listing.features.map((f) => (
-            <li key={f}>• {f}</li>
-          ))}
-        </ul>
-
-        <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
-          <Link href={vacancyDetailHref(listing)} data-analytics-event="vacancy_view" data-analytics-location="vacancy_card" data-vacancy-id={listing.id} data-vacancy-name={vacancyLabel(listing)} className="rounded-full bg-midpoint-cyan px-5 py-2.5 text-sm font-semibold text-midpoint-dark transition hover:opacity-90">View details</Link>
-          <Link
-            href={enquireHref(listing)}
-            onClick={() => trackVacancyEnquire(listing.id, vacancyLabel(listing))}
-            data-analytics-event="enquiry_start"
-            data-analytics-location="vacancy_card"
-            data-vacancy-id={listing.id}
-            data-vacancy-name={vacancyLabel(listing)}
-            className="rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-100 ease-out hover:bg-white/10 active:scale-[0.97]"
-          >
-            Enquire
-          </Link>
-          <Link
-            href="/#explore"
-            className="rounded-full border border-white/30 px-5 py-2.5 text-sm font-medium text-white transition-transform duration-100 ease-out hover:bg-white/10 active:scale-[0.97]"
-          >
-            See map view
-          </Link>
-
-          {whatsappUrl ? (
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackVacancyEnquire(listing.id, vacancyLabel(listing), "WHATSAPP")}
-              data-analytics-location="vacancy_card"
-              data-vacancy-id={listing.id}
-              data-vacancy-name={vacancyLabel(listing)}
-              aria-label={`WhatsApp us about ${vacancyLabel(listing)}`}
-              title={`WhatsApp us about ${vacancyLabel(listing)}`}
-              className="flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-100 ease-out hover:opacity-90 active:scale-[0.97]"
-            >
-              <WhatsAppIcon className="h-4 w-4" />
-              WhatsApp
-            </a>
-          ) : null}
         </div>
       </div>
-    </div>
+    </article>
   );
 }

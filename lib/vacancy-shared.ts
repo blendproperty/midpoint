@@ -22,3 +22,24 @@ export function vacancyLabel(listing: Pick<VacancyListing, "building" | "unitNam
 export function vacancyDetailHref(listing: Pick<VacancyListing, "id">) {
   return `/vacancies/${encodeURIComponent(listing.id)}`;
 }
+
+export function vacancyRate(rate: number) {
+  return Number.isFinite(rate) && rate > 0
+    ? `R${rate.toLocaleString("en-ZA", { maximumFractionDigits: 2 })}`
+    : "On request";
+}
+
+export function vacancySize(size: number) {
+  return Number.isFinite(size) && size > 0
+    ? `${size.toLocaleString("en-ZA", { maximumFractionDigits: 2 })} m²`
+    : "Area on request";
+}
+
+export function vacancyAvailability(value: string) {
+  if (!value) return "On request";
+  if (/^\d{4}-\d{2}-\d{2}(?:T|$)/.test(value)) {
+    const date = new Date(value);
+    if (Number.isFinite(date.getTime())) return date.toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  }
+  return value;
+}

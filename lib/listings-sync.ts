@@ -15,7 +15,7 @@ import { prisma } from "@/lib/prisma";
 // Configure with LISTINGS_API_BASE_URL (defaults to
 // https://listings.blendproperty.co.za) and LISTINGS_API_KEY (the Bearer
 // token Brett has from that side). If LISTINGS_API_KEY isn't set, the sync
-// is a no-op rather than an error — same "optional integration" pattern as
+// returns an explicit configuration error — same "optional integration" pattern as
 // the other listings.blendproperty.co.za wiring in this codebase.
 
 type ListingImage = { url: string; altText?: string; position?: number; isHero?: boolean };
@@ -67,8 +67,10 @@ async function fetchAllListings(): Promise<ListingRecord[]> {
   if (!apiKey) return [];
 
   const all: ListingRecord[] = [];
+  const ids = new Set<string>();
   let page = 1;
   const limit = 100;
+  let expectedTotal = -1;
 
   while (true) {
     const url = new URL(`${apiBaseUrl()}/api/public/v1/midpoint/listings`);
@@ -78,18 +80,35 @@ async function fetchAllListings(): Promise<ListingRecord[]> {
     const res = await fetch(url.toString(), {
       headers: { Authorization: `Bearer ${apiKey}` },
       cache: "no-store",
+      signal: AbortSignal.timeout(15000),
     });
     if (!res.ok) {
       throw new Error(`listings.blendproperty.co.za returned ${res.status}`);
     }
     const body = (await res.json()) as ListingsResponse;
-    all.push(...(body.data || []));
-
-    const totalPages = body.pagination?.totalPages ?? 1;
+    const pagination = body.pagination;
+    if (!Array.isArray(body.data) || !pagination || pagination.page !== page || pagination.limit !== limit ||
+        !Number.isInteger(pagination.total) || pagination.total < 0 ||
+        !Number.isInteger(pagination.totalPages) || pagination.totalPages !== Math.ceil(pagination.total / limit) ||
+        pagination.totalPages > 20 || (page > 1 && pagination.total !== expectedTotal)) {
+      throw new Error("Invalid or inconsistent listings pagination; existing vacancies were preserved.");
+    }
+    expectedTotal = pagination.total;
+    for (const listing of body.data) {
+      if (!listing || typeof listing.id !== "string" || !listing.id.trim() || ids.has(listing.id) ||
+          (listing.gla != null && (typeof listing.gla !== "number" || !Number.isFinite(listing.gla) || listing.gla < 0)) ||
+          (listing.ratePerM2 != null && (typeof listing.ratePerM2 !== "number" || !Number.isFinite(listing.ratePerM2) || listing.ratePerM2 < 0))) {
+        throw new Error("Invalid or duplicate listing; existing vacancies were preserved.");
+      }
+      ids.add(listing.id);
+    }
+    all.push(...body.data);
+    const totalPages = pagination.totalPages;
     if (page >= totalPages) break;
     page += 1;
   }
 
+  if (all.length !== expectedTotal) throw new Error("Incomplete listings feed; existing vacancies were preserved.");
   return all;
 }
 
@@ -154,7 +173,7 @@ function mapBuildingAndUnit(listing: ListingRecord): { building: string; unitNam
 
 function mapAvailability(listing: ListingRecord): string {
   if (listing.isAvailableImmediately) return "Immediately";
-  return listing.availableFromLabel || listing.availableFrom || "Contact for availability";
+  return listing.availableFromLabel || listing.availability || listing.availableFrom || "Contact for availability";
 }
 
 function mapFeatures(features: ListingRecord["features"]): string[] {
@@ -189,8 +208,8 @@ async function saveResult(result: VacancySyncResult) {
       update: { lastVacancySync: result as unknown as object },
       create: { id: "global", lastVacancySync: result as unknown as object },
     });
-  } catch (err) {
-    console.error("Failed to persist vacancy sync result", err);
+  } catch {
+    result.error = result.error || "Vacancies were saved but the sync result could not be recorded; verification required.";
   }
 }
 
@@ -204,70 +223,78 @@ export async function syncVacanciesFromListings(): Promise<VacancySyncResult> {
     return result;
   }
 
-  let listings: ListingRecord[];
   try {
-    listings = await fetchAllListings();
-  } catch (err) {
-    result.error = err instanceof Error ? err.message : "Failed to reach listings.blendproperty.co.za";
-    await saveResult(result);
-    return result;
-  }
+    await prisma.$transaction(async (tx) => {
+      // Serialize cron and editor runs across containers. Fetch inside the lock
+      // so an older snapshot cannot overwrite a newer reconciliation.
+      await tx.$executeRaw`SELECT pg_advisory_xact_lock(708102026)`;
+      const listings = await fetchAllListings();
+      const publishedCount = await tx.vacancy.count({ where: { externalId: { not: null }, status: "PUBLISHED" } });
+      if (!listings.length && publishedCount > 0) throw new Error("Empty feed would hide all synced vacancies; manual review required.");
+      result.fetched = listings.length;
+      const seenExternalIds = new Set<string>();
 
-  result.fetched = listings.length;
-  const seenExternalIds = new Set<string>();
+      for (const listing of listings) {
+        if (!listing.id) continue;
+        seenExternalIds.add(listing.id);
 
-  for (const listing of listings) {
-    if (!listing.id) continue;
-    seenExternalIds.add(listing.id);
+        const { building, unitName } = mapBuildingAndUnit(listing);
+        const title = unitName ? `${building} — ${unitName}` : building;
+        const { sector, matched } = mapSector(listing);
+        if (!matched) {
+          result.skipped.push({
+            id: listing.id,
+            title,
+            reason: `Unrecognised marketSector "${listing.marketSector}" — defaulted to Office. Check and correct in /admin/vacancies.`,
+          });
+        }
 
-    const { building, unitName } = mapBuildingAndUnit(listing);
-    const title = unitName ? `${building} — ${unitName}` : building;
-    const { sector, matched } = mapSector(listing);
-    if (!matched) {
-      result.skipped.push({
-        id: listing.id,
-        title,
-        reason: `Unrecognised marketSector "${listing.marketSector}" — defaulted to Office. Check and correct in /admin/vacancies.`,
+        const data = {
+          building,
+          unitName,
+          sector,
+          sizeSqm: listing.gla || 0,
+          ratePerSqm: listing.ratePerM2 || 0,
+          availability: mapAvailability(listing),
+          description: listing.description || listing.summary || "",
+          features: mapFeatures(listing.features),
+          image: mapImage(listing.images),
+          status: mapStatus(listing.status) as "PUBLISHED" | "DRAFT",
+          lastSyncedAt: new Date(),
+        };
+
+        const existing = await tx.vacancy.findUnique({ where: { externalId: listing.id } });
+        if (existing) {
+          await tx.vacancy.update({ where: { id: existing.id }, data });
+          result.updated += 1;
+        } else {
+          await tx.vacancy.create({ data: { ...data, externalId: listing.id } });
+          result.created += 1;
+        }
+      }
+
+      // Anything previously synced (has an externalId) that the API no longer
+      // returned has presumably been let, withdrawn, or removed on their side —
+      // soft-hide it here (set to DRAFT) rather than deleting, so an editor can
+      // still see and review it in /admin/vacancies instead of it vanishing.
+      const previouslySynced = await tx.vacancy.findMany({
+        where: { externalId: { not: null } },
+        select: { id: true, externalId: true, status: true },
       });
-    }
+      for (const row of previouslySynced) {
+        if (row.externalId && !seenExternalIds.has(row.externalId) && row.status === "PUBLISHED") {
+          await tx.vacancy.update({ where: { id: row.id }, data: { status: "DRAFT" } });
+          result.deprecated += 1;
+        }
+      }
 
-    const data = {
-      building,
-      unitName,
-      sector,
-      sizeSqm: listing.gla || 0,
-      ratePerSqm: listing.ratePerM2 || 0,
-      availability: mapAvailability(listing),
-      description: listing.description || listing.summary || "",
-      features: mapFeatures(listing.features),
-      image: mapImage(listing.images),
-      status: mapStatus(listing.status) as "PUBLISHED" | "DRAFT",
-      lastSyncedAt: new Date(),
-    };
-
-    const existing = await prisma.vacancy.findUnique({ where: { externalId: listing.id } });
-    if (existing) {
-      await prisma.vacancy.update({ where: { id: existing.id }, data });
-      result.updated += 1;
-    } else {
-      await prisma.vacancy.create({ data: { ...data, externalId: listing.id } });
-      result.created += 1;
-    }
-  }
-
-  // Anything previously synced (has an externalId) that the API no longer
-  // returned has presumably been let, withdrawn, or removed on their side —
-  // soft-hide it here (set to DRAFT) rather than deleting, so an editor can
-  // still see and review it in /admin/vacancies instead of it vanishing.
-  const previouslySynced = await prisma.vacancy.findMany({
-    where: { externalId: { not: null } },
-    select: { id: true, externalId: true, status: true },
-  });
-  for (const row of previouslySynced) {
-    if (row.externalId && !seenExternalIds.has(row.externalId) && row.status === "PUBLISHED") {
-      await prisma.vacancy.update({ where: { id: row.id }, data: { status: "DRAFT" } });
-      result.deprecated += 1;
-    }
+    }, { timeout: 300000, maxWait: 10000 });
+  } catch (error) {
+    // All vacancy writes roll back together; report no committed changes.
+    result.created = 0;
+    result.updated = 0;
+    result.deprecated = 0;
+    result.error = error instanceof Error ? error.message : "Vacancy reconciliation failed; existing vacancies were preserved.";
   }
 
   await saveResult(result);

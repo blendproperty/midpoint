@@ -60,15 +60,16 @@ export default async function Vacancies({
   const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Vacancies", path: "/vacancies" }];
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#f5f7f6]">
       <BreadcrumbJsonLd items={breadcrumbItems} description={description} />
       <Breadcrumbs items={breadcrumbItems} />
       <ListingsJsonLd listings={all} path="/vacancies" name="Midpoint vacancies" />
 
-      <section className="mx-auto max-w-7xl px-6 pb-16 pt-8">
-        <h1 className="text-4xl font-bold text-midpoint-dark md:text-5xl">Vacancies</h1>
+      <section className="mx-auto max-w-7xl px-6 pb-10 pt-8">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">Midpoint Business Park · Midrand</p>
+        <h1 className="text-4xl font-bold text-midpoint-dark md:text-5xl">A space for your next chapter</h1>
         <p className="mt-4 max-w-2xl text-midpoint-grey-400">
-          Current warehouse, office and serviced office space available to lease at Midpoint, Midrand.
+          Explore offices, warehouses and serviced suites. Find the right fit, review the details and arrange a viewing with our leasing team.
         </p>
       </section>
 
