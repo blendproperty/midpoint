@@ -56,7 +56,7 @@ export default async function AboutUsPage() {
           "Blend’s developments focus on enhancing productivity, operational efficiency, and long-term staff satisfaction. These principles are clearly reflected in the continued evolution of Midpoint."
         ]}
         linkHref="https://www.blendproperty.co.za/"
-        linkLabel="www.blend.co.za"
+        linkLabel="Explore Blend Property Group"
       />
     </>
   );

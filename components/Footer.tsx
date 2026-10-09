@@ -25,7 +25,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex gap-16 text-sm">
+          <div className="flex flex-wrap gap-x-12 gap-y-8 text-sm">
             <ul className="space-y-2">
               <li><Link href="/#explore">Explore</Link></li>
               <li><Link href="/amenities">Amenities</Link></li>
@@ -33,6 +33,16 @@ export default function Footer() {
               <li><Link href="/contact-us">Contact</Link></li>
               <li><Link href="/faqs">FAQ&apos;s</Link></li>
             </ul>
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-midpoint-cyan">Explore our network</p>
+              <ul className="space-y-2">
+                <li><a href="https://midpointhub.com/hub" className="hover:text-midpoint-cyan">Midpoint Hub</a></li>
+                <li><a href="https://www.blendproperty.co.za/" className="hover:text-midpoint-cyan">Blend Property Group</a></li>
+                <li><a href="https://listings.blendproperty.co.za/" className="hover:text-midpoint-cyan">Blend property listings</a></li>
+                <li><a href="https://stor24.co.za/" className="hover:text-midpoint-cyan">STOR24 self storage</a></li>
+                <li><a href="https://onpointoffices.co.za/" className="hover:text-midpoint-cyan">OnPoint serviced offices</a></li>
+              </ul>
+            </div>
             <ul>
               <li><Link href="/privacy-policy">Privacy Policy</Link></li>
             </ul>

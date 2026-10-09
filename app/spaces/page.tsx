@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SpacesExplore from "@/components/SpacesExplore";
+import TenantServices from "@/components/TenantServices";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import ReadyToMoveSection from "@/components/ReadyToMoveSection";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
@@ -45,6 +46,7 @@ export default async function SpacesPage() {
       />
       <SpacesExplore />
       <AmenitiesSection />
+      <TenantServices />
       <ReadyToMoveSection />
     </>
   );

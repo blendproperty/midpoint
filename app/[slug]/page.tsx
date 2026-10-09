@@ -1,4 +1,5 @@
 import SupportingArticles from "@/components/SupportingArticles";
+import TenantServices from "@/components/TenantServices";
 import { supportingAmenityFeatures } from "@/lib/amenity-showcase";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import type { Metadata } from "next";
@@ -316,6 +317,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
       )}
 
       <SupportingArticles posts={supportingPosts} />
+      {["amenities", "business-park-midrand", "services-offices"].includes(pillar.slug) && <TenantServices />}
 
       <TalkToLeasing
         heading={pillar.ctaHeading || "Talk to the leasing team"}

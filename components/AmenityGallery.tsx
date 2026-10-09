@@ -54,7 +54,7 @@ export default function AmenityGallery({ name, photos, imageNotice }: Props) {
         {photos.map((photo, index) => (
           <div key={photo.src} className="relative aspect-[4/3] w-full shrink-0 snap-center" role="group" aria-label={`Photo ${index + 1} of ${photos.length}`}>
             <button type="button" onClick={() => setExpanded(index)} tabIndex={index === active ? 0 : -1} aria-label={`Enlarge ${name} photo ${index + 1}`} aria-haspopup="dialog" className="relative block h-full w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-midpoint-cyan">
-              <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 1280px) 290px, (min-width: 768px) 46vw, 100vw" className="object-cover" />
+              <Image src={photo.src} alt={photo.alt} loading={index === active ? "eager" : "lazy"} fill sizes="(min-width: 1280px) 290px, (min-width: 768px) 46vw, 100vw" className="object-cover" />
               {imageNotice && <span className="absolute left-3 top-3 max-w-[48%] rounded-lg bg-midpoint-dark/95 px-2 py-1.5 text-left text-[11px] font-semibold leading-4 text-white">{imageNotice}</span>}
               <span className="absolute right-3 top-3 flex items-center gap-2 rounded-full bg-midpoint-dark/85 px-3 py-2 text-xs font-medium text-white"><Expand size={14} aria-hidden="true" />Enlarge</span>
             </button>

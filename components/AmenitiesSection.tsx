@@ -4,22 +4,22 @@ import AmenityGallery from "@/components/AmenityGallery";
 
 const highlights = [
   {
-    key: "fond", name: "Fond", label: "Eat & connect", number: "01",
+    key: "fond", name: "Fond", label: "Eat & connect", number: "01", href: "https://midpointhub.com/fond", linkLabel: "Explore Fond",
     description: "Coffee, a working lunch or a catch-up after hours. Make space for good food and great company at Fond restaurant and bar.",
     photos: ["Light-filled dining room and bar at Fond", "Fond restaurant exterior at Midpoint", "A selection of dishes at Fond", "Seating and counter inside Fond restaurant"],
   },
   {
-    key: "gym", name: "Gym", label: "Move & recharge", number: "02",
+    key: "gym", name: "Gym", label: "Move & recharge", number: "02", href: "https://midpointhub.com/gym", linkLabel: "Explore the gym",
     description: "A change of pace, right on the estate. Bring movement into your working day with a dedicated space to train and recharge.",
     photos: ["Gym training floor with an orange running track", "Indoor cycling equipment in the gym", "Strength equipment and training area", "Gym reception and seating area"],
   },
   {
-    key: "padel", name: "Padel", label: "Play & unwind", number: "03",
+    key: "padel", name: "Padel", label: "Play & unwind", number: "03", href: "https://midpointhub.com/padel", linkLabel: "Explore padel",
     description: "Take your next catch-up to the court. Rooftop padel brings a fresh perspective to team time and the end of the working day.",
     photos: ["Rooftop padel courts and outdoor seating at Midpoint", "View along a green padel court", "Covered seating beside the padel courts", "Glass-sided rooftop padel court"],
   },
   {
-    key: "suites", name: "The Suites at Midpoint", label: "Stay & settle in", number: "04",
+    key: "suites", name: "The Suites at Midpoint", label: "Stay & settle in", number: "04", href: "/the-suites-at-midpoint", linkLabel: "Explore The Suites",
     description: "Coming soon: corporate accommodation for visiting executives, business travellers and project teams. Images are AI renderings for illustration; final finishes may differ.",
     photos: ["Bedroom and workspace at The Suites at Midpoint", "Bedroom with mirror at The Suites at Midpoint", "Suite wardrobe and refreshment area", "Bathroom at The Suites at Midpoint"],
   },
@@ -39,6 +39,7 @@ export default function AmenitiesSection({ detail = false }: { detail?: boolean 
             <Link href={detail ? "/contact-us" : "/amenities"} className="mt-5 inline-flex min-h-11 items-center gap-3 border-b border-midpoint-cyan/50 pb-1 text-sm font-semibold text-midpoint-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-cyan">
               {detail ? "Enquire about the amenities" : "Explore all amenities"}<ArrowUpRight size={18} aria-hidden="true" />
             </Link>
+            <a href="https://midpointhub.com/hub" className="mt-3 flex min-h-11 w-fit items-center gap-3 text-sm font-semibold text-midpoint-cyan underline-offset-4 hover:underline">Explore Midpoint Hub<ArrowUpRight size={18} aria-hidden="true" /></a>
           </div>
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -50,7 +51,7 @@ export default function AmenitiesSection({ detail = false }: { detail?: boolean 
                 <h3 className="text-2xl font-medium tracking-tight">{item.name}</h3>
                 {item.key === "suites" && <p className="mt-3 inline-flex rounded-full border border-midpoint-cyan/40 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-midpoint-cyan">Coming soon</p>}
                 <p className="mt-3 text-sm leading-6 text-white/75">{item.description}</p>
-                {item.key === "suites" && <Link href="/the-suites-at-midpoint" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-midpoint-cyan underline-offset-4 hover:underline">Explore The Suites<ArrowUpRight size={16} aria-hidden="true" /></Link>}
+                <Link href={item.href} className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-midpoint-cyan underline-offset-4 hover:underline">{item.linkLabel}<ArrowUpRight size={16} aria-hidden="true" /></Link>
               </div>
             </article>
           ))}
