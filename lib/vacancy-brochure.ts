@@ -1,4 +1,5 @@
-import { PDFDocument, StandardFonts, rgb, PDFString, type PDFFont } from "pdf-lib";
+import { PDFDocument, rgb, PDFString, type PDFFont } from "pdf-lib";
+import fontkit from "@pdf-lib/fontkit";
 import sharp from "sharp";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
@@ -13,7 +14,7 @@ const WHITE = rgb(1, 1, 1);
 const ALLOWED_IMAGES = new Set(["www.mid-point.co.za", "mid-point.co.za", "listings.blendproperty.co.za", "cdn.prod.website-files.com"]);
 const MAX_IMAGE_BYTES = 12 * 1024 * 1024;
 
-// Only the listing's saved image is used. Never accept asset URLs from callers,
+// Only saved images from the matching listing are used. Never accept asset URLs from callers,
 // follow redirects, or fetch arbitrary hosts/private addresses.
 export function brochureImageUrl(source: string): URL | null {
   try {
@@ -23,7 +24,7 @@ export function brochureImageUrl(source: string): URL | null {
   } catch { return null; }
 }
 
-export async function brochurePhoto(source: string): Promise<Buffer | null> {
+export async function brochurePhoto(source: string, hero = true): Promise<Buffer | null> {
   const url = brochureImageUrl(source);
   if (!url) return null;
   try {
@@ -41,8 +42,8 @@ export async function brochurePhoto(source: string): Promise<Buffer | null> {
       if (total > MAX_IMAGE_BYTES) { await reader.cancel(); return null; }
       chunks.push(value);
     }
-    return await sharp(Buffer.concat(chunks), { limitInputPixels: 40_000_000 })
-      .rotate().resize(1500, 470, { fit: "cover" }).jpeg({ quality: 85 }).toBuffer();
+    const image = sharp(Buffer.concat(chunks), { limitInputPixels: 40_000_000 }).rotate();
+    return await image.resize(hero ? 1500 : 1000, hero ? 470 : 750, { fit: hero ? "cover" : "inside" }).jpeg({ quality: 85 }).toBuffer();
   } catch { return null; }
 }
 
@@ -51,7 +52,7 @@ export function brochureFilename(listing: VacancyListing) {
   return `midpoint-${name || "space"}.pdf`;
 }
 
-// Standard PDF fonts handle Latin property names and m². Unsupported symbols
+// Embedded Figtree matches the website typography. Unsupported symbols
 // are replaced per character so unusual CMS content cannot break a download.
 function pdfText(value: string, font: PDFFont) {
   return Array.from(decode(value).replace(/[✅✔✓☑🔹]/g, " • ").replace(/[\u200d\ufe0f]/g, "").replace(/\s+/g, " ").trim()).map((char) => {
@@ -78,10 +79,15 @@ function wrap(value: string, font: PDFFont, size: number, width: number) {
 
 export type BrochureContact = { phone: string; email: string };
 
-export async function createVacancyBrochure(listing: VacancyListing, contact: BrochureContact, options: { photo?: Buffer | null; logo?: Buffer; now?: Date } = {}) {
+export async function createVacancyBrochure(listing: VacancyListing, contact: BrochureContact, options: { photo?: Buffer | null; logo?: Buffer; now?: Date; imageUrls?: string[]; photos?: Buffer[] } = {}) {
   const pdf = await PDFDocument.create();
-  const regular = await pdf.embedFont(StandardFonts.Helvetica);
-  const bold = await pdf.embedFont(StandardFonts.HelveticaBold);
+  pdf.registerFontkit(fontkit);
+  const [regularBytes, boldBytes] = await Promise.all([
+    readFile(path.join(process.cwd(), "public/fonts/figtree/Figtree-Regular.ttf")),
+    readFile(path.join(process.cwd(), "public/fonts/figtree/Figtree-Bold.ttf")),
+  ]);
+  const regular = await pdf.embedFont(Uint8Array.from(regularBytes), { subset: true });
+  const bold = await pdf.embedFont(Uint8Array.from(boldBytes), { subset: true });
   const label = vacancyLabel(listing);
   const detailUrl = SITE + vacancyDetailHref(listing);
   const date = options.now || new Date();
@@ -90,8 +96,20 @@ export async function createVacancyBrochure(listing: VacancyListing, contact: Br
   pdf.setSubject("Midpoint, Halfway House, Midrand - space to let");
   pdf.setCreationDate(date);
   const logo = await pdf.embedPng(Uint8Array.from(options.logo || await readFile(path.join(process.cwd(), "public/images/brand/midpoint-brochure-logo.png"))));
-  const photoBytes = options.photo === undefined ? await brochurePhoto(listing.image) : options.photo;
-  const photo = photoBytes ? await pdf.embedJpg(Uint8Array.from(photoBytes)) : null;
+  const imageUrls = Array.from(new Set(options.imageUrls || [listing.image])).filter(Boolean).slice(0, 30);
+  const photoBuffers: Buffer[] = [];
+  if (options.photos) photoBuffers.push(...options.photos);
+  else if (options.photo !== undefined) { if (options.photo) photoBuffers.push(options.photo); }
+  else {
+    // Bounded batches keep large galleries from exhausting the web container.
+    for (let i = 0; i < imageUrls.length; i += 3) {
+      const batch = await Promise.all(imageUrls.slice(i, i + 3).map((url, index) => brochurePhoto(url, i + index === 0)));
+      for (const photo of batch) if (photo) photoBuffers.push(photo);
+    }
+    if (photoBuffers.length !== imageUrls.length) throw new Error("Listing photographs temporarily unavailable");
+  }
+  const photos = await Promise.all(photoBuffers.map(bytes => pdf.embedJpg(Uint8Array.from(bytes))));
+  const photo = photos[0] || null;
   const width = 595.28, height = 841.89, margin = 36, contentWidth = width - margin * 2;
   let page = pdf.addPage([width, height]);
   const text = (value: string, x: number, top: number, size = 10, strong = false, color = DARK) => {
@@ -144,14 +162,34 @@ export async function createVacancyBrochure(listing: VacancyListing, contact: Br
   text("Confirm VAT, parking and other charges with our leasing team.", margin, y, 8, false, MUTED);
   y += 26;
   let pageNumber = 1;
+  let bodyWidth = contentWidth;
+  const drawPhoto = (image: typeof photos[number], x: number, top: number, w: number, h: number) => {
+    const scale = Math.min(w / image.width, h / image.height);
+    const imageWidth = image.width * scale, imageHeight = image.height * scale;
+    rect(x, top, w, h, rgb(.94, .96, .96));
+    page.drawImage(image, { x: x + (w - imageWidth) / 2, y: height - top - (h + imageHeight) / 2, width: imageWidth, height: imageHeight });
+  };
+  if (photos.length > 1) {
+    bodyWidth = contentWidth * .54;
+    const galleryX = margin + bodyWidth + 20;
+    const galleryWidth = contentWidth - bodyWidth - 20;
+    const galleryTop = y;
+    const thumbWidth = (galleryWidth - 8) / 2;
+    drawPhoto(photos[1], galleryX, galleryTop, thumbWidth, 112);
+    if (photos[2]) drawPhoto(photos[2], galleryX + thumbWidth + 8, galleryTop, thumbWidth, 112);
+    text("BUILDING", galleryX, galleryTop + 130, 8, false, MUTED);
+    wrap(listing.building, bold, 11, galleryWidth).forEach((line, i) => text(line, galleryX, galleryTop + 146 + i * 14, 11, true));
+    text("LOCATION", galleryX, galleryTop + 182, 8, false, MUTED);
+    text("Halfway House, Midrand", galleryX, galleryTop + 198, 10, true);
+  }
   const ensureRoom = (needed: number) => {
     if (y + needed <= 683) return;
     footer(pageNumber++);
     page = pdf.addPage([width, height]); header();
-    text(label, margin, 92, 11, true); y = 121;
+    text(label, margin, 92, 11, true); y = 121; bodyWidth = contentWidth;
   };
   const paragraph = (value: string, strong = false) => {
-    for (const line of wrap(value, strong ? bold : regular, strong ? 12 : 10, contentWidth)) {
+    for (const line of wrap(value, strong ? bold : regular, strong ? 12 : 10, bodyWidth)) {
       ensureRoom(16); text(line, margin, y, strong ? 12 : 10, strong); y += 15;
     }
     y += 9;
@@ -162,18 +200,32 @@ export async function createVacancyBrochure(listing: VacancyListing, contact: Br
   if (features.length) {
     ensureRoom(50); paragraph("Highlights", true);
     for (let i = 0; i < features.length; i += 2) {
-      const left = wrap(features[i], regular, 9, column * 1.5 - 26);
-      const right = features[i + 1] ? wrap(features[i + 1], regular, 9, column * 1.5 - 26) : [];
+      const featureColumn = bodyWidth / 2;
+      const left = wrap(features[i], regular, 9, featureColumn - 22);
+      const right = features[i + 1] ? wrap(features[i + 1], regular, 9, featureColumn - 22) : [];
       const rowHeight = Math.max(left.length, right.length) * 13 + 3;
       ensureRoom(rowHeight);
       [left, right].forEach((lines, c) => {
         if (!lines.length) return;
-        rect(margin + c * contentWidth / 2, y + 4, 4, 4, CYAN);
-        lines.forEach((line, j) => text(line, margin + c * contentWidth / 2 + 12, y + j * 13, 9));
+        rect(margin + c * featureColumn, y + 4, 4, 4, CYAN);
+        lines.forEach((line, j) => text(line, margin + c * featureColumn + 12, y + j * 13, 9));
       });
       y += rowHeight;
     }
   }
   footer(pageNumber);
+  for (let i = 3; i < photos.length; i += 4) {
+    page = pdf.addPage([width, height]); pageNumber++; header();
+    text(listing.unitName || listing.building, margin, 92, 18, true);
+    text("Listing photo gallery", margin, 124, 10, false, MUTED);
+    const tileWidth = (contentWidth - 16) / 2;
+    photos.slice(i, i + 4).forEach((image, index) => {
+      const x = margin + (index % 2) * (tileWidth + 16);
+      const top = 150 + Math.floor(index / 2) * 250;
+      drawPhoto(image, x, top, tileWidth, 213);
+      text(`Photo ${i + index + 1} of ${photos.length}`, x, top + 220, 8, false, MUTED);
+    });
+    footer(pageNumber);
+  }
   return pdf.save();
 }

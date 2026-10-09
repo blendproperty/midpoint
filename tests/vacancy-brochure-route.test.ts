@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-const mocks = vi.hoisted(() => ({ findFirst: vi.fn(), settings: vi.fn(), generate: vi.fn(), limit: vi.fn() }));
+const mocks = vi.hoisted(() => ({ findFirst: vi.fn(), settings: vi.fn(), generate: vi.fn(), limit: vi.fn(), images: vi.fn() }));
+vi.mock("@/lib/listings-brochure", () => ({ getListingBrochureImages: mocks.images }));
 vi.mock("@/lib/prisma", () => ({ prisma: { vacancy: { findFirst: mocks.findFirst } } }));
 vi.mock("@/lib/site-settings", () => ({ getSiteSettings: mocks.settings }));
 vi.mock("@/lib/vacancy-brochure", () => ({ createVacancyBrochure: mocks.generate, brochureFilename: () => "midpoint-onpoint-office-g-02.pdf" }));
@@ -24,6 +25,26 @@ describe("public brochure scope", () => {
   it("does not render missing, unpublished or other portfolio listings", async () => {
     mocks.findFirst.mockResolvedValue(null);
     expect((await run()).status).toBe(404);
+    expect(mocks.generate).not.toHaveBeenCalled();
+  });
+  it("uses the exact upstream ID and its full photo gallery", async () => {
+    mocks.findFirst.mockResolvedValue({ ...row, externalId: "blend-source-id" });
+    const images = ["https://listings.blendproperty.co.za/cover.jpg", "https://listings.blendproperty.co.za/interior.jpg"];
+    mocks.images.mockResolvedValue(images);
+    expect((await run()).status).toBe(200);
+    expect(mocks.images).toHaveBeenCalledWith("blend-source-id");
+    expect(mocks.generate.mock.calls[0][2]).toEqual({ imageUrls: images });
+  });
+  it("does not render a synced space withdrawn from the live Midpoint feed", async () => {
+    mocks.findFirst.mockResolvedValue({ ...row, externalId: "withdrawn-source-id" });
+    mocks.images.mockResolvedValue(null);
+    expect((await run()).status).toBe(404);
+    expect(mocks.generate).not.toHaveBeenCalled();
+  });
+  it("returns 503 when the source gallery cannot be fetched", async () => {
+    mocks.findFirst.mockResolvedValue({ ...row, externalId: "blend-source-id" });
+    mocks.images.mockRejectedValue(new Error("provider unavailable"));
+    expect((await run()).status).toBe(503);
     expect(mocks.generate).not.toHaveBeenCalled();
   });
   it("returns 503 instead of an old brochure when the database fails", async () => {

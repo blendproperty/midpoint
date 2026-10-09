@@ -3,6 +3,7 @@ import { getSiteSettings } from "@/lib/site-settings";
 import { vacancySector, vacancySummary } from "@/lib/vacancies";
 import { brochureFilename, createVacancyBrochure } from "@/lib/vacancy-brochure";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { getListingBrochureImages } from "@/lib/listings-brochure";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -16,9 +17,11 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
     // Blend portfolio IDs and unpublished/deprecated spaces cannot be rendered.
     const row = await prisma.vacancy.findFirst({ where: { id, status: "PUBLISHED" } });
     if (!row) return new Response("Space not found", { status: 404, headers });
+    const images = row.externalId ? await getListingBrochureImages(row.externalId) : [row.image || ""];
+    if (!images) return new Response("Space not found", { status: 404, headers });
     const listing = { ...row, unitName: row.unitName || null, sector: vacancySector(row.sector, row.building), image: row.image || "", description: vacancySummary(row.description, 100_000) };
     const settings = await getSiteSettings();
-    const pdf = await createVacancyBrochure(listing, { phone: settings.phone, email: settings.email });
+    const pdf = await createVacancyBrochure(listing, { phone: settings.phone, email: settings.email }, { imageUrls: images });
     return new Response(Uint8Array.from(pdf).buffer, { headers: { ...headers, "Content-Type": "application/pdf", "Content-Disposition": `attachment; filename="${brochureFilename(listing)}"` } });
   } catch (error) {
     console.error("Midpoint brochure generation failed", error instanceof Error ? error.name : "Unknown error");

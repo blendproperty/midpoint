@@ -1,0 +1,3 @@
+Figtree upstream: https://github.com/erikdkennedy/figtree
+Pinned commit: 032dfa7fe219ef3a02890d6d3add84eacc9aebfe
+Regular and Bold TTF; SIL Open Font License (see OFL.txt).

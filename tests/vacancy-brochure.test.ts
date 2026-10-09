@@ -1,5 +1,6 @@
 import { describe, expect, it, vi, afterEach } from "vitest";
 import { PDFDocument } from "pdf-lib";
+import sharp from "sharp";
 import { brochureFilename, brochureImageUrl, brochurePhoto, createVacancyBrochure } from "@/lib/vacancy-brochure";
 import { vacancyBrochureHref, type VacancyListing } from "@/lib/vacancy-shared";
 
@@ -24,6 +25,16 @@ describe("Midpoint brochures", () => {
     const pdf = await PDFDocument.load(result);
     expect(pdf.getPageCount()).toBeGreaterThan(1);
     expect(pdf.getPages().every(page => page.getHeight() > 840)).toBe(true);
+  });
+  it("embeds Figtree and every supplied listing photograph", async () => {
+    const photos = await Promise.all(["red", "blue", "green", "yellow"].map(background => sharp({ create: { width: 50, height: 40, channels: 3, background } }).jpeg().toBuffer()));
+    const result = await createVacancyBrochure(listing, { phone: "office", email: "leasing@example.com" }, { photos });
+    const pdf = await PDFDocument.load(result);
+    const objects = pdf.context.enumerateIndirectObjects().map(([, object]) => object.toString()).join("\n");
+    expect(objects).toContain("Figtree-Regular");
+    expect(objects).toContain("Figtree-Bold");
+    expect((objects.match(/\/DCTDecode/g) || []).length).toBe(4);
+    expect(pdf.getPageCount()).toBeGreaterThanOrEqual(2);
   });
 
   it("still generates for missing images, unknown rates and unusual text", async () => {

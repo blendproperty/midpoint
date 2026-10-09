@@ -62,7 +62,7 @@ function apiBaseUrl(): string {
   return (process.env.LISTINGS_API_BASE_URL || "https://listings.blendproperty.co.za").replace(/\/$/, "");
 }
 
-async function fetchAllListings(): Promise<ListingRecord[]> {
+export async function fetchAllListings(): Promise<ListingRecord[]> {
   const apiKey = process.env.LISTINGS_API_KEY;
   if (!apiKey) return [];
 
