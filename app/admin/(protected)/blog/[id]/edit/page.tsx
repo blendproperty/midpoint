@@ -11,6 +11,7 @@ export default async function EditBlogPostPage({ params }: { params: Promise<{ i
   const post = await prisma.blogPost.findUnique({ where: { id } });
   if (!post) notFound();
 
+  const pillars = await prisma.pillarPage.findMany({ select: { id: true, title: true }, orderBy: { title: "asc" } });
   const action = updateBlogPost.bind(null, id);
 
   return (
@@ -18,6 +19,7 @@ export default async function EditBlogPostPage({ params }: { params: Promise<{ i
       <h1 className="text-2xl font-semibold">Edit blog post</h1>
       <BlogForm
         action={action}
+        pillars={pillars}
         submitLabel="Save changes"
         defaultValues={{
           title: post.title,
@@ -26,6 +28,7 @@ export default async function EditBlogPostPage({ params }: { params: Promise<{ i
           contentHtml: post.contentHtml,
           coverImage: post.coverImage || "",
           status: post.status,
+          pillarPageId: post.pillarPageId || "",
           seoTitle: post.seoTitle || "",
           seoDescription: post.seoDescription || "",
           focusKeyword: post.focusKeyword || "",

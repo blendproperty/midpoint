@@ -1,3 +1,4 @@
+import SupportingArticles from "@/components/SupportingArticles";
 import { supportingAmenityFeatures } from "@/lib/amenity-showcase";
 import AmenitiesSection from "@/components/AmenitiesSection";
 import type { Metadata } from "next";
@@ -68,6 +69,11 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     }
   }
 
+  const supportingPosts = await prisma.blogPost.findMany({
+    where: { pillarPageId: pillar.id, status: "PUBLISHED" },
+    orderBy: [{ publishedAt: "desc" }, { title: "asc" }],
+    select: { id: true, slug: true, title: true, excerpt: true, coverImage: true },
+  });
   const settings = await getSiteSettings();
   const description = pillar.seoDescription || pillar.title;
   const faqs = Array.isArray(pillar.faqs) ? (pillar.faqs as unknown as PillarFaq[]) : [];
@@ -91,7 +97,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   const trustItems = (pillar.trustStrip || "").split("\n").map((s) => s.trim()).filter(Boolean);
   const hasBody = Boolean(pillar.contentHtml && pillar.contentHtml.replace(/<[^>]*>/g, "").trim());
   const isBusinessParkGuide = pillar.slug === "business-park-midrand";
-  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: pillar.title, path: `/${pillar.slug}` }];
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }, { name: pillar.title, path: `/${pillar.slug}` }];
 
   const vacancies = pillar.relatedSector
     ? await prisma.vacancy.findMany({
@@ -227,7 +233,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         imageAlt={pillar.title}
       />
 
-      <PillarTableOfContents items={tocItems} />
+      <PillarTableOfContents items={supportingPosts.length ? [...tocItems, { id: "supporting-articles", label: "Articles" }] : tocItems} />
 
       {pillar.slug === "amenities" && <AmenitiesSection detail />}
 
@@ -308,6 +314,8 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
           </div>
         </section>
       )}
+
+      <SupportingArticles posts={supportingPosts} />
 
       <TalkToLeasing
         heading={pillar.ctaHeading || "Talk to the leasing team"}

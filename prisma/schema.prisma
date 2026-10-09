@@ -238,8 +238,11 @@ model BlogPost {
   publishedAt    DateTime?
   authorId       String?
   author         User?         @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  pillarPageId   String?
+  pillarPage     PillarPage?   @relation(fields: [pillarPageId], references: [id], onDelete: SetNull)
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
+  @@index([pillarPageId, status, publishedAt])
 }
 
 model Page {
@@ -296,6 +299,7 @@ model PillarPage {
   reviewOwner         String?
   lastReviewedAt      DateTime?
   nextReviewAt        DateTime?
+  blogPosts           BlogPost[]
   status              ContentStatus @default(DRAFT)
   passwordProtected   Boolean       @default(false)
   accessPasswordHash  String?

@@ -8,7 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const dynamic = "force-dynamic";
 
-const description = "News, updates, and insights from Midpoint Midrand.";
+const description = "Supporting articles and practical advice from Midpoint. Explore each topic in depth through its main guide.";
 
 export async function generateMetadata(): Promise<Metadata> {
   return staticPageMetadata("/blog", "Blog", description);

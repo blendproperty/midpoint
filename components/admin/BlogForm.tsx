@@ -13,6 +13,7 @@ type Props = {
     contentHtml?: string;
     coverImage?: string;
     status?: string;
+    pillarPageId?: string;
     seoTitle?: string;
     seoDescription?: string;
     focusKeyword?: string;
@@ -25,10 +26,11 @@ type Props = {
     headCode?: string;
     bodyCode?: string;
   };
+  pillars: { id: string; title: string }[];
   submitLabel?: string;
 };
 
-export default function BlogForm({ action, defaultValues, submitLabel = "Save" }: Props) {
+export default function BlogForm({ action, defaultValues, pillars, submitLabel = "Save" }: Props) {
   return (
     <form action={action} className="mt-6 max-w-2xl space-y-5 rounded-xl bg-white p-6 shadow-sm">
       <div className="flex justify-end">
@@ -52,6 +54,14 @@ export default function BlogForm({ action, defaultValues, submitLabel = "Save" }
       <div>
         <label className="block text-sm font-medium">Excerpt</label>
         <textarea name="excerpt" defaultValue={defaultValues?.excerpt} rows={2} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+      </div>
+      <div>
+        <label htmlFor="pillarPageId" className="block text-sm font-medium">Pillar guide</label>
+        <select id="pillarPageId" name="pillarPageId" defaultValue={defaultValues?.pillarPageId || ""} className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm">
+          <option value="">No pillar guide</option>
+          {pillars.map((pillar) => <option key={pillar.id} value={pillar.id}>{pillar.title}</option>)}
+        </select>
+        <p className="mt-1 text-xs text-slate-500">Assign the main guide this article supports. Published articles appear on that guide and link back to it.</p>
       </div>
       <MediaPicker name="coverImage" label="Cover image" defaultValue={defaultValues?.coverImage} />
       <div>

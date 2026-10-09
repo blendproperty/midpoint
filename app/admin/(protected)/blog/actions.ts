@@ -27,6 +27,14 @@ function parseSchemaJson(raw: string): Prisma.InputJsonValue | typeof Prisma.Jso
   }
 }
 
+async function readPillarPageId(formData: FormData) {
+  const id = String(formData.get("pillarPageId") || "").trim();
+  if (!id) return null;
+  const pillar = await prisma.pillarPage.findUnique({ where: { id }, select: { id: true } });
+  if (!pillar) throw new Error("Choose an existing pillar guide");
+  return pillar.id;
+}
+
 function readCommonFields(formData: FormData) {
   return {
     seoTitle: String(formData.get("seoTitle") || "").trim() || null,
@@ -62,6 +70,7 @@ export async function createBlogPost(formData: FormData) {
       excerpt,
       contentHtml,
       coverImage,
+      pillarPageId: await readPillarPageId(formData),
       status,
       ...readCommonFields(formData),
       authorId: session.sub,
@@ -74,6 +83,7 @@ export async function createBlogPost(formData: FormData) {
   revalidatePath("/admin/blog");
   revalidatePath("/admin/pages");
   revalidatePath("/blog");
+  revalidatePath("/[slug]", "page");
   redirect("/admin/blog");
 }
 
@@ -97,6 +107,7 @@ export async function updateBlogPost(id: string, formData: FormData) {
       excerpt,
       contentHtml,
       coverImage,
+      pillarPageId: await readPillarPageId(formData),
       status,
       ...readCommonFields(formData),
       publishedAt: status === "PUBLISHED" ? existing?.publishedAt || new Date() : null,
@@ -108,6 +119,7 @@ export async function updateBlogPost(id: string, formData: FormData) {
   revalidatePath("/admin/blog");
   revalidatePath("/admin/pages");
   revalidatePath("/blog");
+  revalidatePath("/[slug]", "page");
   revalidatePath(`/blog/${slug}`);
   redirect("/admin/blog");
 }
@@ -118,4 +130,5 @@ export async function deleteBlogPost(id: string) {
   revalidatePath("/admin/blog");
   revalidatePath("/admin/pages");
   revalidatePath("/blog");
+  revalidatePath("/[slug]", "page");
 }
