@@ -11,6 +11,7 @@ import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getVacancyById, vacancyLabel } from "@/lib/vacancies";
 import VacancyViewTracker from "@/components/VacancyViewTracker";
+import { vacancyBrochureHref } from "@/lib/vacancy-shared";
 
 export const dynamic = "force-dynamic";
 
@@ -49,6 +50,7 @@ export default async function VacancyDetailPage({ params }: { params: Promise<{ 
             <div><p className="text-xs text-midpoint-grey-400">Availability</p><p className="mt-1 font-bold text-midpoint-dark">{vacancyAvailability(listing.availability)}</p></div>
           </div>
           <p className="mt-3 text-xs text-midpoint-grey-400">Confirm VAT, parking and other charges with our leasing team.</p>
+          <a href={vacancyBrochureHref(listing)} download aria-label={`Download brochure for ${label}`} data-analytics-event="brochure_download" data-analytics-location="vacancy_detail" data-vacancy-id={listing.id} data-vacancy-name={label} className="mt-6 inline-flex rounded-full border border-midpoint-dark/20 px-6 py-3 text-sm font-semibold text-midpoint-dark transition hover:bg-midpoint-dark/5">Download brochure</a>
           <p className="mt-7 leading-7 text-midpoint-grey-400">{listing.description}</p>
           {listing.features.length > 0 && <ul className="mt-6 grid gap-3 text-sm text-midpoint-dark sm:grid-cols-2">{listing.features.map((feature) => <li key={feature}><VacancyFeature feature={feature} /></li>)}</ul>}
           <div className="mt-8 flex flex-wrap gap-3"><Link href={enquiryHref} data-analytics-event="enquiry_start" data-analytics-location="vacancy_detail" data-vacancy-id={listing.id} data-vacancy-name={label} className="rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark">Arrange a viewing</Link><Link href="/vacancies" className="rounded-full border border-midpoint-dark/20 px-6 py-3 text-sm font-semibold text-midpoint-dark">Back to vacancies</Link></div>

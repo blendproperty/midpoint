@@ -4,7 +4,7 @@ import VacancyPhoto from "@/components/VacancyPhoto";
 import { ArrowUpRight, CalendarDays, MapPin, Maximize2 } from "lucide-react";
 import VacancyFeature from "@/components/VacancyFeature";
 import Link from "next/link";
-import { vacancyDetailHref, vacancyLabel, vacancyRate, vacancySize, vacancyAvailability, type VacancyListing } from "@/lib/vacancy-shared";
+import { vacancyBrochureHref, vacancyDetailHref, vacancyLabel, vacancyRate, vacancySize, vacancyAvailability, type VacancyListing } from "@/lib/vacancy-shared";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 // Fires a beacon when "Enquire" is clicked so /admin can show which listings
@@ -78,6 +78,7 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
         {listing.features.length > features.length && <p className="mt-2 text-xs text-midpoint-grey-400">More features in property details</p>}
         <div className="mt-auto pt-6">
           <Link href={vacancyDetailHref(listing)} data-analytics-event="vacancy_view" data-analytics-location="vacancy_card" data-vacancy-id={listing.id} data-vacancy-name={label} className="flex w-full items-center justify-between rounded-xl bg-midpoint-dark px-4 py-3 text-sm font-semibold text-white transition hover:bg-midpoint-dark/90">View details<ArrowUpRight aria-hidden="true" className="h-4 w-4 text-midpoint-cyan" /></Link>
+          <a href={vacancyBrochureHref(listing)} download aria-label={`Download brochure for ${label}`} data-analytics-event="brochure_download" data-analytics-location="vacancy_card" data-vacancy-id={listing.id} data-vacancy-name={label} className="mt-2 flex w-full items-center justify-center rounded-xl border border-midpoint-dark/20 px-4 py-3 text-sm font-semibold transition hover:bg-midpoint-dark/5">Download brochure</a>
           <div className="mt-3 flex items-center justify-between gap-3 text-sm">
             <Link href={enquireHref(listing)} onClick={() => trackVacancyEnquire(listing.id, label)} data-analytics-event="enquiry_start" data-analytics-location="vacancy_card" data-vacancy-id={listing.id} data-vacancy-name={label} className="font-semibold underline-offset-4 hover:underline">Enquire</Link>
             {whatsappUrl && <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackVacancyEnquire(listing.id, label, "WHATSAPP")} aria-label={`WhatsApp us about ${label}`} className="inline-flex items-center gap-1.5 font-medium underline-offset-4 hover:underline"><WhatsAppIcon className="h-4 w-4" />WhatsApp</a>}

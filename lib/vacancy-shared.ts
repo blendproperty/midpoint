@@ -23,6 +23,10 @@ export function vacancyDetailHref(listing: Pick<VacancyListing, "id">) {
   return `/vacancies/${encodeURIComponent(listing.id)}`;
 }
 
+export function vacancyBrochureHref(listing: Pick<VacancyListing, "id">) {
+  return `${vacancyDetailHref(listing)}/brochure`;
+}
+
 export function vacancyRate(rate: number) {
   return Number.isFinite(rate) && rate > 0
     ? `R${rate.toLocaleString("en-ZA", { maximumFractionDigits: 2 })}`
