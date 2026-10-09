@@ -1,5 +1,15 @@
 # Midpoint Project Context
 
+## 2026-10-09 — Padel image repair and asset links deployed and verified
+
+- Implementation: runtime release fc99e21884064116a1d0d88e44b769e38ba62467 delivers the active-gallery image loading repair, public Hub amenity links, contextual tenant services and five-asset footer network described below. Existing Suites disclosure and Insights pillar/article hierarchy retained.
+- Testing: local 34-file / 133-test suite passed with PostgreSQL integration enabled, final production build/type checks passed and compiled desktop/mobile checks passed. GitHub Actions test job succeeded. Live browser interaction checks wait for page load/client initialization before pressing gallery controls.
+- Commit and push: implementation plus canonical context committed as fc99e21884064116a1d0d88e44b769e38ba62467 and pushed to origin/codex/amenities-assets-20261009 and origin/main. Independent ls-remote and remote-tracking context readback confirmed publication. This final evidence update is committed/pushed with CI skip; runtime remains fc99e2188406.
+- Merge: verified fast-forward promotion from 70cae7448599bd9a8720df119ff1c73af9f5d099; no PR merge.
+- Deployment and configuration: Deploy to VPS run 37891068497 succeeded on 2026-10-09 (https://github.com/blendproperty/midpoint/actions/runs/37891068497). SSH readback confirmed exact runtime SHA, running web and vacancy scheduler with matching images. Current pre-release image retained as midpoint-web:rollback-assets-20261009. No schema/data, provider or credential changes.
+- Live production verification: exact fc99e2188406 release marker observed on home, amenities and spaces. At 390/1440px each page passed four loaded Padel card images, slide controls, enlarged-image decoding, keyboard wrap/Escape, four Hub links and five correct footer destinations without nofollow. Suites coming-soon/AI notice and internal destination preserved. Contextual STOR24 and OnPoint links verified on business-park and serviced-office guides. No horizontal overflow or browser application exceptions. Desktop/mobile screenshots visually reviewed. Evidence retained beside checkout in assets-live-results.json, assets-production-results.json, asset-destinations.json and assets-live-*.png. Temporary local preview/database stopped after validation.
+- Outstanding gates: this proves Midpoint outbound linking and working image delivery. External reciprocal-site changes, real SEO recrawl/indexing/ranking, referral performance and third-party transaction/UAT remain unperformed. All previously recorded property, Suites, provider, finance/data, legal/approval, training and other acceptance gates remain unchanged.
+
 ## 2026-10-09 — Padel card loading and tenant asset links (validated; release pending)
 
 - Implementation: live diagnosis reproduced Padel card images with empty currentSrc and zero natural width despite an HTTP 200 image response; the enlarged image decoded successfully. The active photo in each native scrolling amenity gallery now uses eager loading, while inactive slides retain lazy loading. Native controls, enlarged viewer and Suites coming-soon/AI disclosures are preserved.
