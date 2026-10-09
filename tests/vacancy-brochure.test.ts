@@ -1,7 +1,7 @@
 import { describe, expect, it, vi, afterEach } from "vitest";
 import { PDFDocument } from "pdf-lib";
 import sharp from "sharp";
-import { brochureFilename, brochureImageUrl, brochurePhoto, createVacancyBrochure } from "@/lib/vacancy-brochure";
+import { brochureDescription, brochureFilename, brochureImageUrl, brochurePhoto, createVacancyBrochure } from "@/lib/vacancy-brochure";
 import { vacancyBrochureHref, type VacancyListing } from "@/lib/vacancy-shared";
 
 const listing: VacancyListing = { id: "unit-g02", building: "OnPoint", unitName: "Office G.02", sector: "Serviced office", sizeSqm: 172.66, ratePerSqm: 117.5, availability: "Immediately", description: "A bright serviced office at Midpoint.", features: ["Meeting rooms", "Shared kitchens"], image: "" };
@@ -40,6 +40,21 @@ describe("Midpoint brochures", () => {
   it("still generates for missing images, unknown rates and unusual text", async () => {
     const result = await createVacancyBrochure({ ...listing, ratePerSqm: 0, sizeSqm: 0, description: "Office 🏢 <available>", features: [] }, { phone: "On request", email: "leasing@example.com" }, { photo: null });
     expect((await PDFDocument.load(result)).getPageCount()).toBe(1);
+  });
+
+  it("separates source feature markers from narrative without splitting decimal areas", () => {
+    const result = brochureDescription("A 500.66 m&sup2; office. Bright natural light. Key Features 🔹 Ground-floor access 🔹 Minimum lease period of 12 months");
+    expect(result.narrative).toBe("A 500.66 m² office. Bright natural light.");
+    expect(result.summary).toBe(result.narrative);
+    expect(result.bullets).toEqual(["Ground-floor access", "Minimum lease period of 12 months"]);
+  });
+
+  it("preserves a portrait cover photograph's original proportions", async () => {
+    const bytes = await sharp({ create: { width: 300, height: 600, channels: 3, background: "blue" } }).jpeg().toBuffer();
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(bytes, { headers: { "content-type": "image/jpeg" } })));
+    const photo = await brochurePhoto("https://listings.blendproperty.co.za/photo.jpg");
+    const metadata = await sharp(photo!).metadata();
+    expect(metadata.width! / metadata.height!).toBeCloseTo(.5, 3);
   });
 
   it("only allows known public image hosts, HTTPS and no credentials/ports", () => {

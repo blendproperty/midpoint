@@ -43,7 +43,7 @@ export async function brochurePhoto(source: string, hero = true): Promise<Buffer
       chunks.push(value);
     }
     const image = sharp(Buffer.concat(chunks), { limitInputPixels: 40_000_000 }).rotate();
-    return await image.resize(hero ? 1500 : 1000, hero ? 470 : 750, { fit: hero ? "cover" : "inside" }).jpeg({ quality: 85 }).toBuffer();
+    return await image.resize(hero ? 1500 : 1200, hero ? 1100 : 900, { fit: "inside", withoutEnlargement: true }).jpeg({ quality: 85 }).toBuffer();
   } catch { return null; }
 }
 
@@ -75,6 +75,15 @@ function wrap(value: string, font: PDFFont, size: number, width: number) {
   }
   if (line.trim()) lines.push(line.trim());
   return lines;
+}
+
+export function brochureDescription(value: string) {
+  const clean = decode(value).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  const [narrative, ...sections] = clean.split(/Key Features\s*:?/i);
+  const bullets = sections.join(" ").split(/[🔹✅✔✓☑•]/u).map(item => item.replace(/^[\s·:;-]+|[\s·;]+$/g, "").trim()).filter(Boolean);
+  const sentences = narrative.split(/(?<=[.!?])\s+(?=[A-Z])/);
+  const summary = sentences.filter(Boolean).slice(0, 2).join(" ").trim();
+  return { narrative: narrative.trim(), bullets, summary: summary.length <= 360 ? summary : sentences[0] || narrative };
 }
 
 export type BrochureContact = { phone: string; email: string };
@@ -139,6 +148,12 @@ export async function createVacancyBrochure(listing: VacancyListing, contact: Br
     text(`Generated ${date.toLocaleDateString("en-ZA", { timeZone: "Africa/Johannesburg" })}  |  Page ${pageNumber}`, margin, 818, 7, false, MUTED);
     link(detailUrl, margin, 799, contentWidth, 15);
   };
+  const drawPhoto = (image: typeof photos[number], x: number, top: number, w: number, h: number) => {
+    const scale = Math.min(w / image.width, h / image.height);
+    const imageWidth = image.width * scale, imageHeight = image.height * scale;
+    rect(x, top, w, h, rgb(.96, .97, .97));
+    page.drawImage(image, { x: x + (w - imageWidth) / 2, y: height - top - (h + imageHeight) / 2, width: imageWidth, height: imageHeight });
+  };
   header();
   text(listing.sector.toUpperCase(), margin, 92, 9, true, MUTED);
   const titleLines = wrap(listing.unitName || listing.building, bold, 24, contentWidth);
@@ -146,9 +161,9 @@ export async function createVacancyBrochure(listing: VacancyListing, contact: Br
   for (const line of titleLines) { text(line, margin, y, 24, true); y += 29; }
   if (listing.unitName) { text(listing.building, margin, y + 2, 10, false, MUTED); y += 18; }
   y += 12;
-  if (photo) page.drawImage(photo, { x: margin, y: height - y - 164, width: contentWidth, height: 164 });
+  if (photo) drawPhoto(photo, margin, y, contentWidth, 200);
   else { rect(margin, y, contentWidth, 94, rgb(.92, .95, .95)); text("Photograph available from our leasing team", margin + 18, y + 39, 11, false, MUTED); }
-  y += photo ? 180 : 110;
+  y += photo ? 216 : 110;
   const metrics = [["AVAILABLE AREA", vacancySize(listing.sizeSqm)], ["RATE / m² / MONTH", vacancyRate(listing.ratePerSqm)], ["AVAILABILITY", vacancyAvailability(listing.availability)]];
   const column = contentWidth / 3;
   const metricLines = metrics.map(([, value]) => wrap(value, bold, 13, column - 22));
@@ -162,31 +177,14 @@ export async function createVacancyBrochure(listing: VacancyListing, contact: Br
   text("Confirm VAT, parking and other charges with our leasing team.", margin, y, 8, false, MUTED);
   y += 26;
   let pageNumber = 1;
-  let bodyWidth = contentWidth;
-  const drawPhoto = (image: typeof photos[number], x: number, top: number, w: number, h: number) => {
-    const scale = Math.min(w / image.width, h / image.height);
-    const imageWidth = image.width * scale, imageHeight = image.height * scale;
-    rect(x, top, w, h, rgb(.94, .96, .96));
-    page.drawImage(image, { x: x + (w - imageWidth) / 2, y: height - top - (h + imageHeight) / 2, width: imageWidth, height: imageHeight });
-  };
-  if (photos.length > 1) {
-    bodyWidth = contentWidth * .54;
-    const galleryX = margin + bodyWidth + 20;
-    const galleryWidth = contentWidth - bodyWidth - 20;
-    const galleryTop = y;
-    const thumbWidth = (galleryWidth - 8) / 2;
-    drawPhoto(photos[1], galleryX, galleryTop, thumbWidth, 112);
-    if (photos[2]) drawPhoto(photos[2], galleryX + thumbWidth + 8, galleryTop, thumbWidth, 112);
-    text("BUILDING", galleryX, galleryTop + 130, 8, false, MUTED);
-    wrap(listing.building, bold, 11, galleryWidth).forEach((line, i) => text(line, galleryX, galleryTop + 146 + i * 14, 11, true));
-    text("LOCATION", galleryX, galleryTop + 182, 8, false, MUTED);
-    text("Halfway House, Midrand", galleryX, galleryTop + 198, 10, true);
-  }
+  const bodyWidth = contentWidth;
   const ensureRoom = (needed: number) => {
     if (y + needed <= 683) return;
     footer(pageNumber++);
     page = pdf.addPage([width, height]); header();
-    text(label, margin, 92, 11, true); y = 121; bodyWidth = contentWidth;
+    const heading = wrap(listing.unitName || listing.building, bold, 16, contentWidth);
+    heading.forEach((line, i) => text(line, margin, 92 + i * 20, 16, true));
+    y = 120 + heading.length * 20;
   };
   const paragraph = (value: string, strong = false) => {
     for (const line of wrap(value, strong ? bold : regular, strong ? 12 : 10, bodyWidth)) {
@@ -195,7 +193,8 @@ export async function createVacancyBrochure(listing: VacancyListing, contact: Br
     y += 9;
   };
   paragraph("The space", true);
-  paragraph(listing.description || "Speak to the Midpoint leasing team for full details of this space.");
+  const description = brochureDescription(listing.description || "Speak to the Midpoint leasing team for full details of this space.");
+  paragraph(description.summary);
   const features = Array.from(new Set(listing.features.filter(Boolean)));
   if (features.length) {
     ensureRoom(50); paragraph("Highlights", true);
@@ -213,17 +212,46 @@ export async function createVacancyBrochure(listing: VacancyListing, contact: Br
       y += rowHeight;
     }
   }
+  if (description.narrative !== description.summary || description.bullets.length) {
+    footer(pageNumber++);
+    page = pdf.addPage([width, height]); header();
+    const heading = wrap(listing.unitName || listing.building, bold, 18, contentWidth);
+    heading.forEach((line, i) => text(line, margin, 92 + i * 22, 18, true));
+    y = 105 + heading.length * 22 + 15;
+    paragraph("About this space", true);
+    const sentences = description.narrative.split(/(?<=[.!?])\s+(?=[A-Z])/);
+    for (let i = 0; i < sentences.length; i += 2) paragraph(sentences.slice(i, i + 2).join(" "));
+    if (description.bullets.length) {
+      ensureRoom(48); paragraph("Property details", true);
+      if (description.bullets.length === 1) {
+        // Some source records have an unstructured feature section with no markers.
+        // Keep it readable at full width rather than inventing item boundaries.
+        paragraph(description.bullets[0]);
+      } else for (let i = 0; i < description.bullets.length; i += 2) {
+        const columnWidth = (contentWidth - 20) / 2;
+        const columns = description.bullets.slice(i, i + 2).map(item => wrap(item, regular, 9.5, columnWidth - 14));
+        const rowHeight = Math.max(...columns.map(lines => lines.length)) * 14 + 9;
+        ensureRoom(rowHeight);
+        columns.forEach((lines, index) => {
+          const x = margin + index * (columnWidth + 20);
+          rect(x, y + 5, 4, 4, CYAN);
+          lines.forEach((line, j) => text(line, x + 14, y + j * 14, 9.5));
+        });
+        y += rowHeight;
+      }
+    }
+  }
   footer(pageNumber);
-  for (let i = 3; i < photos.length; i += 4) {
+  for (let i = 1; i < photos.length; i += 2) {
     page = pdf.addPage([width, height]); pageNumber++; header();
-    text(listing.unitName || listing.building, margin, 92, 18, true);
-    text("Listing photo gallery", margin, 124, 10, false, MUTED);
-    const tileWidth = (contentWidth - 16) / 2;
-    photos.slice(i, i + 4).forEach((image, index) => {
-      const x = margin + (index % 2) * (tileWidth + 16);
-      const top = 150 + Math.floor(index / 2) * 250;
-      drawPhoto(image, x, top, tileWidth, 213);
-      text(`Photo ${i + index + 1} of ${photos.length}`, x, top + 220, 8, false, MUTED);
+    const heading = wrap(listing.unitName || listing.building, bold, 18, contentWidth);
+    heading.forEach((line, index) => text(line, margin, 92 + index * 22, 18, true));
+    const start = 110 + heading.length * 22 + 20;
+    const tileHeight = (665 - start - 46) / 2;
+    photos.slice(i, i + 2).forEach((image, index) => {
+      const top = start + index * (tileHeight + 30);
+      drawPhoto(image, margin, top, contentWidth, tileHeight);
+      text(`Photo ${i + index + 1} of ${photos.length}`, margin, top + tileHeight + 7, 8, false, MUTED);
     });
     footer(pageNumber);
   }
