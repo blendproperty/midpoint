@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { vacancySummary } from "@/lib/vacancies";
 import VacancyCard from "@/components/VacancyCard";
 import ListingsJsonLd from "@/components/ListingsJsonLd";
 import type { VacancyListing } from "@/lib/vacancy-shared";
@@ -10,7 +11,7 @@ export default function LeaseAvailability({ listings, sector, path }: { listings
       <p className="mt-3 max-w-3xl text-midpoint-grey-400">Compare the currently published spaces in Halfway House, Midrand. Availability dates include future opportunities; confirm occupation timing, specifications and complete costs with the leasing team.</p>
       {listings.length ? <>
         <ListingsJsonLd listings={listings} path={path} name={`${sector} availability at Midpoint`} />
-        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">{listings.map(listing => <VacancyCard key={listing.id} listing={listing} />)}</div>
+        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">{listings.map(listing => <VacancyCard key={listing.id} listing={{ ...listing, description: vacancySummary(listing.description) }} />)}</div>
       </> : <p className="mt-6 rounded-xl bg-white p-6 text-midpoint-dark">No spaces are currently published in this category. <Link href="/contact-us#Contact" className="underline">Ask the leasing team about upcoming availability.</Link></p>}
       <Link href={`/vacancies?sector=${encodeURIComponent(sector)}`} className="mt-8 inline-flex rounded-full bg-midpoint-dark px-6 py-3 text-sm font-semibold text-white">View the vacancy schedule →</Link>
     </div>

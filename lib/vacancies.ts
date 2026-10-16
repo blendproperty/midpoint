@@ -111,7 +111,7 @@ export function buildVacancyWhatsappMessage(
 // Availability must be current. If the database is unavailable or has no
 // published rows, show no listings rather than an old hard-coded snapshot
 // that could include a space already let on Blend Listings.
-export async function getAllVacancies(): Promise<VacancyListing[]> {
+export async function getAllVacancies(options: { fullDescriptions?: boolean } = {}): Promise<VacancyListing[]> {
   try {
     const rows = await prisma.vacancy.findMany({
       where: { status: "PUBLISHED" },
@@ -126,7 +126,7 @@ export async function getAllVacancies(): Promise<VacancyListing[]> {
       sizeSqm: row.sizeSqm,
       ratePerSqm: row.ratePerSqm,
       availability: row.availability,
-      description: vacancySummary(row.description),
+      description: vacancySummary(row.description, options.fullDescriptions ? Number.MAX_SAFE_INTEGER : 280),
       features: row.features,
       image: row.image || "",
     }));

@@ -128,9 +128,10 @@ export function blogPostingJsonLd({
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${site.domain}${path}#article`,
     headline: title,
     description,
-    image: image || undefined,
+    image: image ? new URL(image, site.domain).href : undefined,
     datePublished,
     dateModified,
     mainEntityOfPage: `${site.domain}${path}`,

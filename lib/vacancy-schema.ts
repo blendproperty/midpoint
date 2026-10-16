@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 import { vacancyAreaNeedsConfirmation } from "@/lib/vacancy-content";
 import { vacancyAvailability, vacancyDetailHref, vacancyLabel, type VacancyListing } from "@/lib/vacancy-shared";
+import { publishedVacancyFacts } from "@/lib/leasing-comparison";
 
 type SchemaListing = Pick<VacancyListing, "id" | "building" | "sector" | "sizeSqm" | "ratePerSqm" | "availability" | "description" | "image"> & Partial<Pick<VacancyListing, "unitName">>;
 
@@ -22,6 +23,7 @@ export function vacancyJsonLd(listing: SchemaListing, domain = site.domain) {
         { "@type": "PropertyValue", name: "Property type", value: listing.sector },
         ...(!areaNeedsConfirmation && Number.isFinite(listing.sizeSqm) && listing.sizeSqm > 0 ? [{ "@type": "PropertyValue", name: "Published floor area", value: listing.sizeSqm, unitCode: "MTK" }] : []),
         { "@type": "PropertyValue", name: "Published availability", value: vacancyAvailability(listing.availability) },
+        ...publishedVacancyFacts(listing).map(fact => ({ "@type": "PropertyValue", name: fact.label, value: fact.value })),
       ],
     },
     offers: {

@@ -17,13 +17,15 @@ import FeatureIntro from "@/components/FeatureIntro";
 import ReadyToMoveSection from "@/components/ReadyToMoveSection";
 import ConsiderationsList from "@/components/ConsiderationsList";
 import LeaseAvailability from "@/components/LeaseAvailability";
+import LeaseComparison from "@/components/LeaseComparison";
+import { vacancyAreaNeedsConfirmation } from "@/lib/vacancy-content";
 import PageFaqAccordion from "@/components/PageFaqAccordion";
 import TalkToLeasing from "@/components/TalkToLeasing";
 import ExploreMore from "@/components/ExploreMore";
 import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
 import { getAllVacancies, vacancySector } from "@/lib/vacancies";
-import { midpointPlaceJsonLd, organizationJsonLd } from "@/lib/seo";
+import { pillarPageJsonLd } from "@/lib/pillar-schema";
 import { buildPageMetadata } from "@/lib/seo-metadata";
 import { safeJsonLd } from "@/lib/json-ld";
 
@@ -69,7 +71,6 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     select: { id: true, slug: true, title: true, excerpt: true, coverImage: true },
   });
   const settings = await getSiteSettings();
-  const description = pillar.seoDescription || pillar.title;
   const faqs = Array.isArray(pillar.faqs) ? (pillar.faqs as unknown as PillarFaq[]) : [];
   const storedFeatures = Array.isArray(pillar.features) ? (pillar.features as unknown as PillarFeature[]) : [];
   const featureMedia = storedFeatures.some((feature) => feature.image)
@@ -95,8 +96,8 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
 
   const relatedSector = pillar.relatedSector || ({ warehouses: "WAREHOUSE", offices: "OFFICE", "services-offices": "SERVICED_OFFICE" } as const)[pillar.slug as "warehouses" | "offices" | "services-offices"];
   const sector = relatedSector ? vacancySector(relatedSector, "") : null;
-  const vacancies = sector ? (await getAllVacancies()).filter(v => v.sector === sector) : [];
-  const sizes = vacancies.map(v => v.sizeSqm).filter(n => Number.isFinite(n) && n > 0);
+  const vacancies = sector ? (await getAllVacancies({ fullDescriptions: true })).filter(v => v.sector === sector) : [];
+  const sizes = vacancies.filter(v => !vacancyAreaNeedsConfirmation(v)).map(v => v.sizeSqm).filter(n => Number.isFinite(n) && n > 0);
   const rates = vacancies.map(v => v.ratePerSqm).filter(n => Number.isFinite(n) && n > 0);
 
   // Below the vacancies branch, trustItems is also rendered verbatim as the
@@ -144,6 +145,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     features.length > 0 ? { id: "features", label: pillar.slug === "amenities" ? "Estate facilities" : "Highlights" } : null,
     considerations.length > 0 ? { id: "things-to-know", label: "Things to know" } : null,
     sector ? { id: "availability", label: "Availability" } : null,
+    sector === "Office" || sector === "Warehouse" ? { id: "compare-spaces", label: "Compare costs & specifications" } : null,
     hasBody ? { id: "overview", label: "Overview" } : null,
     faqs.length > 0 ? { id: "faqs", label: "FAQs" } : null,
   ].filter((item): item is { id: string; label: string } => item !== null);
@@ -160,47 +162,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   // Always auto-generated from this pillar's real content (FAQs, expert bio,
   // Midpoint's address/amenities, Blend Property Group) — there is no manual
   // override path left to accidentally downgrade this.
-  const jsonLdToRender = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `${settings.domain}/${pillar.slug}#webpage`,
-        url: `${settings.domain}/${pillar.slug}`,
-        name: pillar.title,
-        description,
-        ...(isBusinessParkGuide ? { dateModified: pillar.updatedAt.toISOString() } : {}),
-        // This guide distinguishes operating facilities from future plans in
-        // its visible copy; do not add the shared, unconditional amenity list.
-        about: { ...midpointPlaceJsonLd(), amenityFeature: undefined },
-        mentions: organizationJsonLd(),
-        ...(pillar.lastReviewedAt ? { lastReviewed: pillar.lastReviewedAt.toISOString() } : {}),
-      },
-      ...(faqs.length > 0
-        ? [
-            {
-              "@type": "FAQPage",
-              mainEntity: faqs.map((f) => ({
-                "@type": "Question",
-                name: f.question,
-                acceptedAnswer: { "@type": "Answer", text: f.answer },
-              })),
-            },
-          ]
-        : []),
-      ...(pillar.expertName
-        ? [
-            {
-              "@type": "Person",
-              name: pillar.expertName,
-              jobTitle: pillar.expertRole || undefined,
-              description: pillar.expertBio || undefined,
-              image: pillar.expertImage || undefined,
-            },
-          ]
-        : []),
-    ],
-  };
+  const jsonLdToRender = pillarPageJsonLd(pillar, faqs, settings.domain, vacancies.length > 0);
 
   return (
     <article className="bg-white">
@@ -224,6 +186,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         facts={quickFacts}
         title={pillar.slug === "amenities" ? "Estate fact sheet" : undefined}
       />
+      {vacancies.some(vacancyAreaNeedsConfirmation) && <p className="mx-auto max-w-7xl px-6 pb-4 text-sm text-midpoint-grey-400">The area range excludes listings with conflicting source areas. Open the comparison and property details for the confirmation required.</p>}
 
       {pillar.slug !== "amenities" && trustItems.length > 0 && (
         <div className="mx-auto max-w-7xl px-6 pb-10 pt-6">
@@ -238,6 +201,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
       )}
 
       {sector && <LeaseAvailability listings={vacancies} sector={sector} path={`/${pillar.slug}`} />}
+      {(sector === "Office" || sector === "Warehouse") && <LeaseComparison listings={vacancies} sector={sector} />}
 
       {isBusinessParkGuide && bodySection}
 
@@ -272,7 +236,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
       {faqs.length > 0 && <PageFaqAccordion heading={pillar.faqsHeading || "Frequently asked questions"} faqs={faqs} />}
 
       {pillar.expertName && (
-        <section className="bg-white px-6 pb-4">
+        <section id="property-contact" className="bg-white px-6 pb-4">
           <div className="mx-auto max-w-4xl rounded-card bg-midpoint-dark p-6 text-white">
             <p className="text-xs uppercase tracking-wide text-white/50">{isBusinessParkGuide ? "Property contact" : "Reviewed by"}</p>
             <p className="mt-1 text-lg font-semibold">{pillar.expertName}</p>

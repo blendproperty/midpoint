@@ -6,6 +6,7 @@ import VacancyFeature from "@/components/VacancyFeature";
 import Link from "next/link";
 import { vacancyBrochureHref, vacancyDetailHref, vacancyLabel, vacancyRate, vacancySize, vacancyAvailability, type VacancyListing } from "@/lib/vacancy-shared";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import { vacancyAreaNeedsConfirmation } from "@/lib/vacancy-content";
 
 // Fires a beacon when "Enquire" is clicked so /admin can show which listings
 // are attracting the most interest — doesn't block or delay the navigation.
@@ -54,6 +55,7 @@ type Props = {
 export default function VacancyCard({ listing, whatsappUrl }: Props) {
   const label = vacancyLabel(listing);
   const features = Array.from(new Set(listing.features)).slice(0, 4);
+  const areaNeedsConfirmation = vacancyAreaNeedsConfirmation(listing);
   return (
     <article className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-midpoint-dark/10 bg-white text-midpoint-dark shadow-sm transition-shadow hover:shadow-lg">
       <Link href={vacancyDetailHref(listing)} aria-label={`View ${label}`} className="relative block aspect-[16/10] shrink-0 overflow-hidden bg-[#eaf0ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-midpoint-dark">
@@ -70,7 +72,7 @@ export default function VacancyCard({ listing, whatsappUrl }: Props) {
         </div>
         <p className="mt-1 text-xs text-midpoint-grey-400">Confirm VAT, parking and other charges with our leasing team.</p>
         <dl className="mt-5 grid grid-cols-2 gap-4 border-y border-midpoint-dark/10 py-4 text-sm">
-          <div><dt className="flex items-center gap-1.5 text-xs text-midpoint-grey-400"><Maximize2 aria-hidden="true" className="h-3.5 w-3.5" />Floor area</dt><dd className="mt-1 font-semibold">{vacancySize(listing.sizeSqm)}</dd></div>
+          <div><dt className="flex items-center gap-1.5 text-xs text-midpoint-grey-400"><Maximize2 aria-hidden="true" className="h-3.5 w-3.5" />Floor area</dt><dd className="mt-1 font-semibold">{areaNeedsConfirmation ? "Confirm area" : vacancySize(listing.sizeSqm)}</dd></div>
           <div><dt className="flex items-center gap-1.5 text-xs text-midpoint-grey-400"><CalendarDays aria-hidden="true" className="h-3.5 w-3.5" />Availability</dt><dd className="mt-1 font-semibold">{vacancyAvailability(listing.availability)}</dd></div>
         </dl>
         <p className="mt-4 line-clamp-2 text-sm leading-6 text-midpoint-grey-400">{listing.description}</p>
