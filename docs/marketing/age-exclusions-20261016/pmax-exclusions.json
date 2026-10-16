@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "[\n  {\n    \"results\": [\n      {\n        \"campaign\": {\n          \"resourceName\": \"customers/5635711564/campaigns/24101834365\",\n          \"name\": \"Midpoint Campaign\",\n          \"id\": \"24101834365\"\n        },\n        \"campaignCriterion\": {\n          \"resourceName\": \"customers/5635711564/campaignCriteria/24101834365~503001\",\n          \"ageRange\": {\n            \"type\": \"AGE_RANGE_18_24\"\n          },\n          \"negative\": true\n        }\n      },\n      {\n        \"campaign\": {\n          \"resourceName\": \"customers/5635711564/campaigns/24101834365\",\n          \"name\": \"Midpoint Campaign\",\n          \"id\": \"24101834365\"\n        },\n        \"campaignCriterion\": {\n          \"resourceName\": \"customers/5635711564/campaignCriteria/24101834365~503002\",\n          \"ageRange\": {\n            \"type\": \"AGE_RANGE_25_34\"\n          },\n          \"negative\": true\n        }\n      }\n    ],\n    \"fieldMask\": \"campaign.id,campaign.name,campaignCriterion.ageRange.type,campaignCriterion.negative\",\n    \"requestId\": \"ahYTz7vi9eJLJkCpcQlQUw\",\n    \"queryResourceConsumption\": \"354\"\n  }\n]"
+    }
+  ]
+}

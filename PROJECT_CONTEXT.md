@@ -689,3 +689,13 @@ This is the canonical delivery record for production-impacting Midpoint work. A 
 ### Outstanding gates
 
 - No UAT or external messaging-provider delivery test has yet been completed.
+
+## 2026-10-16 - Advertising age exclusions verified
+
+- Implementation: user requested ages 18-24 and 25-34 excluded from all ads except STOR24 Google Ads. In Google customer 5635711564, saved both negative age criteria for Midpoint Brand Search 24330541324 / ad group 201852366898 and commercial Search 24101993216 / all six ad groups: 197253304485, 197253304525, 197253304685, 197253304725, 199881765253, 200297109740. Existing Brand 18-24 exclusion retained; added 25-34. East Rand group remains PAUSED. Existing PMax 24101834365 already excluded both ages; no PMax mutation was needed. Unknown age remains eligible.
+- Testing: live Google Ads editor saved changes; independent GAQL readback confirms fourteen negative ad-group age criteria (seven groups times two ranges) and two PMax campaign age exclusions. Evidence: docs/marketing/age-exclusions-20261016/search-exclusions.json and pmax-exclusions.json. This is provider configuration validation, not a delivery or lead-quality test.
+- Commit and push: context/evidence only on codex/ads-age-exclusions-20261016, based on verified origin/main 0a10ab0357f39dcd7bd682f158c8d828f2978bc6. Publication and exact remote-head/context readback performed before final handoff. Dirty original checkout preserved.
+- Merge: no application merge or default-branch promotion in this task; evidence branch remains separate.
+- Deployment and configuration: advertising changes saved in Google Ads. No application build/deployment required. Enabled campaign statuses and R288/R90/R42 daily Midpoint budgets retained. All three STOR24 Google campaigns were excluded from mutations and remain enabled at R36.84/R221.06/R64.47 daily.
+- Live production verification: current Google Ads GAQL confirms saved exclusions and campaign budgets/statuses. Midpoint PMax remains Eligible (Limited), with existing lead-form/provider gates unchanged. No actual audience delivery, enquiry conversion or improvement claim.
+- Cross-project scope: STOR24 Facebook four ad sets now minimum age35, all PAUSED, recorded in blendproperty/stor24 PROJECT_CONTEXT.md. WhatsApp marketing-message/operational notices are separate from paid Facebook campaigns and were preserved. Other Meta accounts were empty, read-only messaging mirrors, unavailable to connector, closed or unsettled; no all-account advertising coverage claim beyond verified entities. All prior UAT/provider/data/training/approval gates remain. No tracker was in scope.
