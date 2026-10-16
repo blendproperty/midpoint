@@ -23,12 +23,13 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Legacy Webflow unit pages that map cleanly to a current listing.
+      // Retired Sunbird inventory has no confirmed current equivalent.
       {
         source: "/units/8-sunbird",
-        destination: "/vacancies/cms4oiw4s0003n601ccyt2r1q",
+        destination: "/offices",
         permanent: true,
       },
+      // Legacy Webflow unit pages that map cleanly to a current listing.
       {
         source: "/units/1-kingfisher",
         destination: "/vacancies/cmsfvflhj0010oy014b1ytkku",

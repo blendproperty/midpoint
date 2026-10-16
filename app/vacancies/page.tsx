@@ -14,7 +14,7 @@ const description =
   "Current leasing opportunities at Midpoint: warehouse, office and serviced office vacancies in Midrand.";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return staticPageMetadata("/vacancies", "Vacancies", description);
+  return staticPageMetadata("/vacancies", "Available Offices & Warehouses to Rent in Midrand", description);
 }
 
 export default async function Vacancies({

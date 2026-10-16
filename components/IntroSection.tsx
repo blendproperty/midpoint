@@ -12,7 +12,7 @@ export default function IntroSection() {
 
         <Reveal delay={120}>
           <p className="font-semibold">
-            Midpoint offers businesses a secure, well-connected location. It delivers a mix of warehouse space, offices, and serviced offices in Midrand, supported by lifestyle amenities that make the workday easier. Midpoint is the prime estate for companies looking for industrial space, logistics facilities, or office space. Enjoy flexible leasing options and strong connectivity across Gauteng.
+            Midpoint offers businesses a secure, well-connected location. It delivers a mix of <Link href="/warehouses" className="underline underline-offset-4">warehouse space</Link>, <Link href="/offices" className="underline underline-offset-4">offices</Link>, and <Link href="/services-offices" className="underline underline-offset-4">serviced offices in Midrand</Link>, supported by lifestyle amenities that make the workday easier. Midpoint is the prime estate for companies looking for industrial space, logistics facilities, or office space. Enjoy flexible leasing options and strong connectivity across Gauteng.
           </p>
           <p className="mt-4 text-midpoint-grey-100">
             Positioned between Johannesburg and Pretoria, with N1 visibility, Midpoint connects companies to suppliers, clients, and logistics routes across the province. Businesses benefit from secure premises, generator-backed power, backup water with N+1 redundancy, and an on-site restaurant, cafés, gym, padel courts, and running, walking, and cycling trails.
@@ -21,7 +21,7 @@ export default function IntroSection() {
             *Some images on this site are conceptual, showcasing the bold vision we&rsquo;re bringing to life.
           </p>
           <Link
-            href="/availability-report"
+            href="/vacancies"
             className="mt-6 inline-flex rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark transition-transform hover:scale-105"
           >
             View available space at Midpoint

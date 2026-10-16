@@ -21,7 +21,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata() {
   const settings = await getSiteSettings();
-  return staticPageMetadata("/", settings.siteName, settings.defaultMetaDescription);
+  return staticPageMetadata("/", "Midpoint | Offices & Warehouses to Rent in Midrand", settings.defaultMetaDescription);
 }
 
 export default async function HomePage() {

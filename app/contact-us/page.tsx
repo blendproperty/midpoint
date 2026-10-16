@@ -106,7 +106,7 @@ export default async function ContactUs({
 
             <div className="mt-10 flex flex-wrap gap-10 border-t border-white/10 pt-8">
               <div>
-                <h3 className="text-sm uppercase tracking-wide text-midpoint-grey-400">Contact Info</h3>
+                <h2 className="text-sm uppercase tracking-wide text-midpoint-grey-400">Contact Info</h2>
                 <p className="mt-1">
                   <a href={site.phoneHref}>{site.phone}</a>
                 </p>
@@ -115,7 +115,7 @@ export default async function ContactUs({
                 </p>
               </div>
               <div>
-                <h3 className="text-sm uppercase tracking-wide text-midpoint-grey-400">Address</h3>
+                <h2 className="text-sm uppercase tracking-wide text-midpoint-grey-400">Address</h2>
                 <p className="mt-1">
                   {site.address.street}, {site.address.suburb}
                   <br />

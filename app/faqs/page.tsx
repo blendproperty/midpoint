@@ -13,7 +13,7 @@ const description =
   "Find answers to common questions about office space, warehouse facilities, amenities, and leasing opportunities at Midpoint in Midrand.";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return staticPageMetadata("/faqs", "FAQs", description);
+  return staticPageMetadata("/faqs", "Leasing FAQs | Offices & Warehouses in Midrand", description);
 }
 
 export default async function FaqsPage() {

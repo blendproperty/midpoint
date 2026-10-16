@@ -13,6 +13,9 @@ const AMENITY_BUILDING_SLUGS = new Set([
 export function legacyDestination(pathname: string): string | null {
   const normalized = pathname.replace(/\/+$/, "") || "/";
   if (normalized === "/availability-report") return "/vacancies";
+  // The former Sunbird listing is no longer published. Keep its leasing
+  // intent without claiming that another current unit is the same property.
+  if (normalized.toLowerCase() === "/units/8-sunbird") return "/offices";
   const building = /^\/buildings\/([^/]+)$/i.exec(normalized);
   if (building) {
     return AMENITY_BUILDING_SLUGS.has(building[1].toLowerCase()) ? "/amenities" : "/vacancies";
