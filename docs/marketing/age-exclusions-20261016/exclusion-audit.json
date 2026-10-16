@@ -1,0 +1,1476 @@
+{
+  "date": "2026-10-16",
+  "mode": "read-only audit; no advertising mutations",
+  "directNegatives": [
+    {
+      "name": "Midpoint Campaign",
+      "count": 417
+    },
+    {
+      "name": "Midpoint | Search | Midrand | Commercial Space",
+      "count": 250
+    }
+  ],
+  "sharedLists": [
+    {
+      "sharedSet": {
+        "resourceName": "customers/5635711564/sharedSets/12181537925",
+        "type": "BRANDS",
+        "status": "ENABLED",
+        "id": "12181537925",
+        "name": "Competitors",
+        "memberCount": "3"
+      }
+    },
+    {
+      "sharedSet": {
+        "resourceName": "customers/5635711564/sharedSets/12228197809",
+        "type": "NEGATIVE_KEYWORDS",
+        "status": "ENABLED",
+        "id": "12228197809",
+        "name": "Job Seeker Exclusions",
+        "memberCount": "41"
+      }
+    }
+  ],
+  "listLinks": [
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101834365",
+        "name": "Midpoint Campaign",
+        "id": "24101834365"
+      },
+      "campaignSharedSet": {
+        "resourceName": "customers/5635711564/campaignSharedSets/24101834365~12228197809",
+        "status": "ENABLED",
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101993216",
+        "name": "Midpoint | Search | Midrand | Commercial Space",
+        "id": "24101993216"
+      },
+      "campaignSharedSet": {
+        "resourceName": "customers/5635711564/campaignSharedSets/24101993216~12228197809",
+        "status": "ENABLED",
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    }
+  ],
+  "sharedKeywords": [
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10001563",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "apply now"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10005011",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "job"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10005021",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "jobs"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10020900",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "employment"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10083031",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "recruitment"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10083051",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "recruiting"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10083071",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "vacancy"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10083081",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "vacancies"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10083101",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "hiring"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10099341",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "cv"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10166860",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "recruiter"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10205881",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "career"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10205891",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "resume"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10219196",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "recruit"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10317631",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "careers"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~10858311",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "internship"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~11389251",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "staffing agency"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~11404731",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "vacature"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~11899031",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "apprenticeship"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~12987496",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "jobseeker"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~13861171",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "unemployed"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~14841410",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "traineeship"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~15295110",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "joblink"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~15836661",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "indeed"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~20782491",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "positions vacant"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~21632626",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "job seeker"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~22269401",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "work seeker"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~50159953",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "position vacant"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~150017317",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "jobmail"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~282864689",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "pnet"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~327340314",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "glassdoor"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~599017665",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "learnerships"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~599017695",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "learnership"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~1353970289",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "simplyhired"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~31099275497",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "adzuna"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~296944003800",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "careers24"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~296944216440",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "jobvine"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~299428567158",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "careerjunction"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~300232437751",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "labour broker"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~308080652810",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "labor broker"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "sharedCriterion": {
+        "resourceName": "customers/5635711564/sharedCriteria/12228197809~429636337840",
+        "keyword": {
+          "matchType": "BROAD",
+          "text": "zajobs"
+        },
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    }
+  ],
+  "accountCriterionTypes": [
+    {
+      "type": "CONTENT_LABEL",
+      "count": 12
+    },
+    {
+      "type": "MOBILE_APP_CATEGORY",
+      "count": 4
+    },
+    {
+      "type": "MOBILE_APPLICATION",
+      "count": 182
+    }
+  ],
+  "campaigns": [
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101834365",
+        "status": "ENABLED",
+        "advertisingChannelType": "PERFORMANCE_MAX",
+        "networkSettings": {
+          "targetSearchNetwork": true,
+          "targetContentNetwork": true
+        },
+        "geoTargetTypeSetting": {
+          "positiveGeoTargetType": "PRESENCE"
+        },
+        "name": "Midpoint Campaign",
+        "id": "24101834365"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101993216",
+        "status": "ENABLED",
+        "advertisingChannelType": "SEARCH",
+        "networkSettings": {
+          "targetSearchNetwork": false,
+          "targetContentNetwork": false
+        },
+        "geoTargetTypeSetting": {
+          "positiveGeoTargetType": "PRESENCE"
+        },
+        "name": "Midpoint | Search | Midrand | Commercial Space",
+        "id": "24101993216"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24315692802",
+        "status": "ENABLED",
+        "advertisingChannelType": "SEARCH",
+        "networkSettings": {
+          "targetSearchNetwork": false,
+          "targetContentNetwork": false
+        },
+        "geoTargetTypeSetting": {
+          "positiveGeoTargetType": "PRESENCE"
+        },
+        "name": "STOR24 | Brand | Midrand",
+        "id": "24315692802"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24315694704",
+        "status": "ENABLED",
+        "advertisingChannelType": "SEARCH",
+        "networkSettings": {
+          "targetSearchNetwork": false,
+          "targetContentNetwork": false
+        },
+        "geoTargetTypeSetting": {
+          "positiveGeoTargetType": "PRESENCE"
+        },
+        "name": "STOR24 | Search | Midrand",
+        "id": "24315694704"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24330541324",
+        "status": "ENABLED",
+        "advertisingChannelType": "SEARCH",
+        "networkSettings": {
+          "targetSearchNetwork": false,
+          "targetContentNetwork": false
+        },
+        "geoTargetTypeSetting": {
+          "positiveGeoTargetType": "PRESENCE"
+        },
+        "name": "Midpoint | Brand | Search",
+        "id": "24330541324"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24352709658",
+        "status": "ENABLED",
+        "advertisingChannelType": "SEARCH",
+        "networkSettings": {
+          "targetSearchNetwork": false,
+          "targetContentNetwork": false
+        },
+        "geoTargetTypeSetting": {
+          "positiveGeoTargetType": "PRESENCE"
+        },
+        "name": "STOR24 | Micro-Warehouse",
+        "id": "24352709658"
+      }
+    }
+  ],
+  "geography": [
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101834365",
+        "name": "Midpoint Campaign"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24101834365~2710",
+        "type": "LOCATION",
+        "location": {
+          "geoTargetConstant": "geoTargetConstants/2710"
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101993216",
+        "name": "Midpoint | Search | Midrand | Commercial Space"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24101993216~1028634",
+        "type": "LOCATION",
+        "location": {
+          "geoTargetConstant": "geoTargetConstants/1028634"
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101993216",
+        "name": "Midpoint | Search | Midrand | Commercial Space"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24101993216~1028635",
+        "type": "LOCATION",
+        "location": {
+          "geoTargetConstant": "geoTargetConstants/1028635"
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101993216",
+        "name": "Midpoint | Search | Midrand | Commercial Space"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24101993216~1028638",
+        "type": "LOCATION",
+        "location": {
+          "geoTargetConstant": "geoTargetConstants/1028638"
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101993216",
+        "name": "Midpoint | Search | Midrand | Commercial Space"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24101993216~1028656",
+        "type": "LOCATION",
+        "location": {
+          "geoTargetConstant": "geoTargetConstants/1028656"
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101993216",
+        "name": "Midpoint | Search | Midrand | Commercial Space"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24101993216~1028666",
+        "type": "LOCATION",
+        "location": {
+          "geoTargetConstant": "geoTargetConstants/1028666"
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101993216",
+        "name": "Midpoint | Search | Midrand | Commercial Space"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24101993216~1028673",
+        "type": "LOCATION",
+        "location": {
+          "geoTargetConstant": "geoTargetConstants/1028673"
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24148267881",
+        "name": "Midpoint | PMax | Stand 3"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24148267881~2710",
+        "type": "LOCATION",
+        "location": {
+          "geoTargetConstant": "geoTargetConstants/2710"
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24315692802",
+        "name": "STOR24 | Brand | Midrand"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24315692802~2504286451193",
+        "type": "PROXIMITY",
+        "proximity": {
+          "radiusUnits": "KILOMETERS",
+          "radius": 15
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24315694704",
+        "name": "STOR24 | Search | Midrand"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24315694704~2502020568882",
+        "type": "PROXIMITY",
+        "proximity": {
+          "radiusUnits": "KILOMETERS",
+          "radius": 15
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24330541324",
+        "name": "Midpoint | Brand | Search"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24330541324~1028673",
+        "type": "LOCATION",
+        "location": {
+          "geoTargetConstant": "geoTargetConstants/1028673"
+        },
+        "negative": false
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24352709658",
+        "name": "STOR24 | Micro-Warehouse"
+      },
+      "campaignCriterion": {
+        "resourceName": "customers/5635711564/campaignCriteria/24352709658~2503836147826",
+        "type": "PROXIMITY",
+        "proximity": {
+          "radiusUnits": "KILOMETERS",
+          "radius": 15
+        },
+        "negative": false
+      }
+    }
+  ],
+  "geographyNames": [
+    {
+      "geoTargetConstant": {
+        "resourceName": "geoTargetConstants/2710",
+        "id": "2710",
+        "name": "South Africa",
+        "targetType": "Country",
+        "canonicalName": "South Africa"
+      }
+    },
+    {
+      "geoTargetConstant": {
+        "resourceName": "geoTargetConstants/1028634",
+        "id": "1028634",
+        "name": "Bedfordview",
+        "targetType": "Neighborhood",
+        "canonicalName": "Bedfordview,Gauteng,South Africa"
+      }
+    },
+    {
+      "geoTargetConstant": {
+        "resourceName": "geoTargetConstants/1028635",
+        "id": "1028635",
+        "name": "Benoni",
+        "targetType": "City",
+        "canonicalName": "Benoni,Gauteng,South Africa"
+      }
+    },
+    {
+      "geoTargetConstant": {
+        "resourceName": "geoTargetConstants/1028638",
+        "id": "1028638",
+        "name": "Boksburg",
+        "targetType": "City",
+        "canonicalName": "Boksburg,Gauteng,South Africa"
+      }
+    },
+    {
+      "geoTargetConstant": {
+        "resourceName": "geoTargetConstants/1028656",
+        "id": "1028656",
+        "name": "Germiston",
+        "targetType": "City",
+        "canonicalName": "Germiston,Gauteng,South Africa"
+      }
+    },
+    {
+      "geoTargetConstant": {
+        "resourceName": "geoTargetConstants/1028666",
+        "id": "1028666",
+        "name": "Kempton Park",
+        "targetType": "City",
+        "canonicalName": "Kempton Park,Gauteng,South Africa"
+      }
+    },
+    {
+      "geoTargetConstant": {
+        "resourceName": "geoTargetConstants/1028673",
+        "id": "1028673",
+        "name": "Midrand",
+        "targetType": "City",
+        "canonicalName": "Midrand,Gauteng,South Africa"
+      }
+    }
+  ],
+  "enabledAssets": [
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101834365",
+        "status": "ENABLED",
+        "name": "Midpoint Campaign",
+        "id": "24101834365"
+      },
+      "assetGroup": {
+        "resourceName": "customers/5635711564/assetGroups/6736447150",
+        "name": "Midpoint General",
+        "finalUrls": [
+          "https://www.mid-point.co.za/"
+        ],
+        "status": "ENABLED"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101834365",
+        "status": "ENABLED",
+        "name": "Midpoint Campaign",
+        "id": "24101834365"
+      },
+      "assetGroup": {
+        "resourceName": "customers/5635711564/assetGroups/6741367358",
+        "name": "OnPoint Serviced Offices",
+        "finalUrls": [
+          "https://www.mid-point.co.za/offices"
+        ],
+        "status": "ENABLED"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101834365",
+        "status": "ENABLED",
+        "name": "Midpoint Campaign",
+        "id": "24101834365"
+      },
+      "assetGroup": {
+        "resourceName": "customers/5635711564/assetGroups/6741384931",
+        "name": "Stand 14",
+        "finalUrls": [
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "status": "ENABLED"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101834365",
+        "status": "ENABLED",
+        "name": "Midpoint Campaign",
+        "id": "24101834365"
+      },
+      "assetGroup": {
+        "resourceName": "customers/5635711564/assetGroups/6741504213",
+        "name": "Stand 3",
+        "finalUrls": [
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "status": "ENABLED"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101834365",
+        "status": "ENABLED",
+        "name": "Midpoint Campaign",
+        "id": "24101834365"
+      },
+      "assetGroup": {
+        "resourceName": "customers/5635711564/assetGroups/6745647848",
+        "name": "15E Riley Road Office Park",
+        "finalUrls": [
+          "https://listings.blendproperty.co.za/listings/secure-1990-m2-office-property-for-sale-in-bedfordview"
+        ],
+        "status": "ENABLED"
+      }
+    }
+  ],
+  "clickedSearchTerms": [
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "offices to rent midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "60560000"
+    },
+    {
+      "campaign": "Midpoint | Brand | Search",
+      "term": "midpoint business park",
+      "clicks": "4",
+      "conversions": 0,
+      "costMicros": "58140000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "gauteng management agents",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "58120000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "midpoint hub",
+      "clicks": "2",
+      "conversions": 0,
+      "costMicros": "56590000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "office spaces in sandton",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "49510000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "office rental",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "45740000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "large warehouse storage",
+      "clicks": "2",
+      "conversions": 0,
+      "costMicros": "40250000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "broll properties",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "38450000"
+    },
+    {
+      "campaign": "Midpoint | Brand | Search",
+      "term": "midpoint formerly growthpoint business park",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "34400000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "warehouses to rent in midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "34340000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "rondomark",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "32960000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "galetti properties",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "30140000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "wework sandton",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "29960000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "warehouse rental midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "28990000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "office with small warehouse for rent",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "27080000"
+    },
+    {
+      "campaign": "Midpoint | Brand | Search",
+      "term": "midpoint business park midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "26830000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "office rental midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "25210000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "midpoint business park",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "24760000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "warehouse in midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "24080000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "office spaces to rent",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "21690000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "warehouses to let in midrand",
+      "clicks": "2",
+      "conversions": 0,
+      "costMicros": "19610000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "blend property management",
+      "clicks": "3",
+      "conversions": 0,
+      "costMicros": "19150000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "redefine properties sandton",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "19070000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "warehouse for rent durban",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "19070000"
+    },
+    {
+      "campaign": "Midpoint | Brand | Search",
+      "term": "midpoint midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "19060000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "advance warehousing",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "17930000"
+    },
+    {
+      "campaign": "STOR24 | Search | Midrand",
+      "term": "storage in midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "17370000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "commercial property 24",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "17340000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "office rentals midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "16960000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "shops to rent near me",
+      "clicks": "2",
+      "conversions": 0,
+      "costMicros": "16940000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "warehouse to rent in midrand",
+      "clicks": "2",
+      "conversions": 0,
+      "costMicros": "16720000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "office to let johannesburg",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "16480000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "commercial property to rent benoni",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "16180000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "mini warehouse to rent midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "15850000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "commercial property pretoria",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "15220000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "office rentals near me",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "15160000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "workpods midrand rent",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "14976470"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "office business park",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "14330000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "midpoint business park",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "14300000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "officeplace",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "14070000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "warehouses to let near me",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "13340000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "property",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "13270000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "api property group johannesburg",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "12910000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "office park",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "12560000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "commercial property developers",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "11940000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "office space to rent midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "11920000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "offices to rent in midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "11270000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "shops to rent in midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "11130000"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "term": "industrial property to rent in midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "9950000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "small business space to rent near me",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "9010000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "newpoint property group",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "8730000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "warehouses to rent johannesburg",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "8570000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "warehouses near me",
+      "clicks": "2",
+      "conversions": 0,
+      "costMicros": "8253245"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "retail property to rent pretoria",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "8160000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "anvil property",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "7810000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "restaurant space to let",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "7410000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "commercial property bedfordview",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "6960000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "warehouse for rent",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "6780000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "wanderers office park",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "6470000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "coworking meeting room",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "6060000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "blend property management pty ltd",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "5310000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "office space to buy",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "5120000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "blend property",
+      "clicks": "2",
+      "conversions": 0,
+      "costMicros": "4770000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "warehouse areas",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "4030000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "industrial parks in gauteng",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "3456728"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "industrial property for rent",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "3360000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "shops to rent in witbank",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "3280000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "cheap warehouse",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "2858848"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "midpoint midrand",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "1370000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "warehouse near me",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "900000"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "term": "private warehouse",
+      "clicks": "1",
+      "conversions": 0,
+      "costMicros": "849999"
+    }
+  ],
+  "conflictingExistingNegatives": [
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "contractor"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "for sale"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "vacancies"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "vacancy"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "matchType": "PHRASE",
+      "text": "for sale"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "matchType": "PHRASE",
+      "text": "vacancies"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "matchType": "PHRASE",
+      "text": "vacancy"
+    }
+  ],
+  "meta": [
+    {
+      "id": "120253973305590268",
+      "name": "04 | Micro warehousing image | R50/day",
+      "status": "PAUSED",
+      "minimumAge": 35,
+      "excludedCustomAudiences": [],
+      "excludedLocations": null
+    },
+    {
+      "id": "120253973303220268",
+      "name": "03 | Self storage image | R50/day",
+      "status": "PAUSED",
+      "minimumAge": 35,
+      "excludedCustomAudiences": [],
+      "excludedLocations": null
+    },
+    {
+      "id": "120253973301040268",
+      "name": "02 | Micro warehousing carousel | R50/day",
+      "status": "PAUSED",
+      "minimumAge": 35,
+      "excludedCustomAudiences": [],
+      "excludedLocations": null
+    },
+    {
+      "id": "120253973240280268",
+      "name": "01 | Self storage carousel | R50/day",
+      "status": "PAUSED",
+      "minimumAge": 35,
+      "excludedCustomAudiences": [],
+      "excludedLocations": null
+    }
+  ]
+}
