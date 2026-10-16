@@ -12,6 +12,7 @@ type Props = {
   whatsapp: string;
   whatsappTemplate: string;
   showStay?: boolean;
+  rentalRange?: string;
 };
 
 // The admin dashboard has its own sidebar/layout (app/admin/(protected)/layout.tsx
@@ -26,6 +27,7 @@ export default function SiteChrome({
   whatsapp,
   whatsappTemplate,
   showStay = false,
+  rentalRange,
 }: Props) {
   const pathname = usePathname();
   const isAdmin = pathname?.startsWith("/admin") ?? false;
@@ -49,7 +51,7 @@ export default function SiteChrome({
       <Nav showStay={showStay} />
       <main>{children}</main>
       {!isContactPage && contactSection}
-      <Footer />
+      <Footer rentalRange={rentalRange} />
       <WhatsAppButton phone={whatsapp} message={whatsappTemplate} />
     </>
   );

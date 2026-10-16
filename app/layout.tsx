@@ -11,6 +11,8 @@ import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { safeJsonLd } from "@/lib/json-ld";
 import { headers } from "next/headers";
 import { isStagingHost } from "@/lib/staging-host";
+import { getAllVacancies } from "@/lib/vacancies";
+import { publishedRentalRange } from "@/lib/business-schema";
 
 export const dynamic = "force-dynamic";
 
@@ -75,10 +77,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [settings, staging] = await Promise.all([
+  const [settings, staging, vacancies] = await Promise.all([
     getSiteSettings(),
     isStagingHost(),
+    getAllVacancies(),
   ]);
+  const rentalRange = publishedRentalRange(vacancies);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -98,6 +102,7 @@ export default async function RootLayout({
         image: new URL(settings.defaultSocialImage, settings.domain).href,
         telephone: settings.phone,
         email: settings.email,
+        priceRange: rentalRange ? `${rentalRange} (published asking base rentals)` : undefined,
         address: {
           "@type": "PostalAddress",
           streetAddress: `${site.address.street}, ${site.address.suburb}`,
@@ -128,6 +133,7 @@ export default async function RootLayout({
           whatsapp={settings.whatsapp}
           whatsappTemplate={settings.whatsappTemplate}
           showStay={staging}
+          rentalRange={rentalRange}
           contactSection={<ContactSection />}
         >
           {children}

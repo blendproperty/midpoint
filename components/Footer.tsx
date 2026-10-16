@@ -2,7 +2,7 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import { site } from "@/lib/site";
 
-export default function Footer() {
+export default function Footer({ rentalRange }: { rentalRange?: string }) {
   return (
     <footer className="bg-midpoint-dark px-6 py-12 text-white">
       <div className="mx-auto max-w-7xl">
@@ -49,6 +49,9 @@ export default function Footer() {
           </div>
         </div>
 
+        {rentalRange && <p className="mt-6 text-xs text-midpoint-grey-400">
+          Published asking base rentals: {rentalRange}. <Link href="/vacancies" className="underline">View current listings</Link>, including future opportunities. Confirm availability, VAT, recoveries, utilities, parking and other charges with leasing.
+        </p>}
         <p className="mt-6 text-xs text-midpoint-grey-400">
           *Some images displayed on this website are for illustrative and
           representational purposes only. They are intended to provide a

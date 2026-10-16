@@ -42,8 +42,20 @@ export function webPageJsonLd({
 export function organizationJsonLd() {
   return {
     "@type": "Organization",
+    "@id": "https://www.blendproperty.co.za/#organization",
     name: "Blend Property Group",
     url: "https://www.blendproperty.co.za",
+    // Brand image declared by Blend's official homepage og:image metadata.
+    image: "https://cdn.prod.website-files.com/685d124b7f9adfba6971a327/686e83878524e3136d50c2aa_open-graph.png",
+    // Official Blend footer identifies this as its Johannesburg office.
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "162 Tonetti Street, Halfway House",
+      addressLocality: "Midrand",
+      addressRegion: "Gauteng",
+      postalCode: "1685",
+      addressCountry: "ZA",
+    },
     description:
       "A South African property company with extensive experience in the commercial and industrial sectors specialising in the development and investment of commercial and industrial properties across South Africa.",
     email: site.email,
@@ -59,6 +71,7 @@ export function midpointPlaceJsonLd() {
     "@type": "Place",
     "@id": `${site.domain}/#midpoint`,
     name: "Midpoint",
+    image: `${site.domain}/images/brand/midpoint-brochure-logo.png`,
     description:
       "A business estate combining premium offices, modern warehouses, serviced offices, and lifestyle amenities in one connected environment.",
     address: {
