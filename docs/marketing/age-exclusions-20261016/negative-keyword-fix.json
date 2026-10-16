@@ -1,0 +1,403 @@
+{
+  "date": "2026-10-16",
+  "account": "5635711564",
+  "budgetSame": true,
+  "agesSame": true,
+  "googleDailyTotal": 742.3700000000001,
+  "coverage": [
+    {
+      "campaign": "Midpoint Campaign",
+      "id": "24101834365",
+      "directNegatives": 409,
+      "sharedNegatives": 39,
+      "budget": 288,
+      "status": "ENABLED"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "id": "24101993216",
+      "directNegatives": 251,
+      "sharedNegatives": 39,
+      "budget": 90,
+      "status": "ENABLED"
+    },
+    {
+      "campaign": "STOR24 | Brand | Midrand",
+      "id": "24315692802",
+      "directNegatives": 0,
+      "sharedNegatives": 39,
+      "budget": 36.84,
+      "status": "ENABLED"
+    },
+    {
+      "campaign": "STOR24 | Search | Midrand",
+      "id": "24315694704",
+      "directNegatives": 0,
+      "sharedNegatives": 39,
+      "budget": 221.06,
+      "status": "ENABLED"
+    },
+    {
+      "campaign": "Midpoint | Brand | Search",
+      "id": "24330541324",
+      "directNegatives": 0,
+      "sharedNegatives": 39,
+      "budget": 42,
+      "status": "ENABLED"
+    },
+    {
+      "campaign": "STOR24 | Micro-Warehouse",
+      "id": "24352709658",
+      "directNegatives": 0,
+      "sharedNegatives": 39,
+      "budget": 64.47,
+      "status": "ENABLED"
+    }
+  ],
+  "removed": [
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "contractor"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "property investment"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "for sale"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "vacancies"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "property for sale"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "commercial property for sale"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "buy property"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "investment property"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "property to buy"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "properties for sale"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "vacancy"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "office for sale"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "warehouse vacancies"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "PHRASE",
+      "text": "buy an office"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "matchType": "PHRASE",
+      "text": "vacancies"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "matchType": "PHRASE",
+      "text": "vacancy"
+    }
+  ],
+  "added": [
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "EXACT",
+      "text": "shops to rent near me"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "EXACT",
+      "text": "retail property to rent pretoria"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "EXACT",
+      "text": "warehouse for rent durban"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "EXACT",
+      "text": "shops to rent in witbank"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "EXACT",
+      "text": "gauteng management agents"
+    },
+    {
+      "campaign": "Midpoint Campaign",
+      "matchType": "EXACT",
+      "text": "restaurant space to let"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "matchType": "EXACT",
+      "text": "shops to rent in midrand"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "matchType": "EXACT",
+      "text": "retail space to let midrand"
+    },
+    {
+      "campaign": "Midpoint | Search | Midrand | Commercial Space",
+      "matchType": "EXACT",
+      "text": "retail space in midrand"
+    }
+  ],
+  "removedShared": [
+    {
+      "matchType": "BROAD",
+      "text": "vacancy"
+    },
+    {
+      "matchType": "BROAD",
+      "text": "vacancies"
+    }
+  ],
+  "sharedListLinks": [
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101834365",
+        "name": "Midpoint Campaign",
+        "id": "24101834365"
+      },
+      "campaignSharedSet": {
+        "resourceName": "customers/5635711564/campaignSharedSets/24101834365~12228197809",
+        "status": "ENABLED",
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24101993216",
+        "name": "Midpoint | Search | Midrand | Commercial Space",
+        "id": "24101993216"
+      },
+      "campaignSharedSet": {
+        "resourceName": "customers/5635711564/campaignSharedSets/24101993216~12228197809",
+        "status": "ENABLED",
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24315692802",
+        "name": "STOR24 | Brand | Midrand",
+        "id": "24315692802"
+      },
+      "campaignSharedSet": {
+        "resourceName": "customers/5635711564/campaignSharedSets/24315692802~12228197809",
+        "status": "ENABLED",
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24315694704",
+        "name": "STOR24 | Search | Midrand",
+        "id": "24315694704"
+      },
+      "campaignSharedSet": {
+        "resourceName": "customers/5635711564/campaignSharedSets/24315694704~12228197809",
+        "status": "ENABLED",
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24330541324",
+        "name": "Midpoint | Brand | Search",
+        "id": "24330541324"
+      },
+      "campaignSharedSet": {
+        "resourceName": "customers/5635711564/campaignSharedSets/24330541324~12228197809",
+        "status": "ENABLED",
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/5635711564/campaigns/24352709658",
+        "name": "STOR24 | Micro-Warehouse",
+        "id": "24352709658"
+      },
+      "campaignSharedSet": {
+        "resourceName": "customers/5635711564/campaignSharedSets/24352709658~12228197809",
+        "status": "ENABLED",
+        "sharedSet": "customers/5635711564/sharedSets/12228197809"
+      }
+    }
+  ],
+  "protectedQueryRuleChecks": [
+    {
+      "campaign": "24101834365",
+      "query": "office space to buy",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24101834365",
+      "query": "commercial property for sale bedfordview",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24101834365",
+      "query": "office for sale bedfordview",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24101834365",
+      "query": "property investment bedfordview",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24101834365",
+      "query": "offices for contractor midrand",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24101834365",
+      "query": "office vacancies midrand",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24101834365",
+      "query": "warehouses to rent in midrand",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24101993216",
+      "query": "office vacancies midrand",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24101993216",
+      "query": "warehouse vacancies midrand",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24101993216",
+      "query": "office with small warehouse for rent",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24315692802",
+      "query": "stor24 midrand",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24315694704",
+      "query": "furniture storage midrand",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24315694704",
+      "query": "student storage midrand",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24315694704",
+      "query": "storage units near me",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24330541324",
+      "query": "midpoint business park",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24352709658",
+      "query": "small warehouse to rent midrand",
+      "blockingNegatives": []
+    },
+    {
+      "campaign": "24352709658",
+      "query": "business stock storage midrand",
+      "blockingNegatives": []
+    }
+  ],
+  "meta": [
+    {
+      "id": "120253973305590268",
+      "name": "04 | Micro warehousing image | R50/day",
+      "status": "PAUSED",
+      "effectiveStatus": "PAUSED",
+      "budget": {
+        "value": "50",
+        "unit": "ZAR"
+      },
+      "minAge": 35
+    },
+    {
+      "id": "120253973303220268",
+      "name": "03 | Self storage image | R50/day",
+      "status": "PAUSED",
+      "effectiveStatus": "PAUSED",
+      "budget": {
+        "value": "50",
+        "unit": "ZAR"
+      },
+      "minAge": 35
+    },
+    {
+      "id": "120253973301040268",
+      "name": "02 | Micro warehousing carousel | R50/day",
+      "status": "PAUSED",
+      "effectiveStatus": "PAUSED",
+      "budget": {
+        "value": "50",
+        "unit": "ZAR"
+      },
+      "minAge": 35
+    },
+    {
+      "id": "120253973240280268",
+      "name": "01 | Self storage carousel | R50/day",
+      "status": "PAUSED",
+      "effectiveStatus": "PAUSED",
+      "budget": {
+        "value": "50",
+        "unit": "ZAR"
+      },
+      "minAge": 35
+    }
+  ]
+}
