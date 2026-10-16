@@ -70,7 +70,6 @@ export function midpointPlaceJsonLd() {
       addressCountry: site.address.country
     },
     telephone: site.phone,
-    email: site.email,
     containedInPlace: {
       "@type": "Place",
       name: "Midrand",

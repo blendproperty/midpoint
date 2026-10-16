@@ -3,10 +3,15 @@ import { vacancyJsonLd, vacancyListJsonLd } from "@/lib/vacancy-schema";
 import { vacancyContent } from "@/lib/vacancy-content";
 import { normalizedVacancySector } from "@/lib/vacancy-sector";
 import type { VacancyListing } from "@/lib/vacancy-shared";
+import { midpointPlaceJsonLd, organizationJsonLd } from "@/lib/seo";
 
 const listing: VacancyListing = { id: "one", building: "Midpoint Warehousing", unitName: "6 Weaver Avenue", sector: "Warehouse", sizeSqm: 11443, ratePerSqm: 109, availability: "1 July 2027", description: "A 10,150 m² warehouse with integrated offices. 15m height to eaves and 2.5 MVA. Key Features 🔹 Confirmed loading specification 🔹 Yard", features: [], image: "/images/listings/6-weaver-avenue.png" };
 
 describe("leasing content and schema", () => {
+  it("keeps email on the organisation rather than the estate Place node", () => {
+    expect(midpointPlaceJsonLd()).not.toHaveProperty("email");
+    expect(organizationJsonLd()).toHaveProperty("email", "boitumelo@blendproperty.co.za");
+  });
   it("uses exact unit URLs and qualified area rates without inventing immediate stock", () => {
     const schema = vacancyJsonLd(listing);
     expect(schema["@type"]).toBe("RealEstateListing");
