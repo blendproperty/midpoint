@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { normalizedVacancySector } from "@/lib/vacancy-sector";
 
 // Pulls Midpoint's own listings from listings.blendproperty.co.za's public
 // API and upserts them into this site's Vacancy table, so availability and
@@ -240,7 +241,9 @@ export async function syncVacanciesFromListings(): Promise<VacancySyncResult> {
 
         const { building, unitName } = mapBuildingAndUnit(listing);
         const title = unitName ? `${building} — ${unitName}` : building;
-        const { sector, matched } = mapSector(listing);
+        const mapped = mapSector(listing);
+        const { matched } = mapped;
+        const sector = normalizedVacancySector(mapped.sector, building);
         if (!matched) {
           result.skipped.push({
             id: listing.id,

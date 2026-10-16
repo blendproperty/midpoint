@@ -1,4 +1,6 @@
 import { prisma } from "@/lib/prisma";
+import { normalizedVacancySector, type VacancySectorCode } from "@/lib/vacancy-sector";
+import { decode } from "html-entities";
 
 export type VacancySector = "Warehouse" | "Office" | "Serviced office";
 
@@ -59,12 +61,11 @@ const DESCRIPTION_ENTITIES: Record<string, string> = {
 export function vacancySector(sourceSector: string, building: string): VacancySector {
   // The upstream feed currently labels the Midpoint Warehousing portfolio as
   // OFFICE. The public category must follow the actual property product.
-  if (/\bwarehous(?:e|ing)\b/i.test(building)) return "Warehouse";
-  return SECTOR_LABEL[sourceSector] || "Office";
+  return SECTOR_LABEL[normalizedVacancySector(sourceSector as VacancySectorCode, building)] || "Office";
 }
 
 export function vacancySummary(value: string, maxLength = 280) {
-  const clean = value
+  const clean = decode(value)
     .replace(/&(amp|apos|quot|nbsp|sup2|lt|gt);|&#(?:39|178);/gi, (entity) =>
       DESCRIPTION_ENTITIES[entity.toLowerCase()] || entity,
     )
@@ -74,16 +75,17 @@ export function vacancySummary(value: string, maxLength = 280) {
 
   if (clean.length <= maxLength) return clean;
 
-  const sentences = clean.match(/[^.!?]+[.!?]+/g) || [];
+  const sentences = clean.split(/(?<=[.!?])\s+(?=[A-Z])/);
   const opening = sentences.slice(0, 2).map((sentence) => sentence.trim()).join(" ");
   if (opening && opening.length <= maxLength) return opening;
 
   return `${clean.slice(0, maxLength - 1).replace(/\s+\S*$/, "").trimEnd()}…`;
 }
 
-export async function getVacancyById(id: string): Promise<VacancyListing | null> {
-  const vacancies = await getAllVacancies();
-  return vacancies.find((vacancy) => vacancy.id === id) || null;
+export async function getVacancyById(id: string): Promise<(VacancyListing & { externalId: string | null; updatedAt: Date }) | null> {
+  const row = await prisma.vacancy.findFirst({ where: { id, status: "PUBLISHED" } });
+  if (!row) return null;
+  return { ...row, image: row.image || "", sector: vacancySector(row.sector, row.building), description: decode(row.description).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() };
 }
 
 function formatVacancySize(n: number) {

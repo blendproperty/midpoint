@@ -1,5 +1,4 @@
 import { site } from "@/lib/site";
-import { amenities } from "@/lib/amenities";
 
 export type BreadcrumbItem = { name: string; path: string };
 
@@ -53,11 +52,8 @@ export function organizationJsonLd() {
   };
 }
 
-// The Midpoint estate itself as a schema.org Place, with a real address,
-// contact details, and the live amenity list (lib/amenities.ts) as
-// `amenityFeature` entries — reused as the `about` node on richPageJsonLd
-// and on Pillar/CMS pages. Sourced from real site data, not manually typed
-// into an admin form, so it can't go stale or ship blank.
+// Shared estate identity. Planned and operating facilities are distinguished
+// in visible content, so do not assert the entire marketing amenity list as live.
 export function midpointPlaceJsonLd() {
   return {
     "@type": "Place",
@@ -75,11 +71,6 @@ export function midpointPlaceJsonLd() {
     },
     telephone: site.phone,
     email: site.email,
-    amenityFeature: amenities.map((a) => ({
-      "@type": "LocationFeatureSpecification",
-      name: a.title,
-      value: a.description
-    })),
     containedInPlace: {
       "@type": "Place",
       name: "Midrand",
@@ -149,57 +140,8 @@ export function blogPostingJsonLd({
   };
 }
 
-type ListingForSchema = {
-  id: string;
-  building: string;
-  sector: string;
-  sizeSqm: number;
-  ratePerSqm: number;
-  availability: string;
-  description: string;
-  image: string;
-};
-
-// Product/Offer schema per vacancy listing so Google can pick up rich results
-// (price, availability, image) for the vacancy schedule pages. Uses the
-// GoodRelations LeaseOut business function since these are leases, not sales.
-export function listingsJsonLd(listings: ListingForSchema[], path: string, name: string) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name,
-    itemListElement: listings.map((listing, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Product",
-        "@id": `${site.domain}${path}#${listing.id}`,
-        name: listing.building,
-        category: listing.sector,
-        description: listing.description,
-        image: listing.image,
-        url: `${site.domain}${path}`,
-        additionalProperty: [
-          { "@type": "PropertyValue", name: "Size", value: `${listing.sizeSqm} m²` },
-          { "@type": "PropertyValue", name: "Availability", value: listing.availability }
-        ],
-        offers: {
-          "@type": "Offer",
-          priceCurrency: "ZAR",
-          price: listing.ratePerSqm,
-          businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
-          availability: "https://schema.org/InStock",
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: listing.ratePerSqm,
-            priceCurrency: "ZAR",
-            unitText: "per square metre"
-          }
-        }
-      }
-    }))
-  };
-}
+// Leasing pages describe real-estate listings, with rates explicitly per m²/month.
+export { vacancyListJsonLd as listingsJsonLd } from "@/lib/vacancy-schema";
 
 // Defensively strips an already-baked-in " | <siteName>" (or " - <siteName>")
 // suffix from a title before it's returned from generateMetadata. Needed

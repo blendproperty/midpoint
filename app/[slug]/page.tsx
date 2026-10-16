@@ -16,13 +16,13 @@ import PillarQuickFacts from "@/components/PillarQuickFacts";
 import FeatureIntro from "@/components/FeatureIntro";
 import ReadyToMoveSection from "@/components/ReadyToMoveSection";
 import ConsiderationsList from "@/components/ConsiderationsList";
-import ListingsPreview from "@/components/ListingsPreview";
+import LeaseAvailability from "@/components/LeaseAvailability";
 import PageFaqAccordion from "@/components/PageFaqAccordion";
 import TalkToLeasing from "@/components/TalkToLeasing";
 import ExploreMore from "@/components/ExploreMore";
 import { getSiteSettings } from "@/lib/site-settings";
 import { verifyPageAccessToken, pageAccessCookieName } from "@/lib/page-access";
-import { vacancyDetailHref } from "@/lib/vacancies";
+import { getAllVacancies, vacancySector } from "@/lib/vacancies";
 import { midpointPlaceJsonLd, organizationJsonLd } from "@/lib/seo";
 import { buildPageMetadata } from "@/lib/seo-metadata";
 import { safeJsonLd } from "@/lib/json-ld";
@@ -39,13 +39,6 @@ const FALLBACK_HERO_IMAGE =
 
 async function getPillar(slug: string) {
   return prisma.pillarPage.findUnique({ where: { slug } });
-}
-
-function sectorLabel(sector: string) {
-  return sector
-    .toLowerCase()
-    .replaceAll("_", " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -100,20 +93,11 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   const isBusinessParkGuide = pillar.slug === "business-park-midrand";
   const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }, { name: pillar.title, path: `/${pillar.slug}` }];
 
-  const vacancies = pillar.relatedSector
-    ? await prisma.vacancy.findMany({
-        where: { status: "PUBLISHED", sector: pillar.relatedSector },
-        orderBy: { sortOrder: "asc" },
-        take: 4,
-      })
-    : [];
-  const listings = vacancies.map((v) => ({
-    title: `${v.building} — ${v.sizeSqm.toLocaleString("en-ZA")} m²`,
-    text: `${sectorLabel(v.sector)} | Available from ${v.availability}. ${
-      v.description.length > 130 ? `${v.description.slice(0, 130).trim()}…` : v.description
-    }`,
-    href: vacancyDetailHref(v),
-  }));
+  const relatedSector = pillar.relatedSector || ({ warehouses: "WAREHOUSE", offices: "OFFICE", "services-offices": "SERVICED_OFFICE" } as const)[pillar.slug as "warehouses" | "offices" | "services-offices"];
+  const sector = relatedSector ? vacancySector(relatedSector, "") : null;
+  const vacancies = sector ? (await getAllVacancies()).filter(v => v.sector === sector) : [];
+  const sizes = vacancies.map(v => v.sizeSqm).filter(n => Number.isFinite(n) && n > 0);
+  const rates = vacancies.map(v => v.ratePerSqm).filter(n => Number.isFinite(n) && n > 0);
 
   // Below the vacancies branch, trustItems is also rendered verbatim as the
   // pill-badge strip further down the page. Only pull an item into the
@@ -134,9 +118,9 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
           { label: "Live listings", value: String(vacancies.length) },
           {
             label: "Size range",
-            value: `${Math.min(...vacancies.map((v) => v.sizeSqm)).toLocaleString("en-ZA")}–${Math.max(...vacancies.map((v) => v.sizeSqm)).toLocaleString("en-ZA")} m²`,
+            value: sizes.length ? `${Math.min(...sizes).toLocaleString("en-ZA")}–${Math.max(...sizes).toLocaleString("en-ZA")} m²` : "On request",
           },
-          { label: "From", value: `R${Math.min(...vacancies.map((v) => v.ratePerSqm)).toLocaleString("en-ZA")} / m²` },
+          { label: "From", value: rates.length ? `R${Math.min(...rates).toLocaleString("en-ZA")} / m² / month` : "On request" },
         ]
       : trustItems
           .map((item) => {
@@ -159,7 +143,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
     pillar.slug === "amenities" ? { id: "Amenities", label: "Highlights" } : null,
     features.length > 0 ? { id: "features", label: pillar.slug === "amenities" ? "Estate facilities" : "Highlights" } : null,
     considerations.length > 0 ? { id: "things-to-know", label: "Things to know" } : null,
-    listings.length > 0 ? { id: "availability", label: "Availability" } : null,
+    sector ? { id: "availability", label: "Availability" } : null,
     hasBody ? { id: "overview", label: "Overview" } : null,
     faqs.length > 0 ? { id: "faqs", label: "FAQs" } : null,
   ].filter((item): item is { id: string; label: string } => item !== null);
@@ -188,9 +172,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         ...(isBusinessParkGuide ? { dateModified: pillar.updatedAt.toISOString() } : {}),
         // This guide distinguishes operating facilities from future plans in
         // its visible copy; do not add the shared, unconditional amenity list.
-        about: isBusinessParkGuide
-          ? { ...midpointPlaceJsonLd(), amenityFeature: undefined }
-          : midpointPlaceJsonLd(),
+        about: { ...midpointPlaceJsonLd(), amenityFeature: undefined },
         mentions: organizationJsonLd(),
         ...(pillar.lastReviewedAt ? { lastReviewed: pillar.lastReviewedAt.toISOString() } : {}),
       },
@@ -223,7 +205,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
   return (
     <article className="bg-white">
       <CustomCodeBlock code={pillar.headCode} />
-      <BreadcrumbJsonLd items={breadcrumbItems} description={description} />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLdToRender) }} />
       <Breadcrumbs items={breadcrumbItems} />
 
@@ -255,6 +237,8 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         </div>
       )}
 
+      {sector && <LeaseAvailability listings={vacancies} sector={sector} path={`/${pillar.slug}`} />}
+
       {isBusinessParkGuide && bodySection}
 
       {features.length > 0 && (
@@ -279,21 +263,6 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
           <ConsiderationsList
             eyebrow={`What to know about ${(pillar.primaryEntity || pillar.title).toLowerCase()}`}
             items={considerations}
-          />
-        </div>
-      )}
-
-      {listings.length > 0 && (
-        <div id="availability">
-          <ListingsPreview
-            eyebrow={pillar.listingsHeading || "Current availability at Midpoint"}
-            intro={
-              pillar.listingsIntro ||
-              "A snapshot of what's currently available. Full specifications, floor plans, rates and photos are on the live vacancy schedule."
-            }
-            listings={listings}
-            ctaHref="/vacancies"
-            ctaLabel="View full availability and floor plans"
           />
         </div>
       )}

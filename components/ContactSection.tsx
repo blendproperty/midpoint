@@ -8,7 +8,7 @@ export default async function ContactSection() {
     <section id="Contact" className="bg-midpoint-dark px-6 py-16 text-white">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
-          <h1 className="text-4xl font-bold md:text-5xl">Contact</h1>
+          <h2 className="text-4xl font-bold md:text-5xl">Contact</h2>
           <div>
             <p className="max-w-md text-midpoint-grey-400">
               Positioned in Midrand between Johannesburg and Pretoria, with the infrastructure, warehouses, offices, and amenities your team needs to thrive.

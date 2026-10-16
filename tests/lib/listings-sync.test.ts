@@ -7,6 +7,13 @@ const db = vi.hoisted(() => ({
 vi.mock("@/lib/prisma", () => ({ prisma: db }));
 import { syncVacanciesFromListings } from "@/lib/listings-sync";
 
+it("persists the industrial portfolio classification despite the upstream office label", async () => {
+  vi.mocked(fetch).mockResolvedValue(response([{ ...record, building: { name: "Midpoint Warehousing" }, name: "6 Weaver Avenue", marketSector: "OFFICE" }]) as Response);
+  const result = await syncVacanciesFromListings();
+  expect(result.error).toBeUndefined();
+  expect(db.vacancy.create).toHaveBeenCalledWith(expect.objectContaining({ data: expect.objectContaining({ sector: "WAREHOUSE", unitName: "6 Weaver Avenue" }) }));
+});
+
 const record = { id: "source-one", name: "Suite 1", building: { name: "OnPoint" }, marketSector: "COMMERCIAL", status: "LIVE", gla: 172.66, ratePerM2: 117.5, availability: "6 months notice", features: ["Parking"], images: [{ url: "https://listings.blendproperty.co.za/property.jpg" }] };
 const response = (data: unknown[], total = data.length, page = 1) => ({ ok: true, json: async () => ({ data, pagination: { total, page, limit: 100, totalPages: Math.ceil(total / 100) } }) });
 

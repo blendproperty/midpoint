@@ -4,6 +4,10 @@ import { resolve } from "node:path";
 import { vacancySector, vacancySummary } from "@/lib/vacancies";
 
 describe("vacancySummary", () => {
+  it("preserves decimals and named HTML entities in the opening", () => {
+    const source = "A 500.66 m&sup2; office. A fa&ccedil;ade overlooking gardens. " + "More detail. ".repeat(40);
+    expect(vacancySummary(source)).toBe("A 500.66 m² office. A façade overlooking gardens.");
+  });
   it("decodes listing entities and removes markup", () => {
     expect(vacancySummary("264.46 m&sup2; <strong>serviced office</strong> &amp; meeting rooms."))
       .toBe("264.46 m² serviced office & meeting rooms.");
