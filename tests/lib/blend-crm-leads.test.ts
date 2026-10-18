@@ -13,7 +13,7 @@ describe("pushLeadToBlendCrm", () => {
     process.env.BLEND_CRM_LEADS_URL =
       "https://crm.example.test/api/v1/leads";
     process.env.BLEND_CRM_LEADS_API_KEY = "test-key";
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 201 });
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 201, json: async () => ({ id: "crm-lead", stage: "NEW", duplicate: false }) });
     vi.stubGlobal("fetch", fetchMock);
 
     await expect(
@@ -39,6 +39,7 @@ describe("pushLeadToBlendCrm", () => {
         domain: "www.mid-point.co.za",
       },
       externalId: "enquiry-123",
+      utm: { source: "google", medium: "cpc", campaign: "midrand" },
       contact: {
         firstName: "Brett",
         lastName: "Dovey",
@@ -49,6 +50,13 @@ describe("pushLeadToBlendCrm", () => {
       sourcePage:
         "https://www.mid-point.co.za/spaces/1-kingfisher-avenue",
     });
+  });
+
+  it("does not claim CRM acceptance for a 200 response without a saved CRM ID", async () => {
+    process.env.BLEND_CRM_LEADS_URL = "https://crm.example.test/api/v1/leads";
+    process.env.BLEND_CRM_LEADS_API_KEY = "test-key";
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, status: 200, json: async () => ({ ok: true }) }));
+    await expect(pushLeadToBlendCrm({ externalId: "enquiry-missing-receipt", email: "test@example.test" })).resolves.toBe(false);
   });
 
   it("returns false when the CRM rejects the lead", async () => {

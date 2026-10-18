@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import { CheckCircle2, AlertCircle } from "lucide-react";
-import { trackAnalyticsEvent } from "@/lib/analytics";
+import { trackSavedLeasingEnquiry } from "@/lib/analytics";
 import { getStoredAttribution } from "@/lib/attribution";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -130,17 +130,9 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
         })
       });
       if (!res.ok) throw new Error("failed");
-      const result = await res.json() as { ok?: boolean; enquiryId?: string };
+      const result = await res.json() as { ok?: boolean; enquiryId?: string; crmDelivered?: boolean };
       if (!result.ok || !result.enquiryId) throw new Error("enquiry was not saved");
-      trackAnalyticsEvent("generate_lead", {
-        form_name: "contact_enquiry",
-        lead_id: result.enquiryId,
-        interest: typeof data.interest === "string" ? data.interest : undefined,
-        vacancy_name: spaceName,
-        source: attribution?.lastTouch?.source,
-        medium: attribution?.lastTouch?.medium,
-        campaign: attribution?.lastTouch?.campaign,
-      });
+      trackSavedLeasingEnquiry(result, data.interest, attribution);
       setStatus("sent");
       form.reset();
       setConsent(false);

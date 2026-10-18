@@ -22,8 +22,8 @@ export default function SuitesBookingForm() {
         body: JSON.stringify({ ...data, attribution, sourcePath: window.location.pathname + window.location.search }),
       });
       const result = await response.json() as { ok?: boolean; enquiryId?: string };
-      if (!response.ok || !result.ok) throw new Error("not saved");
-      trackAnalyticsEvent("generate_lead", { form_name: "suites_booking_request", lead_id: result.enquiryId });
+      if (!response.ok || !result.ok || !result.enquiryId) throw new Error("not saved");
+      trackAnalyticsEvent("generate_lead", { form_name: "suites_booking_request", lead_id: result.enquiryId, lead_type: "accommodation", lead_stage: "submitted" });
       form.reset();
       setStatus("sent");
     } catch { setStatus("error"); }

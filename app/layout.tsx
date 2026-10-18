@@ -123,7 +123,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={figtree.variable}>
-      <body>
+      <body data-ga4-id={staging ? "" : settings.googleAnalyticsId}>
         <AnalyticsTracker />
         <script
           type="application/ld+json"

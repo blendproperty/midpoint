@@ -29,10 +29,15 @@ describe("saved-enquiry conversion boundary", () => {
   it("returns a saved ID and preserves attribution when downstream delivery is unavailable", async () => {
     const response = await POST(request());
     expect(response.status).toBe(200);
-    expect(await response.json()).toEqual({ ok: true, enquiryId: "enquiry-test", webhook: false });
+    expect(await response.json()).toEqual({ ok: true, enquiryId: "enquiry-test", crmDelivered: false, webhook: false });
     expect(mocks.create).toHaveBeenCalledWith({ data: expect.objectContaining({ attribution, contactId: "contact-test", interest: "Warehouse space" }) });
     expect(mocks.crm).toHaveBeenCalledOnce();
     expect(mocks.crm).toHaveBeenCalledWith(expect.objectContaining({ externalId: "enquiry-test", attribution }));
+  });
+  it("reports CRM acceptance separately from successful submission", async () => {
+    mocks.crm.mockResolvedValue(true);
+    const response = await POST(request());
+    expect(await response.json()).toMatchObject({ ok: true, enquiryId: "enquiry-test", crmDelivered: true });
   });
   it("does not report success or forward a lead when saving fails", async () => {
     mocks.create.mockRejectedValue(new Error("database unavailable"));

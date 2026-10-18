@@ -35,6 +35,15 @@ function sourcePage(path?: string | null) {
   return new URL(path, MIDPOINT_BASE_URL).toString();
 }
 
+function structuredAttribution(value: unknown) {
+  if (!value || typeof value !== "object") return undefined;
+  const touch = (value as ConversionAttribution).lastTouch;
+  if (!touch || typeof touch !== "object") return undefined;
+  const clean = (v: unknown) => typeof v === "string" ? v.trim().slice(0, 255) || undefined : undefined;
+  const utm = { source: clean(touch.source), medium: clean(touch.medium), campaign: clean(touch.campaign) };
+  return Object.values(utm).some(Boolean) ? utm : undefined;
+}
+
 export async function pushLeadToBlendCrm(
   payload: BlendCrmLead,
 ): Promise<boolean> {
@@ -70,6 +79,7 @@ export async function pushLeadToBlendCrm(
           domain: "www.mid-point.co.za",
         },
         externalId: payload.externalId,
+        utm: structuredAttribution(payload.attribution),
         contact: {
           firstName:
             payload.firstName?.trim() ||
@@ -92,7 +102,8 @@ export async function pushLeadToBlendCrm(
       return false;
     }
 
-    return true;
+    const receipt = await response.json() as { id?: unknown };
+    return typeof receipt.id === "string" && receipt.id.length > 0;
   } catch (error) {
     console.error("Failed to push enquiry to Blend CRM", error);
     return false;
