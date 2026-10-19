@@ -21,7 +21,7 @@ All shared callers checked: about, contact, spaces, insights, generic CMS pages;
 - Hosted test job 118079233281 passed all 200 tests across 51 files with disposable database migrations/integrations. Deploy to VPS 39258345101 / deploy job 118079692225 succeeded. Server checkout and running image independently match ec26f009311e.
 - Post-release origin audit: all 48 public sitemap URLs return 200 and all 138 JSON-LD blocks parse. Official current Schema.org vocabulary check again reports no unknown types/properties/property-domain mismatches. All 48 titles/canonicals remain identical; 21 pages changed schema through the shared generators. Syntax/vocabulary validation is narrower than Google's supported-feature eligibility and does not certify business facts.
 - Schema.org live URL tests: 22 distinct URLs passed with zero errors and zero warnings. Each fetched HTML contains ec26f009311e. Remaining 26 submissions are blocked: after generic service errors, the validator presented an unusual-traffic challenge whose CAPTCHA could not connect. Reload did not clear it; no challenge was solved or bypassed. The pre-release Sunbird/warehouse tests had also passed, but are not counted in the 22 final-release results. The final property-address change has Google and deterministic vocabulary proof, with final Schema.org URL coverage still gated.
-- Google Rich Results: four distinct public URL tests passed after initial connection failures cleared. Smartphone crawls and counts below are actual results. About tested-page HTML independently contains ec26f009311e. No invalid items or warnings were displayed in these completed overviews; no Search Console/indexing/ranking claim. A later test again failed before inspection with the service's reCAPTCHA connection error, so wider Google coverage remains open.
+- Google Rich Results follow-up: 15 distinct public URL tests passed on 19 October, expanded from four. All used smartphone inspection and showed successful crawl, valid items and no invalid items or warning flags in the completed overviews. Coverage includes home, about/contact, FAQ, spaces, Insights, vacancy schedule, warehouses/serviced-office pillars, Sunbird/Kingfisher details, Suites, privacy and two articles including the newly published 6 Weaver walkthrough. About tested-page HTML independently contains ec26f009311e. These are supported-feature results, not a full Schema.org or business-fact certification. No indexing/ranking/display claim.
 
 | Live Google URL | Crawl time, 19 October SAST | Valid items | Result |
 | --- | --- | --- | --- |
@@ -29,6 +29,17 @@ All shared callers checked: about, contact, spaces, insights, generic CMS pages;
 | /vacancies/cms4oiw4v0004n60127izdqzj | 15:23:53 | 3 | [Google result](https://search.google.com/test/rich-results/result?id=TMGIbVeKUTOwnOX4lzlOtg) |
 | /warehouses | 15:24:53 | 6 | [Google result](https://search.google.com/test/rich-results/result?id=CFT-TEKn0BTyMmBllktvwg) |
 | /blog/warehouse-checklist-midrand-eave-height-loading-yard-space | 15:25:45 | 6 | [Google result](https://search.google.com/test/rich-results/result?id=Wyn91cn0TLKfr9lVdftW2w) |
+| / | 15:37:26 | 2 | [Google result](https://search.google.com/test/rich-results/result?id=M1Dfb7GC7OSE_FWnhKl5vA) |
+| /faqs | 15:38:25 | 3 | [Google result](https://search.google.com/test/rich-results/result?id=jBdSvQp6u_XG4XIYZoXxow) |
+| /contact-us | 15:39:40 | 6 | [Google result](https://search.google.com/test/rich-results/result?id=QGEjBMPpvY5d91P2CaG21w) |
+| /vacancies | 15:42:48 | 3 | [Google result](https://search.google.com/test/rich-results/result?id=D_TxwFJGumoQQ--NyehTNQ) |
+| /services-offices | 15:43:26 | 6 | [Google result](https://search.google.com/test/rich-results/result?id=XZQZ75YzXNvfrJAg_pFwsQ) |
+| /vacancies/cmsfvflha000zoy01wxkk2efu | 15:43:52 | 3 | [Google result](https://search.google.com/test/rich-results/result?id=-Z_Hqrs0lRzXYoRD74b_mg) |
+| /spaces | 15:44:33 | 6 | [Google result](https://search.google.com/test/rich-results/result?id=w-AP0eAWCeaRSabbiQunZQ) |
+| /insights | 15:45:08 | 6 | [Google result](https://search.google.com/test/rich-results/result?id=tHwNSDEbj4aGrNW0eXfCAQ) |
+| /the-suites-at-midpoint | 15:45:46 | 2 | [Google result](https://search.google.com/test/rich-results/result?id=X_VgmI8-3etecCrq85L8cA) |
+| /privacy-policy | 15:46:30 | 3 | [Google result](https://search.google.com/test/rich-results/result?id=vFKj39yhJe1adJaYMHitVQ) |
+| /blog/6-weaver-avenue-warehouse-walkthrough | 15:47:11 | 6 | [Google result](https://search.google.com/test/rich-results/result?id=v8hfvB5qnvdopGO8NQBCmA) |
 
 Detected supported families across these results: Article, Breadcrumbs, LocalBusiness and Organization. The real-estate vocabulary is retained; these commercial leasing pages were not relabelled as retail Product to manufacture a result. Google's current retirement of FAQ rich results means FAQPage vocabulary validity does not imply a Google FAQ enhancement. See [Google's June 2026 update](https://developers.google.com/search/updates#june-2026), [general structured-data policy](https://developers.google.com/search/docs/appearance/structured-data/sd-policies), and [official vocabulary](https://schema.org/version/latest/schemaorg-current-https.jsonld).
 
@@ -36,7 +47,7 @@ Raw origin before/after JSON and vocabulary assertions are private local evidenc
 
 ## Remaining gates
 
-Complete the remaining 26 Schema.org URL submissions and wider Google page-family coverage when their access/CAPTCHA service permits. Do not replace the blocked checks with code-only validation or historical passes. No published CMS /p page exists in this sitemap; its deduplicated renderer has local regression proof only. Business-fact/source/Kingfisher reconciliation, owner UAT, search display/indexing/rankings, mobile/abandonment trends, inbox/handset receipt and prior provider/finance/legal/data/training/approval gates remain open.
+Complete the remaining 26 Schema.org URL submissions when access recovers. On the follow-up, validator.schema.org still redirected to an unusual-traffic challenge with blank/unavailable challenge content; the user independently confirmed it remained blocked. No additional Schema.org passes, challenge completion or bypass. Wider Google coverage is now 15/48 URLs across the page families listed above; the other 33 URLs have not been independently tested in Google during this audit. Do not replace the blocked checks with code-only validation or historical passes. No published CMS /p page exists in this sitemap; its deduplicated renderer has local regression proof only. Business-fact/source/Kingfisher reconciliation, owner UAT, search display/indexing/rankings, mobile/abandonment trends, inbox/handset receipt and prior provider/finance/legal/data/training/approval gates remain open.
 
 ## Audited URL inventory
 
@@ -44,16 +55,16 @@ The table records the complete final origin audit plus actual external coverage.
 
 | Path | HTTP / JSON-LD blocks | Origin syntax/type/property-domain findings | Schema.org URL test | Google URL test |
 | --- | --- | --- | --- | --- |
-| / | 200 / 2 | None | 0 errors / 0 warnings | - |
+| / | 200 / 2 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=M1Dfb7GC7OSE_FWnhKl5vA) |
 | /about-us | 200 / 2 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=jKVPfdcoKlpq-RThkuiC_g) |
-| /spaces | 200 / 2 | None | 0 errors / 0 warnings | - |
-| /contact-us | 200 / 2 | None | 0 errors / 0 warnings | - |
-| /insights | 200 / 2 | None | 0 errors / 0 warnings | - |
-| /vacancies | 200 / 3 | None | 0 errors / 0 warnings | - |
-| /faqs | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /spaces | 200 / 2 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=w-AP0eAWCeaRSabbiQunZQ) |
+| /contact-us | 200 / 2 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=QGEjBMPpvY5d91P2CaG21w) |
+| /insights | 200 / 2 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=tHwNSDEbj4aGrNW0eXfCAQ) |
+| /vacancies | 200 / 3 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=D_TxwFJGumoQQ--NyehTNQ) |
+| /faqs | 200 / 3 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=jBdSvQp6u_XG4XIYZoXxow) |
 | /blog | 200 / 2 | None | 0 errors / 0 warnings | - |
-| /the-suites-at-midpoint | 200 / 1 | None | 0 errors / 0 warnings | - |
-| /privacy-policy | 200 / 2 | None | 0 errors / 0 warnings | - |
+| /the-suites-at-midpoint | 200 / 1 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=X_VgmI8-3etecCrq85L8cA) |
+| /privacy-policy | 200 / 2 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=vFKj39yhJe1adJaYMHitVQ) |
 | /blog/warehouse-checklist-midrand-eave-height-loading-yard-space | 200 / 3 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=Wyn91cn0TLKfr9lVdftW2w) |
 | /blog/getting-the-office-to-warehouse-ratio-right-in-midrand | 200 / 3 | None | 0 errors / 0 warnings | - |
 | /blog/backup-power-for-midrand-warehouses-what-generator-on-site-actually-covers | 200 / 3 | None | 0 errors / 0 warnings | - |
@@ -72,9 +83,9 @@ The table records the complete final origin audit plus actual external coverage.
 | /blog/business-park-amenities-leasing-checklist | 200 / 3 | None | Blocked | - |
 | /blog/warehouse-rental-costs-midrand | 200 / 3 | None | Blocked | - |
 | /blog/halfway-house-vs-waterfall-office-space | 200 / 3 | None | Blocked | - |
-| /blog/6-weaver-avenue-warehouse-walkthrough | 200 / 3 | None | Blocked | - |
+| /blog/6-weaver-avenue-warehouse-walkthrough | 200 / 3 | None | Blocked | [Pass](https://search.google.com/test/rich-results/result?id=v8hfvB5qnvdopGO8NQBCmA) |
 | /location | 200 / 3 | None | Blocked | - |
-| /services-offices | 200 / 4 | None | Blocked | - |
+| /services-offices | 200 / 4 | None | Blocked | [Pass](https://search.google.com/test/rich-results/result?id=XZQZ75YzXNvfrJAg_pFwsQ) |
 | /business-park-midrand | 200 / 3 | None | Blocked | - |
 | /amenities | 200 / 3 | None | Blocked | - |
 | /warehouses | 200 / 4 | None | Blocked | [Pass](https://search.google.com/test/rich-results/result?id=CFT-TEKn0BTyMmBllktvwg) |
@@ -91,4 +102,4 @@ The table records the complete final origin audit plus actual external coverage.
 | /vacancies/cms4oiw4v0004n60127izdqzj | 200 / 3 | None | Blocked | [Pass](https://search.google.com/test/rich-results/result?id=TMGIbVeKUTOwnOX4lzlOtg) |
 | /vacancies/cmuz7chn0009up901ll35sgdh | 200 / 3 | None | Blocked | - |
 | /vacancies/cmsfvflfy000yoy01stx7o2dp | 200 / 3 | None | Blocked | - |
-| /vacancies/cmsfvflha000zoy01wxkk2efu | 200 / 3 | None | Blocked | - |
+| /vacancies/cmsfvflha000zoy01wxkk2efu | 200 / 3 | None | Blocked | [Pass](https://search.google.com/test/rich-results/result?id=-Z_Hqrs0lRzXYoRD74b_mg) |
