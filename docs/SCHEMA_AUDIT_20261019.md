@@ -14,66 +14,81 @@ Existing coverage: shared WebSite/LocalBusiness, BreadcrumbList, page types, 19 
 
 All shared callers checked: about, contact, spaces, insights, generic CMS pages; vacancy detail, schedule and leasing-sector collections. No new dependency, provider, schema override, configuration or migration.
 
-## Validation evidence
+## Release and validation evidence
 
-- Baseline Schema.org live URL tests: Sunbird detail and warehouses pillar returned zero errors and zero warnings. These were pre-change checks, not final-release proof.
-- Local suite: 190 passed / ten database-gated skipped across 51 files; regression covers single identified page/breadcrumb serialization, graph relationship and estate-address scope. Production build passed compile/type checks and all route generation.
-- Final deployment and live Schema.org/Google URL results: pending.
-- Google Rich Results attempts failed before a page test because its reCAPTCHA service could not connect; second attempt after reload failed identically. These are tool failures, not page-validation failures or passes. Retry after deployment; record any remaining blocker without substituting old results.
+- Implementation ec26f009311ec74da3cafd7feca64b3450186cb6 pushed to codex/schema-audit-20261019 and main by normal fast-forward from 1aad365. No PR merge or force push. Canonical context included.
+- Local suite: 190 passed / ten database-gated skipped across 51 files. Production build passed compile/type checks and all route generation.
+- Hosted test job 118079233281 passed all 200 tests across 51 files with disposable database migrations/integrations. Deploy to VPS 39258345101 / deploy job 118079692225 succeeded. Server checkout and running image independently match ec26f009311e.
+- Post-release origin audit: all 48 public sitemap URLs return 200 and all 138 JSON-LD blocks parse. Official current Schema.org vocabulary check again reports no unknown types/properties/property-domain mismatches. All 48 titles/canonicals remain identical; 21 pages changed schema through the shared generators. Syntax/vocabulary validation is narrower than Google's supported-feature eligibility and does not certify business facts.
+- Schema.org live URL tests: 22 distinct URLs passed with zero errors and zero warnings. Each fetched HTML contains ec26f009311e. Remaining 26 submissions are blocked: after generic service errors, the validator presented an unusual-traffic challenge whose CAPTCHA could not connect. Reload did not clear it; no challenge was solved or bypassed. The pre-release Sunbird/warehouse tests had also passed, but are not counted in the 22 final-release results. The final property-address change has Google and deterministic vocabulary proof, with final Schema.org URL coverage still gated.
+- Google Rich Results: four distinct public URL tests passed after initial connection failures cleared. Smartphone crawls and counts below are actual results. About tested-page HTML independently contains ec26f009311e. No invalid items or warnings were displayed in these completed overviews; no Search Console/indexing/ranking claim. A later test again failed before inspection with the service's reCAPTCHA connection error, so wider Google coverage remains open.
 
-Google's June 2026 update removed FAQ rich-result support; retain accurate visible FAQ vocabulary but do not promise a Google FAQ enhancement. https://developers.google.com/search/updates#june-2026 . General policy: https://developers.google.com/search/docs/appearance/structured-data/sd-policies . Official vocabulary: https://schema.org/version/latest/schemaorg-current-https.jsonld . Google eligibility and actual search display/indexing are separate from vocabulary validity.
+| Live Google URL | Crawl time, 19 October SAST | Valid items | Result |
+| --- | --- | --- | --- |
+| /about-us | 15:21:22 | 6 | [Google result](https://search.google.com/test/rich-results/result?id=jKVPfdcoKlpq-RThkuiC_g) |
+| /vacancies/cms4oiw4v0004n60127izdqzj | 15:23:53 | 3 | [Google result](https://search.google.com/test/rich-results/result?id=TMGIbVeKUTOwnOX4lzlOtg) |
+| /warehouses | 15:24:53 | 6 | [Google result](https://search.google.com/test/rich-results/result?id=CFT-TEKn0BTyMmBllktvwg) |
+| /blog/warehouse-checklist-midrand-eave-height-loading-yard-space | 15:25:45 | 6 | [Google result](https://search.google.com/test/rich-results/result?id=Wyn91cn0TLKfr9lVdftW2w) |
+
+Detected supported families across these results: Article, Breadcrumbs, LocalBusiness and Organization. The real-estate vocabulary is retained; these commercial leasing pages were not relabelled as retail Product to manufacture a result. Google's current retirement of FAQ rich results means FAQPage vocabulary validity does not imply a Google FAQ enhancement. See [Google's June 2026 update](https://developers.google.com/search/updates#june-2026), [general structured-data policy](https://developers.google.com/search/docs/appearance/structured-data/sd-policies), and [official vocabulary](https://schema.org/version/latest/schemaorg-current-https.jsonld).
+
+Raw origin before/after JSON and vocabulary assertions are private local evidence under tmp/schema-*.json in the isolated worktree; rendered validator summaries and inspected Google pass screenshot are in the chat visualisation schema-audit directory. Public report links can expire. Google counts include supported nested business/organization entities, not a guarantee that each item will be displayed in Search.
+
+## Remaining gates
+
+Complete the remaining 26 Schema.org URL submissions and wider Google page-family coverage when their access/CAPTCHA service permits. Do not replace the blocked checks with code-only validation or historical passes. No published CMS /p page exists in this sitemap; its deduplicated renderer has local regression proof only. Business-fact/source/Kingfisher reconciliation, owner UAT, search display/indexing/rankings, mobile/abandonment trends, inbox/handset receipt and prior provider/finance/legal/data/training/approval gates remain open.
 
 ## Audited URL inventory
 
-The table records the complete origin baseline, not 48 Google or Schema.org external submissions.
+The table records the complete final origin audit plus actual external coverage. "Blocked" means the remaining Schema.org batch was stopped by its access challenge; it is not a markup failure. A dash means that URL was not independently tested in Google during this run.
 
-| Path | HTTP | JSON-LD blocks | Parse/type/property-domain findings |
-| --- | --- | --- | --- |
-| / | 200 | 2 | None |
-| /about-us | 200 | 2 | None |
-| /spaces | 200 | 2 | None |
-| /contact-us | 200 | 2 | None |
-| /insights | 200 | 2 | None |
-| /vacancies | 200 | 3 | None |
-| /faqs | 200 | 3 | None |
-| /blog | 200 | 2 | None |
-| /the-suites-at-midpoint | 200 | 1 | None |
-| /privacy-policy | 200 | 2 | None |
-| /blog/warehouse-checklist-midrand-eave-height-loading-yard-space | 200 | 3 | None |
-| /blog/getting-the-office-to-warehouse-ratio-right-in-midrand | 200 | 3 | None |
-| /blog/backup-power-for-midrand-warehouses-what-generator-on-site-actually-covers | 200 | 3 | None |
-| /blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean | 200 | 3 | None |
-| /blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need | 200 | 3 | None |
-| /blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes | 200 | 3 | None |
-| /blog/office-rental-costs-midrand | 200 | 3 | None |
-| /blog/compare-office-rental-quotes-midrand | 200 | 3 | None |
-| /blog/serviced-vs-conventional-offices-midrand | 200 | 3 | None |
-| /blog/onpoint-serviced-office-package-checklist | 200 | 3 | None |
-| /blog/office-viewing-checklist-midrand | 200 | 3 | None |
-| /blog/office-floor-plan-fit-out-checklist-midrand | 200 | 3 | None |
-| /blog/business-park-vs-standalone-premises-midrand | 200 | 3 | None |
-| /blog/planning-office-and-warehouse-space-midrand | 200 | 3 | None |
-| /blog/assess-midrand-staff-client-delivery-routes | 200 | 3 | None |
-| /blog/business-park-amenities-leasing-checklist | 200 | 3 | None |
-| /blog/warehouse-rental-costs-midrand | 200 | 3 | None |
-| /blog/halfway-house-vs-waterfall-office-space | 200 | 3 | None |
-| /blog/6-weaver-avenue-warehouse-walkthrough | 200 | 3 | None |
-| /location | 200 | 3 | None |
-| /services-offices | 200 | 4 | None |
-| /business-park-midrand | 200 | 3 | None |
-| /amenities | 200 | 3 | None |
-| /warehouses | 200 | 4 | None |
-| /offices | 200 | 4 | None |
-| /vacancies/cms4oiw4n0002n601y2gpa0qf | 200 | 3 | None |
-| /vacancies/cms4oiw560007n6019icxact3 | 200 | 3 | None |
-| /vacancies/cms4oiw500005n6011rnzc2hb | 200 | 3 | None |
-| /vacancies/cms4oiw5j000bn601vz6szme4 | 200 | 3 | None |
-| /vacancies/cms4oiw590008n601tuhv5okk | 200 | 3 | None |
-| /vacancies/cms4oiw5d0009n601702zlk0p | 200 | 3 | None |
-| /vacancies/cmsfuu4xu000ooy01x3ulli7b | 200 | 3 | None |
-| /vacancies/cms4oiw530006n601h1qw8gzm | 200 | 3 | None |
-| /vacancies/cmsfvflhj0010oy014b1ytkku | 200 | 3 | None |
-| /vacancies/cms4oiw4v0004n60127izdqzj | 200 | 3 | None |
-| /vacancies/cmuz7chn0009up901ll35sgdh | 200 | 3 | None |
-| /vacancies/cmsfvflfy000yoy01stx7o2dp | 200 | 3 | None |
-| /vacancies/cmsfvflha000zoy01wxkk2efu | 200 | 3 | None |
+| Path | HTTP / JSON-LD blocks | Origin syntax/type/property-domain findings | Schema.org URL test | Google URL test |
+| --- | --- | --- | --- | --- |
+| / | 200 / 2 | None | 0 errors / 0 warnings | - |
+| /about-us | 200 / 2 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=jKVPfdcoKlpq-RThkuiC_g) |
+| /spaces | 200 / 2 | None | 0 errors / 0 warnings | - |
+| /contact-us | 200 / 2 | None | 0 errors / 0 warnings | - |
+| /insights | 200 / 2 | None | 0 errors / 0 warnings | - |
+| /vacancies | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /faqs | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog | 200 / 2 | None | 0 errors / 0 warnings | - |
+| /the-suites-at-midpoint | 200 / 1 | None | 0 errors / 0 warnings | - |
+| /privacy-policy | 200 / 2 | None | 0 errors / 0 warnings | - |
+| /blog/warehouse-checklist-midrand-eave-height-loading-yard-space | 200 / 3 | None | 0 errors / 0 warnings | [Pass](https://search.google.com/test/rich-results/result?id=Wyn91cn0TLKfr9lVdftW2w) |
+| /blog/getting-the-office-to-warehouse-ratio-right-in-midrand | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/backup-power-for-midrand-warehouses-what-generator-on-site-actually-covers | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/office-rental-costs-midrand | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/compare-office-rental-quotes-midrand | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/serviced-vs-conventional-offices-midrand | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/onpoint-serviced-office-package-checklist | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/office-viewing-checklist-midrand | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/office-floor-plan-fit-out-checklist-midrand | 200 / 3 | None | 0 errors / 0 warnings | - |
+| /blog/business-park-vs-standalone-premises-midrand | 200 / 3 | None | Blocked | - |
+| /blog/planning-office-and-warehouse-space-midrand | 200 / 3 | None | Blocked | - |
+| /blog/assess-midrand-staff-client-delivery-routes | 200 / 3 | None | Blocked | - |
+| /blog/business-park-amenities-leasing-checklist | 200 / 3 | None | Blocked | - |
+| /blog/warehouse-rental-costs-midrand | 200 / 3 | None | Blocked | - |
+| /blog/halfway-house-vs-waterfall-office-space | 200 / 3 | None | Blocked | - |
+| /blog/6-weaver-avenue-warehouse-walkthrough | 200 / 3 | None | Blocked | - |
+| /location | 200 / 3 | None | Blocked | - |
+| /services-offices | 200 / 4 | None | Blocked | - |
+| /business-park-midrand | 200 / 3 | None | Blocked | - |
+| /amenities | 200 / 3 | None | Blocked | - |
+| /warehouses | 200 / 4 | None | Blocked | [Pass](https://search.google.com/test/rich-results/result?id=CFT-TEKn0BTyMmBllktvwg) |
+| /offices | 200 / 4 | None | Blocked | - |
+| /vacancies/cms4oiw4n0002n601y2gpa0qf | 200 / 3 | None | Blocked | - |
+| /vacancies/cms4oiw560007n6019icxact3 | 200 / 3 | None | Blocked | - |
+| /vacancies/cms4oiw500005n6011rnzc2hb | 200 / 3 | None | Blocked | - |
+| /vacancies/cms4oiw5j000bn601vz6szme4 | 200 / 3 | None | Blocked | - |
+| /vacancies/cms4oiw590008n601tuhv5okk | 200 / 3 | None | Blocked | - |
+| /vacancies/cms4oiw5d0009n601702zlk0p | 200 / 3 | None | Blocked | - |
+| /vacancies/cmsfuu4xu000ooy01x3ulli7b | 200 / 3 | None | Blocked | - |
+| /vacancies/cms4oiw530006n601h1qw8gzm | 200 / 3 | None | Blocked | - |
+| /vacancies/cmsfvflhj0010oy014b1ytkku | 200 / 3 | None | Blocked | - |
+| /vacancies/cms4oiw4v0004n60127izdqzj | 200 / 3 | None | Blocked | [Pass](https://search.google.com/test/rich-results/result?id=TMGIbVeKUTOwnOX4lzlOtg) |
+| /vacancies/cmuz7chn0009up901ll35sgdh | 200 / 3 | None | Blocked | - |
+| /vacancies/cmsfvflfy000yoy01stx7o2dp | 200 / 3 | None | Blocked | - |
+| /vacancies/cmsfvflha000zoy01wxkk2efu | 200 / 3 | None | Blocked | - |
