@@ -63,7 +63,7 @@ function apiBaseUrl(): string {
   return (process.env.LISTINGS_API_BASE_URL || "https://listings.blendproperty.co.za").replace(/\/$/, "");
 }
 
-export async function fetchAllListings(): Promise<ListingRecord[]> {
+export async function fetchAllListings(signal?: AbortSignal): Promise<ListingRecord[]> {
   const apiKey = process.env.LISTINGS_API_KEY;
   if (!apiKey) return [];
 
@@ -81,7 +81,7 @@ export async function fetchAllListings(): Promise<ListingRecord[]> {
     const res = await fetch(url.toString(), {
       headers: { Authorization: `Bearer ${apiKey}` },
       cache: "no-store",
-      signal: AbortSignal.timeout(15000),
+      signal: signal || AbortSignal.timeout(15000),
     });
     if (!res.ok) {
       throw new Error(`listings.blendproperty.co.za returned ${res.status}`);

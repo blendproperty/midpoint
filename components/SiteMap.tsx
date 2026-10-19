@@ -71,13 +71,15 @@ export default function SiteMap({ availability }: { availability: Record<number,
         <div className="relative mt-5 overflow-hidden rounded-card bg-white shadow-[0_24px_70px_rgba(4,35,34,0.12)]">
           <div className="overflow-x-auto">
             <div className="relative aspect-[5500/1700] min-w-[1050px] bg-white lg:min-w-0">
-              <Image
-                src="/images/sitemap/estate-map.jpg"
-                alt="Complete map of Midpoint Business Park showing the main and tenant entrances"
-                fill
-                sizes="(min-width: 1800px) 1800px, 100vw"
-                className="object-cover"
-              />
+              <a href="/images/sitemap/estate-map.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open full-size estate map (opens in a new tab)" className="absolute inset-0 cursor-zoom-in focus-visible:outline focus-visible:outline-4 focus-visible:-outline-offset-4 focus-visible:outline-midpoint-cyan">
+                <Image
+                  src="/images/sitemap/estate-map.jpg"
+                  alt="Complete map of Midpoint Business Park showing the main and tenant entrances"
+                  fill
+                  sizes="(min-width: 1800px) 1800px, 100vw"
+                  className="object-cover"
+                />
+              </a>
 
               {visibleListings.map((listing) => {
                 const live = availability[listing.pin]?.count || 0;
@@ -95,7 +97,7 @@ export default function SiteMap({ availability }: { availability: Record<number,
                 );
               })}
 
-              <div className="absolute bottom-4 left-4 rounded-full bg-midpoint-dark/90 px-4 py-2 text-xs font-medium text-white backdrop-blur">
+              <div className="pointer-events-none absolute bottom-4 left-4 rounded-full bg-midpoint-dark/90 px-4 py-2 text-xs font-medium text-white backdrop-blur">
                 Select a marker or property below
               </div>
             </div>
@@ -154,6 +156,8 @@ export default function SiteMap({ availability }: { availability: Record<number,
             );
           })}
         </div>
+
+        <a href="/images/sitemap/estate-map.jpg" target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm font-semibold text-midpoint-dark underline underline-offset-4">Open full-size estate map ↗ <span className="sr-only">(opens in a new tab)</span></a>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visibleListings.map((listing) => {

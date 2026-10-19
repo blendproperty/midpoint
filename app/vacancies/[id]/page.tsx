@@ -45,8 +45,9 @@ export default async function VacancyDetailPage({ params }: { params: Promise<{ 
   const guideHref = listing.sector === "Warehouse" ? "/warehouses" : listing.sector === "Office" ? "/offices" : "/services-offices";
   // Reuse the brochure's exact external-ID photo lookup. A provider outage
   // must not hide a published listing or its primary saved photograph.
+  // shortcut: live gallery has a 1.5s budget; persist photos during sync if it regularly expires.
   const gallery = priority && listing.externalId
-    ? await getListingBrochureImages(listing.externalId).catch(() => null)
+    ? await getListingBrochureImages(listing.externalId, AbortSignal.timeout(1500)).catch(() => null)
     : null;
   const photos = (gallery || []).filter(src => {
     try { const url = new URL(src, settings.domain); return url.protocol === "https:" && ["www.mid-point.co.za", "mid-point.co.za", "listings.blendproperty.co.za", "cdn.prod.website-files.com"].includes(url.hostname); } catch { return false; }

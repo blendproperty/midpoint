@@ -104,7 +104,8 @@ const getCachedSiteSettings = unstable_cache(async (): Promise<SiteSettings> => 
       defaultTitleTemplate: row.defaultTitleTemplate || DEFAULT_TITLE_TEMPLATE,
       defaultMetaDescription: row.defaultMetaDescription || DEFAULT_META_DESCRIPTION,
       defaultKeywords: row.defaultKeywords || DEFAULT_KEYWORDS,
-      whatsapp: row.whatsapp || DEFAULT_WHATSAPP_NUMBER,
+      // Legacy all-zero placeholders must not override the approved destination.
+      whatsapp: row.whatsapp && !/^0+$/.test(row.whatsapp.replace(/\D/g, "")) ? row.whatsapp : DEFAULT_WHATSAPP_NUMBER,
       whatsappTemplate: row.whatsappTemplate || DEFAULT_WHATSAPP_TEMPLATE,
       enquirySuccessMessage: row.enquirySuccessMessage || DEFAULT_ENQUIRY_SUCCESS_MESSAGE,
     };

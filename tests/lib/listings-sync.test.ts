@@ -5,7 +5,7 @@ const db = vi.hoisted(() => ({
   siteSetting: { upsert: vi.fn() }, $executeRaw: vi.fn(), $transaction: vi.fn(),
 }));
 vi.mock("@/lib/prisma", () => ({ prisma: db }));
-import { syncVacanciesFromListings } from "@/lib/listings-sync";
+import { fetchAllListings, syncVacanciesFromListings } from "@/lib/listings-sync";
 
 it("persists the industrial portfolio classification despite the upstream office label", async () => {
   vi.mocked(fetch).mockResolvedValue(response([{ ...record, building: { name: "Midpoint Warehousing" }, name: "6 Weaver Avenue", marketSector: "OFFICE" }]) as Response);
@@ -28,6 +28,21 @@ beforeEach(() => {
 });
 
 describe("full vacancy reconciliation", () => {
+  it("keeps one caller deadline across all feed pages", async () => {
+    const controller = new AbortController();
+    // Use a complete 101-row feed so the existing pagination validation also runs.
+    const rows = Array.from({ length: 100 }, (_, i) => ({ ...record, id: `source-${i}` }));
+    vi.mocked(fetch).mockResolvedValueOnce(response(rows, 101, 1) as Response).mockImplementationOnce(async (_url, options) => {
+      expect(options?.signal).toBe(controller.signal);
+      controller.abort();
+      options?.signal?.throwIfAborted();
+      return response([{ ...record, id: "last" }], 101, 2) as Response;
+    });
+    await expect(fetchAllListings(controller.signal)).rejects.toThrow();
+    for (const [, options] of vi.mocked(fetch).mock.calls) expect(options?.signal).toBe(controller.signal);
+    expect(db.vacancy.update).not.toHaveBeenCalled();
+  });
+
   it("authenticates, preserves availability labels, maps suites and hides removed external rows", async () => {
     vi.mocked(fetch).mockResolvedValue(response([record]) as Response);
     const result = await syncVacanciesFromListings();

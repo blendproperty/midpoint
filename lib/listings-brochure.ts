@@ -2,9 +2,9 @@ import { fetchAllListings } from "@/lib/listings-sync";
 
 // Use the exact source ID stored by sync, never a title/slug guess or a
 // whole-portfolio image search. The authenticated endpoint is Midpoint-scoped.
-export async function getListingBrochureImages(externalId: string): Promise<string[] | null> {
+export async function getListingBrochureImages(externalId: string, signal?: AbortSignal): Promise<string[] | null> {
   if (!process.env.LISTINGS_API_KEY) throw new Error("Listing photography is not configured");
-  const listings = await fetchAllListings();
+  const listings = await fetchAllListings(signal);
   const source = listings.find(listing => listing.id === externalId);
   if (!source) return null;
   const images = [...(source.images || [])].sort((a, b) => {

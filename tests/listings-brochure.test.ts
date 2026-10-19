@@ -4,6 +4,15 @@ vi.mock("@/lib/listings-sync", () => ({ fetchAllListings: mocks.fetch }));
 import { getListingBrochureImages } from "@/lib/listings-brochure";
 beforeEach(() => { vi.resetAllMocks(); vi.stubEnv("LISTINGS_API_KEY", "test-only"); });
 describe("exact listing photography", () => {
+  it("forwards a page's deadline while retaining the default brochure behaviour", async () => {
+    mocks.fetch.mockResolvedValue([]);
+    const signal = AbortSignal.timeout(1500);
+    await getListingBrochureImages("correct", signal);
+    expect(mocks.fetch).toHaveBeenLastCalledWith(signal);
+    await getListingBrochureImages("correct");
+    expect(mocks.fetch).toHaveBeenLastCalledWith(undefined);
+  });
+
   it("matches only external ID, orders hero/positions and removes duplicate URLs", async () => {
     mocks.fetch.mockResolvedValue([
       { id: "different", name: "Same title", images: [{ url: "wrong.jpg" }] },
