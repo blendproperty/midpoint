@@ -27,7 +27,18 @@ Production backup `/opt/midpoint/backups/estate-content-20261019` was restored s
 
 ## Publication status
 
-Commit/push, main promotion, hosted deployment and live public/schema/data checks are pending. Isolated preview is not production or indexing proof.
+Application commit `34787246cf0839fa0faa365013dde9514622b527` was pushed to origin/codex/midpoint-estate-content-20261019 and promoted normally (no force/PR) from632b752 to origin/main. Hosted test job117937534414 and deployment job117937846820 passed in [Deploy to VPS39215269352](https://github.com/blendproperty/midpoint/actions/runs/39215269352). Production checkout, web and scheduler independently match34787246cf08; additive migration published exactly four rows without seed or configuration changes.
+
+Live full-body/title/meta/canonical/indexability/cover/schema/date checks passed all four articles. All three parents link back, Insights links parents, blog/sitemap contain all four and25article destinations return200. Fresh data comparison proves13vacancies, six pillars and12existing articles unchanged across selected public fields including updatedAt and article parent IDs. All four new records exactly match reviewed copy/metadata/images and correct public parent IDs, with19October publication dates; total published16.
+
+Schema.org live URL checks: all four zero errors, zero warnings, three items with new release visible. Google smartphone tests: all four six valid items, no warning flags, successful crawls09:25:14–09:25:21SAST. Four390px layout checks passed without horizontal overflow; emulation reset. Evidence: tmp/estate-live-http.json, estate-before.json/after.json, estate-data-check.json, estate-mobile.json, estate-external-validation.json and inspected estate-schema-proof.png. OpenSEO publication context/key pages/log aligned; no paid research or tracking added. Final documentation-only follow-up records acceptance with CI skipped; canonical PROJECT_CONTEXT.md remote-main presence checked before handoff.
+
+| Article | Google live result |
+| --- | --- |
+| Business park vs standalone | https://search.google.com/test/rich-results/result?id=gBZOGAVqf_Uezb9_fzfRTQ |
+| Office and warehouse planning | https://search.google.com/test/rich-results/result?id=ZqGzGqCHyyUjrWaItwh4LA |
+| Route assessment | https://search.google.com/test/rich-results/result?id=LiBnjI8hX48VVcvkkPZJlQ |
+| Amenity checks | https://search.google.com/test/rich-results/result?id=mPcG5Slp4ovsxfzSbjiJnQ |
 
 ## Remaining gates
 
