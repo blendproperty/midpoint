@@ -27,8 +27,25 @@ Manifest and reviewed copy: prisma/content/office-cluster-20261019.json. Existin
 
 ## Publication safety and validation
 
-The additive migration inserts the six articles only when both parent pillars are public. Any planned-ID/slug conflict skips the entire batch; repeat runs do not replace later CMS edits. Database publication timestamps reflect the actual migration. Tests cover blocked parents, collision safety, correct relationships, idempotence and owner-edit preservation.
+The additive migration inserts the six articles only when both parent pillars are public. A pre-existing planned-ID/slug conflict skips the entire batch; repeat runs do not replace later CMS edits. Database publication timestamps reflect the actual migration. Tests cover blocked parents, collision safety, correct relationships, idempotence and owner-edit preservation.
 
 Required acceptance: production build/full integration suite; six rendered article checks for title/body/schema/date/image/canonical/indexing and links; parent collections and sitemap readback; source comparison preserving all existing content/units/parent fields; Schema.org URL validation and Google rich-result checks; mobile layout inspection. Record implementation versus hosted deployment/live verification in canonical PROJECT_CONTEXT.md. Do not call pending checks complete.
 
 Schema follows [Google's Article guidance](https://developers.google.com/search/docs/appearance/structured-data/article): real headline, description, image, dates and existing organizational author/publisher. No extra FAQ, Product, ratings or invented reviewer schema is introduced.
+
+## Live acceptance - 19 October 2026
+
+Application e4dc8ba83cf9 is live. Deploy run39212280710 attempt2 succeeded; attempt1 timed out opening SSH before any server command. No security/workflow setting change was needed. The existing repository credential retried the failed job after the connector lacked Actions write access. Hosted gate and isolated QA passed186tests/44files; production build passed.
+
+All six source-matched articles are published with actual19October timestamps, six existing listing cover images, correct parent IDs and reciprocal links. Blog index and sitemap contain all six;21distinct article destinations return200. All13vacancies, four checked pillar rows and six original articles remain unchanged across selected public fields, including updatedAt; original publication/image/relationship records preserved. The total published blog inventory is now12. Six390px layout checks had no horizontal overflow; viewport override reset. No real enquiry, CRM record or notification was created by validation.
+
+Each live URL passed Schema.org with0errors/0warnings/3items and Google smartphone with6validitems, without warning flags. The six Google result links are retained below. Validation establishes readable markup and successful test crawls, not indexing, rich-result appearance, rankings or qualified enquiries.
+
+| Article | Google live result |
+|---|---|
+| office-rental-costs-midrand | [6 valid items](https://search.google.com/test/rich-results/result?id=zK7verA7t0ryYE0TiPTrBg) |
+| compare-office-rental-quotes-midrand | [6 valid items](https://search.google.com/test/rich-results/result?id=DoyEhg5VqU6QuLvkxDQYEQ) |
+| serviced-vs-conventional-offices-midrand | [6 valid items](https://search.google.com/test/rich-results/result?id=EsaqAXusDWlAL6YkfkhSSA) |
+| onpoint-serviced-office-package-checklist | [6 valid items](https://search.google.com/test/rich-results/result?id=GT3CEpKRuZCP3eQJWJmn7A) |
+| office-viewing-checklist-midrand | [6 valid items](https://search.google.com/test/rich-results/result?id=r6TUseUNoys7naJ4L-7Plg) |
+| office-floor-plan-fit-out-checklist-midrand | [6 valid items](https://search.google.com/test/rich-results/result?id=lfMDSrkgDmANkL9eQfE_HQ) |
