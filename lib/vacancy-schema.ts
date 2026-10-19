@@ -17,8 +17,11 @@ export function vacancyJsonLd(listing: SchemaListing, domain = site.domain) {
     isPartOf: { "@id": `${domain.replace(/\/$/, "")}/#website` },
     about: {
       "@type": "Place", "@id": `${url}#property`, name, image,
-      address: { "@type": "PostalAddress", streetAddress: `${site.address.street}, ${site.address.suburb}`, addressLocality: site.address.city, addressRegion: "Gauteng", postalCode: site.address.postalCode, addressCountry: "ZA" },
-      containedInPlace: { "@id": `${domain.replace(/\/$/, "")}/#midpoint`, "@type": "Place", name: "Midpoint Business Park" },
+      // This is the estate contact address, not a verified street address for each unit.
+      containedInPlace: {
+        "@id": `${domain.replace(/\/$/, "")}/#midpoint`, "@type": "Place", name: "Midpoint",
+        address: { "@type": "PostalAddress", streetAddress: `${site.address.street}, ${site.address.suburb}`, addressLocality: site.address.city, addressRegion: "Gauteng", postalCode: site.address.postalCode, addressCountry: "ZA" },
+      },
       additionalProperty: [
         { "@type": "PropertyValue", name: "Property type", value: listing.sector },
         ...(!areaNeedsConfirmation && Number.isFinite(listing.sizeSqm) && listing.sizeSqm > 0 ? [{ "@type": "PropertyValue", name: "Published floor area", value: listing.sizeSqm, unitCode: "MTK" }] : []),

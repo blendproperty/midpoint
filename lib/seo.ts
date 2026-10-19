@@ -111,8 +111,10 @@ export function richPageJsonLd({
   return {
     "@context": "https://schema.org",
     "@type": type,
+    "@id": `${site.domain}${path}#webpage`,
     name,
     url: `${site.domain}${path}`,
+    isPartOf: { "@id": `${site.domain}/#website` },
     inLanguage: "en",
     description,
     about: midpointPlaceJsonLd(),

@@ -24,6 +24,8 @@ describe("leasing content and schema", () => {
     expect(JSON.stringify(schema)).not.toContain("InStock");
     expect(schema.offers.description).toContain("1 July 2027");
     expect(schema.image).toMatch(/^https:\/\//);
+    expect(schema.about).not.toHaveProperty("address");
+    expect(schema.about.containedInPlace.address.streetAddress).toBe("162 Tonetti Street, Halfway House");
   });
   it("does not turn an unknown asking rate into a zero-priced offer", () => {
     for (const ratePerSqm of [0, -1, NaN]) expect(vacancyJsonLd({ ...listing, ratePerSqm }).offers).not.toHaveProperty("priceSpecification");

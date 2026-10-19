@@ -1,5 +1,15 @@
 # Midpoint Project Context
 
+## 2026-10-19 - Existing schema audit and semantic corrections; release pending
+
+- Implementation: audited all 48 public sitemap URLs/138 JSON-LD blocks at production origin d1ee7c46fa57; all HTTP 200/parseable. Official Schema.org vocabulary traversal found no unknown types/properties/property-domain mismatches. Rendered Sunbird schema matched unit facts and contact content. Scoped the estate contact address to the containing estate instead of every property; added canonical #webpage identities/WebSite links in shared rich-page schema and removed the generic CMS template's duplicate anonymous page node. All shared callers reviewed; no dependency, configuration, migration, price/availability/source-data or analytics change. Detailed inventory/evidence in docs/SCHEMA_AUDIT_20261019.md.
+- Testing: 190 local tests passed / ten database-gated skipped across 51 files; existing Kingfisher price/area withholding remains covered. New serialization/identity/address regressions passed. Production build passed compile/type checks and all route generation.
+- Commit and push: pending on isolated codex/schema-audit-20261019 based on origin/main 1aad365; dirty original checkout and other worktrees preserved.
+- Merge: pending normal non-force promotion; no PR merge claimed.
+- Deployment/configuration: pending hosted test/deployment; no provider settings or CMS publication changes.
+- Live production verification: baseline Schema.org tests for Sunbird detail and warehouses returned zero errors/warnings. Final-release URL tests pending. Two Google Rich Results attempts failed before inspection because its reCAPTCHA service could not connect; not a page failure or pass. Google retired FAQ rich results in May/June 2026; accurate FAQPage remains vocabulary only. No new lead or outbound message.
+- Outstanding gates: final deployed markup, post-release Schema.org/Google tests and Google tool availability pending. No published CMS /p routes exist in this sitemap, so that caller has local rendering proof only. Search appearance/indexing/rankings, source/Kingfisher verification, mobile/abandonment outcomes, inbox/handset receipt, leasing UAT and prior provider/finance/legal/data/training/approval gates remain open.
+
 ## 2026-10-19 - Mobile/form repairs and CRM QA reporting exclusion
 
 - Implementation: shared hero images and the first vacancy gallery photo receive high fetch priority; the first photo stays eager after slide changes. The below-fold Google map mounts only within 200px of view, preserving height, interaction and a direct location link. The enquiry form replaces its six-second polling cutoff with provider readiness, adds persistent labels/autocomplete, native required-consent feedback, visible loading/errors and an always-visible email alternative for provider stalls; retains values on CAPTCHA rejection/rate-limit/uncertain receipt, and clears only confirmed capture. Optional webhook waiting is bounded at eight seconds after durable capture. No new dependency, schema, contact destination or analytics-event semantics.
