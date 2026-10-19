@@ -1,4 +1,13 @@
 # Midpoint Project Context
+## 2026-10-19 - Four estate supporting articles validated; publication pending
+
+- Implementation: four reviewed articles support /business-park-midrand (two), /location and /amenities. Existing CMS rendering, reciprocal collections, BlogPosting/Breadcrumb schema, blog index and sitemap reused; each links Insights, relevant live vacancies and enquiries. Content/source boundaries and intent map: docs/ESTATE_CONTENT_PUBLICATION_20261019.md. No parent/unit/existing-article, schema-template, analytics, provider, contact or GBP changes. Kingfisher3849/3300m2 stays flagged without monthly-rent calculation; no unverified travel time, amenity availability or combined-unit offer.
+- Testing: isolated187tests/45files and production build/type checks passed after correcting initial new-test syntax. New migration regression verifies public-parent and whole-batch collision guards, correct relationships, repeat application and owner-edit preservation. Four rendered preview bodies/meta/schema/images/dates, three reciprocal guides, Insights/blog/sitemap and25article-link destinations passed; Kingfisher guard retained. Protected backup /opt/midpoint/backups/estate-content-20261019 restored with seven matching table counts/checksums/mode600; previouse4dc8ba83cf9 image retained as midpoint-web:rollback-estate-content-20261019.
+- Commit/push: branch codex/midpoint-estate-content-20261019 based on verified remote-main632b7529d8b8898e833a721b7775249d6e425a4f; pending. Original dirty checkout/unrelated files preserved.
+- Merge: pending normal non-force fast-forward; no PR merge claimed.
+- Deployment/configuration: pending hosted test gate and additive migration20261019110000_estate_content_cluster. No production seed; image rollback alone does not withdraw rows.
+- Live production verification: pending exact release, four rows/full public copy and parent IDs, unchanged-source comparison, schema URL and mobile checks. Preview does not establish live publication/indexing.
+- Outstanding gates: owner leasing UAT, full charges/package rules/current availability/amenity operations/approved plans/specifications/works; Kingfisher dated approved area/basis/components/current-proposed scope/rate/monthly/VAT/charges/approver/revision and upstream/brochure/site/schema/all article warning reconciliation; Maps hours/category/photos/WhatsApp; real consented GA4/CRM receipt and human-qualified baseline; previous provider/inbox/finance/legal/data/training/approval gates. No live form or notifications sent, paid research or tracking added, ranking/qualified-enquiry result claimed.
 
 ## 2026-10-19 - Six office blogs published and live schema validation passed
 
