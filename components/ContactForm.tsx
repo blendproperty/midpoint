@@ -198,7 +198,7 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
       />
       </label>
 
-      <label className="flex items-start gap-2 text-sm text-midpoint-grey-400">
+      <label className="flex items-start gap-2 text-sm text-white/80">
         <input
           type="checkbox"
           required
@@ -211,6 +211,7 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
 
       <div ref={recaptchaRef} className={captchaRequested ? "min-h-[78px]" : undefined} />
       {captchaRequested && !captchaReady && !captchaLoadError && <p role="status" className="text-sm text-white/80">Loading security check…</p>}
+      <p className="text-sm text-white/80">Having trouble with the security check? <a href={`mailto:${contactEmail}`} className="underline">Email the leasing team</a>.</p>
       {captchaLoadError && <p role="alert" className="text-sm text-white">The security check couldn’t load. Your details are still here; <a href={`mailto:${contactEmail}`} className="underline">email the leasing team</a>.</p>}
       {captchaError && (
         <p role="alert" className="text-sm font-medium text-red-400">
