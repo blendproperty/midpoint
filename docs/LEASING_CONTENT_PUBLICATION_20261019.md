@@ -29,7 +29,21 @@ Protected backup `/opt/midpoint/backups/leasing-articles-20261019`: full restore
 
 ## Publication status
 
-Commit/push, main promotion, hosted deployment, live source comparison and external schema URL checks pending. No production seed/provider/CRM/GA4/GBP/contact changes. Preview and tests are not live publication or indexing proof.
+Application commit `70c92cff0bcc5daaf57ef75ded186f01813a558c` was pushed to origin/codex/midpoint-warehouse-office-articles-20261019 and normally fast-forwarded from9a4cbfc to main. [Deploy to VPS39225950691](https://github.com/blendproperty/midpoint/actions/runs/39225950691), attempt1, completed successfully; testjob117972159941 and deployjob117972534722 passed. Server checkout, web and vacancy scheduler independently match70c92cff0bcc. Migration added exactly three public article rows with actual19October publication dates, correct public parent IDs and exact reviewed copy/metadata/covers. No seed or provider/analytics/contact/GBP/upstream configuration change.
+
+Live complete body/title/meta/canonical/indexability/schema/cover/date checks passed all three. Two parent guides link back; Insights links those guides; blog index/sitemap include all three and all25article destinations return200. Fresh source comparison proves all13vacancies, six pillars and16earlier articles unchanged across selected public fields, including updatedAt and existing article parent IDs. Total published articles19. Kingfisher warning and withholding of disputed monthly rent remain intact.
+
+All three live Schema.org URL tests: zero errors, zero warnings, three items, with new deployment visible. Google live smartphone tests: six valid items each, no warning flags; crawls10:58:22–10:58:27SAST. Three390px layout checks pass without horizontal overflow; emulation reset. Schema proof screenshot inspected. Google sitemap resubmission read back Success, submitted/read19October,48discovered pages(previous45). Discovery and rich-results crawls do not prove indexed status. Individual requests were not retried after the daily quota encountered in the earlier indexing task.
+
+Private OpenSEO report33596d53-5c13-4823-98f5-e27f401bfec6 updated with the publication result and explicit listing-review/owner-data limits; exact remote HTML readback passed, sharing remains private. Project publication context/key pages/log aligned. Final follow-up records documentation only with CI skipped; canonical PROJECT_CONTEXT.md presence/content on intended remote main verified before handoff.
+
+| Article | Google live result |
+| --- | --- |
+| warehouse-rental-costs-midrand | https://search.google.com/test/rich-results/result?id=8DQixJ7pmMVwBEn_p3xYLg |
+| halfway-house-vs-waterfall-office-space | https://search.google.com/test/rich-results/result?id=pk1abM_KLAMSYn4HJvREVA |
+| 6-weaver-avenue-warehouse-walkthrough | https://search.google.com/test/rich-results/result?id=tcqEY-xqdcF9XD-qoYNvXQ |
+
+Evidence retained locally: tmp/leasing-qa-final.log, leasing-preview-http.json, leasing-live-http.json, next-articles-before.json/next-articles-after.json, leasing-data-check.json, leasing-mobile.json, leasing-external-validation.json, leasing-schema-proof.png, leasing-sitemap.json and leasing-sitemap-proof.png. Disposable test environment removed after evidence collection; protected production backup and rollback image retained.
 
 ## Outstanding gates
 

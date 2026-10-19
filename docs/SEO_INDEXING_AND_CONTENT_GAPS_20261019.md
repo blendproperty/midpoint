@@ -1,5 +1,7 @@
 # Search Console indexing and next content gaps — 19 October 2026
 
+Publication update later on19October: the three briefs below are now live at application70c92cff0bcc, with all three Schema.org checks zero errors/warnings and Google tests six valid items each. See [publication evidence](LEASING_CONTENT_PUBLICATION_20261019.md). The 6 Weaver deliverable is a source-labelled listing review; approved plans/physical capacities/current condition and full quotes remain outstanding. Google now reports48discovered sitemap URLs after resubmission, not confirmed indexing. Original inspection results below precede these three publications; the earlier pending statuses/validations were not rechecked in this publication task. Original briefs below are retained as planning evidence, superseded by this publication update.
+
 Private [OpenSEO report](https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/reports/33596d53-5c13-4823-98f5-e27f401bfec6) saved and exact HTML readback verified; sharing remains private.
 
 ## Recorded Google index status
