@@ -5,6 +5,7 @@ import Script from "next/script";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { trackSavedLeasingEnquiry } from "@/lib/analytics";
 import { getStoredAttribution } from "@/lib/attribution";
+import { site } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -20,11 +21,12 @@ const DEFAULT_SUCCESS_MESSAGE = "Thanks — your enquiry is on its way to the le
 declare global {
   interface Window {
     grecaptcha?: {
+      ready: (callback: () => void) => void;
       getResponse: (id?: number) => string;
       reset: (id?: number) => void;
       render: (
         container: HTMLElement,
-        params: { sitekey: string }
+        params: { sitekey: string; callback?: () => void; "expired-callback"?: () => void; "error-callback"?: () => void }
       ) => number;
     };
   }
@@ -32,6 +34,7 @@ declare global {
 
 type Props = {
   siteKey?: string;
+  contactEmail?: string;
   successMessage?: string;
   // Set when someone arrives here via a specific VacancyCard's "Enquire"
   // button (e.g. /contact-us?space=1+Kingfisher+Avenue&interest=Warehouse+space)
@@ -41,11 +44,14 @@ type Props = {
   spaceName?: string;
 };
 
-export default function ContactForm({ siteKey, successMessage, defaultInterest, spaceName }: Props = {}) {
+export default function ContactForm({ siteKey, contactEmail = site.email, successMessage, defaultInterest, spaceName }: Props = {}) {
   const [status, setStatus] = useState<Status>("idle");
   const [consent, setConsent] = useState(false);
   const [captchaError, setCaptchaError] = useState(false);
   const [captchaRequested, setCaptchaRequested] = useState(false);
+  const [captchaReady, setCaptchaReady] = useState(false);
+  const [captchaLoadError, setCaptchaLoadError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("We couldn’t confirm receipt. Please contact the leasing team before retrying.");
   const recaptchaRef = useRef<HTMLDivElement>(null);
   const feedbackRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<number | undefined>(undefined);
@@ -54,45 +60,29 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
   const selectedInterest = defaultInterest && interests.includes(defaultInterest) ? defaultInterest : "";
   const initialMessage = spaceName ? `I'm interested in the space at ${spaceName}.\n\n` : "";
 
-  // Google's reCAPTCHA script only auto-scans the page for ".g-recaptcha"
-  // divs ONCE, at the moment the script itself finishes loading. That's fine
-  // on a hard page refresh (script loads fresh, form div already exists,
-  // scan finds it) — but arriving here via a client-side Link navigation
-  // (e.g. clicking "Enquire" on a vacancy card) mounts a brand-new instance
-  // of this component/div while the script may have already loaded earlier
-  // in the session, so its one-time scan never runs again and the widget
-  // silently never appears. Rendering it explicitly here, on every mount,
-  // fixes both cases regardless of whether the script was already loaded.
-  useEffect(() => {
-    if (!captchaRequested) return;
-    let cancelled = false;
-    let attempts = 0;
-
-    function tryRender() {
-      if (cancelled || !recaptchaRef.current) return;
-      if (window.grecaptcha?.render) {
-        // Guard against rendering twice into the same node (e.g. React
-        // Strict Mode's dev double-invoke of effects).
-        if (recaptchaRef.current.childElementCount === 0) {
-          widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
+  function renderCaptcha() {
+    const captcha = window.grecaptcha;
+    if (!captcha) { setCaptchaLoadError(true); return; }
+    // Provider readiness can take longer than six seconds on a mobile connection.
+    captcha.ready(() => {
+      const element = recaptchaRef.current;
+      if (!element) return;
+      try {
+        if (element.childElementCount === 0) {
+          widgetIdRef.current = captcha.render(element, {
             sitekey: recaptchaSiteKey,
+            callback: () => { setCaptchaError(false); setCaptchaLoadError(false); },
+            "expired-callback": () => setCaptchaError(true),
+            "error-callback": () => setCaptchaLoadError(true),
           });
         }
-        return;
+        setCaptchaReady(true);
+        setCaptchaLoadError(false);
+      } catch {
+        setCaptchaLoadError(true);
       }
-      // Script hasn't finished loading yet (first-ever load of the page) —
-      // keep checking briefly until it's ready, then give up quietly.
-      attempts += 1;
-      if (attempts < 40) {
-        setTimeout(tryRender, 150);
-      }
-    }
-
-    tryRender();
-    return () => {
-      cancelled = true;
-    };
-  }, [captchaRequested, recaptchaSiteKey]);
+    });
+  }
 
   // The confirmation/error message renders below the Submit button, which on
   // a long form (or a small viewport) can sit below the fold — someone could
@@ -107,13 +97,14 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const captchaResponse = window.grecaptcha?.getResponse(widgetIdRef.current);
+    const captchaResponse = widgetIdRef.current === undefined ? "" : window.grecaptcha?.getResponse(widgetIdRef.current);
     if (!captchaResponse) {
       setCaptchaError(true);
       return;
     }
     setCaptchaError(false);
     setStatus("sending");
+    setErrorMessage("We couldn’t confirm receipt. Please contact the leasing team before retrying.");
 
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
@@ -129,8 +120,20 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
           "g-recaptcha-response": captchaResponse
         })
       });
-      if (!res.ok) throw new Error("failed");
-      const result = await res.json() as { ok?: boolean; enquiryId?: string; crmDelivered?: boolean };
+      const result = await res.json() as { ok?: boolean; enquiryId?: string; crmDelivered?: boolean; error?: string };
+      if (res.status === 400 && result.error === "reCAPTCHA verification failed. Please try again.") {
+        window.grecaptcha?.reset(widgetIdRef.current);
+        setCaptchaError(true);
+        setStatus("idle");
+        return;
+      }
+      if (!res.ok) {
+        setErrorMessage(res.status === 429
+          ? "Too many attempts. Please wait a few minutes or contact the leasing team."
+          : res.status === 400 ? "Please check your name and email before submitting."
+          : "We couldn’t confirm receipt. Please contact the leasing team before retrying.");
+        throw new Error("failed");
+      }
       if (!result.ok || !result.enquiryId) throw new Error("enquiry was not saved");
       trackSavedLeasingEnquiry(result, data.interest, attribution);
       setStatus("sent");
@@ -150,10 +153,11 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
       id="Contact"
       onSubmit={handleSubmit}
       onFocus={() => setCaptchaRequested(true)}
-      className="space-y-6"
+      aria-busy={status === "sending"}
+      className="scroll-mt-24 space-y-6"
     >
       {captchaRequested ? (
-        <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
+        <Script key={recaptchaSiteKey} src="https://www.google.com/recaptcha/api.js?render=explicit" strategy="afterInteractive" onReady={renderCaptcha} onError={() => setCaptchaLoadError(true)} />
       ) : null}
 
       {spaceName && (
@@ -162,13 +166,15 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
         </p>
       )}
 
+      <p className="text-sm text-white/80">All fields are required.</p>
       <div className="grid gap-4 sm:grid-cols-2">
-        <input name="firstName" required placeholder="First Name" className={field} />
-        <input name="lastName" required placeholder="Last Name" className={field} />
-        <input name="phone" type="tel" required placeholder="Phone Number" className={field} />
-        <input name="email" type="email" required placeholder="Email" className={field} />
+        <label className="flex flex-col gap-2 text-sm"><span>First name</span><input name="firstName" required autoComplete="given-name" placeholder="First Name" className={field} /></label>
+        <label className="flex flex-col gap-2 text-sm"><span>Last name</span><input name="lastName" required autoComplete="family-name" placeholder="Last Name" className={field} /></label>
+        <label className="flex flex-col gap-2 text-sm"><span>Phone number</span><input name="phone" type="tel" required autoComplete="tel" placeholder="Phone Number" className={field} /></label>
+        <label className="flex flex-col gap-2 text-sm"><span>Email</span><input name="email" type="email" required autoComplete="email" placeholder="Email" className={field} /></label>
       </div>
 
+      <label className="block space-y-2 text-sm"><span>Space type</span>
       <select name="interest" required defaultValue={selectedInterest} className={field}>
         <option value="" disabled className="text-midpoint-dark">
           I&apos;m interested in:
@@ -179,7 +185,9 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
           </option>
         ))}
       </select>
+      </label>
 
+      <label className="block space-y-2 text-sm"><span>Message</span>
       <textarea
         name="message"
         required
@@ -188,6 +196,7 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
         defaultValue={initialMessage}
         className={field}
       />
+      </label>
 
       <label className="flex items-start gap-2 text-sm text-midpoint-grey-400">
         <input
@@ -197,23 +206,20 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
           onChange={(e) => setConsent(e.target.checked)}
           className="mt-1"
         />
-        I consent to Midpoint&apos;s privacy policy.
+        <span>I consent to Midpoint&apos;s <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline">privacy policy</a>.</span>
       </label>
 
-      {/* Explicitly rendered via grecaptcha.render() in the effect above —
-          no "g-recaptcha" class / data-sitekey attribute here, since that
-          would tell Google's script to ALSO auto-render into this same div,
-          which would either double-render or conflict with the explicit
-          render. This div is just the mount point. */}
-      <div ref={recaptchaRef} />
+      <div ref={recaptchaRef} className={captchaRequested ? "min-h-[78px]" : undefined} />
+      {captchaRequested && !captchaReady && !captchaLoadError && <p role="status" className="text-sm text-white/80">Loading security check…</p>}
+      {captchaLoadError && <p role="alert" className="text-sm text-white">The security check couldn’t load. Your details are still here; <a href={`mailto:${contactEmail}`} className="underline">email the leasing team</a>.</p>}
       {captchaError && (
         <p role="alert" className="text-sm font-medium text-red-400">
-          Please confirm you&apos;re not a robot before submitting.
+          Please complete the security check again before submitting.
         </p>
       )}
 
       <button
-        disabled={status === "sending" || !consent}
+        disabled={status === "sending"}
         className="rounded-full bg-midpoint-cyan px-8 py-3 text-sm font-medium text-midpoint-dark transition-transform duration-100 ease-out hover:opacity-90 active:scale-[0.97] disabled:opacity-60 disabled:active:scale-100"
       >
         {status === "sending" ? "Sending…" : "Submit"}
@@ -241,7 +247,7 @@ export default function ContactForm({ siteKey, successMessage, defaultInterest, 
           className="flex animate-fade-in-up items-center gap-3 rounded-xl border border-red-400 bg-red-500/10 px-5 py-4 text-base font-semibold text-red-400"
         >
           <AlertCircle size={22} className="shrink-0" aria-hidden="true" />
-          The message didn&apos;t send. Try again, or email us directly.
+          <span>{errorMessage} <a href={`mailto:${contactEmail}`} className="underline">Email the leasing team</a>.</span>
         </div>
       )}
     </form>

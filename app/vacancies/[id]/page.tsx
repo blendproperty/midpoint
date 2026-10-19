@@ -65,7 +65,7 @@ export default async function VacancyDetailPage({ params }: { params: Promise<{ 
       <Breadcrumbs items={breadcrumbItems} />
       <section className="mx-auto grid max-w-7xl gap-10 px-6 pb-12 pt-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
         <div className="min-w-0">
-          {photos.length > 1 ? <AmenityGallery name={label} photos={photos.map((src, index) => ({ src, alt: `${label}, Halfway House, Midrand — property photograph ${index + 1}` }))} sizes="(min-width: 1024px) 55vw, 100vw" /> : <div className="relative aspect-[16/10] overflow-hidden rounded-card bg-midpoint-grey-100">
+          {photos.length > 1 ? <AmenityGallery priority name={label} photos={photos.map((src, index) => ({ src, alt: `${label}, Halfway House, Midrand — property photograph ${index + 1}` }))} sizes="(min-width: 1024px) 55vw, 100vw" /> : <div className="relative aspect-[16/10] overflow-hidden rounded-card bg-midpoint-grey-100">
           <VacancyPhoto src={listing.image} label={label} priority sizes="(min-width: 1024px) 60vw, 100vw" />
           </div>}
           <p className="mt-3 text-xs text-midpoint-grey-400">Published property images may illustrate proposed works. Confirm the current condition and specifications during your viewing.</p>

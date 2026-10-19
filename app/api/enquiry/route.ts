@@ -139,6 +139,7 @@ export async function POST(req: Request) {
   try {
     const res = await fetch(webhook, {
       method: "POST",
+      signal: AbortSignal.timeout(8000),
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         source: "mid-point.co.za",

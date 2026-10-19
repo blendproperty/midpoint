@@ -126,6 +126,7 @@ export default async function ContactUs({
           </div>
           <div>
             <ContactForm
+              contactEmail={settings.email}
               siteKey={settings.recaptchaSiteKey}
               successMessage={settings.enquirySuccessMessage}
               spaceName={spaceName}

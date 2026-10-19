@@ -28,3 +28,16 @@ Local unit suite after synchronising concurrent remote work: 186 passed / 10 dat
 Outstanding owner leasing UAT, source-data/Kingfisher reconciliation, real CRM/GA4/inbox/handset delivery, Google processing and all prior provider, finance, legal, data, training and approval gates remain open.
 
 The separate n8n enquiry webhook is unset; searches of accessible n8n Midpoint/enquiry workflows found Hub functions/gym flows, not a leasing notification flow. Existing CRM assignment email is a separate configured path and recorded a send for this test. No workflow was created or changed. The labelled test is not qualified demand and remains visible in CRM; recipient delivery and owner test-record handling remain open.
+
+## Mobile and form follow-up — 19 October
+
+The labelled test has now been closed in CRM as KILLED with TEST ONLY reason and audited status change; no open tasks remain. CRM overview, commercial reports, team and property counts now exclude the explicit TEST ONLY prefix while retaining genuine killed leads and null reasons. Audit records remain. CI/deploy 39238904742 passed for 2d011b3; live readback is recorded in canonical project context. Historical GA4 QA events still require exclusion in reconciliation.
+
+PageSpeed mobile baseline: FAQ 69 / LCP 5.9s / FCP 3.8s / TBT 20ms / CLS 0; contact 84 / LCP 4.3s / FCP 1.1s / TBT 140ms / CLS 0. Moto G Power, slow 4G, Lighthouse 13.5, 19 October. FAQ loaded about 462KiB of offscreen Google Maps, despite loading=lazy. Hero request discovery flagged missing high fetch priority. The 28-day origin LCP 3.4s is separate historical field data. Baseline reports:
+
+- FAQ: https://pagespeed.web.dev/analysis/https-www-mid-point-co-za-faqs/qrepy7t0sm?form_factor=mobile
+- Contact: https://pagespeed.web.dev/analysis/https-www-mid-point-co-za-contact-us/1dwojql7xq?form_factor=mobile
+
+Implementation defers the map until near view and prioritises the existing main hero image. Form provider readiness replaces the old six-second retry cutoff; labels/autocomplete and explicit loading, blocked-check, CAPTCHA rejection/expiry, rate-limit and uncertain-receipt feedback preserve entered values. Required consent now produces native browser validation. Optional webhook waiting is bounded after capture. Google's readiness API: https://developers.google.com/recaptcha/docs/loading . These changes address plausible failure mechanisms; they do not establish the cause of the 16 October session or prove improved conversion.
+
+188 local tests passed / 10 skipped, production build passed; local browser fixtures verified delayed/blocked provider, native consent, success and recoverable error paths without external submission. Fresh deployed checks and lab comparison remain pending; real field improvement and owner UAT remain open.

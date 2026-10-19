@@ -26,6 +26,18 @@ beforeEach(() => {
 afterEach(() => { vi.restoreAllMocks(); });
 
 describe("saved-enquiry conversion boundary", () => {
+  it("returns the saved receipt when an optional notification times out", async () => {
+    process.env.N8N_ENQUIRY_WEBHOOK = "https://notifications.example.test/enquiry";
+    const fetchMock = vi.spyOn(globalThis, "fetch").mockImplementation(async (_url, options) => {
+      expect(options?.signal).toBeInstanceOf(AbortSignal);
+      throw new DOMException("Timed out", "TimeoutError");
+    });
+    const response = await POST(request());
+    expect(await response.json()).toMatchObject({ ok: true, enquiryId: "enquiry-test", webhook: false });
+    expect(fetchMock).toHaveBeenCalledOnce();
+    expect(mocks.create).toHaveBeenCalledOnce();
+  });
+
   it("returns a saved ID and preserves attribution when downstream delivery is unavailable", async () => {
     const response = await POST(request());
     expect(response.status).toBe(200);

@@ -37,6 +37,7 @@ export default function HeroSection() {
           alt="Midpoint business estate"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           quality={78}
           className="object-cover"
