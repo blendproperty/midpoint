@@ -1,33 +1,74 @@
-# Midpoint real estate schema review - 20 October 2026
+# Midpoint live schema audit - 20 October 2026
 
-## Finding
+## Current finding and implementation
 
-No new technical schema defect found in the current public sitemap. This is a fresh audit of production, including the three listings added since yesterday's 48-page review. No application/schema/business-data edits were required or made. This does not certify the underlying property specifications or promise Google display, indexing or rankings.
+No confirmed technical schema defect was found in the fresh public production audit. No application, schema generator, business data, provider or runtime configuration was changed. All51 sitemap URLs returned200; all147 JSON-LD blocks parsed; all51 canonical URLs match their public address with root-slash normalization. The current official HTTPS Schema.org vocabulary reports zero unknown types/properties/domain mismatches across the typed nodes. This deterministic check does not replace the external validators or certify every value range, Google policy or business fact.
 
-## Current production evidence
+The live runtime marker remains cd3115cfa333. All19 marked-up article headlines and63 FAQ questions/answers match actual visible content after scripts/styles are excluded from the HTML comparison. Existing21 schema/SEO regression tests across five files pass. No full build/database suite or Midpoint deployment was required for documentation only. Existing appropriate RealEstateListing/OfferForLease data and unresolved-source protections are preserved.
 
-- Public origin: https://www.mid-point.co.za; runtime marker on every audited page: `cd3115cfa333`. Server checkout and running `midpoint-web:cd3115cfa333` independently match `cd3115cfa333658ffecad81814ff58fea83c54fe`.
-- All 51 public sitemap URLs returned HTTP 200; all 147 JSON-LD blocks parsed. Canonicals match their public URL (homepage trailing slash normalized). No additional Microdata/RDFa format was detected by the HTML attribute scan.
-- All 1,215 typed node appearances were checked against the freshly downloaded official current HTTPS Schema.org vocabulary: zero unknown types, properties or property-domain mismatches. This is a bounded deterministic check, not the external Schema.org validator or a complete value-range/policy certification.
-- Vacancy schedule `ItemList` contains all 16 detail URLs, with correct count and contiguous positions. Four collection lists and 48 `RealEstateListing` appearances include repetitions across their appropriate pages, not 48 separate properties.
-- All 16 detail-page names, source narratives, published availability and present numeric area/rate values match visible HTML. Technical facts come from the same shared extractor as the visible specification panel. Key Features headings/list presentation are intentionally transformed by the renderer, so the narrative comparison does not assert byte-identical full descriptions.
-- Each property is a `Place` within the Midpoint estate. The estate contact address is attached to the containing estate, not asserted as each individual unit's verified address. Shared `WebSite`, `LocalBusiness`, Blend `Organization`, breadcrumbs and canonical page identities are present where appropriate.
-- Lease offers use `OfferForLease`, the lease-out business function, and positive ZAR rates per square metre per month. No Product, Review, AggregateRating, fabricated stock enum, zero-price specification or zero-area property claim was found.
-- New STOR24 micro-warehousing/self-storage entries and Stellantis omit unknown numeric floor area and asking price. These remain enquiries/service showcases or opportunities requiring confirmation, not proof of a specific vacant storage unit or immediate occupation.
-- All 19 BlogPosting nodes have a visible headline, parseable publication/modification dates, image, author and publisher. All 63 marked-up questions/answers across eight FAQPage appearances match visible HTML. Shared business telephone, email and estate address match visible contact content across all 51 pages. This confirms publication consistency, not independent geospatial or operational certification.
-- Existing schema regression checks passed: 21 tests across five files (`schema-page`, `vacancy-seo`, `business-schema`, `seo-delivery`, `booking-schema`). No full application build/database suite was needed or run for this documentation-only audit.
+## Fresh external validation
 
-## Fresh external tests
+All51 distinct current public URLs passed Google Rich Results smartphone URL tests on20October2026. The completed overviews show valid supported items and no invalid-item or warning flags. Counts include supported nested entities, not51 commercial-property rich-result features. Individual links and crawl times below supersede the earlier three-page Google follow-up; earlier results remain in git history.
 
-Google Rich Results smartphone tests completed on 20 October 2026. Each overview reports three valid items: Breadcrumbs, Local businesses and Organisation; no invalid-item or warning flag was shown in these completed overviews. Google does not separately report the real estate vocabulary as a dedicated commercial-property rich-result feature. See the [Google supported structured-data gallery](https://developers.google.com/search/docs/appearance/structured-data/search-gallery) and [RealEstateListing definition](https://schema.org/RealEstateListing).
+Schema.org completed17 distinct URL tests with0errors/0warnings. At the next article, the service displayed “There was an error validating your mark-up.” One normal retry failed, and a control request for the already-passing homepage failed too. This is recorded as a service failure, not a confirmed markup defect. No challenge was solved or bypassed. The remaining34 URLs have no completed fresh Schema.org result: one service-error URL and33 not attempted after the provider failure. Historical22/48 passes on19October do not certify today's51 pages.
 
-| URL | Crawl time SAST | Google result |
-| --- | --- | --- |
-| /vacancies | 08:53:51 | [Three valid items](https://search.google.com/test/rich-results/result?id=WovjWi_LgeMy-2ZMJtc8PQ) |
-| /vacancies/cmvgb129n0001qp01ia0fs15y | 08:54:37 | [Three valid items](https://search.google.com/test/rich-results/result?id=x8BpFiYjPHCjbGyfKU8cgA) |
-| /vacancies/cmvgae265001pmz01l33cvutx | 08:54:42 | [Three valid items](https://search.google.com/test/rich-results/result?id=GcxgXE3vH1XtEujFyTc1UA) |
+Public test links may expire or rerun against later content. Private raw evidence is in the chat visualisation schema-20261020 directory: midpoint-latest.json (HTML/blocks), midpoint-content-check.json, vocabulary.json, external-checks.json and schema-service-blocker.json. The inspected screenshot schemaorg-service-error.png records the failing homepage control; midpoint-google-schema-pass.png records the final vacancy-schedule Google pass. Google validity does not establish indexing, rankings, search display or lead impact. See [Google's structured-data policies](https://developers.google.com/search/docs/appearance/structured-data/sd-policies) and [the official vocabulary](https://schema.org/version/latest/schemaorg-current-https.jsonld).
 
-Schema.org validator was checked once for `/vacancies` at 06:53:38 UTC and redirected to an unusual-traffic/reCAPTCHA challenge, with unavailable challenge content. No challenge was solved or bypassed. Therefore no fresh external Schema.org pass is claimed today. Yesterday's 22 passes / 26 blocked and 15 Google page tests remain historical evidence in [the previous audit](SCHEMA_AUDIT_20261019.md), not current 51-page validator coverage. Today's Google coverage is three individual URLs; the other 48 were not individually retested there.
+## Per-URL current coverage
+
+| Path | JSON-LD blocks | Google valid items / result | Google crawl, SAST,20Oct | Schema.org URL test |
+| --- | --- | --- | --- | --- |
+| / | 2 | [2 valid](https://search.google.com/test/rich-results/result?id=vS_ulYpr-Tg5D2V5s6OlVQ) | 2026-10-20 12:14:43 SAST | 0 errors / 0 warnings |
+| /about-us | 2 | [6 valid](https://search.google.com/test/rich-results/result?id=DJP-eYPMcbnLeKyOmyccEw) | 2026-10-20 12:19:23 SAST | 0 errors / 0 warnings |
+| /spaces | 2 | [6 valid](https://search.google.com/test/rich-results/result?id=OU2BCXKF8sZgJ8fAkyCU_w) | 12:20:56 | 0 errors / 0 warnings |
+| /contact-us | 2 | [6 valid](https://search.google.com/test/rich-results/result?id=t1qeHEyvJVQ3RtixsLnfTg) | 12:21:49 | 0 errors / 0 warnings |
+| /insights | 2 | [6 valid](https://search.google.com/test/rich-results/result?id=NYKMobrP-6XJeEtg0HEzJg) | 12:22:06 | 0 errors / 0 warnings |
+| /vacancies | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=TcZGrY2SVW4ESDd1poAGpg) | 12:37:50 | 0 errors / 0 warnings |
+| /faqs | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=K5-PCD-g98f_Bx1VnTG5ow) | 12:22:52 | 0 errors / 0 warnings |
+| /blog | 2 | [3 valid](https://search.google.com/test/rich-results/result?id=Rq_i0gO013MnEEq9mSyozg) | 12:22:52 | 0 errors / 0 warnings |
+| /the-suites-at-midpoint | 1 | [2 valid](https://search.google.com/test/rich-results/result?id=hdMueSn6fbMfBCIi11ua5A) | 12:23:35 | 0 errors / 0 warnings |
+| /privacy-policy | 2 | [3 valid](https://search.google.com/test/rich-results/result?id=cmqr7djkAB5aw0_BrU4Aew) | 12:23:35 | 0 errors / 0 warnings |
+| /blog/warehouse-checklist-midrand-eave-height-loading-yard-space | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=YpX6Axfc_xRw1kQo68RiGg) | 12:23:35 | 0 errors / 0 warnings |
+| /blog/getting-the-office-to-warehouse-ratio-right-in-midrand | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=SICIrIIWmaIwDSndOz2Wig) | 12:24:33 | 0 errors / 0 warnings |
+| /blog/backup-power-for-midrand-warehouses-what-generator-on-site-actually-covers | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=WfF4YyhYK2jLGGLt1drytA) | 12:24:36 | 0 errors / 0 warnings |
+| /blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=qVfvsQMBGixlLbfX85wrHw) | 12:24:39 | 0 errors / 0 warnings |
+| /blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=q_YegLbyMjrKN6Dhhij52w) | 12:25:03 | 0 errors / 0 warnings |
+| /blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=cbGUAtivqBjVFl0pmHsK-Q) | 12:25:06 | 0 errors / 0 warnings |
+| /blog/office-rental-costs-midrand | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=wMNo3FZJwVwvv5LipNCiQg) | 12:25:08 | 0 errors / 0 warnings |
+| /blog/compare-office-rental-quotes-midrand | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=a0LNkMl2HKj_DVWjSM-SxQ) | 12:26:01 | Service error after retry |
+| /blog/serviced-vs-conventional-offices-midrand | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=w1vaSzUMh4kz5AhfJBORpQ) | 12:26:03 | Not run after provider error |
+| /blog/onpoint-serviced-office-package-checklist | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=RjthI5gO-BGwGYHj5mV51A) | 12:26:07 | Not run after provider error |
+| /blog/office-viewing-checklist-midrand | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=LVpnSEhC475f_KLUNSLObw) | 12:27:04 | Not run after provider error |
+| /blog/office-floor-plan-fit-out-checklist-midrand | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=VDAoVAyMmgaLLVgOjkXQpA) | 12:27:07 | Not run after provider error |
+| /blog/business-park-vs-standalone-premises-midrand | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=tA0WXjI52qCYhqNrqgDm3w) | 12:27:10 | Not run after provider error |
+| /blog/planning-office-and-warehouse-space-midrand | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=VxOPlPGA-kyxxV2O_8s2_Q) | 12:27:24 | Not run after provider error |
+| /blog/assess-midrand-staff-client-delivery-routes | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=Yvj4St4BYu-kHX4P4ivsOA) | 12:27:27 | Not run after provider error |
+| /blog/business-park-amenities-leasing-checklist | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=ZS0e7979jHmikenkihMfug) | 12:27:33 | Not run after provider error |
+| /blog/warehouse-rental-costs-midrand | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=dGObcSbznxR66JerCV24fg) | 12:28:13 | Not run after provider error |
+| /blog/halfway-house-vs-waterfall-office-space | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=AthzGuQruO5IcelwDtoYCA) | 12:28:16 | Not run after provider error |
+| /blog/6-weaver-avenue-warehouse-walkthrough | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=GS2XzVgv4t82-HRzjlKdDA) | 12:28:18 | Not run after provider error |
+| /location | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=2fihhZvlrxwbUKh_xTgSQA) | 12:28:58 | Not run after provider error |
+| /services-offices | 4 | [6 valid](https://search.google.com/test/rich-results/result?id=HVvrf3IKxXKB6zlwpypf5A) | 12:29:02 | Not run after provider error |
+| /business-park-midrand | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=xuSIvxGIeyusL95TVjdPHg) | 12:29:10 | Not run after provider error |
+| /amenities | 3 | [6 valid](https://search.google.com/test/rich-results/result?id=KYPOMX6HXVD-mINoFE5RsA) | 12:30:17 | Not run after provider error |
+| /warehouses | 4 | [6 valid](https://search.google.com/test/rich-results/result?id=B3WIDq8Jpd8D2l45FqN1uA) | 12:30:19 | Not run after provider error |
+| /offices | 4 | [6 valid](https://search.google.com/test/rich-results/result?id=QhuPC6HTePAXNkufvL5Sgg) | 12:30:22 | Not run after provider error |
+| /vacancies/cms4oiw4n0002n601y2gpa0qf | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=ifQQsRLFkDE-oOgkyb2HAg) | 12:31:22 | Not run after provider error |
+| /vacancies/cms4oiw560007n6019icxact3 | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=7IRrmOHh_bzJ7qhfrJwneA) | 12:31:26 | Not run after provider error |
+| /vacancies/cmvgb129n0001qp01ia0fs15y | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=7tqInbq0J5Nrt64BLiYWgw) | 12:31:26 | Not run after provider error |
+| /vacancies/cms4oiw500005n6011rnzc2hb | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=12NSeWGsiNJYu2pE5MTh5w) | 12:31:58 | Not run after provider error |
+| /vacancies/cms4oiw5j000bn601vz6szme4 | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=Gomk43C4Y3rVU8RKuRY1Rg) | 12:32:01 | Not run after provider error |
+| /vacancies/cmsfuu4xu000ooy01x3ulli7b | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=gtbzD6cn9AaPU3a6vDIs6Q) | 12:32:03 | Not run after provider error |
+| /vacancies/cmvgae265001pmz01l33cvutx | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=jpnr4bFO5v4YXHxfSodpxw) | 12:33:08 | Not run after provider error |
+| /vacancies/cmsfvflha000zoy01wxkk2efu | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=H4jsPxHwxKk_k5iysbwFSQ) | 12:33:12 | Not run after provider error |
+| /vacancies/cmsfvflhj0010oy014b1ytkku | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=ho23yAoMZNBjP31PY9C5gQ) | 12:33:18 | Not run after provider error |
+| /vacancies/cmuz7chn0009up901ll35sgdh | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=bMLOjahrGuXKwdKQn8YB_A) | 12:34:05 | Not run after provider error |
+| /vacancies/cms4oiw530006n601h1qw8gzm | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=gpzFms_8U3zcjOUNg9TuSg) | 12:34:08 | Not run after provider error |
+| /vacancies/cms4oiw4v0004n60127izdqzj | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=hrM184oU4FK-E_T6-epWxw) | 12:34:15 | Not run after provider error |
+| /vacancies/cms4oiw590008n601tuhv5okk | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=8_8vK3hLhxJp4ZrcEgQESQ) | 12:35:17 | Not run after provider error |
+| /vacancies/cms4oiw5d0009n601702zlk0p | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=SVUNA74M4kJ9ZCcdzd74-g) | 12:35:21 | Not run after provider error |
+| /vacancies/cmsfvflfy000yoy01stx7o2dp | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=dO7B3OTif5kOfG-GpkQupw) | 12:35:27 | Not run after provider error |
+| /vacancies/cmvgae26d001qmz019ja0mhjg | 3 | [3 valid](https://search.google.com/test/rich-results/result?id=aw-Y3eM5HYC7bZ6bO9efkg) | 12:36:08 | Not run after provider error |
 
 ## Decisions and outstanding gates
 
@@ -37,63 +78,3 @@ Schema.org validator was checked once for `/vacancies` at 06:53:38 UTC and redir
 - Stellantis area, pricing, present availability, precise address, current condition and inclusions remain unconfirmed. STOR24 actual unit sizes, availability and charges require leasing confirmation. Historic/illustrative photographs remain qualified.
 - Opening hours, ratings, reviews and exact per-unit coordinates/addresses are not fabricated. FAQPage validity does not imply a Google FAQ enhancement; see [Google's June 2026 update](https://developers.google.com/search/updates#june-2026).
 - Private/admin/access-controlled pages and off-site properties are outside the public sitemap audit. Search Console indexing/enhancement state, search appearance/rankings, real enquiry delivery, consented GA4/CRM reconciliation, and existing provider, finance, legal, data, training, UAT and approval gates remain open.
-
-Private raw evidence: `tmp/schema20-live.json`, `tmp/schema20-vocabulary-result.json`, `tmp/schema20-content-result.json`, `tmp/schema20-pages-result.json` in the isolated worktree. These include timestamps and assertion outputs; no private lead records were queried. This report preserves the public per-URL inventory below.
-
-## Public URL inventory
-
-All entries: HTTP 200, JSON-LD parse passed, current-vocabulary type/property/domain check passed. External Google coverage is limited to the three links above; Schema.org external access remains blocked.
-
-| Path | JSON-LD blocks |
-| --- | --- |
-| / | 2 |
-| /about-us | 2 |
-| /spaces | 2 |
-| /contact-us | 2 |
-| /insights | 2 |
-| /vacancies | 3 |
-| /faqs | 3 |
-| /blog | 2 |
-| /the-suites-at-midpoint | 1 |
-| /privacy-policy | 2 |
-| /blog/warehouse-checklist-midrand-eave-height-loading-yard-space | 3 |
-| /blog/getting-the-office-to-warehouse-ratio-right-in-midrand | 3 |
-| /blog/backup-power-for-midrand-warehouses-what-generator-on-site-actually-covers | 3 |
-| /blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean | 3 |
-| /blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need | 3 |
-| /blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes | 3 |
-| /blog/office-rental-costs-midrand | 3 |
-| /blog/compare-office-rental-quotes-midrand | 3 |
-| /blog/serviced-vs-conventional-offices-midrand | 3 |
-| /blog/onpoint-serviced-office-package-checklist | 3 |
-| /blog/office-viewing-checklist-midrand | 3 |
-| /blog/office-floor-plan-fit-out-checklist-midrand | 3 |
-| /blog/business-park-vs-standalone-premises-midrand | 3 |
-| /blog/planning-office-and-warehouse-space-midrand | 3 |
-| /blog/assess-midrand-staff-client-delivery-routes | 3 |
-| /blog/business-park-amenities-leasing-checklist | 3 |
-| /blog/warehouse-rental-costs-midrand | 3 |
-| /blog/halfway-house-vs-waterfall-office-space | 3 |
-| /blog/6-weaver-avenue-warehouse-walkthrough | 3 |
-| /location | 3 |
-| /services-offices | 4 |
-| /business-park-midrand | 3 |
-| /amenities | 3 |
-| /warehouses | 4 |
-| /offices | 4 |
-| /vacancies/cmvgae26d001qmz019ja0mhjg | 3 |
-| /vacancies/cms4oiw4n0002n601y2gpa0qf | 3 |
-| /vacancies/cmvgb129n0001qp01ia0fs15y | 3 |
-| /vacancies/cms4oiw560007n6019icxact3 | 3 |
-| /vacancies/cms4oiw500005n6011rnzc2hb | 3 |
-| /vacancies/cms4oiw5j000bn601vz6szme4 | 3 |
-| /vacancies/cmsfuu4xu000ooy01x3ulli7b | 3 |
-| /vacancies/cms4oiw530006n601h1qw8gzm | 3 |
-| /vacancies/cmvgae265001pmz01l33cvutx | 3 |
-| /vacancies/cms4oiw590008n601tuhv5okk | 3 |
-| /vacancies/cms4oiw5d0009n601702zlk0p | 3 |
-| /vacancies/cmsfvflha000zoy01wxkk2efu | 3 |
-| /vacancies/cmsfvflhj0010oy014b1ytkku | 3 |
-| /vacancies/cms4oiw4v0004n60127izdqzj | 3 |
-| /vacancies/cmuz7chn0009up901ll35sgdh | 3 |
-| /vacancies/cmsfvflfy000yoy01stx7o2dp | 3 |
