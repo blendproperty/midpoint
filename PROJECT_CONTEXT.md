@@ -1,5 +1,15 @@
 # Midpoint Project Context
 
+## 2026-10-20 - Stellantis rental rate confirmed at R115 per square metre
+
+- Implementation: Brett supplied R115 per square metre for Stellantis. Updated listing `stellantis_midrand_20261020` askingRate=115 and price=251045, following the existing rental calculator convention (2183 x 115). Disabled price-on-application, added the rate/monthly total to public description, summary and features, refreshed building description, and changed enquiry wording to availability/viewings. Boitumelo remains the owner and primary public contact. This supersedes earlier price-on-application notes; size remains 2,183 square metres.
+- Testing: protected before-values snapshot retained under `stellantis-20261020/rate-115`. Guarded SQL verified the exact listing, area, prior unquoted rate/price, and final asking rate x area = monthly price. Both exact public detail pages returned HTTP 200 with R115/m², R251,045, correct size/contact and no corrupted superscript sequence. Midpoint row readback shows sizeSqm 2183, ratePerSqm 115, PUBLISHED. No application code changed; no application build/test suite required.
+- Commit and push: evidence-only updates to both canonical PROJECT_CONTEXT.md files committed and promoted to main; exact final SHAs and remote context readback retained in handoff evidence. Unrelated changes preserved.
+- Merge: direct fast-forward documentation promotion; no PR or application-code merge claimed.
+- Deployment and configuration: targeted production rate/price/copy data published; authenticated Midpoint sync at 2026-10-20T07:18:54.845Z returned fetched 16, created 0, updated 16, deprecated 0, skipped [], with no error. No application deployment, schema, secret, provider or configuration change.
+- Live production verification: Blend `/listings/stellantis-building-midrand` and Midpoint `/vacancies/cmvgb129n0001qp01ia0fs15y` reflect the confirmed rate, calculated monthly total, correct 2,183 m² and Boitumelo contact. No enquiry was submitted.
+- Outstanding gates: VAT treatment and any additional charges were not supplied or inferred. Actual availability, address, lease terms, present condition/fit-out, recipient delivery and leasing UAT plus previously recorded provider/data/training/approval gates remain open. Photography remains the supplied July 2023 source.
+
 ## 2026-10-20 - Stellantis square-metre character correction
 
 - Implementation: corrected the stored mojibake in Stellantis description, summary, area overview, features, internal notes and building description using explicit Unicode code points. The numeric area remains 2183. Local PowerShell-to-Python publication helper now explicitly reads UTF-8 instead of the Windows default encoding, preventing recurrence in subsequent updates. That local helper is an operational artifact, not application runtime code.
