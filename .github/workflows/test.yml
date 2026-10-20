@@ -44,3 +44,6 @@ jobs:
 
       - name: Run unit and integration tests
         run: npm test
+
+      - name: Build production application including schema checks
+        run: npm run build

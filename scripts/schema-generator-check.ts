@@ -6,7 +6,7 @@ import { safeJsonLd } from "../lib/json-ld";
 
 const { validateHtml } = createRequire(import.meta.url)("../tools/schema-validator/check.cjs");
 const website = { "@type": "WebSite", "@id": "https://www.mid-point.co.za/#website", name: "Midpoint" };
-const listing = { id: "schema-test", building: "Schema fixture", sector: "Warehouse", sizeSqm: 100, ratePerSqm: 100, availability: "Available", description: "Test fixture only", image: "" };
+const listing = { id: "schema-test", building: "Schema fixture", sector: "Warehouse", sizeSqm: 100, ratePerSqm: 100, availability: "Available", description: "Test fixture only", image: "" } satisfies Parameters<typeof vacancyJsonLd>[0];
 const nodes = [
   ...["WebPage", "ContactPage", "AboutPage", "CollectionPage"].map(type => richPageJsonLd({ type, name: "Fixture", description: "Fixture description", path: "/fixture" })),
   blogPostingJsonLd({ title: "Fixture", description: "Fixture", path: "/blog/fixture", dateModified: "2026-10-20T00:00:00Z" }),
