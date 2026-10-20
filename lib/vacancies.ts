@@ -103,7 +103,9 @@ export function buildVacancyWhatsappMessage(
   listing: VacancyListing,
   siteUrl: string,
 ) {
-  const details = `${vacancyLabel(listing)} — ${formatVacancySize(listing.sizeSqm)}, R${listing.ratePerSqm}/m², available ${listing.availability}.`;
+  const area = listing.sizeSqm > 0 ? formatVacancySize(listing.sizeSqm) : "area on request";
+  const rate = listing.ratePerSqm > 0 ? `R${listing.ratePerSqm}/m²` : "rate on request";
+  const details = `${vacancyLabel(listing)} — ${area}, ${rate}, available ${listing.availability}.`;
   const link = `${siteUrl.replace(/\/$/, "")}/vacancies`;
   return `${baseTemplate}\n\nI'm interested in: ${details}\n${link}`;
 }
