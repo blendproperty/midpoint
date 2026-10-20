@@ -33,6 +33,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Independent schema generator and validator checks
+        run: |
+          npm run schema:setup
+          npm --prefix tools/schema-validator audit --audit-level=moderate
+          npm run schema:test
+
       - name: Apply migrations to disposable test database
         run: npx prisma migrate deploy
 

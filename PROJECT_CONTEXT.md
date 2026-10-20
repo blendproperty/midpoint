@@ -1,5 +1,12 @@
 # Midpoint Project Context
 
+## 2026-10-20 - Independent schema CLI and build gates prepared
+
+- **Implementation:** pinned isolated schemacraft-validator1.0.1 CLI adapter, official hash-checked offline vocabulary, undici6.29.1 dependency override, public-sitemap URL audit command and prebuild/PR checks. Reviewed package code and actual artifact; missing vocabulary and reference/visited-cache bugs are handled by a regression-tested adapter, not by altering valid Midpoint schema. STOR24's shared facility generator replaces officially superseded branchOf with parentOrganization; source business facts are unchanged.
+- **Testing:** locked tooling install/audit has zero reported vulnerabilities. Three adapter control groups and source-generator checks pass (Midpoint8 cases; STOR24 20). Existing focused schema regressions pass. Live pre-release audit covers51 Midpoint URLs without findings; STOR24 has21 URLs with only two confirmed branchOf deprecation warnings. Actual before/after and final exact-source CI evidence remain to reconcile after promotion. Tool limits/commands/review are in tools/schema-validator/README.md.
+- **Commit/push/merge:** isolated codex/schema-cli-20261020 from verified canonical remote head; source/context PR promotion pending. Original dirty/concurrent work remains preserved. **Deployment/configuration:** not yet deployed; no external service, credentials, subscription, customer or provider write. **Live production verification:** final post-release CLI audit and exact deployed source remain pending. Do not relabel independent results as Schema.org/Google passes.
+- **Remaining gates:** exact-source CI/security, normal merge/deployment, final all-page live audit and remote canonical context readback. Existing55 external Schema.org URL checks remain incomplete behind the provider access block. Preserve all earlier source/optional metadata, customer/device/UAT, Clarity/Cloudflare, indexing/ranking, finance/legal/privacy/provider/data/training/approval gates. No external tracker in scope.
+
 ## 2026-10-20 13:25 SAST - Schema.org retry blocked before URL tests
 
 - **Implementation:** documentation/evidence only; no schema, application or business-data change. Retried the official https://validator.schema.org/ entry point in the normal signed-in Edge session at 2026-10-20T11:25:54Z (13:25:54 SAST).
