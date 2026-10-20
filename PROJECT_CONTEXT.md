@@ -1,5 +1,15 @@
 # Midpoint Project Context
 
+## 2026-10-20 - Stellantis square-metre character correction
+
+- Implementation: corrected the stored mojibake in Stellantis description, summary, area overview, features, internal notes and building description using explicit Unicode code points. The numeric area remains 2183. Local PowerShell-to-Python publication helper now explicitly reads UTF-8 instead of the Windows default encoding, preventing recurrence in subsequent updates. That local helper is an operational artifact, not application runtime code.
+- Testing: before-values retained in protected server backup `stellantis-20261020/encoding-fix`. PowerShell non-ASCII input self-check passed. Public Blend and Midpoint detail pages return HTTP 200, contain the correct `2,183 m²` text and contain no corrupt two-character superscript sequence. Live browser accessibility readback confirms the corrected About This Space, Midrand Overview and Key Features text plus numeric area labels. No application build/test suite required for this targeted data correction.
+- Commit and push: canonical evidence-only context updates committed and promoted to both main branches; final remote SHAs/readback retained in handoff. The local helper encoding fix is saved in the workspace outputs folder.
+- Merge: direct fast-forward evidence updates only; no PR or application-code merge claimed. Latest unrelated changes preserved.
+- Deployment and configuration: production data corrected and authenticated Midpoint reconciliation at 2026-10-20T07:11:37.510Z succeeded: fetched 16, created 0, updated 16, deprecated 0, skipped []. No application deployment, schema, secret, provider or configuration change.
+- Live production verification: exact Blend and Midpoint Stellantis detail pages passed correct-symbol/no-mojibake assertions. Size is Brett-supplied 2,183 square metres; Boitumelo remains the contact and pricing on application. No enquiry was submitted.
+- Outstanding gates: recipient delivery, leasing UAT, present condition, fit-out, pricing, availability and all previously recorded operational/provider/data/training/approval gates remain open. No independent measurement claimed.
+
 ## 2026-10-20 - Stellantis confirmed lettable area: 2,183 mÂ²
 
 - Implementation: Brett confirmed the Stellantis area as 2,183 mÂ². Set listing `stellantis_midrand_20261020` grossLettable and building `stellantis_building_20261020` grossLettableArea to 2183. Replaced TBC size wording in public description, summary, features, area overview and building description; appended the dated confirmation to internal notes to supersede the earlier TBC record. Boitumelo remains the listing contact and owner; pricing remains on application.
