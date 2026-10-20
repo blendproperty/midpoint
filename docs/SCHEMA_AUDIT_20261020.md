@@ -78,3 +78,44 @@ Public test links may expire or rerun against later content. Private raw evidenc
 - Stellantis area, pricing, present availability, precise address, current condition and inclusions remain unconfirmed. STOR24 actual unit sizes, availability and charges require leasing confirmation. Historic/illustrative photographs remain qualified.
 - Opening hours, ratings, reviews and exact per-unit coordinates/addresses are not fabricated. FAQPage validity does not imply a Google FAQ enhancement; see [Google's June 2026 update](https://developers.google.com/search/updates#june-2026).
 - Private/admin/access-controlled pages and off-site properties are outside the public sitemap audit. Search Console indexing/enhancement state, search appearance/rankings, real enquiry delivery, consented GA4/CRM reconciliation, and existing provider, finance, legal, data, training, UAT and approval gates remain open.
+
+## Follow-up retry - 20 October 2026, 13:25:54 SAST
+
+The official validator entry point redirected to an unusual-traffic challenge before any URL test could start. Its reCAPTCHA frame remained blank. Zero new page tests completed; no new markup failure or pass is inferred. Manual clearance requested; no challenge bypass used. This supersedes the previous service-error diagnosis for the current access attempt, while preserving earlier completed results. Application/build checks and Google tests were not repeated for this documentation-only follow-up.
+
+The 34 remaining URLs for this site are still pending external validation:
+
+- https://www.mid-point.co.za/blog/compare-office-rental-quotes-midrand
+- https://www.mid-point.co.za/blog/serviced-vs-conventional-offices-midrand
+- https://www.mid-point.co.za/blog/onpoint-serviced-office-package-checklist
+- https://www.mid-point.co.za/blog/office-viewing-checklist-midrand
+- https://www.mid-point.co.za/blog/office-floor-plan-fit-out-checklist-midrand
+- https://www.mid-point.co.za/blog/business-park-vs-standalone-premises-midrand
+- https://www.mid-point.co.za/blog/planning-office-and-warehouse-space-midrand
+- https://www.mid-point.co.za/blog/assess-midrand-staff-client-delivery-routes
+- https://www.mid-point.co.za/blog/business-park-amenities-leasing-checklist
+- https://www.mid-point.co.za/blog/warehouse-rental-costs-midrand
+- https://www.mid-point.co.za/blog/halfway-house-vs-waterfall-office-space
+- https://www.mid-point.co.za/blog/6-weaver-avenue-warehouse-walkthrough
+- https://www.mid-point.co.za/location
+- https://www.mid-point.co.za/services-offices
+- https://www.mid-point.co.za/business-park-midrand
+- https://www.mid-point.co.za/amenities
+- https://www.mid-point.co.za/warehouses
+- https://www.mid-point.co.za/offices
+- https://www.mid-point.co.za/vacancies/cms4oiw4n0002n601y2gpa0qf
+- https://www.mid-point.co.za/vacancies/cms4oiw560007n6019icxact3
+- https://www.mid-point.co.za/vacancies/cmvgb129n0001qp01ia0fs15y
+- https://www.mid-point.co.za/vacancies/cms4oiw500005n6011rnzc2hb
+- https://www.mid-point.co.za/vacancies/cms4oiw5j000bn601vz6szme4
+- https://www.mid-point.co.za/vacancies/cmsfuu4xu000ooy01x3ulli7b
+- https://www.mid-point.co.za/vacancies/cmvgae265001pmz01l33cvutx
+- https://www.mid-point.co.za/vacancies/cmsfvflha000zoy01wxkk2efu
+- https://www.mid-point.co.za/vacancies/cmsfvflhj0010oy014b1ytkku
+- https://www.mid-point.co.za/vacancies/cmuz7chn0009up901ll35sgdh
+- https://www.mid-point.co.za/vacancies/cms4oiw530006n601h1qw8gzm
+- https://www.mid-point.co.za/vacancies/cms4oiw4v0004n60127izdqzj
+- https://www.mid-point.co.za/vacancies/cms4oiw590008n601tuhv5okk
+- https://www.mid-point.co.za/vacancies/cms4oiw5d0009n601702zlk0p
+- https://www.mid-point.co.za/vacancies/cmsfvflfy000yoy01stx7o2dp
+- https://www.mid-point.co.za/vacancies/cmvgae26d001qmz019ja0mhjg
