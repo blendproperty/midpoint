@@ -119,3 +119,7 @@ The 34 remaining URLs for this site are still pending external validation:
 - https://www.mid-point.co.za/vacancies/cms4oiw5d0009n601702zlk0p
 - https://www.mid-point.co.za/vacancies/cmsfvflfy000yoy01stx7o2dp
 - https://www.mid-point.co.za/vacancies/cmvgae26d001qmz019ja0mhjg
+
+## Independent CLI follow-up - 20 October 2026
+
+Final deployed live audit: all51 public URLs pass with zero independent CLI errors/warnings. All51 JSON-LD block arrays exactly match the pre-release snapshot; no valid source markup was rewritten to satisfy tool bugs. Public runtime marker3cce4e91cdc6 and147 parseable blocks are confirmed. Full [per-URL results](schema-cli-live-20261020.json), [review/commands/limits](../tools/schema-validator/README.md), and exact source/CI/merge/deployment evidence in PROJECT_CONTEXT.md. The isolated locked tool audit is clean. Build checks exercise adapter controls and actual source generators before Next builds. These are independent adapter results, not new official Schema.org passes or a guarantee of Google eligibility, visible content/business facts, indexing or ranking. Earlier external Google results remain historical; the55 outstanding official Schema.org tests remain behind the provider access block. Preserve all previous UAT/provider/data/approval gates.
