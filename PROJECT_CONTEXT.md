@@ -1,5 +1,15 @@
 # Midpoint Project Context
 
+## 2026-10-20 - Stellantis confirmed lettable area: 2,183 mÂ²
+
+- Implementation: Brett confirmed the Stellantis area as 2,183 mÂ². Set listing `stellantis_midrand_20261020` grossLettable and building `stellantis_building_20261020` grossLettableArea to 2183. Replaced TBC size wording in public description, summary, features, area overview and building description; appended the dated confirmation to internal notes to supersede the earlier TBC record. Boitumelo remains the listing contact and owner; pricing remains on application.
+- Testing: guarded production transaction checked the exact live listing/building and prior unknown area. Before-values and executed SQL retained in the protected server backup folder. Source readback shows 2183.00; Midpoint destination `cmvgb129n0001qp01ia0fs15y` shows sizeSqm 2183, PUBLISHED, with existing unknown-price sentinel 0. Both exact public detail pages return HTTP 200, contain the confirmed area and Boitumelo, and contain no TBC wording. No application code changed; no application build/test suite was needed.
+- Commit and push: evidence-only context update committed for both repositories and promoted to main; exact commit SHAs and final remote context readback retained in the handoff evidence. Unrelated working changes preserved.
+- Merge: direct fast-forward promotion of documentation only; no PR merge or application-code merge claimed. Latest concurrent canonical updates retained.
+- Deployment and configuration: targeted production data update applied; authenticated Midpoint sync at 2026-10-20T06:57:32.187Z returned HTTP 200, fetched 16, created 0, updated 16, deprecated 0, skipped [], with no error. No schema, application deployment, provider, secret or configuration change.
+- Live production verification: verified confirmed area and removal of TBC on Blend `/listings/stellantis-building-midrand` and Midpoint `/vacancies/cmvgb129n0001qp01ia0fs15y`; source building/listing and destination row readback passed. User-supplied area confirmation closes the previous unknown-size gate; no independent survey or measurement claimed.
+- Outstanding gates: pricing, actual availability, address, lease terms, present condition and included fit-out/facilities still need operational confirmation. July 2023 image provenance remains. No enquiry sent; recipient delivery and leasing UAT remain unverified. All unrelated provider, data, training and approval gates remain open.
+
 ## 2026-10-20 - Current website real estate schema audit
 
 - Implementation: audited the live vacancy schedule and all 51 public sitemap URLs, including the three new STOR24/Stellantis entries. No new technical schema defect found; no application, schema, source data or configuration change made. Detailed scope, per-URL inventory, evidence and limits are in `docs/SCHEMA_AUDIT_20261020.md`. Existing dirty user checkout and unrelated untracked work preserved in a separate managed worktree branch.
