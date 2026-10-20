@@ -218,11 +218,6 @@ export async function middleware(request: NextRequest) {
     return continueRequest(request);
   }
 
-  const legacyPath = legacyDestination(pathname);
-  if (legacyPath) {
-    return NextResponse.redirect(redirectDestination(legacyPath, request.url), 308);
-  }
-
   const cache = await getRedirectCache();
   const match = cache.get(pathname);
   if (match) {
@@ -233,6 +228,11 @@ export async function middleware(request: NextRequest) {
       // Ignore an invalid historic rule rather than breaking the public route.
       return continueRequest(request);
     }
+  }
+
+  const legacyPath = legacyDestination(pathname);
+  if (legacyPath) {
+    return NextResponse.redirect(redirectDestination(legacyPath, request.url), 308);
   }
 
   return continueRequest(request);
