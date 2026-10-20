@@ -5,3 +5,7 @@ out/
 .vercel
 *.log
 .DS_Store
+
+# Isolated validation tooling and generated reports
+/tools/schema-validator/node_modules/
+/output/schema-*.json

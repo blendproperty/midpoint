@@ -1,0 +1,10 @@
+{
+  "name": "public-schema-checks",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "cheerio": "1.0.0",
+    "schemacraft-validator": "1.0.1"
+  },
+  "overrides": { "undici": "6.29.1" }
+}

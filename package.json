@@ -11,7 +11,11 @@
     "test:watch": "vitest",
     "postinstall": "prisma generate",
     "db:migrate": "prisma migrate deploy",
-    "db:seed": "tsx prisma/seed.ts"
+    "db:seed": "tsx prisma/seed.ts",
+    "schema:setup": "npm --prefix tools/schema-validator ci --ignore-scripts --no-fund",
+    "schema:test": "node --test tools/schema-validator/check.test.cjs && tsx scripts/schema-generator-check.ts",
+    "schema:check": "node tools/schema-validator/check.cjs https://www.mid-point.co.za",
+    "prebuild": "npm run schema:setup && npm run schema:test"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

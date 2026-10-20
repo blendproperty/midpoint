@@ -5,3 +5,5 @@ out
 .env*.local
 *.md
 .vercel
+
+tools/schema-validator/node_modules

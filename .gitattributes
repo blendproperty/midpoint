@@ -1,0 +1,3 @@
+
+# Preserve exact official-vocabulary bytes for integrity checks across platforms.
+tools/schema-validator/vocabulary.json -text
