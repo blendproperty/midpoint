@@ -7,6 +7,7 @@ import VacancyCard from "@/components/VacancyCard";
 import type { VacancyListing, VacancySector } from "@/lib/vacancy-shared";
 import type { SpaceCalculatorValues, SpaceRange } from "@/lib/space-calculator";
 import { trackAnalyticsEvent } from "@/lib/analytics";
+import RentalBudgetCalculator from "@/components/RentalBudgetCalculator";
 
 type SectorFilter = "ALL" | VacancySector;
 type SizeFilter = "ALL" | "UP_TO_250" | "250_500" | "500_1000" | "OVER_1000" | "CALCULATED";
@@ -112,6 +113,7 @@ export default function VacancySchedule({ listings, whatsappUrls, initialQuery =
         {calculatedRange && size === "CALCULATED" && <div className="mt-4 flex flex-wrap items-center gap-2 text-sm"><span className="text-midpoint-grey-400">Active calculator range:</span><button type="button" onClick={() => { setSize("ALL"); setCalculatedRange(null); }} className="rounded-full bg-midpoint-dark px-4 py-2 font-semibold text-white">Commercial / Office · {calculatedRange.min.toLocaleString("en-ZA")}–{calculatedRange.max.toLocaleString("en-ZA")} m² ×</button></div>}
       </div>
 
+      <RentalBudgetCalculator listings={listings} plannedArea={initialCalculatedRange?.recommended} />
       <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
         <p role="status" aria-live="polite" className="text-sm text-midpoint-grey-400"><strong className="text-midpoint-dark">{filtered.length}</strong> listing{filtered.length === 1 ? "" : "s"} matching your filters.</p>
         <label className="flex items-center gap-2 text-sm text-midpoint-grey-400">Sort by<select aria-label="Sort listings" value={sort} onChange={event => setSort(event.target.value)} className="rounded-lg border border-midpoint-dark/15 bg-white px-3 py-2 text-midpoint-dark"><option value="DEFAULT">Recommended</option><option value="SIZE_ASC">Area: smallest first</option><option value="SIZE_DESC">Area: largest first</option><option value="RATE_ASC">Rate: lowest first</option></select></label>

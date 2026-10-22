@@ -65,6 +65,7 @@ export default async function InsightsPage() {
               <Link href="/vacancies?sector=Warehouse">View warehouse vacancies</Link>
               <Link href="/vacancies?sector=Office">View office vacancies</Link>
               <Link href="/vacancies?sector=Serviced%20office">View serviced-office vacancies</Link>
+              <Link href="/vacancies#rental-budget">Estimate monthly rental costs</Link>
             </nav>
           </Reveal>
           <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
