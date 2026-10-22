@@ -1,5 +1,11 @@
 # Midpoint Project Context
 
+## 2026-10-22 — Enquiry-link prefill correction within the authorship sprint
+
+- **Implementation:** final behavioural review caught two new guide links using Warehouse/Office instead of ContactForm's existing Warehouse space/Office space values. Additive migration20261022121000_seo_enquiry_prefill replaces only those exact link attributes on the two published target guides, retaining surrounding owner copy. The original merged migration remains immutable. Regression covers both corrections, owner-copy preservation and idempotence.
+- **Testing:** focused/full hosted regression, final rendered form-prefill checks and final source/content verification pending for this follow-up. Prior218-test/build/26-page preview evidence belongs to source6face43 and does not establish this correction's release.
+- **Commit/push:** isolated codex/seo-enquiry-prefill-20261022 from freshly merged main97a1e4d; pending final commit/CI. **Merge:** pending. **Deployment/configuration:** pending normal pipeline. **Live production verification:** pending exact migration and visible dropdown selection. Preserve every remaining sprint/source/official-validation/UAT/provider/measurement/approval gate below.
+
 ## 2026-10-22 — Visible authorship and Search Console-led leasing refresh
 
 - **Implementation:** user approved Blend Property Group authorship. Shared blog/pillar templates show the existing organisation name, official URL and bio; pillar author schema matches visible credit, with BlogPosting's matching identity retained. Targeted office/warehouse shortlisting copy links four current published units, related cost guides, sector schedules and scoped enquiries. Insights has a clearer leasing introduction, sector links and corrected formerly truncated CMS metadata. Guarded migration compares every edited field, normalises line endings and preserves owner edits; no vacancy/source data, publication date, image, pillar relationship or named-reviewer date is changed. Scope/evidence: [docs/SEO_AUTHORSHIP_REFRESH_20261022.md](docs/SEO_AUTHORSHIP_REFRESH_20261022.md).
