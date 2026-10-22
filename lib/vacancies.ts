@@ -82,10 +82,10 @@ export function vacancySummary(value: string, maxLength = 280) {
   return `${clean.slice(0, maxLength - 1).replace(/\s+\S*$/, "").trimEnd()}…`;
 }
 
-export async function getVacancyById(id: string): Promise<(VacancyListing & { externalId: string | null; updatedAt: Date }) | null> {
+export async function getVacancyById(id: string): Promise<(VacancyListing & { externalId: string | null; updatedAt: Date; sourceDescription: string }) | null> {
   const row = await prisma.vacancy.findFirst({ where: { id, status: "PUBLISHED" } });
   if (!row) return null;
-  return { ...row, image: row.image || "", sector: vacancySector(row.sector, row.building), description: decode(row.description).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() };
+  return { ...row, sourceDescription: row.description, image: row.image || "", sector: vacancySector(row.sector, row.building), description: decode(row.description).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() };
 }
 
 function formatVacancySize(n: number) {

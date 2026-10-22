@@ -29,6 +29,9 @@ export function vacancyDescriptionParagraphs(description: string) {
     .split(/Key\s+Features\s*:?/i);
   const blocks = narrative
     .replace(/[^\S\n]+/g, " ")
+    .replace(/ (Space to suit your business|Storage for the moments you need it|Within Midpoint|Pricing and viewings|Before you book) /g, "\n$1\n")
+    .replace(/ +(?=\+27 \d|[^\s@]+@[^\s@]+\.[^\s@]+|Explore STOR24\b)/g, "\n")
+    .replace(/(Explore STOR24[^→]*→) */g, "$1\n")
     .replace(/(?<=[.!?]) +(?=(?:Size:|Contact\b|Photography:|Current layout\b|Rental:|Monthly rental\b))/g, "\n")
     .split(/\n+/).map(block => block.trim()).filter(Boolean);
   return blocks.flatMap(block => {
@@ -40,10 +43,13 @@ export function vacancyDescriptionParagraphs(description: string) {
   });
 }
 
-export function vacancyContent(listing: VacancyListing) {
+export function vacancyContent(listing: VacancyListing & { sourceDescription?: string }) {
+  const source = listing.sourceDescription ?? listing.description;
   const clean = decode(listing.description).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
-  const [narrative, ...detail] = clean.split(/Key Features\s*:?/i);
-  const details = detail.join(" ").split(/[🔹✅✔✓☑•]/u).map(v => v.trim()).filter(Boolean);
+  const [narrative] = clean.split(/Key Features\s*:?/i);
+  // Legacy plain-text feeds lost list markers; split the published feature labels without rewriting their claims.
+  const featureSource = decode(source).replace(/<br\s*\/?\s*>|<\/(?:p|div|li|h[1-6])\s*>/gi, "\n").replace(/<[^>]*>/g, " ").split(/Key\s+Features\s*:?/i).slice(1).join("\n");
+  const details = featureSource.replace(/ +(?=(?:Asking rental of|Monthly rental of|Suitable for|Flexible space with|Centrally located in|Convenient access to|Secure mixed-use|Generator and backup water|On-site lifestyle|Minimum lease period of)\b)/g, "\n").split(/[\n🔹✅✔✓☑•]/u).map(v => v.trim()).filter(Boolean);
   const address = listing.unitName || listing.building;
   const type = listing.sector === "Warehouse" ? "Warehouse" : listing.sector === "Office" ? "Office space" : "Serviced office";
   const title = `${address} | ${type} to Rent in Midrand`;
@@ -64,5 +70,5 @@ export function vacancyContent(listing: VacancyListing) {
     "Agree any fit-out work, landlord and tenant responsibilities, and occupation timing.",
     "Request the complete cost breakdown, including VAT, recoveries, utilities, parking, deposit and escalation.",
   ];
-  return { title, description, narrative, paragraphs: vacancyDescriptionParagraphs(listing.description), details, viewing, label: vacancyLabel(listing), availability: vacancyAvailability(listing.availability) };
+  return { title, description, narrative, paragraphs: vacancyDescriptionParagraphs(source), details, viewing, label: vacancyLabel(listing), availability: vacancyAvailability(listing.availability) };
 }
