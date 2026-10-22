@@ -16,6 +16,7 @@ it.each(["cmvgae265001pmz01l33cvutx","cmvgae26d001qmz019ja0mhjg"] as const)("sep
  expect(paragraphs).toContain("Within Midpoint");
  expect(paragraphs).toContain("Pricing and viewings");
  expect(paragraphs).toContain("Before you book");
+ expect(paragraphs).toContain("Boitumelo Nkuna");
  expect(paragraphs).toContain("+27 83 717 0201");
  expect(paragraphs).toContain("boitumelo@blendproperty.co.za");
  expect(paragraphs.some(p=>p.startsWith("Explore STOR24") && p.endsWith("→"))).toBe(true);

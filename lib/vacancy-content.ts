@@ -30,7 +30,7 @@ export function vacancyDescriptionParagraphs(description: string) {
   const blocks = narrative
     .replace(/[^\S\n]+/g, " ")
     .replace(/ (Space to suit your business|Storage for the moments you need it|Within Midpoint|Pricing and viewings|Before you book) /g, "\n$1\n")
-    .replace(/ +(?=\+27 \d|[^\s@]+@[^\s@]+\.[^\s@]+|Explore STOR24\b)/g, "\n")
+    .replace(/ +(?=Boitumelo Nkuna \+27 \d|\+27 \d|[^\s@]+@[^\s@]+\.[^\s@]+|Explore STOR24\b)/g, "\n")
     .replace(/(Explore STOR24[^→]*→) */g, "$1\n")
     .replace(/(?<=[.!?]) +(?=(?:Size:|Contact\b|Photography:|Current layout\b|Rental:|Monthly rental\b))/g, "\n")
     .split(/\n+/).map(block => block.trim()).filter(Boolean);
