@@ -22,6 +22,24 @@ export function vacancyAreaNeedsConfirmation(listing: Pick<VacancyListing, "id" 
   return !!area && Number(area[1].replaceAll(",", "")) !== listing.sizeSqm;
 }
 
+export function vacancyDescriptionParagraphs(description: string) {
+  const [narrative] = decode(description)
+    .replace(/<br\s*\/?\s*>|<\/(?:p|div|li|h[1-6])\s*>/gi, "\n")
+    .replace(/<[^>]*>/g, " ")
+    .split(/Key Features\s*:?/i);
+  const blocks = narrative
+    .replace(/[^\S\n]+/g, " ")
+    .replace(/(?<=[.!?]) +(?=(?:Size:|Contact\b|Photography:|Current layout\b|Rental:|Monthly rental\b))/g, "\n")
+    .split(/\n+/).map(block => block.trim()).filter(Boolean);
+  return blocks.flatMap(block => {
+    if (/^(?:Size:|Contact\b|Photography:|Current layout\b|Rental:|Monthly rental\b)/.test(block)) return [block];
+    const sentences = block.split(/(?<=[.!?])\s+(?=[A-Z])/);
+    const paragraphs: string[] = [];
+    for (let i = 0; i < sentences.length; i += 2) paragraphs.push(sentences.slice(i, i + 2).join(" "));
+    return paragraphs;
+  });
+}
+
 export function vacancyContent(listing: VacancyListing) {
   const clean = decode(listing.description).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
   const [narrative, ...detail] = clean.split(/Key Features\s*:?/i);
@@ -46,5 +64,5 @@ export function vacancyContent(listing: VacancyListing) {
     "Agree any fit-out work, landlord and tenant responsibilities, and occupation timing.",
     "Request the complete cost breakdown, including VAT, recoveries, utilities, parking, deposit and escalation.",
   ];
-  return { title, description, narrative, details, viewing, label: vacancyLabel(listing), availability: vacancyAvailability(listing.availability) };
+  return { title, description, narrative, paragraphs: vacancyDescriptionParagraphs(listing.description), details, viewing, label: vacancyLabel(listing), availability: vacancyAvailability(listing.availability) };
 }

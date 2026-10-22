@@ -90,7 +90,7 @@ export default async function VacancyDetailPage({ params }: { params: Promise<{ 
       <section className="mx-auto grid max-w-7xl items-start gap-8 border-t border-midpoint-grey-100 px-6 py-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-12">
         <div>
           <h2 className="text-2xl font-bold text-midpoint-dark">Property details</h2>
-          <p className="mt-5 whitespace-pre-line text-base leading-8 text-midpoint-dark/80">{content.narrative}</p>
+          <div className="mt-5 space-y-4 text-base leading-7 text-midpoint-dark/80">{content.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
           {publishedFacts.length > 0 && <div className="mt-6 rounded-xl bg-[#f5f7f6] p-5">
             <h3 className="font-semibold text-midpoint-dark">At a glance</h3>
             <dl className="mt-4 grid gap-4 sm:grid-cols-2">{publishedFacts.map(fact => <div key={fact.label}><dt className="text-sm text-midpoint-grey-400">{fact.label}</dt><dd className="mt-1 font-semibold text-midpoint-dark">{fact.value}</dd></div>)}</dl>

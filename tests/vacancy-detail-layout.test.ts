@@ -39,3 +39,10 @@ it("retains source measurements and the prominent conflicting-area warning", asy
   expect(html).toContain("Area confirmation required:");
   expect(html.indexOf("Area confirmation required:")).toBeLessThan(html.indexOf("Property information to confirm"));
 });
+
+it("renders the size and rentals as separate paragraphs rather than one text block", async () => {
+  vi.stubGlobal("React", React);
+  getVacancyById.mockResolvedValue({ ...listing, description: "Office and training space. Size: 2,183 m². Rental: R115/m² per month. Monthly rental: R251,045." });
+  const html = renderToStaticMarkup(await VacancyDetailPage({ params: Promise.resolve({ id: listing.id }) }));
+  expect(html).toContain("<p>Office and training space.</p><p>Size: 2,183 m².</p><p>Rental: R115/m² per month.</p><p>Monthly rental: R251,045.</p>");
+});
