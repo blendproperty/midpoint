@@ -1,0 +1,1746 @@
+{
+  "retrievedAt": "2026-10-22",
+  "request": {
+    "dataState": "final",
+    "type": "web",
+    "country": "zaf",
+    "startDate": "2026-09-23",
+    "endDate": "2026-10-20",
+    "dateTimezone": "America/Los_Angeles"
+  },
+  "pages": {
+    "ok": true,
+    "siteUrl": "https://www.mid-point.co.za/",
+    "startDate": "2026-09-23",
+    "endDate": "2026-10-20",
+    "dimensions": [
+      "page"
+    ],
+    "rowCount": 31,
+    "rows": [
+      {
+        "keys": [
+          "https://www.mid-point.co.za/"
+        ],
+        "clicks": 51,
+        "impressions": 3338,
+        "ctr": 0.0153,
+        "position": 4.8
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/amenities"
+        ],
+        "clicks": 4,
+        "impressions": 380,
+        "ctr": 0.0105,
+        "position": 6
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/spaces"
+        ],
+        "clicks": 4,
+        "impressions": 322,
+        "ctr": 0.0124,
+        "position": 9.1
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies"
+        ],
+        "clicks": 2,
+        "impressions": 287,
+        "ctr": 0.007,
+        "position": 6.4
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/about-us"
+        ],
+        "clicks": 1,
+        "impressions": 280,
+        "ctr": 0.0036,
+        "position": 5.4
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 1,
+        "impressions": 240,
+        "ctr": 0.0042,
+        "position": 10.8
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/business-park-midrand"
+        ],
+        "clicks": 1,
+        "impressions": 239,
+        "ctr": 0.0042,
+        "position": 7
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/contact-us"
+        ],
+        "clicks": 1,
+        "impressions": 310,
+        "ctr": 0.0032,
+        "position": 4.9
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/faqs"
+        ],
+        "clicks": 1,
+        "impressions": 73,
+        "ctr": 0.0137,
+        "position": 9.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/location"
+        ],
+        "clicks": 1,
+        "impressions": 742,
+        "ctr": 0.0013,
+        "position": 6
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw4b0000n601aqy2ibd7"
+        ],
+        "clicks": 1,
+        "impressions": 13,
+        "ctr": 0.0769,
+        "position": 7.2
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw560007n6019icxact3"
+        ],
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 4.4
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog"
+        ],
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "position": 19.7
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/backup-power-for-midrand-warehouses-what-generator-on-site-actually-covers"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 33
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/business-park-vs-standalone-premises-midrand"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 9.4
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/compare-office-rental-quotes-midrand"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 100,
+        "ctr": 0,
+        "position": 9.4
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/office-rental-costs-midrand"
+        ],
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 8.6
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/onpoint-serviced-office-package-checklist"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 8.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/planning-office-and-warehouse-space-midrand"
+        ],
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 6.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 27,
+        "ctr": 0,
+        "position": 7.1
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 198,
+        "ctr": 0,
+        "position": 14.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 26,
+        "ctr": 0,
+        "position": 9.2
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw4h0001n601ouwa8j0o"
+        ],
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 9.2
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw4n0002n601y2gpa0qf"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw500005n6011rnzc2hb"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 13.2
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw5d0009n601702zlk0p"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 5.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw5g000an6018bfhms44"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw5j000bn601vz6szme4"
+        ],
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 6.5
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cmsfvflfy000yoy01stx7o2dp"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 9.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 96,
+        "ctr": 0,
+        "position": 11.7
+      }
+    ],
+    "hasMore": false,
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/search-performance"
+    }
+  },
+  "queries": {
+    "ok": true,
+    "siteUrl": "https://www.mid-point.co.za/",
+    "startDate": "2026-09-23",
+    "endDate": "2026-10-20",
+    "dimensions": [
+      "query",
+      "page"
+    ],
+    "rowCount": 657,
+    "rows": [
+      {
+        "keys": [
+          "warehouse storage space",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 10
+      },
+      {
+        "keys": [
+          "business self storage",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 25,
+        "ctr": 0,
+        "position": 3.8
+      },
+      {
+        "keys": [
+          "business storage",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 33.7
+      },
+      {
+        "keys": [
+          "business storage facility",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 4.1
+      },
+      {
+        "keys": [
+          "business storage for rent",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 20.3
+      },
+      {
+        "keys": [
+          "business storage midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 50,
+        "ctr": 0,
+        "position": 14.2
+      },
+      {
+        "keys": [
+          "business storage space",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "keys": [
+          "business warehouse space",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 20.3
+      },
+      {
+        "keys": [
+          "business warehouse space",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "central corridor gauteng",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 10.5
+      },
+      {
+        "keys": [
+          "commercial offices midrand",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "keys": [
+          "commercial storage midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 62,
+        "ctr": 0,
+        "position": 10.6
+      },
+      {
+        "keys": [
+          "commercial storage midrand",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 28
+      },
+      {
+        "keys": [
+          "commercial storage midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 10.3
+      },
+      {
+        "keys": [
+          "corporate offices",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "create a price matrix comparing self storage units prices for a 9sqm space in midrand.",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 16
+      },
+      {
+        "keys": [
+          "how far is kempton park from midrand",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 10.2
+      },
+      {
+        "keys": [
+          "how far is midrand from kempton park",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "industrial space",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "industrial unit",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "industrial units midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 13.5
+      },
+      {
+        "keys": [
+          "industrial warehouse",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 7.3
+      },
+      {
+        "keys": [
+          "industrial warehouse for rent near me",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 30
+      },
+      {
+        "keys": [
+          "industrial warehousing",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 6.6
+      },
+      {
+        "keys": [
+          "industrial wearhouse",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "industry warehouse",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "inventory stock storage midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 11.2
+      },
+      {
+        "keys": [
+          "inventory stock storage midrand",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 52.8
+      },
+      {
+        "keys": [
+          "inventory stock storage midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 30
+      },
+      {
+        "keys": [
+          "is isando in kempton park",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 10.2
+      },
+      {
+        "keys": [
+          "is kempton park close to midrand",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 12.4
+      },
+      {
+        "keys": [
+          "is kempton park in midrand",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "is kempton park near midrand",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 11.3
+      },
+      {
+        "keys": [
+          "is midrand close to kempton park",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 11.7
+      },
+      {
+        "keys": [
+          "is midrand in johannesburg or pretoria",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 26
+      },
+      {
+        "keys": [
+          "is rent-a-store midrand cheaper than other storage space alternatives in the area?",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 15.9
+      },
+      {
+        "keys": [
+          "is warehouse a commercial building",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "isando jhb",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8.5
+      },
+      {
+        "keys": [
+          "isando kempton park",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "keys": [
+          "isando to midrand",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 14,
+        "ctr": 0,
+        "position": 5.4
+      },
+      {
+        "keys": [
+          "isando, gauteng",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "kempton park to midrand",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "light industrial units midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 13.3
+      },
+      {
+        "keys": [
+          "logistics premises to let",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "mid distribution",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "midline business park",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 28.5
+      },
+      {
+        "keys": [
+          "midpoint",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 43,
+        "ctr": 0,
+        "position": 8.1
+      },
+      {
+        "keys": [
+          "midpoint - main entrance midrand",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 12.5
+      },
+      {
+        "keys": [
+          "midpoint business park",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 10.7
+      },
+      {
+        "keys": [
+          "midpoint business park",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "midpoint business park midrand",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "midpoint gym",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 5.9
+      },
+      {
+        "keys": [
+          "midpoint hub",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "midpoint hub",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "midpoint hub",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "midpoint hub",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 1.9
+      },
+      {
+        "keys": [
+          "midpoint hub midrand",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 8.3
+      },
+      {
+        "keys": [
+          "midpoint midrand",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "midpoint midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "midpoint office park",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "midpoint padel",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 8.8
+      },
+      {
+        "keys": [
+          "midpoint park",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "midpoint urban hub",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "midpount",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "midrand office to rent",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "midrand self storage",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 30,
+        "ctr": 0,
+        "position": 3.4
+      },
+      {
+        "keys": [
+          "midrand to isando",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "midrand to kempton park",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9.5
+      },
+      {
+        "keys": [
+          "midrand warehouse",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "midrand warehouse",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 17.5
+      },
+      {
+        "keys": [
+          "midrand warehouse",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "midrand warehouse to rent",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "office and warehouse space midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 10.8
+      },
+      {
+        "keys": [
+          "office fit out pretoria",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 20
+      },
+      {
+        "keys": [
+          "office space in midrand",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "office space midrand",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "office storage midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "office to rent in midrand",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "offices to rent in midrand",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 10.8
+      },
+      {
+        "keys": [
+          "offices to rent midrand",
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      },
+      {
+        "keys": [
+          "point business park",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 44
+      },
+      {
+        "keys": [
+          "rand leases",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 40
+      },
+      {
+        "keys": [
+          "rent a store midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "rent a warehouse near me",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "rent industrial warehouse",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 23
+      },
+      {
+        "keys": [
+          "rent yard",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 15
+      },
+      {
+        "keys": [
+          "self storage midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "short term warehouse space for rent",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "small warehouse to rent in midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "storage facilities midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 30
+      },
+      {
+        "keys": [
+          "storage for business",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 75
+      },
+      {
+        "keys": [
+          "storage for businesses",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "keys": [
+          "storage in midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 23
+      },
+      {
+        "keys": [
+          "storage midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 23
+      },
+      {
+        "keys": [
+          "storage places in midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 40
+      },
+      {
+        "keys": [
+          "storage space in midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 12.7
+      },
+      {
+        "keys": [
+          "storage space in midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 19.5
+      },
+      {
+        "keys": [
+          "storage units for business midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "keys": [
+          "storage units for business midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 24.5
+      },
+      {
+        "keys": [
+          "storage units for businesses",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 48
+      },
+      {
+        "keys": [
+          "storage units in midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "keys": [
+          "storage warhouse",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "temporary warehouse",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 55
+      },
+      {
+        "keys": [
+          "temporary warehouse",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 67
+      },
+      {
+        "keys": [
+          "the point business park",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "vehicle storage midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "warehouse and office space midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 10.4
+      },
+      {
+        "keys": [
+          "warehouse buildings",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 16
+      },
+      {
+        "keys": [
+          "warehouse for rent near me",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "warehouse in midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "warehouse midrand",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 24
+      },
+      {
+        "keys": [
+          "warehouse midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "warehouse rental spaces near me",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "warehouse rentals near me",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "warehouse space",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "keys": [
+          "warehouse space",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 35,
+        "ctr": 0,
+        "position": 13.9
+      },
+      {
+        "keys": [
+          "warehouse space",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "keys": [
+          "warehouse space africa",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 27.8
+      },
+      {
+        "keys": [
+          "warehouse space midrand",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 20
+      },
+      {
+        "keys": [
+          "warehouse space south africa",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 35
+      },
+      {
+        "keys": [
+          "warehouse space south africa",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "warehouse space to rent",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "warehouse storage",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 8.3
+      },
+      {
+        "keys": [
+          "warehouse storage midrand",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 8.7
+      },
+      {
+        "keys": [
+          "warehouse storage midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "warehouse to let",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 22
+      },
+      {
+        "keys": [
+          "warehouse to rent",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "warehouse to rent midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 12.3
+      },
+      {
+        "keys": [
+          "warehouse waste midrand",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "keys": [
+          "warehouse waste midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 16.2
+      },
+      {
+        "keys": [
+          "warehouse with cold storage for rent",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "warehouses",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 15
+      },
+      {
+        "keys": [
+          "warehouses buildings",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "warehouses for rent near me",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "warehouses in midrand",
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 26
+      },
+      {
+        "keys": [
+          "warehouses in midrand",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 8.3
+      },
+      {
+        "keys": [
+          "warehouses to lease",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "warehouses to rent",
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "warehousing space",
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 9.2
+      },
+      {
+        "keys": [
+          "warehousing space",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "waterfall point",
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "what is an industrial warehouse",
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 6
+      }
+    ],
+    "hasMore": false,
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/search-performance"
+    },
+    "selectionNote": "Refresh candidates and recently refreshed runners-up retained from 657 query/page rows, hasMore false. Anonymised queries may be omitted; rows are not additive demand."
+  }
+}

@@ -23,6 +23,7 @@ export function pillarPageJsonLd(pillar: PillarSchemaInput, faqs: { question: st
         image: pillar.heroImage ? new URL(pillar.heroImage, root).href : undefined,
         about: { ...midpointPlaceJsonLd(), "@id": `${root}/#midpoint` },
         mentions: organizationJsonLd(),
+        author: organizationJsonLd(),
         ...(hasListings ? { mainEntity: { "@id": `${url}#availability` } } : {}),
         ...(faqs.length ? { hasPart: { "@id": `${url}#faq` } } : {}),
         ...(pillar.lastReviewedAt ? { lastReviewed: pillar.lastReviewedAt.toISOString() } : {}),

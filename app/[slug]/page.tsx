@@ -28,6 +28,7 @@ import { getAllVacancies, vacancySector } from "@/lib/vacancies";
 import { pillarPageJsonLd } from "@/lib/pillar-schema";
 import { buildPageMetadata } from "@/lib/seo-metadata";
 import { safeJsonLd } from "@/lib/json-ld";
+import ContentAuthor from "@/components/ContentAuthor";
 
 export const dynamic = "force-dynamic";
 
@@ -178,6 +179,7 @@ export default async function PillarPagePublic({ params }: { params: Promise<{ s
         imageAlt={pillar.title}
       />
 
+      <div className="mx-auto max-w-7xl px-6 pb-6"><ContentAuthor /></div>
       <PillarTableOfContents items={supportingPosts.length ? [...tocItems, { id: "supporting-articles", label: "Articles" }] : tocItems} />
 
       {pillar.slug === "amenities" && <AmenitiesSection detail />}

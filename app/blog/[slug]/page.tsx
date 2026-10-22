@@ -11,6 +11,7 @@ import { blogPostingJsonLd } from "@/lib/seo";
 import { buildPageMetadata } from "@/lib/seo-metadata";
 import { removeDuplicateCoverImage } from "@/lib/blog-content";
 import { safeJsonLd } from "@/lib/json-ld";
+import ContentAuthor from "@/components/ContentAuthor";
 
 export const dynamic = "force-dynamic";
 
@@ -74,6 +75,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </aside>
         )}
         <h1 className="text-4xl font-bold text-midpoint-dark">{post.title}</h1>
+        <ContentAuthor />
         {/* Content is authored by trusted admin users only via /admin/blog, not
             public input, so rendering the stored HTML directly is safe. */}
         <div
