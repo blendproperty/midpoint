@@ -49,8 +49,8 @@ export default async function InsightsPage() {
       <BreadcrumbJsonLd items={breadcrumbItems} node={jsonLdNode} />
       <Breadcrumbs items={breadcrumbItems} />
       <PageHero
-        title="Your guides to Midpoint"
-        subtitle="Explore our main guides to the estate, its spaces and working life. Each guide brings together the information and supporting articles for that topic."
+        title="Midrand office and warehouse leasing guides"
+        subtitle="Compare office, warehouse and serviced-office requirements at Midpoint in Halfway House. Use the guides to plan your space, assess costs and prepare for a viewing, then check the latest published vacancies."
         image="/images/sitemap/aerial.jpg"
         imageAlt="Aerial view of Midpoint Business Park in Midrand"
       />
@@ -60,7 +60,12 @@ export default async function InsightsPage() {
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">Explore by topic</p>
             <h2 className="mt-3 text-3xl font-semibold text-midpoint-dark md:text-5xl">Start with a guide</h2>
-            <p className="mt-5 max-w-2xl leading-7 text-midpoint-grey-400">Choose the topic that matters to your business. Follow each guide to explore its supporting articles and practical advice.</p>
+            <p className="mt-5 max-w-2xl leading-7 text-midpoint-grey-400">Looking for warehouse space or an office in Midrand? Start with the relevant guide below, then compare actual units rather than relying on an estate-wide description.</p>
+            <nav aria-label="Find available space" className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-midpoint-dark underline">
+              <Link href="/vacancies?sector=Warehouse">View warehouse vacancies</Link>
+              <Link href="/vacancies?sector=Office">View office vacancies</Link>
+              <Link href="/vacancies?sector=Serviced%20office">View serviced-office vacancies</Link>
+            </nav>
           </Reveal>
           <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {orderedPillars.map((pillar, index) => (
