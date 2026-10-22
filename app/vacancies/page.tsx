@@ -70,6 +70,7 @@ export default async function Vacancies({
         <h1 className="text-4xl font-bold text-midpoint-dark md:text-5xl">A space for your next chapter</h1>
         <p className="mt-4 max-w-2xl text-midpoint-grey-400">
           Explore offices, warehouses and serviced suites. Find the right fit, review the details and arrange a viewing with our leasing team.
+          {" "}<a href="#rental-budget" className="font-semibold text-midpoint-dark underline">Plan your monthly rental budget.</a>
         </p>
       </section>
 
