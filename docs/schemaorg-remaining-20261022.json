@@ -1,0 +1,146 @@
+{
+  "snapshotId": "schemaorg-20261022T090440Z-access-blocked",
+  "site": "midpoint",
+  "at": "2026-10-22T09:04:40Z",
+  "resultsReport": "docs/schemaorg-retry-20261022.json",
+  "remainingCount": 34,
+  "remaining": [
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/compare-office-rental-quotes-midrand"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/serviced-vs-conventional-offices-midrand"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/onpoint-serviced-office-package-checklist"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/office-viewing-checklist-midrand"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/office-floor-plan-fit-out-checklist-midrand"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/business-park-vs-standalone-premises-midrand"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/planning-office-and-warehouse-space-midrand"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/assess-midrand-staff-client-delivery-routes"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/business-park-amenities-leasing-checklist"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/warehouse-rental-costs-midrand"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/halfway-house-vs-waterfall-office-space"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/blog/6-weaver-avenue-warehouse-walkthrough"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/location"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/services-offices"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/business-park-midrand"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/amenities"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/warehouses"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/offices"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw4n0002n601y2gpa0qf"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw560007n6019icxact3"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgb129n0001qp01ia0fs15y"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw500005n6011rnzc2hb"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw5j000bn601vz6szme4"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfuu4xu000ooy01x3ulli7b"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgae265001pmz01l33cvutx"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflha000zoy01wxkk2efu"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflhj0010oy014b1ytkku"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmuz7chn0009up901ll35sgdh"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw530006n601h1qw8gzm"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw4v0004n60127izdqzj"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw590008n601tuhv5okk"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw5d0009n601702zlk0p"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflfy000yoy01stx7o2dp"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgae26d001qmz019ja0mhjg"
+    }
+  ],
+  "resumeRule": "Use only uncompleted URLs; access must be available before a separately authorized retry. Preserve historical passes."
+}
