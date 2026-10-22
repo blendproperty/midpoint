@@ -20,7 +20,7 @@ Goal: help prospective office, warehouse and serviced-office occupiers choose sp
 | 12. Useful FAQs | Retain useful visible leasing answers; add technical answers only with approved source facts. Do not promise Google FAQ rich results. |
 | 13. Link outreach | Potential partner/unlinked-mention work remains unsent. No paid link exchange, triangular exchange network or bulk outreach implemented. |
 | 14. Comparison pages | Existing occupier-format and location comparisons support leasing choices. No unsupported named-competitor superiority or market-wide price claims added. |
-| 15. Accurate schema | Previous release has 51 independent live passes. Official checks resumed for three pages with zero errors/warnings; current historical queue is 32, and Google remains incomplete. Those results apply to the prior runtime, not this new tool release. |
+| 15. Accurate schema | Current tool release has 51 independent live passes. Three official Schema.org page checks passed on the prior runtime; the historical queue remains 32 and Google remains incomplete. No official result is implied for this release. |
 
 The document's guaranteed ranking jumps and routine-publishing claims are not acceptance criteria. Current Google guidance on [helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content), [spam policies](https://developers.google.com/search/docs/essentials/spam-policies) and [FAQ feature retirement](https://developers.google.com/search/updates) was checked in this chat's initial assessment. Search engines can use valid schema without displaying a particular search feature.
 
@@ -35,10 +35,12 @@ The document's guaranteed ranking jumps and routine-publishing claims are not ac
 
 ## Verification and release
 
-- **Implementation:** complete locally; production release pending.
-- **Testing:** 224 tests across 60 files passed, including PostgreSQL integration, arithmetic/unknown-zero/invalid/overflow cases and rendered listing eligibility. Initial production build passed; final text-aligned build and browser checks pending.
-- **Commit and push:** pending on isolated `codex/seo-rental-budget-20261022`, based on verified canonical main `47c53f7`. Original dirty checkout preserved.
-- **Merge:** pending. **Deployment/configuration:** pending normal gated release; no configuration/data migration intended. **Live production verification:** pending.
+- **Implementation:** live at [the vacancy rental-budget tool](https://www.mid-point.co.za/vacancies#rental-budget), discoverable from Insights and the vacancy introduction.
+- **Testing:** 225 tests across 60 files passed, including PostgreSQL integration and half-cent/unknown-zero/invalid/overflow cases. Production builds and schema controls passed; exact final-source [CI](https://github.com/blendproperty/midpoint/actions/runs/39782938243) succeeded.
+- **Commit and push:** final source `9eadb367f15234eb5fa8bd74fb35786abbe219c1` pushed on the isolated implementation branch. Original dirty checkout preserved; final context/evidence promoted separately by normal fast-forward.
+- **Merge:** [PR18](https://github.com/blendproperty/midpoint/pull/18) squash `f089b87d473263696bcf29459979e4da3f7f8efb` exactly matches the tested source tree.
+- **Deployment/configuration:** [release](https://github.com/blendproperty/midpoint/actions/runs/39783309298) succeeded on attempt 2 after an initial SSH connection timeout before remote commands. Exact runtime `f089b87d4732` verified; no new migration/configuration/dependency.
+- **Live production verification:** 48 browser checks and three visually inspected layouts (1440/390/320px), including actual input/selection/reset flows, half-cent display and existing office-calculator flow. Independent schema audit: 51 URLs, zero errors/warnings/fetch failures. All 19 articles, six guides and 16 vacancy source records unchanged; routine sync timestamps excluded. [Durable live evidence](rental-budget-live-20261022.json), [independent schema report](schema-rental-budget-live-20261022.json). No real enquiry or third-party analytics event sent by the test browser.
 
 ## Preserved gates
 

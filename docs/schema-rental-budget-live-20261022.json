@@ -1,0 +1,517 @@
+{
+  "at": "2026-10-22T13:10:37.617Z",
+  "validator": "schemacraft-validator@1.0.1 with pinned vocabulary/default-graph adapter",
+  "origin": "https://www.mid-point.co.za",
+  "pages": [
+    {
+      "url": "https://www.mid-point.co.za/",
+      "summary": {
+        "validatedDefinitions": 19,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/about-us",
+      "summary": {
+        "validatedDefinitions": 13,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/spaces",
+      "summary": {
+        "validatedDefinitions": 13,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/contact-us",
+      "summary": {
+        "validatedDefinitions": 13,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/insights",
+      "summary": {
+        "validatedDefinitions": 13,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies",
+      "summary": {
+        "validatedDefinitions": 181,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/faqs",
+      "summary": {
+        "validatedDefinitions": 23,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog",
+      "summary": {
+        "validatedDefinitions": 8,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/the-suites-at-midpoint",
+      "summary": {
+        "validatedDefinitions": 4,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/privacy-policy",
+      "summary": {
+        "validatedDefinitions": 8,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/warehouse-checklist-midrand-eave-height-loading-yard-space",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/getting-the-office-to-warehouse-ratio-right-in-midrand",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/backup-power-for-midrand-warehouses-what-generator-on-site-actually-covers",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/office-rental-costs-midrand",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/compare-office-rental-quotes-midrand",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/serviced-vs-conventional-offices-midrand",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/onpoint-serviced-office-package-checklist",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/office-viewing-checklist-midrand",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/office-floor-plan-fit-out-checklist-midrand",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/business-park-vs-standalone-premises-midrand",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/planning-office-and-warehouse-space-midrand",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/assess-midrand-staff-client-delivery-routes",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/business-park-amenities-leasing-checklist",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/warehouse-rental-costs-midrand",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/halfway-house-vs-waterfall-office-space",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/6-weaver-avenue-warehouse-walkthrough",
+      "summary": {
+        "validatedDefinitions": 14,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/location",
+      "summary": {
+        "validatedDefinitions": 32,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/services-offices",
+      "summary": {
+        "validatedDefinitions": 84,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/business-park-midrand",
+      "summary": {
+        "validatedDefinitions": 40,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/amenities",
+      "summary": {
+        "validatedDefinitions": 34,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/warehouses",
+      "summary": {
+        "validatedDefinitions": 97,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/offices",
+      "summary": {
+        "validatedDefinitions": 99,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw4n0002n601y2gpa0qf",
+      "summary": {
+        "validatedDefinitions": 18,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw560007n6019icxact3",
+      "summary": {
+        "validatedDefinitions": 18,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw500005n6011rnzc2hb",
+      "summary": {
+        "validatedDefinitions": 18,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cmvgb129n0001qp01ia0fs15y",
+      "summary": {
+        "validatedDefinitions": 18,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw5j000bn601vz6szme4",
+      "summary": {
+        "validatedDefinitions": 18,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cmsfuu4xu000ooy01x3ulli7b",
+      "summary": {
+        "validatedDefinitions": 18,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cmvgae265001pmz01l33cvutx",
+      "summary": {
+        "validatedDefinitions": 15,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflha000zoy01wxkk2efu",
+      "summary": {
+        "validatedDefinitions": 16,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflhj0010oy014b1ytkku",
+      "summary": {
+        "validatedDefinitions": 19,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cmuz7chn0009up901ll35sgdh",
+      "summary": {
+        "validatedDefinitions": 18,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw530006n601h1qw8gzm",
+      "summary": {
+        "validatedDefinitions": 18,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw4v0004n60127izdqzj",
+      "summary": {
+        "validatedDefinitions": 20,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw5d0009n601702zlk0p",
+      "summary": {
+        "validatedDefinitions": 18,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw590008n601tuhv5okk",
+      "summary": {
+        "validatedDefinitions": 18,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflfy000yoy01stx7o2dp",
+      "summary": {
+        "validatedDefinitions": 24,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cmvgae26d001qmz019ja0mhjg",
+      "summary": {
+        "validatedDefinitions": 15,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

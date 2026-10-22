@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-22",
+  "sourceHead": "9eadb367f15234eb5fa8bd74fb35786abbe219c1",
+  "mergeRuntime": "f089b87d473263696bcf29459979e4da3f7f8efb",
+  "pullRequest": "https://github.com/blendproperty/midpoint/pull/18",
+  "exactSourceCI": "https://github.com/blendproperty/midpoint/actions/runs/39782938243",
+  "tests": {
+    "passed": 225,
+    "files": 60,
+    "localBoundedWorkerRerunPassed": true,
+    "productionBuildAndSchemaControlsPassed": true
+  },
+  "deployment": {
+    "workflow": "https://github.com/blendproperty/midpoint/actions/runs/39783309298",
+    "successfulAttempt": 2,
+    "initialFailure": "SSH connection timeout before remote commands; previous runtime remained serving",
+    "finalJobs": [
+      {
+        "name": "deploy",
+        "conclusion": "success"
+      },
+      {
+        "name": "test",
+        "conclusion": "success"
+      }
+    ],
+    "image": "midpoint-web:f089b87d4732",
+    "webStartedUTC": "2026-10-22T13:08:49.506280333Z",
+    "schedulerStartedUTC": "2026-10-22T13:09:01.551426151Z",
+    "configurationOrNewMigration": false
+  },
+  "browser": {
+    "at": "2026-10-22T13:10:14.720Z",
+    "base": "https://www.mid-point.co.za",
+    "checks": [
+      "Unknown charges stay explicit",
+      "No nested form / no calculator form submission",
+      "Unsafe or unpriced starting figures excluded: cmsfvflha000zoy01wxkk2efu",
+      "Unsafe or unpriced starting figures excluded: cmvgae265001pmz01l33cvutx",
+      "Unsafe or unpriced starting figures excluded: cmvgae26d001qmz019ja0mhjg",
+      "Valid published starting figure available",
+      "Published area applied",
+      "Published rate applied",
+      "Published base rent correct",
+      "Known subtotal correct",
+      "One unknown charge is not a zero",
+      "No VAT treatment invented",
+      "Current source listing linked",
+      "Source listing destination available",
+      "Quote destination available",
+      "No overflow at 1440",
+      "No overflow at 390",
+      "No overflow at 320",
+      "All entered monthly costs included",
+      "All confirmed entries labelled as an estimate",
+      "Invalid base does not produce a subtotal",
+      "Invalid field accessible",
+      "Manual edit clears source selection",
+      "Clear restores blank values",
+      "Clear restores unconfirmed charges",
+      "Explicit zero charges accepted",
+      "Half cent displayed correctly",
+      "Keyboard closes disclosure",
+      "Keyboard opens disclosure",
+      "Existing office calculator still calculates and filters",
+      "Planned area carried into budget",
+      "No rate guessed for planned area",
+      "Independent schema valid: /vacancies",
+      "One H1: /vacancies",
+      "Canonical retained: /vacancies",
+      "Exact public runtime: /vacancies",
+      "Independent schema valid: /insights",
+      "One H1: /insights",
+      "Canonical retained: /insights",
+      "Exact public runtime: /insights",
+      "Independent schema valid: /offices",
+      "One H1: /offices",
+      "Canonical retained: /offices",
+      "Exact public runtime: /offices",
+      "Independent schema valid: /warehouses",
+      "One H1: /warehouses",
+      "Canonical retained: /warehouses",
+      "Exact public runtime: /warehouses"
+    ],
+    "layouts": [
+      {
+        "width": 1440,
+        "viewport": 1440,
+        "document": 1440,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "viewport": 390,
+        "document": 390,
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "viewport": 320,
+        "document": 320,
+        "overflow": false
+      }
+    ]
+  },
+  "sourceDataComparison": {
+    "articleRowsUnchanged": 19,
+    "pillarRowsUnchanged": 6,
+    "vacancySourceFieldsUnchanged": 16,
+    "insightsMetadataUnchanged": true,
+    "routineVacancySyncTimestampsExcluded": true
+  },
+  "independentSchema": {
+    "at": "2026-10-22T13:10:37.617Z",
+    "pages": 51,
+    "validatedDefinitions": 1236,
+    "errors": 0,
+    "warnings": 0,
+    "report": "schema-rental-budget-live-20261022.json"
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390,
+      320
+    ],
+    "productionScreenshotsInspected": true,
+    "localEvidence": "tmp/budget-live/"
+  },
+  "remaining": {
+    "officialGoogle": "reCAPTCHA service connection failure; user directed continuation",
+    "officialSchemaHistoricalPending": 32,
+    "priorRuntimeFreshOfficialPasses": 3,
+    "newRuntimeOfficialPasses": 0,
+    "realEnquirySubmitted": false,
+    "rankingOrQualifiedLeadUpliftEstablished": false,
+    "commercialTerms": "indicative; confirm current area/rate/VAT/charges/availability and full quote",
+    "customerDeviceUATAndPriorProviderDataApprovalGates": "preserved"
+  }
+}
