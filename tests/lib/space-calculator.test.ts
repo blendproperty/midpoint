@@ -18,8 +18,11 @@ describe("calculateSpaceRange", () => {
 });
 
 describe("calculateRentalBudget", () => {
-  it("adds known recurring charges to a rounded monthly base rent", () => {
-    expect(calculateRentalBudget(500.66, 120, [1250, 500, null, 0])).toEqual({ baseRent: 60079.2, subtotal: 61829.2, unconfirmedCharges: 1 });
+  it("adds known recurring charges to the monthly base rent", () => {
+    const result = calculateRentalBudget(500.66, 120, [1250, 500, null, 0]);
+    expect(result.baseRent).toBeCloseTo(60079.2, 2);
+    expect(result.subtotal).toBeCloseTo(61829.2, 2);
+    expect(result.unconfirmedCharges).toBe(1);
   });
   it("keeps blank charges unconfirmed and accepts an explicitly confirmed zero", () => {
     expect(calculateRentalBudget(100, 110, [null, null, null, null])).toEqual({ baseRent: 11000, subtotal: 11000, unconfirmedCharges: 4 });
@@ -35,5 +38,9 @@ describe("calculateRentalBudget", () => {
   it("does not return infinity for overflowing inputs or totals", () => {
     expect(calculateRentalBudget(Number.MAX_VALUE, 2, []).baseRent).toBeNull();
     expect(calculateRentalBudget(100, 110, [Number.MAX_VALUE, Number.MAX_VALUE]).subtotal).toBeNull();
+    expect(calculateRentalBudget(1e100, 100, []).baseRent).toBeNull();
+  });
+  it("retains half cents for the currency formatter instead of rounding them down early", () => {
+    expect(calculateRentalBudget(0.03, 33.5, [0, 0, 0, 0])).toEqual({ baseRent: 1.005, subtotal: 1.005, unconfirmedCharges: 0 });
   });
 });
