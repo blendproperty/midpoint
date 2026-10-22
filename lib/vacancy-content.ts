@@ -26,7 +26,7 @@ export function vacancyDescriptionParagraphs(description: string) {
   const [narrative] = decode(description)
     .replace(/<br\s*\/?\s*>|<\/(?:p|div|li|h[1-6])\s*>/gi, "\n")
     .replace(/<[^>]*>/g, " ")
-    .split(/Key Features\s*:?/i);
+    .split(/Key\s+Features\s*:?/i);
   const blocks = narrative
     .replace(/[^\S\n]+/g, " ")
     .replace(/(?<=[.!?]) +(?=(?:Size:|Contact\b|Photography:|Current layout\b|Rental:|Monthly rental\b))/g, "\n")
