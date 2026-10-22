@@ -87,27 +87,38 @@ export default async function VacancyDetailPage({ params }: { params: Promise<{ 
           <div className="mt-8 flex flex-wrap gap-3"><Link href={enquiryHref} data-analytics-event="enquiry_start" data-analytics-location="vacancy_detail" data-vacancy-id={listing.id} data-vacancy-name={label} className="rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark">Arrange a viewing</Link><Link href="/vacancies" className="rounded-full border border-midpoint-dark/20 px-6 py-3 text-sm font-semibold text-midpoint-dark">Back to vacancies</Link></div>
         </div>
       </section>
-      <section className="mx-auto grid max-w-7xl gap-10 border-t border-midpoint-grey-100 px-6 py-12 lg:grid-cols-[1.15fr_0.85fr]">
+      <section className="mx-auto grid max-w-7xl items-start gap-8 border-t border-midpoint-grey-100 px-6 py-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-12">
         <div>
           <h2 className="text-2xl font-bold text-midpoint-dark">Property details</h2>
-          <div className="mt-5 rounded-xl border border-midpoint-dark/15 p-5">
-            <h3 className="text-lg font-semibold text-midpoint-dark">Published unit information</h3>
-            <p className="mt-3 text-sm leading-6 text-midpoint-grey-400">The figures below come from this unit’s current listing description. They are source statements, not independently measured or certified specifications. Confirm the current condition, proposed works and suitability against your operational brief.</p>
-            {publishedFacts.length > 0 ? <dl className="mt-4 grid gap-4 sm:grid-cols-2">{publishedFacts.map(fact => <div key={fact.label}><dt className="text-sm text-midpoint-grey-400">{fact.label}</dt><dd className="mt-1 font-semibold text-midpoint-dark">{fact.value}</dd></div>)}</dl> : <p className="mt-4 text-sm text-midpoint-grey-400">No labelled technical measurements were identified in this listing description. Request the current unit specification schedule and dimensioned floor plan from leasing.</p>}
-            <p className="mt-4 text-sm leading-6 text-midpoint-grey-400">A generator or backup-water feature does not establish this unit’s allocation, supported equipment or service inclusions. Confirm access hours, parking, VAT, recoveries, utilities and occupation timing in a written quote.</p>
-          </div>
-          <p className="mt-5 whitespace-pre-line leading-7 text-midpoint-grey-400">{content.narrative}</p>
+          <p className="mt-5 whitespace-pre-line text-base leading-8 text-midpoint-dark/80">{content.narrative}</p>
+          {publishedFacts.length > 0 && <div className="mt-6 rounded-xl bg-[#f5f7f6] p-5">
+            <h3 className="font-semibold text-midpoint-dark">At a glance</h3>
+            <dl className="mt-4 grid gap-4 sm:grid-cols-2">{publishedFacts.map(fact => <div key={fact.label}><dt className="text-sm text-midpoint-grey-400">{fact.label}</dt><dd className="mt-1 font-semibold text-midpoint-dark">{fact.value}</dd></div>)}</dl>
+            <p className="mt-4 text-xs leading-5 text-midpoint-grey-400">Figures from the published description; confirm current specifications with leasing.</p>
+          </div>}
           {content.details.length > 0 && <ul className="mt-5 space-y-3 text-midpoint-grey-400">{content.details.map((detail, index) => <li key={index} className="flex gap-3"><span aria-hidden="true" className="text-midpoint-dark">•</span><span>{detail}</span></li>)}</ul>}
           {areaNeedsConfirmation && <p className="mt-5 rounded-xl bg-amber-50 p-4 text-sm text-midpoint-dark">Area confirmation required: the published area field and source description currently differ. Please request the confirmed lettable area and floor plan before comparing costs.</p>}
-          <p className="mt-5 text-xs text-midpoint-grey-400">Listing data updated {listing.updatedAt.toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric", timeZone: "Africa/Johannesburg" })}. Source features may include shared estate facilities; confirm operating status, unit coverage, charges and any restrictions.</p>
+          <details className="mt-6 border-y border-midpoint-grey-100 py-4 text-sm text-midpoint-dark">
+            <summary className="cursor-pointer font-semibold">Property information to confirm</summary>
+            <div className="mt-3 space-y-3 leading-6 text-midpoint-grey-400">
+              <p>Listing details are supplied by the source and are not independently measured or certified. Request the current floor plan and confirm the condition, proposed works and suitability for your business.</p>
+              <p>Features may include shared estate facilities. Confirm the unit’s backup power and water allocation, supported equipment, service inclusions, operating status and restrictions.</p>
+              <p>Confirm access hours, parking, VAT, recoveries, utilities and occupation timing in a written quote.</p>
+            </div>
+          </details>
+          <p className="mt-4 text-xs text-midpoint-grey-400">Listing updated {listing.updatedAt.toLocaleDateString("en-ZA", { day: "numeric", month: "long", year: "numeric", timeZone: "Africa/Johannesburg" })}</p>
           <Link href={guideHref} className="mt-6 inline-block font-semibold text-midpoint-dark underline">Compare {listing.sector.toLowerCase()} space at Midpoint →</Link>
         </div>
         <aside className="rounded-card bg-[#f5f7f6] p-6 md:p-8">
           <h2 className="text-2xl font-bold text-midpoint-dark">Plan your viewing</h2>
-          <p className="mt-4 text-sm leading-6 text-midpoint-grey-400">Bring your occupation date, area requirement and operational brief. Ask the leasing team to confirm these points for {listing.unitName || listing.building}:</p>
-          <ul className="mt-5 space-y-4 text-sm leading-6 text-midpoint-dark">{content.viewing.map(item => <li key={item} className="flex gap-3"><span aria-hidden="true">•</span><span>{item}</span></li>)}</ul>
-          <Link href={enquiryHref} data-analytics-event="enquiry_start" data-analytics-location="vacancy_viewing_brief" data-vacancy-id={listing.id} data-vacancy-name={label} className="mt-6 inline-flex rounded-full bg-midpoint-cyan px-6 py-3 text-sm font-semibold text-midpoint-dark">Request a floor plan and viewing</Link>
+          <p className="mt-3 text-sm leading-6 text-midpoint-dark/70">See the space, get the floor plan and discuss what your business needs with our leasing team.</p>
+          <Link href={enquiryHref} data-analytics-event="enquiry_start" data-analytics-location="vacancy_viewing_brief" data-vacancy-id={listing.id} data-vacancy-name={label} className="mt-5 flex justify-center rounded-full bg-midpoint-cyan px-5 py-3 text-center text-sm font-semibold text-midpoint-dark">Request a floor plan and viewing</Link>
           <a href={`tel:${settings.phone.replace(/[^+\d]/g, "")}`} className="mt-5 block text-sm font-semibold text-midpoint-dark">Call {settings.phone}</a>
+          <details className="mt-6 border-t border-midpoint-dark/10 pt-4 text-sm text-midpoint-dark">
+            <summary className="cursor-pointer font-semibold">What to check at your viewing</summary>
+            <p className="mt-3 leading-6 text-midpoint-dark/70">Bring your preferred occupation date, area requirement and business brief.</p>
+            <ul className="mt-4 space-y-3 leading-6">{content.viewing.map(item => <li key={item} className="flex gap-3"><span aria-hidden="true">•</span><span>{item}</span></li>)}</ul>
+          </details>
         </aside>
       </section>
     </article>

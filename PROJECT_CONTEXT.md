@@ -1,5 +1,13 @@
 # Midpoint Project Context
 
+## 2026-10-22 - Shared vacancy property-details layout repair
+
+- **Implementation:** corrected the shared `/vacancies/[id]` template after the live Stellantis page showed a large disclaimer/empty technical card ahead of the description and a stretched viewing sidebar. Property description now leads, actual published specifications appear only when available, and source/coverage/charges confirmations remain in an accessible native disclosure. The viewing panel sizes to its content, keeps the enquiry/phone actions above an optional sector-specific checklist, and stacks on mobile. Existing disputed-area warning, business facts, schema, photos, brochure links and enquiry analytics contracts are retained.
+- **Testing:** 20 focused assertions pass across rendered detail pages, leasing content/schema and measurement extraction; rendered fixtures cover office, warehouse, serviced office, missing specifications and disputed area. Local Tailwind desktop/mobile preview inspected; mobile content fits the viewport. Exact-source CI (full suite, disposable database integration, schema controls and production build), merge/deployment and live checks remain pending.
+- **Commit and push:** scoped `codex/vacancy-details-layout-20261022` from freshly verified canonical origin/main `6fe152385d6c8a3f17bad08b896fd0104b8adc3b`; task PR promotion pending. Unrelated dirty original checkout and untracked next-env.d.ts/tmp are preserved. **Merge:** pending. **Deployment/configuration:** pending normal workflow; no migration, provider, billing or customer-data change. **Live production verification:** pre-change defect confirmed on the actual Stellantis URL; post-release visual/interaction checks pending.
+- **Remaining gates:** exact-source CI, merge, deployed-head verification, live desktop/mobile inspection and remote canonical context readback. Prior source/availability, genuine customer/device/UAT, Clarity/GA4/CRM, external Schema.org, indexing/ranking, provider, privacy/legal/finance, data/training/approval gates remain. No external tracker in scope.
+
+
 ## 2026-10-21 - Official Schema.org retry:19 passed;36 checks remain incomplete
 
 - **Implementation:** documentation/evidence only; no application/schema/business-data change. Retried the official Schema.org browser URL-fetch workflow against the55 previously incomplete URLs. Access initially recovered, so actual live URL tests resumed; no independent CLI result was substituted.
