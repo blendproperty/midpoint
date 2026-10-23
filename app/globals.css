@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Shared topic links on the Blog and Insights indexes. */
+.topic-navigation > a {
+  @apply flex min-h-16 items-center justify-between gap-4 rounded-2xl border border-midpoint-dark/15 bg-white px-5 py-4 text-sm font-semibold leading-6 text-midpoint-dark transition-colors hover:border-midpoint-dark hover:bg-midpoint-dark hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-midpoint-dark;
+}
+.topic-navigation > a::after {
+  content: "\2192";
+  @apply shrink-0 text-xl text-current;
+}
+
 /* Booking calendars remain within the viewport, including sticky sidebars. */
 [role="dialog"][aria-label="Select stay dates"] {
   position: fixed;
