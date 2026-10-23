@@ -30,7 +30,7 @@ export default async function BlogIndexPage() {
         <p className="mt-4 max-w-2xl text-midpoint-grey-400">{description}</p>
 
         <h2 className="mt-8 text-2xl font-semibold text-midpoint-dark">Choose your leasing guide</h2>
-        <nav aria-label="Property and leasing topics" className="mt-4 flex flex-wrap gap-x-6 gap-y-3 font-semibold text-midpoint-dark underline">
+        <nav aria-label="Property and leasing topics" className="topic-navigation mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <Link href="/offices">Office space</Link>
           <Link href="/warehouses">Warehouse space</Link>
           <Link href="/services-offices">Serviced offices</Link>

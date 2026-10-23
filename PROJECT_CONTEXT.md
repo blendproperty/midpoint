@@ -1,5 +1,15 @@
 # Midpoint Project Context
 
+## 2026-10-23 — Blog and Insights navigation polish
+
+- **Implementation:** compact opaque editorial header, visible cyan current-page state, quieter desktop phone link and responsive topic tiles on both indexes. Shared mobile menu excludes collapsed links from keyboard navigation, restores focus on Escape and scrolls on short screens. Existing pillar/article content, routes, home hero overlay and booking/contact functions preserved. [Scope and repeatable checks](docs/NAVIGATION_POLISH_20261023.md).
+- **Testing:** initial 226 tests/61 files passed with disposable PostgreSQL integrations; production build and independent schema controls passed. Initial browser checks passed both pages at 1440/1280/1009/768/390/320px, ten destinations, short-screen menu and article navigation without browser errors. Final opaque-header/short-screen refinements are undergoing the same checks before promotion. Local fixtures are synthetic; no production form submissions.
+- **Commit and push:** isolated `codex/nav-polish-20261023` from fetched `origin/main` `ce3f0ce142989c4c85c0c46d101e0bc38ace8cff`; original dirty checkout preserved. Not yet pushed.
+- **Merge:** pending passing final validation and CI.
+- **Deployment and configuration:** pending normal gated deployment; no dependencies, migrations or provider/data/configuration changes requested.
+- **Live production verification:** pending deployment; local rendering is not live acceptance.
+- **Remaining gates:** physical-device and assistive-technology UAT not performed. Preserve all existing official schema/CAPTCHA, Kingfisher source-data, indexing/lead measurement, accommodation, provider, legal, finance, training and owner approval gates. No project tracker is in scope.
+
 ## 2026-10-23 — Storage routing and blog discovery deployed and verified
 
 - **Implementation:** user deferred inaccessible official validators and requested other SEO work. Corrected two reviewed portions of the storage comparison article to reflect the STOR24 service offerings published on 20 October, with exact detail links and explicit unknown-price/unit-availability/size/use qualifications. Existing article metadata, original publication, cover, pillar relationship and Kingfisher warning preserved. Exact-content/CRLF-safe migration skips later editorial changes. Blog archive gets a specific title/H1/description, six existing pillar links and vacancy/budget routes, retaining all 19 ordered article cards. No schema generator, dependency, provider/contact/analytics or commercial source-record change. [Scope and evidence](docs/SEO_CONTENT_DISCOVERY_20261023.md).

@@ -61,7 +61,7 @@ export default async function InsightsPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-midpoint-grey-400">Explore by topic</p>
             <h2 className="mt-3 text-3xl font-semibold text-midpoint-dark md:text-5xl">Start with a guide</h2>
             <p className="mt-5 max-w-2xl leading-7 text-midpoint-grey-400">Looking for warehouse space or an office in Midrand? Start with the relevant guide below, then compare actual units rather than relying on an estate-wide description.</p>
-            <nav aria-label="Find available space" className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-midpoint-dark underline">
+            <nav aria-label="Find available space" className="topic-navigation mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <Link href="/vacancies?sector=Warehouse">View warehouse vacancies</Link>
               <Link href="/vacancies?sector=Office">View office vacancies</Link>
               <Link href="/vacancies?sector=Serviced%20office">View serviced-office vacancies</Link>
