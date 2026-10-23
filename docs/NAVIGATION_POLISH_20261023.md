@@ -16,7 +16,13 @@
 
 ## Release status
 
-Implementation ready for validation and normal PR/CI promotion. Commit/push, merge, deployment and live verification will be recorded separately in `PROJECT_CONTEXT.md` after each is observed. Local checks do not establish production success.
+Source `9ef2eef9b967d7e40a070d2e433ee36752910f3f` passed final local 226 tests/61 files and [PR CI39914344079](https://github.com/blendproperty/midpoint/actions/runs/39914344079), including complete production build and independent schema controls. SHA-guarded [PR20](https://github.com/blendproperty/midpoint/pull/20) merged as `34f8247fb3d2ceef38d509662f0a2350fb148a43`; merged runtime files match tested source.
+
+Final local browser checks passed all twelve page/viewport combinations and ten topic destinations, short-screen menu, supporting-article current state and home overlay with no browser errors. [Local evidence](navigation-local-20261023.json). Desktop/mobile screenshots were reviewed. Initial complete local build passed; final local compilation, type checks and page generation passed but standalone packaging hit disk exhaustion. Missing temporary cache files and a stopped disposable database also interrupted earlier reruns; after recovery the complete final local suite passed. Complete final build passed in CI. No environment or dependency workaround shipped. Recursive cleanup of this checkout's generated packaging was rejected by automatic approval review (only reason supplied: `blocked by policy`); the files were left in place as disk space became available again.
+
+[Release39915337440](https://github.com/blendproperty/midpoint/actions/runs/39915337440) completed successfully with both test and deploy jobs passing. Both public indexes serve `34f8247fb3d2`, return200 and retain their self-canonicals. [HTTP evidence](navigation-live-http-20261023.json).
+
+The same browser assertion script passed against production: twelve index/viewport combinations, all ten topic destinations, the budget fragment, short-screen menu, supporting-article active state and home overlay, with zero browser errors. [Live browser evidence](navigation-live-20261023.json). Actual production screenshots at1440/390px were reviewed for both pages. No horizontal overflow, clipped topic targets or header overlap found. These are browser viewport checks, with no production form submission or physical-device acceptance claim. Final documentation promotion is separate from the application deployment; `PROJECT_CONTEXT.md` retains the dated implementation, testing, commit/push, merge, deployment and live verification evidence.
 
 ## Remaining gates
 

@@ -1,0 +1,115 @@
+{
+  "base": "http://127.0.0.1:3106",
+  "checkedAt": "2026-10-23T07:03:06.749Z",
+  "results": [
+    {
+      "path": "/blog",
+      "width": 1440,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "active page and no overlap passed"
+    },
+    {
+      "path": "/insights",
+      "width": 1440,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "active page and no overlap passed"
+    },
+    {
+      "path": "/blog",
+      "width": 1280,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "active page and no overlap passed"
+    },
+    {
+      "path": "/insights",
+      "width": 1280,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "active page and no overlap passed"
+    },
+    {
+      "path": "/blog",
+      "width": 1009,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "open, Escape, focus return, navigation and scroll unlock passed"
+    },
+    {
+      "path": "/insights",
+      "width": 1009,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "open, Escape, focus return, navigation and scroll unlock passed"
+    },
+    {
+      "path": "/blog",
+      "width": 768,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "open, Escape, focus return, navigation and scroll unlock passed"
+    },
+    {
+      "path": "/insights",
+      "width": 768,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "open, Escape, focus return, navigation and scroll unlock passed"
+    },
+    {
+      "path": "/blog",
+      "width": 390,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "open, Escape, focus return, navigation and scroll unlock passed"
+    },
+    {
+      "path": "/insights",
+      "width": 390,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "open, Escape, focus return, navigation and scroll unlock passed"
+    },
+    {
+      "path": "/blog",
+      "width": 320,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "open, Escape, focus return, navigation and scroll unlock passed"
+    },
+    {
+      "path": "/insights",
+      "width": 320,
+      "status": 200,
+      "header": "solid, unobstructed",
+      "topics": "fit viewport",
+      "menu": "open, Escape, focus return, navigation and scroll unlock passed"
+    }
+  ],
+  "destinations": [
+    "/offices",
+    "/warehouses",
+    "/services-offices",
+    "/business-park-midrand",
+    "/location",
+    "/amenities",
+    "/vacancies?sector=Warehouse",
+    "/vacancies?sector=Office",
+    "/vacancies?sector=Serviced%20office",
+    "/vacancies#rental-budget"
+  ],
+  "errors": []
+}

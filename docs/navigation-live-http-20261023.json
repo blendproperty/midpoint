@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/blog",
+    "status": 200,
+    "release": "34f8247fb3d2",
+    "mainNavigationLabel": true,
+    "canonical": "https://www.mid-point.co.za/blog",
+    "checkedAt": "2026-10-23T07:07:39.1372337Z"
+  },
+  {
+    "path": "/insights",
+    "status": 200,
+    "release": "34f8247fb3d2",
+    "mainNavigationLabel": true,
+    "canonical": "https://www.mid-point.co.za/insights",
+    "checkedAt": "2026-10-23T07:07:40.3321948Z"
+  }
+]
