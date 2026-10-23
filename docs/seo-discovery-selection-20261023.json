@@ -1,0 +1,602 @@
+{
+  "retrievedAt": "2026-10-23",
+  "request": {
+    "startDate": "2026-09-23",
+    "endDate": "2026-10-20",
+    "dataState": "final",
+    "type": "web",
+    "country": "zaf",
+    "dateTimezone": "America/Los_Angeles"
+  },
+  "finalDateProbe": {
+    "ok": true,
+    "siteUrl": "https://www.mid-point.co.za/",
+    "startDate": "2026-10-18",
+    "endDate": "2026-10-21",
+    "dimensions": [
+      "date"
+    ],
+    "rowCount": 3,
+    "rows": [
+      {
+        "keys": [
+          "2026-10-18"
+        ],
+        "clicks": 1,
+        "impressions": 198,
+        "ctr": 0.0051,
+        "position": 9.5
+      },
+      {
+        "keys": [
+          "2026-10-19"
+        ],
+        "clicks": 9,
+        "impressions": 361,
+        "ctr": 0.0249,
+        "position": 7
+      },
+      {
+        "keys": [
+          "2026-10-20"
+        ],
+        "clicks": 10,
+        "impressions": 517,
+        "ctr": 0.0193,
+        "position": 7.6
+      }
+    ],
+    "hasMore": false,
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/search-performance"
+    }
+  },
+  "pages": {
+    "ok": true,
+    "siteUrl": "https://www.mid-point.co.za/",
+    "startDate": "2026-09-23",
+    "endDate": "2026-10-20",
+    "dimensions": [
+      "page"
+    ],
+    "rowCount": 31,
+    "rows": [
+      {
+        "keys": [
+          "https://www.mid-point.co.za/"
+        ],
+        "clicks": 51,
+        "impressions": 3338,
+        "ctr": 0.0153,
+        "position": 4.8
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/amenities"
+        ],
+        "clicks": 4,
+        "impressions": 380,
+        "ctr": 0.0105,
+        "position": 6
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/spaces"
+        ],
+        "clicks": 4,
+        "impressions": 322,
+        "ctr": 0.0124,
+        "position": 9.1
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies"
+        ],
+        "clicks": 2,
+        "impressions": 287,
+        "ctr": 0.007,
+        "position": 6.4
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/about-us"
+        ],
+        "clicks": 1,
+        "impressions": 280,
+        "ctr": 0.0036,
+        "position": 5.4
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need"
+        ],
+        "clicks": 1,
+        "impressions": 240,
+        "ctr": 0.0042,
+        "position": 10.8
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/business-park-midrand"
+        ],
+        "clicks": 1,
+        "impressions": 239,
+        "ctr": 0.0042,
+        "position": 7
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/contact-us"
+        ],
+        "clicks": 1,
+        "impressions": 310,
+        "ctr": 0.0032,
+        "position": 4.9
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/faqs"
+        ],
+        "clicks": 1,
+        "impressions": 73,
+        "ctr": 0.0137,
+        "position": 9.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/location"
+        ],
+        "clicks": 1,
+        "impressions": 742,
+        "ctr": 0.0013,
+        "position": 6
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw4b0000n601aqy2ibd7"
+        ],
+        "clicks": 1,
+        "impressions": 13,
+        "ctr": 0.0769,
+        "position": 7.2
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw560007n6019icxact3"
+        ],
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 4.4
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog"
+        ],
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "position": 19.7
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/backup-power-for-midrand-warehouses-what-generator-on-site-actually-covers"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 33
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/business-park-vs-standalone-premises-midrand"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 9.4
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/compare-office-rental-quotes-midrand"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 13
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes"
+        ],
+        "clicks": 0,
+        "impressions": 100,
+        "ctr": 0,
+        "position": 9.4
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/office-rental-costs-midrand"
+        ],
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 8.6
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/onpoint-serviced-office-package-checklist"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 8.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/planning-office-and-warehouse-space-midrand"
+        ],
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 6.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean"
+        ],
+        "clicks": 0,
+        "impressions": 27,
+        "ctr": 0,
+        "position": 7.1
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/insights"
+        ],
+        "clicks": 0,
+        "impressions": 198,
+        "ctr": 0,
+        "position": 14.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/offices"
+        ],
+        "clicks": 0,
+        "impressions": 26,
+        "ctr": 0,
+        "position": 9.2
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw4h0001n601ouwa8j0o"
+        ],
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 9.2
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw4n0002n601y2gpa0qf"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw500005n6011rnzc2hb"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 13.2
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw5d0009n601702zlk0p"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 5.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw5g000an6018bfhms44"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cms4oiw5j000bn601vz6szme4"
+        ],
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 6.5
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/vacancies/cmsfvflfy000yoy01stx7o2dp"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 9.3
+      },
+      {
+        "keys": [
+          "https://www.mid-point.co.za/warehouses"
+        ],
+        "clicks": 0,
+        "impressions": 96,
+        "ctr": 0,
+        "position": 11.7
+      }
+    ],
+    "hasMore": false,
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/search-performance"
+    }
+  },
+  "storageQueries": {
+    "ok": true,
+    "siteUrl": "https://www.mid-point.co.za/",
+    "startDate": "2026-09-23",
+    "endDate": "2026-10-20",
+    "dimensions": [
+      "query"
+    ],
+    "rowCount": 26,
+    "rows": [
+      {
+        "keys": [
+          "warehouse storage space"
+        ],
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 10
+      },
+      {
+        "keys": [
+          "business self storage"
+        ],
+        "clicks": 0,
+        "impressions": 25,
+        "ctr": 0,
+        "position": 3.8
+      },
+      {
+        "keys": [
+          "business storage"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 33.7
+      },
+      {
+        "keys": [
+          "business storage facility"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 4.1
+      },
+      {
+        "keys": [
+          "business storage midrand"
+        ],
+        "clicks": 0,
+        "impressions": 50,
+        "ctr": 0,
+        "position": 14.2
+      },
+      {
+        "keys": [
+          "business storage space"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "keys": [
+          "commercial storage midrand"
+        ],
+        "clicks": 0,
+        "impressions": 62,
+        "ctr": 0,
+        "position": 10.6
+      },
+      {
+        "keys": [
+          "inventory stock storage midrand"
+        ],
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 11.2
+      },
+      {
+        "keys": [
+          "is rent-a-store midrand cheaper than other storage space alternatives in the area?"
+        ],
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 15.9
+      },
+      {
+        "keys": [
+          "is warehouse a commercial building"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "midrand self storage"
+        ],
+        "clicks": 0,
+        "impressions": 30,
+        "ctr": 0,
+        "position": 3.4
+      },
+      {
+        "keys": [
+          "midrand warehouse"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "self storage midrand"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 2
+      },
+      {
+        "keys": [
+          "storage for business"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 75
+      },
+      {
+        "keys": [
+          "storage for businesses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "keys": [
+          "storage in midrand"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 23
+      },
+      {
+        "keys": [
+          "storage midrand"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 23
+      },
+      {
+        "keys": [
+          "storage places in midrand"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 40
+      },
+      {
+        "keys": [
+          "storage space in midrand"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 12.7
+      },
+      {
+        "keys": [
+          "storage units for business midrand"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "keys": [
+          "storage units for businesses"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 48
+      },
+      {
+        "keys": [
+          "storage units in midrand"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 6
+      },
+      {
+        "keys": [
+          "storage warhouse"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "vehicle storage midrand"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "warehouse storage midrand"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 8.7
+      },
+      {
+        "keys": [
+          "warehousing space"
+        ],
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 9.2
+      }
+    ],
+    "hasMore": false,
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/search-performance"
+    }
+  }
+}
