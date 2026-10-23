@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-23T06:18:58.056Z",
+  "runtime": "55b240ed50b4",
+  "viewports": [
+    {
+      "articles": 19,
+      "h1": "Midrand property and leasing articles",
+      "release": "55b240ed50b4",
+      "scrollWidth": 1425,
+      "topics": 6,
+      "width": 1440
+    },
+    {
+      "articles": 19,
+      "h1": "Midrand property and leasing articles",
+      "release": "55b240ed50b4",
+      "scrollWidth": 375,
+      "topics": 6,
+      "width": 390
+    },
+    {
+      "articles": 19,
+      "h1": "Midrand property and leasing articles",
+      "release": "55b240ed50b4",
+      "scrollWidth": 305,
+      "topics": 6,
+      "width": 320
+    }
+  ],
+  "flows": [
+    {
+      "flow": "blog to office pillar",
+      "url": "https://www.mid-point.co.za/offices",
+      "verified": true
+    },
+    {
+      "flow": "blog to rental budget",
+      "url": "https://www.mid-point.co.za/vacancies#rental-budget",
+      "verified": true
+    },
+    {
+      "flow": "storage article to micro-warehousing",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgae265001pmz01l33cvutx"
+    },
+    {
+      "flow": "storage article to self-storage",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgae26d001qmz019ja0mhjg"
+    }
+  ],
+  "storage": {
+    "micro": "STOR24 micro-warehousing at Midpoint",
+    "published": "2026-09-03T10:35:42.899Z",
+    "self": "STOR24 self-storage at Midpoint"
+  },
+  "imageReadiness": {
+    "desktopFirstThree": true,
+    "mobileFirstVisible": true,
+    "narrow": {
+      "imageLoaded": true,
+      "scrollWidth": 305,
+      "width": 320
+    }
+  },
+  "screenshots": "tmp/discovery-live/",
+  "analyticsAndEnquiryRequestsBlockedInTemporaryTestTab": true,
+  "noFormSubmitted": true
+}

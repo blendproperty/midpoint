@@ -1,0 +1,173 @@
+{
+  "at": "2026-10-23T06:13:08.623Z",
+  "base": "https://www.mid-point.co.za",
+  "results": [
+    {
+      "path": "/blog",
+      "status": 200,
+      "canonical": true,
+      "h1": 1,
+      "schemaErrors": 0,
+      "schemaWarnings": 0,
+      "release": "55b240ed50b4"
+    },
+    {
+      "path": "/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need",
+      "status": 200,
+      "canonical": true,
+      "h1": 1,
+      "schemaErrors": 0,
+      "schemaWarnings": 0,
+      "release": "55b240ed50b4"
+    }
+  ],
+  "links": [
+    {
+      "href": "/",
+      "status": 200
+    },
+    {
+      "href": "/offices",
+      "status": 200
+    },
+    {
+      "href": "/warehouses",
+      "status": 200
+    },
+    {
+      "href": "/services-offices",
+      "status": 200
+    },
+    {
+      "href": "/business-park-midrand",
+      "status": 200
+    },
+    {
+      "href": "/location",
+      "status": 200
+    },
+    {
+      "href": "/amenities",
+      "status": 200
+    },
+    {
+      "href": "/vacancies",
+      "status": 200
+    },
+    {
+      "href": "/vacancies#rental-budget",
+      "status": 200,
+      "fragmentFound": true
+    },
+    {
+      "href": "/blog/halfway-house-vs-waterfall-office-space",
+      "status": 200
+    },
+    {
+      "href": "/blog/6-weaver-avenue-warehouse-walkthrough",
+      "status": 200
+    },
+    {
+      "href": "/blog/warehouse-rental-costs-midrand",
+      "status": 200
+    },
+    {
+      "href": "/blog/assess-midrand-staff-client-delivery-routes",
+      "status": 200
+    },
+    {
+      "href": "/blog/business-park-amenities-leasing-checklist",
+      "status": 200
+    },
+    {
+      "href": "/blog/business-park-vs-standalone-premises-midrand",
+      "status": 200
+    },
+    {
+      "href": "/blog/planning-office-and-warehouse-space-midrand",
+      "status": 200
+    },
+    {
+      "href": "/blog/compare-office-rental-quotes-midrand",
+      "status": 200
+    },
+    {
+      "href": "/blog/onpoint-serviced-office-package-checklist",
+      "status": 200
+    },
+    {
+      "href": "/blog/office-rental-costs-midrand",
+      "status": 200
+    },
+    {
+      "href": "/blog/serviced-vs-conventional-offices-midrand",
+      "status": 200
+    },
+    {
+      "href": "/blog/office-viewing-checklist-midrand",
+      "status": 200
+    },
+    {
+      "href": "/blog/office-floor-plan-fit-out-checklist-midrand",
+      "status": 200
+    },
+    {
+      "href": "/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes",
+      "status": 200
+    },
+    {
+      "href": "/blog/getting-the-office-to-warehouse-ratio-right-in-midrand",
+      "status": 200
+    },
+    {
+      "href": "/blog/warehouse-vs-industrial-space-in-midrand-what-the-terms-actually-mean",
+      "status": 200
+    },
+    {
+      "href": "/blog/backup-power-for-midrand-warehouses-what-generator-on-site-actually-covers",
+      "status": 200
+    },
+    {
+      "href": "/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need",
+      "status": 200
+    },
+    {
+      "href": "/blog/warehouse-checklist-midrand-eave-height-loading-yard-space",
+      "status": 200
+    },
+    {
+      "href": "/blog",
+      "status": 200
+    },
+    {
+      "href": "/vacancies/cmvgae265001pmz01l33cvutx",
+      "status": 200
+    },
+    {
+      "href": "/vacancies/cmvgae26d001qmz019ja0mhjg",
+      "status": 200
+    },
+    {
+      "href": "/warehouses#compare-spaces",
+      "status": 200,
+      "fragmentFound": true
+    },
+    {
+      "href": "/vacancies?sector=Warehouse",
+      "status": 200
+    },
+    {
+      "href": "/vacancies/cmsfvflhj0010oy014b1ytkku",
+      "status": 200
+    },
+    {
+      "href": "/vacancies/cmsfvflha000zoy01wxkk2efu",
+      "status": 200
+    },
+    {
+      "href": "/contact-us?interest=Warehouse%20space#Contact",
+      "status": 200,
+      "fragmentFound": true
+    }
+  ]
+}
