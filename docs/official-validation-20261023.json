@@ -1,0 +1,291 @@
+{
+  "date": "2026-10-23",
+  "at": "2026-10-23T05:51:05.076522+00:00",
+  "runtime": "f089b87d4732",
+  "status": "access_blocked_checkpoint",
+  "scope": "Midpoint public website only",
+  "originalQueueCount": 32,
+  "schemaOrgResults": [
+    {
+      "url": "https://www.mid-point.co.za/blog/compare-office-rental-quotes-midrand",
+      "at": "2026-10-23T05:44:39.391Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Fcompare-office-rental-quotes-midrand"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/serviced-vs-conventional-offices-midrand",
+      "at": "2026-10-23T05:46:12.677Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Fserviced-vs-conventional-offices-midrand"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/onpoint-serviced-office-package-checklist",
+      "at": "2026-10-23T05:46:24.937Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Fonpoint-serviced-office-package-checklist"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/office-viewing-checklist-midrand",
+      "at": "2026-10-23T05:46:37.199Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Foffice-viewing-checklist-midrand"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/office-floor-plan-fit-out-checklist-midrand",
+      "at": "2026-10-23T05:46:42.486Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Foffice-floor-plan-fit-out-checklist-midrand"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/business-park-vs-standalone-premises-midrand",
+      "at": "2026-10-23T05:46:47.578Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Fbusiness-park-vs-standalone-premises-midrand"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/planning-office-and-warehouse-space-midrand",
+      "at": "2026-10-23T05:46:52.667Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Fplanning-office-and-warehouse-space-midrand"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/assess-midrand-staff-client-delivery-routes",
+      "at": "2026-10-23T05:47:03.732Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Fassess-midrand-staff-client-delivery-routes"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/business-park-amenities-leasing-checklist",
+      "at": "2026-10-23T05:47:09.022Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Fbusiness-park-amenities-leasing-checklist"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/warehouse-rental-costs-midrand",
+      "at": "2026-10-23T05:47:14.398Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Fwarehouse-rental-costs-midrand"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/halfway-house-vs-waterfall-office-space",
+      "at": "2026-10-23T05:47:19.823Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2Fhalfway-house-vs-waterfall-office-space"
+    },
+    {
+      "url": "https://www.mid-point.co.za/blog/6-weaver-avenue-warehouse-walkthrough",
+      "at": "2026-10-23T05:47:34.518Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fblog%2F6-weaver-avenue-warehouse-walkthrough"
+    },
+    {
+      "url": "https://www.mid-point.co.za/location",
+      "at": "2026-10-23T05:47:39.564Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Flocation"
+    },
+    {
+      "url": "https://www.mid-point.co.za/services-offices",
+      "at": "2026-10-23T05:47:50.980Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fservices-offices"
+    },
+    {
+      "url": "https://www.mid-point.co.za/business-park-midrand",
+      "at": "2026-10-23T05:48:06.100Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 4,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fbusiness-park-midrand"
+    },
+    {
+      "url": "https://www.mid-point.co.za/amenities",
+      "at": "2026-10-23T05:48:11.622Z",
+      "errors": 0,
+      "warnings": 0,
+      "items": 3,
+      "runtime": "f089b87d4732",
+      "validatorUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Famenities"
+    }
+  ],
+  "completedFromQueue": 16,
+  "remainingCount": 16,
+  "remaining": [
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw4n0002n601y2gpa0qf"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw560007n6019icxact3"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgb129n0001qp01ia0fs15y"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw500005n6011rnzc2hb"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw5j000bn601vz6szme4"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfuu4xu000ooy01x3ulli7b"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgae265001pmz01l33cvutx"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflha000zoy01wxkk2efu"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflhj0010oy014b1ytkku"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmuz7chn0009up901ll35sgdh"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw530006n601h1qw8gzm"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw4v0004n60127izdqzj"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw590008n601tuhv5okk"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw5d0009n601702zlk0p"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflfy000yoy01stx7o2dp"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgae26d001qmz019ja0mhjg"
+    }
+  ],
+  "serviceErrors": [
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw4n0002n601y2gpa0qf",
+      "attempts": 2,
+      "errors": null,
+      "warnings": null,
+      "result": "service_error_no_markup_result"
+    },
+    {
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw560007n6019icxact3",
+      "attempts": 1,
+      "errors": null,
+      "warnings": null,
+      "result": "service_error_no_markup_result"
+    }
+  ],
+  "accessBlock": {
+    "validator": "Schema.org",
+    "observedAt": "2026-10-23T05:49:46Z",
+    "message": "Unusual traffic; reCAPTCHA frame about:blank",
+    "captchaSolvedByAgent": false
+  },
+  "google": {
+    "results": [],
+    "status": "reCAPTCHA_connection_failure_after_user_reported_test_started",
+    "url": "https://www.mid-point.co.za/vacancies",
+    "errors": null,
+    "warnings": null,
+    "handoff": "Both Edge tabs open for user clearance; do not count Testing live URL as a pass"
+  },
+  "independentCheck": {
+    "report": "docs/schema-official-supporting-check-20261023.json",
+    "pages": 51,
+    "errors": 0,
+    "warnings": 0,
+    "fetchFailures": 0,
+    "officialValidatorEquivalent": false
+  },
+  "kingfisher": {
+    "at": "2026-10-23T05:50:21.692Z",
+    "url": "https://www.mid-point.co.za/vacancies/cmsfvflha000zoy01wxkk2efu",
+    "status": 200,
+    "runtime": "f089b87d4732",
+    "warningVisible": true,
+    "numericAreaWithheld": true,
+    "numericPriceWithheld": true,
+    "sourceNarrativeStillDisputed": true
+  },
+  "rawEvidenceDirectory": "tmp\\official-validation-20261023",
+  "evidenceHashes": {
+    "schema-1.png": "666941ba85243660bb40a79b6876f382b23198c69011608e4eb65a0b39f9869a",
+    "schema-10.png": "1343a58891d29dc6b68011cc20e28ac73fe259559bcf51c446013b6f537328dc",
+    "schema-11.png": "f1c90ae7ed45cb721f9298fbe59ada5de3a1b6e0bbd6eb1c43c0aac75c183d90",
+    "schema-12.png": "8112dd6718c0d03b7094673dcbae1d81f61dc72b618dcc1888d3f454ffd38b63",
+    "schema-13.png": "8a86a1d35520118502ff77b038f615c05a1a14d44256be032a28c842dc0d372c",
+    "schema-14.png": "0fb92f719eeb295888c09dafbeb13db410b7c43590cecc76fd91691293a9701a",
+    "schema-15.png": "120cbc8baa3105cb86eb5c6c0a99c48e3dc7e92fdfcda884b8ca1570151c03a3",
+    "schema-16.png": "564d04aad302e16d53bc25b208f2f60046e2bc3b91ef01b9ce38c0fa164c9e8c",
+    "schema-2.png": "c70fad7af6d30c1ccf8801af2611d36bdc7196f1eac605d304f8bf2966a41a57",
+    "schema-3.png": "998886a8ea175f2aa1062037ef4e6608266390a7d2a8620aa43e55b835dd9a9e",
+    "schema-4.png": "e8c212d17f2f0c2c30f703502f2d932531f76a093069ddf0ad4575c076a5eb0f",
+    "schema-5.png": "acc0a2e1a3f2c4246af8e3308002501b0789f54cd7a1446f8f34a66d0668cc42",
+    "schema-6.png": "24bc1ef886661aeabfe40564ee6baa319b1e16638a8899d4bb01d7135847c30d",
+    "schema-7.png": "ab9babd4c2015e310b43170429b411780d85f3a1143476856f4e2fef4f7aeeb2",
+    "schema-8.png": "215bbbd1c8d05000977d4e7f5a5a3d2ca9e3071b7bccf0c1ebbad61a4e442967",
+    "schema-9.png": "1efa4cb6c1bb54e7fe4bb445d908ebff7960dee5ac53a88de640afaca7ad8c1b",
+    "schema-blocked.png": "85934af239e692d2c6de579580c5a21f92c0c386901ea72da6ff516d3128c300",
+    "schema-service-error.png": "5a1a9b00e4d60245b797f3ee7a02a159eaffcbe5958b1dc3d24fd8e61b0d4207"
+  }
+}

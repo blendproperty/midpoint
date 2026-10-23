@@ -1,0 +1,74 @@
+{
+  "snapshotId": "schemaorg-20261023-access-blocked",
+  "at": "2026-10-23T05:51:05.076522+00:00",
+  "site": "midpoint",
+  "resultsReport": "docs/official-validation-20261023.json",
+  "remainingCount": 16,
+  "remaining": [
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw4n0002n601y2gpa0qf"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw560007n6019icxact3"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgb129n0001qp01ia0fs15y"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw500005n6011rnzc2hb"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw5j000bn601vz6szme4"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfuu4xu000ooy01x3ulli7b"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgae265001pmz01l33cvutx"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflha000zoy01wxkk2efu"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflhj0010oy014b1ytkku"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmuz7chn0009up901ll35sgdh"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw530006n601h1qw8gzm"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw4v0004n60127izdqzj"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw590008n601tuhv5okk"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cms4oiw5d0009n601702zlk0p"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmsfvflfy000yoy01stx7o2dp"
+    },
+    {
+      "site": "midpoint",
+      "url": "https://www.mid-point.co.za/vacancies/cmvgae26d001qmz019ja0mhjg"
+    }
+  ],
+  "resumeRule": "User-authorised continuation: clear the open challenge and verify access first; submit only uncompleted URLs. Preserve historical results and runtime boundaries."
+}
