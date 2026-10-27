@@ -1,3 +1,13 @@
+## 2026-10-27 - Node.js security patch rollout candidate
+
+- **Implementation:** pin production Docker base to Node 22.23.4 Alpine by verified official OCI digest, retaining the existing supported major. PR and deployment tests use 22.23.4; PR CI additionally builds the actual production image and asserts its Node version. No business features, dependencies, schema, secrets, provider, permissions or network settings change.
+- **Testing:** local diff/configuration checks only at preparation; existing full hosted unit/database integration, schema and production build plus new image check must pass before promotion. Local Node 24.18.0 is not qualification evidence for Node 22.23.4.
+- **Commit/push:** prepared in isolated checkout on codex/node-patch-20261027; existing dirty worktrees preserved. Exact published commit and remote context readback recorded after publication.
+- **Merge:** pending normal checks and repository review requirements; draft PR by default.
+- **Deployment/configuration:** pending established gated deployment. Before release, retain current production image b3fd52a2575790dbbb3d3a591766071b03b6f9e5e6b0aced99853d75198a17dd and existing checkout/runtime 34f8247fb3d2 for rollback; backup and check current server state. No production change made by preparation.
+- **Live production verification:** pending exact deployed commit/image, Node version in both web and vacancy-sync containers, state and read-only public routes. Baseline both containers v22.23.1, zero restarts/OOM false. CI Node alone is not production proof.
+- **Retained gates:** all existing customer/staff/device/UAT, property/source-data, provider delivery, finance, legal/privacy, training, physical-access, offline/recovery and approval gates remain. No real enquiry, booking, payment or message used for testing. No tracker in scope.
+
 # Midpoint Project Context
 
 ## 2026-10-23 — Blog and Insights navigation polish

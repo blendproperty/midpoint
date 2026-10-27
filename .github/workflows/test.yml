@@ -1,6 +1,6 @@
 name: Test
 
-# Runs on pull requests only now — pushes to main are covered by the `test`
+# Runs on pull requests only now â€” pushes to main are covered by the `test`
 # job embedded in deploy.yml, which actually gates the deploy. Keeping this
 # separate PR-only workflow means you still get test feedback before merging,
 # without running the suite twice on every push to main.
@@ -28,7 +28,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 22.23.4
 
       - name: Install dependencies
         run: npm ci
@@ -47,3 +47,8 @@ jobs:
 
       - name: Build production application including schema checks
         run: npm run build
+
+      - name: Build and verify patched production runtime
+        run: |
+          docker build -t midpoint:node-patch-ci .
+          test "$(docker run --rm --entrypoint node midpoint:node-patch-ci --version)" = "v22.23.4"

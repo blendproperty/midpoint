@@ -7,7 +7,7 @@ on:
 
 # Multiple rapid pushes used to trigger overlapping deploy runs that all SSH
 # in and run `git pull` + `docker build` + `docker up` concurrently against
-# the SAME checkout directory on the server — a real race condition (one
+# the SAME checkout directory on the server â€” a real race condition (one
 # run's git pull / build could interleave with another's, producing an
 # inconsistent build). This forces deploys for this branch to queue and run
 # one at a time, in order, never in parallel.
@@ -18,7 +18,7 @@ concurrency:
 jobs:
   # Gate: the deploy job below only runs if this one succeeds. Previously
   # tests ran in a completely separate workflow that never blocked anything
-  # — a failing test and a broken build could still deploy straight to
+  # â€” a failing test and a broken build could still deploy straight to
   # production. Now a red test suite stops the SSH deploy from running at all.
   test:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 22.23.4
 
       - name: Install dependencies
         run: npm ci
@@ -95,7 +95,7 @@ jobs:
               --retry 12 --retry-delay 5 --retry-all-errors \
               https://www.mid-point.co.za/ \
               | grep -F "?dpl=$NEXT_DEPLOYMENT_ID"
-            # Cleanup only — never fails the deploy. Rapid successive pushes
+            # Cleanup only â€” never fails the deploy. Rapid successive pushes
             # trigger overlapping deploy runs on the same host, and Docker
             # only allows one `image prune` at a time; a collision here used
             # to mark an otherwise-successful deploy as failed.
