@@ -1,3 +1,10 @@
+## 2026-10-28 - Minimal validator safety-gate repair for Node rollout
+
+- Implementation: official-registry lockfile-only body-parser 1.20.8 to 1.20.9 resolves the existing high-severity audit blocker. No other package resolution, audit threshold, security setting or application feature changed. This minimal prerequisite is within the clarified rollout scope.
+- Testing: isolated lockfile diff contains only version, registry tarball URL and integrity for body-parser. Full existing Node 22.23.4 audit, schema, unit/database integration, production build and image checks must pass before release.
+- Commit/push and merge: update the existing Node rollout draft PR 21; no new duplicate migration. Protected checks remain required.
+- Deployment/live verification: pending normal release, fresh rollback evidence and exact in-container version/commit/image checks. All earlier provider, finance, data, physical-access, customer/staff/device/UAT and recovery gates remain open.
+
 ## 2026-10-27 - Node.js security patch rollout candidate
 
 - **Implementation:** pin production Docker base to Node 22.23.4 Alpine by verified official OCI digest, retaining the existing supported major. PR and deployment tests use 22.23.4; PR CI additionally builds the actual production image and asserts its Node version. No business features, dependencies, schema, secrets, provider, permissions or network settings change.
