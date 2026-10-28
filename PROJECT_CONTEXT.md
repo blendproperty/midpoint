@@ -1,3 +1,13 @@
+## 2026-10-28 - Verified Node 22.23.4 rollout (midpoint)
+
+- Implementation: official Node 22.23.4 Alpine image digest pinned, retaining supported major. Minimal official npm lockfile-only body-parser 1.20.8 to 1.20.9 prerequisite repaired the validator audit gate; audit threshold unchanged. Normal deployment 40635839717 passed exact-main tests and server release. Web and vacancy-sync Node versions, source checkout and release markers match the merged source. No business feature, schema, provider, credential or security/network setting change.
+- Testing: PR 21 source eff29bb91afd56c274866a235fb7ac53f8675b3a passed applicable unit/integration/schema/production-build checks and actual Docker runtime assertion. Existing safety gates retained.
+- Commit/push: scoped source/context published and read back. Merge: PR 21 normally merged as 38995ea73848dc2b73b43783cec917d0a2e85e5b. This evidence-only context follow-up uses the established [skip ci] documentation path and triggers no application deployment.
+- Deployment/configuration: technical release verified; rollback images and readable database archive retained privately. Full restore not newly tested. Other-owner shared-host maintenance is distinct from this update.
+- Live verification: 2026-10-28T05:10:43.958671+00:00; containers report Node v22.23.4, zero observed restarts/OOM false. Images: midpoint-web sha256:9c6ca8327e46f7a779945e778a64ee4348f36c476ad321c0ba8e3940ee76e61b; midpoint-vacancy-sync-1 sha256:9c6ca8327e46f7a779945e778a64ee4348f36c476ad321c0ba8e3940ee76e61b. Origin home/vacancies/blog/insights each returned 200 and exact release marker 38995ea73848. Normal deploy independently passed its public homepage marker guard. Separate workstation urllib public probe received 403; not retried or bypassed, and no all-public-routes success claim is made.
+- Remaining gates: prior real staff/customer/device/UAT, property/source-data, provider delivery, signing/payment/settlement, finance, legal/privacy, training, physical access, offline and full recovery/approval remain open. No real transaction, enquiry, outbound test message, organisation migration or paused REA work. External automated edge-probe 403 retained as a verification limitation. No tracker in scope.
+
+
 ## 2026-10-28 - Minimal validator safety-gate repair for Node rollout
 
 - Implementation: official-registry lockfile-only body-parser 1.20.8 to 1.20.9 resolves the existing high-severity audit blocker. No other package resolution, audit threshold, security setting or application feature changed. This minimal prerequisite is within the clarified rollout scope.
