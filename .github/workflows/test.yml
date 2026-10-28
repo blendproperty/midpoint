@@ -28,7 +28,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 22.23.4
 
       - name: Install dependencies
         run: npm ci
@@ -47,3 +47,8 @@ jobs:
 
       - name: Build production application including schema checks
         run: npm run build
+
+      - name: Build and verify patched production runtime
+        run: |
+          docker build -t midpoint:node-patch-ci .
+          test "$(docker run --rm --entrypoint node midpoint:node-patch-ci --version)" = "v22.23.4"
