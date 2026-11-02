@@ -1,0 +1,1051 @@
+{
+  "date": "2026-11-02",
+  "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+  "tracker": {
+    "config": {
+      "id": "53dcf530-b839-4d60-a18c-bc5b96a0feb5",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "mid-point.co.za",
+      "locationCode": 2710,
+      "languageCode": "en",
+      "devices": "both",
+      "serpDepth": 40,
+      "scheduleInterval": "weekly",
+      "locationName": "Midrand,Gauteng,South Africa",
+      "isActive": true,
+      "lastCheckedAt": null,
+      "nextCheckAt": "2026-11-06T09:43:00.000Z",
+      "lastSkipReason": "no_keywords",
+      "createdAt": "2026-10-16T07:44:27.718Z"
+    },
+    "results": {
+      "rows": [
+        {
+          "trackingKeywordId": "afe3a3c4-6cf7-425b-8004-5722752c0459",
+          "keyword": "business park midrand",
+          "matchCase": false,
+          "pinned": true,
+          "searchVolume": 20,
+          "keywordDifficulty": 0,
+          "cpc": 4.43,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=business+park+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "da2abbf5-5896-4b81-8ee3-51560e77d90f",
+          "keyword": "commercial storage midrand",
+          "matchCase": false,
+          "pinned": true,
+          "searchVolume": null,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=commercial+storage+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "d5a18f43-fe94-4b23-8378-4ab60f37b293",
+          "keyword": "office space to rent midrand",
+          "matchCase": false,
+          "pinned": true,
+          "searchVolume": 110,
+          "keywordDifficulty": 0,
+          "cpc": 4.81,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=office+space+to+rent+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "7b70ccd9-14ff-476e-90c8-0eadcff9cec0",
+          "keyword": "serviced offices midrand",
+          "matchCase": false,
+          "pinned": true,
+          "searchVolume": 10,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=serviced+offices+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "840caf46-998b-4797-819e-ffdcf1e6e94c",
+          "keyword": "warehouse to rent midrand",
+          "matchCase": false,
+          "pinned": true,
+          "searchVolume": 50,
+          "keywordDifficulty": 0,
+          "cpc": 2.59,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=warehouse+to+rent+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "1a9043e1-11b6-4176-96fb-66ef4f5961ee",
+          "keyword": "162 tonetti street midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 10,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=162+tonetti+street+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "37d75d17-03a0-4cf0-bbe9-da5a0d5bf6c0",
+          "keyword": "business parks in midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 20,
+          "keywordDifficulty": 0,
+          "cpc": 4.43,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=business+parks+in+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "6c63801a-9a2b-484a-953a-f8eeebef0031",
+          "keyword": "business storage midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": null,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=business+storage+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "e93491bb-ee8b-4e68-880d-7737c9e9ffda",
+          "keyword": "commercial property to rent midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 30,
+          "keywordDifficulty": 41,
+          "cpc": 0.88,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=commercial+property+to+rent+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "ba46c5e0-ba4b-4351-b7bc-68c6ee84c04c",
+          "keyword": "industrial property to rent midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 20,
+          "keywordDifficulty": null,
+          "cpc": 0.78,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=industrial+property+to+rent+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "7fbbc34f-8c21-4f69-9a50-6e643615cc31",
+          "keyword": "midpoint business park",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 50,
+          "keywordDifficulty": null,
+          "cpc": 1.88,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=midpoint+business+park&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "13213b90-ad8c-40e0-a7a5-aef9ab02b9f8",
+          "keyword": "midpoint business park midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 10,
+          "keywordDifficulty": null,
+          "cpc": 0.12,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=midpoint+business+park+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "3409b047-f485-412f-8e1c-82876cfa9931",
+          "keyword": "midpoint midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 10,
+          "keywordDifficulty": null,
+          "cpc": 0.47,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=midpoint+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "0864e874-df3c-4ce1-905f-788742e7b00c",
+          "keyword": "midpoint office park",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 10,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=midpoint+office+park&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "aa4c9c2d-071e-4de7-814c-14c9b4af09e6",
+          "keyword": "office parks in midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 50,
+          "keywordDifficulty": 0,
+          "cpc": 0.92,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=office+parks+in+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "7ff2950a-7857-4ffe-a7cd-604b5b99ef37",
+          "keyword": "office rental midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 10,
+          "keywordDifficulty": 5,
+          "cpc": 3.08,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=office+rental+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "d0e10f40-dea4-4da9-80e0-ad896b60865d",
+          "keyword": "office space halfway house",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": null,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=office+space+halfway+house&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "ab6af43a-3456-4cc4-b7ab-0dd716b313db",
+          "keyword": "office space to rent in midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 110,
+          "keywordDifficulty": 0,
+          "cpc": 4.81,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=office+space+to+rent+in+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "8bc4d464-430e-4a7b-a620-e21444a15bbd",
+          "keyword": "office to rent midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 10,
+          "keywordDifficulty": 0,
+          "cpc": 3.08,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=office+to+rent+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "84aac458-ee33-4d1b-9bf6-537299953ea1",
+          "keyword": "offices to rent halfway house",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": null,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=offices+to+rent+halfway+house&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "311851ca-f07e-4574-a0e9-837196620c61",
+          "keyword": "offices to rent midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 10,
+          "keywordDifficulty": 0,
+          "cpc": 3.08,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=offices+to+rent+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "b20f35b4-dc5e-4b77-a8b7-13edcf5e81d8",
+          "keyword": "onpoint offices midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": null,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=onpoint+offices+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "cdf151b8-f2a5-4914-8822-3e5f7e009627",
+          "keyword": "serviced office space midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": null,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=serviced+office+space+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "6753842d-d055-40ed-9cb8-ec6b2d67c5e2",
+          "keyword": "serviced offices halfway house",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": null,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=serviced+offices+halfway+house&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "38a5053a-a25b-47c7-b70a-db42ccd07d75",
+          "keyword": "small office space to rent in midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 10,
+          "keywordDifficulty": null,
+          "cpc": 3.01,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=small+office+space+to+rent+in+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "34bfdb3b-48da-4bd4-80ad-4cb692f52ba4",
+          "keyword": "warehouse and office space midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": null,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=warehouse+and+office+space+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "539009d0-eeb9-449a-bcac-1288cbfc5ad6",
+          "keyword": "warehouse for rent in midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 50,
+          "keywordDifficulty": 0,
+          "cpc": 2.59,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=warehouse+for+rent+in+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "b1a84212-ef52-4b6d-b31e-92cf6c16ebaa",
+          "keyword": "warehouse space midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": null,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=warehouse+space+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "3baa0c7d-1347-4122-b51a-d7c5f2aad871",
+          "keyword": "warehouse storage midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 0,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=warehouse+storage+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "a8a3925c-4df8-4635-a10a-292fe94e3c2c",
+          "keyword": "warehouse to rent halfway house",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": null,
+          "keywordDifficulty": null,
+          "cpc": null,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=warehouse+to+rent+halfway+house&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "d7fab477-6b16-4394-87f2-4e597762b636",
+          "keyword": "warehouse to rent in midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 50,
+          "keywordDifficulty": 0,
+          "cpc": 2.59,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=warehouse+to+rent+in+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "ce3687d7-6260-4052-ac91-82ced149b540",
+          "keyword": "warehouses in midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 50,
+          "keywordDifficulty": 0,
+          "cpc": 2.47,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=warehouses+in+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        },
+        {
+          "trackingKeywordId": "ef89806d-b1b6-4456-9b32-55a9fdc13484",
+          "keyword": "warehouses to let in midrand",
+          "matchCase": false,
+          "pinned": false,
+          "searchVolume": 50,
+          "keywordDifficulty": 0,
+          "cpc": 2.59,
+          "desktop": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "mobile": {
+            "position": null,
+            "previousPosition": null,
+            "rankingUrl": null,
+            "serpFeatures": []
+          },
+          "googleSerpUrl": "https://www.google.com/search?q=warehouses+to+let+in+midrand&hl=en&gl=za&pws=0&uule=w+CAIQICIcTWlkcmFuZCxHYXV0ZW5nLFNvdXRoIEFmcmljYQ%3D%3D"
+        }
+      ],
+      "run": {
+        "id": "efc54cdc-0c80-4191-a918-9842a54512ea",
+        "lastCheckedAt": null,
+        "completedAt": null,
+        "status": "running",
+        "errorMessage": null
+      },
+      "totalCount": 33,
+      "offset": 0,
+      "limit": 100,
+      "nextOffset": null
+    },
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/rank-tracking/53dcf530-b839-4d60-a18c-bc5b96a0feb5"
+    }
+  },
+  "keywords": [
+    "office space to rent midrand",
+    "office space to rent in midrand",
+    "offices to rent midrand",
+    "office to rent midrand",
+    "office rental midrand",
+    "small office space to rent in midrand",
+    "office space halfway house",
+    "offices to rent halfway house",
+    "warehouse to rent midrand",
+    "warehouse to rent in midrand",
+    "warehouses to let in midrand",
+    "warehouse for rent in midrand",
+    "warehouse space midrand",
+    "warehouses in midrand",
+    "warehouse to rent halfway house",
+    "industrial property to rent midrand",
+    "warehouse and office space midrand",
+    "serviced offices midrand",
+    "serviced office space midrand",
+    "serviced offices halfway house",
+    "onpoint offices midrand",
+    "business park midrand",
+    "business parks in midrand",
+    "office parks in midrand",
+    "commercial property to rent midrand",
+    "commercial storage midrand",
+    "business storage midrand",
+    "warehouse storage midrand",
+    "midpoint business park",
+    "midpoint business park midrand",
+    "midpoint office park",
+    "midpoint midrand",
+    "162 tonetti street midrand"
+  ],
+  "groups": {
+    "offices": [
+      "office space to rent midrand",
+      "office space to rent in midrand",
+      "offices to rent midrand",
+      "office to rent midrand",
+      "office rental midrand",
+      "small office space to rent in midrand",
+      "office space halfway house",
+      "offices to rent halfway house"
+    ],
+    "warehouses": [
+      "warehouse to rent midrand",
+      "warehouse to rent in midrand",
+      "warehouses to let in midrand",
+      "warehouse for rent in midrand",
+      "warehouse space midrand",
+      "warehouses in midrand",
+      "warehouse to rent halfway house",
+      "industrial property to rent midrand",
+      "warehouse and office space midrand"
+    ],
+    "serviced": [
+      "serviced offices midrand",
+      "serviced office space midrand",
+      "serviced offices halfway house",
+      "onpoint offices midrand"
+    ],
+    "estate": [
+      "business park midrand",
+      "business parks in midrand",
+      "office parks in midrand",
+      "commercial property to rent midrand"
+    ],
+    "storage": [
+      "commercial storage midrand",
+      "business storage midrand",
+      "warehouse storage midrand"
+    ],
+    "brand": [
+      "midpoint business park",
+      "midpoint business park midrand",
+      "midpoint office park",
+      "midpoint midrand",
+      "162 tonetti street midrand"
+    ]
+  },
+  "indexing": {
+    "ok": true,
+    "siteUrl": "https://www.mid-point.co.za/",
+    "results": [
+      {
+        "url": "https://www.mid-point.co.za/offices",
+        "result": {
+          "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=https://www.mid-point.co.za/&id=7lYnsVpFdXPv8uf6v6vkjg&utm_medium=link&utm_source=api",
+          "indexStatusResult": {
+            "verdict": "PASS",
+            "coverageState": "Submitted and indexed",
+            "robotsTxtState": "ALLOWED",
+            "indexingState": "INDEXING_ALLOWED",
+            "lastCrawlTime": "2026-11-01T12:52:33Z",
+            "pageFetchState": "SUCCESSFUL",
+            "googleCanonical": "https://www.mid-point.co.za/offices",
+            "userCanonical": "https://www.mid-point.co.za/offices",
+            "sitemap": [
+              "https://www.mid-point.co.za/sitemap.xml"
+            ],
+            "referringUrls": [
+              "https://www.mid-point.co.za/sitemap.xml"
+            ],
+            "crawledAs": "MOBILE"
+          },
+          "mobileUsabilityResult": {
+            "verdict": "VERDICT_UNSPECIFIED"
+          },
+          "richResultsResult": {
+            "verdict": "PASS",
+            "detectedItems": [
+              {
+                "richResultType": "Breadcrumbs",
+                "items": [
+                  {
+                    "name": "Unnamed item"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "url": "https://www.mid-point.co.za/warehouses",
+        "result": {
+          "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=https://www.mid-point.co.za/&id=K6jvGH66ftcgpFozSkfLZA&utm_medium=link&utm_source=api",
+          "indexStatusResult": {
+            "verdict": "PASS",
+            "coverageState": "Submitted and indexed",
+            "robotsTxtState": "ALLOWED",
+            "indexingState": "INDEXING_ALLOWED",
+            "lastCrawlTime": "2026-10-31T21:53:36Z",
+            "pageFetchState": "SUCCESSFUL",
+            "googleCanonical": "https://www.mid-point.co.za/warehouses",
+            "userCanonical": "https://www.mid-point.co.za/warehouses",
+            "sitemap": [
+              "https://www.mid-point.co.za/sitemap.xml"
+            ],
+            "referringUrls": [
+              "https://www.mid-point.co.za/sitemap.xml"
+            ],
+            "crawledAs": "MOBILE"
+          },
+          "mobileUsabilityResult": {
+            "verdict": "VERDICT_UNSPECIFIED"
+          },
+          "richResultsResult": {
+            "verdict": "PASS",
+            "detectedItems": [
+              {
+                "richResultType": "Breadcrumbs",
+                "items": [
+                  {
+                    "name": "Unnamed item"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "url": "https://www.mid-point.co.za/services-offices",
+        "result": {
+          "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=https://www.mid-point.co.za/&id=UJvYgGqRCpKgms83TsO9uw&utm_medium=link&utm_source=api",
+          "indexStatusResult": {
+            "verdict": "NEUTRAL",
+            "coverageState": "Discovered - currently not indexed",
+            "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+            "indexingState": "INDEXING_STATE_UNSPECIFIED",
+            "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+            "sitemap": [
+              "https://www.mid-point.co.za/sitemap.xml"
+            ],
+            "referringUrls": [
+              "https://www.mid-point.co.za/sitemap.xml"
+            ],
+            "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+          },
+          "mobileUsabilityResult": {
+            "verdict": "VERDICT_UNSPECIFIED"
+          }
+        }
+      },
+      {
+        "url": "https://www.mid-point.co.za/business-park-midrand",
+        "result": {
+          "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=https://www.mid-point.co.za/&id=sAa7k-O0JEI4lvE7k0OPAw&utm_medium=link&utm_source=api",
+          "indexStatusResult": {
+            "verdict": "PASS",
+            "coverageState": "Submitted and indexed",
+            "robotsTxtState": "ALLOWED",
+            "indexingState": "INDEXING_ALLOWED",
+            "lastCrawlTime": "2026-10-31T14:22:39Z",
+            "pageFetchState": "SUCCESSFUL",
+            "googleCanonical": "https://www.mid-point.co.za/business-park-midrand",
+            "userCanonical": "https://www.mid-point.co.za/business-park-midrand",
+            "referringUrls": [
+              "https://www.mid-point.co.za/sitemap.xml"
+            ],
+            "crawledAs": "MOBILE"
+          },
+          "mobileUsabilityResult": {
+            "verdict": "VERDICT_UNSPECIFIED"
+          },
+          "richResultsResult": {
+            "verdict": "PASS",
+            "detectedItems": [
+              {
+                "richResultType": "Breadcrumbs",
+                "items": [
+                  {
+                    "name": "Unnamed item"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "url": "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need",
+        "result": {
+          "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=https://www.mid-point.co.za/&id=UknM0fFAyjD019H3d4Srug&utm_medium=link&utm_source=api",
+          "indexStatusResult": {
+            "verdict": "PASS",
+            "coverageState": "Submitted and indexed",
+            "robotsTxtState": "ALLOWED",
+            "indexingState": "INDEXING_ALLOWED",
+            "lastCrawlTime": "2026-10-29T05:30:05Z",
+            "pageFetchState": "SUCCESSFUL",
+            "googleCanonical": "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need",
+            "userCanonical": "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need",
+            "crawledAs": "MOBILE"
+          },
+          "mobileUsabilityResult": {
+            "verdict": "VERDICT_UNSPECIFIED"
+          },
+          "richResultsResult": {
+            "verdict": "PASS",
+            "detectedItems": [
+              {
+                "richResultType": "Breadcrumbs",
+                "items": [
+                  {
+                    "name": "Unnamed item"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/settings/integrations"
+    }
+  },
+  "report": {
+    "reportId": "66d9a181-30cc-49c6-88a5-7897005c2f2b",
+    "title": "Keyword Tracking and Setup — Nov 2, 2026",
+    "created": true,
+    "htmlBytes": 17959,
+    "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/reports/66d9a181-30cc-49c6-88a5-7897005c2f2b",
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/reports/66d9a181-30cc-49c6-88a5-7897005c2f2b"
+    }
+  },
+  "validation": {
+    "savedCount": 33,
+    "pinnedCount": 5,
+    "reportExactReadback": true
+  },
+  "account": {
+    "initialCredits": 9425,
+    "observedCredits": 8824,
+    "delta": 601,
+    "note": "Observed balance delta, not a settled per-operation breakdown; baseline provider still running."
+  }
+}
