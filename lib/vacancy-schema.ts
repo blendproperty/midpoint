@@ -3,7 +3,7 @@ import { vacancyAreaNeedsConfirmation } from "@/lib/vacancy-content";
 import { vacancyAvailability, vacancyDetailHref, vacancyLabel, type VacancyListing } from "@/lib/vacancy-shared";
 import { publishedVacancyFacts } from "@/lib/leasing-comparison";
 
-type SchemaListing = Pick<VacancyListing, "id" | "building" | "sector" | "sizeSqm" | "ratePerSqm" | "availability" | "description" | "image"> & Partial<Pick<VacancyListing, "unitName">>;
+type SchemaListing = Pick<VacancyListing, "id" | "building" | "sector" | "sizeSqm" | "ratePerSqm" | "availability" | "description" | "image"> & Partial<Pick<VacancyListing, "unitName" | "slug">>;
 
 export function vacancyJsonLd(listing: SchemaListing, domain = site.domain) {
   const url = new URL(vacancyDetailHref(listing), domain).href;
@@ -14,6 +14,7 @@ export function vacancyJsonLd(listing: SchemaListing, domain = site.domain) {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "@id": `${url}#webpage`, url, name, description: listing.description, image,
+    mainEntity: { "@id": `${url}#property` },
     isPartOf: { "@id": `${domain.replace(/\/$/, "")}/#website` },
     about: {
       "@type": "Place", "@id": `${url}#property`, name, image,
@@ -30,7 +31,7 @@ export function vacancyJsonLd(listing: SchemaListing, domain = site.domain) {
       ],
     },
     offers: {
-      "@type": "OfferForLease", url,
+      "@type": "OfferForLease", "@id": `${url}#lease`, url,
       businessFunction: "http://purl.org/goodrelations/v1#LeaseOut",
       description: `Published availability: ${vacancyAvailability(listing.availability)}. Confirm occupation timing, VAT, parking and other charges with the leasing team.`,
       ...(!areaNeedsConfirmation && Number.isFinite(listing.ratePerSqm) && listing.ratePerSqm > 0 ? {

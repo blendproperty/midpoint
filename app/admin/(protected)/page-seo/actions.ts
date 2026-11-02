@@ -7,6 +7,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { readCanonicalUrl } from "@/lib/seo-validation";
 import { Prisma } from "@prisma/client";
+import { vacancyDetailHref } from "@/lib/vacancy-shared";
 
 function parseSchemaJson(raw: string): Prisma.InputJsonValue | typeof Prisma.JsonNull {
   const trimmed = raw.trim();
@@ -20,10 +21,11 @@ function parseSchemaJson(raw: string): Prisma.InputJsonValue | typeof Prisma.Jso
 
 export async function updatePageSeoOverride(formData: FormData) {
   await requireAdmin();
-  const path = String(formData.get("path") || "").trim();
+  let path = String(formData.get("path") || "").trim();
   const vacancyId = /^\/vacancies\/([^/?#]+)$/.exec(path)?.[1];
-  const vacancy = vacancyId ? await prisma.vacancy.findFirst({ where: { id: decodeURIComponent(vacancyId), status: "PUBLISHED" }, select: { id: true } }) : null;
+  const vacancy = vacancyId ? await prisma.vacancy.findFirst({ where: { OR: [{ id: decodeURIComponent(vacancyId) }, { slug: decodeURIComponent(vacancyId) }], status: "PUBLISHED" }, select: { id: true, slug: true } }) : null;
   if (!STATIC_PAGES.some(page => page.path === path) && !vacancy) throw new Error("Choose an existing public page.");
+  if (vacancy) path = vacancyDetailHref(vacancy);
 
   const data = {
     seoTitle: String(formData.get("seoTitle") || "").trim() || null,

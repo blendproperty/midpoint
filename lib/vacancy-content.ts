@@ -50,10 +50,11 @@ export function vacancyContent(listing: VacancyListing & { sourceDescription?: s
   // Legacy plain-text feeds lost list markers; split the published feature labels without rewriting their claims.
   const featureSource = decode(source).replace(/<br\s*\/?\s*>|<\/(?:p|div|li|h[1-6])\s*>/gi, "\n").replace(/<[^>]*>/g, " ").split(/Key\s+Features\s*:?/i).slice(1).join("\n");
   const details = featureSource.replace(/ +(?=(?:Asking rental of|Monthly rental of|Suitable for|Flexible space with|Centrally located in|Convenient access to|Secure mixed-use|Generator and backup water|On-site lifestyle|Minimum lease period of)\b)/g, "\n").split(/[\n🔹✅✔✓☑•]/u).map(v => v.trim()).filter(Boolean);
-  const address = listing.unitName || listing.building;
+  const address = listing.unitName && (/^Midpoint (?:Commercial|Warehousing)$/i.test(listing.building.trim()) || listing.unitName.toLowerCase().includes(listing.building.trim().toLowerCase()))
+    ? listing.unitName : vacancyLabel(listing);
   const type = listing.sector === "Warehouse" ? "Warehouse" : listing.sector === "Office" ? "Office space" : "Serviced office";
   const title = `${address} | ${type} to Rent in Midrand`;
-  const description = `${vacancyAreaNeedsConfirmation(listing) ? "" : vacancySize(listing.sizeSqm) + " "}${listing.sector.toLowerCase()} to rent at ${address}, Halfway House, Midrand. View property details, photography and asking rental, or arrange a viewing.`;
+  const description = `${vacancyAreaNeedsConfirmation(listing) ? "" : vacancySize(listing.sizeSqm) + " "}${listing.sector.toLowerCase()} to rent at ${address}, Halfway House, Midrand. Available ${vacancyAvailability(listing.availability)}. Arrange a viewing.`;
   const viewing = listing.sector === "Warehouse" ? [
     "Request a dimensioned floor plan showing the warehouse, offices, loading positions and yard.",
     "Check clear height, floor loading, fire provision, power supply and backup coverage against your intended operation.",

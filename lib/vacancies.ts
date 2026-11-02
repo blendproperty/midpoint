@@ -1,11 +1,13 @@
 import { prisma } from "@/lib/prisma";
 import { normalizedVacancySector, type VacancySectorCode } from "@/lib/vacancy-sector";
 import { decode } from "html-entities";
+export { vacancyDetailHref } from "@/lib/vacancy-shared";
 
 export type VacancySector = "Warehouse" | "Office" | "Serviced office";
 
 export type VacancyListing = {
   id: string;
+  slug?: string;
   building: string;
   // Specific unit/suite name within `building`, e.g. "OnPoint Suite 4" for
   // a listing whose `building` is just "OnPoint". Null for standalone
@@ -40,10 +42,6 @@ export const VACANCY_REVALIDATE_SECONDS =
 // impossible to tell which actual space someone is asking about.
 export function vacancyLabel(listing: Pick<VacancyListing, "building" | "unitName">) {
   return listing.unitName ? `${listing.building} — ${listing.unitName}` : listing.building;
-}
-
-export function vacancyDetailHref(listing: Pick<VacancyListing, "id">) {
-  return `/vacancies/${encodeURIComponent(listing.id)}`;
 }
 
 const DESCRIPTION_ENTITIES: Record<string, string> = {
@@ -88,6 +86,12 @@ export async function getVacancyById(id: string): Promise<(VacancyListing & { ex
   return { ...row, sourceDescription: row.description, image: row.image || "", sector: vacancySector(row.sector, row.building), description: decode(row.description).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() };
 }
 
+export async function getVacancyBySlugOrId(value: string) {
+  const row = await prisma.vacancy.findFirst({ where: { OR: [{ id: value }, { slug: value }], status: "PUBLISHED" } });
+  if (!row) return null;
+  return { ...row, sourceDescription: row.description, image: row.image || "", sector: vacancySector(row.sector, row.building), description: decode(row.description).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() };
+}
+
 function formatVacancySize(n: number) {
   return `${n.toLocaleString("en-ZA", { maximumFractionDigits: 2 })} m²`;
 }
@@ -122,6 +126,7 @@ export async function getAllVacancies(options: { fullDescriptions?: boolean } = 
     if (rows.length === 0) return [];
     return rows.map((row) => ({
       id: row.id,
+      slug: row.slug,
       building: row.building,
       unitName: row.unitName || null,
       sector: vacancySector(row.sector, row.building),

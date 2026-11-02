@@ -6,12 +6,12 @@ import VacancyFeature from "@/components/VacancyFeature";
 import { vacancyRate, vacancySize, vacancyAvailability } from "@/lib/vacancy-shared";
 import VacancyPhoto from "@/components/VacancyPhoto";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { getVacancyById, vacancyLabel } from "@/lib/vacancies";
+import { getVacancyBySlugOrId, vacancyLabel } from "@/lib/vacancies";
 import VacancyViewTracker from "@/components/VacancyViewTracker";
-import { vacancyBrochureHref } from "@/lib/vacancy-shared";
+import { vacancyBrochureHref, vacancyDetailHref } from "@/lib/vacancy-shared";
 import { vacancySummary } from "@/lib/vacancies";
 import { isPriorityVacancy, vacancyContent, vacancyAreaNeedsConfirmation } from "@/lib/vacancy-content";
 import { vacancyJsonLd } from "@/lib/vacancy-schema";
@@ -22,20 +22,37 @@ import { indicativeMonthlyRental, publishedVacancyFacts } from "@/lib/leasing-co
 
 export const dynamic = "force-dynamic";
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+type PageProps = {
+  params: Promise<{ id: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
+
+async function resolveVacancy({ params, searchParams }: PageProps) {
   const { id } = await params;
-  const listing = await getVacancyById(decodeURIComponent(id));
-  if (!listing) return {};
-  const path = `/vacancies/${encodeURIComponent(listing.id)}`;
+  // Next has already decoded route parameters. Decoding again breaks literal % names.
+  const listing = await getVacancyBySlugOrId(id);
+  if (!listing) notFound();
+  const path = vacancyDetailHref(listing);
+  if (id !== listing.slug) {
+    const query = new URLSearchParams();
+    for (const [key, value] of Object.entries(await searchParams || {})) {
+      for (const item of Array.isArray(value) ? value : value === undefined ? [] : [value]) query.append(key, item);
+    }
+    permanentRedirect(path + (query.size ? `?${query}` : ""));
+  }
+  return listing;
+}
+
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+  const listing = await resolveVacancy(props);
+  const path = vacancyDetailHref(listing);
   const [fields, settings] = await Promise.all([getPageSeoOverride(path), getSiteSettings()]);
   const content = vacancyContent(listing);
   return buildPageMetadata({ path, title: content.title, description: content.description, image: listing.image, fields, settings });
 }
 
-export default async function VacancyDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const listing = await getVacancyById(decodeURIComponent(id));
-  if (!listing) notFound();
+export default async function VacancyDetailPage(props: PageProps) {
+  const listing = await resolveVacancy(props);
   const label = vacancyLabel(listing);
   const content = vacancyContent(listing);
   const settings = await getSiteSettings();
@@ -55,7 +72,7 @@ export default async function VacancyDetailPage({ params }: { params: Promise<{ 
   const areaNeedsConfirmation = vacancyAreaNeedsConfirmation(listing);
   const monthlyBase = indicativeMonthlyRental(listing);
   const publishedFacts = publishedVacancyFacts(listing);
-  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Vacancies", path: "/vacancies" }, { name: label, path: `/vacancies/${encodeURIComponent(listing.id)}` }];
+  const breadcrumbItems = [{ name: "Home", path: "/" }, { name: "Vacancies", path: "/vacancies" }, { name: label, path: vacancyDetailHref(listing) }];
 
   return (
     <article className="bg-white pb-20">

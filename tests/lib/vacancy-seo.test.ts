@@ -5,7 +5,7 @@ import { normalizedVacancySector } from "@/lib/vacancy-sector";
 import type { VacancyListing } from "@/lib/vacancy-shared";
 import { midpointPlaceJsonLd, organizationJsonLd } from "@/lib/seo";
 
-const listing: VacancyListing = { id: "one", building: "Midpoint Warehousing", unitName: "6 Weaver Avenue", sector: "Warehouse", sizeSqm: 11443, ratePerSqm: 109, availability: "1 July 2027", description: "A 10,150 m² warehouse with integrated offices. 15m height to eaves and 2.5 MVA. Key Features 🔹 Confirmed loading specification 🔹 Yard", features: [], image: "/images/listings/6-weaver-avenue.png" };
+const listing: VacancyListing = { id: "one", slug: "6-weaver-avenue-midrand", building: "Midpoint Warehousing", unitName: "6 Weaver Avenue", sector: "Warehouse", sizeSqm: 11443, ratePerSqm: 109, availability: "1 July 2027", description: "A 10,150 m² warehouse with integrated offices. 15m height to eaves and 2.5 MVA. Key Features 🔹 Confirmed loading specification 🔹 Yard", features: [], image: "/images/listings/6-weaver-avenue.png" };
 
 describe("leasing content and schema", () => {
   it("keeps email on the organisation rather than the estate Place node", () => {
@@ -15,7 +15,7 @@ describe("leasing content and schema", () => {
   it("uses exact unit URLs and qualified area rates without inventing immediate stock", () => {
     const schema = vacancyJsonLd(listing);
     expect(schema["@type"]).toBe("RealEstateListing");
-    expect(schema.url).toBe("https://www.mid-point.co.za/vacancies/one");
+    expect(schema.url).toBe("https://www.mid-point.co.za/vacancies/6-weaver-avenue-midrand");
     expect(schema.name).toContain("6 Weaver Avenue");
     expect(schema.offers["@type"]).toBe("OfferForLease");
     expect(schema.offers.priceSpecification).toMatchObject({ price: 109, priceCurrency: "ZAR", unitText: "m² per month" });
@@ -37,9 +37,9 @@ describe("leasing content and schema", () => {
     expect(vacancyJsonLd({ ...conflict, sizeSqm: 3300 }).offers).toHaveProperty("priceSpecification");
   });
   it("describes each unit rather than repeating the schedule URL", () => {
-    const schema = vacancyListJsonLd([listing, { ...listing, id: "two", unitName: "1 Kingfisher Avenue" }], "/warehouses", "Warehouse availability");
+    const schema = vacancyListJsonLd([listing, { ...listing, id: "two", slug: "1-kingfisher-avenue-midrand", unitName: "1 Kingfisher Avenue" }], "/warehouses", "Warehouse availability");
     expect(schema.numberOfItems).toBe(2);
-    expect(schema.itemListElement.map(i => i.item.url)).toEqual(["https://www.mid-point.co.za/vacancies/one", "https://www.mid-point.co.za/vacancies/two"]);
+    expect(schema.itemListElement.map(i => i.item.url)).toEqual(["https://www.mid-point.co.za/vacancies/6-weaver-avenue-midrand", "https://www.mid-point.co.za/vacancies/1-kingfisher-avenue-midrand"]);
     expect(JSON.stringify(schema)).not.toContain('"@type":"Product"');
   });
   it("keeps complete source specifications and decimal measurements", () => {

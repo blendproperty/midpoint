@@ -321,6 +321,8 @@ model PillarPage {
 
 model Vacancy {
   id           String        @id @default(cuid())
+  // Assigned by the insert trigger; preserved across feed and editorial updates.
+  slug         String        @unique @default(dbgenerated())
   building     String
   // Optional specific unit/suite name within a shared building — needed for
   // buildings like OnPoint where many individual listings all share the same
