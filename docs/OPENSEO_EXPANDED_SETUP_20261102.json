@@ -1,0 +1,2456 @@
+{
+  "date": "2026-11-02",
+  "scope": "Expanded OpenSEO setup; AI activation pending cost approval; provider rank baseline pending",
+  "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+  "competitors": [
+    {
+      "id": "9508031f-3e73-4dad-9279-a1a61914aa3f",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "16throadbusinesssuites.co.za",
+      "name": "16th Road Business Suites",
+      "notes": "Direct serviced-office alternative in Randjespark/Midrand; 2Nov serviced-office local-pack result. https://www.16throadbusinesssuites.co.za/",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "4d304cb8-e21b-4940-b25b-f0b3bcc1714f",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "anvilproperty.co.za",
+      "name": "ANVIL Property Smith",
+      "notes": "User-confirmed priority search competitor. Compare Midrand office/warehouse leasing pages and specific buyer queries, not nationwide site totals alone.",
+      "updatedAt": "2026-10-16T08:48:00.198Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "591dc641-694b-488e-b09a-08f852d7ad4b",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "apiproperty.co.za",
+      "name": "API Property Group",
+      "notes": "Industrial brokerage/search competitor; country-level Labs sample warehouse6/office24, not a live local-rank claim. Official Midrand industrial listing directory: https://www.apiproperty.co.za/results/industrial/to-let/midrand/",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "652c99ae-2944-4fc7-a5df-041fd5ee3308",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "curriegroup.co.za",
+      "name": "Currie Group",
+      "notes": "Brokerage/search competitor for Midrand offices and warehouses; 2Nov local warehouse organic4 and business-park organic7. https://curriegroup.co.za/to-let/warehouses/midrand/",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "2886d639-f050-46e5-9e1b-10595632ca56",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "eliteselfstorage.co.za",
+      "name": "Elite Self Storage",
+      "notes": "Adjacent storage substitute for storage-comparison content. 2Nov commercial-storage local pack; no organic-rank claim. http://www.eliteselfstorage.co.za/",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "5231025a-b8f4-4689-a40f-e2f091e2091f",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "innovationworx.co.za",
+      "name": "Innovation Worx",
+      "notes": "Direct managed-park/flexible office and warehouse competitor in Midrand. 2Nov local mobile samples: office organic6, warehouse8; multiple office/warehouse/serviced local-pack entries. https://innovationworx.co.za/commercial-property-to-rent-midrand/",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "c5be5f76-173c-44a1-9d8e-61e91eea3ee9",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "inospace.com",
+      "name": "Inospace",
+      "notes": "Direct flexible industrial/business-park competitor. 2Nov local warehouse sample organic9 and Allandale Exchange local pack. https://www.inospace.com/working-spaces/allandale-exchange",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "b9431691-1580-4a7e-ab62-17b921536527",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "instantoffices.com",
+      "name": "Instant Offices",
+      "notes": "Flexible-office marketplace/search competitor; 2Nov local serviced-office organic10. https://www.instantoffices.com/en/za/office-space/midrand",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "e9d90881-371a-4f9d-b560-ae1bbab64009",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "officeplace.co.za",
+      "name": "OfficePlace",
+      "notes": "Office brokerage/search competitor; country-level Labs office7/warehouse17 on two covered head queries, not a live local-rank claim.",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "d3bb6755-0eac-4a76-8492-826fea30ae0d",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "privateproperty.co.za",
+      "name": "Private Property",
+      "notes": "Property portal/search competitor and possible distribution channel, not a competing estate. Country-level two-head-query sample office2/warehouse3; not a fresh local-ranking claim.",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "78d7adee-4932-4bb4-affe-7e4a333bd06a",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "property24.com",
+      "name": "Property24",
+      "notes": "Property portal/search competitor and possible distribution channel, not a competing estate. Country-level two-head-query sample office1/warehouse1; local warehouse organic1. https://www.property24.com/industrial-property-to-rent/midrand/gauteng/16",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "3b0fecf6-02e9-4a32-a323-49f636072b93",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "regus.com",
+      "name": "Regus",
+      "notes": "Direct serviced-office/coworking alternative; 2Nov local office query organic2. https://www.regus.com/en/za/midrand/coworking . Shares IWG parent with Spaces; do not count as independent company group.",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "624bf79a-a634-48ce-ba19-e45ab702b0f1",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "spacesworks.com",
+      "name": "Spaces",
+      "notes": "Serviced-office/coworking alternative; official Midrand offering verified https://www.spacesworks.com/en/za/midrand . Shares IWG parent with Regus; domain-level search competitor, not independent ownership.",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "21bcd72a-161d-4fc0-b293-216fb7d70ace",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "storage123.co.za",
+      "name": "Storage 123",
+      "notes": "Adjacent business/self-storage substitute; relevant only to storage comparison, not office-estate leasing. 2Nov commercial-storage local pack. https://storage123.co.za/",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "37df1941-199b-4101-85da-cfabcd699470",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "storageworx.co.za",
+      "name": "Storageworx",
+      "notes": "Adjacent business-storage substitute; relevant only to storage comparison and STOR24 routing, not core office/warehouse-estate leasing. 2Nov commercial-storage local pack. https://storageworx.co.za/",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "5f2222bc-815a-4dc4-8736-6235317fb6a2",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "swindon.co.za",
+      "name": "Swindon Property",
+      "notes": "Commercial brokerage/search competitor. 2Nov local business-park organic4. https://www.swindon.co.za/area-midrand-business-park-midrand",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    },
+    {
+      "id": "4531f392-1bde-4134-b110-c1ecee18b345",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "domain": "workpods.co.za",
+      "name": "WorkPods",
+      "notes": "Local flexible-office alternative; 2Nov office-space local-pack result. https://workpods.co.za/ . Local-pack observation is not organic rank.",
+      "updatedAt": "2026-11-02T08:46:56.191Z",
+      "updatedBy": "mcp"
+    }
+  ],
+  "countryCompetitorDiscovery": {
+    "competitors": [
+      {
+        "se_type": "google",
+        "domain": "www.property24.com",
+        "avg_position": 1,
+        "median_position": 1,
+        "rating": 198,
+        "etv": 74.46652019383603,
+        "keywords_count": 2,
+        "visibility": 2,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            1
+          ],
+          "office space to rent midrand": [
+            1
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.privateproperty.co.za",
+        "avg_position": 2.5,
+        "median_position": 2,
+        "rating": 195,
+        "etv": 15.446880620627871,
+        "keywords_count": 2,
+        "visibility": 1.7000000000000002,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            3
+          ],
+          "office space to rent midrand": [
+            2
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.anvilproperty.co.za",
+        "avg_position": 4,
+        "median_position": 2,
+        "rating": 192,
+        "etv": 24.401869219131783,
+        "keywords_count": 2,
+        "visibility": 1.4,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            2
+          ],
+          "office space to rent midrand": [
+            6
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "innovationworx.co.za",
+        "avg_position": 6,
+        "median_position": 4,
+        "rating": 188,
+        "etv": 3.7433887927610296,
+        "keywords_count": 2,
+        "visibility": 1,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            8
+          ],
+          "office space to rent midrand": [
+            4
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "curriegroup.co.za",
+        "avg_position": 8,
+        "median_position": 4,
+        "rating": 184,
+        "etv": 8.341544729826346,
+        "keywords_count": 2,
+        "visibility": 0.75,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            4
+          ],
+          "office space to rent midrand": [
+            12
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.harcourts.co.za",
+        "avg_position": 18,
+        "median_position": 5,
+        "rating": 164,
+        "etv": 6.230988696454985,
+        "keywords_count": 2,
+        "visibility": 0.6,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            5
+          ],
+          "office space to rent midrand": [
+            31
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.apiproperty.co.za",
+        "avg_position": 15,
+        "median_position": 6,
+        "rating": 170,
+        "etv": 4.796062368340782,
+        "keywords_count": 2,
+        "visibility": 0.5,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            6
+          ],
+          "office space to rent midrand": [
+            24
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.officeplace.co.za",
+        "avg_position": 12,
+        "median_position": 7,
+        "rating": 176,
+        "etv": 1.1365815282823695,
+        "keywords_count": 2,
+        "visibility": 0.45,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            17
+          ],
+          "office space to rent midrand": [
+            7
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.inospace.com",
+        "avg_position": 12.5,
+        "median_position": 9,
+        "rating": 175,
+        "etv": 2.379396920356783,
+        "keywords_count": 2,
+        "visibility": 0.25,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            9
+          ],
+          "office space to rent midrand": [
+            16
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "cospace.co.za",
+        "avg_position": 33.5,
+        "median_position": 9,
+        "rating": 133,
+        "etv": 0.5895300385723271,
+        "keywords_count": 2,
+        "visibility": 0.2,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            58
+          ],
+          "office space to rent midrand": [
+            9
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.renprop.co.za",
+        "avg_position": 16.5,
+        "median_position": 15,
+        "rating": 167,
+        "etv": 0.9612905487220371,
+        "keywords_count": 2,
+        "visibility": 0.1,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            15
+          ],
+          "office space to rent midrand": [
+            18
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.myproperty.co.za",
+        "avg_position": 16.5,
+        "median_position": 14,
+        "rating": 167,
+        "etv": 0.8219857317003414,
+        "keywords_count": 2,
+        "visibility": 0.1,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            19
+          ],
+          "office space to rent midrand": [
+            14
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.swindon.co.za",
+        "avg_position": 20,
+        "median_position": 14,
+        "rating": 160,
+        "etv": 1.051605431067874,
+        "keywords_count": 2,
+        "visibility": 0.05,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            14
+          ],
+          "office space to rent midrand": [
+            26
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.newpointproperty.co.za",
+        "avg_position": 22.5,
+        "median_position": 11,
+        "rating": 155,
+        "etv": 1.6009500584537246,
+        "keywords_count": 2,
+        "visibility": 0.05,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            11
+          ],
+          "office space to rent midrand": [
+            34
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.baker-street.co.za",
+        "avg_position": 25,
+        "median_position": 18,
+        "rating": 150,
+        "etv": 0.6083462160883175,
+        "keywords_count": 2,
+        "visibility": 0.05,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            18
+          ],
+          "office space to rent midrand": [
+            32
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "turnspace.co.za",
+        "avg_position": 23.5,
+        "median_position": 22,
+        "rating": 153,
+        "etv": 0.4595140684047932,
+        "keywords_count": 2,
+        "visibility": 0,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            25
+          ],
+          "office space to rent midrand": [
+            22
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.rennieproperty.co.za",
+        "avg_position": 26,
+        "median_position": 22,
+        "rating": 148,
+        "etv": 0.4620543033593947,
+        "keywords_count": 2,
+        "visibility": 0,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            22
+          ],
+          "office space to rent midrand": [
+            30
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "www.youtube.com",
+        "avg_position": 29.5,
+        "median_position": 23,
+        "rating": 141,
+        "etv": 0.3996443897818924,
+        "keywords_count": 2,
+        "visibility": 0,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            23
+          ],
+          "office space to rent midrand": [
+            36
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "property.mg.co.za",
+        "avg_position": 36,
+        "median_position": 35,
+        "rating": 128,
+        "etv": 0.2770757927238119,
+        "keywords_count": 2,
+        "visibility": 0,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            37
+          ],
+          "office space to rent midrand": [
+            35
+          ]
+        }
+      },
+      {
+        "se_type": "google",
+        "domain": "officesandwarehouses.co.za",
+        "avg_position": 39,
+        "median_position": 21,
+        "rating": 122,
+        "etv": 0.4257889736834983,
+        "keywords_count": 2,
+        "visibility": 0,
+        "relevant_serp_items": 2,
+        "keywords_positions": {
+          "warehouse to rent midrand": [
+            21
+          ],
+          "office space to rent midrand": [
+            57
+          ]
+        }
+      }
+    ],
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/domain"
+    }
+  },
+  "localMobileSerps": [
+    {
+      "keyword": "office space to rent midrand",
+      "ok": true,
+      "items": [
+        {
+          "domain": "www.regus.com",
+          "type": "organic",
+          "organicRank": 2,
+          "url": "https://www.regus.com/en/za/midrand/coworking",
+          "title": "Coworking Space in Midrand"
+        },
+        {
+          "domain": "innovationworx.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://innovationworx.co.za/innovation-worx-midrand-junction/",
+          "title": "Innovation Worx - Midrand Junction"
+        },
+        {
+          "domain": "workpods.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://workpods.co.za/",
+          "title": "WorkPods"
+        },
+        {
+          "domain": "innovationworx.co.za",
+          "type": "organic",
+          "organicRank": 6,
+          "url": "https://innovationworx.co.za/commercial-property-to-rent-midrand/",
+          "title": "Commercial Property to Rent in Midrand"
+        },
+        {
+          "domain": "www.facebook.com",
+          "type": "organic",
+          "organicRank": 7,
+          "url": "https://www.facebook.com/InnoWorxHQ/posts/-the-ultimate-guide-to-renting-commercial-office-space-in-midrand-are-you-ready-/573488388780420/",
+          "title": "🚀 The Ultimate Guide to Renting Commercial Office Space in Midrand ..."
+        },
+        {
+          "domain": "www.anvilproperty.co.za",
+          "type": "organic",
+          "organicRank": 10,
+          "url": "https://www.anvilproperty.co.za/commercial-property/office-space/to-rent/midrand?page=7&srsltid=AYCX9vJIg6j6jx6jgas4E4QcGsqkbBX0XmS5-iTqlaL-ZfQJS6o563y8",
+          "title": "Office Space to Rent in Midrand | Page 7"
+        },
+        {
+          "domain": "turnspace.co.za",
+          "type": "organic",
+          "organicRank": 11,
+          "url": "https://turnspace.co.za/property/midrand-gate/",
+          "title": "119 m² Office Space to Rent Midrand Midrand Gate"
+        }
+      ],
+      "limitation": "Google redirect destinations unassigned; no domain/rank inference from obscured links."
+    },
+    {
+      "keyword": "warehouse to rent midrand",
+      "ok": true,
+      "items": [
+        {
+          "domain": "www.property24.com",
+          "type": "organic",
+          "organicRank": 1,
+          "url": "https://www.property24.com/industrial-property-to-rent/midrand/gauteng/16",
+          "title": "Industrial property to rent in Midrand"
+        },
+        {
+          "domain": "curriegroup.co.za",
+          "type": "organic",
+          "organicRank": 4,
+          "url": "https://curriegroup.co.za/to-let/warehouses/midrand/",
+          "title": "Warehouses To Let in Midrand | Browse Updated Listings"
+        },
+        {
+          "domain": "innovationworx.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://innovationworx.co.za/innovation-worx-midrand-junction/",
+          "title": "Innovation Worx - Midrand Junction"
+        },
+        {
+          "domain": "www.inospace.com",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://www.inospace.com/working-spaces/allandale-exchange?utm_source=GoogleMaps&utm_medium=Allandale+Exchange",
+          "title": "Inospace - Allandale Exchange"
+        },
+        {
+          "domain": "innovationworx.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://innovationworx.co.za/innovation-worx-16th-road/",
+          "title": "Innovation Worx - 16th Road"
+        },
+        {
+          "domain": "innovationworx.co.za",
+          "type": "organic",
+          "organicRank": 8,
+          "url": "https://innovationworx.co.za/commercial-property-to-rent-midrand/",
+          "title": "Commercial Property to Rent in Midrand"
+        },
+        {
+          "domain": "www.inospace.com",
+          "type": "organic",
+          "organicRank": 9,
+          "url": "https://www.inospace.com/rent/warehouse/johannesburg",
+          "title": "Warehouse Space to Rent in Johannesburg"
+        },
+        {
+          "domain": "www.property24.com",
+          "type": "organic",
+          "organicRank": 11,
+          "url": "https://www.property24.com/industrial-property-to-rent/halfway-house/midrand/gauteng/1516",
+          "title": "Industrial property to rent in Halfway House"
+        },
+        {
+          "domain": "www.mid-point.co.za",
+          "type": "organic",
+          "organicRank": 12,
+          "url": "https://www.mid-point.co.za/warehouses",
+          "title": "Warehouses to Rent in Midrand"
+        }
+      ],
+      "limitation": "Google redirect destinations unassigned; no domain/rank inference from obscured links."
+    },
+    {
+      "keyword": "serviced offices midrand",
+      "ok": true,
+      "items": [
+        {
+          "domain": "www.16throadbusinesssuites.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://www.16throadbusinesssuites.co.za/",
+          "title": "16th Road Business Suites - Serviced Offices Randjespark, Midrand"
+        },
+        {
+          "domain": "innovationworx.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://innovationworx.co.za/innovation-worx-midrand-junction/",
+          "title": "Innovation Worx - Midrand Junction"
+        },
+        {
+          "domain": "innovationworx.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://innovationworx.co.za/innovation-worx-16th-road/",
+          "title": "Innovation Worx - 16th Road"
+        },
+        {
+          "domain": "www.newofficeafrica.com",
+          "type": "organic",
+          "organicRank": 6,
+          "url": "https://www.newofficeafrica.com/serviced-offices/midrand",
+          "title": "Serviced offices to rent and lease in Midrand | NewOfficeAfrica"
+        },
+        {
+          "domain": "www.instantoffices.com",
+          "type": "organic",
+          "organicRank": 10,
+          "url": "https://www.instantoffices.com/en/za/office-space/midrand",
+          "title": "Office Space for Rent Midrand"
+        }
+      ],
+      "limitation": "Google redirect destinations unassigned; no domain/rank inference from obscured links."
+    },
+    {
+      "keyword": "offices to rent halfway house",
+      "ok": true,
+      "items": [
+        {
+          "domain": "www.property24.com",
+          "type": "organic",
+          "organicRank": 1,
+          "url": "https://www.property24.com/commercial-property-to-rent/midrand/gauteng/16",
+          "title": "Commercial property to rent in Midrand"
+        },
+        {
+          "domain": "www.property24.com",
+          "type": "organic",
+          "organicRank": 2,
+          "url": "https://www.property24.com/to-rent/halfway-house/midrand/gauteng/1516/p16",
+          "title": "Property to rent in Halfway House"
+        },
+        {
+          "domain": "www.property24.com",
+          "type": "organic",
+          "organicRank": 3,
+          "url": "https://www.property24.com/to-rent/halfway-house/midrand/gauteng/1516/117657149",
+          "title": "Commercial property to rent in Halfway House - Office G.07, On Point ..."
+        },
+        {
+          "domain": "innovationworx.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://innovationworx.co.za/innovation-worx-midrand-junction/",
+          "title": "Innovation Worx - Midrand Junction"
+        },
+        {
+          "domain": "innovationworx.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://innovationworx.co.za/",
+          "title": "Innovation Worx"
+        },
+        {
+          "domain": "www.instagram.com",
+          "type": "organic",
+          "organicRank": 8,
+          "url": "https://www.instagram.com/newpointproperty/reel/DdbcK7FtjsH/?hl=hr",
+          "title": "Office Space To Let in Halfway House, Midrand Looking for well-connected ..."
+        }
+      ],
+      "limitation": "Google redirect destinations unassigned; no domain/rank inference from obscured links."
+    },
+    {
+      "keyword": "business park midrand",
+      "ok": true,
+      "items": [
+        {
+          "domain": "www.milarchi.co.za",
+          "type": "organic",
+          "organicRank": 3,
+          "url": "https://www.milarchi.co.za/projects/midrand-business-park/?srsltid=AYCX9vIRko6qVsxSGSOZYVEv58SZRyCkqW8r8qxPx2PbJw9VM34YMxE3",
+          "title": "Midrand Business Park"
+        },
+        {
+          "domain": "www.swindon.co.za",
+          "type": "organic",
+          "organicRank": 4,
+          "url": "https://www.swindon.co.za/area-midrand-business-park-midrand",
+          "title": "Midrand Business Park"
+        },
+        {
+          "domain": "curriegroup.co.za",
+          "type": "organic",
+          "organicRank": 7,
+          "url": "https://curriegroup.co.za/park/thornhill-office-park-midrand/",
+          "title": "Thornhill Office Park Midrand | Offices to Rent - Currie Group"
+        },
+        {
+          "domain": "www.cadenceholdings.co.za",
+          "type": "organic",
+          "organicRank": 10,
+          "url": "https://www.cadenceholdings.co.za/ashbow-industrial-park",
+          "title": "Ashbow Industrial Park - Cadence Holdings"
+        },
+        {
+          "domain": "growthpoint.co.za",
+          "type": "organic",
+          "organicRank": 11,
+          "url": "https://growthpoint.co.za/property/midrand-central-bus-park-520",
+          "title": "MIDRAND CENTRAL BUS PARK 520"
+        }
+      ],
+      "limitation": "Google redirect destinations unassigned; no domain/rank inference from obscured links."
+    },
+    {
+      "keyword": "commercial storage midrand",
+      "ok": true,
+      "items": [
+        {
+          "domain": "www.eliteselfstorage.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "http://www.eliteselfstorage.co.za/",
+          "title": "Elite Self Storage Midrand"
+        },
+        {
+          "domain": "storage123.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://storage123.co.za/?utm_source=google%20business%20profile&utm_medium=search&utm_campaign=promotion&utm_term=storage123",
+          "title": "Storage 123 Midrand"
+        },
+        {
+          "domain": "storageworx.co.za",
+          "type": "local_pack",
+          "organicRank": null,
+          "url": "https://storageworx.co.za/?utm_source=google&utm_medium=local&utm_campaign=gmb",
+          "title": "Storageworx Midrand"
+        },
+        {
+          "domain": "www.cchcold.com",
+          "type": "organic",
+          "organicRank": 3,
+          "url": "https://www.cchcold.com/facilities/gauteng/midrand",
+          "title": "CCH Midrand Facility in Midrand | Primary Hub in Gauteng"
+        },
+        {
+          "domain": "www.facebook.com",
+          "type": "organic",
+          "organicRank": 5,
+          "url": "https://www.facebook.com/fb-answers/commercial-storage-facilities-in-midrand/",
+          "title": "Commercial Storage Facilities in Midrand"
+        },
+        {
+          "domain": "innovationworx.co.za",
+          "type": "organic",
+          "organicRank": 7,
+          "url": "https://innovationworx.co.za/warehouses-to-let-midrand/",
+          "title": "Warehouses to Let in Midrand"
+        },
+        {
+          "domain": "www.property24.com",
+          "type": "organic",
+          "organicRank": 9,
+          "url": "https://www.property24.com/industrial-property-to-rent/midrand/gauteng/16",
+          "title": "Industrial property to rent in Midrand"
+        }
+      ],
+      "limitation": "Google redirect destinations unassigned; no domain/rank inference from obscured links."
+    }
+  ],
+  "aiPlan": {
+    "locationCode": 2710,
+    "languageCode": "en",
+    "engines": [
+      "chatgpt",
+      "gemini",
+      "google_ai_overview"
+    ],
+    "prompts": [
+      {
+        "topic": "Office leasing",
+        "text": "Where can I rent office space in Midrand?"
+      },
+      {
+        "topic": "Office leasing",
+        "text": "Which office parks in Halfway House, Midrand have offices to rent?"
+      },
+      {
+        "topic": "Office leasing",
+        "text": "What should I check before renting an office in Midrand?"
+      },
+      {
+        "topic": "Office leasing",
+        "text": "How do office rental costs in Halfway House compare with Waterfall?"
+      },
+      {
+        "topic": "Warehouse leasing",
+        "text": "Where can I rent a warehouse in Midrand?"
+      },
+      {
+        "topic": "Warehouse leasing",
+        "text": "Which business parks in Halfway House offer warehouses with offices?"
+      },
+      {
+        "topic": "Warehouse leasing",
+        "text": "What costs should I budget for when leasing a warehouse in Midrand?"
+      },
+      {
+        "topic": "Warehouse leasing",
+        "text": "How do I choose between business storage and warehouse space in Midrand?"
+      },
+      {
+        "topic": "Serviced offices",
+        "text": "Where can I find serviced offices in Midrand?"
+      },
+      {
+        "topic": "Serviced offices",
+        "text": "Which serviced offices are available in Halfway House, Midrand?"
+      },
+      {
+        "topic": "Serviced offices",
+        "text": "What should a serviced office package in Midrand include?"
+      },
+      {
+        "topic": "Serviced offices",
+        "text": "Should a small business choose serviced offices or a conventional office lease in Midrand?"
+      }
+    ]
+  },
+  "aiEstimate": {
+    "status": "success",
+    "data": {
+      "promptCount": 12,
+      "engineCount": 3,
+      "observations": 36,
+      "providerCostUsd": 0.0432,
+      "costUsd": 0.072,
+      "costCredits": 72,
+      "runNowCostUsd": 0.216,
+      "runNowCostCredits": 216,
+      "scheduleInterval": "weekly",
+      "checksPerMonth": 4,
+      "monthlyCostUsd": 0.288,
+      "currency": "USD",
+      "warnings": [
+        "Customer cost uses OpenSEO data credits, including the service markup.",
+        "One fresh answer per prompt and engine. The weekly estimate assumes 4 checks per month."
+      ]
+    },
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/ai-visibility"
+    }
+  },
+  "aiApproval": "Pending answer to displayed estimate",
+  "audit": {
+    "status": {
+      "id": "ad0a3272-0ac7-4661-b032-0407e086760c",
+      "startUrl": "https://www.mid-point.co.za/",
+      "status": "completed",
+      "pagesCrawled": 101,
+      "pagesTotal": 101,
+      "lighthouseTotal": 0,
+      "lighthouseCompleted": 0,
+      "lighthouseFailed": 0,
+      "currentPhase": "completed",
+      "errorCode": null,
+      "startedAt": "2026-11-02T08:47:25.114Z",
+      "completedAt": "2026-11-02T08:49:09.735Z"
+    },
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/audit?auditId=ad0a3272-0ac7-4661-b032-0407e086760c"
+    }
+  },
+  "auditIssues": {
+    "summary": [
+      {
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "severity": "info",
+        "count": 71
+      },
+      {
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "severity": "info",
+        "count": 33
+      },
+      {
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "severity": "info",
+        "count": 1
+      }
+    ],
+    "issues": [
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?space=Amenity+Hub",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?space=Corporate+Accommodation",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?space=OnPoint",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?space=2+Kingfisher+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?space=6+Weaver+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?space=8+Sunbird+Road",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?space=Unit+1%2C+1+Weaver",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?space=1+Kingfisher+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?space=3+Weaver+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/vacancies?sector=Warehouse",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/vacancies"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/vacancies?sector=Office",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/vacancies"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/vacancies?sector=Serviced+office",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/vacancies"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?space=2+Weaver+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Serviced+offices&space=OnPoint+%E2%80%94+Office+G.02",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=Midpoint+Commercial+%E2%80%94+Unit+7%2C+Sunbird+Road+%28GF%29",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=Midpoint+Commercial+%E2%80%94+Unit+1%2C+1+Weaver+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Serviced+offices&space=OnPoint+%E2%80%94+Office+G.07",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Serviced+offices&space=OnPoint+%E2%80%94+Office+1.02",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Serviced+offices&space=OnPoint+%E2%80%94+Office+1.04",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=3+Weaver+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=2+Weaver+Avenue+%E2%80%94+Unit+2%2C+2+Weaver+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+6+Weaver+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+2+Kingfisher+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+1+Kingfisher+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=Midpoint+Commercial+%E2%80%94+Unit+2%2C+5+Weaver+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+STOR24+Micro-Warehousing+at+Midpoint",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+STOR24+Self-Storage+at+Midpoint",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=Midpoint+Commercial+%E2%80%94+2+Hornbill+Lane",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+1+Sunbird+Road",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Serviced+offices",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "canonicalized-page",
+        "title": "Canonicalized to another URL",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=6+Weaver+Avenue",
+        "details": {
+          "canonicalUrl": "https://www.mid-point.co.za/contact-us"
+        },
+        "howToFix": "If this page should rank on its own, set its canonical to itself. Otherwise no action is needed."
+      },
+      {
+        "severity": "info",
+        "issueType": "meta-description-too-long",
+        "title": "Meta description too long",
+        "url": "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need",
+        "details": {
+          "length": 161,
+          "max": 160,
+          "description": "Compare business storage and warehouse space in Midrand. Check access, loading, power, full lease co…"
+        },
+        "howToFix": "Trim the description to roughly 70–160 characters while keeping the core message and call to action."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/about-us",
+        "details": {
+          "length": 70,
+          "max": 60,
+          "title": "About Midpoint | Premium Business Estate in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies",
+        "details": {
+          "length": 68,
+          "max": 60,
+          "title": "Available Offices & Warehouses to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/faqs",
+        "details": {
+          "length": 65,
+          "max": 60,
+          "title": "Leasing FAQs | Offices & Warehouses in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/warehouse-checklist-midrand-eave-height-loading-yard-space",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Warehouse Checklist Midrand: Eave Height & Yard Space | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/backup-power-for-midrand-warehouses-what-generator-on-site-actually-covers",
+        "details": {
+          "length": 64,
+          "max": 60,
+          "title": "Backup Power for Midrand Warehouses Explained | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/business-park-vs-standalone-premises-midrand",
+        "details": {
+          "length": 65,
+          "max": 60,
+          "title": "Business Park vs Standalone Premises | Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/business-park-amenities-leasing-checklist",
+        "details": {
+          "length": 63,
+          "max": 60,
+          "title": "Business Park Amenities: A Leasing Checklist | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/assess-midrand-staff-client-delivery-routes",
+        "details": {
+          "length": 67,
+          "max": 60,
+          "title": "Assess Midrand Staff, Client and Delivery Routes | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/serviced-vs-conventional-offices-midrand",
+        "details": {
+          "length": 62,
+          "max": 60,
+          "title": "Serviced vs Conventional Offices in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/office-rental-costs-midrand",
+        "details": {
+          "length": 63,
+          "max": 60,
+          "title": "Office Rental Costs in Midrand: Budget Guide | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/office-viewing-checklist-midrand",
+        "details": {
+          "length": 63,
+          "max": 60,
+          "title": "Office Viewing Checklist for Midrand Tenants | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/warehouse-rental-costs-midrand",
+        "details": {
+          "length": 67,
+          "max": 60,
+          "title": "Warehouse Rental Costs in Midrand | Budget Guide | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/6-weaver-avenue-warehouse-walkthrough",
+        "details": {
+          "length": 66,
+          "max": 60,
+          "title": "6 Weaver Avenue Warehouse | Listing Walkthrough | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes",
+        "details": {
+          "length": 73,
+          "max": 60,
+          "title": "Midrand vs Isando, Kempton Park & Waterfall Warehouses | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/halfway-house-vs-waterfall-office-space",
+        "details": {
+          "length": 63,
+          "max": 60,
+          "title": "Halfway House vs Waterfall Offices | Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/office-floor-plan-fit-out-checklist-midrand",
+        "details": {
+          "length": 68,
+          "max": 60,
+          "title": "Office Floor Plan and Fit-Out Checklist | Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need",
+        "details": {
+          "length": 67,
+          "max": 60,
+          "title": "Commercial Storage vs Warehouse Space in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/location",
+        "details": {
+          "length": 68,
+          "max": 60,
+          "title": "Midpoint Location Midrand | N1 Access & Distances | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/services-offices",
+        "details": {
+          "length": 68,
+          "max": 60,
+          "title": "Serviced Offices in Midrand | OnPoint at Midpoint | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/business-park-midrand",
+        "details": {
+          "length": 66,
+          "max": 60,
+          "title": "Business Park in Midrand | Offices & Warehouses | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/stor24-self-storage-at-midpoint-midrand",
+        "details": {
+          "length": 81,
+          "max": 60,
+          "title": "STOR24 Self-Storage at Midpoint | Warehouse to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/onpoint-office-1-02-midrand",
+        "details": {
+          "length": 77,
+          "max": 60,
+          "title": "OnPoint — Office 1.02 | Serviced office to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/2-hornbill-lane-midrand",
+        "details": {
+          "length": 68,
+          "max": 60,
+          "title": "2 Hornbill Lane | Office space to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/blog/planning-office-and-warehouse-space-midrand",
+        "details": {
+          "length": 69,
+          "max": 60,
+          "title": "Plan Office and Warehouse Space Together | Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/unit-1-1-weaver-avenue-midrand",
+        "details": {
+          "length": 76,
+          "max": 60,
+          "title": "Unit 1, 1 Weaver Avenue | Office space to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/3-weaver-avenue-midrand",
+        "details": {
+          "length": 68,
+          "max": 60,
+          "title": "3 Weaver Avenue | Office space to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/onpoint-office-g-02-midrand",
+        "details": {
+          "length": 77,
+          "max": 60,
+          "title": "OnPoint — Office G.02 | Serviced office to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/2-kingfisher-avenue-midrand",
+        "details": {
+          "length": 69,
+          "max": 60,
+          "title": "2 Kingfisher Avenue | Warehouse to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/1-kingfisher-avenue-midrand",
+        "details": {
+          "length": 69,
+          "max": 60,
+          "title": "1 Kingfisher Avenue | Warehouse to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/unit-2-2-weaver-avenue-midrand",
+        "details": {
+          "length": 76,
+          "max": 60,
+          "title": "Unit 2, 2 Weaver Avenue | Office space to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/onpoint-office-g-07-midrand",
+        "details": {
+          "length": 77,
+          "max": 60,
+          "title": "OnPoint — Office G.07 | Serviced office to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?space=Amenity+Hub",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?space=Corporate+Accommodation",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?space=OnPoint",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?space=2+Kingfisher+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?space=6+Weaver+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?space=8+Sunbird+Road",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?space=Unit+1%2C+1+Weaver",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/onpoint-office-1-04-midrand",
+        "details": {
+          "length": 77,
+          "max": 60,
+          "title": "OnPoint — Office 1.04 | Serviced office to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/1-sunbird-road-midrand",
+        "details": {
+          "length": 64,
+          "max": 60,
+          "title": "1 Sunbird Road | Warehouse to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/unit-7-sunbird-road-gf-midrand",
+        "details": {
+          "length": 78,
+          "max": 60,
+          "title": "Unit 7, Sunbird Road (GF) | Office space to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/unit-2-5-weaver-avenue-midrand",
+        "details": {
+          "length": 76,
+          "max": 60,
+          "title": "Unit 2, 5 Weaver Avenue | Office space to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/stor24-micro-warehousing-at-midpoint-midrand",
+        "details": {
+          "length": 86,
+          "max": 60,
+          "title": "STOR24 Micro-Warehousing at Midpoint | Warehouse to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies/6-weaver-avenue-midrand",
+        "details": {
+          "length": 65,
+          "max": 60,
+          "title": "6 Weaver Avenue | Warehouse to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?space=1+Kingfisher+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?space=3+Weaver+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies?sector=Warehouse",
+        "details": {
+          "length": 68,
+          "max": 60,
+          "title": "Available Offices & Warehouses to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies?sector=Office",
+        "details": {
+          "length": 68,
+          "max": 60,
+          "title": "Available Offices & Warehouses to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/vacancies?sector=Serviced+office",
+        "details": {
+          "length": 68,
+          "max": 60,
+          "title": "Available Offices & Warehouses to Rent in Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?space=2+Weaver+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Serviced+offices&space=OnPoint+%E2%80%94+Office+G.02",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=Midpoint+Commercial+%E2%80%94+Unit+7%2C+Sunbird+Road+%28GF%29",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=Midpoint+Commercial+%E2%80%94+Unit+1%2C+1+Weaver+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Serviced+offices&space=OnPoint+%E2%80%94+Office+G.07",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Serviced+offices&space=OnPoint+%E2%80%94+Office+1.02",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Serviced+offices&space=OnPoint+%E2%80%94+Office+1.04",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=3+Weaver+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=2+Weaver+Avenue+%E2%80%94+Unit+2%2C+2+Weaver+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+6+Weaver+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+2+Kingfisher+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+1+Kingfisher+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=Midpoint+Commercial+%E2%80%94+Unit+2%2C+5+Weaver+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+STOR24+Micro-Warehousing+at+Midpoint",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+STOR24+Self-Storage+at+Midpoint",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space&space=Midpoint+Commercial+%E2%80%94+2+Hornbill+Lane",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=Midpoint+Warehousing+%E2%80%94+1+Sunbird+Road",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Serviced+offices",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Office+space",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      },
+      {
+        "severity": "info",
+        "issueType": "title-too-long",
+        "title": "Title too long",
+        "url": "https://www.mid-point.co.za/contact-us?interest=Warehouse+space&space=6+Weaver+Avenue",
+        "details": {
+          "length": 72,
+          "max": 60,
+          "title": "Contact Midpoint | Office & Warehouse Leasing Midrand | Midpoint Midrand"
+        },
+        "howToFix": "Shorten the title to roughly 50–60 characters, front-loading the most important words."
+      }
+    ],
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/audit?auditId=ad0a3272-0ac7-4661-b032-0407e086760c"
+    }
+  },
+  "analyticsHealth": {
+    "status": "ok",
+    "source": {
+      "provider": "google_analytics_admin",
+      "propertyId": "properties/532738245",
+      "propertyDisplayName": "Midpoint"
+    },
+    "summary": {
+      "dataStreamCount": 1,
+      "webStreamCount": 1,
+      "keyEventCount": 6,
+      "customDimensionCount": 5,
+      "customMetricCount": 0,
+      "issueCount": 0
+    },
+    "issues": [],
+    "webStreams": [
+      {
+        "streamId": "14358981071",
+        "displayName": "Midpoint",
+        "measurementId": "G-9XLN2SH5ER",
+        "defaultUri": "https://www.mid-point.co.za",
+        "createTime": "2026-04-13T07:53:11.554Z",
+        "updateTime": "2026-04-13T07:56:31.788Z",
+        "enhancedMeasurement": {
+          "streamEnabled": true,
+          "scrollsEnabled": true,
+          "outboundClicksEnabled": true,
+          "siteSearchEnabled": true,
+          "videoEngagementEnabled": true,
+          "fileDownloadsEnabled": true,
+          "pageChangesEnabled": true,
+          "formInteractionsEnabled": true,
+          "searchQueryParameter": "q,s,search,query,keyword",
+          "uriQueryParameter": ""
+        }
+      }
+    ],
+    "otherStreams": [],
+    "keyEvents": [
+      {
+        "eventName": "purchase",
+        "createTime": "2026-04-13T07:53:11.554390Z",
+        "countingMethod": "ONCE_PER_EVENT"
+      },
+      {
+        "eventName": "close_convert_lead",
+        "createTime": "2026-04-13T07:52:44.122985Z",
+        "deletable": true,
+        "custom": true,
+        "countingMethod": "ONCE_PER_EVENT"
+      },
+      {
+        "eventName": "qualify_lead",
+        "createTime": "2026-04-13T07:52:44.122985Z",
+        "deletable": true,
+        "custom": true,
+        "countingMethod": "ONCE_PER_EVENT"
+      },
+      {
+        "eventName": "mailto_click",
+        "createTime": "2026-04-14T11:18:42.237401Z",
+        "deletable": true,
+        "custom": true,
+        "countingMethod": "ONCE_PER_EVENT"
+      },
+      {
+        "eventName": "tel_click",
+        "createTime": "2026-04-14T11:18:31.941895Z",
+        "deletable": true,
+        "custom": true,
+        "countingMethod": "ONCE_PER_EVENT"
+      },
+      {
+        "eventName": "generate_lead",
+        "createTime": "2026-08-13T10:58:14.291913Z",
+        "deletable": true,
+        "custom": true,
+        "countingMethod": "ONCE_PER_EVENT",
+        "defaultValue": {
+          "numericValue": 1,
+          "currencyCode": "USD"
+        }
+      }
+    ],
+    "customDefinitions": {
+      "dimensions": [
+        {
+          "parameterName": "lead_id",
+          "displayName": "Saved enquiry ID",
+          "description": "Opaque enquiry ID matching CRM externalId; individual reconciliation only.",
+          "scope": "EVENT",
+          "disallowAdsPersonalization": false
+        },
+        {
+          "parameterName": "lead_type",
+          "displayName": "Enquiry type",
+          "description": "Leasing and accommodation are separate submission types.",
+          "scope": "EVENT",
+          "disallowAdsPersonalization": false
+        },
+        {
+          "parameterName": "form_name",
+          "displayName": "Enquiry form",
+          "description": "Identifies contact_enquiry separately from suites_booking_request.",
+          "scope": "EVENT",
+          "disallowAdsPersonalization": false
+        },
+        {
+          "parameterName": "crm_delivery_status",
+          "displayName": "CRM receipt status",
+          "description": "Accepted means a saved CRM ID was returned. Unconfirmed is not a delivered CRM receipt.",
+          "scope": "EVENT",
+          "disallowAdsPersonalization": false
+        },
+        {
+          "parameterName": "lead_stage",
+          "displayName": "Enquiry stage",
+          "description": "Submitted is a saved form. Qualification is a separate human CRM outcome.",
+          "scope": "EVENT",
+          "disallowAdsPersonalization": false
+        }
+      ],
+      "metrics": []
+    },
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47"
+    }
+  },
+  "analyticsOrganicOverview": {
+    "status": "ok",
+    "source": {
+      "provider": "google_analytics",
+      "propertyId": "properties/532738245",
+      "propertyDisplayName": "Midpoint"
+    },
+    "request": {
+      "requestedDateRange": {
+        "startDate": "2026-10-02",
+        "endDate": "2026-10-29"
+      },
+      "resolvedDateRange": {
+        "startDate": "2026-10-02",
+        "endDate": "2026-10-29"
+      },
+      "previousDateRange": {
+        "startDate": "2026-09-04",
+        "endDate": "2026-10-01"
+      },
+      "propertyTimeZone": "Africa/Johannesburg",
+      "currencyCode": "ZAR",
+      "channel": "organic_search",
+      "trend": "daily"
+    },
+    "current": {
+      "sessions": 326,
+      "activeUsers": 195,
+      "engagedSessions": 165,
+      "engagementRate": 0.5061349693251533,
+      "keyEvents": 5,
+      "transactions": 0,
+      "purchaseRevenue": 0
+    },
+    "previous": {
+      "sessions": 301,
+      "activeUsers": 177,
+      "engagedSessions": 134,
+      "engagementRate": 0.44518272425249167,
+      "keyEvents": 8,
+      "transactions": 0,
+      "purchaseRevenue": 0
+    },
+    "comparison": {
+      "sessions": {
+        "current": 326,
+        "previous": 301,
+        "absoluteChange": 25,
+        "percentChange": 0.08305647840531562
+      },
+      "activeUsers": {
+        "current": 195,
+        "previous": 177,
+        "absoluteChange": 18,
+        "percentChange": 0.1016949152542373
+      },
+      "engagedSessions": {
+        "current": 165,
+        "previous": 134,
+        "absoluteChange": 31,
+        "percentChange": 0.23134328358208955
+      },
+      "engagementRate": {
+        "current": 0.5061349693251533,
+        "previous": 0.44518272425249167,
+        "absoluteChange": 0.06095224507266167,
+        "percentChange": 0.13691511766321765
+      },
+      "keyEvents": {
+        "current": 5,
+        "previous": 8,
+        "absoluteChange": -3,
+        "percentChange": -0.375
+      },
+      "transactions": {
+        "current": 0,
+        "previous": 0,
+        "absoluteChange": 0,
+        "percentChange": null
+      },
+      "purchaseRevenue": {
+        "current": 0,
+        "previous": 0,
+        "absoluteChange": 0,
+        "percentChange": null
+      }
+    },
+    "diagnostics": [],
+    "reportMetadata": {
+      "hasLimitedData": false,
+      "reports": [
+        {
+          "dataLossFromOtherRow": false,
+          "subjectToThresholding": false,
+          "sampling": [],
+          "restrictedMetrics": [],
+          "emptyReason": null,
+          "hasLimitedData": false
+        },
+        {
+          "dataLossFromOtherRow": false,
+          "subjectToThresholding": false,
+          "sampling": [],
+          "restrictedMetrics": [],
+          "emptyReason": null,
+          "hasLimitedData": false
+        },
+        {
+          "dataLossFromOtherRow": false,
+          "subjectToThresholding": false,
+          "sampling": [],
+          "restrictedMetrics": [],
+          "emptyReason": null,
+          "hasLimitedData": false
+        }
+      ]
+    },
+    "warnings": [],
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47"
+    }
+  },
+  "rankBaseline": {
+    "id": "efc54cdc-0c80-4191-a918-9842a54512ea",
+    "lastCheckedAt": null,
+    "completedAt": null,
+    "status": "running",
+    "errorMessage": null
+  },
+  "report": {
+    "id": "66d9a181-30cc-49c6-88a5-7897005c2f2b",
+    "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/reports/66d9a181-30cc-49c6-88a5-7897005c2f2b",
+    "exactHtmlReadback": true
+  },
+  "creditsObserved": 8702
+}
