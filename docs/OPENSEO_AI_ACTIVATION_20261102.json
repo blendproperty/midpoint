@@ -1,0 +1,450 @@
+{
+  "date": "2026-11-02",
+  "approval": "Enable weekly AI tracking and immediate first check; explicit response to displayed72weekly/288monthly/216immediatecredit estimate",
+  "estimate": {
+    "status": "success",
+    "data": {
+      "promptCount": 12,
+      "engineCount": 3,
+      "observations": 36,
+      "providerCostUsd": 0.0432,
+      "costUsd": 0.072,
+      "costCredits": 72,
+      "runNowCostUsd": 0.216,
+      "runNowCostCredits": 216,
+      "scheduleInterval": "weekly",
+      "checksPerMonth": 4,
+      "monthlyCostUsd": 0.288,
+      "currency": "USD",
+      "warnings": [
+        "Customer cost uses OpenSEO data credits, including the service markup.",
+        "One fresh answer per prompt and engine. The weekly estimate assumes 4 checks per month."
+      ]
+    },
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/ai-visibility"
+    }
+  },
+  "trackerVerified": {
+    "configured": true,
+    "providerConfigured": true,
+    "tracker": {
+      "id": "17a8f35c-b3c6-4cdf-8f73-75fe0c6ad36b",
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "enabled": true,
+      "locationCode": 2710,
+      "languageCode": "en",
+      "scheduleInterval": "weekly",
+      "nextCheckAt": "2026-11-10T08:38:00.000Z",
+      "lastSkipReason": null,
+      "createdAt": "2026-11-02T08:51:41.630Z"
+    },
+    "topics": [
+      "Office leasing",
+      "Serviced offices",
+      "Warehouse leasing"
+    ],
+    "prompts": [
+      {
+        "id": "024bcf54-a613-4512-9fda-f9590c813f4d",
+        "text": "What costs should I budget for when leasing a warehouse in Midrand?",
+        "topic": "Warehouse leasing",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "17cbbb63-e470-48ab-a37a-fed7b7daffa2",
+        "text": "Where can I rent a warehouse in Midrand?",
+        "topic": "Warehouse leasing",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "2184491c-f973-4a1c-acdb-0705ede0f8fa",
+        "text": "Should a small business choose serviced offices or a conventional office lease in Midrand?",
+        "topic": "Serviced offices",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "3ad0c373-1b94-484a-9ed6-764437e2bc56",
+        "text": "How do I choose between business storage and warehouse space in Midrand?",
+        "topic": "Warehouse leasing",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "5947ee1e-de76-4013-90b2-f694e7341e69",
+        "text": "Where can I rent office space in Midrand?",
+        "topic": "Office leasing",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "92193e42-b65c-4886-98f8-08523b713755",
+        "text": "Which business parks in Halfway House offer warehouses with offices?",
+        "topic": "Warehouse leasing",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "926d4205-e148-4eb3-a788-f27ed1e503b9",
+        "text": "What should a serviced office package in Midrand include?",
+        "topic": "Serviced offices",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "9cab9e82-9f76-4f19-bdb1-49ed83764977",
+        "text": "How do office rental costs in Halfway House compare with Waterfall?",
+        "topic": "Office leasing",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "a1974537-cc0c-4dd6-b1ab-eb3884d1c8ed",
+        "text": "Which serviced offices are available in Halfway House, Midrand?",
+        "topic": "Serviced offices",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "c9ad0df0-005c-42ec-89a5-fbd939e0f10e",
+        "text": "Which office parks in Halfway House, Midrand have offices to rent?",
+        "topic": "Office leasing",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "f1c890a5-8086-4ad0-89eb-e829db053495",
+        "text": "What should I check before renting an office in Midrand?",
+        "topic": "Office leasing",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      },
+      {
+        "id": "fcd5433a-9209-40a9-a780-e64134061132",
+        "text": "Where can I find serviced offices in Midrand?",
+        "topic": "Serviced offices",
+        "paused": false,
+        "archived": false,
+        "branded": false,
+        "hasResults": false
+      }
+    ],
+    "brands": [
+      {
+        "name": "Midpoint",
+        "domain": "mid-point.co.za",
+        "own": true
+      },
+      {
+        "name": "16th Road Business Suites",
+        "domain": "16throadbusinesssuites.co.za",
+        "own": false
+      },
+      {
+        "name": "ANVIL Property Smith",
+        "domain": "anvilproperty.co.za",
+        "own": false
+      },
+      {
+        "name": "API Property Group",
+        "domain": "apiproperty.co.za",
+        "own": false
+      },
+      {
+        "name": "Currie Group",
+        "domain": "curriegroup.co.za",
+        "own": false
+      },
+      {
+        "name": "Elite Self Storage",
+        "domain": "eliteselfstorage.co.za",
+        "own": false
+      },
+      {
+        "name": "Innovation Worx",
+        "domain": "innovationworx.co.za",
+        "own": false
+      },
+      {
+        "name": "Inospace",
+        "domain": "inospace.com",
+        "own": false
+      },
+      {
+        "name": "Instant Offices",
+        "domain": "instantoffices.com",
+        "own": false
+      },
+      {
+        "name": "OfficePlace",
+        "domain": "officeplace.co.za",
+        "own": false
+      },
+      {
+        "name": "Private Property",
+        "domain": "privateproperty.co.za",
+        "own": false
+      },
+      {
+        "name": "Property24",
+        "domain": "property24.com",
+        "own": false
+      },
+      {
+        "name": "Regus",
+        "domain": "regus.com",
+        "own": false
+      },
+      {
+        "name": "Spaces",
+        "domain": "spacesworks.com",
+        "own": false
+      },
+      {
+        "name": "Storage 123",
+        "domain": "storage123.co.za",
+        "own": false
+      },
+      {
+        "name": "Storageworx",
+        "domain": "storageworx.co.za",
+        "own": false
+      },
+      {
+        "name": "Swindon Property",
+        "domain": "swindon.co.za",
+        "own": false
+      },
+      {
+        "name": "WorkPods",
+        "domain": "workpods.co.za",
+        "own": false
+      }
+    ],
+    "engines": [
+      "chatgpt",
+      "gemini",
+      "google_ai_overview"
+    ],
+    "capabilities": [
+      {
+        "engine": "chatgpt",
+        "label": "ChatGPT",
+        "unsupportedLocationCodes": [
+          2275,
+          2344,
+          2831,
+          2832,
+          2833,
+          2862
+        ],
+        "maxPromptLength": 2000,
+        "note": "One consumer-site answer. Collects in any project market country except unsupportedLocationCodes.",
+        "modelApi": false
+      },
+      {
+        "engine": "gemini",
+        "label": "Gemini",
+        "unsupportedLocationCodes": [],
+        "maxPromptLength": 2000,
+        "note": "One consumer-site answer. Collects in any project market country except unsupportedLocationCodes.",
+        "modelApi": false
+      },
+      {
+        "engine": "google_ai_overview",
+        "label": "Google AI Overviews",
+        "unsupportedLocationCodes": [],
+        "maxPromptLength": 2000,
+        "note": "The AI Overview on one Google results page. A page without an AI Overview is a no-answer result, not a missing brand.",
+        "modelApi": false
+      },
+      {
+        "engine": "claude",
+        "label": "Claude",
+        "unsupportedLocationCodes": [
+          2008,
+          2012,
+          2020,
+          2024,
+          2051,
+          2031,
+          2044,
+          2048,
+          2050,
+          2052,
+          2084,
+          2068,
+          2070,
+          2072,
+          2096,
+          2100,
+          2854,
+          2116,
+          2120,
+          2170,
+          2188,
+          2384,
+          2191,
+          2196,
+          2203,
+          2214,
+          2218,
+          2818,
+          2222,
+          2233,
+          2231,
+          2242,
+          2268,
+          2288,
+          2300,
+          2320,
+          2831,
+          2328,
+          2332,
+          2340,
+          2348,
+          2352,
+          2368,
+          2372,
+          2833,
+          2376,
+          2388,
+          2832,
+          2400,
+          2398,
+          2404,
+          2414,
+          2417,
+          2418,
+          2428,
+          2422,
+          2438,
+          2440,
+          2442,
+          2450,
+          2454,
+          2462,
+          2470,
+          2480,
+          2498,
+          2492,
+          2496,
+          2499,
+          2504,
+          2508,
+          2104,
+          2516,
+          2524,
+          2558,
+          2566,
+          2807,
+          2512,
+          2586,
+          2275,
+          2591,
+          2598,
+          2600,
+          2604,
+          2634,
+          2642,
+          2646,
+          2674,
+          2686,
+          2688,
+          2702,
+          2703,
+          2705,
+          2144,
+          2740,
+          2762,
+          2834,
+          2764,
+          2780,
+          2788,
+          2795,
+          2800,
+          2804,
+          2784,
+          2858,
+          2860,
+          2862,
+          2704,
+          2894,
+          2716
+        ],
+        "maxPromptLength": 2000,
+        "note": "One answer from the model's live API with web search, at live API pricing. Collects in any project market country except unsupportedLocationCodes.",
+        "modelApi": true
+      },
+      {
+        "engine": "perplexity",
+        "label": "Perplexity",
+        "unsupportedLocationCodes": [],
+        "maxPromptLength": 2000,
+        "note": "One answer from the model's live API with web search, at live API pricing. Collects in any project market country except unsupportedLocationCodes.",
+        "modelApi": true
+      }
+    ],
+    "recentRuns": [
+      {
+        "id": "b9ced7d9-a1e5-484b-8ca2-b23c09c73173",
+        "status": "running",
+        "trigger": "manual",
+        "expected": 36,
+        "completed": 0,
+        "failed": 0,
+        "pending": 36,
+        "createdAt": "2026-11-02T08:51:46.979Z",
+        "completedAt": null,
+        "pollAfterSeconds": 5
+      }
+    ]
+  },
+  "firstRunStatus": {
+    "status": "success",
+    "data": {
+      "id": "b9ced7d9-a1e5-484b-8ca2-b23c09c73173",
+      "status": "running",
+      "trigger": "manual",
+      "expected": 36,
+      "completed": 5,
+      "failed": 0,
+      "pending": 31,
+      "createdAt": "2026-11-02T08:51:46.979Z",
+      "completedAt": null,
+      "pollAfterSeconds": 5
+    },
+    "meta": {
+      "projectId": "c773b3ac-2d13-4678-ae3a-3c8ffc79ab47",
+      "url": "https://app.openseo.so/p/c773b3ac-2d13-4678-ae3a-3c8ffc79ab47/ai-visibility"
+    }
+  },
+  "reportId": "66d9a181-30cc-49c6-88a5-7897005c2f2b",
+  "limitation": "Tracking setup enabled/readback verified; first provider collection processing, no completed visibility outcome claimed."
+}
