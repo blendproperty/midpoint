@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { vacancyDetailHref } from "@/lib/vacancy-shared";
 import { prisma } from "@/lib/prisma";
 import { STATIC_PAGES } from "@/lib/static-pages";
 import { getSiteSettings } from "@/lib/site-settings";
@@ -13,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     prisma.page.findMany({ where: { status: "PUBLISHED" }, select: { slug: true, updatedAt: true, noIndex: true, canonicalUrl: true, passwordProtected: true } }),
     prisma.pillarPage.findMany({ where: { status: "PUBLISHED" }, select: { slug: true, updatedAt: true, noIndex: true, canonicalUrl: true, passwordProtected: true } }),
     prisma.pageSeoOverride.findMany(),
-    prisma.vacancy.findMany({ where: { status: "PUBLISHED" }, select: { id: true, updatedAt: true } }),
+    prisma.vacancy.findMany({ where: { status: "PUBLISHED" }, select: { id: true, slug: true, updatedAt: true } }),
     prisma.redirect.findMany({ select: { fromPath: true } }),
   ]);
   const byPath = new Map(overrides.map(o => [o.path, o]));
@@ -22,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...posts.map(p => ({ ...p, path: `/blog/${p.slug}` })),
     ...pages.map(p => ({ ...p, path: `/p/${p.slug}` })),
     ...pillars.map(p => ({ ...p, path: `/${p.slug}` })),
-    ...vacancies.map(v => { const path = `/vacancies/${encodeURIComponent(v.id)}`; return { path, updatedAt: v.updatedAt, ...byPath.get(path) }; }),
+    ...vacancies.map(v => { const path = vacancyDetailHref(v); return { path, updatedAt: v.updatedAt, ...byPath.get(path) }; }),
   ];
   return buildSitemap(settings.domain, settings.allowIndexing, candidates, redirects.map(r => r.fromPath));
 }

@@ -1,3 +1,4 @@
+import { vacancyDetailHref } from "@/lib/vacancy-shared";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { STATIC_PAGES } from "@/lib/static-pages";
@@ -7,9 +8,9 @@ export const dynamic = "force-dynamic";
 export default async function PageSeoAdminPage() {
   const [overrides, vacancies] = await Promise.all([
     prisma.pageSeoOverride.findMany(),
-    prisma.vacancy.findMany({ where: { status: "PUBLISHED" }, select: { id: true, building: true, unitName: true }, orderBy: { building: "asc" } }),
+    prisma.vacancy.findMany({ where: { status: "PUBLISHED" }, select: { id: true, slug: true, building: true, unitName: true }, orderBy: { building: "asc" } }),
   ]);
-  const editablePages = [...STATIC_PAGES, ...vacancies.map(v => ({ path: `/vacancies/${encodeURIComponent(v.id)}`, label: `${v.building}${v.unitName ? ` - ${v.unitName}` : ""}` }))];
+  const editablePages = [...STATIC_PAGES, ...vacancies.map(v => ({ path: vacancyDetailHref(v), label: `${v.building}${v.unitName ? ` - ${v.unitName}` : ""}` }))];
   const overrideMap = new Map(overrides.map((o) => [o.path, o]));
 
   return (

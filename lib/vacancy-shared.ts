@@ -4,6 +4,7 @@ export type VacancySector = "Warehouse" | "Office" | "Serviced office";
 
 export type VacancyListing = {
   id: string;
+  slug?: string;
   building: string;
   unitName: string | null;
   sector: VacancySector;
@@ -19,12 +20,12 @@ export function vacancyLabel(listing: Pick<VacancyListing, "building" | "unitNam
   return listing.unitName ? `${listing.building} — ${listing.unitName}` : listing.building;
 }
 
-export function vacancyDetailHref(listing: Pick<VacancyListing, "id">) {
-  return `/vacancies/${encodeURIComponent(listing.id)}`;
+export function vacancyDetailHref(listing: Pick<VacancyListing, "id" | "slug">) {
+  return `/vacancies/${encodeURIComponent(listing.slug || listing.id)}`;
 }
 
 export function vacancyBrochureHref(listing: Pick<VacancyListing, "id">) {
-  return `${vacancyDetailHref(listing)}/brochure`;
+  return `/vacancies/${encodeURIComponent(listing.id)}/brochure`;
 }
 
 export function vacancyRate(rate: number) {

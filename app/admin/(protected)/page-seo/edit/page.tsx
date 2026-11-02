@@ -1,4 +1,5 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { vacancyDetailHref } from "@/lib/vacancy-shared";
 import { prisma } from "@/lib/prisma";
 import { STATIC_PAGES } from "@/lib/static-pages";
 import { getStaticPageContent } from "@/lib/static-page-content";
@@ -12,7 +13,8 @@ export const dynamic = "force-dynamic";
 export default async function EditPageSeoPage({ searchParams }: { searchParams: Promise<{ path?: string }> }) {
   const { path } = await searchParams;
   const vacancyId = path ? /^\/vacancies\/([^/?#]+)$/.exec(path)?.[1] : undefined;
-  const vacancy = vacancyId ? await prisma.vacancy.findFirst({ where: { id: decodeURIComponent(vacancyId), status: "PUBLISHED" } }) : null;
+  const vacancy = vacancyId ? await prisma.vacancy.findFirst({ where: { OR: [{ id: decodeURIComponent(vacancyId) }, { slug: decodeURIComponent(vacancyId) }], status: "PUBLISHED" } }) : null;
+  if (vacancy && path !== vacancyDetailHref(vacancy)) redirect(`/admin/page-seo/edit?path=${encodeURIComponent(vacancyDetailHref(vacancy))}`);
   const known = STATIC_PAGES.find((p) => p.path === path) || (vacancy && { path: path!, label: `${vacancy.building}${vacancy.unitName ? ` - ${vacancy.unitName}` : ""}` });
   if (!path || !known) notFound();
 

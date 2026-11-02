@@ -1,0 +1,163 @@
+{
+  "date": "2026-11-02",
+  "environment": "local production build and disposable PostgreSQL; copied public vacancy fields only, no upstream IDs/provider calls",
+  "results": [
+    {
+      "id": "cms4oiw5j000bn601vz6szme4",
+      "slug": "3-weaver-avenue-midrand-cms4oiw5j000bn601vz6szme4",
+      "title": "3 Weaver Avenue | Office space to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "seo-test-vacancy",
+      "slug": "seo-test-building-midrand-seo-test-vacancy",
+      "title": "SEO test building | Office space to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cmsfuu4xu000ooy01x3ulli7b",
+      "slug": "unit-2-2-weaver-avenue-midrand",
+      "title": "Unit 2, 2 Weaver Avenue | Office space to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cmsfvflfy000yoy01stx7o2dp",
+      "slug": "6-weaver-avenue-midrand",
+      "title": "6 Weaver Avenue | Warehouse to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cms4oiw500005n6011rnzc2hb",
+      "slug": "unit-1-1-weaver-avenue-midrand",
+      "title": "Unit 1, 1 Weaver Avenue | Office space to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cms4oiw4n0002n601y2gpa0qf",
+      "slug": "onpoint-office-g-02-midrand-cms4oiw4n0002n601y2gpa0qf",
+      "title": "OnPoint — Office G.02 | Serviced office to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cmsfvflhj0010oy014b1ytkku",
+      "slug": "1-kingfisher-avenue-midrand",
+      "title": "1 Kingfisher Avenue | Warehouse to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cms4oiw4v0004n60127izdqzj",
+      "slug": "unit-7-sunbird-road-gf-midrand",
+      "title": "Unit 7, Sunbird Road (GF) | Office space to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cms4oiw530006n601h1qw8gzm",
+      "slug": "onpoint-office-g-07-midrand-cms4oiw530006n601h1qw8gzm",
+      "title": "OnPoint — Office G.07 | Serviced office to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cms4oiw560007n6019icxact3",
+      "slug": "onpoint-office-1-02-midrand-cms4oiw560007n6019icxact3",
+      "title": "OnPoint — Office 1.02 | Serviced office to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cms4oiw5d0009n601702zlk0p",
+      "slug": "onpoint-office-1-04-midrand-cms4oiw5d0009n601702zlk0p",
+      "title": "OnPoint — Office 1.04 | Serviced office to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cmuz7chn0009up901ll35sgdh",
+      "slug": "unit-2-5-weaver-avenue-midrand",
+      "title": "Unit 2, 5 Weaver Avenue | Office space to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cmvgae26d001qmz019ja0mhjg",
+      "slug": "stor24-self-storage-at-midpoint-midrand",
+      "title": "STOR24 Self-Storage at Midpoint | Warehouse to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cmvgb129n0001qp01ia0fs15y",
+      "slug": "2-hornbill-lane-midrand",
+      "title": "2 Hornbill Lane | Office space to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cmvvjp9nb00cqqs01ximqhlp4",
+      "slug": "1-sunbird-road-midrand",
+      "title": "1 Sunbird Road | Warehouse to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cmsfvflha000zoy01wxkk2efu",
+      "slug": "2-kingfisher-avenue-midrand",
+      "title": "2 Kingfisher Avenue | Warehouse to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    },
+    {
+      "id": "cmvgae265001pmz01l33cvutx",
+      "slug": "stor24-micro-warehousing-at-midpoint-midrand",
+      "title": "STOR24 Micro-Warehousing at Midpoint | Warehouse to Rent in Midrand | Midpoint Midrand",
+      "status": 200,
+      "oldStatus": 308,
+      "schemaErrors": 0,
+      "schemaWarnings": 0
+    }
+  ],
+  "uniqueTitles": true,
+  "sitemapCanonicalOnly": true,
+  "unpublished404": 5,
+  "unknown404": true
+}
