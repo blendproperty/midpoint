@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-11-02T06:04:28.838Z",
+  "checkedAt": "2026-11-02T06:16:33.748Z",
   "environment": "production public HTTPS responses fetched normally from the existing VPS; no edge setting changes",
   "results": [
     {
       "id": "cms4oiw4n0002n601y2gpa0qf",
       "slug": "onpoint-office-g-02-midrand",
-      "title": "OnPoint — Office G.02 | Serviced office to Rent in Midrand | Midpoint Midrand",
+      "title": "OnPoint \u2014 Office G.02 | Serviced office to Rent in Midrand | Midpoint Midrand",
       "status": 200,
       "legacyStatus": 308,
       "location": "/vacancies/onpoint-office-g-02-midrand?utm_source=release-check&tag=a&tag=b",
@@ -35,7 +35,7 @@
     {
       "id": "cms4oiw530006n601h1qw8gzm",
       "slug": "onpoint-office-g-07-midrand",
-      "title": "OnPoint — Office G.07 | Serviced office to Rent in Midrand | Midpoint Midrand",
+      "title": "OnPoint \u2014 Office G.07 | Serviced office to Rent in Midrand | Midpoint Midrand",
       "status": 200,
       "legacyStatus": 308,
       "location": "/vacancies/onpoint-office-g-07-midrand?utm_source=release-check&tag=a&tag=b",
@@ -45,7 +45,7 @@
     {
       "id": "cms4oiw560007n6019icxact3",
       "slug": "onpoint-office-1-02-midrand",
-      "title": "OnPoint — Office 1.02 | Serviced office to Rent in Midrand | Midpoint Midrand",
+      "title": "OnPoint \u2014 Office 1.02 | Serviced office to Rent in Midrand | Midpoint Midrand",
       "status": 200,
       "legacyStatus": 308,
       "location": "/vacancies/onpoint-office-1-02-midrand?utm_source=release-check&tag=a&tag=b",
@@ -55,7 +55,7 @@
     {
       "id": "cms4oiw5d0009n601702zlk0p",
       "slug": "onpoint-office-1-04-midrand",
-      "title": "OnPoint — Office 1.04 | Serviced office to Rent in Midrand | Midpoint Midrand",
+      "title": "OnPoint \u2014 Office 1.04 | Serviced office to Rent in Midrand | Midpoint Midrand",
       "status": 200,
       "legacyStatus": 308,
       "location": "/vacancies/onpoint-office-1-04-midrand?utm_source=release-check&tag=a&tag=b",
@@ -199,6 +199,54 @@
     {
       "path": "/vacancies/nonexistent-seo-check-20261102",
       "status": 404
+    },
+    {
+      "path": "/blog/compare-office-rental-quotes-midrand",
+      "status": 200
+    },
+    {
+      "path": "/blog/halfway-house-vs-waterfall-office-space",
+      "status": 200
+    },
+    {
+      "path": "/blog/serviced-vs-conventional-offices-midrand",
+      "status": 200
+    },
+    {
+      "path": "/blog/office-rental-costs-midrand",
+      "status": 200
+    },
+    {
+      "path": "/blog/office-viewing-checklist-midrand",
+      "status": 200
+    },
+    {
+      "path": "/blog/onpoint-serviced-office-package-checklist",
+      "status": 200
+    },
+    {
+      "path": "/blog/warehouse-rental-costs-midrand",
+      "status": 200
+    },
+    {
+      "path": "/blog/6-weaver-avenue-warehouse-walkthrough",
+      "status": 200
+    },
+    {
+      "path": "/blog/midrand-vs-isando-kempton-park-and-waterfall-comparing-gauteng-warehouse-nodes",
+      "status": 200
+    },
+    {
+      "path": "/blog/planning-office-and-warehouse-space-midrand",
+      "status": 200
+    },
+    {
+      "path": "/blog/office-floor-plan-fit-out-checklist-midrand",
+      "status": 200
+    },
+    {
+      "path": "/blog/commercial-storage-vs-warehouse-space-in-midrand-which-do-you-actually-need",
+      "status": 200
     }
   ],
   "published": 16,
@@ -206,31 +254,116 @@
   "businessFieldsUnchanged": true,
   "uniqueTitles": true,
   "sitemapCanonicalOnly": true,
-  "sharedLinksCanonical": false,
-  "legacyEditorialLinks": [
+  "sharedLinksCanonical": true,
+  "legacyEditorialLinks": [],
+  "migrations": [
     {
-      "path": "/offices",
-      "id": "cms4oiw4v0004n60127izdqzj"
+      "migration_name": "20261102080000_vacancy_public_slugs",
+      "finished_at": "2026-11-02T06:03:42.441Z",
+      "rolled_back_at": null
     },
     {
-      "path": "/offices",
-      "id": "cms4oiw500005n6011rnzc2hb"
-    },
-    {
-      "path": "/warehouses",
-      "id": "cmsfvflfy000yoy01stx7o2dp"
-    },
-    {
-      "path": "/warehouses",
-      "id": "cmsfvflhj0010oy014b1ytkku"
+      "migration_name": "20261102090000_vacancy_editorial_links",
+      "finished_at": "2026-11-02T06:15:20.331Z",
+      "rolled_back_at": null
     }
   ],
-  "migration": {
-    "migration_name": "20261102080000_vacancy_public_slugs",
-    "finished_at": "2026-11-02T06:03:42.441Z",
-    "rolled_back_at": null
-  },
   "schemaValidation": "Independent pinned vocabulary/default-graph adapter; not an official Google or Schema.org result",
   "schemaErrors": 0,
-  "schemaWarnings": 0
+  "schemaWarnings": 0,
+  "editorialComparison": {
+    "recordsChecked": 14,
+    "changedRecords": [
+      {
+        "table": "pillarPage",
+        "id": "warehouse_pillar_draft_20260730",
+        "links": 2
+      },
+      {
+        "table": "pillarPage",
+        "id": "cms4as2hj0000p43n6fszibac",
+        "links": 2
+      },
+      {
+        "table": "blogPost",
+        "id": "cmtjol0k802bvti01can5px7w",
+        "links": 3
+      },
+      {
+        "table": "blogPost",
+        "id": "blog_office_costs_20261019",
+        "links": 3
+      },
+      {
+        "table": "blogPost",
+        "id": "blog_office_quotes_20261019",
+        "links": 2
+      },
+      {
+        "table": "blogPost",
+        "id": "blog_serviced_comparison_20261019",
+        "links": 2
+      },
+      {
+        "table": "blogPost",
+        "id": "blog_serviced_package_20261019",
+        "links": 1
+      },
+      {
+        "table": "blogPost",
+        "id": "cmtjogmpi02bnti01gbgwze6m",
+        "links": 4
+      },
+      {
+        "table": "blogPost",
+        "id": "blog_office_viewing_20261019",
+        "links": 3
+      },
+      {
+        "table": "blogPost",
+        "id": "blog_office_floor_plan_20261019",
+        "links": 1
+      },
+      {
+        "table": "blogPost",
+        "id": "blog_estate_mixed_space_20261019",
+        "links": 3
+      },
+      {
+        "table": "blogPost",
+        "id": "blog_warehouse_costs_20261019",
+        "links": 2
+      },
+      {
+        "table": "blogPost",
+        "id": "blog_halfway_waterfall_offices_20261019",
+        "links": 2
+      },
+      {
+        "table": "blogPost",
+        "id": "blog_weaver_walkthrough_20261019",
+        "links": 2
+      }
+    ],
+    "changedLinks": 32,
+    "exactExpectedLinkOnlyChanges": true,
+    "timestampsPreserved": true
+  },
+  "release": {
+    "commit": "3c2e09d55d8676e13a82b6c2f7e5d9a742b9c033",
+    "pullRequests": [
+      22,
+      23
+    ],
+    "finalCiRun": 41397888907,
+    "finalDeployRun": 41398302093,
+    "image": "midpoint-web:3c2e09d55d86",
+    "imageDigest": "sha256:5c455c3aa938237084f79ae294bb5a508bf7987bfdaf88cfcb61c48ab4e67cbf",
+    "webStartedAt": "2026-11-02T06:15:21.858963808Z",
+    "schedulerStartedAt": "2026-11-02T06:15:33.214075208Z",
+    "observedRestarts": 0,
+    "publicDetailReleaseMarkersMatched": 16,
+    "schemaHtmlPagesChecked": 34,
+    "httpResponsesChecked": 63
+  }
 }
