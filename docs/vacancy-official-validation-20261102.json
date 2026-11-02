@@ -1,0 +1,379 @@
+{
+  "date": "2026-11-02",
+  "completedAt": "2026-11-02T07:43:52.735Z",
+  "scope": "All 16 currently published canonical vacancy URLs, confirmed by a fresh read-only production inventory before testing. Official URL tests in normal Edge browser; no code-snippet substitution or independent CLI substitution.",
+  "applicationCommit": "3c2e09d55d8676e13a82b6c2f7e5d9a742b9c033",
+  "deploymentMarker": "3c2e09d55d86",
+  "googleUserAgent": "Google Inspection Tool smartphone",
+  "totals": {
+    "publishedVacancies": 16,
+    "googleCompleted": 16,
+    "googlePassed": 16,
+    "schemaOrgCompleted": 16,
+    "schemaOrgPassed": 16,
+    "schemaOrgErrors": 0,
+    "schemaOrgWarnings": 0
+  },
+  "issuesFound": [],
+  "fixesRequired": false,
+  "screenshots": [
+    {
+      "path": "docs/vacancy-official-validation-20261102/sunbird-google.png",
+      "sha256": "83eb35b4bb52a9930da12f40ae7b7f3f1d91fd5a6bf7c358c74ec59ffa523db3"
+    },
+    {
+      "path": "docs/vacancy-official-validation-20261102/sunbird-schema.png",
+      "sha256": "4657d9ffa8e456969341480aa03a6b871481ea10ae1c413131216aedff9be436"
+    }
+  ],
+  "resultLinkNotes": {
+    "google": "Individual completed Google result links are retained for each URL.",
+    "schemaOrg": "Hash URLs identify tested input URLs and may run a fresh test when reopened; dated captured UI summaries and screenshots are the evidence for this run."
+  },
+  "results": [
+    {
+      "slug": "onpoint-office-g-02-midrand",
+      "checkedAt": "2026-11-02T07:30:47.142Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=QwIQSKGZ-Cn0YC2hGF-tFw",
+        "summary": "\t\t\t\t\t\t\t60 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t69 button (collapsed) Crawled successfully on 2 Nov 2026, 09:29:24, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t70 text Crawled successfully on 2 Nov 2026, 09:29:24\n\t\t\t\t\t\t72 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=QwIQSKGZ-Cn0YC2hGF-tFw\n\t\t\t\t\t\t73 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=QwIQSKGZ-Cn0YC2hGF-tFw\n\t\t\t\t\t\t74 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=QwIQSKGZ-Cn0YC2hGF-tFw",
+        "localBusinessItemInspected": true,
+        "reportedIssues": []
+      },
+      "schema": {
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fonpoint-office-g-02-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t29 text 0 WARNINGS\n\t\t\t30 text 2 ITEMS\n\t\t\t31 content list\n\t\t\t\t32 container\n\t\t\t\t\t33 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t34 container\n\t\t\t\t\t35 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t18 button (disabled) play_arrow, ID: validate-button\n\t\t\t19 text play_arrow\n\t\t20 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fonpoint-office-g-02-midrand",
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "testedReleaseMarkerSeen": true
+      },
+      "url": "https://www.mid-point.co.za/vacancies/onpoint-office-g-02-midrand"
+    },
+    {
+      "slug": "unit-7-sunbird-road-gf-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/unit-7-sunbird-road-gf-midrand",
+      "checkedAt": "2026-11-02T07:33:09.088Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=gsFLQ_rHoBIikK19usSJyw",
+        "summary": "\t\t\t\t\t\t\t37 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t46 button (collapsed) Crawled successfully on 2 Nov 2026, 09:32:03, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t47 text Crawled successfully on 2 Nov 2026, 09:32:03\n\t\t\t\t\t\t49 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=gsFLQ_rHoBIikK19usSJyw\n\t\t\t\t\t\t50 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=gsFLQ_rHoBIikK19usSJyw\n\t\t\t\t\t\t51 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=gsFLQ_rHoBIikK19usSJyw",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Funit-7-sunbird-road-gf-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t29 text 0 WARNINGS\n\t\t\t30 text 2 ITEMS\n\t\t\t31 content list\n\t\t\t\t32 container\n\t\t\t\t\t33 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t34 container\n\t\t\t\t\t35 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t18 button (disabled) play_arrow, ID: validate-button\n\t\t\t19 text play_arrow\n\t\t20 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Funit-7-sunbird-road-gf-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "unit-1-1-weaver-avenue-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/unit-1-1-weaver-avenue-midrand",
+      "checkedAt": "2026-11-02T07:34:27.864Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=j9Fqe8FeNjedMLMcsJzMQw",
+        "summary": "\t\t\t\t\t\t\t37 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t46 button (collapsed) Crawled successfully on 2 Nov 2026, 09:33:24, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t47 text Crawled successfully on 2 Nov 2026, 09:33:24\n\t\t\t\t\t\t49 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=j9Fqe8FeNjedMLMcsJzMQw\n\t\t\t\t\t\t50 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=j9Fqe8FeNjedMLMcsJzMQw\n\t\t\t\t\t\t51 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=j9Fqe8FeNjedMLMcsJzMQw",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Funit-1-1-weaver-avenue-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t30 text 0 WARNINGS\n\t\t\t31 text 2 ITEMS\n\t\t\t32 content list\n\t\t\t\t33 container\n\t\t\t\t\t34 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t35 container\n\t\t\t\t\t36 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t18 button (disabled) play_arrow, ID: validate-button\n\t\t\t19 text play_arrow\n\t\t20 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Funit-1-1-weaver-avenue-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "onpoint-office-g-07-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/onpoint-office-g-07-midrand",
+      "checkedAt": "2026-11-02T07:35:10.619Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=nINnH2EO1X_4c3tQgg_AiA",
+        "summary": "\t\t\t\t\t\t\t37 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t46 button (collapsed) Crawled successfully on 2 Nov 2026, 09:34:30, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t47 text Crawled successfully on 2 Nov 2026, 09:34:30\n\t\t\t\t\t\t49 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=nINnH2EO1X_4c3tQgg_AiA\n\t\t\t\t\t\t50 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=nINnH2EO1X_4c3tQgg_AiA\n\t\t\t\t\t\t51 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=nINnH2EO1X_4c3tQgg_AiA",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fonpoint-office-g-07-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t29 text 0 WARNINGS\n\t\t\t30 text 2 ITEMS\n\t\t\t31 content list\n\t\t\t\t32 container\n\t\t\t\t\t33 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t34 container\n\t\t\t\t\t35 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t18 button (disabled) play_arrow, ID: validate-button\n\t\t\t19 text play_arrow\n\t\t20 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fonpoint-office-g-07-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "onpoint-office-1-02-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/onpoint-office-1-02-midrand",
+      "checkedAt": "2026-11-02T07:35:56.491Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=B_EPctHwEWKldU2NNnB4vw",
+        "summary": "\t\t\t\t\t\t\t37 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t46 button (collapsed) Crawled successfully on 2 Nov 2026, 09:35:13, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t47 text Crawled successfully on 2 Nov 2026, 09:35:13\n\t\t\t\t\t\t49 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=B_EPctHwEWKldU2NNnB4vw\n\t\t\t\t\t\t50 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=B_EPctHwEWKldU2NNnB4vw\n\t\t\t\t\t\t51 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=B_EPctHwEWKldU2NNnB4vw",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fonpoint-office-1-02-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t29 text 0 WARNINGS\n\t\t\t30 text 2 ITEMS\n\t\t\t31 content list\n\t\t\t\t32 container\n\t\t\t\t\t33 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t34 container\n\t\t\t\t\t35 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t18 button (disabled) play_arrow, ID: validate-button\n\t\t\t19 text play_arrow\n\t\t20 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fonpoint-office-1-02-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "onpoint-office-1-04-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/onpoint-office-1-04-midrand",
+      "checkedAt": "2026-11-02T07:36:45.105Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=CtBNtDdPhdxNaDNr0dF1BA",
+        "summary": "\t\t\t\t\t\t\t37 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t46 button (collapsed) Crawled successfully on 2 Nov 2026, 09:35:59, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t47 text Crawled successfully on 2 Nov 2026, 09:35:59\n\t\t\t\t\t\t49 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=CtBNtDdPhdxNaDNr0dF1BA\n\t\t\t\t\t\t50 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=CtBNtDdPhdxNaDNr0dF1BA\n\t\t\t\t\t\t51 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=CtBNtDdPhdxNaDNr0dF1BA",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fonpoint-office-1-04-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t29 text 0 WARNINGS\n\t\t\t30 text 2 ITEMS\n\t\t\t31 content list\n\t\t\t\t32 container\n\t\t\t\t\t33 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t34 container\n\t\t\t\t\t35 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t18 button (disabled) play_arrow, ID: validate-button\n\t\t\t19 text play_arrow\n\t\t20 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fonpoint-office-1-04-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "3-weaver-avenue-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/3-weaver-avenue-midrand",
+      "checkedAt": "2026-11-02T07:37:28.463Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=BM3as9Wf4fS54zyb4htprw",
+        "summary": "\t\t\t\t\t\t\t37 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t46 button (collapsed) Crawled successfully on 2 Nov 2026, 09:36:48, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t47 text Crawled successfully on 2 Nov 2026, 09:36:48\n\t\t\t\t\t\t49 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=BM3as9Wf4fS54zyb4htprw\n\t\t\t\t\t\t50 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=BM3as9Wf4fS54zyb4htprw\n\t\t\t\t\t\t51 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=BM3as9Wf4fS54zyb4htprw",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F3-weaver-avenue-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t29 text 0 WARNINGS\n\t\t\t30 text 2 ITEMS\n\t\t\t31 content list\n\t\t\t\t32 container\n\t\t\t\t\t33 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t34 container\n\t\t\t\t\t35 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t18 button (disabled) play_arrow, ID: validate-button\n\t\t\t19 text play_arrow\n\t\t20 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F3-weaver-avenue-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "unit-2-2-weaver-avenue-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/unit-2-2-weaver-avenue-midrand",
+      "checkedAt": "2026-11-02T07:38:01.476Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=3RCrgT94tGu-VTqG72FLqw",
+        "summary": "\t\t\t\t\t\t\t37 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t46 button (collapsed) Crawled successfully on 2 Nov 2026, 09:37:30, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t47 text Crawled successfully on 2 Nov 2026, 09:37:30\n\t\t\t\t\t\t49 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=3RCrgT94tGu-VTqG72FLqw\n\t\t\t\t\t\t50 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=3RCrgT94tGu-VTqG72FLqw\n\t\t\t\t\t\t51 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=3RCrgT94tGu-VTqG72FLqw",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Funit-2-2-weaver-avenue-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t29 text 0 WARNINGS\n\t\t\t30 text 2 ITEMS\n\t\t\t31 content list\n\t\t\t\t32 container\n\t\t\t\t\t33 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t34 container\n\t\t\t\t\t35 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t18 button (disabled) play_arrow, ID: validate-button\n\t\t\t19 text play_arrow\n\t\t20 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Funit-2-2-weaver-avenue-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "6-weaver-avenue-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/6-weaver-avenue-midrand",
+      "checkedAt": "2026-11-02T07:38:39.076Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=6v8-3j8RJFX-oXrQAZrPrw",
+        "summary": "\t\t\t\t\t\t\t37 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t46 button (collapsed) Crawled successfully on 2 Nov 2026, 09:38:07, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t47 text Crawled successfully on 2 Nov 2026, 09:38:07\n\t\t\t\t\t\t49 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=6v8-3j8RJFX-oXrQAZrPrw\n\t\t\t\t\t\t50 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=6v8-3j8RJFX-oXrQAZrPrw\n\t\t\t\t\t\t51 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=6v8-3j8RJFX-oXrQAZrPrw",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F6-weaver-avenue-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t29 text 0 WARNINGS\n\t\t\t30 text 2 ITEMS\n\t\t\t31 content list\n\t\t\t\t32 container\n\t\t\t\t\t33 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t34 container\n\t\t\t\t\t35 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t18 button (disabled) play_arrow, ID: validate-button\n\t\t\t19 text play_arrow\n\t\t20 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F6-weaver-avenue-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "2-kingfisher-avenue-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/2-kingfisher-avenue-midrand",
+      "checkedAt": "2026-11-02T07:39:48.615Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=YA-cuno_jud5E1TYMt_GsQ",
+        "summary": "\t\t\t\t\t\t\t24 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t33 button (collapsed) Crawled successfully on 2 Nov 2026, 09:38:48, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t34 text Crawled successfully on 2 Nov 2026, 09:38:48\n\t\t\t\t\t\t36 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=YA-cuno_jud5E1TYMt_GsQ\n\t\t\t\t\t\t37 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=YA-cuno_jud5E1TYMt_GsQ\n\t\t\t\t\t\t38 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=YA-cuno_jud5E1TYMt_GsQ",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F2-kingfisher-avenue-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t25 text 0 WARNINGS\n\t\t\t26 text 2 ITEMS\n\t\t\t27 content list\n\t\t\t\t28 container\n\t\t\t\t\t29 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t30 container\n\t\t\t\t\t31 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t32 button (disabled) play_arrow, ID: validate-button\n\t\t\t33 text play_arrow\n\t\t34 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F2-kingfisher-avenue-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "1-kingfisher-avenue-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/1-kingfisher-avenue-midrand",
+      "checkedAt": "2026-11-02T07:40:38.391Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=mtFFdUJ_TELQBFRnlsFbuw",
+        "summary": "\t\t\t\t\t\t\t60 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t69 button (collapsed) Crawled successfully on 2 Nov 2026, 09:39:56, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t70 text Crawled successfully on 2 Nov 2026, 09:39:56\n\t\t\t\t\t\t72 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=mtFFdUJ_TELQBFRnlsFbuw\n\t\t\t\t\t\t73 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=mtFFdUJ_TELQBFRnlsFbuw\n\t\t\t\t\t\t74 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=mtFFdUJ_TELQBFRnlsFbuw",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F1-kingfisher-avenue-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t43 text 0 WARNINGS\n\t\t\t44 text 2 ITEMS\n\t\t\t45 content list\n\t\t\t\t46 container\n\t\t\t\t\t47 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t48 container\n\t\t\t\t\t49 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t32 button (disabled) play_arrow, ID: validate-button\n\t\t\t33 text play_arrow\n\t\t34 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F1-kingfisher-avenue-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "unit-2-5-weaver-avenue-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/unit-2-5-weaver-avenue-midrand",
+      "checkedAt": "2026-11-02T07:41:22.553Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=juhjWfpg3b0qxpiJrF-p-w",
+        "summary": "\t\t\t\t\t\t\t60 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t69 button (collapsed) Crawled successfully on 2 Nov 2026, 09:40:40, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t70 text Crawled successfully on 2 Nov 2026, 09:40:40\n\t\t\t\t\t\t72 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=juhjWfpg3b0qxpiJrF-p-w\n\t\t\t\t\t\t73 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=juhjWfpg3b0qxpiJrF-p-w\n\t\t\t\t\t\t74 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=juhjWfpg3b0qxpiJrF-p-w",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Funit-2-5-weaver-avenue-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t43 text 0 WARNINGS\n\t\t\t44 text 2 ITEMS\n\t\t\t45 content list\n\t\t\t\t46 container\n\t\t\t\t\t47 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t48 container\n\t\t\t\t\t49 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t32 button (disabled) play_arrow, ID: validate-button\n\t\t\t33 text play_arrow\n\t\t34 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Funit-2-5-weaver-avenue-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "stor24-micro-warehousing-at-midpoint-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/stor24-micro-warehousing-at-midpoint-midrand",
+      "checkedAt": "2026-11-02T07:41:49.438Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=_oW8fvBoJoLN6PFR6Da0fQ",
+        "summary": "\t\t\t\t\t\t\t60 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t69 button (collapsed) Crawled successfully on 2 Nov 2026, 09:41:24, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t70 text Crawled successfully on 2 Nov 2026, 09:41:24\n\t\t\t\t\t\t72 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=_oW8fvBoJoLN6PFR6Da0fQ\n\t\t\t\t\t\t73 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=_oW8fvBoJoLN6PFR6Da0fQ\n\t\t\t\t\t\t74 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=_oW8fvBoJoLN6PFR6Da0fQ",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fstor24-micro-warehousing-at-midpoint-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t43 text 0 WARNINGS\n\t\t\t44 text 2 ITEMS\n\t\t\t45 content list\n\t\t\t\t46 container\n\t\t\t\t\t47 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t48 container\n\t\t\t\t\t49 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t32 button (disabled) play_arrow, ID: validate-button\n\t\t\t33 text play_arrow\n\t\t34 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fstor24-micro-warehousing-at-midpoint-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "stor24-self-storage-at-midpoint-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/stor24-self-storage-at-midpoint-midrand",
+      "checkedAt": "2026-11-02T07:42:47.628Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=vZk-0iy6tVQoXSaHv7WItg",
+        "summary": "\t\t\t\t\t\t\t60 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t69 button (collapsed) Crawled successfully on 2 Nov 2026, 09:41:51, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t70 text Crawled successfully on 2 Nov 2026, 09:41:51\n\t\t\t\t\t\t72 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=vZk-0iy6tVQoXSaHv7WItg\n\t\t\t\t\t\t73 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=vZk-0iy6tVQoXSaHv7WItg\n\t\t\t\t\t\t74 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=vZk-0iy6tVQoXSaHv7WItg",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fstor24-self-storage-at-midpoint-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t43 text 0 WARNINGS\n\t\t\t44 text 2 ITEMS\n\t\t\t45 content list\n\t\t\t\t46 container\n\t\t\t\t\t47 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t48 container\n\t\t\t\t\t49 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t32 button (disabled) play_arrow, ID: validate-button\n\t\t\t33 text play_arrow\n\t\t34 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2Fstor24-self-storage-at-midpoint-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "2-hornbill-lane-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/2-hornbill-lane-midrand",
+      "checkedAt": "2026-11-02T07:43:19.950Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=CtnYuYtRpiPIiJuX-CXwyA",
+        "summary": "\t\t\t\t\t\t\t60 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t69 button (collapsed) Crawled successfully on 2 Nov 2026, 09:42:50, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t70 text Crawled successfully on 2 Nov 2026, 09:42:50\n\t\t\t\t\t\t72 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=CtnYuYtRpiPIiJuX-CXwyA\n\t\t\t\t\t\t73 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=CtnYuYtRpiPIiJuX-CXwyA\n\t\t\t\t\t\t74 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=CtnYuYtRpiPIiJuX-CXwyA",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F2-hornbill-lane-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t44 text 0 WARNINGS\n\t\t\t45 text 2 ITEMS\n\t\t\t46 content list\n\t\t\t\t47 container\n\t\t\t\t\t48 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t49 container\n\t\t\t\t\t50 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t32 button (disabled) play_arrow, ID: validate-button\n\t\t\t33 text play_arrow\n\t\t34 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F2-hornbill-lane-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    },
+    {
+      "slug": "1-sunbird-road-midrand",
+      "url": "https://www.mid-point.co.za/vacancies/1-sunbird-road-midrand",
+      "checkedAt": "2026-11-02T07:43:52.735Z",
+      "google": {
+        "status": "passed",
+        "validItems": 3,
+        "resultUrl": "https://search.google.com/test/rich-results/result?id=gSnH-wNA_H-PCV5qQ7-uWw",
+        "summary": "\t\t\t\t\t\t\t60 text 3 valid items detected Valid items are eligible for Google Search's rich results. \n\t\t\t\t\t\t\t69 button (collapsed) Crawled successfully on 2 Nov 2026, 09:43:21, Secondary Actions: Expand\n\t\t\t\t\t\t\t\t70 text Crawled successfully on 2 Nov 2026, 09:43:21\n\t\t\t\t\t\t72 link Description: Breadcrumbs 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Fbreadcrumbs?id=gSnH-wNA_H-PCV5qQ7-uWw\n\t\t\t\t\t\t73 link Description: Local businesses 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Flocal-business?id=gSnH-wNA_H-PCV5qQ7-uWw\n\t\t\t\t\t\t74 link Description: Organisation 1 valid item detected, Value: search.google.com/test/rich-results/result/r%2Forganization-info?id=gSnH-wNA_H-PCV5qQ7-uWw",
+        "reportedIssues": []
+      },
+      "schema": {
+        "status": "passed",
+        "errors": 0,
+        "warnings": 0,
+        "items": 2,
+        "resultUrl": "https://validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F1-sunbird-road-midrand",
+        "summary": "text Detected 0 ERRORS\n\t\t\t43 text 0 WARNINGS\n\t\t\t44 text 2 ITEMS\n\t\t\t45 content list\n\t\t\t\t46 container\n\t\t\t\t\t47 text BreadcrumbList 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t\t\t48 container\n\t\t\t\t\t49 text RealEstateListing 0 ERRORS 0 WARNINGS 1 ITEM\n\t\t32 button (disabled) play_arrow, ID: validate-button\n\t\t\t33 text play_arrow\n\t\t34 text VALIDATE\n\nThe focused UI element is 0 AXWebArea Schema Markup validator, URL: validator.schema.org/#url=https%3A%2F%2Fwww.mid-point.co.za%2Fvacancies%2F1-sunbird-road-midrand",
+        "testedReleaseMarkerSeen": true
+      }
+    }
+  ],
+  "limits": [
+    "These results cover these 16 vacancy URLs and this deployed application, not the complete site or historical non-vacancy validation queue.",
+    "Google-supported item validity does not guarantee indexing, ranking, rich-result display or lead outcomes.",
+    "Schema validation does not certify property/source facts, the Kingfisher area conflict, provider/customer/device UAT or existing finance/legal/privacy/training/approval/recovery gates."
+  ],
+  "scopeRecheckedAt": "2026-11-02T07:46:46.095621+00:00",
+  "scopeStillMatchesPublishedInventory": true
+}
