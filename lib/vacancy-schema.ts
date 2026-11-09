@@ -1,6 +1,6 @@
 import { site } from "@/lib/site";
 import { vacancyAreaNeedsConfirmation } from "@/lib/vacancy-content";
-import { vacancyAvailability, vacancyDetailHref, vacancyLabel, type VacancyListing } from "@/lib/vacancy-shared";
+import { vacancyAvailability, vacancyBrochureHref, vacancyDetailHref, vacancyLabel, type VacancyListing } from "@/lib/vacancy-shared";
 import { publishedVacancyFacts } from "@/lib/leasing-comparison";
 
 type SchemaListing = Pick<VacancyListing, "id" | "building" | "sector" | "sizeSqm" | "ratePerSqm" | "availability" | "description" | "image"> & Partial<Pick<VacancyListing, "unitName" | "slug">>;
@@ -14,6 +14,7 @@ export function vacancyJsonLd(listing: SchemaListing, domain = site.domain) {
     "@context": "https://schema.org",
     "@type": "RealEstateListing",
     "@id": `${url}#webpage`, url, name, description: listing.description, image,
+    subjectOf: { "@type": "CreativeWork", name: `${name} brochure`, url: new URL(vacancyBrochureHref(listing), domain).href },
     mainEntity: { "@id": `${url}#property` },
     isPartOf: { "@id": `${domain.replace(/\/$/, "")}/#website` },
     about: {
