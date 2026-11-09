@@ -17,6 +17,7 @@ describe("leasing content and schema", () => {
     expect(schema["@type"]).toBe("RealEstateListing");
     expect(schema.url).toBe("https://www.mid-point.co.za/vacancies/6-weaver-avenue-midrand");
     expect(schema.name).toContain("6 Weaver Avenue");
+    expect(schema.subjectOf).toMatchObject({ "@type": "CreativeWork", url: "https://www.mid-point.co.za/vacancies/one/brochure" });
     expect(schema.offers["@type"]).toBe("OfferForLease");
     expect(schema.offers.priceSpecification).toMatchObject({ price: 109, priceCurrency: "ZAR", unitText: "m² per month" });
     expect(schema.offers).not.toHaveProperty("price");
