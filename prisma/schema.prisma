@@ -420,6 +420,7 @@ model Media {
 // repeat submissions roll up into one record with a full history, instead
 // of piling up as disconnected rows in Enquiry.
 model Contact {
+  company      String?
   id           String        @id @default(cuid())
   firstName    String?
   lastName     String?
@@ -459,6 +460,7 @@ model PasswordResetToken {
 }
 
 model Enquiry {
+  company     String?
   id          String   @id @default(cuid())
   firstName   String?
   lastName    String?

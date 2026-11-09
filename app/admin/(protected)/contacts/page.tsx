@@ -48,6 +48,7 @@ export default async function ContactsAdminPage({
               { lastName: { contains: q, mode: "insensitive" as const } },
               { email: { contains: q, mode: "insensitive" as const } },
               { phone: { contains: q, mode: "insensitive" as const } },
+              { company: { contains: q, mode: "insensitive" as const } },
             ],
           }
         : {}),
@@ -86,7 +87,7 @@ export default async function ContactsAdminPage({
           <input
             name="q"
             defaultValue={q}
-            placeholder="Search name, email, phone…"
+            placeholder="Search name, company, email, phone…"
             className="w-64 rounded-lg border border-slate-200 px-3 py-2 text-sm"
           />
           <button className="rounded-lg bg-slate-800 px-4 py-2 text-sm font-medium text-white">Search</button>
@@ -114,6 +115,7 @@ export default async function ContactsAdminPage({
                   </Link>
                 </td>
                 <td className="px-4 py-3 text-slate-500">
+                  {c.company && <div className="font-medium">{c.company}</div>}
                   <div>{c.email}</div>
                   {c.phone && <div>{c.phone}</div>}
                 </td>

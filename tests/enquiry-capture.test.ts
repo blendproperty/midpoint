@@ -12,7 +12,7 @@ vi.mock("@/lib/listings-leads", () => ({ pushLeadToListings: mocks.listings }));
 import { POST } from "@/app/api/enquiry/route";
 
 const attribution = { firstTouch: { source: "google", medium: "organic", landingPage: "/blog/storage" }, lastTouch: { source: "google", medium: "organic", landingPage: "/blog/storage" } };
-const request = () => new Request("https://midpoint.example.test/api/enquiry", { method: "POST", body: JSON.stringify({ firstName: "Test", email: "test@example.test", interest: "Warehouse space", message: "Test only", sourcePath: "/contact-us?interest=Warehouse%20space", attribution, "g-recaptcha-response": "test-token" }) });
+const request = (overrides: Record<string, unknown> = {}) => new Request("https://midpoint.example.test/api/enquiry", { method: "POST", body: JSON.stringify({ company: "  Acme Logistics  ", firstName: "Test", email: "test@example.test", interest: "Warehouse space", message: "Test only", sourcePath: "/contact-us?interest=Warehouse%20space", attribution, "g-recaptcha-response": "test-token", ...overrides }) });
 
 beforeEach(() => {
   vi.resetAllMocks();
@@ -26,6 +26,25 @@ beforeEach(() => {
 afterEach(() => { vi.restoreAllMocks(); });
 
 describe("saved-enquiry conversion boundary", () => {
+  it.each([undefined, null, "", " ", "Private", " pRiVaTe ", "B.S.", "P r i v a t e", "N/A", "None", "unemployed", "job seeker", "12345", "!!!", "aaaaaa", {}, [], "A".repeat(151)])("rejects invalid company %j before any contact or lead side effects", async (company) => {
+    const fetchMock = vi.spyOn(globalThis, "fetch");
+    const response = await POST(request({ company }));
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ field: "company" });
+    for (const mock of [mocks.verify, mocks.contact, mocks.create, mocks.crm, mocks.listings, fetchMock]) expect(mock).not.toHaveBeenCalled();
+  });
+
+  it("passes the normalized company to all saved records and integrations", async () => {
+    process.env.N8N_ENQUIRY_WEBHOOK = "https://notifications.example.test/enquiry";
+    const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("{}", { status: 200 }));
+    expect((await POST(request())).status).toBe(200);
+    expect(mocks.contact).toHaveBeenCalledWith(expect.objectContaining({ company: "Acme Logistics" }));
+    expect(mocks.create).toHaveBeenCalledWith({ data: expect.objectContaining({ company: "Acme Logistics" }) });
+    expect(mocks.crm).toHaveBeenCalledWith(expect.objectContaining({ company: "Acme Logistics" }));
+    expect(mocks.listings).toHaveBeenCalledWith(expect.objectContaining({ company: "Acme Logistics" }));
+    expect(JSON.parse(fetchMock.mock.calls[0][1]?.body as string)).toMatchObject({ company: "Acme Logistics" });
+  });
+
   it("returns the saved receipt when an optional notification times out", async () => {
     process.env.N8N_ENQUIRY_WEBHOOK = "https://notifications.example.test/enquiry";
     const fetchMock = vi.spyOn(globalThis, "fetch").mockImplementation(async (_url, options) => {

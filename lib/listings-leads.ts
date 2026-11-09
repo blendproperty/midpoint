@@ -16,6 +16,7 @@
 // on that side never blocks or breaks a visitor's enquiry submission here.
 export async function pushLeadToListings(payload: {
   email: string;
+  company?: string | null;
   firstName?: string | null;
   lastName?: string | null;
   phone?: string | null;
@@ -37,7 +38,7 @@ export async function pushLeadToListings(payload: {
         phone: payload.phone || undefined,
         source: "mid-point.co.za",
         interest: payload.interest || undefined,
-        message: payload.message || undefined,
+        message: [payload.company ? `Company: ${payload.company}` : undefined, payload.message].filter(Boolean).join("\n\n") || undefined,
       }),
     });
     if (!res.ok) {

@@ -5,6 +5,7 @@ const MIDPOINT_BASE_URL = "https://www.mid-point.co.za";
 export type BlendCrmLead = {
   externalId: string;
   email: string;
+  company?: string | null;
   firstName?: string | null;
   lastName?: string | null;
   phone?: string | null;
@@ -56,6 +57,7 @@ export async function pushLeadToBlendCrm(
   }
 
   const message = [
+    payload.company ? `Company: ${payload.company}` : undefined,
     payload.interest ? `Interest: ${payload.interest}` : undefined,
     payload.message || undefined,
     ...attributionLines(payload.attribution),
@@ -89,6 +91,7 @@ export async function pushLeadToBlendCrm(
             ? payload.lastName?.trim() || undefined
             : undefined,
           email: payload.email,
+          company: payload.company || undefined,
           phone: payload.phone || undefined,
         },
         message: message || undefined,
