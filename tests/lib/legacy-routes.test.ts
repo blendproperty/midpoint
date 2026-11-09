@@ -28,6 +28,7 @@ describe("legacyDestination", () => {
   it("keeps the retired Sunbird URL away from its missing listing in both redirect layers", async () => {
     const destination = legacyDestination("/units/8-sunbird/");
     expect(destination).toBe("/offices");
+    if (!nextConfig.redirects) throw new Error("Redirects must be configured");
     const redirects = await nextConfig.redirects();
     expect(redirects.find((route: { source: string }) => route.source === "/units/8-sunbird"))
       .toMatchObject({ destination, permanent: true });

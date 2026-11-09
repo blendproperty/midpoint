@@ -23,6 +23,7 @@ describe("pushLeadToBlendCrm", () => {
         firstName: "Brett",
         lastName: "Dovey",
         phone: "0115555555",
+        company: "Acme Logistics",
         interest: "Warehouse space",
         message: "Test lead",
         sourcePath: "/spaces/1-kingfisher-avenue",
@@ -45,8 +46,9 @@ describe("pushLeadToBlendCrm", () => {
         lastName: "Dovey",
         email: "brett@example.test",
         phone: "0115555555",
+        company: "Acme Logistics",
       },
-      message: "Interest: Warehouse space\n\nTest lead\n\nFirst source: google / cpc / midrand\n\nConversion source: google / cpc / midrand\n\nLanding page: /vacancies\n\nGoogle Ads click ID: click-123",
+      message: "Company: Acme Logistics\n\nInterest: Warehouse space\n\nTest lead\n\nFirst source: google / cpc / midrand\n\nConversion source: google / cpc / midrand\n\nLanding page: /vacancies\n\nGoogle Ads click ID: click-123",
       sourcePage:
         "https://www.mid-point.co.za/spaces/1-kingfisher-avenue",
     });

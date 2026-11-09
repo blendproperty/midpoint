@@ -5,6 +5,7 @@ import Script from "next/script";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { trackSavedLeasingEnquiry } from "@/lib/analytics";
 import { getStoredAttribution } from "@/lib/attribution";
+import { validateCompany, COMPANY_MAX_LENGTH } from "@/lib/company-validation";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -45,6 +46,8 @@ type Props = {
 };
 
 export default function ContactForm({ siteKey, contactEmail = site.email, successMessage, defaultInterest, spaceName }: Props = {}) {
+  const [companyError, setCompanyError] = useState<string | null>(null);
+  const companyRef = useRef<HTMLInputElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [consent, setConsent] = useState(false);
   const [captchaError, setCaptchaError] = useState(false);
@@ -96,6 +99,9 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const validation = validateCompany(companyRef.current?.value);
+    setCompanyError(validation.error);
+    if (validation.error) { companyRef.current?.focus(); return; }
 
     const captchaResponse = widgetIdRef.current === undefined ? "" : window.grecaptcha?.getResponse(widgetIdRef.current);
     if (!captchaResponse) {
@@ -120,11 +126,17 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
           "g-recaptcha-response": captchaResponse
         })
       });
-      const result = await res.json() as { ok?: boolean; enquiryId?: string; crmDelivered?: boolean; error?: string };
+      const result = await res.json() as { ok?: boolean; enquiryId?: string; crmDelivered?: boolean; error?: string; field?: string };
       if (res.status === 400 && result.error === "reCAPTCHA verification failed. Please try again.") {
         window.grecaptcha?.reset(widgetIdRef.current);
         setCaptchaError(true);
         setStatus("idle");
+        return;
+      }
+      if (res.status === 400 && result.field === "company") {
+        setCompanyError(result.error || validateCompany("").error);
+        setStatus("idle");
+        companyRef.current?.focus();
         return;
       }
       if (!res.ok) {
@@ -166,7 +178,17 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
         </p>
       )}
 
-      <p className="text-sm text-white/80">All fields are required.</p>
+      <p className="text-sm text-white/80">For business space and leasing enquiries only. This form does not accept job applications. All fields are required.</p>
+      <label className="block space-y-2 text-sm">
+        <span>Company / business name</span>
+        <input ref={companyRef} name="company" required maxLength={COMPANY_MAX_LENGTH}
+          autoComplete="organization" placeholder="Your company or trading name" className={field}
+          aria-invalid={Boolean(companyError)} aria-describedby="company-help company-error"
+          onBlur={(e) => setCompanyError(validateCompany(e.currentTarget.value).error)}
+          onChange={() => setCompanyError(null)} />
+        <span id="company-help" className="block text-xs text-white/70">Use the company or trading name seeking space, or your brokerage name. Do not enter Private or N/A.</span>
+        <span id="company-error" role="alert" className="block text-sm text-red-300">{companyError}</span>
+      </label>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-2 text-sm"><span>First name</span><input name="firstName" required autoComplete="given-name" placeholder="First Name" className={field} /></label>
         <label className="flex flex-col gap-2 text-sm"><span>Last name</span><input name="lastName" required autoComplete="family-name" placeholder="Last Name" className={field} /></label>

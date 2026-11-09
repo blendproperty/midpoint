@@ -51,7 +51,7 @@ describe("Midpoint brochures", () => {
 
   it("preserves a portrait cover photograph's original proportions", async () => {
     const bytes = await sharp({ create: { width: 300, height: 600, channels: 3, background: "blue" } }).jpeg().toBuffer();
-    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(bytes, { headers: { "content-type": "image/jpeg" } })));
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(new Uint8Array(bytes), { headers: { "content-type": "image/jpeg" } })));
     const photo = await brochurePhoto("https://listings.blendproperty.co.za/photo.jpg");
     const metadata = await sharp(photo!).metadata();
     expect(metadata.width! / metadata.height!).toBeCloseTo(.5, 3);

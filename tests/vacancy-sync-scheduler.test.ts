@@ -1,5 +1,4 @@
 import { describe, expect, it, vi } from "vitest";
-// @ts-expect-error Runtime scheduler is intentionally plain Node ESM.
 import { dueTasks, requestSync } from "../scripts/vacancy-sync-scheduler.mjs";
 
 describe("vacancy scheduler", () => {
@@ -12,12 +11,12 @@ describe("vacancy scheduler", () => {
   });
   it("uses internal networking and server-only authentication", async () => {
     const fetcher = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ healthy: true }) });
-    await requestSync("GET", { VACANCY_SYNC_SECRET: "test-only" }, fetcher);
+    await requestSync("GET", { NODE_ENV: "test", VACANCY_SYNC_SECRET: "test-only" }, fetcher);
     expect(fetcher).toHaveBeenCalledWith("http://web:3000/api/cron/sync-vacancies", expect.objectContaining({ method: "GET", headers: { "x-cron-secret": "test-only" } }));
   });
   it("treats HTTP and unhealthy verification as failures", async () => {
     const fetcher = vi.fn().mockResolvedValue({ ok: false, status: 503, json: async () => ({ error: "private-provider-detail" }) });
-    await expect(requestSync("POST", { VACANCY_SYNC_SECRET: "test-only" }, fetcher)).rejects.toThrow("HTTP 503");
-    await expect(requestSync("GET", {}, fetcher)).rejects.toThrow("not configured");
+    await expect(requestSync("POST", { NODE_ENV: "test", VACANCY_SYNC_SECRET: "test-only" }, fetcher)).rejects.toThrow("HTTP 503");
+    await expect(requestSync("GET", { NODE_ENV: "test" }, fetcher)).rejects.toThrow("not configured");
   });
 });

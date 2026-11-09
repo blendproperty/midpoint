@@ -34,6 +34,7 @@ export default async function ContactDetailPage({ params }: { params: Promise<{ 
         {[contact.firstName, contact.lastName].filter(Boolean).join(" ") || contact.email}
       </h1>
       <p className="mt-1 text-sm text-slate-500">
+        {contact.company ? `${contact.company} · ` : ""}
         {contact.email}
         {contact.phone ? ` · ${contact.phone}` : ""}
         {contact.source ? ` · via ${contact.source}` : ""}
@@ -109,6 +110,7 @@ export default async function ContactDetailPage({ params }: { params: Promise<{ 
           {contact.enquiries.map((e) => (
             <div key={e.id} className="border-t border-slate-100 pt-3 text-sm">
               <p className="font-medium">{e.interest || "General enquiry"}</p>
+              {e.company && <p className="mt-1 text-slate-600">Company: {e.company}</p>}
               {e.message && <p className="mt-1 text-slate-600">{e.message}</p>}
               <p className="mt-1 text-xs text-slate-400">
                 {e.sourcePath || "—"} · {e.createdAt.toLocaleString()}

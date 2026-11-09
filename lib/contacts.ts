@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 
 type UpsertContactInput = {
   email: string;
+  company?: string | null;
   firstName?: string | null;
   lastName?: string | null;
   phone?: string | null;
@@ -19,12 +20,14 @@ export async function upsertContact(input: UpsertContactInput) {
   return prisma.contact.upsert({
     where: { email },
     update: {
+      company: input.company || undefined,
       firstName: input.firstName || undefined,
       lastName: input.lastName || undefined,
       phone: input.phone || undefined,
     },
     create: {
       email,
+      company: input.company || null,
       firstName: input.firstName || null,
       lastName: input.lastName || null,
       phone: input.phone || null,

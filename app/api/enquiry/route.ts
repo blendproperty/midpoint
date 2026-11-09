@@ -5,6 +5,7 @@ import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { upsertContact } from "@/lib/contacts";
 import { pushLeadToListings } from "@/lib/listings-leads";
 import { pushLeadToBlendCrm } from "@/lib/blend-crm-leads";
+import { validateCompany } from "@/lib/company-validation";
 import type { Prisma } from "@prisma/client";
 
 function safeAttribution(value: unknown): Prisma.InputJsonValue | undefined {
@@ -29,7 +30,14 @@ export async function POST(req: Request) {
     );
   }
 
-  const payload = await req.json();
+  let payload;
+  try { payload = await req.json(); } catch {
+    return NextResponse.json({ error: "Invalid enquiry." }, { status: 400 });
+  }
+  const { company, error: companyError } = validateCompany(payload?.company);
+  if (companyError) {
+    return NextResponse.json({ error: companyError, field: "company" }, { status: 400 });
+  }
 
   const firstName = payload?.firstName ? String(payload.firstName).trim() : "";
   const lastName = payload?.lastName ? String(payload.lastName).trim() : "";
@@ -64,7 +72,7 @@ export async function POST(req: Request) {
   // isolated row.
   let contactId: string | null = null;
   try {
-    const contact = await upsertContact({ email, firstName, lastName, phone, source: "Midpoint" });
+    const contact = await upsertContact({ email, firstName, lastName, phone, company, source: "Midpoint" });
     contactId = contact.id;
   } catch (err) {
     console.error("Failed to upsert contact", err);
@@ -80,6 +88,7 @@ export async function POST(req: Request) {
         firstName: firstName || null,
         lastName: lastName || null,
         email,
+        company,
         phone,
         interest: payload?.interest ? String(payload.interest) : null,
         message: payload?.message ? String(payload.message) : null,
@@ -106,6 +115,7 @@ export async function POST(req: Request) {
   const crmDelivered = await pushLeadToBlendCrm({
     externalId: enquiryId,
     email,
+    company,
     firstName,
     lastName,
     phone,
@@ -121,6 +131,7 @@ export async function POST(req: Request) {
   // above regardless of whether this succeeds.
   pushLeadToListings({
     email,
+    company,
     firstName,
     lastName,
     phone,
@@ -144,7 +155,8 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         source: "mid-point.co.za",
         submittedAt: new Date().toISOString(),
-        ...payload
+        ...payload,
+        company
       })
     });
     if (!res.ok) {

@@ -56,6 +56,7 @@ export default async function EnquiriesAdminPage() {
                   )}
                 </td>
                 <td className="px-4 py-3 text-slate-500">
+                  {e.company && <div className="font-medium">{e.company}</div>}
                   <div>{e.email}</div>
                   {e.phone && <div>{e.phone}</div>}
                 </td>
