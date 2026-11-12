@@ -2,8 +2,8 @@
 
 - **Implementation:** no website code changed. Existing saved `Mipoint Audience`, including commercial property and real estate segments, attached as an audience signal to asset group 6769766503 in Google Ads campaign 24442531162; existing search themes retained.
 - **Testing:** Google Ads API readback confirmed audience 354675804 attached to the correct asset group. The campaign and asset group were eligible; no performance improvement is claimed.
-- **Commit and push:** documentation update prepared from `origin/main` d0196480d0f7da3d17cab7d0dbbba977ad702a24 in an isolated checkout; unrelated local changes preserved.
-- **Merge:** documentation promotion pending.
+- **Commit and push:** documentation branch `codex/weaver-audience-evidence-20261112` at 210f647a2eea7cada0011a13f3ede29a516d6959, based on `origin/main` d0196480d0f7da3d17cab7d0dbbba977ad702a24; unrelated local changes preserved. This receipt is a separate documentation-only follow-up.
+- **Merge:** PR #26 squash merged as 6e3a78e549cb02f9c32017ba39517f39e5502981 after Test run 43186951758 passed.
 - **Deployment and configuration:** live Google Ads configuration changed; budget remains R100/day. No website deployment or conversion-goal change.
 - **Live production verification:** account readback confirmed the signal. Qualified lead delivery, conversion attribution and campaign effectiveness remain unverified.
 - **Outstanding gates:** retain the existing 6 Weaver data, canopy, availability, price, provider, conversion attribution, UAT and approval gates. A signal guides Google's optimisation and is not a restriction on who can see ads.
