@@ -1,3 +1,13 @@
+## 2026-11-12 — 6 Weaver PMax audience signal
+
+- **Implementation:** no website code changed. Existing saved `Mipoint Audience`, including commercial property and real estate segments, attached as an audience signal to asset group 6769766503 in Google Ads campaign 24442531162; existing search themes retained.
+- **Testing:** Google Ads API readback confirmed audience 354675804 attached to the correct asset group. The campaign and asset group were eligible; no performance improvement is claimed.
+- **Commit and push:** documentation update prepared from `origin/main` d0196480d0f7da3d17cab7d0dbbba977ad702a24 in an isolated checkout; unrelated local changes preserved.
+- **Merge:** documentation promotion pending.
+- **Deployment and configuration:** live Google Ads configuration changed; budget remains R100/day. No website deployment or conversion-goal change.
+- **Live production verification:** account readback confirmed the signal. Qualified lead delivery, conversion attribution and campaign effectiveness remain unverified.
+- **Outstanding gates:** retain the existing 6 Weaver data, canopy, availability, price, provider, conversion attribution, UAT and approval gates. A signal guides Google's optimisation and is not a restriction on who can see ads.
+
 ## 2026-11-09 — Vacancy schema brochure reference
 
 - **Implementation:** The shared vacancy JSON-LD references the existing visible brochure download as a CreativeWork via `subjectOf`; no listing price, floor area, availability or brochure content was changed. This applies to vacancy schemas generated across the site.
