@@ -6,6 +6,7 @@ import { upsertContact } from "@/lib/contacts";
 import { pushLeadToListings } from "@/lib/listings-leads";
 import { pushLeadToBlendCrm } from "@/lib/blend-crm-leads";
 import { validateCompany } from "@/lib/company-validation";
+import { validateBusinessEmail, JOB_ENQUIRY_ERROR, isJobEnquiry } from "@/lib/leasing-enquiry-validation";
 import type { Prisma } from "@prisma/client";
 
 function safeAttribution(value: unknown): Prisma.InputJsonValue | undefined {
@@ -41,15 +42,21 @@ export async function POST(req: Request) {
 
   const firstName = payload?.firstName ? String(payload.firstName).trim() : "";
   const lastName = payload?.lastName ? String(payload.lastName).trim() : "";
-  const email = payload?.email ? String(payload.email).trim() : "";
+  const { email, error: emailError } = validateBusinessEmail(payload?.email);
+  if (emailError) {
+    return NextResponse.json({ error: emailError, field: "email" }, { status: 400 });
+  }
+  if (isJobEnquiry(payload?.message)) {
+    return NextResponse.json({ error: JOB_ENQUIRY_ERROR, field: "message" }, { status: 400 });
+  }
   const phone = payload?.phone ? String(payload.phone) : null;
   const attribution = safeAttribution(payload?.attribution);
 
   // NOTE: this previously checked `payload.name`, which ContactForm never
   // sends (it sends firstName/lastName) — meaning every submission was
   // silently rejected with a 400 before reaching the webhook. Fixed here.
-  if (!email || (!firstName && !lastName)) {
-    return NextResponse.json({ error: "Name and email are required." }, { status: 400 });
+  if (!firstName && !lastName) {
+    return NextResponse.json({ error: "Name is required." }, { status: 400 });
   }
 
   // Server-side reCAPTCHA check — ContactForm already refuses to submit
@@ -156,7 +163,8 @@ export async function POST(req: Request) {
         source: "mid-point.co.za",
         submittedAt: new Date().toISOString(),
         ...payload,
-        company
+        company,
+        email
       })
     });
     if (!res.ok) {
