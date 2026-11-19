@@ -1,4 +1,4 @@
-import { isJobEnquiry } from "./leasing-enquiry-validation";
+import { isJobEnquiry, isObviousJunk } from "./leasing-enquiry-validation";
 
 /** Shared by the browser and API. This checks useful input, not legal registration. */
 export const COMPANY_MAX_LENGTH = 150;
@@ -23,7 +23,7 @@ export function validateCompany(value: unknown): { company: string; error: strin
   const key = company.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, "").trim().replace(/\s+/gu, " ");
   // Exact normalized placeholders only: names like Private Equity Partners remain valid.
   const invalid = !company || company.length > COMPANY_MAX_LENGTH ||
-    /[\p{Cc}\p{Cf}]/u.test(value) || !/\p{L}/u.test(company) ||
-    isJobEnquiry(company) || compactPlaceholders.has(key.replace(/\s/g, "")) || /^(.)\1{4,}$/u.test(key);
+    /[\p{Cc}\p{Cf}]/u.test(value) || isObviousJunk(company) ||
+    isJobEnquiry(company) || compactPlaceholders.has(key.replace(/\s/g, ""));
   return { company, error: invalid ? COMPANY_ERROR : null };
 }

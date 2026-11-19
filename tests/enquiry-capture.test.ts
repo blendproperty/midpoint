@@ -12,7 +12,7 @@ vi.mock("@/lib/listings-leads", () => ({ pushLeadToListings: mocks.listings }));
 import { POST } from "@/app/api/enquiry/route";
 
 const attribution = { firstTouch: { source: "google", medium: "organic", landingPage: "/blog/storage" }, lastTouch: { source: "google", medium: "organic", landingPage: "/blog/storage" } };
-const request = (overrides: Record<string, unknown> = {}) => new Request("https://midpoint.example.test/api/enquiry", { method: "POST", body: JSON.stringify({ company: "  Acme Logistics  ", firstName: "Test", lastName: "Tenant", phone: "0100000000", spaceSize: "500 m²", moveIn: "Within 1–3 months", consent: "on", email: "test@example.test", interest: "Warehouse space", message: "Test only", sourcePath: "/contact-us?interest=Warehouse%20space", attribution, "g-recaptcha-response": "test-token", ...overrides }) });
+const request = (overrides: Record<string, unknown> = {}) => new Request("https://midpoint.example.test/api/enquiry", { method: "POST", body: JSON.stringify({ company: "  Acme Logistics  ", firstName: "Anne-Marie", lastName: "O’Connor", phone: "011 234 5678", spaceSize: "500 m²", moveIn: "Within 1–3 months", consent: "on", email: "test@example.test", interest: "Warehouse space", message: "Loading access", sourcePath: "/contact-us?interest=Warehouse%20space", attribution, "g-recaptcha-response": "test-token", ...overrides }) });
 
 beforeEach(() => {
   vi.resetAllMocks();
@@ -64,10 +64,34 @@ describe("saved-enquiry conversion boundary", () => {
     for (const mock of [mocks.verify, mocks.contact, mocks.create, mocks.crm, mocks.listings]) expect(mock).not.toHaveBeenCalled();
   });
 
+  it.each([
+    ["company", "Ｂ．Ｓ．"], ["firstName", "BS"], ["lastName", "asdf"],
+    ["firstName", "1234"], ["lastName", "BS"], ["phone", "BS"], ["phone", "call me"], ["phone", "12345"],
+    ["phone", "0123456789"], ["phone", "+27 82 123"], ["phone", "0999999999"],
+    ["spaceSize", "BS"], ["spaceSize", "xxx"], ["spaceSize", "n/a"], ["spaceSize", "123"],
+    ["message", "BS"], ["message", "blah blah"], ["message", "qwertyqwerty"],
+    ["message", "????"], ["message", "test test"],
+  ])("rejects junk in %s (%s) before any lead write", async (field, value) => {
+    const response = await POST(request({ [field]: value }));
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ field });
+    for (const mock of [mocks.verify, mocks.contact, mocks.create, mocks.crm, mocks.listings]) expect(mock).not.toHaveBeenCalled();
+  });
+
+  it.each(["082 123 4567", "+27 (82) 123-4567", "0027 82 123 4567", "+44 20 7946 0958"])(
+    "accepts short requirements and formatted phone %s", async (phone) => {
+      const response = await POST(request({ spaceSize: "12 desks", message: "Need loading access.", phone }));
+      expect(response.status).toBe(200);
+      expect(mocks.crm).toHaveBeenCalledWith(expect.objectContaining({
+        phone, message: expect.stringContaining("12 desks"),
+      }));
+    }
+  );
+
   it("passes the normalized company to all saved records and integrations", async () => {
     process.env.N8N_ENQUIRY_WEBHOOK = "https://notifications.example.test/enquiry";
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("{}", { status: 200 }));
-    const message = "Property: 6 Weaver Avenue\n\nApproximate size or desks: 500 m²\n\nMove-in timing: Within 1–3 months\n\nTest only";
+    const message = "Property: 6 Weaver Avenue\n\nApproximate size or desks: 500 m²\n\nMove-in timing: Within 1–3 months\n\nLoading access";
     expect((await POST(request({ spaceName: "6 Weaver Avenue" }))).status).toBe(200);
     expect(mocks.contact).toHaveBeenCalledWith(expect.objectContaining({ company: "Acme Logistics" }));
     expect(mocks.create).toHaveBeenCalledWith({ data: expect.objectContaining({ company: "Acme Logistics", message }) });

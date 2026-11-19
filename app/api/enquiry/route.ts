@@ -6,7 +6,7 @@ import { upsertContact } from "@/lib/contacts";
 import { pushLeadToListings } from "@/lib/listings-leads";
 import { pushLeadToBlendCrm } from "@/lib/blend-crm-leads";
 import { validateCompany } from "@/lib/company-validation";
-import { validateBusinessEmail, JOB_ENQUIRY_ERROR, isJobEnquiry, LEASING_SPACE_TYPES, LEASING_MOVE_IN_OPTIONS } from "@/lib/leasing-enquiry-validation";
+import { validateBusinessEmail, leasingTextError, isObviousJunk, LEASING_SPACE_TYPES, LEASING_MOVE_IN_OPTIONS } from "@/lib/leasing-enquiry-validation";
 import type { Prisma } from "@prisma/client";
 
 function trimmedText(value: unknown, maxLength: number) {
@@ -48,9 +48,6 @@ export async function POST(req: Request) {
   if (emailError) {
     return NextResponse.json({ error: emailError, field: "email" }, { status: 400 });
   }
-  if (isJobEnquiry(payload?.message)) {
-    return NextResponse.json({ error: JOB_ENQUIRY_ERROR, field: "message" }, { status: 400 });
-  }
   const firstName = trimmedText(payload?.firstName, 100);
   const lastName = trimmedText(payload?.lastName, 100);
   const phone = trimmedText(payload?.phone, 40);
@@ -58,13 +55,16 @@ export async function POST(req: Request) {
   const size = trimmedText(payload?.spaceSize, 120);
   const moveIn = trimmedText(payload?.moveIn, 40);
   const description = trimmedText(payload?.message, 2000);
-  if (!firstName || !lastName || !phone || !LEASING_SPACE_TYPES.includes(interest) ||
-      !size || !LEASING_MOVE_IN_OPTIONS.includes(moveIn) || !description || payload?.consent !== "on") {
+  for (const [field, value] of Object.entries({ firstName, lastName, phone, spaceSize: size, message: description })) {
+    const error = leasingTextError(field, value);
+    if (error) return NextResponse.json({ error, field }, { status: 400 });
+  }
+  if (!LEASING_SPACE_TYPES.includes(interest) || !LEASING_MOVE_IN_OPTIONS.includes(moveIn) || payload?.consent !== "on") {
     return NextResponse.json({ error: "Complete all contact and space fields, add a message, and accept the privacy policy." }, { status: 400 });
   }
 
   const property = trimmedText(payload?.spaceName, 200);
-  const message = [property && "Property: " + property, "Approximate size or desks: " + size, "Move-in timing: " + moveIn, description].filter(Boolean).join("\n\n");
+  const message = [property && !isObviousJunk(property) && "Property: " + property, "Approximate size or desks: " + size, "Move-in timing: " + moveIn, description].filter(Boolean).join("\n\n");
   const attribution = safeAttribution(payload?.attribution);
 
   // Server-side reCAPTCHA check — ContactForm already refuses to submit
