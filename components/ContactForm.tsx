@@ -6,6 +6,7 @@ import { CheckCircle2, AlertCircle } from "lucide-react";
 import { trackSavedLeasingEnquiry } from "@/lib/analytics";
 import { getStoredAttribution } from "@/lib/attribution";
 import { validateCompany, COMPANY_MAX_LENGTH } from "@/lib/company-validation";
+import { validateBusinessEmail, JOB_ENQUIRY_ERROR, isJobEnquiry } from "@/lib/leasing-enquiry-validation";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -47,6 +48,10 @@ type Props = {
 
 export default function ContactForm({ siteKey, contactEmail = site.email, successMessage, defaultInterest, spaceName }: Props = {}) {
   const [companyError, setCompanyError] = useState<string | null>(null);
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [messageError, setMessageError] = useState<string | null>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
   const companyRef = useRef<HTMLInputElement>(null);
   const [status, setStatus] = useState<Status>("idle");
   const [consent, setConsent] = useState(false);
@@ -103,6 +108,15 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
     setCompanyError(validation.error);
     if (validation.error) { companyRef.current?.focus(); return; }
 
+    const emailValidation = validateBusinessEmail(emailRef.current?.value);
+    setEmailError(emailValidation.error);
+    if (emailValidation.error) { emailRef.current?.focus(); return; }
+    if (isJobEnquiry(messageRef.current?.value)) {
+      setMessageError(JOB_ENQUIRY_ERROR);
+      messageRef.current?.focus();
+      return;
+    }
+
     const captchaResponse = widgetIdRef.current === undefined ? "" : window.grecaptcha?.getResponse(widgetIdRef.current);
     if (!captchaResponse) {
       setCaptchaError(true);
@@ -137,6 +151,18 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
         setCompanyError(result.error || validateCompany("").error);
         setStatus("idle");
         companyRef.current?.focus();
+        return;
+      }
+      if (res.status === 400 && result.field === "email") {
+        setEmailError(result.error || validateBusinessEmail("").error);
+        setStatus("idle");
+        emailRef.current?.focus();
+        return;
+      }
+      if (res.status === 400 && result.field === "message") {
+        setMessageError(result.error || JOB_ENQUIRY_ERROR);
+        setStatus("idle");
+        messageRef.current?.focus();
         return;
       }
       if (!res.ok) {
@@ -178,7 +204,10 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
         </p>
       )}
 
-      <p className="text-sm text-white/80">For business space and leasing enquiries only. This form does not accept job applications. All fields are required.</p>
+      <div className="rounded-lg border border-white/25 bg-white/10 px-4 py-3 text-sm text-white">
+        <p className="font-semibold">Leasing enquiries only. No jobs or CV submissions.</p>
+        <p>Use this form to enquire about renting office or warehouse space. All fields are required.</p>
+      </div>
       <label className="block space-y-2 text-sm">
         <span>Company / business name</span>
         <input ref={companyRef} name="company" required maxLength={COMPANY_MAX_LENGTH}
@@ -193,7 +222,16 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
         <label className="flex flex-col gap-2 text-sm"><span>First name</span><input name="firstName" required autoComplete="given-name" placeholder="First Name" className={field} /></label>
         <label className="flex flex-col gap-2 text-sm"><span>Last name</span><input name="lastName" required autoComplete="family-name" placeholder="Last Name" className={field} /></label>
         <label className="flex flex-col gap-2 text-sm"><span>Phone number</span><input name="phone" type="tel" required autoComplete="tel" placeholder="Phone Number" className={field} /></label>
-        <label className="flex flex-col gap-2 text-sm"><span>Email</span><input name="email" type="email" required autoComplete="email" placeholder="Email" className={field} /></label>
+        <label className="flex flex-col gap-2 text-sm">
+          <span>Company email address</span>
+          <input ref={emailRef} name="email" type="email" required autoComplete="email" maxLength={254}
+            placeholder="you@yourcompany.co.za" className={field}
+            aria-invalid={Boolean(emailError)} aria-describedby="email-help email-error"
+            onBlur={(e) => setEmailError(validateBusinessEmail(e.currentTarget.value).error)}
+            onChange={() => setEmailError(null)} />
+          <span id="email-help" className="text-xs text-white/70">Use your company or brokerage email. Gmail and other common personal email providers are blocked.</span>
+          <span id="email-error" role="alert" className="text-red-300">{emailError}</span>
+        </label>
       </div>
 
       <label className="block space-y-2 text-sm"><span>Space type</span>
@@ -211,13 +249,18 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
 
       <label className="block space-y-2 text-sm"><span>Message</span>
       <textarea
+        ref={messageRef}
+        aria-invalid={Boolean(messageError)}
+        aria-describedby="message-error"
+        onChange={() => setMessageError(null)}
         name="message"
         required
         rows={4}
-        placeholder="Message"
+        placeholder="Tell us what space your company needs"
         defaultValue={initialMessage}
         className={field}
       />
+      <span id="message-error" role="alert" className="block text-red-300">{messageError}</span>
       </label>
 
       <label className="flex items-start gap-2 text-sm text-white/80">
@@ -233,7 +276,7 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
 
       <div ref={recaptchaRef} className={captchaRequested ? "min-h-[78px]" : undefined} />
       {captchaRequested && !captchaReady && !captchaLoadError && <p role="status" className="text-sm text-white/80">Loading security check…</p>}
-      <p className="text-sm text-white/80">Having trouble with the security check? <a href={`mailto:${contactEmail}`} className="underline">Email the leasing team</a>.</p>
+      <p className="text-sm text-white/80">Need space but don’t have a company email, or having trouble with the security check? <a href={`mailto:${contactEmail}`} className="underline">Email the leasing team</a>.</p>
       {captchaLoadError && <p role="alert" className="text-sm text-white">The security check couldn’t load. Your details are still here; <a href={`mailto:${contactEmail}`} className="underline">email the leasing team</a>.</p>}
       {captchaError && (
         <p role="alert" className="text-sm font-medium text-red-400">

@@ -34,6 +34,30 @@ describe("saved-enquiry conversion boundary", () => {
     for (const mock of [mocks.verify, mocks.contact, mocks.create, mocks.crm, mocks.listings, fetchMock]) expect(mock).not.toHaveBeenCalled();
   });
 
+  it.each([
+    [{ email: " person+leasing@GMAIL.COM " }, "email"],
+    [{ email: "person@googlemail.com" }, "email"],
+    [{ email: "person@outlook.com" }, "email"],
+    [{ email: "person@invalid" }, "email"],
+    [{ company: "No Company Name" }, "company"],
+    [{ company: "Looking for any job" }, "company"],
+    [{ message: "I would like to submit my CV." }, "message"],
+  ] as const)("rejects non-leasing submissions before downstream writes", async (payload, field) => {
+    const response = await POST(request(payload));
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ field });
+    for (const mock of [mocks.verify, mocks.contact, mocks.create, mocks.crm, mocks.listings]) expect(mock).not.toHaveBeenCalled();
+  });
+
+  it("accepts a business address and a property vacancy enquiry", async () => {
+    const response = await POST(request({
+      email: "tenant@gmail-logistics.co.za",
+      message: "Is the warehouse vacancy still available?",
+    }));
+    expect(response.status).toBe(200);
+    expect(mocks.crm).toHaveBeenCalledWith(expect.objectContaining({ email: "tenant@gmail-logistics.co.za" }));
+  });
+
   it("passes the normalized company to all saved records and integrations", async () => {
     process.env.N8N_ENQUIRY_WEBHOOK = "https://notifications.example.test/enquiry";
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("{}", { status: 200 }));

@@ -1,3 +1,13 @@
+## 2026-11-19 — Midpoint leasing enquiry quality
+
+- **Implementation:** The shared leasing form prominently excludes jobs and CVs, asks for company email, and retains direct leasing email for businesses without a company domain. Browser and API reject known personal-email domains, additional company placeholders and explicit job application language. The API rejects those submissions before contact, database, CRM and notification writes. Domain filtering does not verify company registration or mailbox ownership.
+- **Testing:** 83 focused tests passed, including Gmail aliases and case, valid company addresses and legitimate property vacancy wording. The full local suite passed 299 tests with 17 database-gated tests skipped.
+- **Commit and push:** Changes and this record prepared on `codex/enquiry-quality-20261119` from `origin/main` at `7356e5a`. The existing checkout and its unrelated edits were preserved.
+- **Merge:** Pending hosted validation.
+- **Deployment and configuration:** Website release pending. Google Ads read-only review found the shared Job Seeker Exclusions list on three Midpoint campaigns. The 6 Weaver PMax campaign showed neither that list nor campaign-level negative keywords. No Ads settings changed.
+- **Live production verification:** Google Ads last-30-day reporting showed 45 saved-enquiry conversions, 44 from the two PMax campaigns. The 39 Search rows and 309 campaign search-term rows exposed no clear job-seeking terms. Saved enquiries can include unqualified leads. The CRM leads URL redirected to sign-in, so lead-level sources and company-name patterns remain unverified.
+- **Outstanding gates:** Release checks, legitimate enquiry delivery and leasing UAT, CRM lead-source reconciliation, and review of 6 Weaver exclusions. Retain existing provider, data, training and approval gates.
+
 ## 2026-11-12 — 6 Weaver PMax audience signal
 
 - **Implementation:** no website code changed. Existing saved `Mipoint Audience`, including commercial property and real estate segments, attached as an audience signal to asset group 6769766503 in Google Ads campaign 24442531162; existing search themes retained.
