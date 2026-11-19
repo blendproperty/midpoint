@@ -6,12 +6,10 @@ import { CheckCircle2, AlertCircle } from "lucide-react";
 import { trackSavedLeasingEnquiry } from "@/lib/analytics";
 import { getStoredAttribution } from "@/lib/attribution";
 import { validateCompany, COMPANY_MAX_LENGTH } from "@/lib/company-validation";
-import { validateBusinessEmail, JOB_ENQUIRY_ERROR, isJobEnquiry } from "@/lib/leasing-enquiry-validation";
+import { validateBusinessEmail, JOB_ENQUIRY_ERROR, isJobEnquiry, LEASING_SPACE_TYPES, LEASING_MOVE_IN_OPTIONS } from "@/lib/leasing-enquiry-validation";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
-
-const interests = ["Office space", "Warehouse space", "Serviced offices"];
 
 // Default kept as a fallback for callers that don't pass siteKey, but the
 // real value now comes from Site Settings (/admin/settings) so it can be
@@ -65,8 +63,7 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
   const widgetIdRef = useRef<number | undefined>(undefined);
 
   const recaptchaSiteKey = siteKey || DEFAULT_RECAPTCHA_SITE_KEY;
-  const selectedInterest = defaultInterest && interests.includes(defaultInterest) ? defaultInterest : "";
-  const initialMessage = spaceName ? `I'm interested in the space at ${spaceName}.\n\n` : "";
+  const selectedInterest = defaultInterest && LEASING_SPACE_TYPES.includes(defaultInterest) ? defaultInterest : "";
 
   function renderCaptcha() {
     const captcha = window.grecaptcha;
@@ -135,6 +132,7 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
+          spaceName,
           sourcePath: `${window.location.pathname}${window.location.search}`,
           attribution,
           "g-recaptcha-response": captchaResponse
@@ -168,7 +166,7 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
       if (!res.ok) {
         setErrorMessage(res.status === 429
           ? "Too many attempts. Please wait a few minutes or contact the leasing team."
-          : res.status === 400 ? "Please check your name and email before submitting."
+          : res.status === 400 ? (result.error || "Complete all required fields before submitting.")
           : "We couldn’t confirm receipt. Please contact the leasing team before retrying.");
         throw new Error("failed");
       }
@@ -219,9 +217,9 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
         <span id="company-error" role="alert" className="block text-sm text-red-300">{companyError}</span>
       </label>
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="flex flex-col gap-2 text-sm"><span>First name</span><input name="firstName" required autoComplete="given-name" placeholder="First Name" className={field} /></label>
-        <label className="flex flex-col gap-2 text-sm"><span>Last name</span><input name="lastName" required autoComplete="family-name" placeholder="Last Name" className={field} /></label>
-        <label className="flex flex-col gap-2 text-sm"><span>Phone number</span><input name="phone" type="tel" required autoComplete="tel" placeholder="Phone Number" className={field} /></label>
+        <label className="flex flex-col gap-2 text-sm"><span>First name</span><input name="firstName" required maxLength={100} autoComplete="given-name" placeholder="First Name" className={field} /></label>
+        <label className="flex flex-col gap-2 text-sm"><span>Last name</span><input name="lastName" required maxLength={100} autoComplete="family-name" placeholder="Last Name" className={field} /></label>
+        <label className="flex flex-col gap-2 text-sm"><span>Phone number</span><input name="phone" type="tel" required maxLength={40} autoComplete="tel" placeholder="Phone Number" className={field} /></label>
         <label className="flex flex-col gap-2 text-sm">
           <span>Company email address</span>
           <input ref={emailRef} name="email" type="email" required autoComplete="email" maxLength={254}
@@ -239,7 +237,7 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
         <option value="" disabled className="text-midpoint-dark">
           I&apos;m interested in:
         </option>
-        {interests.map((o) => (
+        {LEASING_SPACE_TYPES.map((o) => (
           <option key={o} value={o} className="text-midpoint-dark">
             {o}
           </option>
@@ -247,7 +245,24 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
       </select>
       </label>
 
-      <label className="block space-y-2 text-sm"><span>Message</span>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <label className="flex flex-col gap-2 text-sm">
+          <span>Approximate space needed</span>
+          <input name="spaceSize" required maxLength={120} placeholder="e.g. 500 m² or 12 desks" className={field} aria-describedby="space-size-help" />
+          <span id="space-size-help" className="text-xs text-white/70">Estimate the floor area or number of desks. If unsure, describe your team or operations.</span>
+        </label>
+        <label className="flex flex-col gap-2 text-sm">
+          <span>When do you need the space?</span>
+          <select name="moveIn" required defaultValue="" className={field}>
+            <option value="" disabled className="text-midpoint-dark">Select your timeframe</option>
+            {LEASING_MOVE_IN_OPTIONS.map((option) => (
+              <option key={option} value={option} className="text-midpoint-dark">{option}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      <label className="block space-y-2 text-sm"><span>Tell us more about your requirements</span>
       <textarea
         ref={messageRef}
         aria-invalid={Boolean(messageError)}
@@ -256,8 +271,8 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
         name="message"
         required
         rows={4}
-        placeholder="Tell us what space your company needs"
-        defaultValue={initialMessage}
+        maxLength={2000}
+        placeholder="e.g. loading access, power needs, parking or meeting rooms"
         className={field}
       />
       <span id="message-error" role="alert" className="block text-red-300">{messageError}</span>
@@ -266,6 +281,7 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
       <label className="flex items-start gap-2 text-sm text-white/80">
         <input
           type="checkbox"
+          name="consent"
           required
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
