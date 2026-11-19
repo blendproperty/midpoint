@@ -1,12 +1,12 @@
 ## 2026-11-19 — Leasing requirements and job-site exclusions
 
 - **Implementation:** The public leasing form and API require first and last name, company, company email, phone, space type, approximate area or desks, move-in timing, a written requirements message and privacy consent. On a property enquiry, the property name travels separately from the required message. The API forwards the requirements with the existing lead notes to the Midpoint database, Blend CRM, listings and n8n.
-- **Testing:** 91 focused tests passed, including required-field rejection before downstream writes and end-to-end message formatting with mocked integrations. TypeScript checking passed.
-- **Commit and push:** This change and evidence were prepared on `codex/leasing-brief-20261119` from remote main at `6e57e83`. The main local checkout and unrelated changes were preserved.
-- **Merge:** Website merge pending hosted checks.
-- **Deployment and configuration:** Google Ads account 5635711564 applied the approved placement exclusions for `roamroles.com` and `nextjobfinder.com` and attached Job Seeker Exclusions list 12228197809 to 6 Weaver campaign 24442531162. The API validated the batch before applying it. Website deployment pending.
-- **Live production verification:** Google Ads readback confirmed account placement criteria 2430918324857 and 275569919456 and the enabled campaign-list association 24442531162~12228197809. Website verification pending.
-- **Outstanding gates:** Verify the form after deployment. Actual leasing enquiry delivery, staff UAT, CRM lead-source reconciliation and evidence of reduced job-seeker traffic remain open. Preserve earlier provider, data, training and approval gates.
+- **Testing:** 91 focused tests passed, including required-field rejection before downstream writes and end-to-end message formatting with mocked integrations. TypeScript checking passed. Full local suite: 307 passed and 17 database-gated skips. Local and production mobile browser checks verified all ten required fields, empty-message rejection and the complete intercepted vacancy enquiry payload. Hosted Test run 44477863908 passed integration, build and runtime checks.
+- **Commit and push:** This change and evidence were pushed at 88734d3e037c9443fb6f2fe39f17b39ec6e06b69 on `codex/leasing-brief-20261119` from remote main at `6e57e83`. The main local checkout and unrelated changes were preserved.
+- **Merge:** PR #28 squash-merged into main as 41bd19e54ac454d307b3958f4a053b71d1779587.
+- **Deployment and configuration:** Google Ads account 5635711564 applied the approved placement exclusions for `roamroles.com` and `nextjobfinder.com` and attached Job Seeker Exclusions list 12228197809 to 6 Weaver campaign 24442531162. The API validated the batch before applying it. Website Deploy to VPS run 44478321188 succeeded for the merge.
+- **Live production verification:** Google Ads readback confirmed account placement criteria 2430918324857 and 275569919456 and the enabled campaign-list association 24442531162~12228197809. The live contact page served the merged build and the new fields. The live API rejected a deliberately incomplete enquiry with HTTP 400. The browser submission was intercepted before contacting the live API.
+- **Outstanding gates:** Actual leasing enquiry delivery, staff UAT, CRM lead-source reconciliation and evidence of reduced job-seeker traffic remain open. Preserve earlier provider, data, training and approval gates.
 
 ## 2026-11-19 — Midpoint leasing enquiry quality
 
