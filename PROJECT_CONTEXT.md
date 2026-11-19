@@ -1,3 +1,13 @@
+## 2026-11-19 — Leasing requirements and job-site exclusions
+
+- **Implementation:** The public leasing form and API require first and last name, company, company email, phone, space type, approximate area or desks, move-in timing, a written requirements message and privacy consent. On a property enquiry, the property name travels separately from the required message. The API forwards the requirements with the existing lead notes to the Midpoint database, Blend CRM, listings and n8n.
+- **Testing:** 91 focused tests passed, including required-field rejection before downstream writes and end-to-end message formatting with mocked integrations. TypeScript checking passed.
+- **Commit and push:** This change and evidence were prepared on `codex/leasing-brief-20261119` from remote main at `6e57e83`. The main local checkout and unrelated changes were preserved.
+- **Merge:** Website merge pending hosted checks.
+- **Deployment and configuration:** Google Ads account 5635711564 applied the approved placement exclusions for `roamroles.com` and `nextjobfinder.com` and attached Job Seeker Exclusions list 12228197809 to 6 Weaver campaign 24442531162. The API validated the batch before applying it. Website deployment pending.
+- **Live production verification:** Google Ads readback confirmed account placement criteria 2430918324857 and 275569919456 and the enabled campaign-list association 24442531162~12228197809. Website verification pending.
+- **Outstanding gates:** Verify the form after deployment. Actual leasing enquiry delivery, staff UAT, CRM lead-source reconciliation and evidence of reduced job-seeker traffic remain open. Preserve earlier provider, data, training and approval gates.
+
 ## 2026-11-19 — Midpoint leasing enquiry quality
 
 - **Implementation:** The shared leasing form prominently excludes jobs and CVs, asks for company email, and retains direct leasing email for businesses without a company domain. Browser and API reject known personal-email domains, additional company placeholders and explicit job application language. The API rejects those submissions before contact, database, CRM and notification writes. Domain filtering does not verify company registration or mailbox ownership.

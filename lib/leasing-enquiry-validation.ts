@@ -28,3 +28,6 @@ export function isJobEnquiry(value: unknown) {
     || /\b(?:send|submit|attach) (?:my )?(?:cv|curriculum vitae)\b/u.test(text)
     || /\bare you hiring\b/u.test(text);
 }
+
+export const LEASING_SPACE_TYPES = ["Office space", "Warehouse space", "Serviced offices"];
+export const LEASING_MOVE_IN_OPTIONS = ["Immediately", "Within 1–3 months", "Within 3–6 months", "More than 6 months", "Still planning"];

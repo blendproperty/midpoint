@@ -6,8 +6,12 @@ import { upsertContact } from "@/lib/contacts";
 import { pushLeadToListings } from "@/lib/listings-leads";
 import { pushLeadToBlendCrm } from "@/lib/blend-crm-leads";
 import { validateCompany } from "@/lib/company-validation";
-import { validateBusinessEmail, JOB_ENQUIRY_ERROR, isJobEnquiry } from "@/lib/leasing-enquiry-validation";
+import { validateBusinessEmail, JOB_ENQUIRY_ERROR, isJobEnquiry, LEASING_SPACE_TYPES, LEASING_MOVE_IN_OPTIONS } from "@/lib/leasing-enquiry-validation";
 import type { Prisma } from "@prisma/client";
+
+function trimmedText(value: unknown, maxLength: number) {
+  return typeof value === "string" && value.length <= maxLength ? value.trim() : "";
+}
 
 function safeAttribution(value: unknown): Prisma.InputJsonValue | undefined {
   if (!value || typeof value !== "object" || Array.isArray(value)) return undefined;
@@ -40,8 +44,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: companyError, field: "company" }, { status: 400 });
   }
 
-  const firstName = payload?.firstName ? String(payload.firstName).trim() : "";
-  const lastName = payload?.lastName ? String(payload.lastName).trim() : "";
   const { email, error: emailError } = validateBusinessEmail(payload?.email);
   if (emailError) {
     return NextResponse.json({ error: emailError, field: "email" }, { status: 400 });
@@ -49,15 +51,21 @@ export async function POST(req: Request) {
   if (isJobEnquiry(payload?.message)) {
     return NextResponse.json({ error: JOB_ENQUIRY_ERROR, field: "message" }, { status: 400 });
   }
-  const phone = payload?.phone ? String(payload.phone) : null;
-  const attribution = safeAttribution(payload?.attribution);
-
-  // NOTE: this previously checked `payload.name`, which ContactForm never
-  // sends (it sends firstName/lastName) — meaning every submission was
-  // silently rejected with a 400 before reaching the webhook. Fixed here.
-  if (!firstName && !lastName) {
-    return NextResponse.json({ error: "Name is required." }, { status: 400 });
+  const firstName = trimmedText(payload?.firstName, 100);
+  const lastName = trimmedText(payload?.lastName, 100);
+  const phone = trimmedText(payload?.phone, 40);
+  const interest = trimmedText(payload?.interest, 40);
+  const size = trimmedText(payload?.spaceSize, 120);
+  const moveIn = trimmedText(payload?.moveIn, 40);
+  const description = trimmedText(payload?.message, 2000);
+  if (!firstName || !lastName || !phone || !LEASING_SPACE_TYPES.includes(interest) ||
+      !size || !LEASING_MOVE_IN_OPTIONS.includes(moveIn) || !description || payload?.consent !== "on") {
+    return NextResponse.json({ error: "Complete all contact and space fields, add a message, and accept the privacy policy." }, { status: 400 });
   }
+
+  const property = trimmedText(payload?.spaceName, 200);
+  const message = [property && "Property: " + property, "Approximate size or desks: " + size, "Move-in timing: " + moveIn, description].filter(Boolean).join("\n\n");
+  const attribution = safeAttribution(payload?.attribution);
 
   // Server-side reCAPTCHA check — ContactForm already refuses to submit
   // without a client-side token, but that alone is trivially bypassable by
@@ -92,13 +100,13 @@ export async function POST(req: Request) {
   try {
     const enquiry = await prisma.enquiry.create({
       data: {
-        firstName: firstName || null,
-        lastName: lastName || null,
+        firstName,
+        lastName,
         email,
         company,
         phone,
-        interest: payload?.interest ? String(payload.interest) : null,
-        message: payload?.message ? String(payload.message) : null,
+        interest,
+        message,
         sourcePath: payload?.sourcePath ? String(payload.sourcePath) : null,
         attribution,
         contactId,
@@ -126,8 +134,8 @@ export async function POST(req: Request) {
     firstName,
     lastName,
     phone,
-    interest: payload?.interest ? String(payload.interest) : null,
-    message: payload?.message ? String(payload.message) : null,
+    interest,
+    message,
     sourcePath: payload?.sourcePath ? String(payload.sourcePath) : null,
     attribution,
   });
@@ -142,8 +150,8 @@ export async function POST(req: Request) {
     firstName,
     lastName,
     phone,
-    interest: payload?.interest ? String(payload.interest) : null,
-    message: payload?.message ? String(payload.message) : null,
+    interest,
+    message,
   });
 
   const webhook = process.env.N8N_ENQUIRY_WEBHOOK;
@@ -164,7 +172,14 @@ export async function POST(req: Request) {
         submittedAt: new Date().toISOString(),
         ...payload,
         company,
-        email
+        email,
+        firstName,
+        lastName,
+        phone,
+        interest,
+        spaceSize: size,
+        moveIn,
+        message
       })
     });
     if (!res.ok) {
