@@ -6,7 +6,7 @@ import { CheckCircle2, AlertCircle } from "lucide-react";
 import { trackSavedLeasingEnquiry } from "@/lib/analytics";
 import { getStoredAttribution } from "@/lib/attribution";
 import { validateCompany, COMPANY_MAX_LENGTH } from "@/lib/company-validation";
-import { validateBusinessEmail, JOB_ENQUIRY_ERROR, isJobEnquiry, LEASING_SPACE_TYPES, LEASING_MOVE_IN_OPTIONS } from "@/lib/leasing-enquiry-validation";
+import { validateBusinessEmail, JOB_ENQUIRY_ERROR, leasingTextError, LEASING_SPACE_TYPES, LEASING_MOVE_IN_OPTIONS } from "@/lib/leasing-enquiry-validation";
 import { site } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -108,9 +108,18 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
     const emailValidation = validateBusinessEmail(emailRef.current?.value);
     setEmailError(emailValidation.error);
     if (emailValidation.error) { emailRef.current?.focus(); return; }
-    if (isJobEnquiry(messageRef.current?.value)) {
-      setMessageError(JOB_ENQUIRY_ERROR);
-      messageRef.current?.focus();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    for (const name of ["firstName", "lastName", "phone", "spaceSize", "message"]) {
+      const error = leasingTextError(name, String(data[name] ?? "").trim());
+      if (!error) continue;
+      if (name === "message") {
+        setMessageError(error);
+        messageRef.current?.focus();
+      } else {
+        setErrorMessage(error);
+        setStatus("error");
+      }
       return;
     }
 
@@ -123,8 +132,6 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
     setStatus("sending");
     setErrorMessage("We couldn’t confirm receipt. Please contact the leasing team before retrying.");
 
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
     const attribution = getStoredAttribution();
     try {
       const res = await fetch("/api/enquiry", {
@@ -219,7 +226,7 @@ export default function ContactForm({ siteKey, contactEmail = site.email, succes
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-2 text-sm"><span>First name</span><input name="firstName" required maxLength={100} autoComplete="given-name" placeholder="First Name" className={field} /></label>
         <label className="flex flex-col gap-2 text-sm"><span>Last name</span><input name="lastName" required maxLength={100} autoComplete="family-name" placeholder="Last Name" className={field} /></label>
-        <label className="flex flex-col gap-2 text-sm"><span>Phone number</span><input name="phone" type="tel" required maxLength={40} autoComplete="tel" placeholder="Phone Number" className={field} /></label>
+        <label className="flex flex-col gap-2 text-sm"><span>Phone number</span><input name="phone" type="tel" required maxLength={40} autoComplete="tel" placeholder="e.g. 082 123 4567" className={field} /></label>
         <label className="flex flex-col gap-2 text-sm">
           <span>Company email address</span>
           <input ref={emailRef} name="email" type="email" required autoComplete="email" maxLength={254}

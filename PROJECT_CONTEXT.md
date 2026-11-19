@@ -1,3 +1,13 @@
+## 2026-11-19 — Leasing free-text and phone validation
+
+- **Implementation:** Shared form and API rules reject stand-alone BS variants, filler, and obvious keyboard-mash patterns across company, first name, last name, approximate space and message. Phone validation accepts South African local and international syntax while rejecting malformed and obvious dummy numbers. The form displays validation errors before submission. The API rejects invalid inputs before lead persistence, downstream delivery or a saved-enquiry conversion.
+- **Testing:** 331 local tests passed with 17 database-gated skips. TypeScript passed. Route regression cases cover blocked inputs, no writes and accepted short requirements, names, and South African and international phone formats.
+- **Commit and push:** Prepared on `codex/leasing-input-quality-20261119` from remote main at `4463eb4`. The existing checkout and unrelated changes were preserved.
+- **Merge:** Pending hosted checks.
+- **Deployment and configuration:** Website release pending. The approved Google Ads job-site exclusions and 6 Weaver job-seeker list were rechecked separately.
+- **Live production verification:** Website verification pending. Account placement criteria for Roam Roles and Next Job Finder and the enabled Job Seeker Exclusions association for 6 Weaver were verified in the earlier release record.
+- **Outstanding gates:** Live rejection and browser verification, actual leasing enquiry delivery, staff UAT, CRM attribution, and measurement of post-change conversion quality and ad spend remain open. A plausible false enquiry can still pass input validation. Preserve earlier provider, data, training and approval gates.
+
 ## 2026-11-19 — Leasing requirements and job-site exclusions
 
 - **Implementation:** The public leasing form and API require first and last name, company, company email, phone, space type, approximate area or desks, move-in timing, a written requirements message and privacy consent. On a property enquiry, the property name travels separately from the required message. The API forwards the requirements with the existing lead notes to the Midpoint database, Blend CRM, listings and n8n.
